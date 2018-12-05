@@ -569,7 +569,7 @@ var MaterialComponentsModule = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<mat-card>\n    <mat-card-header>\n        <mat-card-title>\n            Paginator\n        </mat-card-title>\n    </mat-card-header>\n    <mat-card-content>\n        <mat-paginator style=\"background: #efefef\" [length]=\"100\" [pageSize]=\"10\" [pageSizeOptions]=\"[5, 10, 25, 100]\">\n        </mat-paginator>\n    </mat-card-content>\n</mat-card>"
+module.exports = "<mat-card>\n    <mat-card-header>\n        <mat-card-title>\n            Paginator\n        </mat-card-title>\n    </mat-card-header>\n    <mat-card-content>\n        <mat-paginator style=\"background: #efefef\" [length]=\"100\" [pageSize]=\"50\" [pageSizeOptions]=\"[5, 10, 25, 100]\">\n        </mat-paginator>\n    </mat-card-content>\n</mat-card>"
 
 /***/ }),
 

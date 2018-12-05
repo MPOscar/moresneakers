@@ -1,4 +1,4 @@
-(window["webpackJsonp"] = window["webpackJsonp"] || []).push([["ms-shops-ms-shops-module"],{
+(window["webpackJsonp"] = window["webpackJsonp"] || []).push([["default~ms-shops-ms-shops-module~ms-style-ms-style-module"],{
 
 /***/ "./node_modules/amazing-time-picker/amazing-time-picker.es5.js":
 /*!*********************************************************************!*\
@@ -22937,6 +22937,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm5/forms.js");
 /* harmony import */ var _ngx_translate_core__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @ngx-translate/core */ "./node_modules/@ngx-translate/core/fesm5/ngx-translate-core.js");
 /* harmony import */ var _ui_components_base_reactive_form_base_reactive_form_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../../ui/components/base-reactive-form/base-reactive-form-component */ "./src/app/ui/components/base-reactive-form/base-reactive-form-component.ts");
+/* harmony import */ var _shops_selling_style_modal_shops_selling_style_modal_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../shops-selling-style-modal/shops-selling-style-modal.component */ "./src/app/ms-back-office/modules/ms-shops/components/shops-selling-style-modal/shops-selling-style-modal.component.ts");
+/* harmony import */ var _angular_material__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/material */ "./node_modules/@angular/material/esm5/material.es5.js");
 var __extends = (undefined && undefined.__extends) || (function () {
     var extendStatics = Object.setPrototypeOf ||
         ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
@@ -22961,10 +22963,13 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 //
 
 
+
+
 var ShopFormComponent = /** @class */ (function (_super) {
     __extends(ShopFormComponent, _super);
-    function ShopFormComponent(formBuilder, translateService) {
+    function ShopFormComponent(dialog, formBuilder, translateService) {
         var _this = _super.call(this, translateService) || this;
+        _this.dialog = dialog;
         _this.formBuilder = formBuilder;
         _this.faceList = [];
         return _this;
@@ -23003,10 +23008,13 @@ var ShopFormComponent = /** @class */ (function (_super) {
             this.triggerValidation();
         }
     };
-    __decorate([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])(),
-        __metadata("design:type", Array)
-    ], ShopFormComponent.prototype, "faceList", void 0);
+    ShopFormComponent.prototype.showModal = function () {
+        this.modalRef = this.dialog.open(_shops_selling_style_modal_shops_selling_style_modal_component__WEBPACK_IMPORTED_MODULE_4__["ShopsSellingStylecomponentModalComponent"], {
+            height: '800px',
+            width: '60%',
+            data: { face: this.shop }
+        });
+    };
     __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])(),
         __metadata("design:type", Array)
@@ -23019,6 +23027,10 @@ var ShopFormComponent = /** @class */ (function (_super) {
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])(),
         __metadata("design:type", Array)
     ], ShopFormComponent.prototype, "collections", void 0);
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])(),
+        __metadata("design:type", Array)
+    ], ShopFormComponent.prototype, "faceList", void 0);
     ShopFormComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
             selector: 'shop-form',
@@ -23026,11 +23038,133 @@ var ShopFormComponent = /** @class */ (function (_super) {
             styles: [__webpack_require__(/*! ./shop-form.component.scss */ "./src/app/ms-back-office/modules/ms-shops/components/shop-form/shop-form.component.scss")],
             changeDetection: _angular_core__WEBPACK_IMPORTED_MODULE_0__["ChangeDetectionStrategy"].OnPush
         }),
-        __metadata("design:paramtypes", [_angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormBuilder"],
+        __metadata("design:paramtypes", [_angular_material__WEBPACK_IMPORTED_MODULE_5__["MatDialog"],
+            _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormBuilder"],
             _ngx_translate_core__WEBPACK_IMPORTED_MODULE_2__["TranslateService"]])
     ], ShopFormComponent);
     return ShopFormComponent;
 }(_ui_components_base_reactive_form_base_reactive_form_component__WEBPACK_IMPORTED_MODULE_3__["BaseReactiveFormComponent"]));
+
+
+
+/***/ }),
+
+/***/ "./src/app/ms-back-office/modules/ms-shops/components/shops-selling-style-modal/shops-selling-style-modal.component.css":
+/*!******************************************************************************************************************************!*\
+  !*** ./src/app/ms-back-office/modules/ms-shops/components/shops-selling-style-modal/shops-selling-style-modal.component.css ***!
+  \******************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = ":host {\r\n  display: flex;\r\n  flex-grow: 1;\r\n  flex-direction: column;\r\n  height: 100%\r\n}\r\n\r\n.mat-dialog-container {\r\n  padding: 10px;\r\n}\r\n\r\n.mat-dialog-content {\r\n  height: 60%;\r\n  max-height: 82vh;\r\n  margin-bottom: 10px;\r\n}\r\n\r\n.mat-dialog-actions {\r\n  padding: 10px 0;\r\n}\r\n\r\n::ng-deep .cdk-overlay-pane {\r\n  height: 90% !important;\r\n  width: 90% !important;\r\n  max-width: 90% !important;\r\n}\r\n\r\nmat-card {\r\n  padding: 0px;\r\n  align-self: flex-start;\r\n  height: 200px;\r\n  width: 150px;\r\n  margin-left: 2px;\r\n  margin-right: 15px;\r\n  margin-bottom: 15px;\r\n}\r\n\r\nmat-icon {\r\n  font-size: 24px;\r\n  width: 24px;\r\n  height: 24px;\r\n}\r\n\r\n.max-width-60-pct{\r\n  max-width: 60% !important;\r\n}\r\n\r\n.border{\r\n  border: 1px solid #f1f1f1;\r\n}\r\n\r\ntd.mat-cell{\r\n  border: none !important;\r\n}\r\n\r\nth.mat-header-cell{\r\n  border: none !important;\r\n}\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvbXMtYmFjay1vZmZpY2UvbW9kdWxlcy9tcy1zaG9wcy9jb21wb25lbnRzL3Nob3BzLXNlbGxpbmctc3R5bGUtbW9kYWwvc2hvcHMtc2VsbGluZy1zdHlsZS1tb2RhbC5jb21wb25lbnQuY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0VBQ0UsY0FBYztFQUNkLGFBQWE7RUFDYix1QkFBdUI7RUFDdkIsWUFBWTtDQUNiOztBQUVEO0VBQ0UsY0FBYztDQUNmOztBQUVEO0VBQ0UsWUFBWTtFQUNaLGlCQUFpQjtFQUNqQixvQkFBb0I7Q0FDckI7O0FBRUQ7RUFDRSxnQkFBZ0I7Q0FDakI7O0FBRUQ7RUFDRSx1QkFBdUI7RUFDdkIsc0JBQXNCO0VBQ3RCLDBCQUEwQjtDQUMzQjs7QUFFRDtFQUNFLGFBQWE7RUFDYix1QkFBdUI7RUFDdkIsY0FBYztFQUNkLGFBQWE7RUFDYixpQkFBaUI7RUFDakIsbUJBQW1CO0VBQ25CLG9CQUFvQjtDQUNyQjs7QUFFRDtFQUNFLGdCQUFnQjtFQUNoQixZQUFZO0VBQ1osYUFBYTtDQUNkOztBQUVEO0VBQ0UsMEJBQTBCO0NBQzNCOztBQUVEO0VBQ0UsMEJBQTBCO0NBQzNCOztBQUVEO0VBQ0Usd0JBQXdCO0NBQ3pCOztBQUNEO0VBQ0Usd0JBQXdCO0NBQ3pCIiwiZmlsZSI6InNyYy9hcHAvbXMtYmFjay1vZmZpY2UvbW9kdWxlcy9tcy1zaG9wcy9jb21wb25lbnRzL3Nob3BzLXNlbGxpbmctc3R5bGUtbW9kYWwvc2hvcHMtc2VsbGluZy1zdHlsZS1tb2RhbC5jb21wb25lbnQuY3NzIiwic291cmNlc0NvbnRlbnQiOlsiOmhvc3Qge1xyXG4gIGRpc3BsYXk6IGZsZXg7XHJcbiAgZmxleC1ncm93OiAxO1xyXG4gIGZsZXgtZGlyZWN0aW9uOiBjb2x1bW47XHJcbiAgaGVpZ2h0OiAxMDAlXHJcbn1cclxuXHJcbi5tYXQtZGlhbG9nLWNvbnRhaW5lciB7XHJcbiAgcGFkZGluZzogMTBweDtcclxufVxyXG5cclxuLm1hdC1kaWFsb2ctY29udGVudCB7XHJcbiAgaGVpZ2h0OiA2MCU7XHJcbiAgbWF4LWhlaWdodDogODJ2aDtcclxuICBtYXJnaW4tYm90dG9tOiAxMHB4O1xyXG59XHJcblxyXG4ubWF0LWRpYWxvZy1hY3Rpb25zIHtcclxuICBwYWRkaW5nOiAxMHB4IDA7XHJcbn1cclxuXHJcbjo6bmctZGVlcCAuY2RrLW92ZXJsYXktcGFuZSB7XHJcbiAgaGVpZ2h0OiA5MCUgIWltcG9ydGFudDtcclxuICB3aWR0aDogOTAlICFpbXBvcnRhbnQ7XHJcbiAgbWF4LXdpZHRoOiA5MCUgIWltcG9ydGFudDtcclxufVxyXG5cclxubWF0LWNhcmQge1xyXG4gIHBhZGRpbmc6IDBweDtcclxuICBhbGlnbi1zZWxmOiBmbGV4LXN0YXJ0O1xyXG4gIGhlaWdodDogMjAwcHg7XHJcbiAgd2lkdGg6IDE1MHB4O1xyXG4gIG1hcmdpbi1sZWZ0OiAycHg7XHJcbiAgbWFyZ2luLXJpZ2h0OiAxNXB4O1xyXG4gIG1hcmdpbi1ib3R0b206IDE1cHg7XHJcbn1cclxuXHJcbm1hdC1pY29uIHtcclxuICBmb250LXNpemU6IDI0cHg7XHJcbiAgd2lkdGg6IDI0cHg7XHJcbiAgaGVpZ2h0OiAyNHB4O1xyXG59XHJcblxyXG4ubWF4LXdpZHRoLTYwLXBjdHtcclxuICBtYXgtd2lkdGg6IDYwJSAhaW1wb3J0YW50O1xyXG59XHJcblxyXG4uYm9yZGVye1xyXG4gIGJvcmRlcjogMXB4IHNvbGlkICNmMWYxZjE7XHJcbn1cclxuXHJcbnRkLm1hdC1jZWxse1xyXG4gIGJvcmRlcjogbm9uZSAhaW1wb3J0YW50O1xyXG59XHJcbnRoLm1hdC1oZWFkZXItY2VsbHtcclxuICBib3JkZXI6IG5vbmUgIWltcG9ydGFudDtcclxufSJdfQ== */"
+
+/***/ }),
+
+/***/ "./src/app/ms-back-office/modules/ms-shops/components/shops-selling-style-modal/shops-selling-style-modal.component.html":
+/*!*******************************************************************************************************************************!*\
+  !*** ./src/app/ms-back-office/modules/ms-shops/components/shops-selling-style-modal/shops-selling-style-modal.component.html ***!
+  \*******************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<div class=\"\" [fxFlex]=\"100\" fxLayout=\"column\">\r\n  <div class=\"flex-grow-1 overflow-auto display-flex flex-direction-column\">\r\n\r\n    <div class=\"flex-grow-1 flex-shrink-0 display-flex flex-direction-column\">\r\n\r\n      <div class=\"\" [fxFlex]=\"100\" fxLayout=\"row\">\r\n        <div class=\"margin-top-10px max-width-60-pct\" [fxFlex]=\"60\" fxLayout=\"row\">\r\n          <div mat-dialog-content class=\"display-flex flex-grow-1\">\r\n            <div class=\"flex-wrap-wrap display-flex flex-grow-1 flex-shrink-1 flex-direction-row card-container justify-content-initial\">\r\n              <mat-card *ngFor=\"let i of [33.33, 33.33, 33.33, 33.33, 33.33, 33.33, 33.33, 33.33]\" class=\"display-flex background-color-secondary flex-direction-column flex-shrink-1\">\r\n                <div class=\"image-container margin-10px flex-grow-1\" #imageContainer>\r\n                  <!--img class=\"img\" imageLoad [container]=\"imageContainer\" src=\"\"-->\r\n                </div>\r\n                <div class=\"image-card-btns display-flex margin-left-10px margin-right-10px margin-bottom-10px\">\r\n                  <mat-checkbox value=\"primary\" class=\"margin-top-10px\" matTooltip=\"{{ 'Principal' | translate }}\"> Store Name </mat-checkbox>\r\n                </div>\r\n              </mat-card>\r\n            </div>\r\n          </div>\r\n        </div>\r\n        <div [fxFlex]=\"40\">\r\n          <h3>Stores Selling</h3>\r\n          <div fxLayout=\"column\" class=\"border flex-grow-1 overflow-auto display-flex \">\r\n\r\n            <table class=\"width-100pct\" mat-table [dataSource]=\"links\" matSort matSortDisableClear (matSortChange)=\"onSort()\">\r\n\r\n              <ng-container matColumnDef=\"checkbox\">\r\n                <th mat-header-cell *matHeaderCellDef mat-sort-header>\r\n                  <td mat-cell *matCellDef=\"let element\">\r\n                    <mat-checkbox value=\"primary\" class=\"margin-top-10px\" matTooltip=\"{{ 'Principal' | translate }}\"></mat-checkbox>\r\n                  </td>\r\n              </ng-container>\r\n\r\n              <ng-container matColumnDef=\"text\">\r\n                <th mat-header-cell *matHeaderCellDef mat-sort-header>\r\n                  Text\r\n                  <td mat-cell *matCellDef=\"let element\"> {{ element.text }} </td>\r\n              </ng-container>\r\n\r\n              <ng-container matColumnDef=\"url\">\r\n                <th mat-header-cell *matHeaderCellDef mat-sort-header>\r\n                  Url\r\n                </th>\r\n                <td mat-cell *matCellDef=\"let element\"> {{ element.url }} </td>\r\n              </ng-container>\r\n\r\n              <ng-container matColumnDef=\"actions\">\r\n                <th mat-header-cell *matHeaderCellDef mat-sort-header>\r\n                </th>\r\n                <td mat-cell *matCellDef=\"let element\">\r\n                  <button mat-icon-button color=\"primary\" [matTooltip]=\"Edit\" [routerLink]=\"['../edit', element.id]\">\r\n                    <mat-icon>edit</mat-icon>\r\n                  </button>\r\n                  <button mat-icon-button color=\"primary\" [matTooltip]=\"Edit\" [routerLink]=\"['../delete', element.id]\">\r\n                    <mat-icon>delete</mat-icon>\r\n                  </button>\r\n                </td>\r\n              </ng-container>\r\n\r\n              <tr mat-header-row *matHeaderRowDef=\"displayedColumns\"></tr>\r\n              <tr mat-row *matRowDef=\"let row; columns: displayedColumns;\" [ngClass]=\"row.is_active ? '' : 'text-decoration-line-through'\">\r\n              </tr>\r\n\r\n            </table>\r\n\r\n            <div class=\"margin-left-25px margin-right-25px padding-top-25px padding-bottom-25px flex-shrink-0 display-flex border-top-style-solid border-top-width-2px border-top-color-grey\">\r\n\r\n              <mat-checkbox class=\"margin-top-10px margin-right-25px\" value=\"primary\" matTooltip=\"{{ 'Principal' | translate }}\">Check All</mat-checkbox>\r\n\r\n              <button mat-icon-button color=\"primary\" [matTooltip]=\"Edit\">\r\n                <mat-icon>edit</mat-icon>\r\n              </button>\r\n\r\n              <button mat-icon-button color=\"primary\" [matTooltip]=\"Delete\">\r\n                <mat-icon>delete</mat-icon>\r\n              </button>\r\n\r\n              <button mat-icon-button color=\"primary\" [matTooltip]=\"Delete\">\r\n                <mat-icon>delete</mat-icon>\r\n              </button>\r\n\r\n            </div>\r\n          </div>\r\n        </div>\r\n      </div>\r\n    </div>\r\n  </div>\r\n  <div class=\"margin-right-25px padding-top-25px flex-shrink-0 display-flex border-top-style-solid border-top-width-2px border-top-color-grey\">\r\n\r\n    <button mat-raised-button type=\"submit\" color=\"primary\">{{ 'Save Changes' | translate }}</button>\r\n\r\n    <button mat-raised-button type=\"button\" class=\"margin-left-10px\" (click)=\"onCancel()\">{{ 'Close' | translate }}</button>\r\n\r\n  </div>\r\n</div>"
+
+/***/ }),
+
+/***/ "./src/app/ms-back-office/modules/ms-shops/components/shops-selling-style-modal/shops-selling-style-modal.component.ts":
+/*!*****************************************************************************************************************************!*\
+  !*** ./src/app/ms-back-office/modules/ms-shops/components/shops-selling-style-modal/shops-selling-style-modal.component.ts ***!
+  \*****************************************************************************************************************************/
+/*! exports provided: ShopsSellingStylecomponentModalComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ShopsSellingStylecomponentModalComponent", function() { return ShopsSellingStylecomponentModalComponent; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _ngx_translate_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @ngx-translate/core */ "./node_modules/@ngx-translate/core/fesm5/ngx-translate-core.js");
+/* harmony import */ var _angular_material__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/material */ "./node_modules/@angular/material/esm5/material.es5.js");
+/* harmony import */ var _models_shops__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../models/shops */ "./src/app/ms-back-office/modules/ms-shops/models/shops.ts");
+/* harmony import */ var _angular_cdk_layout__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/cdk/layout */ "./node_modules/@angular/cdk/esm5/layout.es5.js");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+var __param = (undefined && undefined.__param) || function (paramIndex, decorator) {
+    return function (target, key) { decorator(target, key, paramIndex); }
+};
+
+//
+
+//import { setTranslations } from '@cognitec/ngx-translate';
+//import { TRANSLATIONS } from './i18n/annotation-tool-modal.component.translations';
+
+//
+
+//import { Landmarks } from '../../models/landmarks';
+
+
+var ShopsSellingStylecomponentModalComponent = /** @class */ (function () {
+    function ShopsSellingStylecomponentModalComponent(element, breakpointObserver, dialogRef, translateService, data) {
+        this.dialogRef = dialogRef;
+        this.translateService = translateService;
+        this.data = data;
+        this.displayedColumns = [
+            'checkbox',
+            'text',
+            'url',
+            'actions'
+        ];
+        this.links = [{ text: "lalala", url: "url" }, { text: "lalala", url: "url" }, { text: "lalala", url: "url" }];
+        this.answer = false;
+        this.imageSrc = null;
+        this.changedEyesPositions = null;
+        this.initialEyesPositions = null;
+        //setTranslations(this.translateService, TRANSLATIONS);
+        breakpointObserver.observe([
+            _angular_cdk_layout__WEBPACK_IMPORTED_MODULE_4__["Breakpoints"].Medium,
+            _angular_cdk_layout__WEBPACK_IMPORTED_MODULE_4__["Breakpoints"].Large,
+            _angular_cdk_layout__WEBPACK_IMPORTED_MODULE_4__["Breakpoints"].HandsetLandscape,
+            _angular_cdk_layout__WEBPACK_IMPORTED_MODULE_4__["Breakpoints"].HandsetPortrait
+        ]).subscribe(function (result) {
+            if (result.matches) {
+            }
+        });
+    }
+    ShopsSellingStylecomponentModalComponent.prototype.ngOnInit = function () {
+    };
+    ShopsSellingStylecomponentModalComponent.prototype.ngAfterViewInit = function () {
+    };
+    ShopsSellingStylecomponentModalComponent.prototype.onAccept = function () {
+        this.answer = true;
+        this.close();
+    };
+    ShopsSellingStylecomponentModalComponent.prototype.onCancel = function () {
+        this.answer = false;
+        this.close();
+    };
+    ShopsSellingStylecomponentModalComponent.prototype.close = function () {
+    };
+    ShopsSellingStylecomponentModalComponent = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+            selector: 'shops-selling-style-modal',
+            template: __webpack_require__(/*! ./shops-selling-style-modal.component.html */ "./src/app/ms-back-office/modules/ms-shops/components/shops-selling-style-modal/shops-selling-style-modal.component.html"),
+            styles: [__webpack_require__(/*! ./shops-selling-style-modal.component.css */ "./src/app/ms-back-office/modules/ms-shops/components/shops-selling-style-modal/shops-selling-style-modal.component.css")],
+        }),
+        __param(4, Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Inject"])(_angular_material__WEBPACK_IMPORTED_MODULE_2__["MAT_DIALOG_DATA"])),
+        __metadata("design:paramtypes", [_angular_core__WEBPACK_IMPORTED_MODULE_0__["ElementRef"],
+            _angular_cdk_layout__WEBPACK_IMPORTED_MODULE_4__["BreakpointObserver"],
+            _angular_material__WEBPACK_IMPORTED_MODULE_2__["MatDialogRef"],
+            _ngx_translate_core__WEBPACK_IMPORTED_MODULE_1__["TranslateService"],
+            _models_shops__WEBPACK_IMPORTED_MODULE_3__["Shop"]])
+    ], ShopsSellingStylecomponentModalComponent);
+    return ShopsSellingStylecomponentModalComponent;
+}());
 
 
 
@@ -23180,6 +23314,40 @@ var ShopsTableComponent = /** @class */ (function () {
 
 /***/ }),
 
+/***/ "./src/app/ms-back-office/modules/ms-shops/models/shops.ts":
+/*!*****************************************************************!*\
+  !*** ./src/app/ms-back-office/modules/ms-shops/models/shops.ts ***!
+  \*****************************************************************/
+/*! exports provided: Shop, ShopsListResponse, ShopsResponse */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Shop", function() { return Shop; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ShopsListResponse", function() { return ShopsListResponse; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ShopsResponse", function() { return ShopsResponse; });
+var Shop = /** @class */ (function () {
+    function Shop() {
+    }
+    return Shop;
+}());
+
+var ShopsListResponse = /** @class */ (function () {
+    function ShopsListResponse() {
+    }
+    return ShopsListResponse;
+}());
+
+var ShopsResponse = /** @class */ (function () {
+    function ShopsResponse() {
+    }
+    return ShopsResponse;
+}());
+
+
+
+/***/ }),
+
 /***/ "./src/app/ms-back-office/modules/ms-shops/ms-shops-routing.module.ts":
 /*!****************************************************************************!*\
   !*** ./src/app/ms-back-office/modules/ms-shops/ms-shops-routing.module.ts ***!
@@ -23300,13 +23468,15 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_material_card__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! @angular/material/card */ "./node_modules/@angular/material/esm5/card.es5.js");
 /* harmony import */ var _ngx_translate_core__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! @ngx-translate/core */ "./node_modules/@ngx-translate/core/fesm5/ngx-translate-core.js");
 /* harmony import */ var _ui_modules_ask_before_refresh_ask_before_refresh_module__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ../../../ui/modules/ask-before-refresh/ask-before-refresh.module */ "./src/app/ui/modules/ask-before-refresh/ask-before-refresh.module.ts");
-/* harmony import */ var _ms_shops_routing_module__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./ms-shops-routing.module */ "./src/app/ms-back-office/modules/ms-shops/ms-shops-routing.module.ts");
-/* harmony import */ var _components_shops_table_shops_table_component__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./components/shops-table/shops-table.component */ "./src/app/ms-back-office/modules/ms-shops/components/shops-table/shops-table.component.ts");
-/* harmony import */ var _components_shop_form_shop_form_component__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./components/shop-form/shop-form.component */ "./src/app/ms-back-office/modules/ms-shops/components/shop-form/shop-form.component.ts");
-/* harmony import */ var _components_new_shop_new_shop_component__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ./components/new-shop/new-shop.component */ "./src/app/ms-back-office/modules/ms-shops/components/new-shop/new-shop.component.ts");
-/* harmony import */ var _components_edit_shop_edit_shop_component__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ./components/edit-shop/edit-shop.component */ "./src/app/ms-back-office/modules/ms-shops/components/edit-shop/edit-shop.component.ts");
-/* harmony import */ var _components_delete_shop_delete_shop_component__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ./components/delete-shop/delete-shop.component */ "./src/app/ms-back-office/modules/ms-shops/components/delete-shop/delete-shop.component.ts");
-/* harmony import */ var _ui_modules_images_card_images_card_module__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! ../../../ui/modules/images-card/images-card.module */ "./src/app/ui/modules/images-card/images-card.module.ts");
+/* harmony import */ var _ui_modules_spinner_indicator_200_spinner_indicator_200_module__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ../../../ui/modules/spinner-indicator-200/spinner-indicator-200.module */ "./src/app/ui/modules/spinner-indicator-200/spinner-indicator-200.module.ts");
+/* harmony import */ var _ms_shops_routing_module__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./ms-shops-routing.module */ "./src/app/ms-back-office/modules/ms-shops/ms-shops-routing.module.ts");
+/* harmony import */ var _components_shops_table_shops_table_component__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./components/shops-table/shops-table.component */ "./src/app/ms-back-office/modules/ms-shops/components/shops-table/shops-table.component.ts");
+/* harmony import */ var _components_shop_form_shop_form_component__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ./components/shop-form/shop-form.component */ "./src/app/ms-back-office/modules/ms-shops/components/shop-form/shop-form.component.ts");
+/* harmony import */ var _components_new_shop_new_shop_component__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ./components/new-shop/new-shop.component */ "./src/app/ms-back-office/modules/ms-shops/components/new-shop/new-shop.component.ts");
+/* harmony import */ var _components_edit_shop_edit_shop_component__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ./components/edit-shop/edit-shop.component */ "./src/app/ms-back-office/modules/ms-shops/components/edit-shop/edit-shop.component.ts");
+/* harmony import */ var _components_delete_shop_delete_shop_component__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! ./components/delete-shop/delete-shop.component */ "./src/app/ms-back-office/modules/ms-shops/components/delete-shop/delete-shop.component.ts");
+/* harmony import */ var _components_shops_selling_style_modal_shops_selling_style_modal_component__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! ./components/shops-selling-style-modal/shops-selling-style-modal.component */ "./src/app/ms-back-office/modules/ms-shops/components/shops-selling-style-modal/shops-selling-style-modal.component.ts");
+/* harmony import */ var _ui_modules_images_card_images_card_module__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(/*! ../../../ui/modules/images-card/images-card.module */ "./src/app/ui/modules/images-card/images-card.module.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -23341,6 +23511,8 @@ var __decorate = (undefined && undefined.__decorate) || function (decorators, ta
 
 
 
+
+
 var MsShopsModule = /** @class */ (function () {
     function MsShopsModule() {
     }
@@ -23363,6 +23535,7 @@ var MsShopsModule = /** @class */ (function () {
                 _angular_material__WEBPACK_IMPORTED_MODULE_7__["MatInputModule"],
                 _angular_material__WEBPACK_IMPORTED_MODULE_7__["MatNativeDateModule"],
                 _angular_material__WEBPACK_IMPORTED_MODULE_7__["MatPaginatorModule"],
+                _angular_material__WEBPACK_IMPORTED_MODULE_7__["MatRadioModule"],
                 _angular_material_select__WEBPACK_IMPORTED_MODULE_9__["MatSelectModule"],
                 _angular_material__WEBPACK_IMPORTED_MODULE_7__["MatSlideToggleModule"],
                 _angular_material_sort__WEBPACK_IMPORTED_MODULE_10__["MatSortModule"],
@@ -23370,23 +23543,29 @@ var MsShopsModule = /** @class */ (function () {
                 _angular_material_toolbar__WEBPACK_IMPORTED_MODULE_11__["MatToolbarModule"],
                 _angular_material_tooltip__WEBPACK_IMPORTED_MODULE_12__["MatTooltipModule"],
                 _ngx_translate_core__WEBPACK_IMPORTED_MODULE_14__["TranslateModule"],
-                _ms_shops_routing_module__WEBPACK_IMPORTED_MODULE_16__["MsShopsRoutingModule"],
-                _ui_modules_images_card_images_card_module__WEBPACK_IMPORTED_MODULE_22__["ImagesCardModule"],
-                _ui_modules_ask_before_refresh_ask_before_refresh_module__WEBPACK_IMPORTED_MODULE_15__["AskBeforeRefreshModule"]
+                _ms_shops_routing_module__WEBPACK_IMPORTED_MODULE_17__["MsShopsRoutingModule"],
+                _ui_modules_images_card_images_card_module__WEBPACK_IMPORTED_MODULE_24__["ImagesCardModule"],
+                _ui_modules_ask_before_refresh_ask_before_refresh_module__WEBPACK_IMPORTED_MODULE_15__["AskBeforeRefreshModule"],
+                _ui_modules_spinner_indicator_200_spinner_indicator_200_module__WEBPACK_IMPORTED_MODULE_16__["SpinnerIndicator200Module"]
             ],
             declarations: [
-                _components_shops_table_shops_table_component__WEBPACK_IMPORTED_MODULE_17__["ShopsTableComponent"],
-                _components_shop_form_shop_form_component__WEBPACK_IMPORTED_MODULE_18__["ShopFormComponent"],
-                _components_new_shop_new_shop_component__WEBPACK_IMPORTED_MODULE_19__["NewShopComponent"],
-                _components_edit_shop_edit_shop_component__WEBPACK_IMPORTED_MODULE_20__["EditShopComponent"],
-                _components_delete_shop_delete_shop_component__WEBPACK_IMPORTED_MODULE_21__["DeleteShopComponent"]
+                _components_shops_table_shops_table_component__WEBPACK_IMPORTED_MODULE_18__["ShopsTableComponent"],
+                _components_shop_form_shop_form_component__WEBPACK_IMPORTED_MODULE_19__["ShopFormComponent"],
+                _components_new_shop_new_shop_component__WEBPACK_IMPORTED_MODULE_20__["NewShopComponent"],
+                _components_edit_shop_edit_shop_component__WEBPACK_IMPORTED_MODULE_21__["EditShopComponent"],
+                _components_delete_shop_delete_shop_component__WEBPACK_IMPORTED_MODULE_22__["DeleteShopComponent"],
+                _components_shops_selling_style_modal_shops_selling_style_modal_component__WEBPACK_IMPORTED_MODULE_23__["ShopsSellingStylecomponentModalComponent"]
             ],
             exports: [
-                _components_shops_table_shops_table_component__WEBPACK_IMPORTED_MODULE_17__["ShopsTableComponent"],
-                _components_shop_form_shop_form_component__WEBPACK_IMPORTED_MODULE_18__["ShopFormComponent"],
-                _components_new_shop_new_shop_component__WEBPACK_IMPORTED_MODULE_19__["NewShopComponent"],
-                _components_edit_shop_edit_shop_component__WEBPACK_IMPORTED_MODULE_20__["EditShopComponent"],
-                _components_delete_shop_delete_shop_component__WEBPACK_IMPORTED_MODULE_21__["DeleteShopComponent"]
+                _components_shops_table_shops_table_component__WEBPACK_IMPORTED_MODULE_18__["ShopsTableComponent"],
+                _components_shop_form_shop_form_component__WEBPACK_IMPORTED_MODULE_19__["ShopFormComponent"],
+                _components_new_shop_new_shop_component__WEBPACK_IMPORTED_MODULE_20__["NewShopComponent"],
+                _components_edit_shop_edit_shop_component__WEBPACK_IMPORTED_MODULE_21__["EditShopComponent"],
+                _components_delete_shop_delete_shop_component__WEBPACK_IMPORTED_MODULE_22__["DeleteShopComponent"],
+                _components_shops_selling_style_modal_shops_selling_style_modal_component__WEBPACK_IMPORTED_MODULE_23__["ShopsSellingStylecomponentModalComponent"]
+            ],
+            entryComponents: [
+                _components_shops_selling_style_modal_shops_selling_style_modal_component__WEBPACK_IMPORTED_MODULE_23__["ShopsSellingStylecomponentModalComponent"],
             ]
         })
     ], MsShopsModule);
@@ -23525,4 +23704,4 @@ var ShopsService = /** @class */ (function () {
 /***/ })
 
 }]);
-//# sourceMappingURL=ms-shops-ms-shops-module.js.map
+//# sourceMappingURL=default~ms-shops-ms-shops-module~ms-style-ms-style-module.js.map

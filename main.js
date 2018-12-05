@@ -41,12 +41,13 @@ var map = {
 	"../ms-shops/ms-shops.module": [
 		"./src/app/ms-back-office/modules/ms-shops/ms-shops.module.ts",
 		"default~ms-brands-ms-brands-module~ms-categories-ms-categories-module~ms-collections-ms-collections-~5768e601",
-		"common",
-		"ms-shops-ms-shops-module"
+		"default~ms-shops-ms-shops-module~ms-style-ms-style-module",
+		"common"
 	],
 	"../ms-style/ms-style.module": [
 		"./src/app/ms-back-office/modules/ms-style/ms-style.module.ts",
 		"default~ms-brands-ms-brands-module~ms-categories-ms-categories-module~ms-collections-ms-collections-~5768e601",
+		"default~ms-shops-ms-shops-module~ms-style-ms-style-module",
 		"common",
 		"ms-style-ms-style-module"
 	],
