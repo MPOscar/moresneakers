@@ -1,5 +1,143 @@
 (window["webpackJsonp"] = window["webpackJsonp"] || []).push([["ms-brands-ms-brands-module"],{
 
+/***/ "./src/app/ms-back-office/modules/ms-brands/components/brand-creator/brand-creator.component.html":
+/*!********************************************************************************************************!*\
+  !*** ./src/app/ms-back-office/modules/ms-brands/components/brand-creator/brand-creator.component.html ***!
+  \********************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<div class=\"\" [fxFlex]=\"100\" fxLayout=\"column\">\n    <div fxLayout=\"column\">\n        <h1>BRAND CREATOR</h1>\n    </div>\n\n    <div class=\"\" [fxFlex]=\"100\" fxLayout=\"row\">\n\n        <div [fxFlex]=\"30\" class=\"margin-right-10px\">\n\n            <button mat-stroked-button type=\"submit\" class=\"width-90pct\" (click)=\"showModal()\">Add a New Brand</button>\n\n            <mat-form-field class=\"width-90pct padding-top-20px\">\n\n                <mat-label>BRAND LIST</mat-label>\n\n                <mat-select placeholder=\"Select\" panelOpen=\"true\">\n\n                    <mat-option *ngFor=\"let brand of brands\" [value]=\"brand.id\">\n\n                        {{brand.name}}\n\n                    </mat-option>\n\n                </mat-select>\n\n            </mat-form-field>\n\n        </div>\n\n        <div class=\"margin-top-10px max-width-60-pct\" [fxFlex]=\"70\" fxLayout=\"row\" class=\"border-2px-solid-black margin-bottom-25px margin-right-10px\">\n            <div fxLayout=\"column\">\n                <div class=\"flex-grow-1 overflow-auto display-flex flex-direction-column padding-10px\">\n\n                    <div class=\"flex-grow-1 flex-shrink-0 display-flex flex-direction-column\">\n                        <div class=\"flex-wrap-wrap display-flex flex-grow-1 flex-shrink-1 flex-direction-row card-container justify-content-initial margin-top-10px\">\n                            <mat-card *ngFor=\"let i of [33.33, 33.33, 33.33, 33.33, 33.33, 33.33, 33.33, 33.33]\" class=\"display-flex background-color-secondary flex-direction-column flex-shrink-1\">\n                                <div class=\"image-container margin-10px flex-grow-1\" #imageContainer>\n                                    <!--img class=\"img\" imageLoad [container]=\"imageContainer\" src=\"\"-->\n                                </div>\n                                <div class=\"image-card-btns display-flex margin-left-10px margin-right-10px margin-bottom-10px\">\n                                    <mat-checkbox value=\"primary\" class=\"margin-top-10px\" matTooltip=\"{{ 'Principal' | translate }}\"> Store Name </mat-checkbox>\n                                </div>\n                            </mat-card>\n                        </div>\n                    </div>\n\n                </div>\n                <div class=\"justify-content-flex-end margin-right-25px padding-top-10px padding-bottom-10px flex-shrink-0 display-flex border-top-width-2px border-top-color-grey\">\n\n                    <button mat-stroked-button type=\"submit\">Remove Selection</button>\n\n                    <button mat-raised-button type=\"button\" color=\"primary\" class=\"margin-left-10px\">{{ 'Link New Stores' | translate }}</button>\n\n                </div>\n            </div>\n\n        </div>\n\n    </div>\n\n\n    <div class=\"margin-right-25px padding-top-25px padding-bottom-25px flex-shrink-0 display-flex border-top-style-solid border-top-width-2px border-top-color-grey\">\n\n        <button mat-raised-button type=\"submit\" color=\"primary\">{{ 'Save Changes' | translate }}</button>\n\n    </div>\n</div>"
+
+/***/ }),
+
+/***/ "./src/app/ms-back-office/modules/ms-brands/components/brand-creator/brand-creator.component.scss":
+/*!********************************************************************************************************!*\
+  !*** ./src/app/ms-back-office/modules/ms-brands/components/brand-creator/brand-creator.component.scss ***!
+  \********************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = ":host {\n  display: flex;\n  flex-direction: column;\n  flex-grow: 1; }\n\n:host {\n  display: flex;\n  flex-grow: 1;\n  flex-direction: column;\n  height: 100%; }\n\n.mat-dialog-container {\n  padding: 10px; }\n\n.mat-dialog-content {\n  height: 60%;\n  max-height: 82vh;\n  margin-bottom: 10px; }\n\n.mat-dialog-actions {\n  padding: 10px 0; }\n\n::ng-deep .cdk-global-overlay-wrapper > div {\n  height: 90% !important;\n  width: 90% !important;\n  max-width: 90% !important; }\n\nmat-card {\n  padding: 0px;\n  align-self: flex-start;\n  height: 200px;\n  width: 150px;\n  margin-left: 2px;\n  margin-right: 15px;\n  margin-bottom: 15px; }\n\nmat-icon {\n  font-size: 24px;\n  width: 24px;\n  height: 24px; }\n\n.max-width-60-pct {\n  max-width: 60% !important; }\n\n.border {\n  border: 1px solid #f1f1f1; }\n\ntd.mat-cell {\n  border: none !important; }\n\nth.mat-header-cell {\n  border: none !important; }\n\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvbXMtYmFjay1vZmZpY2UvbW9kdWxlcy9tcy1icmFuZHMvY29tcG9uZW50cy9icmFuZC1jcmVhdG9yL0U6XFxQUk9HUkFNQUNJT04gSUlJXFxtb3Jlc25lYWtlcnMtYmFja29mZmljZS9zcmNcXGFwcFxcbXMtYmFjay1vZmZpY2VcXG1vZHVsZXNcXG1zLWJyYW5kc1xcY29tcG9uZW50c1xcYnJhbmQtY3JlYXRvclxcYnJhbmQtY3JlYXRvci5jb21wb25lbnQuc2NzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUNJLGNBQWE7RUFDYix1QkFBc0I7RUFDdEIsYUFBWSxFQUNmOztBQUNEO0VBQ0ksY0FBYTtFQUNiLGFBQVk7RUFDWix1QkFBc0I7RUFDdEIsYUFDRixFQUFDOztBQUVEO0VBQ0UsY0FBYSxFQUNkOztBQUVEO0VBQ0UsWUFBVztFQUNYLGlCQUFnQjtFQUNoQixvQkFBbUIsRUFDcEI7O0FBRUQ7RUFDRSxnQkFBZSxFQUNoQjs7QUFFRDtFQUNFLHVCQUFzQjtFQUN0QixzQkFBcUI7RUFDckIsMEJBQXlCLEVBQzFCOztBQUVEO0VBQ0UsYUFBWTtFQUNaLHVCQUFzQjtFQUN0QixjQUFhO0VBQ2IsYUFBWTtFQUNaLGlCQUFnQjtFQUNoQixtQkFBa0I7RUFDbEIsb0JBQW1CLEVBQ3BCOztBQUVEO0VBQ0UsZ0JBQWU7RUFDZixZQUFXO0VBQ1gsYUFBWSxFQUNiOztBQUVEO0VBQ0UsMEJBQXlCLEVBQzFCOztBQUVEO0VBQ0UsMEJBQXlCLEVBQzFCOztBQUVEO0VBQ0Usd0JBQXVCLEVBQ3hCOztBQUNEO0VBQ0Usd0JBQXVCLEVBQ3hCIiwiZmlsZSI6InNyYy9hcHAvbXMtYmFjay1vZmZpY2UvbW9kdWxlcy9tcy1icmFuZHMvY29tcG9uZW50cy9icmFuZC1jcmVhdG9yL2JyYW5kLWNyZWF0b3IuY29tcG9uZW50LnNjc3MiLCJzb3VyY2VzQ29udGVudCI6WyI6aG9zdCB7XHJcbiAgICBkaXNwbGF5OiBmbGV4O1xyXG4gICAgZmxleC1kaXJlY3Rpb246IGNvbHVtbjtcclxuICAgIGZsZXgtZ3JvdzogMTtcclxufVxyXG46aG9zdCB7XHJcbiAgICBkaXNwbGF5OiBmbGV4O1xyXG4gICAgZmxleC1ncm93OiAxO1xyXG4gICAgZmxleC1kaXJlY3Rpb246IGNvbHVtbjtcclxuICAgIGhlaWdodDogMTAwJVxyXG4gIH1cclxuICBcclxuICAubWF0LWRpYWxvZy1jb250YWluZXIge1xyXG4gICAgcGFkZGluZzogMTBweDtcclxuICB9XHJcbiAgXHJcbiAgLm1hdC1kaWFsb2ctY29udGVudCB7XHJcbiAgICBoZWlnaHQ6IDYwJTtcclxuICAgIG1heC1oZWlnaHQ6IDgydmg7XHJcbiAgICBtYXJnaW4tYm90dG9tOiAxMHB4O1xyXG4gIH1cclxuICBcclxuICAubWF0LWRpYWxvZy1hY3Rpb25zIHtcclxuICAgIHBhZGRpbmc6IDEwcHggMDtcclxuICB9XHJcbiAgXHJcbiAgOjpuZy1kZWVwIC5jZGstZ2xvYmFsLW92ZXJsYXktd3JhcHBlciA+IGRpdiB7XHJcbiAgICBoZWlnaHQ6IDkwJSAhaW1wb3J0YW50O1xyXG4gICAgd2lkdGg6IDkwJSAhaW1wb3J0YW50O1xyXG4gICAgbWF4LXdpZHRoOiA5MCUgIWltcG9ydGFudDtcclxuICB9XHJcbiAgXHJcbiAgbWF0LWNhcmQge1xyXG4gICAgcGFkZGluZzogMHB4O1xyXG4gICAgYWxpZ24tc2VsZjogZmxleC1zdGFydDtcclxuICAgIGhlaWdodDogMjAwcHg7XHJcbiAgICB3aWR0aDogMTUwcHg7XHJcbiAgICBtYXJnaW4tbGVmdDogMnB4O1xyXG4gICAgbWFyZ2luLXJpZ2h0OiAxNXB4O1xyXG4gICAgbWFyZ2luLWJvdHRvbTogMTVweDtcclxuICB9XHJcbiAgXHJcbiAgbWF0LWljb24ge1xyXG4gICAgZm9udC1zaXplOiAyNHB4O1xyXG4gICAgd2lkdGg6IDI0cHg7XHJcbiAgICBoZWlnaHQ6IDI0cHg7XHJcbiAgfVxyXG4gIFxyXG4gIC5tYXgtd2lkdGgtNjAtcGN0e1xyXG4gICAgbWF4LXdpZHRoOiA2MCUgIWltcG9ydGFudDtcclxuICB9XHJcbiAgXHJcbiAgLmJvcmRlcntcclxuICAgIGJvcmRlcjogMXB4IHNvbGlkICNmMWYxZjE7XHJcbiAgfVxyXG4gIFxyXG4gIHRkLm1hdC1jZWxse1xyXG4gICAgYm9yZGVyOiBub25lICFpbXBvcnRhbnQ7XHJcbiAgfVxyXG4gIHRoLm1hdC1oZWFkZXItY2VsbHtcclxuICAgIGJvcmRlcjogbm9uZSAhaW1wb3J0YW50O1xyXG4gIH0iXX0= */"
+
+/***/ }),
+
+/***/ "./src/app/ms-back-office/modules/ms-brands/components/brand-creator/brand-creator.component.ts":
+/*!******************************************************************************************************!*\
+  !*** ./src/app/ms-back-office/modules/ms-brands/components/brand-creator/brand-creator.component.ts ***!
+  \******************************************************************************************************/
+/*! exports provided: BrandCreatorComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "BrandCreatorComponent", function() { return BrandCreatorComponent; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+/* harmony import */ var _angular_material__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/material */ "./node_modules/@angular/material/esm5/material.es5.js");
+/* harmony import */ var _ngx_translate_core__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @ngx-translate/core */ "./node_modules/@ngx-translate/core/fesm5/ngx-translate-core.js");
+/* harmony import */ var _ui_helpers_component_can_deactivate__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../../../ui/helpers/component-can-deactivate */ "./src/app/ui/helpers/component-can-deactivate.ts");
+/* harmony import */ var _ui_helpers_mixin_decorator__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../../../ui/helpers/mixin-decorator */ "./src/app/ui/helpers/mixin-decorator.ts");
+/* harmony import */ var _error_handling_services_error_handling_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../../../../error-handling/services/error-handling.service */ "./src/app/error-handling/services/error-handling.service.ts");
+/* harmony import */ var _error_handling_services_toastr_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../../../../error-handling/services/toastr.service */ "./src/app/error-handling/services/toastr.service.ts");
+/* harmony import */ var _services_brands_service__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../services/brands.service */ "./src/app/ms-back-office/modules/ms-brands/services/brands.service.ts");
+/* harmony import */ var _new_brand_new_brand_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../new-brand/new-brand.component */ "./src/app/ms-back-office/modules/ms-brands/components/new-brand/new-brand.component.ts");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+//
+
+
+//
+
+
+
+
+
+
+var errorKey = 'Error';
+var savedStyleMessageKey = 'Saved Style Message';
+var BrandCreatorComponent = /** @class */ (function () {
+    function BrandCreatorComponent(activatedRoute, brandsService, errorHandlingService, router, translate, toastr, dialog) {
+        this.activatedRoute = activatedRoute;
+        this.brandsService = brandsService;
+        this.errorHandlingService = errorHandlingService;
+        this.router = router;
+        this.translate = translate;
+        this.toastr = toastr;
+        this.dialog = dialog;
+        this.data = {
+            name: "",
+            description: ""
+        };
+        // Begin Mixin code of the CanDeactivate class
+        this.unsavedChanges = false;
+        this.cancelBtnKey = 'No';
+        this.okBtnKey = 'Yes';
+        this.saveTitleKey = 'Discard Title';
+        this.saveMessageKey = 'Discard Message';
+    }
+    BrandCreatorComponent.prototype.ngOnInit = function () {
+        this.brands = this.activatedRoute.snapshot.data.brands;
+    };
+    BrandCreatorComponent.prototype.submit = function (data) {
+        this.createUser(data);
+    };
+    BrandCreatorComponent.prototype.cancel = function () {
+        this.close();
+    };
+    BrandCreatorComponent.prototype.close = function () {
+        this.router.navigate(this.activatedRoute.snapshot.data.closeRouteCommand, { relativeTo: this.activatedRoute });
+    };
+    BrandCreatorComponent.prototype.createUser = function (data) {
+        var _this = this;
+        this.brandsService.postBrand(data).subscribe(function (response) {
+            _this.unsavedChanges = false;
+            //this.close.emit();TODO
+            _this.close();
+            _this.toastr.success(savedStyleMessageKey);
+        }, function (error) {
+            _this.errorHandlingService.handleUiError(errorKey, error);
+            _this.validationErrors = error.formErrors;
+        });
+    };
+    BrandCreatorComponent.prototype.showModal = function () {
+        this.modalRef = this.dialog.open(_new_brand_new_brand_component__WEBPACK_IMPORTED_MODULE_9__["NewBrandComponent"], {
+            height: '800px',
+            width: '60%',
+            data: { data: this.data }
+        });
+    };
+    BrandCreatorComponent = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+            selector: 'brand-creator',
+            template: __webpack_require__(/*! ./brand-creator.component.html */ "./src/app/ms-back-office/modules/ms-brands/components/brand-creator/brand-creator.component.html"),
+            styles: [__webpack_require__(/*! ./brand-creator.component.scss */ "./src/app/ms-back-office/modules/ms-brands/components/brand-creator/brand-creator.component.scss")]
+        }),
+        Object(_ui_helpers_mixin_decorator__WEBPACK_IMPORTED_MODULE_5__["Mixin"])([_ui_helpers_component_can_deactivate__WEBPACK_IMPORTED_MODULE_4__["CanDeactivateMixin"]]),
+        __metadata("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_1__["ActivatedRoute"],
+            _services_brands_service__WEBPACK_IMPORTED_MODULE_8__["BrandsService"],
+            _error_handling_services_error_handling_service__WEBPACK_IMPORTED_MODULE_6__["ErrorHandlingService"],
+            _angular_router__WEBPACK_IMPORTED_MODULE_1__["Router"],
+            _ngx_translate_core__WEBPACK_IMPORTED_MODULE_3__["TranslateService"],
+            _error_handling_services_toastr_service__WEBPACK_IMPORTED_MODULE_7__["ToastrService"],
+            _angular_material__WEBPACK_IMPORTED_MODULE_2__["MatDialog"]])
+    ], BrandCreatorComponent);
+    return BrandCreatorComponent;
+}());
+
+
+
+/***/ }),
+
 /***/ "./src/app/ms-back-office/modules/ms-brands/components/brand-form/brand-form.component.html":
 /*!**************************************************************************************************!*\
   !*** ./src/app/ms-back-office/modules/ms-brands/components/brand-form/brand-form.component.html ***!
@@ -7,7 +145,7 @@
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<form class=\"flex-grow-1 min-height-0 display-flex flex-direction-column\" [askBeforeRefresh]=\"formGroup.dirty\" [formGroup]=\"formGroup\" novalidate role=\"form\" (ngSubmit)=\"submitClicked()\"\n  autocomplete=\"off\" inputFocus>\n\n  <div class=\"flex-grow-1 overflow-auto display-flex flex-direction-column\">\n\n    <div class=\"flex-grow-1 flex-shrink-0 display-flex flex-direction-column\">\n\n      <mat-form-field class=\"width-100pc margin-left-16px\">\n\n        <mat-label>Brand Name</mat-label>\n\n        <input matInput type=\"text\" formControlName=\"name\" required>\n\n      </mat-form-field>\n\n      <mat-form-field class=\"width-100pc margin-left-16px\">\n\n        <mat-label>Description</mat-label>\n\n        <textarea matInput formControlName=\"description\"></textarea>\n\n      </mat-form-field>\n\n      <mat-form-field class=\"width-100pc margin-left-16px\">\n\n        <mat-label>Image</mat-label>\n\n        <textarea matInput formControlName=\"imgUrl\"></textarea>\n\n      </mat-form-field>\n    </div>\n  </div>\n  <div class=\"margin-right-25px padding-top-25px padding-bottom-25px flex-shrink-0 display-flex border-top-style-solid border-top-width-2px border-top-color-grey\">\n\n    <button mat-raised-button type=\"submit\" color=\"primary\">{{ 'Save' | translate }}</button>\n\n    <button mat-raised-button type=\"button\" class=\"margin-left-10px\" (click)=\"cancelClicked()\">{{ 'Cancel' | translate }}</button>\n\n  </div>\n</form>"
+module.exports = "<form class=\"flex-grow-1 min-height-0 display-flex flex-direction-column\" [askBeforeRefresh]=\"formGroup.dirty\" [formGroup]=\"formGroup\" novalidate role=\"form\" (ngSubmit)=\"submitClicked()\"\n  autocomplete=\"off\" inputFocus>\n\n  <div class=\"flex-grow-1 overflow-auto display-flex flex-direction-column\">\n\n    <div class=\"flex-grow-1 flex-shrink-0 display-flex flex-direction-column\">\n\n      <mat-form-field class=\"width-100pc margin-left-16px\">\n\n        <mat-label>Brand Name</mat-label>\n\n        <input matInput type=\"text\" formControlName=\"name\" required>\n\n      </mat-form-field>\n\n      <div [fxFlex]=\"50\" class=\"border margin-left-25px margin-right-25px border-2px-solid-black\">\n\n          <images-card class=\"flex-grow-1 padding-10px\"></images-card>\n\n        </div>\n\n      <mat-form-field class=\"width-100pc margin-left-16px\">\n\n        <mat-label>Description</mat-label>\n\n        <textarea matInput formControlName=\"description\"></textarea>\n\n      </mat-form-field>\n      \n    </div>\n  </div>\n  <div class=\"margin-right-25px padding-top-25px padding-bottom-25px flex-shrink-0 display-flex border-top-style-solid border-top-width-2px border-top-color-grey\">\n\n    <button mat-raised-button type=\"submit\" color=\"primary\">{{ 'Save' | translate }}</button>\n\n    <button mat-raised-button type=\"button\" class=\"margin-left-10px\" (click)=\"cancelClicked()\">{{ 'Cancel' | translate }}</button>\n\n  </div>\n</form>"
 
 /***/ }),
 
@@ -83,7 +221,6 @@ var BrandFormComponent = /** @class */ (function (_super) {
         this.formGroup = new _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormGroup"]({
             name: new _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormControl"](this.data.name, [_angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].required]),
             description: new _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormControl"](this.data.description, [_angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].required]),
-            imgUrl: new _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormControl"](this.data.imgUrl, [_angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].required]),
         });
     };
     BrandFormComponent.prototype.submitClicked = function () {
@@ -545,7 +682,7 @@ var EditBrandComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<h1>BRAND CREATOR</h1>\n<brand-form class=\"flex-grow-1\"\n    [data]=\"data\"        \n    (accept)=\"submit($event)\"\n    (cancel)=\"cancel()\"\n    [validationErrors]=\"validationErrors\"\n    (dataChange)=\"dataChanged()\">\n</brand-form>"
+module.exports = "<h1>ADD NEW BRAND</h1>\n<brand-form class=\"flex-grow-1\"\n    [data]=\"data\"        \n    (accept)=\"submit($event)\"\n    (cancel)=\"cancel()\"\n    [validationErrors]=\"validationErrors\"\n    (dataChange)=\"dataChanged()\">\n</brand-form>"
 
 /***/ }),
 
@@ -578,7 +715,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _ui_helpers_mixin_decorator__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../../../ui/helpers/mixin-decorator */ "./src/app/ui/helpers/mixin-decorator.ts");
 /* harmony import */ var _error_handling_services_error_handling_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../../../../error-handling/services/error-handling.service */ "./src/app/error-handling/services/error-handling.service.ts");
 /* harmony import */ var _error_handling_services_toastr_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../../../../error-handling/services/toastr.service */ "./src/app/error-handling/services/toastr.service.ts");
-/* harmony import */ var _services_brands_service__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../services/brands.service */ "./src/app/ms-back-office/modules/ms-brands/services/brands.service.ts");
+/* harmony import */ var _models_brand__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../models/brand */ "./src/app/ms-back-office/modules/ms-brands/models/brand.ts");
+/* harmony import */ var _services_brands_service__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../../services/brands.service */ "./src/app/ms-back-office/modules/ms-brands/services/brands.service.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -588,12 +726,16 @@ var __decorate = (undefined && undefined.__decorate) || function (decorators, ta
 var __metadata = (undefined && undefined.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
+var __param = (undefined && undefined.__param) || function (paramIndex, decorator) {
+    return function (target, key) { decorator(target, key, paramIndex); }
+};
 
 
 //
 
 
 //
+
 
 
 
@@ -602,7 +744,8 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 var errorKey = 'Error';
 var savedStyleMessageKey = 'Saved Style Message';
 var NewBrandComponent = /** @class */ (function () {
-    function NewBrandComponent(activatedRoute, brandsService, errorHandlingService, router, translate, toastr, dialog) {
+    function NewBrandComponent(dialogRef, activatedRoute, brandsService, errorHandlingService, router, translate, toastr, dialog, datas) {
+        this.dialogRef = dialogRef;
         this.activatedRoute = activatedRoute;
         this.brandsService = brandsService;
         this.errorHandlingService = errorHandlingService;
@@ -610,6 +753,7 @@ var NewBrandComponent = /** @class */ (function () {
         this.translate = translate;
         this.toastr = toastr;
         this.dialog = dialog;
+        this.datas = datas;
         this.data = {
             name: "",
             description: ""
@@ -628,7 +772,8 @@ var NewBrandComponent = /** @class */ (function () {
         this.close();
     };
     NewBrandComponent.prototype.close = function () {
-        this.router.navigate(this.activatedRoute.snapshot.data.closeRouteCommand, { relativeTo: this.activatedRoute });
+        this.dialogRef.close();
+        //this.router.navigate(this.activatedRoute.snapshot.data.closeRouteCommand, { relativeTo: this.activatedRoute });
     };
     NewBrandComponent.prototype.createUser = function (data) {
         var _this = this;
@@ -649,15 +794,52 @@ var NewBrandComponent = /** @class */ (function () {
             styles: [__webpack_require__(/*! ./new-brand.component.scss */ "./src/app/ms-back-office/modules/ms-brands/components/new-brand/new-brand.component.scss")]
         }),
         Object(_ui_helpers_mixin_decorator__WEBPACK_IMPORTED_MODULE_5__["Mixin"])([_ui_helpers_component_can_deactivate__WEBPACK_IMPORTED_MODULE_4__["CanDeactivateMixin"]]),
-        __metadata("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_1__["ActivatedRoute"],
-            _services_brands_service__WEBPACK_IMPORTED_MODULE_8__["BrandsService"],
+        __param(8, Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Inject"])(_angular_material__WEBPACK_IMPORTED_MODULE_2__["MAT_DIALOG_DATA"])),
+        __metadata("design:paramtypes", [_angular_material__WEBPACK_IMPORTED_MODULE_2__["MatDialogRef"],
+            _angular_router__WEBPACK_IMPORTED_MODULE_1__["ActivatedRoute"],
+            _services_brands_service__WEBPACK_IMPORTED_MODULE_9__["BrandsService"],
             _error_handling_services_error_handling_service__WEBPACK_IMPORTED_MODULE_6__["ErrorHandlingService"],
             _angular_router__WEBPACK_IMPORTED_MODULE_1__["Router"],
             _ngx_translate_core__WEBPACK_IMPORTED_MODULE_3__["TranslateService"],
             _error_handling_services_toastr_service__WEBPACK_IMPORTED_MODULE_7__["ToastrService"],
-            _angular_material__WEBPACK_IMPORTED_MODULE_2__["MatDialog"]])
+            _angular_material__WEBPACK_IMPORTED_MODULE_2__["MatDialog"],
+            _models_brand__WEBPACK_IMPORTED_MODULE_8__["Brand"]])
     ], NewBrandComponent);
     return NewBrandComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/ms-back-office/modules/ms-brands/models/brand.ts":
+/*!******************************************************************!*\
+  !*** ./src/app/ms-back-office/modules/ms-brands/models/brand.ts ***!
+  \******************************************************************/
+/*! exports provided: Brand, BrandsListResponse, BrandResponse */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Brand", function() { return Brand; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "BrandsListResponse", function() { return BrandsListResponse; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "BrandResponse", function() { return BrandResponse; });
+var Brand = /** @class */ (function () {
+    function Brand() {
+    }
+    return Brand;
+}());
+
+var BrandsListResponse = /** @class */ (function () {
+    function BrandsListResponse() {
+    }
+    return BrandsListResponse;
+}());
+
+var BrandResponse = /** @class */ (function () {
+    function BrandResponse() {
+    }
+    return BrandResponse;
 }());
 
 
@@ -677,9 +859,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
 /* harmony import */ var _components_brands_table_brands_table_component__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./components/brands-table/brands-table.component */ "./src/app/ms-back-office/modules/ms-brands/components/brands-table/brands-table.component.ts");
-/* harmony import */ var _components_delete_brand_delete_brand_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./components/delete-brand/delete-brand.component */ "./src/app/ms-back-office/modules/ms-brands/components/delete-brand/delete-brand.component.ts");
-/* harmony import */ var _components_edit_brand_edit_brand_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./components/edit-brand/edit-brand.component */ "./src/app/ms-back-office/modules/ms-brands/components/edit-brand/edit-brand.component.ts");
-/* harmony import */ var _components_new_brand_new_brand_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./components/new-brand/new-brand.component */ "./src/app/ms-back-office/modules/ms-brands/components/new-brand/new-brand.component.ts");
+/* harmony import */ var _components_brand_creator_brand_creator_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./components/brand-creator/brand-creator.component */ "./src/app/ms-back-office/modules/ms-brands/components/brand-creator/brand-creator.component.ts");
+/* harmony import */ var _components_delete_brand_delete_brand_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./components/delete-brand/delete-brand.component */ "./src/app/ms-back-office/modules/ms-brands/components/delete-brand/delete-brand.component.ts");
+/* harmony import */ var _components_edit_brand_edit_brand_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./components/edit-brand/edit-brand.component */ "./src/app/ms-back-office/modules/ms-brands/components/edit-brand/edit-brand.component.ts");
 /* harmony import */ var _config_services_config_resolve_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../../config/services/config-resolve.service */ "./src/app/config/services/config-resolve.service.ts");
 /* harmony import */ var _ms_brands_services_brands_resolve_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../ms-brands/services/brands-resolve.service */ "./src/app/ms-back-office/modules/ms-brands/services/brands-resolve.service.ts");
 /* harmony import */ var _ms_collections_services_collections_resolve_service__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../ms-collections/services/collections-resolve.service */ "./src/app/ms-back-office/modules/ms-collections/services/collections-resolve.service.ts");
@@ -715,7 +897,7 @@ var routes = [
     },
     {
         path: 'create',
-        component: _components_new_brand_new_brand_component__WEBPACK_IMPORTED_MODULE_5__["NewBrandComponent"],
+        component: _components_brand_creator_brand_creator_component__WEBPACK_IMPORTED_MODULE_3__["BrandCreatorComponent"],
         resolve: {
             config: _config_services_config_resolve_service__WEBPACK_IMPORTED_MODULE_6__["ConfigResolveService"],
             brands: _ms_brands_services_brands_resolve_service__WEBPACK_IMPORTED_MODULE_7__["BrandsResolveService"],
@@ -725,7 +907,7 @@ var routes = [
     },
     {
         path: 'edit/:id',
-        component: _components_edit_brand_edit_brand_component__WEBPACK_IMPORTED_MODULE_4__["EditBrandComponent"],
+        component: _components_edit_brand_edit_brand_component__WEBPACK_IMPORTED_MODULE_5__["EditBrandComponent"],
         //canActivate: [AuthGuardService],
         resolve: {
             config: _config_services_config_resolve_service__WEBPACK_IMPORTED_MODULE_6__["ConfigResolveService"],
@@ -735,7 +917,7 @@ var routes = [
     },
     {
         path: 'delete/:id',
-        component: _components_delete_brand_delete_brand_component__WEBPACK_IMPORTED_MODULE_3__["DeleteBrandComponent"],
+        component: _components_delete_brand_delete_brand_component__WEBPACK_IMPORTED_MODULE_4__["DeleteBrandComponent"],
         //canActivate: [AuthGuardService],
         resolve: {
             config: _config_services_config_resolve_service__WEBPACK_IMPORTED_MODULE_6__["ConfigResolveService"],
@@ -785,12 +967,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_material_card__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! @angular/material/card */ "./node_modules/@angular/material/esm5/card.es5.js");
 /* harmony import */ var _ngx_translate_core__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! @ngx-translate/core */ "./node_modules/@ngx-translate/core/fesm5/ngx-translate-core.js");
 /* harmony import */ var _ui_modules_ask_before_refresh_ask_before_refresh_module__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ../../../ui/modules/ask-before-refresh/ask-before-refresh.module */ "./src/app/ui/modules/ask-before-refresh/ask-before-refresh.module.ts");
-/* harmony import */ var _components_brands_table_brands_table_component__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./components/brands-table/brands-table.component */ "./src/app/ms-back-office/modules/ms-brands/components/brands-table/brands-table.component.ts");
-/* harmony import */ var _ms_brands_routing_module__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./ms-brands-routing.module */ "./src/app/ms-back-office/modules/ms-brands/ms-brands-routing.module.ts");
-/* harmony import */ var _components_brand_form_brand_form_component__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./components/brand-form/brand-form.component */ "./src/app/ms-back-office/modules/ms-brands/components/brand-form/brand-form.component.ts");
-/* harmony import */ var _components_new_brand_new_brand_component__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./components/new-brand/new-brand.component */ "./src/app/ms-back-office/modules/ms-brands/components/new-brand/new-brand.component.ts");
-/* harmony import */ var _components_edit_brand_edit_brand_component__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ./components/edit-brand/edit-brand.component */ "./src/app/ms-back-office/modules/ms-brands/components/edit-brand/edit-brand.component.ts");
-/* harmony import */ var _components_delete_brand_delete_brand_component__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ./components/delete-brand/delete-brand.component */ "./src/app/ms-back-office/modules/ms-brands/components/delete-brand/delete-brand.component.ts");
+/* harmony import */ var _ui_modules_images_card_images_card_module__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ../../../ui/modules/images-card/images-card.module */ "./src/app/ui/modules/images-card/images-card.module.ts");
+/* harmony import */ var _components_brands_table_brands_table_component__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./components/brands-table/brands-table.component */ "./src/app/ms-back-office/modules/ms-brands/components/brands-table/brands-table.component.ts");
+/* harmony import */ var _ms_brands_routing_module__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./ms-brands-routing.module */ "./src/app/ms-back-office/modules/ms-brands/ms-brands-routing.module.ts");
+/* harmony import */ var _components_brand_creator_brand_creator_component__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./components/brand-creator/brand-creator.component */ "./src/app/ms-back-office/modules/ms-brands/components/brand-creator/brand-creator.component.ts");
+/* harmony import */ var _components_brand_form_brand_form_component__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ./components/brand-form/brand-form.component */ "./src/app/ms-back-office/modules/ms-brands/components/brand-form/brand-form.component.ts");
+/* harmony import */ var _components_new_brand_new_brand_component__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ./components/new-brand/new-brand.component */ "./src/app/ms-back-office/modules/ms-brands/components/new-brand/new-brand.component.ts");
+/* harmony import */ var _components_edit_brand_edit_brand_component__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ./components/edit-brand/edit-brand.component */ "./src/app/ms-back-office/modules/ms-brands/components/edit-brand/edit-brand.component.ts");
+/* harmony import */ var _components_delete_brand_delete_brand_component__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! ./components/delete-brand/delete-brand.component */ "./src/app/ms-back-office/modules/ms-brands/components/delete-brand/delete-brand.component.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -823,6 +1007,8 @@ var __decorate = (undefined && undefined.__decorate) || function (decorators, ta
 
 
 
+
+
 var MsBrandsModule = /** @class */ (function () {
     function MsBrandsModule() {
     }
@@ -837,6 +1023,8 @@ var MsBrandsModule = /** @class */ (function () {
                 _angular_material_bottom_sheet__WEBPACK_IMPORTED_MODULE_4__["MatBottomSheetModule"],
                 _angular_material_button__WEBPACK_IMPORTED_MODULE_5__["MatButtonModule"],
                 _angular_material_card__WEBPACK_IMPORTED_MODULE_12__["MatCardModule"],
+                _angular_material__WEBPACK_IMPORTED_MODULE_6__["MatCheckboxModule"],
+                _angular_material__WEBPACK_IMPORTED_MODULE_6__["MatDialogModule"],
                 _angular_material__WEBPACK_IMPORTED_MODULE_6__["MatFormFieldModule"],
                 _angular_material_icon__WEBPACK_IMPORTED_MODULE_7__["MatIconModule"],
                 _angular_material__WEBPACK_IMPORTED_MODULE_6__["MatInputModule"],
@@ -847,26 +1035,219 @@ var MsBrandsModule = /** @class */ (function () {
                 _angular_material_toolbar__WEBPACK_IMPORTED_MODULE_10__["MatToolbarModule"],
                 _angular_material_tooltip__WEBPACK_IMPORTED_MODULE_11__["MatTooltipModule"],
                 _ngx_translate_core__WEBPACK_IMPORTED_MODULE_13__["TranslateModule"],
-                _ms_brands_routing_module__WEBPACK_IMPORTED_MODULE_16__["MsBrandsRoutingModule"],
-                _ui_modules_ask_before_refresh_ask_before_refresh_module__WEBPACK_IMPORTED_MODULE_14__["AskBeforeRefreshModule"]
+                _ms_brands_routing_module__WEBPACK_IMPORTED_MODULE_17__["MsBrandsRoutingModule"],
+                _ui_modules_ask_before_refresh_ask_before_refresh_module__WEBPACK_IMPORTED_MODULE_14__["AskBeforeRefreshModule"],
+                _ui_modules_images_card_images_card_module__WEBPACK_IMPORTED_MODULE_15__["ImagesCardModule"],
             ],
             declarations: [
-                _components_brands_table_brands_table_component__WEBPACK_IMPORTED_MODULE_15__["BrandsTableComponent"],
-                _components_brand_form_brand_form_component__WEBPACK_IMPORTED_MODULE_17__["BrandFormComponent"],
-                _components_new_brand_new_brand_component__WEBPACK_IMPORTED_MODULE_18__["NewBrandComponent"],
-                _components_edit_brand_edit_brand_component__WEBPACK_IMPORTED_MODULE_19__["EditBrandComponent"],
-                _components_delete_brand_delete_brand_component__WEBPACK_IMPORTED_MODULE_20__["DeleteBrandComponent"]
+                _components_brands_table_brands_table_component__WEBPACK_IMPORTED_MODULE_16__["BrandsTableComponent"],
+                _components_brand_creator_brand_creator_component__WEBPACK_IMPORTED_MODULE_18__["BrandCreatorComponent"],
+                _components_brand_form_brand_form_component__WEBPACK_IMPORTED_MODULE_19__["BrandFormComponent"],
+                _components_new_brand_new_brand_component__WEBPACK_IMPORTED_MODULE_20__["NewBrandComponent"],
+                _components_edit_brand_edit_brand_component__WEBPACK_IMPORTED_MODULE_21__["EditBrandComponent"],
+                _components_delete_brand_delete_brand_component__WEBPACK_IMPORTED_MODULE_22__["DeleteBrandComponent"]
             ],
-            exports: [
-                _components_brands_table_brands_table_component__WEBPACK_IMPORTED_MODULE_15__["BrandsTableComponent"],
-                _components_brand_form_brand_form_component__WEBPACK_IMPORTED_MODULE_17__["BrandFormComponent"],
-                _components_new_brand_new_brand_component__WEBPACK_IMPORTED_MODULE_18__["NewBrandComponent"],
-                _components_edit_brand_edit_brand_component__WEBPACK_IMPORTED_MODULE_19__["EditBrandComponent"],
-                _components_delete_brand_delete_brand_component__WEBPACK_IMPORTED_MODULE_20__["DeleteBrandComponent"]
+            entryComponents: [
+                _components_new_brand_new_brand_component__WEBPACK_IMPORTED_MODULE_20__["NewBrandComponent"],
             ]
         })
     ], MsBrandsModule);
     return MsBrandsModule;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/ms-back-office/modules/ms-collections/services/collections-resolve.service.ts":
+/*!***********************************************************************************************!*\
+  !*** ./src/app/ms-back-office/modules/ms-collections/services/collections-resolve.service.ts ***!
+  \***********************************************************************************************/
+/*! exports provided: CollectionsResolveService */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CollectionsResolveService", function() { return CollectionsResolveService; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! rxjs/operators */ "./node_modules/rxjs/_esm5/operators/index.js");
+/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! rxjs */ "./node_modules/rxjs/_esm5/index.js");
+/* harmony import */ var _ngx_translate_core__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @ngx-translate/core */ "./node_modules/@ngx-translate/core/fesm5/ngx-translate-core.js");
+/* harmony import */ var _error_handling_services_error_handling_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../../error-handling/services/error-handling.service */ "./src/app/error-handling/services/error-handling.service.ts");
+/* harmony import */ var _collections_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./collections.service */ "./src/app/ms-back-office/modules/ms-collections/services/collections.service.ts");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+//
+
+
+
+//
+
+
+//import { setTranslations } from '@c/ngx-translate';
+var errorKey = 'Error';
+var CollectionsResolveService = /** @class */ (function () {
+    function CollectionsResolveService(collectionsService, translate, errorHandlingService) {
+        this.collectionsService = collectionsService;
+        this.translate = translate;
+        this.errorHandlingService = errorHandlingService;
+        //setTranslations(this.translate, TRANSLATIONS);
+    }
+    CollectionsResolveService.prototype.resolve = function (route) {
+        var _this = this;
+        return this.collectionsService.getAllCollections().pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_1__["map"])(function (brands) { return brands; }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_1__["catchError"])(function (err) {
+            _this.errorHandlingService.handleUiError(errorKey, err);
+            return Object(rxjs__WEBPACK_IMPORTED_MODULE_2__["of"])(null);
+        }));
+    };
+    CollectionsResolveService = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"])({
+            providedIn: 'root'
+        }),
+        __metadata("design:paramtypes", [_collections_service__WEBPACK_IMPORTED_MODULE_5__["CollectionsService"],
+            _ngx_translate_core__WEBPACK_IMPORTED_MODULE_3__["TranslateService"],
+            _error_handling_services_error_handling_service__WEBPACK_IMPORTED_MODULE_4__["ErrorHandlingService"]])
+    ], CollectionsResolveService);
+    return CollectionsResolveService;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/ms-back-office/modules/ms-collections/services/collections.service.ts":
+/*!***************************************************************************************!*\
+  !*** ./src/app/ms-back-office/modules/ms-collections/services/collections.service.ts ***!
+  \***************************************************************************************/
+/*! exports provided: ASCENDING, CollectionsService */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ASCENDING", function() { return ASCENDING; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CollectionsService", function() { return CollectionsService; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _error_handling_services_error_handling_http_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../../error-handling/services/error-handling-http.service */ "./src/app/error-handling/services/error-handling-http.service.ts");
+/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! rxjs */ "./node_modules/rxjs/_esm5/index.js");
+/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! rxjs/operators */ "./node_modules/rxjs/_esm5/operators/index.js");
+/* harmony import */ var _config_services_config_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../../config/services/config.service */ "./src/app/config/services/config.service.ts");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+//
+
+
+//
+
+var ASCENDING = 'asc';
+var CollectionsService = /** @class */ (function () {
+    function CollectionsService(configService, http) {
+        this.configService = configService;
+        this.http = http;
+        this.previousFilter = {};
+        this.previousSortColumn = 'name';
+        this.previousSortDirection = 'asc';
+        this.previousPageIndex = 0;
+        this.previousPageSize = 10;
+        this.collectionsList = new rxjs__WEBPACK_IMPORTED_MODULE_2__["BehaviorSubject"]({ dataCount: 0, data: [] });
+        this.apiEndpoint = this.configService.config.apiConfigs.collections.apiEndpoint;
+    }
+    //
+    // Begin functions that most services have.
+    //
+    CollectionsService.prototype.getCollections = function (filter, sortColumn, sortDirection, pageIndex, pageSize) {
+        this.previousFilter = filter;
+        this.previousSortColumn = sortColumn;
+        this.previousSortDirection = sortDirection;
+        this.previousPageIndex = pageIndex;
+        this.previousPageSize = pageSize;
+        var queryParams = this.formatQueryParams(filter, sortColumn, sortDirection, pageIndex, pageSize);
+        return this.http.get(this.apiEndpoint + queryParams);
+    };
+    //
+    // Call this function to repeat the previous query, after deleting
+    // a brand for example.
+    //
+    CollectionsService.prototype.reloadCollections = function () {
+        return this.getCollections(this.previousFilter, this.previousSortColumn, this.previousSortDirection, this.previousPageIndex, this.previousPageSize);
+    };
+    CollectionsService.prototype.postCollection = function (data) {
+        return this.http.post(this.apiEndpoint, JSON.stringify(data));
+    };
+    CollectionsService.prototype.getCollection = function (id) {
+        return this.http.get(this.apiEndpoint + id + '/');
+    };
+    CollectionsService.prototype.putCollection = function (data) {
+        return this.http.put(this.apiEndpoint + data.id + '/', JSON.stringify(data));
+    };
+    CollectionsService.prototype.deleteCollection = function (id) {
+        return this.http.delete(this.apiEndpoint + id + '/');
+    };
+    CollectionsService.prototype.formatQueryParams = function (filter, sortColumn, sortDirection, pageIndex, pageSize) {
+        var queryParams = '';
+        if (sortColumn) {
+            var ordering = '';
+            if (sortDirection === 'desc') {
+                ordering = '-';
+            }
+            ordering += sortColumn;
+            queryParams += queryParams.length > 0 ? '&' : '?';
+            queryParams += "ordering=" + ordering;
+        }
+        if (pageIndex !== undefined) {
+            queryParams += queryParams.length > 0 ? '&' : '?';
+            queryParams += "offset=" + pageIndex * pageSize;
+        }
+        if (pageSize !== undefined) {
+            queryParams += queryParams.length > 0 ? '&' : '?';
+            queryParams += "limit=" + pageSize;
+        }
+        if (filter.name && filter.name.length > 0) {
+            queryParams += queryParams.length > 0 ? '&' : '?';
+            queryParams += "name=" + filter.name;
+        }
+        if (filter.brand && filter.brand.length > 0) {
+            queryParams += queryParams.length > 0 ? '&' : '?';
+            queryParams += "brand=" + filter.brand;
+        }
+        return queryParams;
+    };
+    //
+    // End functions that most services have.
+    //
+    //
+    // Begin special functions specific to only this service.
+    //
+    CollectionsService.prototype.getAllCollections = function () {
+        return this.http.get(this.apiEndpoint)
+            .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["map"])(function (response) {
+            return response.data;
+        }));
+    };
+    CollectionsService = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"])({
+            providedIn: 'root'
+        }),
+        __metadata("design:paramtypes", [_config_services_config_service__WEBPACK_IMPORTED_MODULE_4__["ConfigService"],
+            _error_handling_services_error_handling_http_service__WEBPACK_IMPORTED_MODULE_1__["ErrorHandlingHttpService"]])
+    ], CollectionsService);
+    return CollectionsService;
 }());
 
 

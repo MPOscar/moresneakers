@@ -576,7 +576,7 @@ var EditReleaseComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<h1>RELEASE CREATOR</h1>\n<release-form class=\"flex-grow-1\"\n    [brands]=\"brands\"\n    [categories]=\"categories\"\n    [collections]=\"collections\"\n    [data]=\"data\"        \n    (accept)=\"submit($event)\"\n    (cancel)=\"cancel()\"\n    [validationErrors]=\"validationErrors\"\n    (dataChange)=\"dataChanged()\">\n</release-form>"
+module.exports = "<div fxLayout=\"row\" class=\"justify-content-space-between flex-grow-0\">\n    <h1>RELEASE CREATOR</h1>\n    <mat-slide-toggle class=\"margin-right-25px padding-top-15px padding-bottom-15px\">Customized</mat-slide-toggle>\n</div>\n\n<release-form class=\"flex-grow-1\"\n    [brands]=\"brands\"\n    [categories]=\"categories\"\n    [collections]=\"collections\"\n    [data]=\"data\"        \n    (accept)=\"submit($event)\"\n    (cancel)=\"cancel()\"\n    [validationErrors]=\"validationErrors\"\n    (dataChange)=\"dataChanged()\">\n</release-form>"
 
 /***/ }),
 
@@ -697,7 +697,7 @@ var NewReleaseComponent = /** @class */ (function () {
                         console.log("main image........................................");
                         //console.log()
                         var mainImage = {
-                            mainImage: response.data.id
+                            mainImage: response.data.url
                         };
                         _this.releasesImgesService.patchReleaseMainImage(_this.releaseId, mainImage).subscribe(function (response) {
                             console.log("new principal");
@@ -777,7 +777,7 @@ var NewReleaseComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<form class=\"flex-grow-1 min-height-0 display-flex flex-direction-column\" [askBeforeRefresh]=\"formGroup.dirty\" [formGroup]=\"formGroup\"\n  novalidate role=\"form\" (ngSubmit)=\"submitClicked()\" autocomplete=\"off\" inputFocus>\n\n\n  <div class=\"flex-grow-1 overflow-auto display-flex flex-direction-column\">\n\n    <div class=\"flex-grow-1 flex-shrink-0 display-flex flex-direction-column\">\n\n      <div class=\"mb-20\" fxFlex fxLayout=\"row\" fxLayout.lt-md=\"column\" fxLayoutGap=\"20px\">\n\n        <div [fxFlex]=\"25\">\n\n          <mat-form-field class=\"width-100pc margin-left-16px\">\n\n            <mat-label>Release Name</mat-label>\n\n            <input matInput type=\"text\" formControlName=\"name\" required>\n\n          </mat-form-field>\n\n          <mat-form-field class=\"width-100pc margin-left-16px\">\n\n            <mat-label>SKu</mat-label>\n\n            <input matInput type=\"text\" formControlName=\"sku\">\n\n          </mat-form-field>\n\n          <mat-form-field class=\"width-100pc\">\n\n            <mat-label>Collection</mat-label>\n\n            <mat-select placeholder=\"Select\" formControlName=\"collection\">\n\n              <mat-option *ngFor=\"let collection of collections\" [value]=\"collection.id\">\n\n                {{collection.name}}\n\n              </mat-option>\n\n            </mat-select>\n\n          </mat-form-field>\n\n          <mat-form-field class=\"width-100pc margin-left-16px\">\n\n            <mat-label>Description</mat-label>\n\n            <textarea matInput formControlName=\"description\"></textarea>\n\n          </mat-form-field>\n\n          <mat-form-field class=\"width-100pc\">\n\n            <mat-label>Gender</mat-label>\n\n            <mat-select placeholder=\"Select\" formControlName=\"gender\">\n\n              <mat-option *ngFor=\"let gender of genders\" [value]=\"gender.id\">\n\n                {{gender.name}}\n\n              </mat-option>\n\n            </mat-select>\n\n          </mat-form-field>\n\n\n\n          <mat-form-field class=\"width-100pc margin-left-16px\">\n\n            <mat-label>Price</mat-label>\n\n            <input matInput type=\"number\" formControlName=\"price\">\n\n          </mat-form-field>\n\n\n\n          <mat-slide-toggle formControlName=\"hot\">Hot</mat-slide-toggle>\n\n\n        </div>\n\n        <div [fxFlex]=\"25\">\n\n          <mat-form-field class=\"width-100pc\">\n\n            <input matInput [matDatepicker]=\"picker\" placeholder=\"Release Date\">\n\n            <mat-datepicker-toggle matSuffix [for]=\"picker\"></mat-datepicker-toggle>\n\n            <mat-datepicker #picker></mat-datepicker>\n\n          </mat-form-field>\n\n          <mat-form-field class=\"width-100pc\">\n\n            <mat-label>Color</mat-label>\n\n            <mat-select placeholder=\"Select\" formControlName=\"color\">\n\n              <mat-option *ngFor=\"let color of colors\" [value]=\"color.id\">\n\n                {{color.name}}\n\n              </mat-option>\n\n            </mat-select>\n\n          </mat-form-field>\n\n          <mat-form-field class=\"width-100pc margin-left-16px\">\n\n            <mat-label>Suplied Color</mat-label>\n\n            <input matInput type=\"text\" formControlName=\"supliedColor\">\n\n          </mat-form-field>\n\n          <mat-slide-toggle formControlName=\"children\">Children</mat-slide-toggle>\n\n        </div>\n\n        <div [fxFlex]=\"50\">\n\n          <images-card formControlName=\"faces\" name=\"faces\" class=\"flex-grow-1\"></images-card>\n\n        </div>\n\n      </div>\n\n    </div>\n\n  </div>\n\n  <div class=\"margin-right-25px padding-top-25px padding-bottom-25px flex-shrink-0 display-flex border-top-style-solid border-top-width-2px border-top-color-grey\">\n\n    <button mat-raised-button type=\"submit\" color=\"primary\">{{ 'Save' | translate }}</button>\n\n    <button mat-raised-button type=\"button\" class=\"margin-left-10px\" (click)=\"cancelClicked()\">{{ 'Cancel' | translate }}</button>\n\n  </div>\n\n</form>\n\n<http-request-indicator [urlExpressions]=\"[\n      configService.config.apiConfigs.releases.apiEndpoint + '.*']\">\n</http-request-indicator>"
+module.exports = "<form class=\"flex-grow-1 min-height-0 display-flex flex-direction-column\" [askBeforeRefresh]=\"formGroup.dirty\" [formGroup]=\"formGroup\"\n  novalidate role=\"form\" (ngSubmit)=\"submitClicked()\" autocomplete=\"off\" inputFocus>\n\n\n  <div class=\"flex-grow-1 overflow-auto display-flex flex-direction-column\">\n\n    <div class=\"flex-grow-1 flex-shrink-0 display-flex flex-direction-column\">\n\n      <div class=\"mb-20\" fxFlex fxLayout=\"row\" fxLayout.lt-md=\"column\" fxLayoutGap=\"20px\">\n\n        <div [fxFlex]=\"25\">\n\n          <mat-form-field class=\"width-100pc\">\n\n            <mat-label>Release Name</mat-label>\n\n            <input matInput type=\"text\" formControlName=\"name\" required>\n\n          </mat-form-field>\n\n          <mat-form-field class=\"width-100pc\">\n\n            <mat-label>SKU</mat-label>\n\n            <input matInput type=\"text\" formControlName=\"sku\">\n\n          </mat-form-field>\n\n          <mat-form-field class=\"width-100pc\">\n\n            <mat-label>Description</mat-label>\n\n            <textarea matInput formControlName=\"description\"></textarea>\n\n          </mat-form-field>\n\n          <mat-form-field class=\"width-100pc\">\n\n            <mat-label>Gender</mat-label>\n\n            <mat-select placeholder=\"Select\" formControlName=\"gender\">\n\n              <mat-option *ngFor=\"let gender of genders\" [value]=\"gender.id\">\n\n                {{gender.name}}\n\n              </mat-option>\n\n            </mat-select>\n\n          </mat-form-field>\n\n\n          <mat-slide-toggle class=\"padding-top-15px padding-bottom-15px\" formControlName=\"hot\">Hot</mat-slide-toggle>\n\n          <mat-form-field class=\"width-100pc\">\n\n            <mat-label>Collection</mat-label>\n\n            <mat-select placeholder=\"Select\" formControlName=\"collection\">\n\n              <mat-option *ngFor=\"let collection of collections\" [value]=\"collection.id\">\n\n                {{collection.name}}\n\n              </mat-option>\n\n            </mat-select>\n\n          </mat-form-field>\n\n          <mat-form-field class=\"width-100pc\">\n\n            <mat-label>Price</mat-label>\n\n            <input matInput type=\"number\" formControlName=\"price\">\n\n          </mat-form-field>\n\n        </div>\n\n        <div [fxFlex]=\"25\">\n\n          <mat-form-field class=\"width-100pc\">\n\n            <input matInput [matDatepicker]=\"picker\" placeholder=\"Release Date\">\n\n            <mat-datepicker-toggle matSuffix [for]=\"picker\"></mat-datepicker-toggle>\n\n            <mat-datepicker #picker></mat-datepicker>\n\n          </mat-form-field>\n\n          <mat-checkbox class=\"padding-bottom-15px\" value=\"primary\" matTooltip=\"{{ 'Upcomming' | translate }}\">Upcoming</mat-checkbox>\n\n          <mat-form-field class=\"margin-top-60px  width-100pc\">\n\n            <mat-label>Colors</mat-label>\n\n            <mat-select placeholder=\"Select\" formControlName=\"color\" multiple>\n\n              <mat-option *ngFor=\"let color of colors\" [value]=\"color.id\">\n\n                {{color.name}}\n\n              </mat-option>\n\n            </mat-select>\n\n          </mat-form-field>\n\n          <mat-form-field class=\"width-100pc margin-left-16px\">\n\n            <mat-label>Suplied Color</mat-label>\n\n            <input matInput type=\"text\" formControlName=\"supliedColor\">\n\n          </mat-form-field>\n\n          <mat-slide-toggle class=\"padding-top-15px padding-bottom-15px\" formControlName=\"children\">Children</mat-slide-toggle>\n\n        </div>\n\n        <div [fxFlex]=\"50\" class=\"border margin-left-25px margin-right-25px border-2px-solid-black\">\n\n          <images-card class=\"flex-grow-1 padding-10px\" formControlName=\"faces\" name=\"faces\"></images-card>\n\n        </div>\n\n      </div>\n\n      <div class=\"align-items-center padding-top-25px padding-bottom-25px\" [fxFlex]=\"100\" fxLayout=\"column\" fxLayout.lt-md=\"column\">\n\n        <button mat-stroked-button type=\"button\" class=\"max-width-480px\" (click)=\"showModal()\">Make an offers for this Release</button>\n\n      </div>\n\n      <div class=\"flex-grow-1 overflow-auto display-flex\">\n\n        <table class=\"margin-top-10px margin-right-25px width-100pct\" mat-table [dataSource]=\"releases\" matSort [matSortActive]=\"releasesService.previousSortColumn\"\n          [matSortDirection]=\"releasesService.previousSortDirection\" matSortDisableClear (matSortChange)=\"onSort()\">\n\n          <ng-container matColumnDef=\"name\">\n            <th mat-header-cell *matHeaderCellDef mat-sort-header>\n              Name\n            </th>\n            <td mat-cell *matCellDef=\"let element\"> {{ element.name }} </td>\n          </ng-container>\n\n          <ng-container matColumnDef=\"description\">\n            <th mat-header-cell *matHeaderCellDef mat-sort-header>\n              Description\n            </th>\n            <td mat-cell *matCellDef=\"let element\"> {{ element.description }} </td>\n          </ng-container>\n\n          <ng-container matColumnDef=\"sku\">\n            <th mat-header-cell *matHeaderCellDef mat-sort-header>\n              Sku\n            </th>\n            <td mat-cell *matCellDef=\"let element\"> {{ element.sku }} </td>\n          </ng-container>\n\n          <ng-container matColumnDef=\"images\">\n            <th mat-header-cell *matHeaderCellDef mat-sort-header>\n              Images\n            </th>\n            <td mat-cell *matCellDef=\"let element\"> {{ element.category }} </td>\n          </ng-container>\n\n          <ng-container matColumnDef=\"gender\">\n            <th mat-header-cell *matHeaderCellDef mat-sort-header>\n              Gender\n            </th>\n            <td mat-cell *matCellDef=\"let element\"> {{ element.gender }} </td>\n          </ng-container>\n\n          <ng-container matColumnDef=\"hot\">\n            <th mat-header-cell *matHeaderCellDef mat-sort-header>\n              Hot\n            </th>\n            <td mat-cell *matCellDef=\"let element\"> {{ element.hot }} </td>\n          </ng-container>\n\n          <ng-container matColumnDef=\"actions\">\n            <th mat-header-cell *matHeaderCellDef mat-sort-header>\n            </th>\n            <td mat-cell *matCellDef=\"let element\">\n              <button mat-icon-button color=\"primary\" [matTooltip]=\"Edit\" [routerLink]=\"['../edit', element.id]\">\n                <mat-icon>edit</mat-icon>\n              </button>\n              <button mat-icon-button color=\"primary\" [matTooltip]=\"Delete\" [routerLink]=\"['../delete', element.id]\">\n                <mat-icon>delete</mat-icon>\n              </button>\n            </td>\n          </ng-container>\n\n          <tr mat-header-row *matHeaderRowDef=\"displayedColumns\"></tr>\n          <tr mat-row *matRowDef=\"let row; columns: displayedColumns;\" [ngClass]=\"row.is_active ? '' : 'text-decoration-line-through'\">\n          </tr>\n\n        </table>\n\n      </div>\n\n      <div class=\"margin-right-25px padding-top-15px padding-bottom-15px flex-shrink-0 display-flex border-top-width-2px border-top-color-grey\">\n        <span class=\"flex-grow-1\"></span>\n        <mat-paginator [length]=\"totalLength\" [pageSizeOptions]=\"[5, 10, 20, 50, 100]\" [pageIndex]=\"\" [pageSize]=\"50\" showFirstLastButtons\n          (page)=\"onPage()\">\n        </mat-paginator>\n      </div>\n\n    </div>\n\n  </div>\n\n  <div class=\"margin-right-25px padding-top-25px padding-bottom-25px flex-shrink-0 display-flex border-top-style-solid border-top-width-2px border-top-color-grey\">\n\n    <button mat-raised-button type=\"submit\" color=\"primary\">{{ 'Save' | translate }}</button>\n\n    <button mat-raised-button type=\"button\" class=\"margin-left-10px\" (click)=\"cancelClicked()\">{{ 'Cancel' | translate }}</button>\n\n  </div>\n\n</form>\n\n<http-request-indicator [urlExpressions]=\"[\n      configService.config.apiConfigs.releases.apiEndpoint + '.*']\">\n</http-request-indicator>"
 
 /***/ }),
 
@@ -788,7 +788,7 @@ module.exports = "<form class=\"flex-grow-1 min-height-0 display-flex flex-direc
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ":host {\n  display: flex;\n  flex-direction: column; }\n\n.height-34px {\n  height: 34px !important; }\n\n.width-100pc {\n  width: 100%; }\n\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvbXMtYmFjay1vZmZpY2UvbW9kdWxlcy9tcy1yZWxlYXNlcy9jb21wb25lbnRzL3JlbGVhc2UtZm9ybS9FOlxcUFJPR1JBTUFDSU9OIElJSVxcbW9yZXNuZWFrZXJzLWJhY2tvZmZpY2Uvc3JjXFxhcHBcXG1zLWJhY2stb2ZmaWNlXFxtb2R1bGVzXFxtcy1yZWxlYXNlc1xcY29tcG9uZW50c1xccmVsZWFzZS1mb3JtXFxyZWxlYXNlLWZvcm0uY29tcG9uZW50LnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFDSSxjQUFhO0VBQ2IsdUJBQXNCLEVBQ3pCOztBQUVEO0VBQ0ksd0JBQXVCLEVBQzFCOztBQUVEO0VBQ0ksWUFBVyxFQUNkIiwiZmlsZSI6InNyYy9hcHAvbXMtYmFjay1vZmZpY2UvbW9kdWxlcy9tcy1yZWxlYXNlcy9jb21wb25lbnRzL3JlbGVhc2UtZm9ybS9yZWxlYXNlLWZvcm0uY29tcG9uZW50LnNjc3MiLCJzb3VyY2VzQ29udGVudCI6WyI6aG9zdCB7XHJcbiAgICBkaXNwbGF5OiBmbGV4O1xyXG4gICAgZmxleC1kaXJlY3Rpb246IGNvbHVtbjtcclxufVxyXG5cclxuLmhlaWdodC0zNHB4IHtcclxuICAgIGhlaWdodDogMzRweCAhaW1wb3J0YW50O1xyXG59XHJcblxyXG4ud2lkdGgtMTAwcGMge1xyXG4gICAgd2lkdGg6IDEwMCU7XHJcbn1cclxuXHJcbiJdfQ== */"
+module.exports = ":host {\n  display: flex;\n  flex-direction: column; }\n\n.height-34px {\n  height: 34px !important; }\n\n.width-100pc {\n  width: 100%; }\n\n::ng-deep .cdk-global-overlay-wrapper > div {\n  height: 90% !important;\n  width: 90% !important;\n  max-width: 90% !important; }\n\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvbXMtYmFjay1vZmZpY2UvbW9kdWxlcy9tcy1yZWxlYXNlcy9jb21wb25lbnRzL3JlbGVhc2UtZm9ybS9FOlxcUFJPR1JBTUFDSU9OIElJSVxcbW9yZXNuZWFrZXJzLWJhY2tvZmZpY2Uvc3JjXFxhcHBcXG1zLWJhY2stb2ZmaWNlXFxtb2R1bGVzXFxtcy1yZWxlYXNlc1xcY29tcG9uZW50c1xccmVsZWFzZS1mb3JtXFxyZWxlYXNlLWZvcm0uY29tcG9uZW50LnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFDSSxjQUFhO0VBQ2IsdUJBQXNCLEVBQ3pCOztBQUVEO0VBQ0ksd0JBQXVCLEVBQzFCOztBQUVEO0VBQ0ksWUFBVyxFQUNkOztBQUVEO0VBQ0ksdUJBQXNCO0VBQ3RCLHNCQUFxQjtFQUNyQiwwQkFBeUIsRUFDMUIiLCJmaWxlIjoic3JjL2FwcC9tcy1iYWNrLW9mZmljZS9tb2R1bGVzL21zLXJlbGVhc2VzL2NvbXBvbmVudHMvcmVsZWFzZS1mb3JtL3JlbGVhc2UtZm9ybS5jb21wb25lbnQuc2NzcyIsInNvdXJjZXNDb250ZW50IjpbIjpob3N0IHtcclxuICAgIGRpc3BsYXk6IGZsZXg7XHJcbiAgICBmbGV4LWRpcmVjdGlvbjogY29sdW1uO1xyXG59XHJcblxyXG4uaGVpZ2h0LTM0cHgge1xyXG4gICAgaGVpZ2h0OiAzNHB4ICFpbXBvcnRhbnQ7XHJcbn1cclxuXHJcbi53aWR0aC0xMDBwYyB7XHJcbiAgICB3aWR0aDogMTAwJTtcclxufVxyXG5cclxuOjpuZy1kZWVwIC5jZGstZ2xvYmFsLW92ZXJsYXktd3JhcHBlciA+IGRpdiB7XHJcbiAgICBoZWlnaHQ6IDkwJSAhaW1wb3J0YW50O1xyXG4gICAgd2lkdGg6IDkwJSAhaW1wb3J0YW50O1xyXG4gICAgbWF4LXdpZHRoOiA5MCUgIWltcG9ydGFudDtcclxuICB9XHJcbiJdfQ== */"
 
 /***/ }),
 
@@ -804,11 +804,15 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ReleaseFormComponent", function() { return ReleaseFormComponent; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm5/forms.js");
-/* harmony import */ var _ngx_translate_core__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @ngx-translate/core */ "./node_modules/@ngx-translate/core/fesm5/ngx-translate-core.js");
-/* harmony import */ var _config_services_config_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../../config/services/config.service */ "./src/app/config/services/config.service.ts");
-/* harmony import */ var _ui_components_base_reactive_form_base_reactive_form_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../../../ui/components/base-reactive-form/base-reactive-form-component */ "./src/app/ui/components/base-reactive-form/base-reactive-form-component.ts");
-/* harmony import */ var _models_color__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../models/color */ "./src/app/ms-back-office/modules/ms-releases/models/color.ts");
-/* harmony import */ var _models_gender__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../models/gender */ "./src/app/ms-back-office/modules/ms-releases/models/gender.ts");
+/* harmony import */ var _angular_material__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/material */ "./node_modules/@angular/material/esm5/material.es5.js");
+/* harmony import */ var _ngx_translate_core__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @ngx-translate/core */ "./node_modules/@ngx-translate/core/fesm5/ngx-translate-core.js");
+/* harmony import */ var _config_services_config_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../../../config/services/config.service */ "./src/app/config/services/config.service.ts");
+/* harmony import */ var _ui_components_base_reactive_form_base_reactive_form_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../../../ui/components/base-reactive-form/base-reactive-form-component */ "./src/app/ui/components/base-reactive-form/base-reactive-form-component.ts");
+/* harmony import */ var _models_color__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../models/color */ "./src/app/ms-back-office/modules/ms-releases/models/color.ts");
+/* harmony import */ var _models_gender__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../models/gender */ "./src/app/ms-back-office/modules/ms-releases/models/gender.ts");
+/* harmony import */ var _services_releases_service__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../services/releases.service */ "./src/app/ms-back-office/modules/ms-releases/services/releases.service.ts");
+/* harmony import */ var _error_handling_services_error_handling_service__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../../../../../error-handling/services/error-handling.service */ "./src/app/error-handling/services/error-handling.service.ts");
+/* harmony import */ var _ms_offers_components_new_offer_new_offer_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../../../ms-offers/components/new-offer/new-offer.component */ "./src/app/ms-back-office/modules/ms-offers/components/new-offer/new-offer.component.ts");
 var __extends = (undefined && undefined.__extends) || (function () {
     var extendStatics = Object.setPrototypeOf ||
         ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
@@ -832,23 +836,44 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 
 //
 
+
+
 //
 
 
 
 
+
+
+
+var errorKey = 'Error';
 var ReleaseFormComponent = /** @class */ (function (_super) {
     __extends(ReleaseFormComponent, _super);
-    function ReleaseFormComponent(configService, formBuilder, translateService) {
+    function ReleaseFormComponent(dialog, configService, errorHandlingService, formBuilder, releasesService, translateService) {
         var _this = _super.call(this, translateService) || this;
+        _this.dialog = dialog;
         _this.configService = configService;
+        _this.errorHandlingService = errorHandlingService;
         _this.formBuilder = formBuilder;
-        _this.genders = _models_gender__WEBPACK_IMPORTED_MODULE_6__["GENDERS"];
-        _this.colors = _models_color__WEBPACK_IMPORTED_MODULE_5__["COLORS"];
+        _this.releasesService = releasesService;
+        _this.displayedColumns = [
+            'name',
+            'description',
+            'sku',
+            'images',
+            'gender',
+            'hot',
+            'actions',
+        ];
+        _this.genders = _models_gender__WEBPACK_IMPORTED_MODULE_7__["GENDERS"];
+        _this.colors = _models_color__WEBPACK_IMPORTED_MODULE_6__["COLORS"];
+        _this.totalLength = 0;
+        _this.releases = [];
         return _this;
         //setTranslations(this.translateService, TRANSLATIONS);
     }
     ReleaseFormComponent.prototype.ngOnInit = function () {
+        var _this = this;
         var validationsErrors = [
             {
                 type: 'required',
@@ -859,6 +884,21 @@ var ReleaseFormComponent = /** @class */ (function (_super) {
         ];
         this.validationErrorMessages = validationsErrors;
         this.createFormGroup();
+        // Begin observing style list changes.
+        this.releasesList = this.releasesService.releasesList.subscribe(function (stylesList) {
+            _this.totalLength = stylesList.dataCount;
+            _this.releases = stylesList.data;
+            if (_this.releases.length === 0 && _this.totalLength > 0 && _this.releasesService.previousPageSize > 0) {
+                _this.releasesService.previousPageIndex =
+                    Math.ceil(_this.totalLength / _this.releasesService.previousPageSize) - 1;
+                _this.releasesService.reloadReleases().subscribe(function (response) {
+                    _this.releasesService.releasesList.next(response);
+                }, function (error) { return _this.errorHandlingService.handleUiError(errorKey, error); });
+            }
+        });
+    };
+    ReleaseFormComponent.prototype.ngAfterViewInit = function () {
+        this.loadPage();
     };
     ReleaseFormComponent.prototype.createFormGroup = function () {
         this.faces = this.formBuilder.control(this.data.faces);
@@ -884,6 +924,21 @@ var ReleaseFormComponent = /** @class */ (function (_super) {
             this.triggerValidation();
         }
     };
+    ReleaseFormComponent.prototype.loadPage = function () {
+        var _this = this;
+        this.releasesService.getReleases(Object.assign({}, ''), this.sort.active, this.sort.direction, this.paginator.pageIndex, this.paginator.pageSize).subscribe(function (response) {
+            _this.releasesService.releasesList.next(response);
+        }, function (err) {
+            _this.errorHandlingService.handleUiError(errorKey, err);
+        });
+    };
+    ReleaseFormComponent.prototype.showModal = function () {
+        this.modalRef = this.dialog.open(_ms_offers_components_new_offer_new_offer_component__WEBPACK_IMPORTED_MODULE_10__["NewOfferComponent"], {
+            height: '800px',
+            width: '60%',
+            data: { face: this.shop }
+        });
+    };
     __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])(),
         __metadata("design:type", Array)
@@ -896,6 +951,14 @@ var ReleaseFormComponent = /** @class */ (function (_super) {
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])(),
         __metadata("design:type", Array)
     ], ReleaseFormComponent.prototype, "categories", void 0);
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ViewChild"])(_angular_material__WEBPACK_IMPORTED_MODULE_2__["MatPaginator"]),
+        __metadata("design:type", _angular_material__WEBPACK_IMPORTED_MODULE_2__["MatPaginator"])
+    ], ReleaseFormComponent.prototype, "paginator", void 0);
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ViewChild"])(_angular_material__WEBPACK_IMPORTED_MODULE_2__["MatSort"]),
+        __metadata("design:type", _angular_material__WEBPACK_IMPORTED_MODULE_2__["MatSort"])
+    ], ReleaseFormComponent.prototype, "sort", void 0);
     ReleaseFormComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
             selector: 'release-form',
@@ -903,12 +966,15 @@ var ReleaseFormComponent = /** @class */ (function (_super) {
             styles: [__webpack_require__(/*! ./release-form.component.scss */ "./src/app/ms-back-office/modules/ms-releases/components/release-form/release-form.component.scss")],
             changeDetection: _angular_core__WEBPACK_IMPORTED_MODULE_0__["ChangeDetectionStrategy"].OnPush
         }),
-        __metadata("design:paramtypes", [_config_services_config_service__WEBPACK_IMPORTED_MODULE_3__["ConfigService"],
+        __metadata("design:paramtypes", [_angular_material__WEBPACK_IMPORTED_MODULE_2__["MatDialog"],
+            _config_services_config_service__WEBPACK_IMPORTED_MODULE_4__["ConfigService"],
+            _error_handling_services_error_handling_service__WEBPACK_IMPORTED_MODULE_9__["ErrorHandlingService"],
             _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormBuilder"],
-            _ngx_translate_core__WEBPACK_IMPORTED_MODULE_2__["TranslateService"]])
+            _services_releases_service__WEBPACK_IMPORTED_MODULE_8__["ReleasesService"],
+            _ngx_translate_core__WEBPACK_IMPORTED_MODULE_3__["TranslateService"]])
     ], ReleaseFormComponent);
     return ReleaseFormComponent;
-}(_ui_components_base_reactive_form_base_reactive_form_component__WEBPACK_IMPORTED_MODULE_4__["BaseReactiveFormComponent"]));
+}(_ui_components_base_reactive_form_base_reactive_form_component__WEBPACK_IMPORTED_MODULE_5__["BaseReactiveFormComponent"]));
 
 
 
@@ -921,7 +987,7 @@ var ReleaseFormComponent = /** @class */ (function (_super) {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<h1>Releases Table</h1>\n\n<mat-toolbar class=\"margin-right-25px margin-bottom-10px width-auto flex-shrink-0 background-color-secondary color-primary mat-elevation-z2\"\n  [formGroup]=\"filter\">\n\n  <mat-icon matPrefix color=\"primary\">search</mat-icon>\n  <mat-form-field>\n    <input matInput formControlName=\"sku\" placeholder=\"Sku\">\n  </mat-form-field>\n\n  <mat-form-field>\n    <mat-label>Name</mat-label>\n    <mat-select formControlName=\"name\">\n      <mat-option [value]=\"null\">name</mat-option>\n      <mat-option [value]=\"true\">name</mat-option>\n      <mat-option [value]=\"false\">name</mat-option>\n    </mat-select>\n  </mat-form-field>\n\n  <mat-form-field>\n    <mat-label>Brand</mat-label>\n    <mat-select formControlName=\"brand\">\n      <mat-option [value]=\"null\">name</mat-option>\n      <mat-option [value]=\"true\">name</mat-option>\n      <mat-option [value]=\"false\">name</mat-option>\n    </mat-select>\n  </mat-form-field>\n\n  <mat-form-field>\n    <mat-label>Collection</mat-label>\n    <mat-select formControlName=\"collection\">\n      <mat-option [value]=\"null\">name</mat-option>\n      <mat-option [value]=\"true\">name</mat-option>\n      <mat-option [value]=\"false\">name</mat-option>\n    </mat-select>\n  </mat-form-field>\n\n  <mat-form-field>\n    <mat-label>Category</mat-label>\n    <mat-select formControlName=\"category\">\n      <mat-option [value]=\"null\">name</mat-option>\n      <mat-option [value]=\"true\">name</mat-option>\n      <mat-option [value]=\"false\">name</mat-option>\n    </mat-select>\n  </mat-form-field>\n  <span class=\"flex-grow-1\"></span>\n  <button mat-raised-button color=\"primary\" [routerLink]=\"['../create']\">CREATE A NEW RELEASE</button>\n</mat-toolbar>\n\n<div class=\"flex-grow-1 overflow-auto display-flex\">\n\n  <table class=\"margin-top-10px margin-right-25px width-100pct\"\n        mat-table [dataSource]=\"releases\"\n        matSort [matSortActive]=\"releasesService.previousSortColumn\" [matSortDirection]=\"releasesService.previousSortDirection\"\n        matSortDisableClear (matSortChange)=\"onSort()\">\n\n        <ng-container matColumnDef=\"name\">\n            <th mat-header-cell *matHeaderCellDef mat-sort-header>\n              Name\n            </th>\n            <td mat-cell *matCellDef=\"let element\"> {{ element.name }} </td>\n        </ng-container>\n\n        <ng-container matColumnDef=\"description\">\n            <th mat-header-cell *matHeaderCellDef mat-sort-header>\n              Description\n            </th>\n            <td mat-cell *matCellDef=\"let element\"> {{ element.description }} </td>\n        </ng-container>\n\n        <ng-container matColumnDef=\"sku\">\n            <th mat-header-cell *matHeaderCellDef mat-sort-header>\n              Sku\n            </th>\n            <td mat-cell *matCellDef=\"let element\"> {{ element.sku }} </td>\n        </ng-container>\n\n        <ng-container matColumnDef=\"images\">\n            <th mat-header-cell *matHeaderCellDef mat-sort-header>\n              Images\n            </th>\n            <td mat-cell *matCellDef=\"let element\"> {{ element.category }} </td>\n        </ng-container>\n\n        <ng-container matColumnDef=\"gender\">\n            <th mat-header-cell *matHeaderCellDef mat-sort-header>\n              Gender\n            </th>\n            <td mat-cell *matCellDef=\"let element\"> {{ element.gender }} </td>\n        </ng-container>\n\n        <ng-container matColumnDef=\"hot\">\n          <th mat-header-cell *matHeaderCellDef mat-sort-header>\n            Hot\n          </th>\n          <td mat-cell *matCellDef=\"let element\"> {{ element.hot }} </td>\n      </ng-container>\n        \n        <ng-container matColumnDef=\"actions\">\n            <th mat-header-cell *matHeaderCellDef mat-sort-header>  \n            </th>\n            <td mat-cell *matCellDef=\"let element\"> \n                <button mat-icon-button color=\"primary\" [matTooltip]=\"Edit\" [routerLink]=\"['../edit', element.id]\">\n                  <mat-icon>edit</mat-icon>\n                </button>\n                <button mat-icon-button color=\"primary\" [matTooltip]=\"Delete\" [routerLink]=\"['../delete', element.id]\">\n                  <mat-icon>delete</mat-icon>\n                </button>        \n            </td>\n          </ng-container>\n\n        <tr mat-header-row *matHeaderRowDef=\"displayedColumns\"></tr>\n        <tr mat-row *matRowDef=\"let row; columns: displayedColumns;\" [ngClass]=\"row.is_active ? '' : 'text-decoration-line-through'\">\n        </tr>\n\n    </table>\n\n</div>\n\n<div class=\"margin-right-25px padding-top-15px padding-bottom-15px flex-shrink-0 display-flex border-top-style-solid border-top-width-2px border-top-color-grey\">\n  <span class=\"flex-grow-1\"></span>\n  <mat-paginator\n      [length]=\"totalLength\" [pageSizeOptions]=\"[5, 10, 20, 50, 100]\" [pageIndex]=\"\" [pageSize]=\"50\" showFirstLastButtons (page)=\"onPage()\">\n  </mat-paginator>\n</div>\n\n<http-request-indicator\n    [urlExpressions]=\"[\n        configService.config.apiConfigs.releases.apiEndpoint + '.*']\">\n</http-request-indicator>"
+module.exports = "<h1>Releases Table</h1>\n\n<mat-toolbar class=\"margin-right-25px margin-bottom-10px width-auto flex-shrink-0 background-color-secondary color-primary mat-elevation-z2\"\n  [formGroup]=\"filter\">\n\n  <mat-icon matPrefix color=\"primary\">search</mat-icon>\n  <mat-form-field>\n    <input matInput formControlName=\"sku\" placeholder=\"Sku\">\n  </mat-form-field>\n\n  <mat-form-field>\n    <mat-label>Shoe Name</mat-label>\n    <input matInput formControlName=\"name\" placeholder=\"Name\">\n  </mat-form-field>\n\n  <mat-form-field>\n    <mat-label>Brand</mat-label>\n    <mat-select placeholder=\"Select\" formControlName=\"brand\">\n        <mat-option *ngFor=\"let brand of brands\" [value]=\"brand.id\">\n          {{brand.name}}\n        </mat-option>\n      </mat-select>\n  </mat-form-field>\n\n  <mat-form-field>\n    <mat-label>Collection</mat-label>\n    <mat-select placeholder=\"Select\" formControlName=\"collection\">\n        <mat-option *ngFor=\"let collection of collections\" [value]=\"collection.id\">\n          {{collection.name}}\n        </mat-option>\n      </mat-select>\n  </mat-form-field>\n\n  <mat-form-field>\n    <mat-label>Gender</mat-label>\n    <mat-select placeholder=\"Select\" formControlName=\"gender\">\n        <mat-option *ngFor=\"let gender of genders\" [value]=\"gender.id\">\n          {{gender.name}}\n        </mat-option>\n      </mat-select>\n  </mat-form-field>\n  <span class=\"flex-grow-1\"></span>\n  <button mat-raised-button color=\"primary\" [routerLink]=\"['../create']\">CREATE A NEW RELEASE</button>\n</mat-toolbar>\n\n<div class=\"flex-grow-1 overflow-auto display-flex\">\n\n  <table class=\"margin-top-10px margin-right-25px width-100pct\"\n        mat-table [dataSource]=\"releases\"\n        matSort [matSortActive]=\"releasesService.previousSortColumn\" [matSortDirection]=\"releasesService.previousSortDirection\"\n        matSortDisableClear (matSortChange)=\"onSort()\">\n\n        <ng-container matColumnDef=\"name\">\n            <th mat-header-cell *matHeaderCellDef mat-sort-header>\n              Name\n            </th>\n            <td mat-cell *matCellDef=\"let element\"> {{ element.name }} </td>\n        </ng-container>\n\n        <ng-container matColumnDef=\"description\">\n            <th mat-header-cell *matHeaderCellDef mat-sort-header>\n              Description\n            </th>\n            <td mat-cell *matCellDef=\"let element\"> {{ element.description }} </td>\n        </ng-container>\n\n        <ng-container matColumnDef=\"sku\">\n            <th mat-header-cell *matHeaderCellDef mat-sort-header>\n              Sku\n            </th>\n            <td mat-cell *matCellDef=\"let element\"> {{ element.sku }} </td>\n        </ng-container>\n\n        <ng-container matColumnDef=\"images\">\n            <th mat-header-cell *matHeaderCellDef mat-sort-header>\n              Images\n            </th>\n            <td mat-cell *matCellDef=\"let element\"> {{ element.category }} </td>\n        </ng-container>\n\n        <ng-container matColumnDef=\"gender\">\n            <th mat-header-cell *matHeaderCellDef mat-sort-header>\n              Gender\n            </th>\n            <td mat-cell *matCellDef=\"let element\"> {{ element.gender }} </td>\n        </ng-container>\n\n        <ng-container matColumnDef=\"hot\">\n          <th mat-header-cell *matHeaderCellDef mat-sort-header>\n            Hot\n          </th>\n          <td mat-cell *matCellDef=\"let element\"> {{ element.hot }} </td>\n      </ng-container>\n        \n        <ng-container matColumnDef=\"actions\">\n            <th mat-header-cell *matHeaderCellDef mat-sort-header>  \n            </th>\n            <td mat-cell *matCellDef=\"let element\"> \n                <button mat-icon-button color=\"primary\" [matTooltip]=\"Edit\" [routerLink]=\"['../edit', element.id]\">\n                  <mat-icon>edit</mat-icon>\n                </button>\n                <button mat-icon-button color=\"primary\" [matTooltip]=\"Delete\" [routerLink]=\"['../delete', element.id]\">\n                  <mat-icon>delete</mat-icon>\n                </button>        \n            </td>\n          </ng-container>\n\n        <tr mat-header-row *matHeaderRowDef=\"displayedColumns\"></tr>\n        <tr mat-row *matRowDef=\"let row; columns: displayedColumns;\" [ngClass]=\"row.is_active ? '' : 'text-decoration-line-through'\">\n        </tr>\n\n    </table>\n\n</div>\n\n<div class=\"margin-right-25px padding-top-15px padding-bottom-15px flex-shrink-0 display-flex border-top-style-solid border-top-width-2px border-top-color-grey\">\n  <span class=\"flex-grow-1\"></span>\n  <mat-paginator\n      [length]=\"totalLength\" [pageSizeOptions]=\"[5, 10, 20, 50, 100]\" [pageIndex]=\"\" [pageSize]=\"50\" showFirstLastButtons (page)=\"onPage()\">\n  </mat-paginator>\n</div>\n\n<http-request-indicator\n    [urlExpressions]=\"[\n        configService.config.apiConfigs.releases.apiEndpoint + '.*']\">\n</http-request-indicator>"
 
 /***/ }),
 
@@ -948,11 +1014,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ReleasesTableComponent", function() { return ReleasesTableComponent; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm5/forms.js");
-/* harmony import */ var _angular_material__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/material */ "./node_modules/@angular/material/esm5/material.es5.js");
-/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! rxjs/operators */ "./node_modules/rxjs/_esm5/operators/index.js");
-/* harmony import */ var _config_services_config_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../../../config/services/config.service */ "./src/app/config/services/config.service.ts");
-/* harmony import */ var _error_handling_services_error_handling_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../../../error-handling/services/error-handling.service */ "./src/app/error-handling/services/error-handling.service.ts");
-/* harmony import */ var _services_releases_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../services/releases.service */ "./src/app/ms-back-office/modules/ms-releases/services/releases.service.ts");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+/* harmony import */ var _angular_material__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/material */ "./node_modules/@angular/material/esm5/material.es5.js");
+/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! rxjs/operators */ "./node_modules/rxjs/_esm5/operators/index.js");
+/* harmony import */ var _config_services_config_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../../../config/services/config.service */ "./src/app/config/services/config.service.ts");
+/* harmony import */ var _error_handling_services_error_handling_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../../../../error-handling/services/error-handling.service */ "./src/app/error-handling/services/error-handling.service.ts");
+/* harmony import */ var _services_releases_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../services/releases.service */ "./src/app/ms-back-office/modules/ms-releases/services/releases.service.ts");
+/* harmony import */ var _models_gender__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../models/gender */ "./src/app/ms-back-office/modules/ms-releases/models/gender.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -964,20 +1032,23 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 };
 
 
-//
-
 
 //
 
 
 //
+
+
+//
+
 
 var errorKey = 'Error';
 var ReleasesTableComponent = /** @class */ (function () {
-    function ReleasesTableComponent(configService, releasesService, errorHandlingService) {
+    function ReleasesTableComponent(activatedRoute, configService, errorHandlingService, releasesService) {
+        this.activatedRoute = activatedRoute;
         this.configService = configService;
-        this.releasesService = releasesService;
         this.errorHandlingService = errorHandlingService;
+        this.releasesService = releasesService;
         this.displayedColumns = [
             'name',
             'description',
@@ -987,13 +1058,16 @@ var ReleasesTableComponent = /** @class */ (function () {
             'hot',
             'actions',
         ];
+        this.genders = _models_gender__WEBPACK_IMPORTED_MODULE_8__["GENDERS"];
         this.totalLength = 0;
         this.releases = [];
     }
     ReleasesTableComponent.prototype.ngOnInit = function () {
         var _this = this;
+        this.brands = this.activatedRoute.snapshot.data.brands;
+        this.collections = this.activatedRoute.snapshot.data.collections;
         this.filter = this.createFilterFormGroup();
-        this.filterValueChanges = this.filter.valueChanges.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["debounceTime"])(500)).subscribe(function (change) { return _this.onFilter(); });
+        this.filterValueChanges = this.filter.valueChanges.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["debounceTime"])(500)).subscribe(function (change) { return _this.onFilter(); });
         this.paginator.pageIndex = 0;
         // Begin observing style list changes.
         this.releasesList = this.releasesService.releasesList.subscribe(function (stylesList) {
@@ -1021,7 +1095,7 @@ var ReleasesTableComponent = /** @class */ (function () {
         group['name'] = new _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormControl"]('');
         group['brand'] = new _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormControl"]('');
         group['collection'] = new _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormControl"]('');
-        group['category'] = new _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormControl"]('');
+        group['gender'] = new _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormControl"]('');
         return new _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormGroup"](group);
     };
     ReleasesTableComponent.prototype.loadPage = function () {
@@ -1044,12 +1118,12 @@ var ReleasesTableComponent = /** @class */ (function () {
         this.loadPage();
     };
     __decorate([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ViewChild"])(_angular_material__WEBPACK_IMPORTED_MODULE_2__["MatPaginator"]),
-        __metadata("design:type", _angular_material__WEBPACK_IMPORTED_MODULE_2__["MatPaginator"])
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ViewChild"])(_angular_material__WEBPACK_IMPORTED_MODULE_3__["MatPaginator"]),
+        __metadata("design:type", _angular_material__WEBPACK_IMPORTED_MODULE_3__["MatPaginator"])
     ], ReleasesTableComponent.prototype, "paginator", void 0);
     __decorate([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ViewChild"])(_angular_material__WEBPACK_IMPORTED_MODULE_2__["MatSort"]),
-        __metadata("design:type", _angular_material__WEBPACK_IMPORTED_MODULE_2__["MatSort"])
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ViewChild"])(_angular_material__WEBPACK_IMPORTED_MODULE_3__["MatSort"]),
+        __metadata("design:type", _angular_material__WEBPACK_IMPORTED_MODULE_3__["MatSort"])
     ], ReleasesTableComponent.prototype, "sort", void 0);
     ReleasesTableComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
@@ -1057,9 +1131,10 @@ var ReleasesTableComponent = /** @class */ (function () {
             template: __webpack_require__(/*! ./releases-table.component.html */ "./src/app/ms-back-office/modules/ms-releases/components/releases-table/releases-table.component.html"),
             styles: [__webpack_require__(/*! ./releases-table.component.scss */ "./src/app/ms-back-office/modules/ms-releases/components/releases-table/releases-table.component.scss")]
         }),
-        __metadata("design:paramtypes", [_config_services_config_service__WEBPACK_IMPORTED_MODULE_4__["ConfigService"],
-            _services_releases_service__WEBPACK_IMPORTED_MODULE_6__["ReleasesService"],
-            _error_handling_services_error_handling_service__WEBPACK_IMPORTED_MODULE_5__["ErrorHandlingService"]])
+        __metadata("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"],
+            _config_services_config_service__WEBPACK_IMPORTED_MODULE_5__["ConfigService"],
+            _error_handling_services_error_handling_service__WEBPACK_IMPORTED_MODULE_6__["ErrorHandlingService"],
+            _services_releases_service__WEBPACK_IMPORTED_MODULE_7__["ReleasesService"]])
     ], ReleasesTableComponent);
     return ReleasesTableComponent;
 }());
@@ -1255,7 +1330,9 @@ var routes = [
         path: '',
         component: _components_releases_table_releases_table_component__WEBPACK_IMPORTED_MODULE_5__["ReleasesTableComponent"],
         resolve: {
-            config: _config_services_config_resolve_service__WEBPACK_IMPORTED_MODULE_6__["ConfigResolveService"]
+            config: _config_services_config_resolve_service__WEBPACK_IMPORTED_MODULE_6__["ConfigResolveService"],
+            brands: _ms_brands_services_brands_resolve_service__WEBPACK_IMPORTED_MODULE_7__["BrandsResolveService"],
+            categories: _ms_categories_services_categories_resolve_service__WEBPACK_IMPORTED_MODULE_10__["CategoriesResolveService"],
         }
     },
     {
@@ -1345,6 +1422,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_edit_release_edit_release_component__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! ./components/edit-release/edit-release.component */ "./src/app/ms-back-office/modules/ms-releases/components/edit-release/edit-release.component.ts");
 /* harmony import */ var _components_edit_release_form_edit_release_form_component__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! ./components/edit-release-form/edit-release-form.component */ "./src/app/ms-back-office/modules/ms-releases/components/edit-release-form/edit-release-form.component.ts");
 /* harmony import */ var _components_delete_release_delete_release_component__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(/*! ./components/delete-release/delete-release.component */ "./src/app/ms-back-office/modules/ms-releases/components/delete-release/delete-release.component.ts");
+/* harmony import */ var _ms_offers_ms_offers_module__WEBPACK_IMPORTED_MODULE_25__ = __webpack_require__(/*! ../ms-offers/ms-offers.module */ "./src/app/ms-back-office/modules/ms-offers/ms-offers.module.ts");
+/* harmony import */ var _ms_offers_components_new_offer_new_offer_component__WEBPACK_IMPORTED_MODULE_26__ = __webpack_require__(/*! ../ms-offers/components/new-offer/new-offer.component */ "./src/app/ms-back-office/modules/ms-offers/components/new-offer/new-offer.component.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1382,6 +1461,8 @@ var __decorate = (undefined && undefined.__decorate) || function (decorators, ta
 
 
 
+
+
 var MsReleasesModule = /** @class */ (function () {
     function MsReleasesModule() {
     }
@@ -1396,6 +1477,7 @@ var MsReleasesModule = /** @class */ (function () {
                 _angular_material_bottom_sheet__WEBPACK_IMPORTED_MODULE_4__["MatBottomSheetModule"],
                 _angular_material_button__WEBPACK_IMPORTED_MODULE_5__["MatButtonModule"],
                 _angular_material_card__WEBPACK_IMPORTED_MODULE_12__["MatCardModule"],
+                _angular_material__WEBPACK_IMPORTED_MODULE_6__["MatCheckboxModule"],
                 _angular_material__WEBPACK_IMPORTED_MODULE_6__["MatDatepickerModule"],
                 _angular_material__WEBPACK_IMPORTED_MODULE_6__["MatFormFieldModule"],
                 _angular_material_icon__WEBPACK_IMPORTED_MODULE_7__["MatIconModule"],
@@ -1415,7 +1497,8 @@ var MsReleasesModule = /** @class */ (function () {
                 _ui_modules_ask_before_refresh_ask_before_refresh_module__WEBPACK_IMPORTED_MODULE_15__["AskBeforeRefreshModule"],
                 _ui_modules_error_messages_error_messages_module__WEBPACK_IMPORTED_MODULE_16__["ErrorMessagesModule"],
                 _http_request_indicator_http_request_indicator_module__WEBPACK_IMPORTED_MODULE_14__["HttpRequestIndicatorModule"],
-                _ui_modules_images_card_images_card_module__WEBPACK_IMPORTED_MODULE_17__["ImagesCardModule"]
+                _ui_modules_images_card_images_card_module__WEBPACK_IMPORTED_MODULE_17__["ImagesCardModule"],
+                _ms_offers_ms_offers_module__WEBPACK_IMPORTED_MODULE_25__["MsOffersModule"]
             ],
             declarations: [
                 _components_delete_release_delete_release_component__WEBPACK_IMPORTED_MODULE_24__["DeleteReleaseComponent"],
@@ -1432,6 +1515,9 @@ var MsReleasesModule = /** @class */ (function () {
                 _components_new_release_new_release_component__WEBPACK_IMPORTED_MODULE_21__["NewReleaseComponent"],
                 _components_release_form_release_form_component__WEBPACK_IMPORTED_MODULE_20__["ReleaseFormComponent"],
                 _components_releases_table_releases_table_component__WEBPACK_IMPORTED_MODULE_18__["ReleasesTableComponent"],
+            ],
+            entryComponents: [
+                _ms_offers_components_new_offer_new_offer_component__WEBPACK_IMPORTED_MODULE_26__["NewOfferComponent"]
             ]
         })
     ], MsReleasesModule);

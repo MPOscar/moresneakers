@@ -1,4 +1,4 @@
-(window["webpackJsonp"] = window["webpackJsonp"] || []).push([["default~ms-brands-ms-brands-module~ms-categories-ms-categories-module~ms-collections-ms-collections-~5768e601"],{
+(window["webpackJsonp"] = window["webpackJsonp"] || []).push([["default~ms-brands-ms-brands-module~ms-categories-ms-categories-module~ms-collections-ms-collections-~9b80b7fc"],{
 
 /***/ "./src/app/ms-back-office/modules/ms-brands/services/brands-resolve.service.ts":
 /*!*************************************************************************************!*\
@@ -421,4 +421,4 @@ var IdResolveService = /** @class */ (function () {
 /***/ })
 
 }]);
-//# sourceMappingURL=default~ms-brands-ms-brands-module~ms-categories-ms-categories-module~ms-collections-ms-collections-~5768e601.js.map
+//# sourceMappingURL=default~ms-brands-ms-brands-module~ms-categories-ms-categories-module~ms-collections-ms-collections-~9b80b7fc.js.map

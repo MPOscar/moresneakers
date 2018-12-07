@@ -328,6 +328,10 @@ var routes = [
                 pathMatch: 'full'
             },
             {
+                path: 'offers',
+                loadChildren: '../ms-offers/ms-offers.module#MsOffersModule'
+            },
+            {
                 path: 'home',
                 loadChildren: '../home/home.module#HomeModule'
             },

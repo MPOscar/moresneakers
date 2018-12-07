@@ -1,5 +1,143 @@
 (window["webpackJsonp"] = window["webpackJsonp"] || []).push([["ms-collections-ms-collections-module"],{
 
+/***/ "./src/app/ms-back-office/modules/ms-collections/components/collection-creator/collection-creator.component.html":
+/*!***********************************************************************************************************************!*\
+  !*** ./src/app/ms-back-office/modules/ms-collections/components/collection-creator/collection-creator.component.html ***!
+  \***********************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<div class=\"\" [fxFlex]=\"100\" fxLayout=\"column\">\n    <div fxLayout=\"column\">\n        <h1>COLLECTION CREATOR</h1>\n    </div>\n\n    <div class=\"\" [fxFlex]=\"100\" fxLayout=\"row\">\n\n        <div [fxFlex]=\"30\" class=\"margin-right-10px\">\n\n            <button mat-stroked-button type=\"submit\" class=\"width-90pct\" (click)=\"showModal()\">Add a New Collection</button>\n\n            <mat-form-field class=\"width-90pct padding-top-20px\">\n\n                <mat-label>COLLECTION LIST</mat-label>\n\n                <mat-select placeholder=\"Select\" panelOpen=\"true\">\n\n                    <mat-option *ngFor=\"let collection of collections\" [value]=\"collection.id\">\n\n                        {{collection.name}}\n\n                    </mat-option>\n\n                </mat-select>\n\n            </mat-form-field>\n\n        </div>\n\n        <div class=\"margin-top-10px max-width-60-pct\" [fxFlex]=\"70\" fxLayout=\"row\" class=\"border-2px-solid-black margin-bottom-25px margin-right-10px\">\n            <div fxLayout=\"column\">\n                <div class=\"flex-grow-1 overflow-auto display-flex flex-direction-column padding-10px\">\n\n                    <div class=\"flex-grow-1 flex-shrink-0 display-flex flex-direction-column\">\n                        <div class=\"flex-wrap-wrap display-flex flex-grow-1 flex-shrink-1 flex-direction-row card-container justify-content-initial margin-top-10px\">\n                            <mat-card *ngFor=\"let i of [33.33, 33.33, 33.33, 33.33, 33.33, 33.33, 33.33, 33.33]\" class=\"display-flex background-color-secondary flex-direction-column flex-shrink-1\">\n                                <div class=\"image-container margin-10px flex-grow-1\" #imageContainer>\n                                    <!--img class=\"img\" imageLoad [container]=\"imageContainer\" src=\"\"-->\n                                </div>\n                                <div class=\"image-card-btns display-flex margin-left-10px margin-right-10px margin-bottom-10px\">\n                                    <mat-checkbox value=\"primary\" class=\"margin-top-10px\" matTooltip=\"{{ 'Principal' | translate }}\"> Store Name </mat-checkbox>\n                                </div>\n                            </mat-card>\n                        </div>\n                    </div>\n\n                </div>\n                <div class=\"justify-content-flex-end margin-right-25px padding-top-10px padding-bottom-10px flex-shrink-0 display-flex border-top-width-2px border-top-color-grey\">\n\n                    <button mat-stroked-button type=\"submit\">Remove Selection</button>\n\n                    <button mat-raised-button type=\"button\" color=\"primary\" class=\"margin-left-10px\">{{ 'Link New Stores' | translate }}</button>\n\n                </div>\n            </div>\n\n        </div>\n\n    </div>\n\n\n    <div class=\"margin-right-25px padding-top-25px padding-bottom-25px flex-shrink-0 display-flex border-top-style-solid border-top-width-2px border-top-color-grey\">\n\n        <button mat-raised-button type=\"submit\" color=\"primary\">{{ 'Save Changes' | translate }}</button>\n\n    </div>\n</div>"
+
+/***/ }),
+
+/***/ "./src/app/ms-back-office/modules/ms-collections/components/collection-creator/collection-creator.component.scss":
+/*!***********************************************************************************************************************!*\
+  !*** ./src/app/ms-back-office/modules/ms-collections/components/collection-creator/collection-creator.component.scss ***!
+  \***********************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = ":host {\n  display: flex;\n  flex-direction: column;\n  flex-grow: 1; }\n\n:host {\n  display: flex;\n  flex-grow: 1;\n  flex-direction: column;\n  height: 100%; }\n\n.mat-dialog-container {\n  padding: 10px; }\n\n.mat-dialog-content {\n  height: 60%;\n  max-height: 82vh;\n  margin-bottom: 10px; }\n\n.mat-dialog-actions {\n  padding: 10px 0; }\n\n::ng-deep .cdk-global-overlay-wrapper > div {\n  height: 90% !important;\n  width: 90% !important;\n  max-width: 90% !important; }\n\nmat-card {\n  padding: 0px;\n  align-self: flex-start;\n  height: 200px;\n  width: 150px;\n  margin-left: 2px;\n  margin-right: 15px;\n  margin-bottom: 15px; }\n\nmat-icon {\n  font-size: 24px;\n  width: 24px;\n  height: 24px; }\n\n.max-width-60-pct {\n  max-width: 60% !important; }\n\n.border {\n  border: 1px solid #f1f1f1; }\n\ntd.mat-cell {\n  border: none !important; }\n\nth.mat-header-cell {\n  border: none !important; }\n\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvbXMtYmFjay1vZmZpY2UvbW9kdWxlcy9tcy1jb2xsZWN0aW9ucy9jb21wb25lbnRzL2NvbGxlY3Rpb24tY3JlYXRvci9FOlxcUFJPR1JBTUFDSU9OIElJSVxcbW9yZXNuZWFrZXJzLWJhY2tvZmZpY2Uvc3JjXFxhcHBcXG1zLWJhY2stb2ZmaWNlXFxtb2R1bGVzXFxtcy1jb2xsZWN0aW9uc1xcY29tcG9uZW50c1xcY29sbGVjdGlvbi1jcmVhdG9yXFxjb2xsZWN0aW9uLWNyZWF0b3IuY29tcG9uZW50LnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFDSSxjQUFhO0VBQ2IsdUJBQXNCO0VBQ3RCLGFBQVksRUFDZjs7QUFDRDtFQUNJLGNBQWE7RUFDYixhQUFZO0VBQ1osdUJBQXNCO0VBQ3RCLGFBQ0YsRUFBQzs7QUFFRDtFQUNFLGNBQWEsRUFDZDs7QUFFRDtFQUNFLFlBQVc7RUFDWCxpQkFBZ0I7RUFDaEIsb0JBQW1CLEVBQ3BCOztBQUVEO0VBQ0UsZ0JBQWUsRUFDaEI7O0FBRUQ7RUFDRSx1QkFBc0I7RUFDdEIsc0JBQXFCO0VBQ3JCLDBCQUF5QixFQUMxQjs7QUFFRDtFQUNFLGFBQVk7RUFDWix1QkFBc0I7RUFDdEIsY0FBYTtFQUNiLGFBQVk7RUFDWixpQkFBZ0I7RUFDaEIsbUJBQWtCO0VBQ2xCLG9CQUFtQixFQUNwQjs7QUFFRDtFQUNFLGdCQUFlO0VBQ2YsWUFBVztFQUNYLGFBQVksRUFDYjs7QUFFRDtFQUNFLDBCQUF5QixFQUMxQjs7QUFFRDtFQUNFLDBCQUF5QixFQUMxQjs7QUFFRDtFQUNFLHdCQUF1QixFQUN4Qjs7QUFDRDtFQUNFLHdCQUF1QixFQUN4QiIsImZpbGUiOiJzcmMvYXBwL21zLWJhY2stb2ZmaWNlL21vZHVsZXMvbXMtY29sbGVjdGlvbnMvY29tcG9uZW50cy9jb2xsZWN0aW9uLWNyZWF0b3IvY29sbGVjdGlvbi1jcmVhdG9yLmNvbXBvbmVudC5zY3NzIiwic291cmNlc0NvbnRlbnQiOlsiOmhvc3Qge1xyXG4gICAgZGlzcGxheTogZmxleDtcclxuICAgIGZsZXgtZGlyZWN0aW9uOiBjb2x1bW47XHJcbiAgICBmbGV4LWdyb3c6IDE7XHJcbn1cclxuOmhvc3Qge1xyXG4gICAgZGlzcGxheTogZmxleDtcclxuICAgIGZsZXgtZ3JvdzogMTtcclxuICAgIGZsZXgtZGlyZWN0aW9uOiBjb2x1bW47XHJcbiAgICBoZWlnaHQ6IDEwMCVcclxuICB9XHJcbiAgXHJcbiAgLm1hdC1kaWFsb2ctY29udGFpbmVyIHtcclxuICAgIHBhZGRpbmc6IDEwcHg7XHJcbiAgfVxyXG4gIFxyXG4gIC5tYXQtZGlhbG9nLWNvbnRlbnQge1xyXG4gICAgaGVpZ2h0OiA2MCU7XHJcbiAgICBtYXgtaGVpZ2h0OiA4MnZoO1xyXG4gICAgbWFyZ2luLWJvdHRvbTogMTBweDtcclxuICB9XHJcbiAgXHJcbiAgLm1hdC1kaWFsb2ctYWN0aW9ucyB7XHJcbiAgICBwYWRkaW5nOiAxMHB4IDA7XHJcbiAgfVxyXG4gIFxyXG4gIDo6bmctZGVlcCAuY2RrLWdsb2JhbC1vdmVybGF5LXdyYXBwZXIgPiBkaXYge1xyXG4gICAgaGVpZ2h0OiA5MCUgIWltcG9ydGFudDtcclxuICAgIHdpZHRoOiA5MCUgIWltcG9ydGFudDtcclxuICAgIG1heC13aWR0aDogOTAlICFpbXBvcnRhbnQ7XHJcbiAgfVxyXG4gIFxyXG4gIG1hdC1jYXJkIHtcclxuICAgIHBhZGRpbmc6IDBweDtcclxuICAgIGFsaWduLXNlbGY6IGZsZXgtc3RhcnQ7XHJcbiAgICBoZWlnaHQ6IDIwMHB4O1xyXG4gICAgd2lkdGg6IDE1MHB4O1xyXG4gICAgbWFyZ2luLWxlZnQ6IDJweDtcclxuICAgIG1hcmdpbi1yaWdodDogMTVweDtcclxuICAgIG1hcmdpbi1ib3R0b206IDE1cHg7XHJcbiAgfVxyXG4gIFxyXG4gIG1hdC1pY29uIHtcclxuICAgIGZvbnQtc2l6ZTogMjRweDtcclxuICAgIHdpZHRoOiAyNHB4O1xyXG4gICAgaGVpZ2h0OiAyNHB4O1xyXG4gIH1cclxuICBcclxuICAubWF4LXdpZHRoLTYwLXBjdHtcclxuICAgIG1heC13aWR0aDogNjAlICFpbXBvcnRhbnQ7XHJcbiAgfVxyXG4gIFxyXG4gIC5ib3JkZXJ7XHJcbiAgICBib3JkZXI6IDFweCBzb2xpZCAjZjFmMWYxO1xyXG4gIH1cclxuICBcclxuICB0ZC5tYXQtY2VsbHtcclxuICAgIGJvcmRlcjogbm9uZSAhaW1wb3J0YW50O1xyXG4gIH1cclxuICB0aC5tYXQtaGVhZGVyLWNlbGx7XHJcbiAgICBib3JkZXI6IG5vbmUgIWltcG9ydGFudDtcclxuICB9Il19 */"
+
+/***/ }),
+
+/***/ "./src/app/ms-back-office/modules/ms-collections/components/collection-creator/collection-creator.component.ts":
+/*!*********************************************************************************************************************!*\
+  !*** ./src/app/ms-back-office/modules/ms-collections/components/collection-creator/collection-creator.component.ts ***!
+  \*********************************************************************************************************************/
+/*! exports provided: CollectionCreatorComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CollectionCreatorComponent", function() { return CollectionCreatorComponent; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+/* harmony import */ var _angular_material__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/material */ "./node_modules/@angular/material/esm5/material.es5.js");
+/* harmony import */ var _ngx_translate_core__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @ngx-translate/core */ "./node_modules/@ngx-translate/core/fesm5/ngx-translate-core.js");
+/* harmony import */ var _ui_helpers_component_can_deactivate__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../../../ui/helpers/component-can-deactivate */ "./src/app/ui/helpers/component-can-deactivate.ts");
+/* harmony import */ var _ui_helpers_mixin_decorator__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../../../ui/helpers/mixin-decorator */ "./src/app/ui/helpers/mixin-decorator.ts");
+/* harmony import */ var _error_handling_services_error_handling_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../../../../error-handling/services/error-handling.service */ "./src/app/error-handling/services/error-handling.service.ts");
+/* harmony import */ var _error_handling_services_toastr_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../../../../error-handling/services/toastr.service */ "./src/app/error-handling/services/toastr.service.ts");
+/* harmony import */ var _services_collections_service__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../services/collections.service */ "./src/app/ms-back-office/modules/ms-collections/services/collections.service.ts");
+/* harmony import */ var _new_collection_new_collection_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../new-collection/new-collection.component */ "./src/app/ms-back-office/modules/ms-collections/components/new-collection/new-collection.component.ts");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+//
+
+
+//
+
+
+
+
+
+
+var errorKey = 'Error';
+var savedStyleMessageKey = 'Saved Style Message';
+var CollectionCreatorComponent = /** @class */ (function () {
+    function CollectionCreatorComponent(activatedRoute, collectionsService, errorHandlingService, router, translate, toastr, dialog) {
+        this.activatedRoute = activatedRoute;
+        this.collectionsService = collectionsService;
+        this.errorHandlingService = errorHandlingService;
+        this.router = router;
+        this.translate = translate;
+        this.toastr = toastr;
+        this.dialog = dialog;
+        this.data = {
+            name: "",
+            brand: ""
+        };
+        // Begin Mixin code of the CanDeactivate class
+        this.unsavedChanges = false;
+        this.cancelBtnKey = 'No';
+        this.okBtnKey = 'Yes';
+        this.saveTitleKey = 'Discard Title';
+        this.saveMessageKey = 'Discard Message';
+    }
+    CollectionCreatorComponent.prototype.ngOnInit = function () {
+        this.collections = this.activatedRoute.snapshot.data.collections;
+    };
+    CollectionCreatorComponent.prototype.submit = function (data) {
+        this.createUser(data);
+    };
+    CollectionCreatorComponent.prototype.cancel = function () {
+        this.close();
+    };
+    CollectionCreatorComponent.prototype.close = function () {
+        this.router.navigate(this.activatedRoute.snapshot.data.closeRouteCommand, { relativeTo: this.activatedRoute });
+    };
+    CollectionCreatorComponent.prototype.createUser = function (data) {
+        var _this = this;
+        this.collectionsService.postCollection(data).subscribe(function (response) {
+            _this.unsavedChanges = false;
+            //this.close.emit();TODO
+            _this.close();
+            _this.toastr.success(savedStyleMessageKey);
+        }, function (error) {
+            _this.errorHandlingService.handleUiError(errorKey, error);
+            _this.validationErrors = error.formErrors;
+        });
+    };
+    CollectionCreatorComponent.prototype.showModal = function () {
+        this.modalRef = this.dialog.open(_new_collection_new_collection_component__WEBPACK_IMPORTED_MODULE_9__["NewCollectionComponent"], {
+            height: '800px',
+            width: '60%',
+            data: { data: this.data }
+        });
+    };
+    CollectionCreatorComponent = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+            selector: 'collection-creator',
+            template: __webpack_require__(/*! ./collection-creator.component.html */ "./src/app/ms-back-office/modules/ms-collections/components/collection-creator/collection-creator.component.html"),
+            styles: [__webpack_require__(/*! ./collection-creator.component.scss */ "./src/app/ms-back-office/modules/ms-collections/components/collection-creator/collection-creator.component.scss")]
+        }),
+        Object(_ui_helpers_mixin_decorator__WEBPACK_IMPORTED_MODULE_5__["Mixin"])([_ui_helpers_component_can_deactivate__WEBPACK_IMPORTED_MODULE_4__["CanDeactivateMixin"]]),
+        __metadata("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_1__["ActivatedRoute"],
+            _services_collections_service__WEBPACK_IMPORTED_MODULE_8__["CollectionsService"],
+            _error_handling_services_error_handling_service__WEBPACK_IMPORTED_MODULE_6__["ErrorHandlingService"],
+            _angular_router__WEBPACK_IMPORTED_MODULE_1__["Router"],
+            _ngx_translate_core__WEBPACK_IMPORTED_MODULE_3__["TranslateService"],
+            _error_handling_services_toastr_service__WEBPACK_IMPORTED_MODULE_7__["ToastrService"],
+            _angular_material__WEBPACK_IMPORTED_MODULE_2__["MatDialog"]])
+    ], CollectionCreatorComponent);
+    return CollectionCreatorComponent;
+}());
+
+
+
+/***/ }),
+
 /***/ "./src/app/ms-back-office/modules/ms-collections/components/collection-form/collection-form.component.html":
 /*!*****************************************************************************************************************!*\
   !*** ./src/app/ms-back-office/modules/ms-collections/components/collection-form/collection-form.component.html ***!
@@ -7,7 +145,7 @@
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<form class=\"flex-grow-1 min-height-0 display-flex flex-direction-column\" [askBeforeRefresh]=\"formGroup.dirty\" [formGroup]=\"formGroup\" novalidate role=\"form\" (ngSubmit)=\"submitClicked()\"\n  autocomplete=\"off\" inputFocus>\n\n  <div class=\"flex-grow-1 overflow-auto display-flex flex-direction-column\">\n\n    <div class=\"flex-grow-1 flex-shrink-0 display-flex flex-direction-column\">\n\n      <mat-form-field class=\"width-100pc margin-left-16px\">\n\n        <mat-label>Style Name</mat-label>\n\n        <input matInput type=\"text\" formControlName=\"name\" required>\n\n      </mat-form-field>\n\n      <mat-form-field class=\"width-100pc padding-top-20px\">\n        <mat-label>SELECT BRAND</mat-label>\n        <mat-select placeholder=\"Select\" formControlName=\"brand\">\n          <mat-option *ngFor=\"let brand of brands\" [value]=\"brand.id\">\n            {{brand.name}}\n          </mat-option>\n        </mat-select>\n      </mat-form-field>\n\n    </div>\n\n  </div>\n\n  <div class=\"margin-right-25px padding-top-25px padding-bottom-25px flex-shrink-0 display-flex border-top-style-solid border-top-width-2px border-top-color-grey\">\n\n    <button mat-raised-button type=\"submit\" color=\"primary\">{{ 'Save' | translate }}</button>\n\n    <button mat-raised-button type=\"button\" class=\"margin-left-10px\" (click)=\"cancelClicked()\">{{ 'Cancel' | translate }}</button>\n\n  </div>\n\n</form>"
+module.exports = "<form class=\"flex-grow-1 min-height-0 display-flex flex-direction-column\" [askBeforeRefresh]=\"formGroup.dirty\" [formGroup]=\"formGroup\" novalidate role=\"form\" (ngSubmit)=\"submitClicked()\"\n  autocomplete=\"off\" inputFocus>\n\n  <div class=\"flex-grow-1 overflow-auto display-flex flex-direction-column\">\n\n    <div class=\"flex-grow-1 flex-shrink-0 display-flex flex-direction-column\">\n\n      <mat-form-field class=\"width-100pc margin-left-16px\">\n\n        <mat-label>Name</mat-label>\n\n        <input matInput type=\"text\" formControlName=\"name\" required>\n\n      </mat-form-field>\n\n      <div [fxFlex]=\"50\" class=\"border margin-left-25px margin-right-25px border-2px-solid-black\">\n\n          <images-card class=\"flex-grow-1 padding-10px\"></images-card>\n\n        </div>\n\n      <mat-form-field class=\"width-100pc margin-left-16px\">\n\n        <mat-label>Description</mat-label>\n\n        <textarea matInput formControlName=\"description\"></textarea>\n\n      </mat-form-field>\n      \n    </div>\n  </div>\n  <div class=\"margin-right-25px padding-top-25px padding-bottom-25px flex-shrink-0 display-flex border-top-style-solid border-top-width-2px border-top-color-grey\">\n\n    <button mat-raised-button type=\"submit\" color=\"primary\">{{ 'Save' | translate }}</button>\n\n    <button mat-raised-button type=\"button\" class=\"margin-left-10px\" (click)=\"cancelClicked()\">{{ 'Cancel' | translate }}</button>\n\n  </div>\n</form>"
 
 /***/ }),
 
@@ -82,7 +220,7 @@ var CollectionFormComponent = /** @class */ (function (_super) {
     CollectionFormComponent.prototype.createFormGroup = function () {
         this.formGroup = new _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormGroup"]({
             name: new _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormControl"](this.data.name, [_angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].required]),
-            brand: new _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormControl"](this.data.brand, [_angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].required]),
+            description: new _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormControl"](this.data.description, [_angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].required]),
         });
     };
     CollectionFormComponent.prototype.submitClicked = function () {
@@ -589,7 +727,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _ui_helpers_mixin_decorator__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../../../ui/helpers/mixin-decorator */ "./src/app/ui/helpers/mixin-decorator.ts");
 /* harmony import */ var _error_handling_services_error_handling_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../../../../error-handling/services/error-handling.service */ "./src/app/error-handling/services/error-handling.service.ts");
 /* harmony import */ var _error_handling_services_toastr_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../../../../error-handling/services/toastr.service */ "./src/app/error-handling/services/toastr.service.ts");
-/* harmony import */ var _services_collections_service__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../services/collections.service */ "./src/app/ms-back-office/modules/ms-collections/services/collections.service.ts");
+/* harmony import */ var _models_collection__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../models/collection */ "./src/app/ms-back-office/modules/ms-collections/models/collection.ts");
+/* harmony import */ var _services_collections_service__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../../services/collections.service */ "./src/app/ms-back-office/modules/ms-collections/services/collections.service.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -599,12 +738,16 @@ var __decorate = (undefined && undefined.__decorate) || function (decorators, ta
 var __metadata = (undefined && undefined.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
+var __param = (undefined && undefined.__param) || function (paramIndex, decorator) {
+    return function (target, key) { decorator(target, key, paramIndex); }
+};
 
 
 //
 
 
 //
+
 
 
 
@@ -613,7 +756,8 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 var errorKey = 'Error';
 var savedUserMessageKey = 'Saved User Message';
 var NewCollectionComponent = /** @class */ (function () {
-    function NewCollectionComponent(activatedRoute, collectionsService, errorHandlingService, router, translate, toastr, dialog) {
+    function NewCollectionComponent(dialogRef, activatedRoute, collectionsService, errorHandlingService, router, translate, toastr, dialog, datas) {
+        this.dialogRef = dialogRef;
         this.activatedRoute = activatedRoute;
         this.collectionsService = collectionsService;
         this.errorHandlingService = errorHandlingService;
@@ -621,6 +765,7 @@ var NewCollectionComponent = /** @class */ (function () {
         this.translate = translate;
         this.toastr = toastr;
         this.dialog = dialog;
+        this.datas = datas;
         this.data = {
             name: '',
             brand: ''
@@ -643,7 +788,8 @@ var NewCollectionComponent = /** @class */ (function () {
         this.close();
     };
     NewCollectionComponent.prototype.close = function () {
-        this.router.navigate(this.activatedRoute.snapshot.data.closeRouteCommand, { relativeTo: this.activatedRoute });
+        this.dialogRef.close();
+        //this.router.navigate(this.activatedRoute.snapshot.data.closeRouteCommand, {relativeTo: this.activatedRoute});
     };
     NewCollectionComponent.prototype.createCollection = function (data) {
         var _this = this;
@@ -664,15 +810,52 @@ var NewCollectionComponent = /** @class */ (function () {
             styles: [__webpack_require__(/*! ./new-collection.component.scss */ "./src/app/ms-back-office/modules/ms-collections/components/new-collection/new-collection.component.scss")]
         }),
         Object(_ui_helpers_mixin_decorator__WEBPACK_IMPORTED_MODULE_5__["Mixin"])([_ui_helpers_component_can_deactivate__WEBPACK_IMPORTED_MODULE_4__["CanDeactivateMixin"]]),
-        __metadata("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_1__["ActivatedRoute"],
-            _services_collections_service__WEBPACK_IMPORTED_MODULE_8__["CollectionsService"],
+        __param(8, Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Inject"])(_angular_material__WEBPACK_IMPORTED_MODULE_2__["MAT_DIALOG_DATA"])),
+        __metadata("design:paramtypes", [_angular_material__WEBPACK_IMPORTED_MODULE_2__["MatDialogRef"],
+            _angular_router__WEBPACK_IMPORTED_MODULE_1__["ActivatedRoute"],
+            _services_collections_service__WEBPACK_IMPORTED_MODULE_9__["CollectionsService"],
             _error_handling_services_error_handling_service__WEBPACK_IMPORTED_MODULE_6__["ErrorHandlingService"],
             _angular_router__WEBPACK_IMPORTED_MODULE_1__["Router"],
             _ngx_translate_core__WEBPACK_IMPORTED_MODULE_3__["TranslateService"],
             _error_handling_services_toastr_service__WEBPACK_IMPORTED_MODULE_7__["ToastrService"],
-            _angular_material__WEBPACK_IMPORTED_MODULE_2__["MatDialog"]])
+            _angular_material__WEBPACK_IMPORTED_MODULE_2__["MatDialog"],
+            _models_collection__WEBPACK_IMPORTED_MODULE_8__["Collection"]])
     ], NewCollectionComponent);
     return NewCollectionComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/ms-back-office/modules/ms-collections/models/collection.ts":
+/*!****************************************************************************!*\
+  !*** ./src/app/ms-back-office/modules/ms-collections/models/collection.ts ***!
+  \****************************************************************************/
+/*! exports provided: Collection, CollectionsListResponse, CollectionResponse */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Collection", function() { return Collection; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CollectionsListResponse", function() { return CollectionsListResponse; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CollectionResponse", function() { return CollectionResponse; });
+var Collection = /** @class */ (function () {
+    function Collection() {
+    }
+    return Collection;
+}());
+
+var CollectionsListResponse = /** @class */ (function () {
+    function CollectionsListResponse() {
+    }
+    return CollectionsListResponse;
+}());
+
+var CollectionResponse = /** @class */ (function () {
+    function CollectionResponse() {
+    }
+    return CollectionResponse;
 }());
 
 
@@ -691,14 +874,15 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "MsCollectionsRoutingModule", function() { return MsCollectionsRoutingModule; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
-/* harmony import */ var _components_delete_collection_delete_collection_component__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./components/delete-collection/delete-collection.component */ "./src/app/ms-back-office/modules/ms-collections/components/delete-collection/delete-collection.component.ts");
-/* harmony import */ var _components_collections_table_collections_table_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./components/collections-table/collections-table.component */ "./src/app/ms-back-office/modules/ms-collections/components/collections-table/collections-table.component.ts");
-/* harmony import */ var _components_new_collection_new_collection_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./components/new-collection/new-collection.component */ "./src/app/ms-back-office/modules/ms-collections/components/new-collection/new-collection.component.ts");
+/* harmony import */ var _components_collection_creator_collection_creator_component__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./components/collection-creator/collection-creator.component */ "./src/app/ms-back-office/modules/ms-collections/components/collection-creator/collection-creator.component.ts");
+/* harmony import */ var _components_delete_collection_delete_collection_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./components/delete-collection/delete-collection.component */ "./src/app/ms-back-office/modules/ms-collections/components/delete-collection/delete-collection.component.ts");
+/* harmony import */ var _components_collections_table_collections_table_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./components/collections-table/collections-table.component */ "./src/app/ms-back-office/modules/ms-collections/components/collections-table/collections-table.component.ts");
 /* harmony import */ var _components_edit_collection_edit_collection_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./components/edit-collection/edit-collection.component */ "./src/app/ms-back-office/modules/ms-collections/components/edit-collection/edit-collection.component.ts");
-/* harmony import */ var _config_services_config_resolve_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../../config/services/config-resolve.service */ "./src/app/config/services/config-resolve.service.ts");
-/* harmony import */ var _ms_brands_services_brands_resolve_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../ms-brands/services/brands-resolve.service */ "./src/app/ms-back-office/modules/ms-brands/services/brands-resolve.service.ts");
-/* harmony import */ var _ms_categories_services_categories_resolve_service__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../ms-categories/services/categories-resolve.service */ "./src/app/ms-back-office/modules/ms-categories/services/categories-resolve.service.ts");
-/* harmony import */ var _routing_services_id_resolve_service__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../../../routing/services/id-resolve.service */ "./src/app/routing/services/id-resolve.service.ts");
+/* harmony import */ var _services_collections_resolve_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./services/collections-resolve.service */ "./src/app/ms-back-office/modules/ms-collections/services/collections-resolve.service.ts");
+/* harmony import */ var _config_services_config_resolve_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../../config/services/config-resolve.service */ "./src/app/config/services/config-resolve.service.ts");
+/* harmony import */ var _ms_brands_services_brands_resolve_service__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../ms-brands/services/brands-resolve.service */ "./src/app/ms-back-office/modules/ms-brands/services/brands-resolve.service.ts");
+/* harmony import */ var _ms_categories_services_categories_resolve_service__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../ms-categories/services/categories-resolve.service */ "./src/app/ms-back-office/modules/ms-categories/services/categories-resolve.service.ts");
+/* harmony import */ var _routing_services_id_resolve_service__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../../../routing/services/id-resolve.service */ "./src/app/routing/services/id-resolve.service.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -717,22 +901,24 @@ var __decorate = (undefined && undefined.__decorate) || function (decorators, ta
 
 
 
+
 var routes = [
     {
         path: '',
-        component: _components_collections_table_collections_table_component__WEBPACK_IMPORTED_MODULE_3__["CollectionsTableComponent"],
+        component: _components_collections_table_collections_table_component__WEBPACK_IMPORTED_MODULE_4__["CollectionsTableComponent"],
         resolve: {
-            config: _config_services_config_resolve_service__WEBPACK_IMPORTED_MODULE_6__["ConfigResolveService"],
-            brands: _ms_brands_services_brands_resolve_service__WEBPACK_IMPORTED_MODULE_7__["BrandsResolveService"],
+            config: _config_services_config_resolve_service__WEBPACK_IMPORTED_MODULE_7__["ConfigResolveService"],
+            brands: _ms_brands_services_brands_resolve_service__WEBPACK_IMPORTED_MODULE_8__["BrandsResolveService"],
         }
     },
     {
         path: 'create',
-        component: _components_new_collection_new_collection_component__WEBPACK_IMPORTED_MODULE_4__["NewCollectionComponent"],
+        component: _components_collection_creator_collection_creator_component__WEBPACK_IMPORTED_MODULE_2__["CollectionCreatorComponent"],
         resolve: {
-            config: _config_services_config_resolve_service__WEBPACK_IMPORTED_MODULE_6__["ConfigResolveService"],
-            brands: _ms_brands_services_brands_resolve_service__WEBPACK_IMPORTED_MODULE_7__["BrandsResolveService"],
-            categories: _ms_categories_services_categories_resolve_service__WEBPACK_IMPORTED_MODULE_8__["CategoriesResolveService"]
+            config: _config_services_config_resolve_service__WEBPACK_IMPORTED_MODULE_7__["ConfigResolveService"],
+            brands: _ms_brands_services_brands_resolve_service__WEBPACK_IMPORTED_MODULE_8__["BrandsResolveService"],
+            categories: _ms_categories_services_categories_resolve_service__WEBPACK_IMPORTED_MODULE_9__["CategoriesResolveService"],
+            collections: _services_collections_resolve_service__WEBPACK_IMPORTED_MODULE_6__["CollectionsResolveService"]
         },
         data: { closeRouteCommand: ['../'] }
     },
@@ -741,19 +927,19 @@ var routes = [
         component: _components_edit_collection_edit_collection_component__WEBPACK_IMPORTED_MODULE_5__["EditCollectionComponent"],
         //canActivate: [AuthGuardService],
         resolve: {
-            config: _config_services_config_resolve_service__WEBPACK_IMPORTED_MODULE_6__["ConfigResolveService"],
-            brands: _ms_brands_services_brands_resolve_service__WEBPACK_IMPORTED_MODULE_7__["BrandsResolveService"],
-            collectionId: _routing_services_id_resolve_service__WEBPACK_IMPORTED_MODULE_9__["IdResolveService"]
+            config: _config_services_config_resolve_service__WEBPACK_IMPORTED_MODULE_7__["ConfigResolveService"],
+            brands: _ms_brands_services_brands_resolve_service__WEBPACK_IMPORTED_MODULE_8__["BrandsResolveService"],
+            collectionId: _routing_services_id_resolve_service__WEBPACK_IMPORTED_MODULE_10__["IdResolveService"]
         },
         data: { closeRouteCommand: ['../../'] }
     },
     {
         path: 'delete/:id',
-        component: _components_delete_collection_delete_collection_component__WEBPACK_IMPORTED_MODULE_2__["DeleteCollectionComponent"],
+        component: _components_delete_collection_delete_collection_component__WEBPACK_IMPORTED_MODULE_3__["DeleteCollectionComponent"],
         //canActivate: [AuthGuardService],
         resolve: {
-            config: _config_services_config_resolve_service__WEBPACK_IMPORTED_MODULE_6__["ConfigResolveService"],
-            collectionId: _routing_services_id_resolve_service__WEBPACK_IMPORTED_MODULE_9__["IdResolveService"],
+            config: _config_services_config_resolve_service__WEBPACK_IMPORTED_MODULE_7__["ConfigResolveService"],
+            collectionId: _routing_services_id_resolve_service__WEBPACK_IMPORTED_MODULE_10__["IdResolveService"],
         },
         data: { closeRouteCommand: ['../../'] }
     }
@@ -799,12 +985,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_material_card__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! @angular/material/card */ "./node_modules/@angular/material/esm5/card.es5.js");
 /* harmony import */ var _ngx_translate_core__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! @ngx-translate/core */ "./node_modules/@ngx-translate/core/fesm5/ngx-translate-core.js");
 /* harmony import */ var _ui_modules_ask_before_refresh_ask_before_refresh_module__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ../../../ui/modules/ask-before-refresh/ask-before-refresh.module */ "./src/app/ui/modules/ask-before-refresh/ask-before-refresh.module.ts");
-/* harmony import */ var _ms_collections_routing_module__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./ms-collections-routing.module */ "./src/app/ms-back-office/modules/ms-collections/ms-collections-routing.module.ts");
-/* harmony import */ var _components_collections_table_collections_table_component__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./components/collections-table/collections-table.component */ "./src/app/ms-back-office/modules/ms-collections/components/collections-table/collections-table.component.ts");
-/* harmony import */ var _components_collection_form_collection_form_component__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./components/collection-form/collection-form.component */ "./src/app/ms-back-office/modules/ms-collections/components/collection-form/collection-form.component.ts");
-/* harmony import */ var _components_new_collection_new_collection_component__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./components/new-collection/new-collection.component */ "./src/app/ms-back-office/modules/ms-collections/components/new-collection/new-collection.component.ts");
-/* harmony import */ var _components_edit_collection_edit_collection_component__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ./components/edit-collection/edit-collection.component */ "./src/app/ms-back-office/modules/ms-collections/components/edit-collection/edit-collection.component.ts");
-/* harmony import */ var _components_delete_collection_delete_collection_component__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ./components/delete-collection/delete-collection.component */ "./src/app/ms-back-office/modules/ms-collections/components/delete-collection/delete-collection.component.ts");
+/* harmony import */ var _ui_modules_images_card_images_card_module__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ../../../ui/modules/images-card/images-card.module */ "./src/app/ui/modules/images-card/images-card.module.ts");
+/* harmony import */ var _ms_collections_routing_module__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./ms-collections-routing.module */ "./src/app/ms-back-office/modules/ms-collections/ms-collections-routing.module.ts");
+/* harmony import */ var _components_collection_creator_collection_creator_component__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./components/collection-creator/collection-creator.component */ "./src/app/ms-back-office/modules/ms-collections/components/collection-creator/collection-creator.component.ts");
+/* harmony import */ var _components_collections_table_collections_table_component__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./components/collections-table/collections-table.component */ "./src/app/ms-back-office/modules/ms-collections/components/collections-table/collections-table.component.ts");
+/* harmony import */ var _components_collection_form_collection_form_component__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ./components/collection-form/collection-form.component */ "./src/app/ms-back-office/modules/ms-collections/components/collection-form/collection-form.component.ts");
+/* harmony import */ var _components_new_collection_new_collection_component__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ./components/new-collection/new-collection.component */ "./src/app/ms-back-office/modules/ms-collections/components/new-collection/new-collection.component.ts");
+/* harmony import */ var _components_edit_collection_edit_collection_component__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ./components/edit-collection/edit-collection.component */ "./src/app/ms-back-office/modules/ms-collections/components/edit-collection/edit-collection.component.ts");
+/* harmony import */ var _components_delete_collection_delete_collection_component__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! ./components/delete-collection/delete-collection.component */ "./src/app/ms-back-office/modules/ms-collections/components/delete-collection/delete-collection.component.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -837,6 +1025,8 @@ var __decorate = (undefined && undefined.__decorate) || function (decorators, ta
 
 
 
+
+
 var MsCollectionsModule = /** @class */ (function () {
     function MsCollectionsModule() {
     }
@@ -851,6 +1041,8 @@ var MsCollectionsModule = /** @class */ (function () {
                 _angular_material_bottom_sheet__WEBPACK_IMPORTED_MODULE_4__["MatBottomSheetModule"],
                 _angular_material_button__WEBPACK_IMPORTED_MODULE_5__["MatButtonModule"],
                 _angular_material_card__WEBPACK_IMPORTED_MODULE_12__["MatCardModule"],
+                _angular_material__WEBPACK_IMPORTED_MODULE_6__["MatCheckboxModule"],
+                _angular_material__WEBPACK_IMPORTED_MODULE_6__["MatDialogModule"],
                 _angular_material__WEBPACK_IMPORTED_MODULE_6__["MatFormFieldModule"],
                 _angular_material_icon__WEBPACK_IMPORTED_MODULE_7__["MatIconModule"],
                 _angular_material__WEBPACK_IMPORTED_MODULE_6__["MatInputModule"],
@@ -861,26 +1053,227 @@ var MsCollectionsModule = /** @class */ (function () {
                 _angular_material_toolbar__WEBPACK_IMPORTED_MODULE_10__["MatToolbarModule"],
                 _angular_material_tooltip__WEBPACK_IMPORTED_MODULE_11__["MatTooltipModule"],
                 _ngx_translate_core__WEBPACK_IMPORTED_MODULE_13__["TranslateModule"],
-                _ms_collections_routing_module__WEBPACK_IMPORTED_MODULE_15__["MsCollectionsRoutingModule"],
-                _ui_modules_ask_before_refresh_ask_before_refresh_module__WEBPACK_IMPORTED_MODULE_14__["AskBeforeRefreshModule"]
+                _ms_collections_routing_module__WEBPACK_IMPORTED_MODULE_16__["MsCollectionsRoutingModule"],
+                _ui_modules_ask_before_refresh_ask_before_refresh_module__WEBPACK_IMPORTED_MODULE_14__["AskBeforeRefreshModule"],
+                _ui_modules_images_card_images_card_module__WEBPACK_IMPORTED_MODULE_15__["ImagesCardModule"]
             ],
             declarations: [
-                _components_collections_table_collections_table_component__WEBPACK_IMPORTED_MODULE_16__["CollectionsTableComponent"],
-                _components_collection_form_collection_form_component__WEBPACK_IMPORTED_MODULE_17__["CollectionFormComponent"],
-                _components_new_collection_new_collection_component__WEBPACK_IMPORTED_MODULE_18__["NewCollectionComponent"],
-                _components_edit_collection_edit_collection_component__WEBPACK_IMPORTED_MODULE_19__["EditCollectionComponent"],
-                _components_delete_collection_delete_collection_component__WEBPACK_IMPORTED_MODULE_20__["DeleteCollectionComponent"]
+                _components_collection_creator_collection_creator_component__WEBPACK_IMPORTED_MODULE_17__["CollectionCreatorComponent"],
+                _components_collections_table_collections_table_component__WEBPACK_IMPORTED_MODULE_18__["CollectionsTableComponent"],
+                _components_collection_form_collection_form_component__WEBPACK_IMPORTED_MODULE_19__["CollectionFormComponent"],
+                _components_new_collection_new_collection_component__WEBPACK_IMPORTED_MODULE_20__["NewCollectionComponent"],
+                _components_edit_collection_edit_collection_component__WEBPACK_IMPORTED_MODULE_21__["EditCollectionComponent"],
+                _components_delete_collection_delete_collection_component__WEBPACK_IMPORTED_MODULE_22__["DeleteCollectionComponent"]
             ],
             exports: [
-                _components_collections_table_collections_table_component__WEBPACK_IMPORTED_MODULE_16__["CollectionsTableComponent"],
-                _components_collection_form_collection_form_component__WEBPACK_IMPORTED_MODULE_17__["CollectionFormComponent"],
-                _components_new_collection_new_collection_component__WEBPACK_IMPORTED_MODULE_18__["NewCollectionComponent"],
-                _components_edit_collection_edit_collection_component__WEBPACK_IMPORTED_MODULE_19__["EditCollectionComponent"],
-                _components_delete_collection_delete_collection_component__WEBPACK_IMPORTED_MODULE_20__["DeleteCollectionComponent"]
+                _components_collection_creator_collection_creator_component__WEBPACK_IMPORTED_MODULE_17__["CollectionCreatorComponent"],
+                _components_collections_table_collections_table_component__WEBPACK_IMPORTED_MODULE_18__["CollectionsTableComponent"],
+                _components_collection_form_collection_form_component__WEBPACK_IMPORTED_MODULE_19__["CollectionFormComponent"],
+                _components_new_collection_new_collection_component__WEBPACK_IMPORTED_MODULE_20__["NewCollectionComponent"],
+                _components_edit_collection_edit_collection_component__WEBPACK_IMPORTED_MODULE_21__["EditCollectionComponent"],
+                _components_delete_collection_delete_collection_component__WEBPACK_IMPORTED_MODULE_22__["DeleteCollectionComponent"]
+            ],
+            entryComponents: [
+                _components_new_collection_new_collection_component__WEBPACK_IMPORTED_MODULE_20__["NewCollectionComponent"],
             ]
         })
     ], MsCollectionsModule);
     return MsCollectionsModule;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/ms-back-office/modules/ms-collections/services/collections-resolve.service.ts":
+/*!***********************************************************************************************!*\
+  !*** ./src/app/ms-back-office/modules/ms-collections/services/collections-resolve.service.ts ***!
+  \***********************************************************************************************/
+/*! exports provided: CollectionsResolveService */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CollectionsResolveService", function() { return CollectionsResolveService; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! rxjs/operators */ "./node_modules/rxjs/_esm5/operators/index.js");
+/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! rxjs */ "./node_modules/rxjs/_esm5/index.js");
+/* harmony import */ var _ngx_translate_core__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @ngx-translate/core */ "./node_modules/@ngx-translate/core/fesm5/ngx-translate-core.js");
+/* harmony import */ var _error_handling_services_error_handling_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../../error-handling/services/error-handling.service */ "./src/app/error-handling/services/error-handling.service.ts");
+/* harmony import */ var _collections_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./collections.service */ "./src/app/ms-back-office/modules/ms-collections/services/collections.service.ts");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+//
+
+
+
+//
+
+
+//import { setTranslations } from '@c/ngx-translate';
+var errorKey = 'Error';
+var CollectionsResolveService = /** @class */ (function () {
+    function CollectionsResolveService(collectionsService, translate, errorHandlingService) {
+        this.collectionsService = collectionsService;
+        this.translate = translate;
+        this.errorHandlingService = errorHandlingService;
+        //setTranslations(this.translate, TRANSLATIONS);
+    }
+    CollectionsResolveService.prototype.resolve = function (route) {
+        var _this = this;
+        return this.collectionsService.getAllCollections().pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_1__["map"])(function (brands) { return brands; }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_1__["catchError"])(function (err) {
+            _this.errorHandlingService.handleUiError(errorKey, err);
+            return Object(rxjs__WEBPACK_IMPORTED_MODULE_2__["of"])(null);
+        }));
+    };
+    CollectionsResolveService = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"])({
+            providedIn: 'root'
+        }),
+        __metadata("design:paramtypes", [_collections_service__WEBPACK_IMPORTED_MODULE_5__["CollectionsService"],
+            _ngx_translate_core__WEBPACK_IMPORTED_MODULE_3__["TranslateService"],
+            _error_handling_services_error_handling_service__WEBPACK_IMPORTED_MODULE_4__["ErrorHandlingService"]])
+    ], CollectionsResolveService);
+    return CollectionsResolveService;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/ms-back-office/modules/ms-collections/services/collections.service.ts":
+/*!***************************************************************************************!*\
+  !*** ./src/app/ms-back-office/modules/ms-collections/services/collections.service.ts ***!
+  \***************************************************************************************/
+/*! exports provided: ASCENDING, CollectionsService */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ASCENDING", function() { return ASCENDING; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CollectionsService", function() { return CollectionsService; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _error_handling_services_error_handling_http_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../../error-handling/services/error-handling-http.service */ "./src/app/error-handling/services/error-handling-http.service.ts");
+/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! rxjs */ "./node_modules/rxjs/_esm5/index.js");
+/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! rxjs/operators */ "./node_modules/rxjs/_esm5/operators/index.js");
+/* harmony import */ var _config_services_config_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../../config/services/config.service */ "./src/app/config/services/config.service.ts");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+//
+
+
+//
+
+var ASCENDING = 'asc';
+var CollectionsService = /** @class */ (function () {
+    function CollectionsService(configService, http) {
+        this.configService = configService;
+        this.http = http;
+        this.previousFilter = {};
+        this.previousSortColumn = 'name';
+        this.previousSortDirection = 'asc';
+        this.previousPageIndex = 0;
+        this.previousPageSize = 10;
+        this.collectionsList = new rxjs__WEBPACK_IMPORTED_MODULE_2__["BehaviorSubject"]({ dataCount: 0, data: [] });
+        this.apiEndpoint = this.configService.config.apiConfigs.collections.apiEndpoint;
+    }
+    //
+    // Begin functions that most services have.
+    //
+    CollectionsService.prototype.getCollections = function (filter, sortColumn, sortDirection, pageIndex, pageSize) {
+        this.previousFilter = filter;
+        this.previousSortColumn = sortColumn;
+        this.previousSortDirection = sortDirection;
+        this.previousPageIndex = pageIndex;
+        this.previousPageSize = pageSize;
+        var queryParams = this.formatQueryParams(filter, sortColumn, sortDirection, pageIndex, pageSize);
+        return this.http.get(this.apiEndpoint + queryParams);
+    };
+    //
+    // Call this function to repeat the previous query, after deleting
+    // a brand for example.
+    //
+    CollectionsService.prototype.reloadCollections = function () {
+        return this.getCollections(this.previousFilter, this.previousSortColumn, this.previousSortDirection, this.previousPageIndex, this.previousPageSize);
+    };
+    CollectionsService.prototype.postCollection = function (data) {
+        return this.http.post(this.apiEndpoint, JSON.stringify(data));
+    };
+    CollectionsService.prototype.getCollection = function (id) {
+        return this.http.get(this.apiEndpoint + id + '/');
+    };
+    CollectionsService.prototype.putCollection = function (data) {
+        return this.http.put(this.apiEndpoint + data.id + '/', JSON.stringify(data));
+    };
+    CollectionsService.prototype.deleteCollection = function (id) {
+        return this.http.delete(this.apiEndpoint + id + '/');
+    };
+    CollectionsService.prototype.formatQueryParams = function (filter, sortColumn, sortDirection, pageIndex, pageSize) {
+        var queryParams = '';
+        if (sortColumn) {
+            var ordering = '';
+            if (sortDirection === 'desc') {
+                ordering = '-';
+            }
+            ordering += sortColumn;
+            queryParams += queryParams.length > 0 ? '&' : '?';
+            queryParams += "ordering=" + ordering;
+        }
+        if (pageIndex !== undefined) {
+            queryParams += queryParams.length > 0 ? '&' : '?';
+            queryParams += "offset=" + pageIndex * pageSize;
+        }
+        if (pageSize !== undefined) {
+            queryParams += queryParams.length > 0 ? '&' : '?';
+            queryParams += "limit=" + pageSize;
+        }
+        if (filter.name && filter.name.length > 0) {
+            queryParams += queryParams.length > 0 ? '&' : '?';
+            queryParams += "name=" + filter.name;
+        }
+        if (filter.brand && filter.brand.length > 0) {
+            queryParams += queryParams.length > 0 ? '&' : '?';
+            queryParams += "brand=" + filter.brand;
+        }
+        return queryParams;
+    };
+    //
+    // End functions that most services have.
+    //
+    //
+    // Begin special functions specific to only this service.
+    //
+    CollectionsService.prototype.getAllCollections = function () {
+        return this.http.get(this.apiEndpoint)
+            .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["map"])(function (response) {
+            return response.data;
+        }));
+    };
+    CollectionsService = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"])({
+            providedIn: 'root'
+        }),
+        __metadata("design:paramtypes", [_config_services_config_service__WEBPACK_IMPORTED_MODULE_4__["ConfigService"],
+            _error_handling_services_error_handling_http_service__WEBPACK_IMPORTED_MODULE_1__["ErrorHandlingHttpService"]])
+    ], CollectionsService);
+    return CollectionsService;
 }());
 
 

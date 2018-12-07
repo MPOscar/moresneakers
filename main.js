@@ -11,50 +11,52 @@ var map = {
 	"../home/home.module": [
 		"./src/app/ms-back-office/modules/home/home.module.ts",
 		"default~dashboard-dashboard-module~home-home-module",
-		"common",
 		"home-home-module"
 	],
 	"../ms-brands/ms-brands.module": [
 		"./src/app/ms-back-office/modules/ms-brands/ms-brands.module.ts",
-		"default~ms-brands-ms-brands-module~ms-categories-ms-categories-module~ms-collections-ms-collections-~5768e601",
-		"common",
+		"default~ms-brands-ms-brands-module~ms-categories-ms-categories-module~ms-collections-ms-collections-~9b80b7fc",
 		"ms-brands-ms-brands-module"
 	],
 	"../ms-categories/ms-categories.module": [
 		"./src/app/ms-back-office/modules/ms-categories/ms-categories.module.ts",
-		"default~ms-brands-ms-brands-module~ms-categories-ms-categories-module~ms-collections-ms-collections-~5768e601",
-		"common",
+		"default~ms-brands-ms-brands-module~ms-categories-ms-categories-module~ms-collections-ms-collections-~9b80b7fc",
 		"ms-categories-ms-categories-module"
 	],
 	"../ms-collections/ms-collections.module": [
 		"./src/app/ms-back-office/modules/ms-collections/ms-collections.module.ts",
-		"default~ms-brands-ms-brands-module~ms-categories-ms-categories-module~ms-collections-ms-collections-~5768e601",
-		"common",
+		"default~ms-brands-ms-brands-module~ms-categories-ms-categories-module~ms-collections-ms-collections-~9b80b7fc",
 		"ms-collections-ms-collections-module"
+	],
+	"../ms-offers/ms-offers.module": [
+		"./src/app/ms-back-office/modules/ms-offers/ms-offers.module.ts",
+		"default~ms-brands-ms-brands-module~ms-categories-ms-categories-module~ms-collections-ms-collections-~9b80b7fc",
+		"default~ms-offers-ms-offers-module~ms-releases-ms-releases-module~ms-shops-ms-shops-module~ms-style-~7fefb74e",
+		"default~ms-offers-ms-offers-module~ms-releases-ms-releases-module"
 	],
 	"../ms-releases/ms-releases.module": [
 		"./src/app/ms-back-office/modules/ms-releases/ms-releases.module.ts",
-		"default~ms-brands-ms-brands-module~ms-categories-ms-categories-module~ms-collections-ms-collections-~5768e601",
-		"common",
+		"default~ms-brands-ms-brands-module~ms-categories-ms-categories-module~ms-collections-ms-collections-~9b80b7fc",
+		"default~ms-offers-ms-offers-module~ms-releases-ms-releases-module~ms-shops-ms-shops-module~ms-style-~7fefb74e",
+		"default~ms-offers-ms-offers-module~ms-releases-ms-releases-module",
 		"ms-releases-ms-releases-module"
 	],
 	"../ms-shops/ms-shops.module": [
 		"./src/app/ms-back-office/modules/ms-shops/ms-shops.module.ts",
-		"default~ms-brands-ms-brands-module~ms-categories-ms-categories-module~ms-collections-ms-collections-~5768e601",
-		"default~ms-shops-ms-shops-module~ms-style-ms-style-module",
-		"common"
+		"default~ms-brands-ms-brands-module~ms-categories-ms-categories-module~ms-collections-ms-collections-~9b80b7fc",
+		"default~ms-offers-ms-offers-module~ms-releases-ms-releases-module~ms-shops-ms-shops-module~ms-style-~7fefb74e",
+		"default~ms-shops-ms-shops-module~ms-style-ms-style-module"
 	],
 	"../ms-style/ms-style.module": [
 		"./src/app/ms-back-office/modules/ms-style/ms-style.module.ts",
-		"default~ms-brands-ms-brands-module~ms-categories-ms-categories-module~ms-collections-ms-collections-~5768e601",
+		"default~ms-brands-ms-brands-module~ms-categories-ms-categories-module~ms-collections-ms-collections-~9b80b7fc",
+		"default~ms-offers-ms-offers-module~ms-releases-ms-releases-module~ms-shops-ms-shops-module~ms-style-~7fefb74e",
 		"default~ms-shops-ms-shops-module~ms-style-ms-style-module",
-		"common",
 		"ms-style-ms-style-module"
 	],
 	"../ms-users/ms-users.module": [
 		"./src/app/ms-back-office/modules/ms-users/ms-users.module.ts",
-		"default~ms-brands-ms-brands-module~ms-categories-ms-categories-module~ms-collections-ms-collections-~5768e601",
-		"common",
+		"default~ms-brands-ms-brands-module~ms-categories-ms-categories-module~ms-collections-ms-collections-~9b80b7fc",
 		"ms-users-ms-users-module"
 	],
 	"./blank-page/blank-page.module": [
@@ -68,7 +70,6 @@ var map = {
 	"./dashboard/dashboard.module": [
 		"./src/app/layout/dashboard/dashboard.module.ts",
 		"default~dashboard-dashboard-module~home-home-module",
-		"common",
 		"dashboard-dashboard-module"
 	],
 	"./forms/forms.module": [
@@ -4371,7 +4372,7 @@ module.exports = ":host { /* Safari */\r\n  display: flex; /* Safari */\r\n  fle
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"display-flex flex-grow-1 flex-shrink-1 flex-direction-column\">\r\n  <div class=\"align-self-center display-flex width-250px  flex-shrink-1 flex-direction-row card-container\">\r\n    <mat-card class=\"flex-grow-1\"  #imageContainer>\r\n      <img class=\"height-100-pc width-100-pc\" *ngIf=\"principal\" imageLoad [srcImage]=\"principal.imgUrl? principal.imgUrl : principal.file\" [container]=\"imageContainer\"\r\n        src=\"\">\r\n    </mat-card>\r\n  </div>\r\n  <div class=\"display-flex flex-grow-1 flex-shrink-1 flex-direction-row card-container justify-content-space-between\">\r\n    <mat-card *ngFor=\"let faceItem of faceItems; index as cardIndex; trackBy:trackByFn\" class=\"display-flex background-color-secondary flex-direction-column flex-shrink-1\">\r\n      <div class=\"image-container margin-10px flex-grow-1\" #imageContainer>\r\n        <img class=\"img\" imageLoad [srcImage]=\"faceItem.imgUrl? faceItem.imgUrl : faceItem.file\" [container]=\"imageContainer\" src=\"\">\r\n      </div>\r\n      <div class=\"image-card-btns display-flex margin-left-10px margin-right-10px margin-bottom-10px\">\r\n        <mat-radio-button value=\"primary\" class=\"margin-top-10px\" (click)=\"setMainImage(faceItem)\"\r\n        matTooltip=\"{{ 'Principal' | translate }}\"\r\n        ></mat-radio-button>\r\n        <button type=\"button\" mat-icon-button class=\"margin-left-10px\" (click)=\"deleteFace(cardIndex)\">\r\n          <mat-icon mat-raised-button color=\"accent\" matTooltip=\"{{ 'Delete' | translate }}\">delete</mat-icon>\r\n        </button>\r\n      </div>\r\n    </mat-card>\r\n  </div>\r\n  <div class=\"display-flex justify-content-center width-100-pc\">\r\n    <button mat-raised-button color=\"primary\" class=\"add-btn\" type=\"button\" (click)=\"fileInput.click()\">\r\n      <mat-icon>add</mat-icon> {{ 'Slect File' | translate }}\r\n    </button>\r\n    <input #fileInput style=\"display:none\" type=\"file\" name=\"files\" (change)=\"addImages($event)\" class=\"file-input glyphicon glyphicon-plus\"\r\n      accept=\"image/*\" multiple/>\r\n  </div>\r\n</div>\r\n"
+module.exports = "<div class=\"display-flex flex-grow-1 flex-shrink-1 flex-direction-column\">\r\n  <div class=\"align-self-center display-flex width-250px  flex-shrink-1 flex-direction-row card-container\">\r\n    <mat-card class=\"border-2px-solid-black box-shadow-none flex-grow-1 margin-0\"  #imageContainer>\r\n      <img class=\"height-100-pc width-100-pc\" *ngIf=\"principal\" imageLoad [srcImage]=\"principal.imgUrl? principal.imgUrl : principal.file\" [container]=\"imageContainer\"\r\n        src=\"\">\r\n    </mat-card>\r\n  </div>\r\n  <div class=\"display-flex flex-grow-1 flex-shrink-1 flex-direction-row card-container justify-content-initial\">\r\n    <mat-card *ngFor=\"let faceItem of faceItems; index as cardIndex; trackBy:trackByFn\" class=\"display-flex background-color-secondary flex-direction-column flex-shrink-1\">\r\n      <div class=\"image-container margin-10px flex-grow-1\" #imageContainer>\r\n        <img class=\"img\" imageLoad [srcImage]=\"faceItem.imgUrl? faceItem.imgUrl : faceItem.file\" [container]=\"imageContainer\" src=\"\">\r\n      </div>\r\n      <div class=\"image-card-btns display-flex margin-left-10px margin-right-10px margin-bottom-10px\">\r\n        <mat-radio-button value=\"primary\" class=\"margin-top-10px\" (click)=\"setMainImage(faceItem)\"\r\n        matTooltip=\"{{ 'Principal' | translate }}\"\r\n        ></mat-radio-button>\r\n        <button type=\"button\" mat-icon-button class=\"margin-left-10px\" (click)=\"deleteFace(cardIndex)\">\r\n          <mat-icon mat-raised-button color=\"accent\" matTooltip=\"{{ 'Delete' | translate }}\">delete</mat-icon>\r\n        </button>\r\n      </div>\r\n    </mat-card>\r\n  </div>\r\n  <div class=\"display-flex justify-content-center width-100-pc\">\r\n    <button mat-raised-button color=\"primary\" class=\"add-btn\" type=\"button\" (click)=\"fileInput.click()\">\r\n      <mat-icon>add</mat-icon> {{ 'Slect File' | translate }}\r\n    </button>\r\n    <input #fileInput style=\"display:none\" type=\"file\" name=\"files\" (change)=\"addImages($event)\" class=\"file-input glyphicon glyphicon-plus\"\r\n      accept=\"image/*\" multiple/>\r\n  </div>\r\n</div>\r\n"
 
 /***/ }),
 
