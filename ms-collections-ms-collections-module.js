@@ -7,7 +7,7 @@
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"\" [fxFlex]=\"100\" fxLayout=\"column\">\n    <div fxLayout=\"column\">\n        <h1>COLLECTION CREATOR</h1>\n    </div>\n\n    <div class=\"\" [fxFlex]=\"100\" fxLayout=\"row\">\n\n        <div [fxFlex]=\"30\" class=\"margin-right-10px\">\n\n            <button mat-stroked-button type=\"submit\" class=\"width-90pct\" (click)=\"showModal()\">Add a New Collection</button>\n\n            <mat-form-field class=\"width-90pct padding-top-20px\">\n\n                <mat-label>COLLECTION LIST</mat-label>\n\n                <mat-select placeholder=\"Select\" panelOpen=\"true\">\n\n                    <mat-option *ngFor=\"let collection of collections\" [value]=\"collection.id\">\n\n                        {{collection.name}}\n\n                    </mat-option>\n\n                </mat-select>\n\n            </mat-form-field>\n\n        </div>\n\n        <div class=\"margin-top-10px max-width-60-pct\" [fxFlex]=\"70\" fxLayout=\"row\" class=\"border-2px-solid-black margin-bottom-25px margin-right-10px\">\n            <div fxLayout=\"column\">\n                <div class=\"flex-grow-1 overflow-auto display-flex flex-direction-column padding-10px\">\n\n                    <div class=\"flex-grow-1 flex-shrink-0 display-flex flex-direction-column\">\n                        <div class=\"flex-wrap-wrap display-flex flex-grow-1 flex-shrink-1 flex-direction-row card-container justify-content-initial margin-top-10px\">\n                            <mat-card *ngFor=\"let i of [33.33, 33.33, 33.33, 33.33, 33.33, 33.33, 33.33, 33.33]\" class=\"display-flex background-color-secondary flex-direction-column flex-shrink-1\">\n                                <div class=\"image-container margin-10px flex-grow-1\" #imageContainer>\n                                    <!--img class=\"img\" imageLoad [container]=\"imageContainer\" src=\"\"-->\n                                </div>\n                                <div class=\"image-card-btns display-flex margin-left-10px margin-right-10px margin-bottom-10px\">\n                                    <mat-checkbox value=\"primary\" class=\"margin-top-10px\" matTooltip=\"{{ 'Principal' | translate }}\"> Store Name </mat-checkbox>\n                                </div>\n                            </mat-card>\n                        </div>\n                    </div>\n\n                </div>\n                <div class=\"justify-content-flex-end margin-right-25px padding-top-10px padding-bottom-10px flex-shrink-0 display-flex border-top-width-2px border-top-color-grey\">\n\n                    <button mat-stroked-button type=\"submit\">Remove Selection</button>\n\n                    <button mat-raised-button type=\"button\" color=\"primary\" class=\"margin-left-10px\">{{ 'Link New Stores' | translate }}</button>\n\n                </div>\n            </div>\n\n        </div>\n\n    </div>\n\n\n    <div class=\"margin-right-25px padding-top-25px padding-bottom-25px flex-shrink-0 display-flex border-top-style-solid border-top-width-2px border-top-color-grey\">\n\n        <button mat-raised-button type=\"submit\" color=\"primary\">{{ 'Save Changes' | translate }}</button>\n\n    </div>\n</div>"
+module.exports = "<div class=\"\" [fxFlex]=\"100\" fxLayout=\"column\">\n    <div fxLayout=\"column\">\n        <h1>COLLECTION CREATOR</h1>\n    </div>\n\n    <div class=\"\" [fxFlex]=\"100\" fxLayout=\"row\">\n\n        <div [fxFlex]=\"30\" class=\"margin-right-10px\">\n\n            <button mat-stroked-button type=\"submit\" class=\"width-90pct\" (click)=\"showModal()\">Add a New Collection</button>\n\n            <mat-form-field class=\"width-90pct padding-top-20px\">\n\n                <mat-label>COLLECTION LIST</mat-label>\n\n                <mat-select placeholder=\"Select\" panelOpen=\"true\">\n\n                    <mat-option *ngFor=\"let collection of collections\" [value]=\"collection.id\">\n\n                        {{collection.name}}\n\n                    </mat-option>\n\n                </mat-select>\n\n            </mat-form-field>\n\n        </div>\n\n        <div class=\"margin-top-10px max-width-60-pct\" [fxFlex]=\"70\" fxLayout=\"row\" class=\"border-2px-solid-black margin-bottom-25px margin-right-10px\">\n            <div fxLayout=\"column\">\n                <div class=\"flex-grow-1 overflow-auto display-flex flex-direction-column padding-10px\">\n\n                    <div class=\"flex-grow-1 flex-shrink-0 display-flex flex-direction-column\">\n                        <div class=\"flex-wrap-wrap display-flex flex-grow-1 flex-shrink-1 flex-direction-row card-container justify-content-initial margin-top-10px\">\n                            <mat-card *ngFor=\"let i of [33.33, 33.33, 33.33, 33.33, 33.33, 33.33, 33.33, 33.33]\" class=\"display-flex background-color-secondary flex-direction-column flex-shrink-1\">\n                                <div class=\"image-container margin-10px flex-grow-1\" #imageContainer>\n                                    <!--img class=\"img\" imageLoad [container]=\"imageContainer\" src=\"\"-->\n                                </div>\n                                <div class=\"image-card-btns display-flex margin-left-10px margin-right-10px margin-bottom-10px\">\n                                    <mat-checkbox value=\"primary\" class=\"margin-top-10px\" matTooltip=\"{{ 'Principal' | translate }}\"> Store Name </mat-checkbox>\n                                </div>\n                            </mat-card>\n                        </div>\n                    </div>\n\n                </div>\n                <div class=\"justify-content-flex-end margin-right-25px padding-top-10px padding-bottom-10px flex-shrink-0 display-flex border-top-width-2px border-top-color-grey\">\n\n                    <button mat-stroked-button type=\"submit\">Remove Selection</button>\n\n                    <button mat-raised-button type=\"button\" color=\"primary\" class=\"margin-left-10px\">{{ 'Link New Stores' | translate }}</button>\n\n                </div>\n            </div>\n\n        </div>\n\n    </div>\n\n\n    <div class=\"margin-right-25px padding-top-25px padding-bottom-25px flex-shrink-0 display-flex border-top-style-solid border-top-width-2px border-top-color-grey\">\n\n        <button mat-raised-button type=\"submit\" color=\"primary\">{{ 'Save Changes' | translate }}</button>\n\n        <button mat-raised-button type=\"button\" class=\"margin-left-10px\" (click)=\"close()\">{{ 'Cancel' | translate }}</button>\n\n    </div>\n</div>"
 
 /***/ }),
 
@@ -18,7 +18,7 @@ module.exports = "<div class=\"\" [fxFlex]=\"100\" fxLayout=\"column\">\n    <di
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ":host {\n  display: flex;\n  flex-direction: column;\n  flex-grow: 1; }\n\n:host {\n  display: flex;\n  flex-grow: 1;\n  flex-direction: column;\n  height: 100%; }\n\n.mat-dialog-container {\n  padding: 10px; }\n\n.mat-dialog-content {\n  height: 60%;\n  max-height: 82vh;\n  margin-bottom: 10px; }\n\n.mat-dialog-actions {\n  padding: 10px 0; }\n\n::ng-deep .cdk-global-overlay-wrapper > div {\n  height: 90% !important;\n  width: 90% !important;\n  max-width: 90% !important; }\n\nmat-card {\n  padding: 0px;\n  align-self: flex-start;\n  height: 200px;\n  width: 150px;\n  margin-left: 2px;\n  margin-right: 15px;\n  margin-bottom: 15px; }\n\nmat-icon {\n  font-size: 24px;\n  width: 24px;\n  height: 24px; }\n\n.max-width-60-pct {\n  max-width: 60% !important; }\n\n.border {\n  border: 1px solid #f1f1f1; }\n\ntd.mat-cell {\n  border: none !important; }\n\nth.mat-header-cell {\n  border: none !important; }\n\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvbXMtYmFjay1vZmZpY2UvbW9kdWxlcy9tcy1jb2xsZWN0aW9ucy9jb21wb25lbnRzL2NvbGxlY3Rpb24tY3JlYXRvci9FOlxcUFJPR1JBTUFDSU9OIElJSVxcbW9yZXNuZWFrZXJzLWJhY2tvZmZpY2Uvc3JjXFxhcHBcXG1zLWJhY2stb2ZmaWNlXFxtb2R1bGVzXFxtcy1jb2xsZWN0aW9uc1xcY29tcG9uZW50c1xcY29sbGVjdGlvbi1jcmVhdG9yXFxjb2xsZWN0aW9uLWNyZWF0b3IuY29tcG9uZW50LnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFDSSxjQUFhO0VBQ2IsdUJBQXNCO0VBQ3RCLGFBQVksRUFDZjs7QUFDRDtFQUNJLGNBQWE7RUFDYixhQUFZO0VBQ1osdUJBQXNCO0VBQ3RCLGFBQ0YsRUFBQzs7QUFFRDtFQUNFLGNBQWEsRUFDZDs7QUFFRDtFQUNFLFlBQVc7RUFDWCxpQkFBZ0I7RUFDaEIsb0JBQW1CLEVBQ3BCOztBQUVEO0VBQ0UsZ0JBQWUsRUFDaEI7O0FBRUQ7RUFDRSx1QkFBc0I7RUFDdEIsc0JBQXFCO0VBQ3JCLDBCQUF5QixFQUMxQjs7QUFFRDtFQUNFLGFBQVk7RUFDWix1QkFBc0I7RUFDdEIsY0FBYTtFQUNiLGFBQVk7RUFDWixpQkFBZ0I7RUFDaEIsbUJBQWtCO0VBQ2xCLG9CQUFtQixFQUNwQjs7QUFFRDtFQUNFLGdCQUFlO0VBQ2YsWUFBVztFQUNYLGFBQVksRUFDYjs7QUFFRDtFQUNFLDBCQUF5QixFQUMxQjs7QUFFRDtFQUNFLDBCQUF5QixFQUMxQjs7QUFFRDtFQUNFLHdCQUF1QixFQUN4Qjs7QUFDRDtFQUNFLHdCQUF1QixFQUN4QiIsImZpbGUiOiJzcmMvYXBwL21zLWJhY2stb2ZmaWNlL21vZHVsZXMvbXMtY29sbGVjdGlvbnMvY29tcG9uZW50cy9jb2xsZWN0aW9uLWNyZWF0b3IvY29sbGVjdGlvbi1jcmVhdG9yLmNvbXBvbmVudC5zY3NzIiwic291cmNlc0NvbnRlbnQiOlsiOmhvc3Qge1xyXG4gICAgZGlzcGxheTogZmxleDtcclxuICAgIGZsZXgtZGlyZWN0aW9uOiBjb2x1bW47XHJcbiAgICBmbGV4LWdyb3c6IDE7XHJcbn1cclxuOmhvc3Qge1xyXG4gICAgZGlzcGxheTogZmxleDtcclxuICAgIGZsZXgtZ3JvdzogMTtcclxuICAgIGZsZXgtZGlyZWN0aW9uOiBjb2x1bW47XHJcbiAgICBoZWlnaHQ6IDEwMCVcclxuICB9XHJcbiAgXHJcbiAgLm1hdC1kaWFsb2ctY29udGFpbmVyIHtcclxuICAgIHBhZGRpbmc6IDEwcHg7XHJcbiAgfVxyXG4gIFxyXG4gIC5tYXQtZGlhbG9nLWNvbnRlbnQge1xyXG4gICAgaGVpZ2h0OiA2MCU7XHJcbiAgICBtYXgtaGVpZ2h0OiA4MnZoO1xyXG4gICAgbWFyZ2luLWJvdHRvbTogMTBweDtcclxuICB9XHJcbiAgXHJcbiAgLm1hdC1kaWFsb2ctYWN0aW9ucyB7XHJcbiAgICBwYWRkaW5nOiAxMHB4IDA7XHJcbiAgfVxyXG4gIFxyXG4gIDo6bmctZGVlcCAuY2RrLWdsb2JhbC1vdmVybGF5LXdyYXBwZXIgPiBkaXYge1xyXG4gICAgaGVpZ2h0OiA5MCUgIWltcG9ydGFudDtcclxuICAgIHdpZHRoOiA5MCUgIWltcG9ydGFudDtcclxuICAgIG1heC13aWR0aDogOTAlICFpbXBvcnRhbnQ7XHJcbiAgfVxyXG4gIFxyXG4gIG1hdC1jYXJkIHtcclxuICAgIHBhZGRpbmc6IDBweDtcclxuICAgIGFsaWduLXNlbGY6IGZsZXgtc3RhcnQ7XHJcbiAgICBoZWlnaHQ6IDIwMHB4O1xyXG4gICAgd2lkdGg6IDE1MHB4O1xyXG4gICAgbWFyZ2luLWxlZnQ6IDJweDtcclxuICAgIG1hcmdpbi1yaWdodDogMTVweDtcclxuICAgIG1hcmdpbi1ib3R0b206IDE1cHg7XHJcbiAgfVxyXG4gIFxyXG4gIG1hdC1pY29uIHtcclxuICAgIGZvbnQtc2l6ZTogMjRweDtcclxuICAgIHdpZHRoOiAyNHB4O1xyXG4gICAgaGVpZ2h0OiAyNHB4O1xyXG4gIH1cclxuICBcclxuICAubWF4LXdpZHRoLTYwLXBjdHtcclxuICAgIG1heC13aWR0aDogNjAlICFpbXBvcnRhbnQ7XHJcbiAgfVxyXG4gIFxyXG4gIC5ib3JkZXJ7XHJcbiAgICBib3JkZXI6IDFweCBzb2xpZCAjZjFmMWYxO1xyXG4gIH1cclxuICBcclxuICB0ZC5tYXQtY2VsbHtcclxuICAgIGJvcmRlcjogbm9uZSAhaW1wb3J0YW50O1xyXG4gIH1cclxuICB0aC5tYXQtaGVhZGVyLWNlbGx7XHJcbiAgICBib3JkZXI6IG5vbmUgIWltcG9ydGFudDtcclxuICB9Il19 */"
+module.exports = ":host {\n  display: flex;\n  flex-direction: column;\n  flex-grow: 1; }\n\n:host {\n  display: flex;\n  flex-grow: 1;\n  flex-direction: column;\n  height: 100%; }\n\n.mat-dialog-container {\n  padding: 10px; }\n\n.mat-dialog-content {\n  height: 60%;\n  max-height: 82vh;\n  margin-bottom: 10px; }\n\n.mat-dialog-actions {\n  padding: 10px 0; }\n\nmat-card {\n  padding: 0px;\n  align-self: flex-start;\n  height: 200px;\n  width: 150px;\n  margin-left: 2px;\n  margin-right: 15px;\n  margin-bottom: 15px; }\n\nmat-icon {\n  font-size: 24px;\n  width: 24px;\n  height: 24px; }\n\n.max-width-60-pct {\n  max-width: 60% !important; }\n\n.border {\n  border: 1px solid #f1f1f1; }\n\ntd.mat-cell {\n  border: none !important; }\n\nth.mat-header-cell {\n  border: none !important; }\n\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvbXMtYmFjay1vZmZpY2UvbW9kdWxlcy9tcy1jb2xsZWN0aW9ucy9jb21wb25lbnRzL2NvbGxlY3Rpb24tY3JlYXRvci9FOlxcUFJPR1JBTUFDSU9OIElJSVxcbW9yZXNuZWFrZXJzLWJhY2tvZmZpY2Uvc3JjXFxhcHBcXG1zLWJhY2stb2ZmaWNlXFxtb2R1bGVzXFxtcy1jb2xsZWN0aW9uc1xcY29tcG9uZW50c1xcY29sbGVjdGlvbi1jcmVhdG9yXFxjb2xsZWN0aW9uLWNyZWF0b3IuY29tcG9uZW50LnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFDSSxjQUFhO0VBQ2IsdUJBQXNCO0VBQ3RCLGFBQVksRUFDZjs7QUFDRDtFQUNJLGNBQWE7RUFDYixhQUFZO0VBQ1osdUJBQXNCO0VBQ3RCLGFBQ0YsRUFBQzs7QUFFRDtFQUNFLGNBQWEsRUFDZDs7QUFFRDtFQUNFLFlBQVc7RUFDWCxpQkFBZ0I7RUFDaEIsb0JBQW1CLEVBQ3BCOztBQUVEO0VBQ0UsZ0JBQWUsRUFDaEI7O0FBRUQ7RUFDRSxhQUFZO0VBQ1osdUJBQXNCO0VBQ3RCLGNBQWE7RUFDYixhQUFZO0VBQ1osaUJBQWdCO0VBQ2hCLG1CQUFrQjtFQUNsQixvQkFBbUIsRUFDcEI7O0FBRUQ7RUFDRSxnQkFBZTtFQUNmLFlBQVc7RUFDWCxhQUFZLEVBQ2I7O0FBRUQ7RUFDRSwwQkFBeUIsRUFDMUI7O0FBRUQ7RUFDRSwwQkFBeUIsRUFDMUI7O0FBRUQ7RUFDRSx3QkFBdUIsRUFDeEI7O0FBQ0Q7RUFDRSx3QkFBdUIsRUFDeEIiLCJmaWxlIjoic3JjL2FwcC9tcy1iYWNrLW9mZmljZS9tb2R1bGVzL21zLWNvbGxlY3Rpb25zL2NvbXBvbmVudHMvY29sbGVjdGlvbi1jcmVhdG9yL2NvbGxlY3Rpb24tY3JlYXRvci5jb21wb25lbnQuc2NzcyIsInNvdXJjZXNDb250ZW50IjpbIjpob3N0IHtcclxuICAgIGRpc3BsYXk6IGZsZXg7XHJcbiAgICBmbGV4LWRpcmVjdGlvbjogY29sdW1uO1xyXG4gICAgZmxleC1ncm93OiAxO1xyXG59XHJcbjpob3N0IHtcclxuICAgIGRpc3BsYXk6IGZsZXg7XHJcbiAgICBmbGV4LWdyb3c6IDE7XHJcbiAgICBmbGV4LWRpcmVjdGlvbjogY29sdW1uO1xyXG4gICAgaGVpZ2h0OiAxMDAlXHJcbiAgfVxyXG4gIFxyXG4gIC5tYXQtZGlhbG9nLWNvbnRhaW5lciB7XHJcbiAgICBwYWRkaW5nOiAxMHB4O1xyXG4gIH1cclxuICBcclxuICAubWF0LWRpYWxvZy1jb250ZW50IHtcclxuICAgIGhlaWdodDogNjAlO1xyXG4gICAgbWF4LWhlaWdodDogODJ2aDtcclxuICAgIG1hcmdpbi1ib3R0b206IDEwcHg7XHJcbiAgfVxyXG4gIFxyXG4gIC5tYXQtZGlhbG9nLWFjdGlvbnMge1xyXG4gICAgcGFkZGluZzogMTBweCAwO1xyXG4gIH1cclxuICBcclxuICBtYXQtY2FyZCB7XHJcbiAgICBwYWRkaW5nOiAwcHg7XHJcbiAgICBhbGlnbi1zZWxmOiBmbGV4LXN0YXJ0O1xyXG4gICAgaGVpZ2h0OiAyMDBweDtcclxuICAgIHdpZHRoOiAxNTBweDtcclxuICAgIG1hcmdpbi1sZWZ0OiAycHg7XHJcbiAgICBtYXJnaW4tcmlnaHQ6IDE1cHg7XHJcbiAgICBtYXJnaW4tYm90dG9tOiAxNXB4O1xyXG4gIH1cclxuICBcclxuICBtYXQtaWNvbiB7XHJcbiAgICBmb250LXNpemU6IDI0cHg7XHJcbiAgICB3aWR0aDogMjRweDtcclxuICAgIGhlaWdodDogMjRweDtcclxuICB9XHJcbiAgXHJcbiAgLm1heC13aWR0aC02MC1wY3R7XHJcbiAgICBtYXgtd2lkdGg6IDYwJSAhaW1wb3J0YW50O1xyXG4gIH1cclxuICBcclxuICAuYm9yZGVye1xyXG4gICAgYm9yZGVyOiAxcHggc29saWQgI2YxZjFmMTtcclxuICB9XHJcbiAgXHJcbiAgdGQubWF0LWNlbGx7XHJcbiAgICBib3JkZXI6IG5vbmUgIWltcG9ydGFudDtcclxuICB9XHJcbiAgdGgubWF0LWhlYWRlci1jZWxse1xyXG4gICAgYm9yZGVyOiBub25lICFpbXBvcnRhbnQ7XHJcbiAgfSJdfQ== */"
 
 /***/ }),
 
@@ -87,6 +87,7 @@ var CollectionCreatorComponent = /** @class */ (function () {
     }
     CollectionCreatorComponent.prototype.ngOnInit = function () {
         this.collections = this.activatedRoute.snapshot.data.collections;
+        this.brands = this.activatedRoute.snapshot.data.brands;
     };
     CollectionCreatorComponent.prototype.submit = function (data) {
         this.createUser(data);
@@ -111,9 +112,9 @@ var CollectionCreatorComponent = /** @class */ (function () {
     };
     CollectionCreatorComponent.prototype.showModal = function () {
         this.modalRef = this.dialog.open(_new_collection_new_collection_component__WEBPACK_IMPORTED_MODULE_9__["NewCollectionComponent"], {
-            height: '800px',
-            width: '60%',
-            data: { data: this.data }
+            height: '90%',
+            width: '90%',
+            data: { brands: this.brands }
         });
     };
     CollectionCreatorComponent = __decorate([
@@ -145,7 +146,7 @@ var CollectionCreatorComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<form class=\"flex-grow-1 min-height-0 display-flex flex-direction-column\" [askBeforeRefresh]=\"formGroup.dirty\" [formGroup]=\"formGroup\" novalidate role=\"form\" (ngSubmit)=\"submitClicked()\"\n  autocomplete=\"off\" inputFocus>\n\n  <div class=\"flex-grow-1 overflow-auto display-flex flex-direction-column\">\n\n    <div class=\"flex-grow-1 flex-shrink-0 display-flex flex-direction-column\">\n\n      <mat-form-field class=\"width-100pc margin-left-16px\">\n\n        <mat-label>Name</mat-label>\n\n        <input matInput type=\"text\" formControlName=\"name\" required>\n\n      </mat-form-field>\n\n      <div [fxFlex]=\"50\" class=\"border margin-left-25px margin-right-25px border-2px-solid-black\">\n\n          <images-card class=\"flex-grow-1 padding-10px\"></images-card>\n\n        </div>\n\n      <mat-form-field class=\"width-100pc margin-left-16px\">\n\n        <mat-label>Description</mat-label>\n\n        <textarea matInput formControlName=\"description\"></textarea>\n\n      </mat-form-field>\n      \n    </div>\n  </div>\n  <div class=\"margin-right-25px padding-top-25px padding-bottom-25px flex-shrink-0 display-flex border-top-style-solid border-top-width-2px border-top-color-grey\">\n\n    <button mat-raised-button type=\"submit\" color=\"primary\">{{ 'Save' | translate }}</button>\n\n    <button mat-raised-button type=\"button\" class=\"margin-left-10px\" (click)=\"cancelClicked()\">{{ 'Cancel' | translate }}</button>\n\n  </div>\n</form>"
+module.exports = "<form class=\"flex-grow-1 min-height-0 display-flex flex-direction-column\" [askBeforeRefresh]=\"formGroup.dirty\" [formGroup]=\"formGroup\"\n  novalidate role=\"form\" (ngSubmit)=\"submitClicked()\" autocomplete=\"off\" inputFocus>\n\n  <div class=\"flex-grow-1 overflow-auto display-flex flex-direction-column\">\n\n    <div class=\"flex-grow-1 flex-shrink-0 display-flex flex-direction-column\">\n\n      <mat-form-field class=\"width-100pc margin-left-16px\">\n\n        <mat-label>Name</mat-label>\n\n        <input matInput type=\"text\" formControlName=\"name\" required>\n\n      </mat-form-field>\n\n      <mat-form-field>\n        <mat-label>Brand</mat-label>\n        <mat-select placeholder=\"Brand\" formControlName=\"brand\">\n          <mat-option *ngFor=\"let brand of brands\" [value]=\"brand.id\">\n            {{brand.name}}\n          </mat-option>\n        </mat-select>\n      </mat-form-field>\n\n      <div [fxFlex]=\"50\" class=\"border margin-left-25px margin-right-25px border-2px-solid-black\">\n\n        <images-card class=\"flex-grow-1 padding-10px\"></images-card>\n\n      </div>\n\n      <mat-form-field class=\"width-100pc margin-left-16px\">\n\n        <mat-label>Description</mat-label>\n\n        <textarea matInput formControlName=\"description\"></textarea>\n\n      </mat-form-field>\n\n    </div>\n  </div>\n  <div class=\"margin-right-25px padding-top-25px padding-bottom-25px flex-shrink-0 display-flex border-top-style-solid border-top-width-2px border-top-color-grey\">\n\n    <button mat-raised-button type=\"submit\" color=\"primary\">{{ 'Save' | translate }}</button>\n\n    <button mat-raised-button type=\"button\" class=\"margin-left-10px\" (click)=\"cancelClicked()\">{{ 'Cancel' | translate }}</button>\n\n  </div>\n</form>"
 
 /***/ }),
 
@@ -221,6 +222,7 @@ var CollectionFormComponent = /** @class */ (function (_super) {
         this.formGroup = new _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormGroup"]({
             name: new _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormControl"](this.data.name, [_angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].required]),
             description: new _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormControl"](this.data.description, [_angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].required]),
+            brand: new _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormControl"](this.data.brand, [_angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].required]),
         });
     };
     CollectionFormComponent.prototype.submitClicked = function () {
@@ -694,7 +696,7 @@ var EditCollectionComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<h1>COLLECTION CREATOR</h1>\n\n<collection-form class=\"flex-grow-1\"\n    [brands]=\"brands\"\n    [data]=\"data\"        \n    (accept)=\"submit($event)\"\n    (cancel)=\"cancel()\"\n    [validationErrors]=\"validationErrors\"\n    (dataChange)=\"dataChanged()\">\n</collection-form>"
+module.exports = "<h1>COLLECTION CREATOR</h1>\n\n<collection-form class=\"flex-grow-1\"\n    [brands]=\"dialogData.brands\"\n    [data]=\"data\"        \n    (accept)=\"submit($event)\"\n    (cancel)=\"cancel()\"\n    [validationErrors]=\"validationErrors\"\n    (dataChange)=\"dataChanged()\">\n</collection-form>"
 
 /***/ }),
 
@@ -727,8 +729,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _ui_helpers_mixin_decorator__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../../../ui/helpers/mixin-decorator */ "./src/app/ui/helpers/mixin-decorator.ts");
 /* harmony import */ var _error_handling_services_error_handling_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../../../../error-handling/services/error-handling.service */ "./src/app/error-handling/services/error-handling.service.ts");
 /* harmony import */ var _error_handling_services_toastr_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../../../../error-handling/services/toastr.service */ "./src/app/error-handling/services/toastr.service.ts");
-/* harmony import */ var _models_collection__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../models/collection */ "./src/app/ms-back-office/modules/ms-collections/models/collection.ts");
-/* harmony import */ var _services_collections_service__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../../services/collections.service */ "./src/app/ms-back-office/modules/ms-collections/services/collections.service.ts");
+/* harmony import */ var _services_collections_service__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../services/collections.service */ "./src/app/ms-back-office/modules/ms-collections/services/collections.service.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -752,11 +753,10 @@ var __param = (undefined && undefined.__param) || function (paramIndex, decorato
 
 
 
-
 var errorKey = 'Error';
 var savedUserMessageKey = 'Saved User Message';
 var NewCollectionComponent = /** @class */ (function () {
-    function NewCollectionComponent(dialogRef, activatedRoute, collectionsService, errorHandlingService, router, translate, toastr, dialog, datas) {
+    function NewCollectionComponent(dialogRef, activatedRoute, collectionsService, errorHandlingService, router, translate, toastr, dialog, dialogData) {
         this.dialogRef = dialogRef;
         this.activatedRoute = activatedRoute;
         this.collectionsService = collectionsService;
@@ -765,11 +765,12 @@ var NewCollectionComponent = /** @class */ (function () {
         this.translate = translate;
         this.toastr = toastr;
         this.dialog = dialog;
-        this.datas = datas;
+        this.dialogData = dialogData;
         this.data = {
             name: '',
             brand: ''
         };
+        //brands: Array<Brand>;
         // Begin Mixin code of the CanDeactivate class
         this.unsavedChanges = false;
         this.cancelBtnKey = 'No';
@@ -778,7 +779,8 @@ var NewCollectionComponent = /** @class */ (function () {
         this.saveMessageKey = 'Discard Message';
     }
     NewCollectionComponent.prototype.ngOnInit = function () {
-        this.brands = this.activatedRoute.snapshot.data.brands;
+        console.log(this.dialogData);
+        //this.brands = this.activatedRoute.snapshot.data.brands;
     };
     NewCollectionComponent.prototype.submit = function (data) {
         this.createCollection(data);
@@ -813,49 +815,14 @@ var NewCollectionComponent = /** @class */ (function () {
         __param(8, Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Inject"])(_angular_material__WEBPACK_IMPORTED_MODULE_2__["MAT_DIALOG_DATA"])),
         __metadata("design:paramtypes", [_angular_material__WEBPACK_IMPORTED_MODULE_2__["MatDialogRef"],
             _angular_router__WEBPACK_IMPORTED_MODULE_1__["ActivatedRoute"],
-            _services_collections_service__WEBPACK_IMPORTED_MODULE_9__["CollectionsService"],
+            _services_collections_service__WEBPACK_IMPORTED_MODULE_8__["CollectionsService"],
             _error_handling_services_error_handling_service__WEBPACK_IMPORTED_MODULE_6__["ErrorHandlingService"],
             _angular_router__WEBPACK_IMPORTED_MODULE_1__["Router"],
             _ngx_translate_core__WEBPACK_IMPORTED_MODULE_3__["TranslateService"],
             _error_handling_services_toastr_service__WEBPACK_IMPORTED_MODULE_7__["ToastrService"],
-            _angular_material__WEBPACK_IMPORTED_MODULE_2__["MatDialog"],
-            _models_collection__WEBPACK_IMPORTED_MODULE_8__["Collection"]])
+            _angular_material__WEBPACK_IMPORTED_MODULE_2__["MatDialog"], Object])
     ], NewCollectionComponent);
     return NewCollectionComponent;
-}());
-
-
-
-/***/ }),
-
-/***/ "./src/app/ms-back-office/modules/ms-collections/models/collection.ts":
-/*!****************************************************************************!*\
-  !*** ./src/app/ms-back-office/modules/ms-collections/models/collection.ts ***!
-  \****************************************************************************/
-/*! exports provided: Collection, CollectionsListResponse, CollectionResponse */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Collection", function() { return Collection; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CollectionsListResponse", function() { return CollectionsListResponse; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CollectionResponse", function() { return CollectionResponse; });
-var Collection = /** @class */ (function () {
-    function Collection() {
-    }
-    return Collection;
-}());
-
-var CollectionsListResponse = /** @class */ (function () {
-    function CollectionsListResponse() {
-    }
-    return CollectionsListResponse;
-}());
-
-var CollectionResponse = /** @class */ (function () {
-    function CollectionResponse() {
-    }
-    return CollectionResponse;
 }());
 
 

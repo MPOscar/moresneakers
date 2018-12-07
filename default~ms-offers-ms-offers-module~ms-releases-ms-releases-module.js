@@ -577,7 +577,8 @@ var NewOfferComponent = /** @class */ (function () {
         this.close();
     };
     NewOfferComponent.prototype.close = function () {
-        this.router.navigate(this.activatedRoute.snapshot.data.closeRouteCommand, { relativeTo: this.activatedRoute });
+        this.dialogRef.close();
+        //this.router.navigate(this.activatedRoute.snapshot.data.closeRouteCommand, { relativeTo: this.activatedRoute });
     };
     NewOfferComponent.prototype.createUser = function (data) {
         var _this = this;

@@ -522,8 +522,8 @@ var StyleFormComponent = /** @class */ (function (_super) {
     };
     StyleFormComponent.prototype.showModal = function () {
         this.modalRef = this.dialog.open(_ms_shops_components_shops_selling_style_modal_shops_selling_style_modal_component__WEBPACK_IMPORTED_MODULE_4__["ShopsSellingStylecomponentModalComponent"], {
-            height: '800px',
-            width: '60%',
+            height: '90%',
+            width: '90%',
             data: { face: this.shop }
         });
     };
