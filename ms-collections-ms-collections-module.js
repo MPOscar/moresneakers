@@ -376,9 +376,14 @@ var CollectionsTableComponent = /** @class */ (function () {
         this.loadPage();
     };
     CollectionsTableComponent.prototype.getBrand = function (id) {
-        return this.brands.find(function (brand) {
-            return brand.id === id;
-        }).name;
+        try {
+            return this.brands.find(function (brand) {
+                return brand.id === id;
+            }).name;
+        }
+        catch (err) {
+            return;
+        }
     };
     __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ViewChild"])(_angular_material__WEBPACK_IMPORTED_MODULE_3__["MatPaginator"]),

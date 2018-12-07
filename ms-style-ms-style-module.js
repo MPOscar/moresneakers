@@ -681,14 +681,24 @@ var StyleTableComponent = /** @class */ (function () {
         this.loadPage();
     };
     StyleTableComponent.prototype.getBrand = function (id) {
-        return this.brands.find(function (brand) {
-            return brand.id === id;
-        }).name;
+        try {
+            return this.brands.find(function (brand) {
+                return brand.id === id;
+            }).name;
+        }
+        catch (err) {
+            return;
+        }
     };
     StyleTableComponent.prototype.getCategory = function (id) {
-        return this.categories.find(function (category) {
-            return category.id === id;
-        }).name;
+        try {
+            return this.categories.find(function (category) {
+                return category.id === id;
+            }).name;
+        }
+        catch (err) {
+            return;
+        }
     };
     __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ViewChild"])(_angular_material__WEBPACK_IMPORTED_MODULE_3__["MatPaginator"]),
