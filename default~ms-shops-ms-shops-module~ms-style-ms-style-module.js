@@ -506,10 +506,10 @@ var ShopFormComponent = /** @class */ (function (_super) {
         this.faces = this.formBuilder.control(this.faceList);
         this.formGroup = new _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormGroup"]({
             name: new _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormControl"](this.data.name, [_angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].required]),
-            address: new _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormControl"](this.data.address, [_angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].required]),
-            shippingDetails: new _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormControl"](this.data.shippingDetails, [_angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].required]),
-            description: new _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormControl"](this.data.description, [_angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].required]),
-            makeDeal: new _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormControl"](this.data.makeDeal, [_angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].required]),
+            address: new _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormControl"](this.data.address),
+            shippingDetails: new _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormControl"](this.data.shippingDetails),
+            description: new _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormControl"](this.data.description),
+            makeDeal: new _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormControl"](this.data.makeDeal),
             images: this.faces,
             brand: new _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormControl"](this.data.brand),
             category: new _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormControl"](this.data.category),
