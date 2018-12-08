@@ -1,4 +1,4 @@
-(window["webpackJsonp"] = window["webpackJsonp"] || []).push([["ms-brands-ms-brands-module"],{
+(window["webpackJsonp"] = window["webpackJsonp"] || []).push([["default~ms-brands-ms-brands-module~ms-style-ms-style-module"],{
 
 /***/ "./src/app/ms-back-office/modules/ms-brands/components/brand-creator/brand-creator.component.html":
 /*!********************************************************************************************************!*\
@@ -220,7 +220,7 @@ var BrandFormComponent = /** @class */ (function (_super) {
     BrandFormComponent.prototype.createFormGroup = function () {
         this.formGroup = new _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormGroup"]({
             name: new _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormControl"](this.data.name, [_angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].required]),
-            description: new _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormControl"](this.data.description, [_angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].required]),
+            description: new _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormControl"](this.data.description),
             imgUrl: new _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormControl"](this.data.imgUrl),
         });
     };
@@ -1257,4 +1257,4 @@ var CollectionsService = /** @class */ (function () {
 /***/ })
 
 }]);
-//# sourceMappingURL=ms-brands-ms-brands-module.js.map
+//# sourceMappingURL=default~ms-brands-ms-brands-module~ms-style-ms-style-module.js.map

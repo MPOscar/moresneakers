@@ -16,7 +16,7 @@ var map = {
 	"../ms-brands/ms-brands.module": [
 		"./src/app/ms-back-office/modules/ms-brands/ms-brands.module.ts",
 		"default~ms-brands-ms-brands-module~ms-categories-ms-categories-module~ms-collections-ms-collections-~9b80b7fc",
-		"ms-brands-ms-brands-module"
+		"default~ms-brands-ms-brands-module~ms-style-ms-style-module"
 	],
 	"../ms-categories/ms-categories.module": [
 		"./src/app/ms-back-office/modules/ms-categories/ms-categories.module.ts",
@@ -52,6 +52,7 @@ var map = {
 		"default~ms-brands-ms-brands-module~ms-categories-ms-categories-module~ms-collections-ms-collections-~9b80b7fc",
 		"default~ms-offers-ms-offers-module~ms-releases-ms-releases-module~ms-shops-ms-shops-module~ms-style-~7fefb74e",
 		"default~ms-shops-ms-shops-module~ms-style-ms-style-module",
+		"default~ms-brands-ms-brands-module~ms-style-ms-style-module",
 		"ms-style-ms-style-module"
 	],
 	"../ms-users/ms-users.module": [
@@ -241,6 +242,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var _ngx_translate_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @ngx-translate/core */ "./node_modules/@ngx-translate/core/fesm5/ngx-translate-core.js");
 /* harmony import */ var _authentication_services_auth_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./authentication/services/auth.service */ "./src/app/authentication/services/auth.service.ts");
+/* harmony import */ var _ui_services_svg_icons_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./ui/services/svg-icons.service */ "./src/app/ui/services/svg-icons.service.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -254,9 +256,11 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 
 //
 
+
 var AppComponent = /** @class */ (function () {
-    function AppComponent(authService, translate) {
+    function AppComponent(authService, svgIconsService, translate) {
         this.authService = authService;
+        this.svgIconsService = svgIconsService;
         this.translate = translate;
         translate.setDefaultLang('en');
         this.authService.loginCommands = ['/login'];
@@ -271,6 +275,7 @@ var AppComponent = /** @class */ (function () {
             styles: [__webpack_require__(/*! ./app.component.scss */ "./src/app/app.component.scss")]
         }),
         __metadata("design:paramtypes", [_authentication_services_auth_service__WEBPACK_IMPORTED_MODULE_2__["AuthService"],
+            _ui_services_svg_icons_service__WEBPACK_IMPORTED_MODULE_3__["SvgIconsService"],
             _ngx_translate_core__WEBPACK_IMPORTED_MODULE_1__["TranslateService"]])
     ], AppComponent);
     return AppComponent;
@@ -3461,6 +3466,256 @@ function Mixin(baseCtors) {
 
 /***/ }),
 
+/***/ "./src/app/ui/models/svg-icons/event-detectors.ts":
+/*!********************************************************!*\
+  !*** ./src/app/ui/models/svg-icons/event-detectors.ts ***!
+  \********************************************************/
+/*! exports provided: EVENT_DETECTORS */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "EVENT_DETECTORS", function() { return EVENT_DETECTORS; });
+var EVENT_DETECTORS = "<svg version=\"1.1\" id=\"Layer_1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" x=\"0px\" y=\"0px\"\nwidth=\"90px\" height=\"85px\" viewBox=\"0 0 90 85\" enable-background=\"new 0 0 90 85\" xml:space=\"preserve\">\n<g>\n<path fill=\"#045748\" d=\"M87.431,15.9C30.388,38.735,53.494-22.723,9.25,9.629L0,12.952L18.326,85H28.42l-8.976-35.288\n   c39.471-33.09,23.491,36.055,70.184-31.788C90.712,16.35,89.261,15.168,87.431,15.9z\"/>\n</g>\n</svg>\n";
+
+
+/***/ }),
+
+/***/ "./src/app/ui/models/svg-icons/event-dispatcher.ts":
+/*!*********************************************************!*\
+  !*** ./src/app/ui/models/svg-icons/event-dispatcher.ts ***!
+  \*********************************************************/
+/*! exports provided: EVENT_DISPATCHER */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "EVENT_DISPATCHER", function() { return EVENT_DISPATCHER; });
+var EVENT_DISPATCHER = "<svg version=\"1.1\" id=\"Layer_1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" x=\"0px\" y=\"0px\"\nwidth=\"92px\" height=\"74px\" viewBox=\"0 0 92 74\" enable-background=\"new 0 0 92 74\" xml:space=\"preserve\">\n<path fill=\"#045748\" d=\"M89.47,0.173C87.752,0.779,2.864,30.692,1.193,31.281c-1.419,0.5-1.735,1.725-0.05,2.399\nc2.007,0.804,18.979,7.604,18.979,7.604h-0.002l11.253,4.51c0,0,54.187-39.792,54.924-40.333c0.736-0.542,1.589,0.475,1.052,1.056\nc-0.537,0.584-39.356,42.567-39.356,42.567c-0.002,0-0.002,0.002-0.002,0.002l-2.264,2.518l2.994,1.611v0.002\nc0,0,23.251,12.514,24.908,13.406c1.451,0.781,3.34,0.133,3.759-1.674c0.494-2.131,14.225-61.307,14.532-62.624\nC92.317,0.612,91.188-0.432,89.47,0.173z M31.271,72.81c0,1.234,0.693,1.577,1.655,0.703c1.254-1.137,14.245-12.796,14.245-12.796\nl-15.9-8.228V72.81z\"/>\n</svg>\n";
+
+
+/***/ }),
+
+/***/ "./src/app/ui/models/svg-icons/event-views.ts":
+/*!****************************************************!*\
+  !*** ./src/app/ui/models/svg-icons/event-views.ts ***!
+  \****************************************************/
+/*! exports provided: EVENT_VIEWS */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "EVENT_VIEWS", function() { return EVENT_VIEWS; });
+var EVENT_VIEWS = "<svg version=\"1.1\" id=\"Layer_1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" x=\"0px\" y=\"0px\"\nwidth=\"68px\" height=\"77.028px\" viewBox=\"0 0 68 77.028\" enable-background=\"new 0 0 68 77.028\" xml:space=\"preserve\">\n<g>\n<path fill=\"#045748\" d=\"M41.043,69.373l-0.024-26.196L68,16.082v-3.384C68,6.948,55.399,0,34.001,0S-0.027,7.111,0,12.808l0,3.333\n   l27.05,27.036l0.008,33.852 M34.001,21.453c-15.658-0.011-26.764-5.59-26.764-7.674c-0.008-2.071,11.107-7.658,26.764-7.65\n   c15.654-0.008,26.771,5.579,26.762,7.65C60.763,15.863,49.657,21.442,34.001,21.453z\"/>\n</g>\n</svg>\n";
+
+
+/***/ }),
+
+/***/ "./src/app/ui/models/svg-icons/globe.ts":
+/*!**********************************************!*\
+  !*** ./src/app/ui/models/svg-icons/globe.ts ***!
+  \**********************************************/
+/*! exports provided: GLOBE */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "GLOBE", function() { return GLOBE; });
+var GLOBE = "<svg version=\"1.1\" id=\"Layer_1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" x=\"0px\" y=\"0px\"\nwidth=\"96\" height=\"96.001\" viewBox=\"0 0 96 96.001\" enable-background=\"new 0 0 96 96.001\" xml:space=\"preserve\">\n<path fill=\"#E9F2EA\" d=\"M48,0C21.531,0,0,21.537,0,48.001c0,26.469,21.531,48,48,48s48-21.531,48-48C96,21.537,74.469,0,48,0z\nM88.938,48.001c0,9.364-3.177,18-8.479,24.907c-1.5-1.178-3.094-4.34-1.594-7.621c1.511-3.301,1.906-10.938,1.563-13.91\nc-0.333-2.969-1.875-10.131-6.072-10.2c-4.188-0.063-7.063-1.447-9.553-6.416c-5.166-10.339,9.698-12.323,4.531-18.052\nc-1.447-1.605-8.916,6.619-10.01-4.344C59.25,11.588,60,10.416,61,9.197C77.219,14.646,88.938,29.975,88.938,48.001z M42.375,7.469\nc-0.979,1.906-3.563,2.682-5.136,4.115c-3.416,3.094-4.885,2.666-6.729,5.635c-1.854,2.969-7.834,7.25-7.834,9.396\nc0,2.145,3.021,4.682,4.531,4.188c1.511-0.496,5.49-0.469,7.834,0.354c2.344,0.828,19.572,1.656,14.083,16.22\nc-1.739,4.629-9.364,3.848-11.396,11.52c-0.303,1.121-1.354,5.928-1.428,7.5c-0.125,2.428,1.719,11.59-0.625,11.59\nc-2.354,0-8.688-8.193-8.688-9.678s-1.646-6.693-1.646-11.15c0-4.459-7.583-4.387-7.583-10.313c0-5.35,4.114-8.006,3.188-10.568\nc-0.906-2.548-8.136-2.642-11.146-2.948C15.063,19.672,27.448,9.531,42.375,7.469z M35.125,86.849\nc2.458-1.297,2.708-2.973,4.938-3.066c2.552-0.115,4.625-0.996,7.5-1.625c2.552-0.559,7.114-3.146,11.136-3.48\nc3.385-0.275,10.072,0.178,11.875,3.449c-6.479,4.301-14.24,6.813-22.573,6.813C43.5,88.939,39.177,88.199,35.125,86.849z\"/>\n</svg>";
+
+
+/***/ }),
+
+/***/ "./src/app/ui/models/svg-icons/groups.ts":
+/*!***********************************************!*\
+  !*** ./src/app/ui/models/svg-icons/groups.ts ***!
+  \***********************************************/
+/*! exports provided: GROUPS */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "GROUPS", function() { return GROUPS; });
+var GROUPS = "<svg version=\"1.1\" id=\"Layer_1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" x=\"0px\" y=\"0px\"\nwidth=\"94.017px\" height=\"90px\" viewBox=\"0 0 94.017 90\" enable-background=\"new 0 0 94.017 90\" xml:space=\"preserve\">\n<g>\n<path fill=\"#045748\" d=\"M73.618,67.239c-12.326-4.492-16.266-8.281-16.266-16.395c0-4.871,3.764-3.28,5.416-12.2\n   c0.686-3.7,4.01-0.06,4.646-8.507c0-3.367-1.814-4.203-1.814-4.203s0.922-4.982,1.283-8.816C67.331,12.342,64.124,0,47.017,0\n   S26.7,12.342,27.149,17.119c0.361,3.834,1.283,8.816,1.283,8.816s-1.814,0.836-1.814,4.203c0.635,8.447,3.959,4.807,4.645,8.507\n   c1.654,8.919,5.416,7.329,5.416,12.2c0,8.113-3.938,11.902-16.264,16.395C8.05,71.745,0.017,76.339,0.017,79.473\n   c0,3.132,0,10.527,0,10.527h47h47c0,0,0-7.396,0-10.527C94.017,76.339,85.983,71.745,73.618,67.239z\"/>\n</g>\n<g>\n<path fill=\"#045748\" d=\"M93.979,56.09c-6.383-2.326-8.423-4.289-8.423-8.49c0-2.521,1.949-1.697,2.805-6.316\n   c0.355-1.917,2.076-0.031,2.406-4.406c0-1.743-0.939-2.176-0.939-2.176s0.477-2.58,0.664-4.566\n   c0.231-2.474-1.43-8.865-10.288-8.865s-10.521,6.391-10.288,8.865c0.188,1.986,0.664,4.566,0.664,4.566s-0.939,0.433-0.939,2.176\n   c0.329,4.375,2.051,2.489,2.406,4.406c0.855,4.619,2.804,3.795,2.804,6.316c0,4.201-2.058,6.113-8.422,8.49\n   c-4.181,1.562-3.743,1.53-3.743,1.53c4.469,3.688,18.369,8.335,20.416,10.257l0,0l10.891,0.016\"/>\n</g>\n<g>\n<path fill=\"#045748\" d=\"M0.013,56.102c6.383-2.326,8.423-4.289,8.423-8.49c0-2.522-1.949-1.697-2.805-6.317\n   c-0.355-1.917-2.076-0.031-2.406-4.405c0-1.744,0.939-2.176,0.939-2.176s-0.477-2.58-0.664-4.566\n   c-0.231-2.474,1.43-8.865,10.288-8.865s10.521,6.392,10.288,8.865c-0.188,1.986-0.664,4.566-0.664,4.566s0.939,0.432,0.939,2.176\n   c-0.329,4.374-2.051,2.488-2.406,4.405c-0.855,4.62-2.804,3.794-2.804,6.317c0,4.201,2.058,6.113,8.422,8.49\n   c4.181,1.561,3.474,1.364,3.474,1.364c-4.469,3.688-18.1,8.501-20.147,10.423l0,0L0,67.904\"/>\n</g>\n</svg>\n";
+
+
+/***/ }),
+
+/***/ "./src/app/ui/models/svg-icons/icons.ts":
+/*!**********************************************!*\
+  !*** ./src/app/ui/models/svg-icons/icons.ts ***!
+  \**********************************************/
+/*! exports provided: ICONS */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ICONS", function() { return ICONS; });
+/* harmony import */ var _event_detectors__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./event-detectors */ "./src/app/ui/models/svg-icons/event-detectors.ts");
+/* harmony import */ var _event_dispatcher__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./event-dispatcher */ "./src/app/ui/models/svg-icons/event-dispatcher.ts");
+/* harmony import */ var _event_views__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./event-views */ "./src/app/ui/models/svg-icons/event-views.ts");
+/* harmony import */ var _globe__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./globe */ "./src/app/ui/models/svg-icons/globe.ts");
+/* harmony import */ var _groups__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./groups */ "./src/app/ui/models/svg-icons/groups.ts");
+/* harmony import */ var _magnify__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./magnify */ "./src/app/ui/models/svg-icons/magnify.ts");
+/* harmony import */ var _password__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./password */ "./src/app/ui/models/svg-icons/password.ts");
+/* harmony import */ var _pen__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./pen */ "./src/app/ui/models/svg-icons/pen.ts");
+/* harmony import */ var _statistics__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./statistics */ "./src/app/ui/models/svg-icons/statistics.ts");
+/* harmony import */ var _system_administration__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./system-administration */ "./src/app/ui/models/svg-icons/system-administration.ts");
+/* harmony import */ var _trash__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./trash */ "./src/app/ui/models/svg-icons/trash.ts");
+/* harmony import */ var _user__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./user */ "./src/app/ui/models/svg-icons/user.ts");
+/* harmony import */ var _style__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./style */ "./src/app/ui/models/svg-icons/style.ts");
+
+
+
+
+
+
+
+
+
+
+
+
+
+var ICONS = [
+    { iconName: 'moresneakers-event-detectors', literal: _event_detectors__WEBPACK_IMPORTED_MODULE_0__["EVENT_DETECTORS"] },
+    { iconName: 'moresneakers-event-dispatcher', literal: _event_dispatcher__WEBPACK_IMPORTED_MODULE_1__["EVENT_DISPATCHER"] },
+    { iconName: 'moresneakers-event-views', literal: _event_views__WEBPACK_IMPORTED_MODULE_2__["EVENT_VIEWS"] },
+    { iconName: 'moresneakers-globe', literal: _globe__WEBPACK_IMPORTED_MODULE_3__["GLOBE"] },
+    { iconName: 'moresneakers-groups', literal: _groups__WEBPACK_IMPORTED_MODULE_4__["GROUPS"] },
+    { iconName: 'moresneakers-magnify', literal: _magnify__WEBPACK_IMPORTED_MODULE_5__["MAGNIFY"] },
+    { iconName: 'moresneakers-password', literal: _password__WEBPACK_IMPORTED_MODULE_6__["PASSWORD"] },
+    { iconName: 'moresneakers-pen', literal: _pen__WEBPACK_IMPORTED_MODULE_7__["PEN"] },
+    { iconName: 'moresneakers-statistics', literal: _statistics__WEBPACK_IMPORTED_MODULE_8__["STATISTICS"] },
+    { iconName: 'moresneakers-system-administration', literal: _system_administration__WEBPACK_IMPORTED_MODULE_9__["SYSTEM_ADMINISTRATION"] },
+    { iconName: 'moresneakers-trash', literal: _trash__WEBPACK_IMPORTED_MODULE_10__["TRASH"] },
+    { iconName: 'moresneakers-user', literal: _user__WEBPACK_IMPORTED_MODULE_11__["USER"] },
+    { iconName: 'moresneakers-style', literal: _style__WEBPACK_IMPORTED_MODULE_12__["STYLE"] }
+];
+
+
+/***/ }),
+
+/***/ "./src/app/ui/models/svg-icons/magnify.ts":
+/*!************************************************!*\
+  !*** ./src/app/ui/models/svg-icons/magnify.ts ***!
+  \************************************************/
+/*! exports provided: MAGNIFY */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "MAGNIFY", function() { return MAGNIFY; });
+var MAGNIFY = "<svg version=\"1.1\" id=\"Layer_1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" x=\"0px\" y=\"0px\"\nwidth=\"85.785px\" height=\"91.93px\" viewBox=\"0 0 85.785 91.93\" enable-background=\"new 0 0 85.785 91.93\" xml:space=\"preserve\">\n<g>\n<g>\n   <path fill=\"#045748\" d=\"M50.691,67.235l20.385,22.892c1.995,2.229,5.419,2.418,7.646,0.422l5.649-5.056\n       c2.229-1.998,1.609-4.698-0.387-6.925L63.978,56.225\"/>\n</g>\n<circle fill=\"none\" stroke=\"#005647\" stroke-width=\"10\" cx=\"35.482\" cy=\"35.482\" r=\"30.482\"/>\n</g>\n</svg>";
+
+
+/***/ }),
+
+/***/ "./src/app/ui/models/svg-icons/password.ts":
+/*!*************************************************!*\
+  !*** ./src/app/ui/models/svg-icons/password.ts ***!
+  \*************************************************/
+/*! exports provided: PASSWORD */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "PASSWORD", function() { return PASSWORD; });
+var PASSWORD = "<svg version=\"1.1\" id=\"Layer_1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" x=\"0px\" y=\"0px\"\nwidth=\"70px\" height=\"85px\" viewBox=\"0 0 70 85\" enable-background=\"new 0 0 70 85\" xml:space=\"preserve\">\n<path fill=\"#045748\" d=\"M64,30h-9v-7C55,8.514,48.327,0,35,0C21.673,0,15,8.514,15,23v7H5c-2.762,0-5,3.238-5,6v39\nc0,2.75,2.142,5.691,4.759,6.535l5.982,1.93C13.358,84.31,17.75,85,20.5,85h29c2.75,0,7.143-0.69,9.76-1.535l5.982-1.93\nC67.859,80.691,70,77.75,70,75V36C70,33.238,66.761,30,64,30z M25,21c0-7.225,3.986-11,10-11c6.013,0,10,3.775,10,11v9H25V21z\nM35.1,69.264c-4,0-7.243-5.6-7.243-12.506c0-6.908,3.243-12.507,7.243-12.507c4,0,7.245,5.599,7.245,12.507\nC42.344,63.664,39.1,69.264,35.1,69.264z\"/>\n</svg>\n";
+
+
+/***/ }),
+
+/***/ "./src/app/ui/models/svg-icons/pen.ts":
+/*!********************************************!*\
+  !*** ./src/app/ui/models/svg-icons/pen.ts ***!
+  \********************************************/
+/*! exports provided: PEN */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "PEN", function() { return PEN; });
+var PEN = "<svg version=\"1.1\" id=\"Layer_1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" x=\"0px\" y=\"0px\"\n\twidth=\"79.359px\" height=\"98.187px\" viewBox=\"0 0 77.999 78\" enable-background=\"new 0 0 77.999 78\" xml:space=\"preserve\">\n<g>\n\t<path fill=\"#045748\" d=\"M71.807,6.191c-7.215-7.216-12.629-6.133-12.629-6.133l-25.26,25.259L5.049,54.185L0,78l23.813-5.051\n\t\tl28.869-28.868l25.26-25.257C77.941,18.824,79.025,13.409,71.807,6.191z M22.395,70.086l-8.117,1.748\n\t\tc-0.785-1.467-1.727-2.932-3.455-4.659c-1.727-1.727-3.193-2.669-4.658-3.455l1.75-8.116l2.346-2.348c0,0,4.418,0.089,9.404,5.077\n\t\tc4.988,4.987,5.078,9.408,5.078,9.408L22.395,70.086z\"/>\n</g>\n</svg>";
+
+
+/***/ }),
+
+/***/ "./src/app/ui/models/svg-icons/statistics.ts":
+/*!***************************************************!*\
+  !*** ./src/app/ui/models/svg-icons/statistics.ts ***!
+  \***************************************************/
+/*! exports provided: STATISTICS */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "STATISTICS", function() { return STATISTICS; });
+var STATISTICS = "<svg version=\"1.1\" id=\"Layer_1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" x=\"0px\" y=\"0px\"\nwidth=\"142.882px\" height=\"179.735px\" viewBox=\"0 0 142.882 179.735\" enable-background=\"new 0 0 142.882 179.735\"\nxml:space=\"preserve\">\n<g>\n<path fill=\"#045748\" d=\"M116.862,117.546c-21.248-7.858-28.038-14.489-28.038-28.684c0-8.524,6.487-5.739,9.337-21.348\n   c1.178-6.472,6.911-0.104,8.006-14.885c0-5.891-3.126-7.355-3.126-7.355s0.868-4.71,1.592-10.366\n   C104.5,35.569,73.42,37.961,46.513,64.81c-0.847,0.848-1.69,1.718-2.528,2.615l-0.006,0.003c-0.031,0.033-0.063,0.063-0.093,0.097\n   l-0.034-0.01c2.849,15.608,9.336,12.823,9.336,21.348c0,14.194-8.997,23.654-32.705,28.334v1.319h34.279\n   c6.395,0,13.24,5.986,13.24,12.977l0.027,35.725h74.853V129.25C137.697,123.718,121.37,119.215,116.862,117.546z\"/>\n<path fill=\"#427994\" d=\"M46.513,64.81c27.552-26.704,57.988-29.24,58.121-29.901C108.089,17.884,96.741-0.04,70.764,0\n   C41.278,0.045,35.745,21.595,36.52,29.954c0.621,6.709,2.207,15.424,2.207,15.424S35.6,46.843,35.6,52.734\n   c1.1,14.779,7.3,8.515,8.265,14.872l0.114-0.178l0.006-0.003C44.823,66.528,45.652,65.644,46.513,64.81z\"/>\n</g>\n<path fill=\"none\" stroke=\"#EC008C\" d=\"M80.441,103.805\"/>\n<path fill=\"none\" stroke=\"#EC008C\" d=\"M123.399,103.805\"/>\n<path fill=\"none\" stroke=\"#427994\" stroke-width=\"7\" d=\"M64.872,167.834c0,4.738-3.841,8.578-8.58,8.578H12.079\nc-4.738,0-8.579-3.84-8.579-8.578v-43.398c0-4.738,3.841-8.58,8.579-8.58h44.213c4.738,0,8.58,3.842,8.58,8.58V167.834z\"/>\n<path fill=\"#045748\" d=\"M31.526,124.534c-9.91,1.176-17.766,9.031-18.942,18.941h18.942V124.534z M36.946,124.569v21.744\nc0,1.426-1.155,2.58-2.582,2.58H12.622c1.392,10.633,10.474,18.844,21.485,18.844c11.973,0,21.681-9.707,21.681-21.682\nC55.788,135.045,47.576,125.961,36.946,124.569z\"/>\n</svg>\n";
+
+
+/***/ }),
+
+/***/ "./src/app/ui/models/svg-icons/style.ts":
+/*!**********************************************!*\
+  !*** ./src/app/ui/models/svg-icons/style.ts ***!
+  \**********************************************/
+/*! exports provided: STYLE */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "STYLE", function() { return STYLE; });
+var STYLE = "<svg version=\"1.1\" id=\"Capa_1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" x=\"0px\" y=\"0px\"\nwidth=\"567.639px\" height=\"567.639px\" viewBox=\"0 0 567.639 567.639\" style=\"enable-background:new 0 0 567.639 567.639;\"\nxml:space=\"preserve\">\n<g>\n<g>\n   <path d=\"M512.603,270.913c-17.002-3.118-45.795-3.146-80.104-9.534l4.714,28.257c0.813,4.82-2.457,9.381-7.268,10.174\n\t   c-0.497,0.086-0.984,0.115-1.473,0.115c-4.245,0-7.994-3.051-8.711-7.373l-4.905-29.366c-0.536-3.213-3.529-6.445-6.665-7.287\n\t   c-1.77-0.487-3.548-0.985-5.346-1.501c-3.127-0.899-5.222,0.927-4.686,4.131l2.467,14.812c0.812,4.819-2.457,9.371-7.268,10.184\n\t   c-0.497,0.077-0.984,0.125-1.473,0.125c-4.236,0-7.984-3.051-8.711-7.383l-4.074-24.403c-0.535-3.223-3.423-6.78-6.436-8.042\n\t   c-2.113-0.87-4.227-1.788-6.35-2.745c-2.974-1.329-4.915,0.134-4.37,3.347l2.104,12.613c0.812,4.829-2.448,9.39-7.268,10.184\n\t   c-0.497,0.076-0.976,0.134-1.463,0.134c-4.236,0-7.985-3.069-8.712-7.392l-4.332-25.962c-0.525-3.213-3.241-7.153-6.015-8.845\n\t   c-2.63-1.635-5.278-3.337-7.918-5.097c-2.706-1.798-4.437-0.717-3.901,2.496l3.031,18.188c0.813,4.819-2.447,9.371-7.268,10.165\n\t   c-0.497,0.095-0.984,0.134-1.463,0.134c-4.245,0-7.994-3.06-8.711-7.392l-7.526-45.116c-1.759-2.018-3.385-3.988-4.666-5.699\n\t   c-10.882-14.458-32.627-40.841-50.585-47.191c-18.8-6.636-33.87,6.923-37.112,19.498c-1.616,6.321,1.224,16.82,3.242,23.017\n\t   c1.253,3.844,3.204,8.042,6.235,11.504c4.284,4.905,5.91,10.098,0.937,14.296c-11.628,9.888-33.622,26.622-58.551,35.85\n\t   c-49.142,18.188-57.748-6.875-57.748-6.875s-10.873-35.228-28.286-47.917c-5.259-3.844-16.161-5.221-22.491-3.729\n\t   c-2.247,0.545-4.312,1.387-6.282,2.362c3.882,22.692,20.913,77.456,95.396,113.393c96.61,46.654,289.006,55.959,325.057,57.307\n\t   c3.261,0.125,3.3,0.68,0.096,1.225c-23.485,3.959-114.491,17.441-205.01,6.34C151.476,358.237,49.08,326.212,22.277,236.047\n\t   c-0.555,1.97-1.081,3.815-1.587,5.403c-4.322,13.626-8.329,22.701-9.161,52.326c-0.172,6.512-2.85,16.352-5.145,22.453\n\t   c-2.754,7.285-5.67,18.053-6.053,31.355c-0.382,13.244-0.373,24.557-0.268,32.426c0.086,6.512,4.188,15.387,9.801,18.695\n\t   c4.007,2.381,9.094,4.809,14.927,6.311c6.312,1.635,16.094,4.553,22.31,6.531c2.687,0.861,5.814,1.588,9.294,1.951\n\t   c6.483,0.668,14.066-0.201,16.916-0.039c2.85,0.154,5.154,1.635,5.154,3.318s3.404,3.041,7.612,3.041s8.826-1.77,10.318-3.93\n\t   c1.492-2.172,4.466-3.93,6.636-3.93c2.171,0,3.94,1.768,3.94,3.93c0,2.17,3.184,3.93,7.124,3.93s8.224-1.865,9.572-4.188\n\t   c1.367-2.295,4.121-4.18,6.158-4.18c2.027,0,4.886,1.875,6.378,4.18c1.501,2.312,5.575,4.188,9.104,4.188\n\t   c3.529,0,7.488-1.77,8.845-3.93c1.358-2.172,4.542-2.172,7.115,0c2.582,2.17,8.53,3.93,13.273,3.93\n\t   c4.743,0,9.151-1.424,9.83-3.184c0.669-1.77,3.203-3.203,5.651-3.203c2.438,0,5.527,1.424,6.885,3.203\n\t   c1.358,1.76,6.082,2.408,10.557,1.473c4.476-0.957,9.094-3.711,10.318-6.148c1.224-2.439,3.758-2.889,5.661-0.996\n\t   c1.884,1.914,7.057,4.008,11.542,4.668c4.475,0.688,9.869-0.086,12.039-1.723c2.171-1.625,5.69-2.609,7.851-2.219\n\t   c2.17,0.422,3.93,2.391,3.93,4.428c0,2.047,3.749,3.691,8.357,3.691c4.619,0,9.677-1.09,11.312-2.457\n\t   c1.625-1.357,4.81-2.133,7.114-1.721c2.305,0.4,4.179,1.836,4.179,3.193s2.305,2.447,5.154,2.447c2.859,0,7.038-0.879,9.343-1.959\n\t   c2.305-1.092,5.498-1.75,7.124-1.473c1.636,0.268,2.955,1.701,2.955,3.203c0,1.49,5.278,2.695,11.79,2.695h0.985\n\t   c6.521,0,11.79-1.768,11.79-3.93c0-2.17,1.875-3.93,4.17-3.93c2.305,0,4.179,1.77,4.179,3.93c0,2.172,4.618,3.93,10.317,3.93\n\t   s12.298-1.205,14.746-2.695c2.438-1.502,6.072-1.502,8.108,0c2.027,1.49,8.855,2.695,15.233,2.695s12.651-1.539,14.009-3.432\n\t   c1.358-1.895,4.332-3.988,6.627-4.676c2.305-0.66,5.059,0.314,6.14,2.209c1.09,1.902,7.143,2.418,13.55,1.186l1.912-0.383\n\t   c6.388-1.254,12.24-4.361,13.053-6.953c0.813-2.572,2.688-4.885,4.179-5.154c1.492-0.268,4.026,1.168,5.652,3.195\n\t   c1.625,2.037,6.474,2.695,10.805,1.463c4.342-1.215,8.415-5.289,9.095-9.084c0.679-3.797,3.538-7.65,6.388-8.588\n\t   c2.85-0.957,5.154,0.479,5.154,3.193c0,2.717,4.943,3.041,11.035,0.756c6.139-2.334,11.082-6.396,11.082-9.113\n\t   c0-2.715,1.646-5.584,3.682-6.387c2.037-0.814,4.677-0.488,5.9,0.727c1.215,1.223,4.849,0.354,8.109-1.961\n\t   c3.261-2.295,6.34-5.938,6.885-8.1c0.545-2.17,5.565-6.637,10.337-11.072c9.85-9.172,23.142-27.197,16.677-54.508\n\t   C556.093,265.528,548.721,277.558,512.603,270.913z\"/>\n</g>\n</g>\n<g>\n</g>\n<g>\n</g>\n<g>\n</g>\n<g>\n</g>\n<g>\n</g>\n<g>\n</g>\n<g>\n</g>\n<g>\n</g>\n<g>\n</g>\n<g>\n</g>\n<g>\n</g>\n<g>\n</g>\n<g>\n</g>\n<g>\n</g>\n<g>\n</g>\n</svg>";
+
+
+/***/ }),
+
+/***/ "./src/app/ui/models/svg-icons/system-administration.ts":
+/*!**************************************************************!*\
+  !*** ./src/app/ui/models/svg-icons/system-administration.ts ***!
+  \**************************************************************/
+/*! exports provided: SYSTEM_ADMINISTRATION */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SYSTEM_ADMINISTRATION", function() { return SYSTEM_ADMINISTRATION; });
+var SYSTEM_ADMINISTRATION = "<svg version=\"1.1\" id=\"Layer_1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" x=\"0px\" y=\"0px\"\nwidth=\"70.968px\" height=\"74.236px\" viewBox=\"262.692 384.04 70.968 74.236\" enable-background=\"new 262.692 384.04 70.968 74.236\"\nxml:space=\"preserve\">\n<path fill=\"#045748\" d=\"M333.381,394.119c-0.371-2.471-1.652-1.947-2.313-0.901c-0.66,1.048-3.604,5.505-4.814,7.523\nc-1.201,2.008-4.156,5.955-9.668,2.057c-5.74-4.06-3.744-6.891-2.742-8.798c1.002-1.913,4.09-7.276,4.533-7.949\nc0.445-0.673-0.072-2.636-1.854-1.813c-1.785,0.823-12.615,5.129-14.119,11.296c-1.531,6.286,1.287,11.896-4.25,17.474\nl-34.428,35.541c0,0-2.25,1.906-0.109,4.047l5.094,4.641c2.367,2.367,4.25-0.047,4.25-0.047l34.545-36.074\nc1.973-1.984,5.131-5.026,8.941-4.163c8.166,1.849,12.619-1.22,15.303-6.286C334.148,406.129,333.752,396.589,333.381,394.119z\nM271.318,453.005c-1.796,0-3.251-1.453-3.251-3.248c0-1.797,1.455-3.252,3.251-3.252c1.795,0,3.251,1.455,3.251,3.252\nC274.569,451.552,273.114,453.005,271.318,453.005z\"/>\n</svg>\n";
+
+
+/***/ }),
+
+/***/ "./src/app/ui/models/svg-icons/trash.ts":
+/*!**********************************************!*\
+  !*** ./src/app/ui/models/svg-icons/trash.ts ***!
+  \**********************************************/
+/*! exports provided: TRASH */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "TRASH", function() { return TRASH; });
+var TRASH = "<svg version=\"1.1\" id=\"Layer_1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" x=\"0px\" y=\"0px\"\n\t width=\"79.359px\" height=\"98.187px\" viewBox=\"0 0 79.359 98.187\" enable-background=\"new 0 0 79.359 98.187\" xml:space=\"preserve\">\n<path fill=\"#045748\" d=\"M56.698,10.977V0H22.64v10.977L0,10.94v9.704h79.344l0.016-9.667H56.698z M50.57,10.963H28.31V5.85h22.26\n\tV10.963z\"/>\n<path fill=\"#045748\" d=\"M5.719,24.572v65.83c0,3.415,3.052,7.784,6.782,7.784h54.256c3.73,0,6.782-4.369,6.782-7.784v-65.83H5.719z\n\t M20.462,89.63h-6.93V30.533h6.93V89.63z M35.442,89.63h-6.931V30.533h6.931V89.63z M50.422,89.63H43.49V30.533h6.932V89.63z\n\t M65.401,89.63h-6.931V30.533h6.931V89.63z\"/>\n</svg>";
+
+
+/***/ }),
+
+/***/ "./src/app/ui/models/svg-icons/user.ts":
+/*!*********************************************!*\
+  !*** ./src/app/ui/models/svg-icons/user.ts ***!
+  \*********************************************/
+/*! exports provided: USER */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "USER", function() { return USER; });
+var USER = "<svg xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" version=\"1.1\" id=\"Layer_1\" x=\"0px\" y=\"0px\" width=\"94px\" height=\"90px\" viewBox=\"0 0 94 90\" enable-background=\"new 0 0 94 90\" xml:space=\"preserve\">\n<g>\n\t<path fill=\"#045748\" d=\"M73.602,67.239c-12.326-4.492-16.266-8.281-16.266-16.395c0-4.871,3.764-3.28,5.416-12.2   c0.686-3.7,4.01-0.06,4.646-8.507c0-3.367-1.814-4.203-1.814-4.203s0.922-4.982,1.283-8.816C67.314,12.342,64.107,0,47,0   S26.684,12.342,27.133,17.119c0.361,3.834,1.283,8.816,1.283,8.816s-1.814,0.836-1.814,4.203c0.635,8.447,3.959,4.807,4.645,8.507   c1.654,8.919,5.416,7.329,5.416,12.2c0,8.113-3.938,11.902-16.264,16.395C8.033,71.745,0,76.339,0,79.473C0,82.604,0,90,0,90h47h47   c0,0,0-7.396,0-10.527C94,76.339,85.967,71.745,73.602,67.239z\"/>\n</g>\n</svg>";
+
+
+/***/ }),
+
 /***/ "./src/app/ui/modules/alert-dialog/alert-dialog.module.ts":
 /*!****************************************************************!*\
   !*** ./src/app/ui/modules/alert-dialog/alert-dialog.module.ts ***!
@@ -5251,6 +5506,58 @@ var SpinnerIndicator200Module = /** @class */ (function () {
         })
     ], SpinnerIndicator200Module);
     return SpinnerIndicator200Module;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/ui/services/svg-icons.service.ts":
+/*!**************************************************!*\
+  !*** ./src/app/ui/services/svg-icons.service.ts ***!
+  \**************************************************/
+/*! exports provided: SvgIconsService */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SvgIconsService", function() { return SvgIconsService; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _models_svg_icons_icons__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../models/svg-icons/icons */ "./src/app/ui/models/svg-icons/icons.ts");
+/* harmony import */ var _angular_material__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/material */ "./node_modules/@angular/material/esm5/material.es5.js");
+/* harmony import */ var _angular_platform_browser__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/platform-browser */ "./node_modules/@angular/platform-browser/fesm5/platform-browser.js");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+var SvgIconsService = /** @class */ (function () {
+    function SvgIconsService(iconRegistry, sanitizer) {
+        this.iconRegistry = iconRegistry;
+        this.sanitizer = sanitizer;
+        this.registerIcons();
+    }
+    SvgIconsService.prototype.registerIcons = function () {
+        var _this = this;
+        _models_svg_icons_icons__WEBPACK_IMPORTED_MODULE_1__["ICONS"].forEach(function (icon) {
+            _this.iconRegistry.addSvgIconLiteral(icon.iconName, _this.sanitizer.bypassSecurityTrustHtml(icon.literal));
+        });
+    };
+    SvgIconsService = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"])({
+            providedIn: 'root'
+        }),
+        __metadata("design:paramtypes", [_angular_material__WEBPACK_IMPORTED_MODULE_2__["MatIconRegistry"], _angular_platform_browser__WEBPACK_IMPORTED_MODULE_3__["DomSanitizer"]])
+    ], SvgIconsService);
+    return SvgIconsService;
 }());
 
 

@@ -251,9 +251,10 @@ var __param = (undefined && undefined.__param) || function (paramIndex, decorato
 
 
 var DialogOverviewComponent = /** @class */ (function () {
-    function DialogOverviewComponent(dialogRef, data) {
+    function DialogOverviewComponent(dialogRef, data, dto) {
         this.dialogRef = dialogRef;
         this.data = data;
+        this.dto = dto;
     }
     DialogOverviewComponent.prototype.ngOnInit = function () { };
     DialogOverviewComponent.prototype.onNoClick = function () {
@@ -266,7 +267,7 @@ var DialogOverviewComponent = /** @class */ (function () {
             styles: [__webpack_require__(/*! ./dialog-overview.component.scss */ "./src/app/layout/material-components/dialog-overview/dialog-overview.component.scss")]
         }),
         __param(1, Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Inject"])(_angular_material__WEBPACK_IMPORTED_MODULE_1__["MAT_DIALOG_DATA"])),
-        __metadata("design:paramtypes", [_angular_material__WEBPACK_IMPORTED_MODULE_1__["MatDialogRef"], Object])
+        __metadata("design:paramtypes", [_angular_material__WEBPACK_IMPORTED_MODULE_1__["MatDialogRef"], Object, Object])
     ], DialogOverviewComponent);
     return DialogOverviewComponent;
 }());
