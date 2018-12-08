@@ -512,6 +512,7 @@ var ShopFormComponent = /** @class */ (function (_super) {
             makeDeal: new _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormControl"](this.data.makeDeal),
             images: this.faces,
             brand: new _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormControl"](this.data.brand),
+            active: new _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormControl"](true),
             category: new _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormControl"](this.data.category),
         });
     };
