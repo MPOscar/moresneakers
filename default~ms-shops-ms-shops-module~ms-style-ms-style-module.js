@@ -696,7 +696,7 @@ var ShopsSellingStylecomponentModalComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<h1>Shops Table</h1>\n\n<mat-toolbar class=\"margin-right-25px margin-bottom-10px width-auto flex-shrink-0 background-color-secondary color-primary mat-elevation-z2\"\n  [formGroup]=\"filter\">\n\n  <mat-icon matPrefix color=\"primary\">search</mat-icon>\n  <mat-form-field>\n    <input matInput formControlName=\"name\" placeholder=\"Name\">\n  </mat-form-field>\n\n  <mat-form-field>\n    <mat-label>Status</mat-label>\n    <mat-select formControlName=\"status\">\n      <mat-option [value]=\"null\">name</mat-option>\n    </mat-select>\n  </mat-form-field>\n\n  <mat-form-field>\n    <mat-label>Country</mat-label>\n    <mat-select formControlName=\"country\">\n      <mat-option [value]=\"null\">name</mat-option>\n    </mat-select>\n  </mat-form-field>\n\n  <span class=\"flex-grow-1\"></span>\n  <button mat-raised-button color=\"primary\" [routerLink]=\"['../create']\">CREATE A NEW SHOP</button>\n</mat-toolbar>\n\n<div class=\"flex-grow-1 overflow-auto display-flex\">\n\n  <table class=\"margin-top-10px margin-right-25px width-100pct\" mat-table [dataSource]=\"shops\" matSort [matSortActive]=\"shopsService.previousSortColumn\"\n    [matSortDirection]=\"shopsService.previousSortDirection\" matSortDisableClear (matSortChange)=\"onSort()\">\n\n    <ng-container matColumnDef=\"ID\">\n      <th mat-header-cell *matHeaderCellDef mat-sort-header>\n        ID\n      </th>\n      <td mat-cell *matCellDef=\"let element\"> {{ element.id }} </td>\n    </ng-container>\n\n    <ng-container matColumnDef=\"SHOP NAME\">\n      <th mat-header-cell *matHeaderCellDef mat-sort-header>\n        SHOP NAME\n      </th>\n      <td mat-cell *matCellDef=\"let element\"> {{ element.name }} </td>\n    </ng-container>\n\n    <ng-container matColumnDef=\"STATUS\">\n      <th mat-header-cell *matHeaderCellDef mat-sort-header>\n        STATUS\n      </th>\n      <td mat-cell *matCellDef=\"let element\"> {{ element.active?'Active':'Inactive' }} </td>\n    </ng-container>\n\n    <ng-container matColumnDef=\"COUNTRY\">\n      <th mat-header-cell *matHeaderCellDef mat-sort-header>\n        COUNTRY\n      </th>\n      <td mat-cell *matCellDef=\"let element\"> {{ element.country }} </td>\n    </ng-container>\n\n    <ng-container matColumnDef=\"CURRENCY\">\n      <th mat-header-cell *matHeaderCellDef mat-sort-header>\n        CURRENCY\n      </th>\n      <td mat-cell *matCellDef=\"let element\"> {{ element.currency }} </td>\n    </ng-container>\n\n    <ng-container matColumnDef=\"LATEST UPDATE\">\n      <th mat-header-cell *matHeaderCellDef mat-sort-header>\n        LATEST UPDATE\n      </th>\n      <td mat-cell *matCellDef=\"let element\"> {{ element.updateAt }} </td>\n    </ng-container>\n\n    <ng-container matColumnDef=\"RANK\">\n      <th mat-header-cell *matHeaderCellDef mat-sort-header>\n        RANK\n      </th>\n      <td mat-cell *matCellDef=\"let element\"> {{ element.rank }} </td>\n    </ng-container>\n\n    <ng-container matColumnDef=\"HAPPING DETAIL\">\n      <th mat-header-cell *matHeaderCellDef mat-sort-header>\n        HAPPING DETAIL\n      </th>\n      <td mat-cell *matCellDef=\"let element\"> {{ element.address }} </td>\n    </ng-container>\n\n    <ng-container matColumnDef=\"ACTION\">\n      <th mat-header-cell *matHeaderCellDef mat-sort-header>\n      </th>\n      <td mat-cell *matCellDef=\"let element\">\n        <button mat-icon-button color=\"primary\" [matTooltip]=\"Edit\" [routerLink]=\"['../edit', element.id]\">\n          <mat-icon>edit</mat-icon>\n        </button>\n        <button mat-icon-button color=\"primary\" [matTooltip]=\"Edit\" [routerLink]=\"['../delete', element.id]\">\n          <mat-icon>delete</mat-icon>\n        </button>\n      </td>\n    </ng-container>\n\n    <tr mat-header-row *matHeaderRowDef=\"displayedColumns\"></tr>\n    <tr mat-row *matRowDef=\"let row; columns: displayedColumns;\" [ngClass]=\"row.is_active ? '' : 'text-decoration-line-through'\">\n    </tr>\n\n  </table>\n\n</div>\n\n<div class=\"margin-right-25px padding-top-15px padding-bottom-15px flex-shrink-0 display-flex border-top-style-solid border-top-width-2px border-top-color-grey\">\n  <span class=\"flex-grow-1\"></span>\n  <mat-paginator [length]=\"totalLength\" [pageSizeOptions]=\"[5, 10, 20, 50, 100]\" [pageIndex]=\"\" [pageSize]=\"50\" showFirstLastButtons\n    (page)=\"onPage()\">\n  </mat-paginator>\n</div>"
+module.exports = "<h1>Shops Table</h1>\n\n<mat-toolbar class=\"margin-right-25px margin-bottom-10px width-auto flex-shrink-0 background-color-secondary color-primary mat-elevation-z2\"\n  [formGroup]=\"filter\">\n\n  <mat-icon matPrefix color=\"primary\">search</mat-icon>\n  <mat-form-field>\n    <input matInput formControlName=\"name\" placeholder=\"NAME\">\n  </mat-form-field>\n\n  <mat-form-field>\n    <mat-label>STATUS</mat-label>\n    <mat-select formControlName=\"status\">\n      <mat-option *ngFor=\"let state of status\" [value]=\"state.value\">\n        {{state.status}}\n      </mat-option>\n    </mat-select>\n  </mat-form-field>\n\n  <mat-form-field>\n    <mat-label>COUNTRY</mat-label>\n    <mat-select formControlName=\"country\">\n      <mat-option [value]=\"null\">name</mat-option>\n    </mat-select>\n  </mat-form-field>\n\n  <span class=\"flex-grow-1\"></span>\n  <button mat-raised-button color=\"primary\" [routerLink]=\"['../create']\">CREATE A NEW SHOP</button>\n</mat-toolbar>\n\n<div class=\"flex-grow-1 overflow-auto display-flex\">\n\n  <table class=\"margin-top-10px margin-right-25px width-100pct\" mat-table [dataSource]=\"shops\" matSort [matSortActive]=\"shopsService.previousSortColumn\"\n    [matSortDirection]=\"shopsService.previousSortDirection\" matSortDisableClear (matSortChange)=\"onSort()\">\n\n    <ng-container matColumnDef=\"ID\">\n      <th mat-header-cell *matHeaderCellDef mat-sort-header>\n        ID\n      </th>\n      <td mat-cell *matCellDef=\"let element\"> {{ element.id }} </td>\n    </ng-container>\n\n    <ng-container matColumnDef=\"SHOP NAME\">\n      <th mat-header-cell *matHeaderCellDef mat-sort-header>\n        SHOP NAME\n      </th>\n      <td mat-cell *matCellDef=\"let element\"> {{ element.name }} </td>\n    </ng-container>\n\n    <ng-container matColumnDef=\"STATUS\">\n      <th mat-header-cell *matHeaderCellDef mat-sort-header>\n        STATUS\n      </th>\n      <td mat-cell *matCellDef=\"let element\"> {{ element.active?'Active':'Inactive' }} </td>\n    </ng-container>\n\n    <ng-container matColumnDef=\"COUNTRY\">\n      <th mat-header-cell *matHeaderCellDef mat-sort-header>\n        COUNTRY\n      </th>\n      <td mat-cell *matCellDef=\"let element\"> {{ element.country }} </td>\n    </ng-container>\n\n    <ng-container matColumnDef=\"CURRENCY\">\n      <th mat-header-cell *matHeaderCellDef mat-sort-header>\n        CURRENCY\n      </th>\n      <td mat-cell *matCellDef=\"let element\"> {{ element.currency }} </td>\n    </ng-container>\n\n    <ng-container matColumnDef=\"LATEST UPDATE\">\n      <th mat-header-cell *matHeaderCellDef mat-sort-header>\n        LATEST UPDATE\n      </th>\n      <td mat-cell *matCellDef=\"let element\"> {{ element.updateAt }} </td>\n    </ng-container>\n\n    <ng-container matColumnDef=\"RANK\">\n      <th mat-header-cell *matHeaderCellDef mat-sort-header>\n        RANK\n      </th>\n      <td mat-cell *matCellDef=\"let element\"> {{ element.rank }} </td>\n    </ng-container>\n\n    <ng-container matColumnDef=\"SHIPPING DETAILS\">\n      <th mat-header-cell *matHeaderCellDef mat-sort-header>\n        SHIPPING DETAILS\n      </th>\n      <td mat-cell *matCellDef=\"let element\"> {{ element.shippingDetails }} </td>\n    </ng-container>\n\n    <ng-container matColumnDef=\"ACTION\">\n      <th mat-header-cell *matHeaderCellDef mat-sort-header>\n      </th>\n      <td mat-cell *matCellDef=\"let element\">\n        <button mat-icon-button color=\"primary\" [matTooltip]=\"Edit\" [routerLink]=\"['../edit', element.id]\">\n          <mat-icon>edit</mat-icon>\n        </button>\n        <button mat-icon-button color=\"primary\" [matTooltip]=\"Edit\" [routerLink]=\"['../delete', element.id]\">\n          <mat-icon>delete</mat-icon>\n        </button>\n      </td>\n    </ng-container>\n\n    <tr mat-header-row *matHeaderRowDef=\"displayedColumns\"></tr>\n    <tr mat-row *matRowDef=\"let row; columns: displayedColumns;\" [ngClass]=\"row.is_active ? '' : 'text-decoration-line-through'\">\n    </tr>\n\n  </table>\n\n</div>\n\n<div class=\"margin-right-25px padding-top-15px padding-bottom-15px flex-shrink-0 display-flex border-top-style-solid border-top-width-2px border-top-color-grey\">\n  <span class=\"flex-grow-1\"></span>\n  <mat-paginator [length]=\"totalLength\" [pageSizeOptions]=\"[5, 10, 20, 50, 100]\" [pageIndex]=\"\" [pageSize]=\"50\" showFirstLastButtons\n    (page)=\"onPage()\">\n  </mat-paginator>\n</div>"
 
 /***/ }),
 
@@ -727,6 +727,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! rxjs/operators */ "./node_modules/rxjs/_esm5/operators/index.js");
 /* harmony import */ var _error_handling_services_error_handling_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../../../error-handling/services/error-handling.service */ "./src/app/error-handling/services/error-handling.service.ts");
 /* harmony import */ var _services_shops_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../services/shops.service */ "./src/app/ms-back-office/modules/ms-shops/services/shops.service.ts");
+/* harmony import */ var _models_status__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../models/status */ "./src/app/ms-back-office/modules/ms-shops/models/status.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -745,6 +746,7 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 
 //
 
+
 var errorKey = 'Error';
 var ShopsTableComponent = /** @class */ (function () {
     function ShopsTableComponent(shopsService, errorHandlingService) {
@@ -758,9 +760,10 @@ var ShopsTableComponent = /** @class */ (function () {
             'CURRENCY',
             'LATEST UPDATE',
             'RANK',
-            'HAPPING DETAIL',
+            'SHIPPING DETAILS',
             'ACTION'
         ];
+        this.status = _models_status__WEBPACK_IMPORTED_MODULE_6__["STATUS"];
         this.totalLength = 0;
         this.shops = [];
     }
@@ -835,6 +838,32 @@ var ShopsTableComponent = /** @class */ (function () {
     return ShopsTableComponent;
 }());
 
+
+
+/***/ }),
+
+/***/ "./src/app/ms-back-office/modules/ms-shops/models/status.ts":
+/*!******************************************************************!*\
+  !*** ./src/app/ms-back-office/modules/ms-shops/models/status.ts ***!
+  \******************************************************************/
+/*! exports provided: Status, STATUS */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Status", function() { return Status; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "STATUS", function() { return STATUS; });
+var Status = /** @class */ (function () {
+    function Status() {
+    }
+    return Status;
+}());
+
+;
+var STATUS = [
+    { value: '1', status: 'Active' },
+    { value: '0', status: 'Inactive' },
+];
 
 
 /***/ }),

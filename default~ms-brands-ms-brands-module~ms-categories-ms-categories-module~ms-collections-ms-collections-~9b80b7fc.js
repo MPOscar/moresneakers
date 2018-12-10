@@ -337,9 +337,9 @@ var CategoriesService = /** @class */ (function () {
     };
     CategoriesService.prototype.formatQueryParams = function (filter, sortColumn, sortDirection, pageIndex, pageSize) {
         var queryParams = '';
-        if (filter.search && filter.search.length > 0) {
+        if (filter.name && filter.name.length > 0) {
             queryParams += queryParams.length > 0 ? '&' : '?';
-            queryParams += "search=" + filter.search;
+            queryParams += "name=" + filter.name;
         }
         if (sortColumn) {
             var ordering = '';

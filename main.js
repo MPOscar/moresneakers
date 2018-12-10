@@ -4627,7 +4627,7 @@ module.exports = ":host { /* Safari */\r\n  display: flex; /* Safari */\r\n  fle
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"display-flex flex-grow-1 flex-shrink-1 flex-direction-column\">\r\n  <div class=\"align-self-center display-flex width-250px  flex-shrink-1 flex-direction-row card-container\">\r\n    <mat-card class=\"border-2px-solid-black box-shadow-none flex-grow-1 margin-0\"  #imageContainer>\r\n      <img class=\"height-100-pc width-100-pc\" *ngIf=\"principal\" imageLoad [srcImage]=\"principal.imgUrl? principal.imgUrl : principal.file\" [container]=\"imageContainer\"\r\n        src=\"\">\r\n    </mat-card>\r\n  </div>\r\n  <div class=\"display-flex flex-grow-1 flex-shrink-1 flex-direction-row card-container justify-content-initial\">\r\n    <mat-card *ngFor=\"let faceItem of faceItems; index as cardIndex; trackBy:trackByFn\" class=\"display-flex background-color-secondary flex-direction-column flex-shrink-1\">\r\n      <div class=\"image-container margin-10px flex-grow-1\" #imageContainer>\r\n        <img class=\"img\" imageLoad [srcImage]=\"faceItem.imgUrl? faceItem.imgUrl : faceItem.file\" [container]=\"imageContainer\" src=\"\">\r\n      </div>\r\n      <div class=\"image-card-btns display-flex margin-left-10px margin-right-10px margin-bottom-10px\">\r\n        <mat-radio-button value=\"primary\" class=\"margin-top-10px\" (click)=\"setMainImage(faceItem)\"\r\n        matTooltip=\"{{ 'Principal' | translate }}\"\r\n        ></mat-radio-button>\r\n        <button type=\"button\" mat-icon-button class=\"margin-left-10px\" (click)=\"deleteFace(cardIndex)\">\r\n          <mat-icon mat-raised-button color=\"accent\" matTooltip=\"{{ 'Delete' | translate }}\">delete</mat-icon>\r\n        </button>\r\n      </div>\r\n    </mat-card>\r\n  </div>\r\n  <div class=\"display-flex justify-content-center width-100-pc\">\r\n    <button mat-raised-button color=\"primary\" class=\"add-btn\" type=\"button\" (click)=\"fileInput.click()\">\r\n      <mat-icon>add</mat-icon> {{ 'Slect File' | translate }}\r\n    </button>\r\n    <input #fileInput style=\"display:none\" type=\"file\" name=\"files\" (change)=\"addImages($event)\" class=\"file-input glyphicon glyphicon-plus\"\r\n      accept=\"image/*\" multiple/>\r\n  </div>\r\n</div>\r\n"
+module.exports = "<div class=\"display-flex flex-grow-1 flex-shrink-1 flex-direction-column\">\r\n  <div class=\"align-self-center display-flex width-250px  flex-shrink-1 flex-direction-row card-container\">\r\n    <mat-card class=\"border-2px-solid-black box-shadow-none flex-grow-1 margin-0\" #imageContainer>\r\n      <img class=\"height-100-pc width-100-pc\" *ngIf=\"principal\" imageLoad [srcImage]=\"principal.imgUrl? principal.imgUrl : principal.file\"\r\n        [container]=\"imageContainer\" src=\"\">\r\n    </mat-card>\r\n  </div>\r\n  <div class=\"display-flex flex-grow-1 flex-shrink-1 flex-direction-row card-container justify-content-initial\">\r\n    <mat-card *ngFor=\"let faceItem of faceItems; index as cardIndex; trackBy:trackByFn\" class=\"display-flex background-color-secondary flex-direction-column flex-shrink-1\">\r\n      <div class=\"image-container margin-10px flex-grow-1\" #imageContainer>\r\n        <img class=\"img\" imageLoad [srcImage]=\"faceItem.imgUrl? faceItem.imgUrl : faceItem.file\" [container]=\"imageContainer\" src=\"\">\r\n      </div>\r\n      <div class=\"image-card-btns display-flex margin-left-10px margin-right-10px margin-bottom-10px\">\r\n        <mat-radio-button value=\"primary\" class=\"margin-top-10px\" (click)=\"setMainImage(faceItem)\" matTooltip=\"{{ 'Principal' | translate }}\"></mat-radio-button>\r\n        <button type=\"button\" mat-icon-button class=\"margin-left-10px\" (click)=\"deleteFace(cardIndex)\">\r\n          <mat-icon mat-raised-button color=\"accent\" matTooltip=\"{{ 'Delete' | translate }}\">delete</mat-icon>\r\n        </button>\r\n      </div>\r\n    </mat-card>\r\n  </div>\r\n  <div class=\"display-flex justify-content-center width-100-pc\"\r\n  drop-files\r\n  [faceItems]=\"faceItems\"\r\n  [ngClass]=\"{'border-dotted': fileIsOver}\"\r\n  (filesOver)=\"fileOverDropZone($event)\"\r\n  (filesChange)=\"filesChange($event)\"\r\n  >\r\n    <div>\r\n      <!--button mat-raised-button color=\"primary\" class=\"add-btn\" type=\"button\" (click)=\"fileInput.click()\">\r\n        <mat-icon>add</mat-icon> {{ 'Slect File' | translate }}\r\n      </button-->\r\n      <div class=\"padding-bottom-10px\">\r\n        <p>Drop Files Here</p>\r\n        <button type=\"button\" class=\"border-none border-radius-5px\" (click)=\"fileInput.click()\" mat-stroked-button>\r\n          {{ 'Slect File' | translate }}\r\n          <mat-icon>add</mat-icon>\r\n        </button>\r\n      </div>\r\n      <input #fileInput style=\"display:none\" type=\"file\" name=\"files\" class=\"file-input glyphicon glyphicon-plus\"\r\n        accept=\"image/*\" multiple/>\r\n    </div>\r\n  </div>\r\n</div>\r\n"
 
 /***/ }),
 
@@ -4645,7 +4645,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm5/forms.js");
 /* harmony import */ var _ngx_translate_core__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @ngx-translate/core */ "./node_modules/@ngx-translate/core/fesm5/ngx-translate-core.js");
 /* harmony import */ var _error_handling_services_toastr_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../../error-handling/services/toastr.service */ "./src/app/error-handling/services/toastr.service.ts");
-/* harmony import */ var _models_face__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../models/face */ "./src/app/ui/modules/images-card/models/face.ts");
+/* harmony import */ var _directives_drop_files_directive__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../directives/drop-files.directive */ "./src/app/ui/modules/images-card/directives/drop-files.directive.ts");
+/* harmony import */ var _models_face__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../models/face */ "./src/app/ui/modules/images-card/models/face.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -4662,6 +4663,7 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 
 //import { AnnotationToolModalComponent } from '../annotation-tool-modal/annotation-tool-modal.component';
 
+
 //import { ImageCardEditActionDirective } from '../../directives/images-card-edit-actions.directive';
 //import { setTranslations } from 'ngx-translate';
 //import { TRANSLATIONS } from './i18n/images-card.component.translations';
@@ -4673,6 +4675,8 @@ var ImagesCardComponent = /** @class */ (function () {
         this.toastr = toastr;
         this.imageWidth = 100;
         this.imageHeight = 100;
+        this._faceItems = [];
+        this.fileIsOver = false;
         //@Input() imageCardEditAction: ImageCardEditActionDirective;
         this.deletedFace = new _angular_core__WEBPACK_IMPORTED_MODULE_0__["EventEmitter"]();
         this.propagateChange = function (_) {
@@ -4681,7 +4685,6 @@ var ImagesCardComponent = /** @class */ (function () {
     }
     ImagesCardComponent_1 = ImagesCardComponent;
     ImagesCardComponent.prototype.ngOnInit = function () {
-        console.log(this._faceItems);
     };
     Object.defineProperty(ImagesCardComponent.prototype, "faceItems", {
         get: function () {
@@ -4718,39 +4721,37 @@ var ImagesCardComponent = /** @class */ (function () {
         }
         return result;
     };
-    ImagesCardComponent.prototype.addImages = function ($event) {
-        if ($event.target.files && $event.target.files.length > 0) {
-            for (var _i = 0, _a = $event.target.files; _i < _a.length; _i++) {
-                var file = _a[_i];
-                if (this.validateImage(file)) {
-                    var newFace = {
-                        file: file,
-                        state: _models_face__WEBPACK_IMPORTED_MODULE_4__["State"].New,
-                        status: _models_face__WEBPACK_IMPORTED_MODULE_4__["Status"].Pending,
-                        mainImage: false
-                    };
-                    if (this.faceItems) {
-                        this.faceItems = this.faceItems.concat([newFace]);
-                    }
-                    else {
-                        this.faceItems = [newFace];
-                    }
-                }
+    /*addImages($event) {
+      if ($event.target.files && $event.target.files.length > 0) {
+        for (const file of $event.target.files) {
+          if (this.validateImage(file)) {
+            const newFace: Face = {
+              file: file,
+              state: State.New,
+              status: Status.Pending,
+              mainImage: false
+            };
+            if (this.faceItems) {
+              this.faceItems = [...this.faceItems, newFace];
+            } else {
+              this.faceItems = [newFace];
             }
-            $event.target.value = '';
+          }
         }
-    };
+        $event.target.value = '';
+      }
+    }*/
     ImagesCardComponent.prototype.checkUploadStatusUploading = function (status) {
-        return status === _models_face__WEBPACK_IMPORTED_MODULE_4__["Status"].Uploading;
+        return status === _models_face__WEBPACK_IMPORTED_MODULE_5__["Status"].Uploading;
     };
     ImagesCardComponent.prototype.checkUploadStatusUploaded = function (status) {
-        return status === undefined || status === _models_face__WEBPACK_IMPORTED_MODULE_4__["Status"].Uploaded;
+        return status === undefined || status === _models_face__WEBPACK_IMPORTED_MODULE_5__["Status"].Uploaded;
     };
     ImagesCardComponent.prototype.checkUploadStatusError = function (status) {
-        return status === _models_face__WEBPACK_IMPORTED_MODULE_4__["Status"].Error;
+        return status === _models_face__WEBPACK_IMPORTED_MODULE_5__["Status"].Error;
     };
     ImagesCardComponent.prototype.checkUploadStatusPending = function (status) {
-        return status === _models_face__WEBPACK_IMPORTED_MODULE_4__["Status"].Pending;
+        return status === _models_face__WEBPACK_IMPORTED_MODULE_5__["Status"].Pending;
     };
     ImagesCardComponent.prototype.trackByFn = function (index, data) {
         if (this.trackByKey) {
@@ -4762,6 +4763,13 @@ var ImagesCardComponent = /** @class */ (function () {
         var deletedItem = this.faceItems.splice(index, 1).pop();
         this.faceItems = this.faceItems.slice();
         this.deletedFace.emit(deletedItem);
+    };
+    ImagesCardComponent.prototype.fileOverDropZone = function (event) {
+        this.fileIsOver = event;
+    };
+    ImagesCardComponent.prototype.filesChange = function (event) {
+        console.log("here..");
+        this.faceItems = event;
     };
     ImagesCardComponent.prototype.setMainImage = function (faceItem) {
         this.principal = faceItem;
@@ -4789,8 +4797,12 @@ var ImagesCardComponent = /** @class */ (function () {
     ], ImagesCardComponent.prototype, "imageHeight", void 0);
     __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])(),
-        __metadata("design:type", _models_face__WEBPACK_IMPORTED_MODULE_4__["Face"])
+        __metadata("design:type", _models_face__WEBPACK_IMPORTED_MODULE_5__["Face"])
     ], ImagesCardComponent.prototype, "principal", void 0);
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ViewChild"])(_directives_drop_files_directive__WEBPACK_IMPORTED_MODULE_4__["DropFilesDirective"]),
+        __metadata("design:type", _directives_drop_files_directive__WEBPACK_IMPORTED_MODULE_4__["DropFilesDirective"])
+    ], ImagesCardComponent.prototype, "dropFilesDirective", void 0);
     __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"])(),
         __metadata("design:type", Object)
@@ -4809,6 +4821,194 @@ var ImagesCardComponent = /** @class */ (function () {
     ], ImagesCardComponent);
     return ImagesCardComponent;
     var ImagesCardComponent_1;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/ui/modules/images-card/directives/drop-files.directive.ts":
+/*!***************************************************************************!*\
+  !*** ./src/app/ui/modules/images-card/directives/drop-files.directive.ts ***!
+  \***************************************************************************/
+/*! exports provided: DropFilesDirective */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "DropFilesDirective", function() { return DropFilesDirective; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _models_face__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../models/face */ "./src/app/ui/modules/images-card/models/face.ts");
+/* harmony import */ var _error_handling_services_toastr_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../error-handling/services/toastr.service */ "./src/app/error-handling/services/toastr.service.ts");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+var imageSizeErrorMessageKey = 'Image Size Error';
+var imageTypeErrorMessageKey = 'Image Type Error';
+var DropFilesDirective = /** @class */ (function () {
+    function DropFilesDirective(hostElement, toastr) {
+        this.hostElement = hostElement;
+        this.toastr = toastr;
+        this.faceItems = [];
+        this.filesOver = new _angular_core__WEBPACK_IMPORTED_MODULE_0__["EventEmitter"]();
+        this.filesChange = new _angular_core__WEBPACK_IMPORTED_MODULE_0__["EventEmitter"]();
+    }
+    DropFilesDirective.prototype.onDragEnter = function (event) {
+        this.filesOver.emit(true);
+    };
+    DropFilesDirective.prototype.onDragLeave = function (event) {
+        this.filesOver.emit(false);
+    };
+    DropFilesDirective.prototype.onDragOver = function (event) {
+        var transfer = this.getTarnsfer(event);
+        transfer.dropEffect = 'copy';
+        this.preventAndStop(event);
+        this.filesOver.emit(true);
+    };
+    DropFilesDirective.prototype.onDrop = function (event) {
+        this.preventAndStop(event);
+        var transfer = this.getTarnsfer(event);
+        if (!transfer) {
+            return;
+        }
+        console.log("drop");
+        this.addFiles(transfer.files);
+        this.filesOver.emit(false);
+    };
+    DropFilesDirective.prototype.onChangeFileInput = function (event) {
+        console.log("change");
+        this.addFiles(event);
+    };
+    DropFilesDirective.prototype.getTarnsfer = function (event) {
+        return event.dataTransfer ? event.dataTransfer : event.originalEvent.dataTransfer;
+    };
+    DropFilesDirective.prototype.preventAndStop = function (event) {
+        event.preventDefault();
+        event.stopPropagation();
+    };
+    DropFilesDirective.prototype.addFiles = function (fileList) {
+        console.log(fileList);
+        for (var property in Object.getOwnPropertyNames(fileList)) {
+            var tempFile = fileList[property];
+            if (this.fileCanBeLoad(tempFile)) {
+                var newFile = new _models_face__WEBPACK_IMPORTED_MODULE_1__["Face"](tempFile);
+                this.faceItems = this.faceItems.concat([newFile]);
+            }
+        }
+        this.filesChange.emit(this.faceItems);
+        console.log(this.faceItems);
+    };
+    DropFilesDirective.prototype.fileIsInFiles = function (fileName) {
+        for (var i in this.faceItems) {
+            var file = this.faceItems[i];
+            if (file.file.name === fileName) {
+                console.log("Existe");
+                return false;
+            }
+        }
+        return true;
+    };
+    DropFilesDirective.prototype.validateImage = function (image) {
+        var result = true;
+        if (image && image.size > 0 && image.size > 20971520) {
+            result = false;
+            this.toastr.error(imageSizeErrorMessageKey);
+        }
+        else {
+            if (!(image.type === 'image/jpeg' || image.type === 'image/jpg' || image.type === 'image/jp2' || image.type === 'image/tiff' || image.type === 'image/png' || image.type === 'image/pgm' || image.type === 'image/bmp')) {
+                result = false;
+                this.toastr.error(imageTypeErrorMessageKey);
+            }
+        }
+        return result;
+    };
+    DropFilesDirective.prototype.fileCanBeLoad = function (file) {
+        if (this.fileIsInFiles(file.name) && this.validateImage(file)) {
+            return true;
+        }
+        return false;
+    };
+    DropFilesDirective.prototype.addImages = function ($event) {
+        if ($event.target.files && $event.target.files.length > 0) {
+            for (var _i = 0, _a = $event.target.files; _i < _a.length; _i++) {
+                var file = _a[_i];
+                if (this.validateImage(file)) {
+                    var newFace = {
+                        file: file,
+                        state: _models_face__WEBPACK_IMPORTED_MODULE_1__["State"].New,
+                        status: _models_face__WEBPACK_IMPORTED_MODULE_1__["Status"].Pending,
+                        mainImage: false
+                    };
+                    if (this.faceItems) {
+                        this.faceItems = this.faceItems.concat([newFace]);
+                    }
+                    else {
+                        this.faceItems = [newFace];
+                    }
+                }
+            }
+            $event.target.value = '';
+        }
+    };
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])(),
+        __metadata("design:type", Array)
+    ], DropFilesDirective.prototype, "faceItems", void 0);
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"])(),
+        __metadata("design:type", _angular_core__WEBPACK_IMPORTED_MODULE_0__["EventEmitter"])
+    ], DropFilesDirective.prototype, "filesOver", void 0);
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"])(),
+        __metadata("design:type", _angular_core__WEBPACK_IMPORTED_MODULE_0__["EventEmitter"])
+    ], DropFilesDirective.prototype, "filesChange", void 0);
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["HostListener"])('dragenter', ['$event']),
+        __metadata("design:type", Function),
+        __metadata("design:paramtypes", [Object]),
+        __metadata("design:returntype", void 0)
+    ], DropFilesDirective.prototype, "onDragEnter", null);
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["HostListener"])('dragleave', ['$event']),
+        __metadata("design:type", Function),
+        __metadata("design:paramtypes", [Object]),
+        __metadata("design:returntype", void 0)
+    ], DropFilesDirective.prototype, "onDragLeave", null);
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["HostListener"])('dragover', ['$event']),
+        __metadata("design:type", Function),
+        __metadata("design:paramtypes", [Object]),
+        __metadata("design:returntype", void 0)
+    ], DropFilesDirective.prototype, "onDragOver", null);
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["HostListener"])('drop', ['$event']),
+        __metadata("design:type", Function),
+        __metadata("design:paramtypes", [Object]),
+        __metadata("design:returntype", void 0)
+    ], DropFilesDirective.prototype, "onDrop", null);
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["HostListener"])('change', ['$event.target.files']),
+        __metadata("design:type", Function),
+        __metadata("design:paramtypes", [Object]),
+        __metadata("design:returntype", void 0)
+    ], DropFilesDirective.prototype, "onChangeFileInput", null);
+    DropFilesDirective = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Directive"])({
+            selector: '[drop-files]'
+        }),
+        __metadata("design:paramtypes", [_angular_core__WEBPACK_IMPORTED_MODULE_0__["ElementRef"],
+            _error_handling_services_toastr_service__WEBPACK_IMPORTED_MODULE_2__["ToastrService"]])
+    ], DropFilesDirective);
+    return DropFilesDirective;
 }());
 
 
@@ -5030,6 +5230,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _images_card_components_images_card_images_card_component__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ../images-card/components/images-card/images-card.component */ "./src/app/ui/modules/images-card/components/images-card/images-card.component.ts");
 /* harmony import */ var _directives_images_card_edit_actions_directive__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./directives/images-card-edit-actions.directive */ "./src/app/ui/modules/images-card/directives/images-card-edit-actions.directive.ts");
 /* harmony import */ var _directives_image_load_directive__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./directives/image-load.directive */ "./src/app/ui/modules/images-card/directives/image-load.directive.ts");
+/* harmony import */ var _directives_drop_files_directive__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./directives/drop-files.directive */ "./src/app/ui/modules/images-card/directives/drop-files.directive.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -5055,6 +5256,7 @@ var __decorate = (undefined && undefined.__decorate) || function (decorators, ta
 
 
 //
+
 
 
 
@@ -5084,11 +5286,13 @@ var ImagesCardModule = /** @class */ (function () {
                 _ngx_translate_core__WEBPACK_IMPORTED_MODULE_14__["TranslateModule"]
             ],
             declarations: [
+                _directives_drop_files_directive__WEBPACK_IMPORTED_MODULE_18__["DropFilesDirective"],
                 _images_card_components_images_card_images_card_component__WEBPACK_IMPORTED_MODULE_15__["ImagesCardComponent"],
                 _directives_images_card_edit_actions_directive__WEBPACK_IMPORTED_MODULE_16__["ImageCardEditActionDirective"],
                 _directives_image_load_directive__WEBPACK_IMPORTED_MODULE_17__["ImageLoadDirective"]
             ],
             exports: [
+                _directives_drop_files_directive__WEBPACK_IMPORTED_MODULE_18__["DropFilesDirective"],
                 _images_card_components_images_card_images_card_component__WEBPACK_IMPORTED_MODULE_15__["ImagesCardComponent"],
                 _directives_images_card_edit_actions_directive__WEBPACK_IMPORTED_MODULE_16__["ImageCardEditActionDirective"],
                 _directives_image_load_directive__WEBPACK_IMPORTED_MODULE_17__["ImageLoadDirective"]
@@ -5128,7 +5332,9 @@ var Status;
     Status[Status["Error"] = 3] = "Error";
 })(Status || (Status = {}));
 var Face = /** @class */ (function () {
-    function Face() {
+    function Face(file) {
+        this.file = file;
+        this.fileName = file.name;
     }
     return Face;
 }());
