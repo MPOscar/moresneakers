@@ -1343,6 +1343,7 @@ var routes = [
             config: _config_services_config_resolve_service__WEBPACK_IMPORTED_MODULE_6__["ConfigResolveService"],
             brands: _ms_brands_services_brands_resolve_service__WEBPACK_IMPORTED_MODULE_7__["BrandsResolveService"],
             categories: _ms_categories_services_categories_resolve_service__WEBPACK_IMPORTED_MODULE_10__["CategoriesResolveService"],
+            collections: _ms_collections_services_collections_resolve_service__WEBPACK_IMPORTED_MODULE_8__["CollectionsResolveService"],
         }
     },
     {
