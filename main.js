@@ -4641,7 +4641,7 @@ module.exports = ":host { /* Safari */\r\n  display: flex; /* Safari */\r\n  fle
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"display-flex flex-grow-1 flex-shrink-1 flex-direction-column padding-0px-25px-25px-25px\">\r\n  <div class=\"align-self-center display-flex width-250px  flex-shrink-1 flex-direction-row card-container\">\r\n    <mat-card class=\"border-2px-solid-black box-shadow-none flex-grow-1 margin-0 mat-card-principal\" #imageContainer>\r\n      <img class=\"height-100-pc width-100-pc\" *ngIf=\"principal\" imageLoad [srcImage]=\"principal.imgUrl? principal.imgUrl : principal.file\"\r\n        [container]=\"imageContainer\" src=\"\">\r\n    </mat-card>\r\n  </div>\r\n  <div class=\"display-flex flex-grow-1 flex-shrink-1 flex-direction-row card-container justify-content-initial\">\r\n    <mat-card *ngFor=\"let faceItem of faceItems; index as cardIndex; trackBy:trackByFn\" class=\"display-flex background-color-secondary flex-direction-column flex-shrink-1 mat-card-images\">\r\n      <div class=\"image-container margin-10px flex-grow-1\" #imageContainer>\r\n        <img class=\"img\" imageLoad [srcImage]=\"faceItem.imgUrl? faceItem.imgUrl : faceItem.file\" [container]=\"imageContainer\" src=\"\">\r\n      </div>\r\n      <div class=\"image-card-btns display-flex margin-left-10px margin-right-10px margin-bottom-10px\">\r\n        <mat-radio-button value=\"primary\" class=\"margin-top-10px\" (click)=\"setMainImage(faceItem)\" matTooltip=\"{{ 'Principal' | translate }}\"></mat-radio-button>\r\n        <button type=\"button\" mat-icon-button class=\"margin-left-10px\" (click)=\"deleteFace(cardIndex)\">\r\n          <mat-icon mat-raised-button color=\"accent\" matTooltip=\"{{ 'Delete' | translate }}\">delete</mat-icon>\r\n        </button>\r\n      </div>\r\n    </mat-card>\r\n  </div>\r\n  <div class=\"display-flex justify-content-center width-100-pc\"\r\n  drop-files\r\n  [faceItems]=\"faceItems\"\r\n  [ngClass]=\"{'border-dotted': !fileIsOver, 'border-dotted-drop': fileIsOver}\"\r\n  (filesOver)=\"fileOverDropZone($event)\"\r\n  (filesChange)=\"filesChange($event)\"\r\n  >\r\n    <div>\r\n      <div class=\"padding-bottom-10px\">\r\n        <p>Drop Files Here</p>\r\n        <button type=\"button\" class=\"border-none border-radius-5px\" (click)=\"fileInput.click()\" mat-stroked-button>\r\n          {{ 'Slect File' | translate }}\r\n          <mat-icon>add</mat-icon>\r\n        </button>\r\n      </div>\r\n      <input #fileInput style=\"display:none\" type=\"file\" name=\"files\" class=\"file-input glyphicon glyphicon-plus\"\r\n        accept=\"image/*\" multiple/>\r\n    </div>\r\n  </div>\r\n</div>\r\n"
+module.exports = "<div class=\"display-flex flex-grow-1 flex-shrink-1 flex-direction-column padding-0px-25px-25px-25px\">\r\n  <div class=\"align-self-center display-flex width-250px  flex-shrink-1 flex-direction-row card-container\">\r\n    <mat-card class=\"border-2px-solid-black box-shadow-none flex-grow-1 margin-0 mat-card-principal\" #imageContainer>\r\n      <img class=\"height-100-pc width-100-pc\" *ngIf=\"principal\" imageLoad [srcImage]=\"principal.imgUrl? principal.imgUrl : principal.file\"\r\n        [container]=\"imageContainer\" src=\"\">\r\n    </mat-card>\r\n  </div>\r\n  <div class=\"display-flex flex-grow-1 flex-shrink-1 flex-direction-row card-container justify-content-initial\">\r\n    <!--mat-card *ngFor=\"let faceItem of faceItems; index as cardIndex; trackBy:trackByFn\" class=\"display-flex background-color-secondary flex-direction-column flex-shrink-1 mat-card-images\">\r\n      <div class=\"image-container margin-10px flex-grow-1\" #imageContainer>\r\n        <img class=\"img\" imageLoad [srcImage]=\"faceItem.imgUrl? faceItem.imgUrl : faceItem.file\" [container]=\"imageContainer\" src=\"\">\r\n      </div>\r\n      <div class=\"image-card-btns display-flex margin-left-10px margin-right-10px margin-bottom-10px\">\r\n        <mat-radio-button value=\"primary\" class=\"margin-top-10px\" (click)=\"setMainImage(faceItem)\" matTooltip=\"{{ 'Principal' | translate }}\"></mat-radio-button>\r\n        <button type=\"button\" mat-icon-button class=\"margin-left-10px\" (click)=\"deleteFace(cardIndex)\">\r\n          <mat-icon mat-raised-button color=\"accent\" matTooltip=\"{{ 'Delete' | translate }}\">delete</mat-icon>\r\n        </button>\r\n      </div>\r\n    </mat-card-->\r\n  </div>\r\n  <div class=\"display-flex justify-content-center width-100-pc\"\r\n  drop-files\r\n  [faceItems]=\"faceItems\"\r\n  [ngClass]=\"{'border-dotted': !fileIsOver, 'border-dotted-drop': fileIsOver}\"\r\n  (filesOver)=\"fileOverDropZone($event)\"\r\n  (filesChange)=\"filesChange($event)\"\r\n  >\r\n    <div>\r\n      <div class=\"padding-bottom-10px\">\r\n        <p>Drop Files Here</p>\r\n        <button type=\"button\" class=\"border-none border-radius-5px\" (click)=\"fileInput.click()\" mat-stroked-button>\r\n          {{ 'Slect File' | translate }}\r\n          <mat-icon>add</mat-icon>\r\n        </button>\r\n      </div>\r\n      <input #fileInput style=\"display:none\" type=\"file\" name=\"files\" class=\"file-input glyphicon glyphicon-plus\"\r\n        accept=\"image/*\" multiple/>\r\n    </div>\r\n  </div>\r\n</div>\r\n"
 
 /***/ }),
 
@@ -4784,6 +4784,7 @@ var ImageCardComponent = /** @class */ (function () {
     ImageCardComponent.prototype.filesChange = function (event) {
         console.log("here..");
         this.faceItems = event;
+        this.principal = this.faceItems[0];
     };
     ImageCardComponent.prototype.setMainImage = function (faceItem) {
         this.principal = faceItem;
@@ -4916,15 +4917,12 @@ var DropFilesDirective = /** @class */ (function () {
             if (this.fileCanBeLoad(tempFile)) {
                 var newFile = new _models_face__WEBPACK_IMPORTED_MODULE_1__["Face"](tempFile);
                 if (this.faceItems) {
-                    this.faceItems = this.faceItems.concat([newFile]);
-                }
-                else {
                     this.faceItems = [newFile];
+                    this.filesChange.emit(this.faceItems);
                 }
+                break;
             }
         }
-        this.filesChange.emit(this.faceItems);
-        console.log(this.faceItems);
     };
     DropFilesDirective.prototype.fileIsInFiles = function (fileName) {
         for (var i in this.faceItems) {
@@ -6067,7 +6065,7 @@ var ImagesCardModule = /** @class */ (function () {
 /*!*******************************************************!*\
   !*** ./src/app/ui/modules/images-card/models/face.ts ***!
   \*******************************************************/
-/*! exports provided: State, Status, Face */
+/*! exports provided: State, Status, Face, MainImage */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -6075,6 +6073,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "State", function() { return State; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Status", function() { return Status; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Face", function() { return Face; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "MainImage", function() { return MainImage; });
 var State;
 (function (State) {
     State[State["New"] = 0] = "New";
@@ -6096,6 +6095,12 @@ var Face = /** @class */ (function () {
         this.status = Status.Pending;
     }
     return Face;
+}());
+
+var MainImage = /** @class */ (function () {
+    function MainImage() {
+    }
+    return MainImage;
 }());
 
 

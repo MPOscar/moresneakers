@@ -1223,14 +1223,12 @@ var GENDERS = [
 /*!***********************************************************************!*\
   !*** ./src/app/ms-back-office/modules/ms-releases/models/releases.ts ***!
   \***********************************************************************/
-/*! exports provided: MainImage, State, Status, ReleaseImage, Release, ReleasesListResponse, ReleasesImagesListResponse, ReleaseResponse, ReleaseImagesResponse, EditReleaseModel */
+/*! exports provided: MainImage, ReleaseImage, Release, ReleasesListResponse, ReleasesImagesListResponse, ReleaseResponse, ReleaseImagesResponse, EditReleaseModel */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "MainImage", function() { return MainImage; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "State", function() { return State; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Status", function() { return Status; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ReleaseImage", function() { return ReleaseImage; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Release", function() { return Release; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ReleasesListResponse", function() { return ReleasesListResponse; });
@@ -1254,19 +1252,6 @@ var MainImage = /** @class */ (function () {
     return MainImage;
 }());
 
-var State;
-(function (State) {
-    State[State["New"] = 0] = "New";
-    State[State["Edited"] = 1] = "Edited";
-    State[State["Deleted"] = 2] = "Deleted";
-})(State || (State = {}));
-var Status;
-(function (Status) {
-    Status[Status["Pending"] = 0] = "Pending";
-    Status[Status["Uploading"] = 1] = "Uploading";
-    Status[Status["Uploaded"] = 2] = "Uploaded";
-    Status[Status["Error"] = 3] = "Error";
-})(Status || (Status = {}));
 var ReleaseImage = /** @class */ (function () {
     function ReleaseImage() {
     }

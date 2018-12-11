@@ -320,12 +320,16 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
 /* harmony import */ var _angular_material__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/material */ "./node_modules/@angular/material/esm5/material.es5.js");
-/* harmony import */ var _ngx_translate_core__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @ngx-translate/core */ "./node_modules/@ngx-translate/core/fesm5/ngx-translate-core.js");
-/* harmony import */ var _ui_helpers_component_can_deactivate__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../../../ui/helpers/component-can-deactivate */ "./src/app/ui/helpers/component-can-deactivate.ts");
-/* harmony import */ var _ui_helpers_mixin_decorator__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../../../ui/helpers/mixin-decorator */ "./src/app/ui/helpers/mixin-decorator.ts");
-/* harmony import */ var _error_handling_services_error_handling_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../../../../error-handling/services/error-handling.service */ "./src/app/error-handling/services/error-handling.service.ts");
-/* harmony import */ var _error_handling_services_toastr_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../../../../error-handling/services/toastr.service */ "./src/app/error-handling/services/toastr.service.ts");
-/* harmony import */ var _services_shops_service__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../services/shops.service */ "./src/app/ms-back-office/modules/ms-shops/services/shops.service.ts");
+/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! rxjs */ "./node_modules/rxjs/_esm5/index.js");
+/* harmony import */ var _ngx_translate_core__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @ngx-translate/core */ "./node_modules/@ngx-translate/core/fesm5/ngx-translate-core.js");
+/* harmony import */ var _ui_helpers_component_can_deactivate__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../../../ui/helpers/component-can-deactivate */ "./src/app/ui/helpers/component-can-deactivate.ts");
+/* harmony import */ var _ui_helpers_mixin_decorator__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../../../../ui/helpers/mixin-decorator */ "./src/app/ui/helpers/mixin-decorator.ts");
+/* harmony import */ var _error_handling_services_error_handling_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../../../../error-handling/services/error-handling.service */ "./src/app/error-handling/services/error-handling.service.ts");
+/* harmony import */ var _error_handling_services_toastr_service__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../../../../error-handling/services/toastr.service */ "./src/app/error-handling/services/toastr.service.ts");
+/* harmony import */ var _models_shops__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../../models/shops */ "./src/app/ms-back-office/modules/ms-shops/models/shops.ts");
+/* harmony import */ var _services_shops_service__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../../services/shops.service */ "./src/app/ms-back-office/modules/ms-shops/services/shops.service.ts");
+/* harmony import */ var _services_shops_images_service__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../../services/shops-images.service */ "./src/app/ms-back-office/modules/ms-shops/services/shops-images.service.ts");
+/* harmony import */ var _ui_modules_images_card_services_images_service__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ../../../../../ui/modules/images-card/services/images.service */ "./src/app/ui/modules/images-card/services/images.service.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -340,7 +344,11 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 //
 
 
+
 //
+
+
+
 
 
 
@@ -349,10 +357,12 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 var errorKey = 'Error';
 var savedUserMessageKey = 'Saved User Message';
 var NewShopComponent = /** @class */ (function () {
-    function NewShopComponent(activatedRoute, shopsService, errorHandlingService, router, translate, toastr, dialog) {
+    function NewShopComponent(activatedRoute, shopsService, shopsImgesService, errorHandlingService, imagesService, router, translate, toastr, dialog) {
         this.activatedRoute = activatedRoute;
         this.shopsService = shopsService;
+        this.shopsImgesService = shopsImgesService;
         this.errorHandlingService = errorHandlingService;
+        this.imagesService = imagesService;
         this.router = router;
         this.translate = translate;
         this.toastr = toastr;
@@ -382,13 +392,79 @@ var NewShopComponent = /** @class */ (function () {
     NewShopComponent.prototype.close = function () {
         this.router.navigate(this.activatedRoute.snapshot.data.closeRouteCommand, { relativeTo: this.activatedRoute });
     };
-    NewShopComponent.prototype.createShop = function (data) {
+    /*createShop(data: Shop) {
+      this.shopsService.postShop(data).subscribe(response => {
+        this.unsavedChanges = false;
+        //this.close.emit();TODO
+        this.close();
+        this.toastr.success(savedUserMessageKey);
+      },
+        (error: HandledError) => {
+          this.errorHandlingService.handleUiError(errorKey, error);
+          this.validationErrors = error.formErrors;
+        });
+    }*/
+    NewShopComponent.prototype.createShop = function (shopData) {
         var _this = this;
-        this.shopsService.postShop(data).subscribe(function (response) {
-            _this.unsavedChanges = false;
-            //this.close.emit();TODO
-            _this.close();
-            _this.toastr.success(savedUserMessageKey);
+        console.log("create...........");
+        this.shopsService.postShop(shopData).subscribe(function (response) {
+            _this.shopId = response.data.id;
+            shopData.images = [];
+            var imagesObservables = new Array();
+            for (var position in shopData.faces) {
+                var face = shopData.faces[position];
+                if (face.mainImage === true) {
+                    _this.imagesService.postImage(face.file).subscribe(function (response) {
+                        //let image = new ReleaseImage;
+                        //image.imgUrl = response.data.url;
+                        //releaseData.images = [...releaseData.images, image];
+                        console.log("main image........................................");
+                        //console.log()
+                        var mainImage = {
+                            mainImage: response.data.url
+                        };
+                        _this.shopsImgesService.patchShopMainImage(_this.shopId, mainImage).subscribe(function (response) {
+                            console.log("new principal");
+                        }, function (error) {
+                            _this.errorHandlingService.handleUiError(errorKey, error);
+                            _this.validationErrors = error.formErrors;
+                        });
+                    }, function (error) {
+                        _this.errorHandlingService.handleUiError(errorKey, error);
+                        _this.validationErrors = error.formErrors;
+                    });
+                }
+                else {
+                    var subscription$ = _this.imagesService.postImage(face.file);
+                    imagesObservables.push(subscription$);
+                }
+            }
+            if (imagesObservables.length > 0) {
+                Object(rxjs__WEBPACK_IMPORTED_MODULE_3__["forkJoin"])(imagesObservables).subscribe(function (responses) {
+                    for (var item in responses) {
+                        //const image = responses[item].data.url;
+                        var image = new _models_shops__WEBPACK_IMPORTED_MODULE_9__["ShopImage"];
+                        image.imgUrl = responses[item].data.url;
+                        shopData.images = shopData.images.concat([image]);
+                    }
+                    //this.shopsService.postRelease(releaseData).subscribe(response => {
+                    //send images realeases 
+                    _this.shopsImgesService.postShopImageAll(response.data.id, shopData.images).subscribe(function (response) {
+                    }, function (error) {
+                        _this.errorHandlingService.handleUiError(errorKey, error);
+                        _this.validationErrors = error.formErrors;
+                    });
+                    _this.unsavedChanges = false;
+                    _this.close();
+                    _this.toastr.success((savedUserMessageKey));
+                }, function (error) {
+                    _this.errorHandlingService.handleUiError(errorKey, error);
+                    _this.validationErrors = error.formErrors;
+                });
+            }
+            else {
+                _this.close();
+            }
         }, function (error) {
             _this.errorHandlingService.handleUiError(errorKey, error);
             _this.validationErrors = error.formErrors;
@@ -400,13 +476,15 @@ var NewShopComponent = /** @class */ (function () {
             template: __webpack_require__(/*! ./new-shop.component.html */ "./src/app/ms-back-office/modules/ms-shops/components/new-shop/new-shop.component.html"),
             styles: [__webpack_require__(/*! ./new-shop.component.scss */ "./src/app/ms-back-office/modules/ms-shops/components/new-shop/new-shop.component.scss")]
         }),
-        Object(_ui_helpers_mixin_decorator__WEBPACK_IMPORTED_MODULE_5__["Mixin"])([_ui_helpers_component_can_deactivate__WEBPACK_IMPORTED_MODULE_4__["CanDeactivateMixin"]]),
+        Object(_ui_helpers_mixin_decorator__WEBPACK_IMPORTED_MODULE_6__["Mixin"])([_ui_helpers_component_can_deactivate__WEBPACK_IMPORTED_MODULE_5__["CanDeactivateMixin"]]),
         __metadata("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_1__["ActivatedRoute"],
-            _services_shops_service__WEBPACK_IMPORTED_MODULE_8__["ShopsService"],
-            _error_handling_services_error_handling_service__WEBPACK_IMPORTED_MODULE_6__["ErrorHandlingService"],
+            _services_shops_service__WEBPACK_IMPORTED_MODULE_10__["ShopsService"],
+            _services_shops_images_service__WEBPACK_IMPORTED_MODULE_11__["ShopsImgesService"],
+            _error_handling_services_error_handling_service__WEBPACK_IMPORTED_MODULE_7__["ErrorHandlingService"],
+            _ui_modules_images_card_services_images_service__WEBPACK_IMPORTED_MODULE_12__["ImagesService"],
             _angular_router__WEBPACK_IMPORTED_MODULE_1__["Router"],
-            _ngx_translate_core__WEBPACK_IMPORTED_MODULE_3__["TranslateService"],
-            _error_handling_services_toastr_service__WEBPACK_IMPORTED_MODULE_7__["ToastrService"],
+            _ngx_translate_core__WEBPACK_IMPORTED_MODULE_4__["TranslateService"],
+            _error_handling_services_toastr_service__WEBPACK_IMPORTED_MODULE_8__["ToastrService"],
             _angular_material__WEBPACK_IMPORTED_MODULE_2__["MatDialog"]])
     ], NewShopComponent);
     return NewShopComponent;
@@ -423,7 +501,7 @@ var NewShopComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<form class=\"flex-grow-1 min-height-0 display-flex flex-direction-column\" [askBeforeRefresh]=\"formGroup.dirty\" [formGroup]=\"formGroup\"\n  novalidate role=\"form\" (ngSubmit)=\"submitClicked()\" autocomplete=\"off\" inputFocus>\n\n\n  <div class=\"flex-grow-1 overflow-auto display-flex flex-direction-column\">\n\n    <div class=\"flex-grow-1 flex-shrink-0 display-flex flex-direction-column\">\n\n      <div class=\"mb-20\" fxFlex fxLayout=\"row\" fxLayout.lt-md=\"column\" fxLayoutGap=\"20px\">\n\n        <div [fxFlex]=\"25\">\n\n          <mat-form-field class=\"width-100pc margin-left-16px\">\n\n            <mat-label>Shop Name</mat-label>\n\n            <input matInput type=\"text\" formControlName=\"name\" required>\n\n          </mat-form-field>\n\n          <mat-form-field class=\"width-100pc margin-left-16px\">\n\n            <mat-label>Traking list base URL</mat-label>\n\n            <input matInput type=\"text\">\n\n          </mat-form-field>\n\n          <!--mat-form-field class=\"width-100pc\">\n\n            <mat-label>Collection</mat-label>\n\n            <mat-select placeholder=\"Select\" formControlName=\"collection\">\n\n              <mat-option *ngFor=\"let collection of collections\" [value]=\"collection.id\">\n\n                {{collection.name}}\n\n              </mat-option>\n\n            </mat-select>\n\n          </mat-form-field-->\n\n          <mat-form-field class=\"width-100pc margin-left-16px\">\n\n            <mat-label>Description</mat-label>\n\n            <textarea matInput formControlName=\"description\"></textarea>\n\n          </mat-form-field>\n\n          <!--mat-form-field class=\"width-100pc\">\n\n            <mat-label>Gender</mat-label>\n\n            <mat-select placeholder=\"Select\" formControlName=\"gender\">\n\n              <mat-option *ngFor=\"let gender of genders\" [value]=\"gender.id\">\n\n                {{gender.name}}\n\n              </mat-option>\n\n            </mat-select>\n\n          </mat-form-field-->\n\n\n\n          <mat-form-field class=\"width-100pc margin-left-16px\">\n\n            <mat-label>Address</mat-label>\n\n            <input matInput type=\"text\" formControlName=\"address\">\n\n          </mat-form-field>\n\n          <mat-form-field class=\"width-100pc margin-left-16px\">\n\n            <mat-label>Shipping Details</mat-label>\n\n            <textarea matInput formControlName=\"shippingDetails\"></textarea>\n\n          </mat-form-field>\n\n          <div [fxFlex]=\"100\" fxLayout=\"row\">\n\n            <div [fxFlex]=\"50\">\n\n              <mat-form-field class=\"width-90pct\">\n\n                <mat-select placeholder=\"Region\">\n\n                  <mat-option *ngFor=\"let brand of brands\" [value]=\"brand.id\">\n\n                    {{brand.name}}\n\n                  </mat-option>\n\n                </mat-select>\n\n              </mat-form-field>\n\n            </div>\n\n            <div [fxFlex]=\"50\" class=\"\">\n\n              <mat-form-field class=\"width-100pc\">\n\n                <mat-select placeholder=\"Country\">\n\n                  <mat-option *ngFor=\"let brand of brands\" [value]=\"brand.id\">\n\n                    {{brand.name}}\n\n                  </mat-option>\n\n                </mat-select>\n\n              </mat-form-field>\n\n            </div>\n\n          </div>\n\n          <div [fxFlex]=\"100\" fxLayout=\"row\">\n\n            <div [fxFlex]=\"50\">\n\n              <mat-form-field class=\"width-90pct\">\n\n                <mat-select placeholder=\"Rank\">\n\n                  <mat-option *ngFor=\"let brand of brands\" [value]=\"brand.id\">\n\n                    {{brand.name}}\n\n                  </mat-option>\n\n                </mat-select>\n\n              </mat-form-field>\n\n            </div>\n\n            <div [fxFlex]=\"50\" class=\"\">\n\n              <mat-form-field class=\"width-100pc\">\n\n                <mat-select placeholder=\"Currency\">\n\n                  <mat-option *ngFor=\"let brand of brands\" [value]=\"brand.id\">\n\n                    {{brand.name}}\n\n                  </mat-option>\n\n                </mat-select>\n\n              </mat-form-field>\n\n            </div>\n\n          </div>\n\n        </div>\n\n        <div [fxFlex]=\"25\">\n\n          <mat-form-field class=\"width-100pc\">\n\n            <mat-select placeholder=\"Select Brand\" formControlName=\"brand\" multiple>\n\n              <mat-option *ngFor=\"let brand of brands\" [value]=\"brand.id\">\n\n                {{brand.name}}\n\n              </mat-option>\n\n            </mat-select>\n\n          </mat-form-field>\n\n          <mat-form-field class=\"width-100pc\">\n\n            <mat-select placeholder=\"Select Category\" formControlName=\"category\" multiple>\n\n              <mat-option *ngFor=\"let category of categories\" [value]=\"category.id\">\n\n                {{category.name}}\n\n              </mat-option>\n\n            </mat-select>\n\n          </mat-form-field>\n\n          <mat-slide-toggle formControlName=\"makeDeal\" class=\"margin-bottom-25px margin-top-25px\">Hot</mat-slide-toggle>\n\n          <!--mat-form-field class=\"width-100pc\">\n\n            <mat-label>Color</mat-label>\n\n            <mat-select placeholder=\"Select\" formControlName=\"color\">\n\n              <mat-option *ngFor=\"let color of colors\" [value]=\"color.id\">\n\n                {{color.name}}\n\n              </mat-option>\n\n            </mat-select>\n\n          </mat-form-field-->\n\n          <!--mat-form-field class=\"width-100pc margin-left-16px\">\n\n            <mat-label>Suplied Color</mat-label>\n\n            <input matInput type=\"text\" formControlName=\"supliedColor\">\n\n          </mat-form-field>\n\n          <mat-slide-toggle formControlName=\"children\">Children</mat-slide-toggle-->\n\n        </div>\n\n        <div [fxFlex]=\"50\" class=\"border margin-left-25px margin-right-25px\">\n          <div class=\"display-flex justify-content-center\">\n            <h3>Shop Logo</h3>\n          </div>\n\n          <images-card formControlName=\"images\" name=\"images\" class=\"flex-grow-1\"></images-card>\n\n        </div>\n\n      </div>\n      <div class=\"mb-20 color-material\" fxFlex fxLayout=\"row\" fxLayout.lt-md=\"column\" fxLayoutGap=\"20px\">\n\n\n        <div [fxFlex]=\"40\" fxLayout=\"column\">\n\n          <div [fxFlex]=\"100\" fxLayout=\"row\" class=\"margin-bottom-25px\">\n\n            <div [fxFlex]=\"70\">\n\n              <h3>Working Hours</h3>\n\n\n            </div>\n\n            <div [fxFlex]=\"30\">\n\n              <h5>Non-Working</h5>\n\n            </div>\n\n          </div>\n\n          <div [fxFlex]=\"100\" fxLayout=\"row\">\n\n            <div [fxFlex]=\"100\">\n\n              Monday\n\n            </div>\n\n            <div [fxFlex]=\"100\">\n\n              <input matInput atp-time-picker class=\"cursor-pointer\" value=\"00:00\" />\n\n            </div>\n\n            <div [fxFlex]=\"100\">\n\n              <input matInput atp-time-picker class=\"cursor-pointer\" value=\"00:00\" />\n\n            </div>\n\n            <div [fxFlex]=\"100\">\n\n              <mat-checkbox></mat-checkbox>\n\n            </div>\n\n          </div>\n\n          <div [fxFlex]=\"100\" fxLayout=\"row\">\n\n            <div [fxFlex]=\"100\">\n\n              Tuesday\n\n            </div>\n\n            <div [fxFlex]=\"100\">\n\n              <input matInput atp-time-picker class=\"cursor-pointer\" value=\"00:00\" />\n\n            </div>\n\n            <div [fxFlex]=\"100\">\n\n              <input matInput atp-time-picker class=\"cursor-pointer\" value=\"00:00\" />\n\n            </div>\n\n            <div [fxFlex]=\"100\">\n\n              <mat-checkbox></mat-checkbox>\n\n            </div>\n\n          </div>\n\n          <div [fxFlex]=\"100\" fxLayout=\"row\">\n\n            <div [fxFlex]=\"100\">\n\n              Wednesday\n\n            </div>\n\n            <div [fxFlex]=\"100\">\n\n              <input matInput atp-time-picker class=\"cursor-pointer\" value=\"00:00\" />\n\n            </div>\n\n            <div [fxFlex]=\"100\">\n\n              <input matInput atp-time-picker class=\"cursor-pointer\" value=\"00:00\" />\n\n            </div>\n\n            <div [fxFlex]=\"100\">\n\n              <mat-checkbox></mat-checkbox>\n\n            </div>\n\n          </div>\n\n          <div [fxFlex]=\"100\" fxLayout=\"row\">\n\n            <div [fxFlex]=\"100\">\n\n              Thursday\n\n            </div>\n\n            <div [fxFlex]=\"100\">\n\n              <input matInput atp-time-picker class=\"cursor-pointer\" value=\"00:00\" />\n\n            </div>\n\n            <div [fxFlex]=\"100\">\n\n              <input matInput atp-time-picker class=\"cursor-pointer\" value=\"00:00\" />\n\n            </div>\n\n            <div [fxFlex]=\"100\">\n\n              <mat-checkbox></mat-checkbox>\n\n            </div>\n\n          </div>\n\n          <div [fxFlex]=\"100\" fxLayout=\"row\">\n\n            <div [fxFlex]=\"100\">\n\n              Friday\n\n            </div>\n\n            <div [fxFlex]=\"100\">\n\n              <input matInput atp-time-picker class=\"cursor-pointer\" value=\"00:00\" />\n\n            </div>\n\n            <div [fxFlex]=\"100\">\n\n              <input matInput atp-time-picker class=\"cursor-pointer\" value=\"00:00\" />\n\n            </div>\n\n            <div [fxFlex]=\"100\">\n\n              <mat-checkbox></mat-checkbox>\n\n            </div>\n\n          </div>\n\n          <div [fxFlex]=\"100\" fxLayout=\"row\">\n\n            <div [fxFlex]=\"100\">\n\n              Saturday\n\n            </div>\n\n            <div [fxFlex]=\"100\">\n\n              <input matInput atp-time-picker class=\"cursor-pointer\" value=\"00:00\" />\n\n            </div>\n\n            <div [fxFlex]=\"100\">\n\n              <input matInput atp-time-picker class=\"cursor-pointer\" value=\"00:00\" />\n\n            </div>\n\n            <div [fxFlex]=\"100\">\n\n              <mat-checkbox></mat-checkbox>\n\n            </div>\n\n          </div>\n\n          <div [fxFlex]=\"100\" fxLayout=\"row\">\n\n            <div [fxFlex]=\"100\">\n\n              Sunday\n\n            </div>\n\n            <div [fxFlex]=\"100\">\n\n              <input matInput atp-time-picker class=\"cursor-pointer\" value=\"00:00\" />\n\n            </div>\n\n            <div [fxFlex]=\"100\">\n\n              <input matInput atp-time-picker class=\"cursor-pointer\" value=\"00:00\" />\n\n            </div>\n\n            <div [fxFlex]=\"100\">\n\n              <mat-checkbox></mat-checkbox>\n\n            </div>\n\n          </div>\n\n        </div>\n\n\n        <div [fxFlex]=\"60\" fxLayout=\"column\" class=\" margin-right-25px\">\n\n          <div [fxFlex]=\"\" fxLayout=\"row\" class=\"justify-content-space-between\">\n\n            <div>\n              <mat-slide-toggle class=\"\">Make Deal</mat-slide-toggle>\n            </div>\n\n            <div class=\"padding-bottom-10px\">\n              <button type=\"button\" class=\"border-none border-radius-5px\" mat-stroked-button>\n                Add a new Deal\n                <mat-icon>add</mat-icon>\n              </button>\n            </div>\n\n          </div>\n          <div [fxFlex]=\"\" fxLayout=\"row\" class=\"border border-2px-solid-black padding-25px\">\n\n            <div [fxFlex]=\"40\" fxLayout=\"column\" class=\"margin-left-10px margin-right-10px\">\n              <mat-form-field class=\"width-100pc\">\n\n                <mat-select placeholder=\"Url\" formControlName=\"category\">\n\n                  <mat-option *ngFor=\"let category of categories\" [value]=\"category.id\">\n\n                    {{category.name}}\n\n                  </mat-option>\n\n                </mat-select>\n\n              </mat-form-field>\n\n              <div fxLayout=\"row\">\n\n                <div [fxFlex]=\"50\">\n\n                  <mat-form-field class=\"width-90pct\">\n\n                    <mat-select placeholder=\"Start Date\">\n\n                      <mat-option *ngFor=\"let brand of brands\" [value]=\"brand.id\">\n\n                        {{brand.name}}\n\n                      </mat-option>\n\n                    </mat-select>\n\n                  </mat-form-field>\n\n                </div>\n\n                <div [fxFlex]=\"50\" class=\"\">\n\n                  <mat-form-field class=\"width-100pc\">\n\n                    <mat-select placeholder=\"End Date\">\n\n                      <mat-option *ngFor=\"let brand of brands\" [value]=\"brand.id\">\n\n                        {{brand.name}}\n\n                      </mat-option>\n\n                    </mat-select>\n\n                  </mat-form-field>\n\n                </div>\n\n              </div>\n\n              <div fxLayout=\"row\">\n\n                <div [fxFlex]=\"50\">\n\n                  <mat-form-field class=\"width-90pct\">\n\n                    <mat-select placeholder=\"Region\">\n\n                      <mat-option *ngFor=\"let brand of brands\" [value]=\"brand.id\">\n\n                        {{brand.name}}\n\n                      </mat-option>\n\n                    </mat-select>\n\n                  </mat-form-field>\n\n                </div>\n\n                <div [fxFlex]=\"50\" class=\"\">\n\n                  <mat-form-field class=\"width-100pc\">\n\n                    <mat-select placeholder=\"Country\">\n\n                      <mat-option *ngFor=\"let brand of brands\" [value]=\"brand.id\">\n\n                        {{brand.name}}\n\n                      </mat-option>\n\n                    </mat-select>\n\n                  </mat-form-field>\n\n                </div>\n\n              </div>\n\n              <mat-form-field class=\"width-100pc margin-left-16px\">\n\n                <mat-label>Promo Code</mat-label>\n\n                <input matInput type=\"text\">\n\n              </mat-form-field>\n\n              <div fxLayout=\"column\" class=\"margin-top-18px flex-grow-0\">\n\n                <mat-label>Time</mat-label>\n\n                <div fxLayout=\"row\" class=\"flex-grow-0\">\n\n                  <div [fxFlex]=\"50\">\n\n                    <mat-form-field class=\"width-90pct\">\n\n                      <mat-label></mat-label>\n\n                      <input matInput atp-time-picker class=\"cursor-pointer\" value=\"00:00\" />\n\n                    </mat-form-field>\n\n                  </div>\n\n                  <div [fxFlex]=\"50\">\n\n                    <mat-form-field class=\"width-100pct\">\n\n                      <mat-label></mat-label>\n\n                      <input matInput atp-time-picker class=\"cursor-pointer\" value=\"00:00\" />\n\n                    </mat-form-field>\n\n                  </div>\n\n                </div>\n\n              </div>\n\n            </div>\n\n            <div [fxFlex]=\"60\" class=\"margin-left-10px margin-right-10px\">\n\n              <images-card formControlName=\"images\" name=\"images\" class=\"flex-grow-1\"></images-card>\n\n            </div>\n\n          </div>\n\n        </div>\n\n      </div>\n\n    </div>\n\n  </div>\n\n  <div class=\"margin-right-25px padding-top-25px padding-bottom-25px flex-shrink-0 display-flex border-top-style-solid border-top-width-2px border-top-color-grey\">\n\n    <button mat-raised-button type=\"submit\" color=\"primary\">{{ 'Save' | translate }}</button>\n\n    <button mat-raised-button type=\"button\" class=\"margin-left-10px\" (click)=\"cancelClicked()\">{{ 'Cancel' | translate }}</button>\n\n  </div>\n\n</form>"
+module.exports = "<form class=\"flex-grow-1 min-height-0 display-flex flex-direction-column\" [askBeforeRefresh]=\"formGroup.dirty\" [formGroup]=\"formGroup\"\n  novalidate role=\"form\" (ngSubmit)=\"submitClicked()\" autocomplete=\"off\" inputFocus>\n\n\n  <div class=\"flex-grow-1 overflow-auto display-flex flex-direction-column\">\n\n    <div class=\"flex-grow-1 flex-shrink-0 display-flex flex-direction-column\">\n\n      <div class=\"mb-20\" fxFlex fxLayout=\"row\" fxLayout.lt-md=\"column\" fxLayoutGap=\"20px\">\n\n        <div [fxFlex]=\"25\">\n\n          <mat-form-field class=\"width-100pc margin-left-16px\">\n\n            <mat-label>Shop Name</mat-label>\n\n            <input matInput type=\"text\" formControlName=\"name\" required>\n\n          </mat-form-field>\n\n          <mat-form-field class=\"width-100pc margin-left-16px\">\n\n            <mat-label>Traking list base URL</mat-label>\n\n            <input matInput type=\"text\">\n\n          </mat-form-field>\n\n          <!--mat-form-field class=\"width-100pc\">\n\n            <mat-label>Collection</mat-label>\n\n            <mat-select placeholder=\"Select\" formControlName=\"collection\">\n\n              <mat-option *ngFor=\"let collection of collections\" [value]=\"collection.id\">\n\n                {{collection.name}}\n\n              </mat-option>\n\n            </mat-select>\n\n          </mat-form-field-->\n\n          <mat-form-field class=\"width-100pc margin-left-16px\">\n\n            <mat-label>Description</mat-label>\n\n            <textarea matInput formControlName=\"description\"></textarea>\n\n          </mat-form-field>\n\n          <!--mat-form-field class=\"width-100pc\">\n\n            <mat-label>Gender</mat-label>\n\n            <mat-select placeholder=\"Select\" formControlName=\"gender\">\n\n              <mat-option *ngFor=\"let gender of genders\" [value]=\"gender.id\">\n\n                {{gender.name}}\n\n              </mat-option>\n\n            </mat-select>\n\n          </mat-form-field-->\n\n\n\n          <mat-form-field class=\"width-100pc margin-left-16px\">\n\n            <mat-label>Address</mat-label>\n\n            <input matInput type=\"text\" formControlName=\"address\">\n\n          </mat-form-field>\n\n          <mat-form-field class=\"width-100pc margin-left-16px\">\n\n            <mat-label>Shipping Details</mat-label>\n\n            <textarea matInput formControlName=\"shippingDetails\"></textarea>\n\n          </mat-form-field>\n\n          <div [fxFlex]=\"100\" fxLayout=\"row\">\n\n            <div [fxFlex]=\"50\">\n\n              <mat-form-field class=\"width-90pct\">\n\n                <mat-select placeholder=\"Region\">\n\n                  <mat-option *ngFor=\"let brand of brands\" [value]=\"brand.id\">\n\n                    {{brand.name}}\n\n                  </mat-option>\n\n                </mat-select>\n\n              </mat-form-field>\n\n            </div>\n\n            <div [fxFlex]=\"50\" class=\"\">\n\n              <mat-form-field class=\"width-100pc\">\n\n                <mat-select placeholder=\"Country\">\n\n                  <mat-option *ngFor=\"let brand of brands\" [value]=\"brand.id\">\n\n                    {{brand.name}}\n\n                  </mat-option>\n\n                </mat-select>\n\n              </mat-form-field>\n\n            </div>\n\n          </div>\n\n          <div [fxFlex]=\"100\" fxLayout=\"row\">\n\n            <div [fxFlex]=\"50\">\n\n              <mat-form-field class=\"width-90pct\">\n\n                <mat-select placeholder=\"Rank\">\n\n                  <mat-option *ngFor=\"let brand of brands\" [value]=\"brand.id\">\n\n                    {{brand.name}}\n\n                  </mat-option>\n\n                </mat-select>\n\n              </mat-form-field>\n\n            </div>\n\n            <div [fxFlex]=\"50\" class=\"\">\n\n              <mat-form-field class=\"width-100pc\">\n\n                <mat-select placeholder=\"Currency\">\n\n                  <mat-option *ngFor=\"let brand of brands\" [value]=\"brand.id\">\n\n                    {{brand.name}}\n\n                  </mat-option>\n\n                </mat-select>\n\n              </mat-form-field>\n\n            </div>\n\n          </div>\n\n        </div>\n\n        <div [fxFlex]=\"25\">\n\n          <mat-form-field class=\"width-100pc\">\n\n            <mat-select placeholder=\"Select Brand\" formControlName=\"brand\" multiple>\n\n              <mat-option *ngFor=\"let brand of brands\" [value]=\"brand.id\">\n\n                {{brand.name}}\n\n              </mat-option>\n\n            </mat-select>\n\n          </mat-form-field>\n\n          <mat-form-field class=\"width-100pc\">\n\n            <mat-select placeholder=\"Select Category\" formControlName=\"category\" multiple>\n\n              <mat-option *ngFor=\"let category of categories\" [value]=\"category.id\">\n\n                {{category.name}}\n\n              </mat-option>\n\n            </mat-select>\n\n          </mat-form-field>\n\n          <mat-slide-toggle formControlName=\"makeDeal\" class=\"margin-bottom-25px margin-top-25px\">Hot</mat-slide-toggle>\n\n          <!--mat-form-field class=\"width-100pc\">\n\n            <mat-label>Color</mat-label>\n\n            <mat-select placeholder=\"Select\" formControlName=\"color\">\n\n              <mat-option *ngFor=\"let color of colors\" [value]=\"color.id\">\n\n                {{color.name}}\n\n              </mat-option>\n\n            </mat-select>\n\n          </mat-form-field-->\n\n          <!--mat-form-field class=\"width-100pc margin-left-16px\">\n\n            <mat-label>Suplied Color</mat-label>\n\n            <input matInput type=\"text\" formControlName=\"supliedColor\">\n\n          </mat-form-field>\n\n          <mat-slide-toggle formControlName=\"children\">Children</mat-slide-toggle-->\n\n        </div>\n\n        <div [fxFlex]=\"50\" class=\"border margin-left-25px margin-right-25px\">\n          <div class=\"display-flex justify-content-center\">\n            <h3>Shop Logo</h3>\n          </div>\n\n          <images-card formControlName=\"faces\" name=\"faces\" class=\"flex-grow-1\"></images-card>\n\n        </div>\n\n      </div>\n      <div class=\"mb-20 color-material\" fxFlex fxLayout=\"row\" fxLayout.lt-md=\"column\" fxLayoutGap=\"20px\">\n\n\n        <div [fxFlex]=\"40\" fxLayout=\"column\">\n\n          <div [fxFlex]=\"100\" fxLayout=\"row\" class=\"margin-bottom-25px\">\n\n            <div [fxFlex]=\"70\">\n\n              <h3>Working Hours</h3>\n\n\n            </div>\n\n            <div [fxFlex]=\"30\">\n\n              <h5>Non-Working</h5>\n\n            </div>\n\n          </div>\n\n          <div [fxFlex]=\"100\" fxLayout=\"row\">\n\n            <div [fxFlex]=\"100\">\n\n              Monday\n\n            </div>\n\n            <div [fxFlex]=\"100\">\n\n              <input matInput atp-time-picker class=\"cursor-pointer\" value=\"00:00\" />\n\n            </div>\n\n            <div [fxFlex]=\"100\">\n\n              <input matInput atp-time-picker class=\"cursor-pointer\" value=\"00:00\" />\n\n            </div>\n\n            <div [fxFlex]=\"100\">\n\n              <mat-checkbox></mat-checkbox>\n\n            </div>\n\n          </div>\n\n          <div [fxFlex]=\"100\" fxLayout=\"row\">\n\n            <div [fxFlex]=\"100\">\n\n              Tuesday\n\n            </div>\n\n            <div [fxFlex]=\"100\">\n\n              <input matInput atp-time-picker class=\"cursor-pointer\" value=\"00:00\" />\n\n            </div>\n\n            <div [fxFlex]=\"100\">\n\n              <input matInput atp-time-picker class=\"cursor-pointer\" value=\"00:00\" />\n\n            </div>\n\n            <div [fxFlex]=\"100\">\n\n              <mat-checkbox></mat-checkbox>\n\n            </div>\n\n          </div>\n\n          <div [fxFlex]=\"100\" fxLayout=\"row\">\n\n            <div [fxFlex]=\"100\">\n\n              Wednesday\n\n            </div>\n\n            <div [fxFlex]=\"100\">\n\n              <input matInput atp-time-picker class=\"cursor-pointer\" value=\"00:00\" />\n\n            </div>\n\n            <div [fxFlex]=\"100\">\n\n              <input matInput atp-time-picker class=\"cursor-pointer\" value=\"00:00\" />\n\n            </div>\n\n            <div [fxFlex]=\"100\">\n\n              <mat-checkbox></mat-checkbox>\n\n            </div>\n\n          </div>\n\n          <div [fxFlex]=\"100\" fxLayout=\"row\">\n\n            <div [fxFlex]=\"100\">\n\n              Thursday\n\n            </div>\n\n            <div [fxFlex]=\"100\">\n\n              <input matInput atp-time-picker class=\"cursor-pointer\" value=\"00:00\" />\n\n            </div>\n\n            <div [fxFlex]=\"100\">\n\n              <input matInput atp-time-picker class=\"cursor-pointer\" value=\"00:00\" />\n\n            </div>\n\n            <div [fxFlex]=\"100\">\n\n              <mat-checkbox></mat-checkbox>\n\n            </div>\n\n          </div>\n\n          <div [fxFlex]=\"100\" fxLayout=\"row\">\n\n            <div [fxFlex]=\"100\">\n\n              Friday\n\n            </div>\n\n            <div [fxFlex]=\"100\">\n\n              <input matInput atp-time-picker class=\"cursor-pointer\" value=\"00:00\" />\n\n            </div>\n\n            <div [fxFlex]=\"100\">\n\n              <input matInput atp-time-picker class=\"cursor-pointer\" value=\"00:00\" />\n\n            </div>\n\n            <div [fxFlex]=\"100\">\n\n              <mat-checkbox></mat-checkbox>\n\n            </div>\n\n          </div>\n\n          <div [fxFlex]=\"100\" fxLayout=\"row\">\n\n            <div [fxFlex]=\"100\">\n\n              Saturday\n\n            </div>\n\n            <div [fxFlex]=\"100\">\n\n              <input matInput atp-time-picker class=\"cursor-pointer\" value=\"00:00\" />\n\n            </div>\n\n            <div [fxFlex]=\"100\">\n\n              <input matInput atp-time-picker class=\"cursor-pointer\" value=\"00:00\" />\n\n            </div>\n\n            <div [fxFlex]=\"100\">\n\n              <mat-checkbox></mat-checkbox>\n\n            </div>\n\n          </div>\n\n          <div [fxFlex]=\"100\" fxLayout=\"row\">\n\n            <div [fxFlex]=\"100\">\n\n              Sunday\n\n            </div>\n\n            <div [fxFlex]=\"100\">\n\n              <input matInput atp-time-picker class=\"cursor-pointer\" value=\"00:00\" />\n\n            </div>\n\n            <div [fxFlex]=\"100\">\n\n              <input matInput atp-time-picker class=\"cursor-pointer\" value=\"00:00\" />\n\n            </div>\n\n            <div [fxFlex]=\"100\">\n\n              <mat-checkbox></mat-checkbox>\n\n            </div>\n\n          </div>\n\n        </div>\n\n\n        <div [fxFlex]=\"60\" fxLayout=\"column\" class=\" margin-right-25px\">\n\n          <div [fxFlex]=\"\" fxLayout=\"row\" class=\"justify-content-space-between\">\n\n            <div>\n              <mat-slide-toggle class=\"\">Make Deal</mat-slide-toggle>\n            </div>\n\n            <div class=\"padding-bottom-10px\">\n              <button type=\"button\" class=\"border-none border-radius-5px\" mat-stroked-button>\n                Add a new Deal\n                <mat-icon>add</mat-icon>\n              </button>\n            </div>\n\n          </div>\n          <div [fxFlex]=\"\" fxLayout=\"row\" class=\"border border-2px-solid-black padding-25px\">\n\n            <div [fxFlex]=\"40\" fxLayout=\"column\" class=\"margin-left-10px margin-right-10px\">\n              <mat-form-field class=\"width-100pc\">\n\n                <mat-select placeholder=\"Url\" formControlName=\"category\">\n\n                  <mat-option *ngFor=\"let category of categories\" [value]=\"category.id\">\n\n                    {{category.name}}\n\n                  </mat-option>\n\n                </mat-select>\n\n              </mat-form-field>\n\n              <div fxLayout=\"row\">\n\n                <div [fxFlex]=\"50\">\n\n                  <mat-form-field class=\"width-90pct\">\n\n                    <mat-select placeholder=\"Start Date\">\n\n                      <mat-option *ngFor=\"let brand of brands\" [value]=\"brand.id\">\n\n                        {{brand.name}}\n\n                      </mat-option>\n\n                    </mat-select>\n\n                  </mat-form-field>\n\n                </div>\n\n                <div [fxFlex]=\"50\" class=\"\">\n\n                  <mat-form-field class=\"width-100pc\">\n\n                    <mat-select placeholder=\"End Date\">\n\n                      <mat-option *ngFor=\"let brand of brands\" [value]=\"brand.id\">\n\n                        {{brand.name}}\n\n                      </mat-option>\n\n                    </mat-select>\n\n                  </mat-form-field>\n\n                </div>\n\n              </div>\n\n              <div fxLayout=\"row\">\n\n                <div [fxFlex]=\"50\">\n\n                  <mat-form-field class=\"width-90pct\">\n\n                    <mat-select placeholder=\"Region\">\n\n                      <mat-option *ngFor=\"let brand of brands\" [value]=\"brand.id\">\n\n                        {{brand.name}}\n\n                      </mat-option>\n\n                    </mat-select>\n\n                  </mat-form-field>\n\n                </div>\n\n                <div [fxFlex]=\"50\" class=\"\">\n\n                  <mat-form-field class=\"width-100pc\">\n\n                    <mat-select placeholder=\"Country\">\n\n                      <mat-option *ngFor=\"let brand of brands\" [value]=\"brand.id\">\n\n                        {{brand.name}}\n\n                      </mat-option>\n\n                    </mat-select>\n\n                  </mat-form-field>\n\n                </div>\n\n              </div>\n\n              <mat-form-field class=\"width-100pc margin-left-16px\">\n\n                <mat-label>Promo Code</mat-label>\n\n                <input matInput type=\"text\">\n\n              </mat-form-field>\n\n              <div fxLayout=\"column\" class=\"margin-top-18px flex-grow-0\">\n\n                <mat-label>Time</mat-label>\n\n                <div fxLayout=\"row\" class=\"flex-grow-0\">\n\n                  <div [fxFlex]=\"50\">\n\n                    <mat-form-field class=\"width-90pct\">\n\n                      <mat-label></mat-label>\n\n                      <input matInput atp-time-picker class=\"cursor-pointer\" value=\"00:00\" />\n\n                    </mat-form-field>\n\n                  </div>\n\n                  <div [fxFlex]=\"50\">\n\n                    <mat-form-field class=\"width-100pct\">\n\n                      <mat-label></mat-label>\n\n                      <input matInput atp-time-picker class=\"cursor-pointer\" value=\"00:00\" />\n\n                    </mat-form-field>\n\n                  </div>\n\n                </div>\n\n              </div>\n\n            </div>\n\n            <div [fxFlex]=\"60\" class=\"margin-left-10px margin-right-10px\">\n\n              <images-card name=\"faces\" class=\"flex-grow-1\"></images-card>\n\n            </div>\n\n          </div>\n\n        </div>\n\n      </div>\n\n    </div>\n\n  </div>\n\n  <div class=\"margin-right-25px padding-top-25px padding-bottom-25px flex-shrink-0 display-flex border-top-style-solid border-top-width-2px border-top-color-grey\">\n\n    <button mat-raised-button type=\"submit\" color=\"primary\">{{ 'Save' | translate }}</button>\n\n    <button mat-raised-button type=\"button\" class=\"margin-left-10px\" (click)=\"cancelClicked()\">{{ 'Cancel' | translate }}</button>\n\n  </div>\n\n</form>\n\n{{data | json}}"
 
 /***/ }),
 
@@ -505,12 +583,12 @@ var ShopFormComponent = /** @class */ (function (_super) {
     ShopFormComponent.prototype.createFormGroup = function () {
         this.faces = this.formBuilder.control(this.faceList);
         this.formGroup = new _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormGroup"]({
+            faces: this.faces,
             name: new _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormControl"](this.data.name, [_angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].required]),
             address: new _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormControl"](this.data.address),
             shippingDetails: new _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormControl"](this.data.shippingDetails),
             description: new _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormControl"](this.data.description),
             makeDeal: new _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormControl"](this.data.makeDeal),
-            images: this.faces,
             brand: new _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormControl"](this.data.brand),
             active: new _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormControl"](true),
             category: new _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormControl"](this.data.category),
@@ -1092,6 +1170,204 @@ var MsShopsModule = /** @class */ (function () {
         })
     ], MsShopsModule);
     return MsShopsModule;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/ms-back-office/modules/ms-shops/services/shops-images.service.ts":
+/*!**********************************************************************************!*\
+  !*** ./src/app/ms-back-office/modules/ms-shops/services/shops-images.service.ts ***!
+  \**********************************************************************************/
+/*! exports provided: ASCENDING, ShopsImgesService */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ASCENDING", function() { return ASCENDING; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ShopsImgesService", function() { return ShopsImgesService; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! rxjs */ "./node_modules/rxjs/_esm5/index.js");
+/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! rxjs/operators */ "./node_modules/rxjs/_esm5/operators/index.js");
+/* harmony import */ var _config_services_config_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../config/services/config.service */ "./src/app/config/services/config.service.ts");
+/* harmony import */ var _error_handling_services_error_handling_http_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../../error-handling/services/error-handling-http.service */ "./src/app/error-handling/services/error-handling-http.service.ts");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+//
+
+
+//
+
+
+var ASCENDING = 'asc';
+var ShopsImgesService = /** @class */ (function () {
+    function ShopsImgesService(configService, http) {
+        this.configService = configService;
+        this.http = http;
+        this.previousFilter = {};
+        this.previousSortColumn = 'name';
+        this.previousSortDirection = 'asc';
+        this.previousPageIndex = 0;
+        this.previousPageSize = 10;
+        this.shopsImagesList = new rxjs__WEBPACK_IMPORTED_MODULE_1__["BehaviorSubject"]({ dataCount: 0, data: [] });
+        this.apiEndpoint = this.configService.config.apiConfigs.shops.apiEndpoint;
+    }
+    ShopsImgesService.prototype.getShopImages = function (filter, sortColumn, sortDirection, pageIndex, pageSize) {
+        this.previousFilter = filter;
+        this.previousSortColumn = sortColumn;
+        this.previousSortDirection = sortDirection;
+        this.previousPageIndex = pageIndex;
+        this.previousPageSize = pageSize;
+        var queryParams = this.formatQueryParams(filter, sortColumn, sortDirection, pageIndex, pageSize);
+        return this.http.get(this.apiEndpoint + queryParams);
+    };
+    ShopsImgesService.prototype.reloadShopImages = function () {
+        console.log("reload");
+        return this.getShopImages(this.previousFilter, this.previousSortColumn, this.previousSortDirection, this.previousPageIndex, this.previousPageSize);
+    };
+    ShopsImgesService.prototype.postShopImage = function (id, data) {
+        return this.http.post(this.apiEndpoint + id + '/images/', JSON.stringify(data));
+    };
+    ShopsImgesService.prototype.patchShopMainImage = function (id, data) {
+        return this.http.patch(this.apiEndpoint + id + '/mainImage/', JSON.stringify(data));
+    };
+    ShopsImgesService.prototype.postShopImageAll = function (id, data) {
+        return this.http.post(this.apiEndpoint + id + '/images/', JSON.stringify(data));
+    };
+    ShopsImgesService.prototype.getShopImage = function (id) {
+        return this.http.get(this.apiEndpoint + id + '/');
+    };
+    ShopsImgesService.prototype.getShopAllImages = function (id) {
+        return this.http.get(this.apiEndpoint + id + '/images/');
+    };
+    ShopsImgesService.prototype.patchShopImage = function (data) {
+        return this.http.patch(this.apiEndpoint + data.id + '/', JSON.stringify(data));
+    };
+    ShopsImgesService.prototype.deleteShopImage = function (id, idImage) {
+        return this.http.delete(this.apiEndpoint + id + '/images/' + idImage + '/');
+    };
+    ShopsImgesService.prototype.formatQueryParams = function (filter, sortColumn, sortDirection, pageIndex, pageSize) {
+        var queryParams = '';
+        if (filter.sku && filter.sku.length > 0) {
+            queryParams += queryParams.length > 0 ? '&' : '?';
+            queryParams += "sku=" + filter.sku;
+        }
+        if (filter.name && filter.name.length > 0) {
+            queryParams += queryParams.length > 0 ? '&' : '?';
+            queryParams += "name=" + filter.name;
+        }
+        if (filter.brand && filter.brand.length > 0) {
+            queryParams += queryParams.length > 0 ? '&' : '?';
+            queryParams += "brand=" + filter.brand;
+        }
+        if (filter.collection && filter.collection.length > 0) {
+            queryParams += queryParams.length > 0 ? '&' : '?';
+            queryParams += "collection=" + filter.collection;
+        }
+        if (filter.category && filter.category.length > 0) {
+            queryParams += queryParams.length > 0 ? '&' : '?';
+            queryParams += "category=" + filter.category;
+        }
+        if (sortColumn) {
+            var ordering = '';
+            if (sortDirection === 'desc') {
+                ordering = '-';
+            }
+            ordering += sortColumn;
+            queryParams += queryParams.length > 0 ? '&' : '?';
+            queryParams += "ordering=" + ordering;
+        }
+        if (pageIndex !== undefined) {
+            queryParams += queryParams.length > 0 ? '&' : '?';
+            queryParams += "offset=" + pageIndex * pageSize;
+        }
+        if (pageSize !== undefined) {
+            queryParams += queryParams.length > 0 ? '&' : '?';
+            queryParams += "limit=" + pageSize;
+        }
+        return queryParams;
+    };
+    ShopsImgesService.prototype.getAllShopsImages = function () {
+        return this.http.get(this.apiEndpoint)
+            .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_2__["map"])(function (response) {
+            return response.data;
+        }));
+    };
+    ShopsImgesService = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"])({
+            providedIn: 'root'
+        }),
+        __metadata("design:paramtypes", [_config_services_config_service__WEBPACK_IMPORTED_MODULE_3__["ConfigService"],
+            _error_handling_services_error_handling_http_service__WEBPACK_IMPORTED_MODULE_4__["ErrorHandlingHttpService"]])
+    ], ShopsImgesService);
+    return ShopsImgesService;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/ui/modules/images-card/services/images.service.ts":
+/*!*******************************************************************!*\
+  !*** ./src/app/ui/modules/images-card/services/images.service.ts ***!
+  \*******************************************************************/
+/*! exports provided: ImagesService */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ImagesService", function() { return ImagesService; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm5/http.js");
+/* harmony import */ var _config_services_config_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../config/services/config.service */ "./src/app/config/services/config.service.ts");
+/* harmony import */ var _error_handling_interceptors_http_headers_interceptor_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../error-handling/interceptors/http-headers-interceptor.service */ "./src/app/error-handling/interceptors/http-headers-interceptor.service.ts");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+//
+
+
+var ImagesService = /** @class */ (function () {
+    function ImagesService(http, httpHeaders, configService) {
+        this.http = http;
+        this.httpHeaders = httpHeaders;
+        this.configService = configService;
+        this.baseUrl = this.configService.config.apiConfigs.images.apiEndpoint;
+    }
+    ImagesService.prototype.postImage = function (image) {
+        var requestOptions = { headers: this.httpHeaders.getHeaders() };
+        console.log(requestOptions);
+        requestOptions.headers = requestOptions.headers.delete('Content-Type');
+        var formData = new FormData();
+        formData.append('image', image);
+        return this.http.post(this.baseUrl, formData, requestOptions);
+    };
+    ImagesService = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"])({
+            providedIn: 'root'
+        }),
+        __metadata("design:paramtypes", [_angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HttpClient"],
+            _error_handling_interceptors_http_headers_interceptor_service__WEBPACK_IMPORTED_MODULE_3__["HttpHeadersInterceptorService"],
+            _config_services_config_service__WEBPACK_IMPORTED_MODULE_2__["ConfigService"]])
+    ], ImagesService);
+    return ImagesService;
 }());
 
 

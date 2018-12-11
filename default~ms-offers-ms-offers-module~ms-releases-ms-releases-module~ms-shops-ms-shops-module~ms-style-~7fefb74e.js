@@ -22489,14 +22489,34 @@ AmazingTimePickerModule.ctorParameters = function () { return []; };
 /*!*****************************************************************!*\
   !*** ./src/app/ms-back-office/modules/ms-shops/models/shops.ts ***!
   \*****************************************************************/
-/*! exports provided: Shop, ShopsListResponse, ShopsResponse */
+/*! exports provided: ShopImage, Shop, ShopsListResponse, ShopsResponse, ShopsImagesListResponse, ShopImagesResponse, EditShopModel */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ShopImage", function() { return ShopImage; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Shop", function() { return Shop; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ShopsListResponse", function() { return ShopsListResponse; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ShopsResponse", function() { return ShopsResponse; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ShopsImagesListResponse", function() { return ShopsImagesListResponse; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ShopImagesResponse", function() { return ShopImagesResponse; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "EditShopModel", function() { return EditShopModel; });
+var __extends = (undefined && undefined.__extends) || (function () {
+    var extendStatics = Object.setPrototypeOf ||
+        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
+var ShopImage = /** @class */ (function () {
+    function ShopImage() {
+    }
+    return ShopImage;
+}());
+
 var Shop = /** @class */ (function () {
     function Shop() {
     }
@@ -22514,6 +22534,26 @@ var ShopsResponse = /** @class */ (function () {
     }
     return ShopsResponse;
 }());
+
+var ShopsImagesListResponse = /** @class */ (function () {
+    function ShopsImagesListResponse() {
+    }
+    return ShopsImagesListResponse;
+}());
+
+var ShopImagesResponse = /** @class */ (function () {
+    function ShopImagesResponse() {
+    }
+    return ShopImagesResponse;
+}());
+
+var EditShopModel = /** @class */ (function (_super) {
+    __extends(EditShopModel, _super);
+    function EditShopModel() {
+        return _super !== null && _super.apply(this, arguments) || this;
+    }
+    return EditShopModel;
+}(Shop));
 
 
 
