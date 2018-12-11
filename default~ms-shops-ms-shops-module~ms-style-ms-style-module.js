@@ -373,7 +373,7 @@ var NewShopComponent = /** @class */ (function () {
         this.collections = this.activatedRoute.snapshot.data.collections;
     };
     NewShopComponent.prototype.submit = function (data) {
-        this.createUser(data);
+        this.createShop(data);
     };
     NewShopComponent.prototype.cancel = function () {
         //this.close.emit();TODO
@@ -382,7 +382,7 @@ var NewShopComponent = /** @class */ (function () {
     NewShopComponent.prototype.close = function () {
         this.router.navigate(this.activatedRoute.snapshot.data.closeRouteCommand, { relativeTo: this.activatedRoute });
     };
-    NewShopComponent.prototype.createUser = function (data) {
+    NewShopComponent.prototype.createShop = function (data) {
         var _this = this;
         this.shopsService.postShop(data).subscribe(function (response) {
             _this.unsavedChanges = false;
