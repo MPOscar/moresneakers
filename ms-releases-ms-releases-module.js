@@ -258,7 +258,7 @@ var EditReleaseFormComponent = /** @class */ (function (_super) {
             name: new _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormControl"](this.data.name, [_angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].required]),
             sku: new _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormControl"](this.data.sku),
             description: new _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormControl"](this.data.description),
-            collection: new _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormControl"](this.data.collection),
+            collectionId: new _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormControl"](this.data.collectionId),
             children: new _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormControl"](this.data.children),
             gender: new _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormControl"](this.data.gender),
             price: new _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormControl"](this.data.price),
@@ -916,7 +916,7 @@ var ReleaseFormComponent = /** @class */ (function (_super) {
             name: new _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormControl"](this.data.name),
             sku: new _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormControl"](this.data.sku),
             description: new _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormControl"](this.data.description),
-            collection: new _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormControl"](this.data.collection),
+            collectionId: new _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormControl"](this.data.collectionId),
             children: new _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormControl"](this.data.children),
             gender: new _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormControl"](this.data.gender),
             price: new _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormControl"](this.data.price),
@@ -1002,7 +1002,7 @@ var ReleaseFormComponent = /** @class */ (function (_super) {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<h1>Releases Table</h1>\n\n<mat-toolbar class=\"margin-right-25px margin-bottom-10px width-auto flex-shrink-0 background-color-secondary color-primary mat-elevation-z2\"\n  [formGroup]=\"filter\">\n\n  <mat-icon matPrefix color=\"primary\">search</mat-icon>\n  <mat-form-field>\n    <input matInput formControlName=\"sku\" placeholder=\"SKU\">\n  </mat-form-field>\n\n  <mat-form-field>\n    <mat-label>STYLE</mat-label>\n    <input matInput formControlName=\"name\" placeholder=\"Name\">\n  </mat-form-field>\n\n  <mat-form-field>\n    <mat-label>BRAND</mat-label>\n    <mat-select placeholder=\"Select\" formControlName=\"brand\">\n        <mat-option *ngFor=\"let brand of brands\" [value]=\"brand.id\">\n          {{brand.name}}\n        </mat-option>\n      </mat-select>\n  </mat-form-field>\n\n  <mat-form-field>\n    <mat-label>COLLECTION</mat-label>\n    <mat-select placeholder=\"Select\" formControlName=\"collection\">\n        <mat-option *ngFor=\"let collection of collections\" [value]=\"collection.id\">\n          {{collection.name}}\n        </mat-option>\n      </mat-select>\n  </mat-form-field>\n\n  <mat-form-field>\n    <mat-label>GENDER</mat-label>\n    <mat-select placeholder=\"Select\" formControlName=\"gender\">\n        <mat-option *ngFor=\"let gender of genders\" [value]=\"gender.id\">\n          {{gender.name}}\n        </mat-option>\n      </mat-select>\n  </mat-form-field>\n  <span class=\"flex-grow-1\"></span>\n  <button mat-raised-button color=\"primary\" [routerLink]=\"['../create']\">CREATE A NEW RELEASE</button>\n</mat-toolbar>\n\n<div class=\"flex-grow-1 overflow-auto display-flex\">\n\n  <table class=\"margin-top-10px margin-right-25px width-100pct\"\n        mat-table [dataSource]=\"releases\"\n        matSort [matSortActive]=\"releasesService.previousSortColumn\" [matSortDirection]=\"releasesService.previousSortDirection\"\n        matSortDisableClear (matSortChange)=\"onSort()\">\n\n        <ng-container matColumnDef=\"ID\">\n            <th mat-header-cell *matHeaderCellDef mat-sort-header>\n                ID\n            </th>\n            <td mat-cell *matCellDef=\"let element\"> {{ element.id }} </td>\n        </ng-container>\n\n        <ng-container matColumnDef=\"SKU\">\n            <th mat-header-cell *matHeaderCellDef mat-sort-header>\n                SKU\n            </th>\n            <td mat-cell *matCellDef=\"let element\"> {{ element.sku }} </td>\n        </ng-container>\n\n        <ng-container matColumnDef=\"STYLE\">\n            <th mat-header-cell *matHeaderCellDef mat-sort-header>\n                STYLE\n            </th>\n            <td mat-cell *matCellDef=\"let element\"> {{ element.styleId }} </td>\n        </ng-container>\n\n        <ng-container matColumnDef=\"BRAND\">\n            <th mat-header-cell *matHeaderCellDef mat-sort-header>\n                BRAND\n            </th>\n            <td mat-cell *matCellDef=\"let element\"> {{ element.brandId }} </td>\n        </ng-container>\n\n        <ng-container matColumnDef=\"COLLECTION\">\n            <th mat-header-cell *matHeaderCellDef mat-sort-header>\n                COLLECTION\n            </th>\n            <td mat-cell *matCellDef=\"let element\"> {{ element.collectionId }} </td>\n        </ng-container>\n\n        <ng-container matColumnDef=\"CATEGORY\">\n            <th mat-header-cell *matHeaderCellDef mat-sort-header>\n                CATEGORY\n            </th>\n            <td mat-cell *matCellDef=\"let element\"> {{ element.categoryId }} </td>\n        </ng-container>\n\n        <ng-container matColumnDef=\"COLOR\">\n            <th mat-header-cell *matHeaderCellDef mat-sort-header>\n                COLOR\n            </th>\n            <td mat-cell *matCellDef=\"let element\"> {{ element.color }} </td>\n        </ng-container>\n\n        <ng-container matColumnDef=\"OFFICIAL RELEASE\">\n            <th mat-header-cell *matHeaderCellDef mat-sort-header>\n                OFFICIAL RELEASE\n            </th>\n            <td mat-cell *matCellDef=\"let element\"> {{ element.releaseDate }} </td>\n        </ng-container>\n\n        <!--ng-container matColumnDef=\"HOT\">\n          <th mat-header-cell *matHeaderCellDef mat-sort-header>\n            HOT\n          </th>\n          <td mat-cell *matCellDef=\"let element\"> {{ element.hot? 'Yes':'No' }} </td>\n      </ng-container-->\n        \n        <ng-container matColumnDef=\"ACTIONS\">\n            <th mat-header-cell *matHeaderCellDef mat-sort-header>  \n            </th>\n            <td mat-cell *matCellDef=\"let element\"> \n                <button mat-icon-button color=\"primary\" [matTooltip]=\"Edit\" [routerLink]=\"['../edit', element.id]\">\n                  <mat-icon>edit</mat-icon>\n                </button>\n                <button mat-icon-button color=\"primary\" [matTooltip]=\"Delete\" [routerLink]=\"['../delete', element.id]\">\n                  <mat-icon>delete</mat-icon>\n                </button>        \n            </td>\n          </ng-container>\n\n        <tr mat-header-row *matHeaderRowDef=\"displayedColumns\"></tr>\n        <tr mat-row *matRowDef=\"let row; columns: displayedColumns;\" [ngClass]=\"row.is_active ? '' : 'text-decoration-line-through'\">\n        </tr>\n\n    </table>\n\n</div>\n\n<div class=\"margin-right-25px padding-top-15px padding-bottom-15px flex-shrink-0 display-flex border-top-style-solid border-top-width-2px border-top-color-grey\">\n  <span class=\"flex-grow-1\"></span>\n  <mat-paginator\n      [length]=\"totalLength\" [pageSizeOptions]=\"[5, 10, 20, 50, 100]\" [pageIndex]=\"\" [pageSize]=\"50\" showFirstLastButtons (page)=\"onPage()\">\n  </mat-paginator>\n</div>\n\n<http-request-indicator\n    [urlExpressions]=\"[\n        configService.config.apiConfigs.releases.apiEndpoint + '.*']\">\n</http-request-indicator>"
+module.exports = "<h1>Releases Table</h1>\n\n<mat-toolbar class=\"margin-right-25px margin-bottom-10px width-auto flex-shrink-0 background-color-secondary color-primary mat-elevation-z2\"\n  [formGroup]=\"filter\">\n\n  <mat-icon matPrefix color=\"primary\">search</mat-icon>\n  <mat-form-field>\n    <input matInput formControlName=\"sku\" placeholder=\"SKU\">\n  </mat-form-field>\n\n  <mat-form-field>\n    <mat-label>STYLE</mat-label>\n    <input matInput formControlName=\"name\" placeholder=\"Name\">\n  </mat-form-field>\n\n  <mat-form-field>\n    <mat-label>BRAND</mat-label>\n    <mat-select placeholder=\"Select\" formControlName=\"brandId\">\n        <mat-option *ngFor=\"let brand of brands\" [value]=\"brand.id\">\n          {{brand.name}}\n        </mat-option>\n      </mat-select>\n  </mat-form-field>\n\n  <mat-form-field>\n    <mat-label>COLLECTION</mat-label>\n    <mat-select placeholder=\"Select\" formControlName=\"collectionId\">\n        <mat-option *ngFor=\"let collection of collections\" [value]=\"collection.id\">\n          {{collection.name}}\n        </mat-option>\n      </mat-select>\n  </mat-form-field>\n\n  <mat-form-field>\n    <mat-label>GENDER</mat-label>\n    <mat-select placeholder=\"Select\" formControlName=\"genderId\">\n        <mat-option *ngFor=\"let gender of genders\" [value]=\"gender.id\">\n          {{gender.name}}\n        </mat-option>\n      </mat-select>\n  </mat-form-field>\n  <span class=\"flex-grow-1\"></span>\n  <button mat-raised-button color=\"primary\" [routerLink]=\"['../create']\">CREATE A NEW RELEASE</button>\n</mat-toolbar>\n\n<div class=\"flex-grow-1 overflow-auto display-flex\">\n\n  <table class=\"margin-top-10px margin-right-25px width-100pct\"\n        mat-table [dataSource]=\"releases\"\n        matSort [matSortActive]=\"releasesService.previousSortColumn\" [matSortDirection]=\"releasesService.previousSortDirection\"\n        matSortDisableClear (matSortChange)=\"onSort()\">\n\n        <ng-container matColumnDef=\"ID\">\n            <th mat-header-cell *matHeaderCellDef mat-sort-header>\n                ID\n            </th>\n            <td mat-cell *matCellDef=\"let element\"> {{ element.id }} </td>\n        </ng-container>\n\n        <ng-container matColumnDef=\"SKU\">\n            <th mat-header-cell *matHeaderCellDef mat-sort-header>\n                SKU\n            </th>\n            <td mat-cell *matCellDef=\"let element\"> {{ element.sku }} </td>\n        </ng-container>\n\n        <ng-container matColumnDef=\"STYLE\">\n            <th mat-header-cell *matHeaderCellDef mat-sort-header>\n                STYLE\n            </th>\n            <td mat-cell *matCellDef=\"let element\"> {{ getStyle(element.styleId) }} </td>\n        </ng-container>\n\n        <ng-container matColumnDef=\"BRAND\">\n            <th mat-header-cell *matHeaderCellDef mat-sort-header>\n                BRAND\n            </th>\n            <td mat-cell *matCellDef=\"let element\"> {{ getBrand(element.brandId) }} </td>\n        </ng-container>\n\n        <ng-container matColumnDef=\"COLLECTION\">\n            <th mat-header-cell *matHeaderCellDef mat-sort-header>\n                COLLECTION\n            </th>\n            <td mat-cell *matCellDef=\"let element\"> {{ element.collectionId }} </td>\n        </ng-container>\n\n        <ng-container matColumnDef=\"CATEGORY\">\n            <th mat-header-cell *matHeaderCellDef mat-sort-header>\n                CATEGORY\n            </th>\n            <td mat-cell *matCellDef=\"let element\"> {{ element.categoryId }} </td>\n        </ng-container>\n\n        <ng-container matColumnDef=\"COLOR\">\n            <th mat-header-cell *matHeaderCellDef mat-sort-header>\n                COLOR\n            </th>\n            <td mat-cell *matCellDef=\"let element\"> {{ element.color }} </td>\n        </ng-container>\n\n        <ng-container matColumnDef=\"OFFICIAL RELEASE\">\n            <th mat-header-cell *matHeaderCellDef mat-sort-header>\n                OFFICIAL RELEASE\n            </th>\n            <td mat-cell *matCellDef=\"let element\"> {{ element.releaseDate }} </td>\n        </ng-container>\n\n        <!--ng-container matColumnDef=\"HOT\">\n          <th mat-header-cell *matHeaderCellDef mat-sort-header>\n            HOT\n          </th>\n          <td mat-cell *matCellDef=\"let element\"> {{ element.hot? 'Yes':'No' }} </td>\n      </ng-container-->\n        \n        <ng-container matColumnDef=\"ACTIONS\">\n            <th mat-header-cell *matHeaderCellDef mat-sort-header>  \n            </th>\n            <td mat-cell *matCellDef=\"let element\"> \n                <button mat-icon-button color=\"primary\" [matTooltip]=\"Edit\" [routerLink]=\"['../edit', element.id]\">\n                  <mat-icon>edit</mat-icon>\n                </button>\n                <button mat-icon-button color=\"primary\" [matTooltip]=\"Delete\" [routerLink]=\"['../delete', element.id]\">\n                  <mat-icon>delete</mat-icon>\n                </button>        \n            </td>\n          </ng-container>\n\n        <tr mat-header-row *matHeaderRowDef=\"displayedColumns\"></tr>\n        <tr mat-row *matRowDef=\"let row; columns: displayedColumns;\" [ngClass]=\"row.is_active ? '' : 'text-decoration-line-through'\">\n        </tr>\n\n    </table>\n\n</div>\n\n<div class=\"margin-right-25px padding-top-15px padding-bottom-15px flex-shrink-0 display-flex border-top-style-solid border-top-width-2px border-top-color-grey\">\n  <span class=\"flex-grow-1\"></span>\n  <mat-paginator\n      [length]=\"totalLength\" [pageSizeOptions]=\"[5, 10, 20, 50, 100]\" [pageIndex]=\"\" [pageSize]=\"50\" showFirstLastButtons (page)=\"onPage()\">\n  </mat-paginator>\n</div>\n\n<http-request-indicator\n    [urlExpressions]=\"[\n        configService.config.apiConfigs.releases.apiEndpoint + '.*']\">\n</http-request-indicator>"
 
 /***/ }),
 
@@ -1083,6 +1083,7 @@ var ReleasesTableComponent = /** @class */ (function () {
         var _this = this;
         this.brands = this.activatedRoute.snapshot.data.brands;
         this.collections = this.activatedRoute.snapshot.data.collections;
+        this.styles = this.activatedRoute.snapshot.data.styles;
         this.filter = this.createFilterFormGroup();
         this.filterValueChanges = this.filter.valueChanges.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["debounceTime"])(500)).subscribe(function (change) { return _this.onFilter(); });
         this.paginator.pageIndex = 0;
@@ -1110,9 +1111,9 @@ var ReleasesTableComponent = /** @class */ (function () {
         var group = {};
         group['sku'] = new _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormControl"]('');
         group['name'] = new _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormControl"]('');
-        group['brand'] = new _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormControl"]('');
-        group['collection'] = new _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormControl"]('');
-        group['gender'] = new _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormControl"]('');
+        group['brandId'] = new _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormControl"]('');
+        group['collectionId'] = new _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormControl"]('');
+        group['genderId'] = new _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormControl"]('');
         return new _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormGroup"](group);
     };
     ReleasesTableComponent.prototype.loadPage = function () {
@@ -1133,6 +1134,26 @@ var ReleasesTableComponent = /** @class */ (function () {
     };
     ReleasesTableComponent.prototype.onPage = function () {
         this.loadPage();
+    };
+    ReleasesTableComponent.prototype.getBrand = function (id) {
+        try {
+            return this.brands.find(function (brand) {
+                return brand.id === id;
+            }).name;
+        }
+        catch (err) {
+            return;
+        }
+    };
+    ReleasesTableComponent.prototype.getStyle = function (id) {
+        try {
+            return this.styles.find(function (style) {
+                return style.id === id;
+            }).name;
+        }
+        catch (err) {
+            return;
+        }
     };
     __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ViewChild"])(_angular_material__WEBPACK_IMPORTED_MODULE_3__["MatPaginator"]),
@@ -1320,8 +1341,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _ms_brands_services_brands_resolve_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../ms-brands/services/brands-resolve.service */ "./src/app/ms-back-office/modules/ms-brands/services/brands-resolve.service.ts");
 /* harmony import */ var _ms_collections_services_collections_resolve_service__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../ms-collections/services/collections-resolve.service */ "./src/app/ms-back-office/modules/ms-collections/services/collections-resolve.service.ts");
 /* harmony import */ var _ms_releases_services_releases_images_resolve_service__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../ms-releases/services/releases-images-resolve.service */ "./src/app/ms-back-office/modules/ms-releases/services/releases-images-resolve.service.ts");
-/* harmony import */ var _ms_categories_services_categories_resolve_service__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../ms-categories/services/categories-resolve.service */ "./src/app/ms-back-office/modules/ms-categories/services/categories-resolve.service.ts");
-/* harmony import */ var _routing_services_id_resolve_service__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../../../routing/services/id-resolve.service */ "./src/app/routing/services/id-resolve.service.ts");
+/* harmony import */ var _ms_style_services_styles_resolve_service__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../ms-style/services/styles-resolve.service */ "./src/app/ms-back-office/modules/ms-style/services/styles-resolve.service.ts");
+/* harmony import */ var _ms_categories_services_categories_resolve_service__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../ms-categories/services/categories-resolve.service */ "./src/app/ms-back-office/modules/ms-categories/services/categories-resolve.service.ts");
+/* harmony import */ var _routing_services_id_resolve_service__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ../../../routing/services/id-resolve.service */ "./src/app/routing/services/id-resolve.service.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1342,6 +1364,7 @@ var __decorate = (undefined && undefined.__decorate) || function (decorators, ta
 
 
 
+
 var routes = [
     {
         path: '',
@@ -1349,8 +1372,9 @@ var routes = [
         resolve: {
             config: _config_services_config_resolve_service__WEBPACK_IMPORTED_MODULE_6__["ConfigResolveService"],
             brands: _ms_brands_services_brands_resolve_service__WEBPACK_IMPORTED_MODULE_7__["BrandsResolveService"],
-            categories: _ms_categories_services_categories_resolve_service__WEBPACK_IMPORTED_MODULE_10__["CategoriesResolveService"],
+            categories: _ms_categories_services_categories_resolve_service__WEBPACK_IMPORTED_MODULE_11__["CategoriesResolveService"],
             collections: _ms_collections_services_collections_resolve_service__WEBPACK_IMPORTED_MODULE_8__["CollectionsResolveService"],
+            styles: _ms_style_services_styles_resolve_service__WEBPACK_IMPORTED_MODULE_10__["StylesResolveService"]
         }
     },
     {
@@ -1359,8 +1383,9 @@ var routes = [
         resolve: {
             config: _config_services_config_resolve_service__WEBPACK_IMPORTED_MODULE_6__["ConfigResolveService"],
             brands: _ms_brands_services_brands_resolve_service__WEBPACK_IMPORTED_MODULE_7__["BrandsResolveService"],
-            categories: _ms_categories_services_categories_resolve_service__WEBPACK_IMPORTED_MODULE_10__["CategoriesResolveService"],
+            categories: _ms_categories_services_categories_resolve_service__WEBPACK_IMPORTED_MODULE_11__["CategoriesResolveService"],
             collections: _ms_collections_services_collections_resolve_service__WEBPACK_IMPORTED_MODULE_8__["CollectionsResolveService"],
+            styles: _ms_style_services_styles_resolve_service__WEBPACK_IMPORTED_MODULE_10__["StylesResolveService"]
         },
         data: { closeRouteCommand: ['../'] }
     },
@@ -1370,11 +1395,12 @@ var routes = [
         //canActivate: [AuthGuardService],
         resolve: {
             config: _config_services_config_resolve_service__WEBPACK_IMPORTED_MODULE_6__["ConfigResolveService"],
-            releaseId: _routing_services_id_resolve_service__WEBPACK_IMPORTED_MODULE_11__["IdResolveService"],
+            releaseId: _routing_services_id_resolve_service__WEBPACK_IMPORTED_MODULE_12__["IdResolveService"],
             brands: _ms_brands_services_brands_resolve_service__WEBPACK_IMPORTED_MODULE_7__["BrandsResolveService"],
             collections: _ms_collections_services_collections_resolve_service__WEBPACK_IMPORTED_MODULE_8__["CollectionsResolveService"],
             releaseAllImages: _ms_releases_services_releases_images_resolve_service__WEBPACK_IMPORTED_MODULE_9__["ReleaseAllImagesResolveService"],
-            categories: _ms_categories_services_categories_resolve_service__WEBPACK_IMPORTED_MODULE_10__["CategoriesResolveService"],
+            categories: _ms_categories_services_categories_resolve_service__WEBPACK_IMPORTED_MODULE_11__["CategoriesResolveService"],
+            styles: _ms_style_services_styles_resolve_service__WEBPACK_IMPORTED_MODULE_10__["StylesResolveService"]
         },
         data: { closeRouteCommand: ['../../'] }
     },
@@ -1384,7 +1410,7 @@ var routes = [
         //canActivate: [AuthGuardService],
         resolve: {
             config: _config_services_config_resolve_service__WEBPACK_IMPORTED_MODULE_6__["ConfigResolveService"],
-            releaseId: _routing_services_id_resolve_service__WEBPACK_IMPORTED_MODULE_11__["IdResolveService"],
+            releaseId: _routing_services_id_resolve_service__WEBPACK_IMPORTED_MODULE_12__["IdResolveService"],
         },
         data: { closeRouteCommand: ['../../'] }
     }
@@ -1831,13 +1857,13 @@ var ReleasesService = /** @class */ (function () {
             queryParams += queryParams.length > 0 ? '&' : '?';
             queryParams += "name=" + filter.name;
         }
-        if (filter.brand && filter.brand.length > 0) {
+        if (filter.brandId && filter.brandId.length > 0) {
             queryParams += queryParams.length > 0 ? '&' : '?';
-            queryParams += "brand=" + filter.brand;
+            queryParams += "brandId=" + filter.brandId;
         }
-        if (filter.collection && filter.collection.length > 0) {
+        if (filter.collectionId && filter.collectionId.length > 0) {
             queryParams += queryParams.length > 0 ? '&' : '?';
-            queryParams += "collection=" + filter.collection;
+            queryParams += "collectionId=" + filter.collectionId;
         }
         if (filter.category && filter.category.length > 0) {
             queryParams += queryParams.length > 0 ? '&' : '?';
