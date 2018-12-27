@@ -1,4 +1,4 @@
-(window["webpackJsonp"] = window["webpackJsonp"] || []).push([["default~ms-brands-ms-brands-module~ms-collections-ms-collections-module~ms-releases-ms-releases-modu~14151ac4"],{
+(window["webpackJsonp"] = window["webpackJsonp"] || []).push([["default~ms-brands-ms-brands-module~ms-collections-ms-collections-module~ms-offers-ms-offers-module~m~94c757c6"],{
 
 /***/ "./src/app/ms-back-office/modules/ms-brands/services/brands-resolve.service.ts":
 /*!*************************************************************************************!*\
@@ -201,22 +201,22 @@ var BrandsService = /** @class */ (function () {
 
 /***/ }),
 
-/***/ "./src/app/ms-back-office/modules/ms-style/services/styles.service.ts":
-/*!****************************************************************************!*\
-  !*** ./src/app/ms-back-office/modules/ms-style/services/styles.service.ts ***!
-  \****************************************************************************/
-/*! exports provided: ASCENDING, StylesService */
+/***/ "./src/app/ms-back-office/modules/ms-shops/services/shops.service.ts":
+/*!***************************************************************************!*\
+  !*** ./src/app/ms-back-office/modules/ms-shops/services/shops.service.ts ***!
+  \***************************************************************************/
+/*! exports provided: ASCENDING, ShopsService */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ASCENDING", function() { return ASCENDING; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "StylesService", function() { return StylesService; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ShopsService", function() { return ShopsService; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
-/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! rxjs */ "./node_modules/rxjs/_esm5/index.js");
-/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! rxjs/operators */ "./node_modules/rxjs/_esm5/operators/index.js");
-/* harmony import */ var _config_services_config_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../config/services/config.service */ "./src/app/config/services/config.service.ts");
-/* harmony import */ var _error_handling_services_error_handling_http_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../../error-handling/services/error-handling-http.service */ "./src/app/error-handling/services/error-handling-http.service.ts");
+/* harmony import */ var _error_handling_services_error_handling_http_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../../error-handling/services/error-handling-http.service */ "./src/app/error-handling/services/error-handling-http.service.ts");
+/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! rxjs */ "./node_modules/rxjs/_esm5/index.js");
+/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! rxjs/operators */ "./node_modules/rxjs/_esm5/operators/index.js");
+/* harmony import */ var _config_services_config_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../../config/services/config.service */ "./src/app/config/services/config.service.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -227,28 +227,29 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 
-//
-
 
 //
 
 
-//import { User, UsersListResponse, UsersListItem } from '../models/user';
+//
+
 var ASCENDING = 'asc';
-var StylesService = /** @class */ (function () {
-    function StylesService(configService, http) {
+var ShopsService = /** @class */ (function () {
+    function ShopsService(configService, http) {
         this.configService = configService;
         this.http = http;
-        //selectedStyles = new BehaviorSubject<Array<UsersListItem>>([]);TODO
         this.previousFilter = {};
         this.previousSortColumn = 'name';
         this.previousSortDirection = 'asc';
         this.previousPageIndex = 0;
         this.previousPageSize = 10;
-        this.stylesList = new rxjs__WEBPACK_IMPORTED_MODULE_1__["BehaviorSubject"]({ dataCount: 0, data: [] });
-        this.apiEndpoint = this.configService.config.apiConfigs.styles.apiEndpoint;
+        this.shopsList = new rxjs__WEBPACK_IMPORTED_MODULE_2__["BehaviorSubject"]({ dataCount: 0, data: [] });
+        this.apiEndpoint = this.configService.config.apiConfigs.shops.apiEndpoint;
     }
-    StylesService.prototype.getStyles = function (filter, sortColumn, sortDirection, pageIndex, pageSize) {
+    //
+    // Begin functions that most services have.
+    //
+    ShopsService.prototype.getShops = function (filter, sortColumn, sortDirection, pageIndex, pageSize) {
         this.previousFilter = filter;
         this.previousSortColumn = sortColumn;
         this.previousSortDirection = sortDirection;
@@ -257,30 +258,35 @@ var StylesService = /** @class */ (function () {
         var queryParams = this.formatQueryParams(filter, sortColumn, sortDirection, pageIndex, pageSize);
         return this.http.get(this.apiEndpoint + queryParams);
     };
-    StylesService.prototype.reloadStyles = function () {
-        console.log("reload");
-        return this.getStyles(this.previousFilter, this.previousSortColumn, this.previousSortDirection, this.previousPageIndex, this.previousPageSize);
+    //
+    // Call this function to repeat the previous query, after deleting
+    // a brand for example.
+    //
+    ShopsService.prototype.reloadShops = function () {
+        return this.getShops(this.previousFilter, this.previousSortColumn, this.previousSortDirection, this.previousPageIndex, this.previousPageSize);
     };
-    StylesService.prototype.postStyle = function (data) {
+    ShopsService.prototype.postShop = function (data) {
         return this.http.post(this.apiEndpoint, JSON.stringify(data));
     };
-    StylesService.prototype.postStyleLinkedShops = function (id, data) {
-        return this.http.post(this.apiEndpoint + id + '/shops/', JSON.stringify(data));
-    };
-    StylesService.prototype.getStyleLinkedShops = function (id) {
-        return this.http.get(this.apiEndpoint + id + '/shops/');
-    };
-    StylesService.prototype.getStyle = function (id) {
+    ShopsService.prototype.getShop = function (id) {
         return this.http.get(this.apiEndpoint + id + '/');
     };
-    StylesService.prototype.putStyle = function (data) {
+    ShopsService.prototype.putShop = function (data) {
         return this.http.put(this.apiEndpoint + data.id + '/', JSON.stringify(data));
     };
-    StylesService.prototype.deleteStyle = function (id) {
+    ShopsService.prototype.deleteShop = function (id) {
         return this.http.delete(this.apiEndpoint + id + '/');
     };
-    StylesService.prototype.formatQueryParams = function (filter, sortColumn, sortDirection, pageIndex, pageSize) {
+    ShopsService.prototype.formatQueryParams = function (filter, sortColumn, sortDirection, pageIndex, pageSize) {
         var queryParams = '';
+        if (filter.name && filter.name.length > 0) {
+            queryParams += queryParams.length > 0 ? '&' : '?';
+            queryParams += "name=" + filter.name;
+        }
+        if (filter.status && filter.status.length > 0) {
+            queryParams += queryParams.length > 0 ? '&' : '?';
+            queryParams += "active=" + filter.status;
+        }
         if (sortColumn) {
             var ordering = '';
             if (sortDirection === 'desc') {
@@ -298,42 +304,28 @@ var StylesService = /** @class */ (function () {
             queryParams += queryParams.length > 0 ? '&' : '?';
             queryParams += "limit=" + pageSize;
         }
-        if (filter.sku && filter.sku.length > 0) {
-            queryParams += queryParams.length > 0 ? '&' : '?';
-            queryParams += "sku=" + filter.sku;
-        }
-        if (filter.name && filter.name.length > 0) {
-            queryParams += queryParams.length > 0 ? '&' : '?';
-            queryParams += "name=" + filter.name;
-        }
-        if (filter.brand && filter.brand.length > 0) {
-            queryParams += queryParams.length > 0 ? '&' : '?';
-            queryParams += "brand=" + filter.brand;
-        }
-        if (filter.collection && filter.collection.length > 0) {
-            queryParams += queryParams.length > 0 ? '&' : '?';
-            queryParams += "collection=" + filter.collection;
-        }
-        if (filter.category && filter.category.length > 0) {
-            queryParams += queryParams.length > 0 ? '&' : '?';
-            queryParams += "category=" + filter.category;
-        }
         return queryParams;
     };
-    StylesService.prototype.getAllStyles = function () {
+    //
+    // End functions that most services have.
+    //
+    //
+    // Begin special functions specific to only this service.
+    //
+    ShopsService.prototype.getAllShops = function () {
         return this.http.get(this.apiEndpoint)
-            .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_2__["map"])(function (response) {
+            .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["map"])(function (response) {
             return response.data;
         }));
     };
-    StylesService = __decorate([
+    ShopsService = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"])({
             providedIn: 'root'
         }),
-        __metadata("design:paramtypes", [_config_services_config_service__WEBPACK_IMPORTED_MODULE_3__["ConfigService"],
-            _error_handling_services_error_handling_http_service__WEBPACK_IMPORTED_MODULE_4__["ErrorHandlingHttpService"]])
-    ], StylesService);
-    return StylesService;
+        __metadata("design:paramtypes", [_config_services_config_service__WEBPACK_IMPORTED_MODULE_4__["ConfigService"],
+            _error_handling_services_error_handling_http_service__WEBPACK_IMPORTED_MODULE_1__["ErrorHandlingHttpService"]])
+    ], ShopsService);
+    return ShopsService;
 }());
 
 
@@ -341,4 +333,4 @@ var StylesService = /** @class */ (function () {
 /***/ })
 
 }]);
-//# sourceMappingURL=default~ms-brands-ms-brands-module~ms-collections-ms-collections-module~ms-releases-ms-releases-modu~14151ac4.js.map
+//# sourceMappingURL=default~ms-brands-ms-brands-module~ms-collections-ms-collections-module~ms-offers-ms-offers-module~m~94c757c6.js.map

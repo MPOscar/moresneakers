@@ -1074,7 +1074,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _ms_categories_services_categories_resolve_service__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../ms-categories/services/categories-resolve.service */ "./src/app/ms-back-office/modules/ms-categories/services/categories-resolve.service.ts");
 /* harmony import */ var _ms_urls_services_urls_resolve_service__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../ms-urls/services/urls-resolve.service */ "./src/app/ms-back-office/modules/ms-urls/services/urls-resolve.service.ts");
 /* harmony import */ var _routing_services_id_resolve_service__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../../../routing/services/id-resolve.service */ "./src/app/routing/services/id-resolve.service.ts");
-/* harmony import */ var _ms_shops_services_shops_resolve_service__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ../ms-shops/services/shops-resolve.service */ "./src/app/ms-back-office/modules/ms-shops/services/shops-resolve.service.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1089,7 +1088,6 @@ var __decorate = (undefined && undefined.__decorate) || function (decorators, ta
 
 
 //
-
 
 
 
@@ -1114,7 +1112,6 @@ var routes = [
             Deals: _ms_deals_services_deals_resolve_service__WEBPACK_IMPORTED_MODULE_7__["DealsResolveService"],
             categories: _ms_categories_services_categories_resolve_service__WEBPACK_IMPORTED_MODULE_9__["CategoriesResolveService"],
             urls: _ms_urls_services_urls_resolve_service__WEBPACK_IMPORTED_MODULE_10__["UrlsResolveService"],
-            shops: _ms_shops_services_shops_resolve_service__WEBPACK_IMPORTED_MODULE_12__["ShopsResolveService"]
         },
         data: { closeRouteCommand: ['../'] }
     },

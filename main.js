@@ -24,8 +24,8 @@ var map = {
 	"../ms-brands/ms-brands.module": [
 		"./src/app/ms-back-office/modules/ms-brands/ms-brands.module.ts",
 		"default~ms-brands-ms-brands-module~ms-collections-ms-collections-module~ms-deals-ms-deals-module~ms-~a8d003f4",
+		"default~ms-brands-ms-brands-module~ms-collections-ms-collections-module~ms-offers-ms-offers-module~m~94c757c6",
 		"default~ms-brands-ms-brands-module~ms-collections-ms-collections-module~ms-deals-ms-deals-module~ms-~4095e54f",
-		"default~ms-brands-ms-brands-module~ms-collections-ms-collections-module~ms-releases-ms-releases-modu~14151ac4",
 		"default~ms-brands-ms-brands-module~ms-collections-ms-collections-module~ms-shops-ms-shops-module~ms-~1045d9c8",
 		"default~ms-brands-ms-brands-module~ms-style-ms-style-module",
 		"common"
@@ -38,8 +38,8 @@ var map = {
 	"../ms-collections/ms-collections.module": [
 		"./src/app/ms-back-office/modules/ms-collections/ms-collections.module.ts",
 		"default~ms-brands-ms-brands-module~ms-collections-ms-collections-module~ms-deals-ms-deals-module~ms-~a8d003f4",
+		"default~ms-brands-ms-brands-module~ms-collections-ms-collections-module~ms-offers-ms-offers-module~m~94c757c6",
 		"default~ms-brands-ms-brands-module~ms-collections-ms-collections-module~ms-deals-ms-deals-module~ms-~4095e54f",
-		"default~ms-brands-ms-brands-module~ms-collections-ms-collections-module~ms-releases-ms-releases-modu~14151ac4",
 		"default~ms-brands-ms-brands-module~ms-collections-ms-collections-module~ms-shops-ms-shops-module~ms-~1045d9c8",
 		"default~ms-collections-ms-collections-module~ms-offers-ms-offers-module~ms-releases-ms-releases-modu~9021e546",
 		"common",
@@ -54,14 +54,14 @@ var map = {
 	"../ms-offers/ms-offers.module": [
 		"./src/app/ms-back-office/modules/ms-offers/ms-offers.module.ts",
 		"default~ms-brands-ms-brands-module~ms-collections-ms-collections-module~ms-deals-ms-deals-module~ms-~a8d003f4",
+		"default~ms-brands-ms-brands-module~ms-collections-ms-collections-module~ms-offers-ms-offers-module~m~94c757c6",
 		"default~ms-collections-ms-collections-module~ms-offers-ms-offers-module~ms-releases-ms-releases-modu~9021e546",
-		"common",
-		"ms-offers-ms-offers-module"
+		"common"
 	],
 	"../ms-releases/ms-releases.module": [
 		"./src/app/ms-back-office/modules/ms-releases/ms-releases.module.ts",
 		"default~ms-brands-ms-brands-module~ms-collections-ms-collections-module~ms-deals-ms-deals-module~ms-~a8d003f4",
-		"default~ms-brands-ms-brands-module~ms-collections-ms-collections-module~ms-releases-ms-releases-modu~14151ac4",
+		"default~ms-brands-ms-brands-module~ms-collections-ms-collections-module~ms-offers-ms-offers-module~m~94c757c6",
 		"default~ms-collections-ms-collections-module~ms-offers-ms-offers-module~ms-releases-ms-releases-modu~9021e546",
 		"common",
 		"ms-releases-ms-releases-module"
@@ -69,16 +69,16 @@ var map = {
 	"../ms-shops/ms-shops.module": [
 		"./src/app/ms-back-office/modules/ms-shops/ms-shops.module.ts",
 		"default~ms-brands-ms-brands-module~ms-collections-ms-collections-module~ms-deals-ms-deals-module~ms-~a8d003f4",
+		"default~ms-brands-ms-brands-module~ms-collections-ms-collections-module~ms-offers-ms-offers-module~m~94c757c6",
 		"default~ms-brands-ms-brands-module~ms-collections-ms-collections-module~ms-deals-ms-deals-module~ms-~4095e54f",
-		"default~ms-brands-ms-brands-module~ms-collections-ms-collections-module~ms-releases-ms-releases-modu~14151ac4",
 		"default~ms-brands-ms-brands-module~ms-collections-ms-collections-module~ms-shops-ms-shops-module~ms-~1045d9c8",
 		"common"
 	],
 	"../ms-style/ms-style.module": [
 		"./src/app/ms-back-office/modules/ms-style/ms-style.module.ts",
 		"default~ms-brands-ms-brands-module~ms-collections-ms-collections-module~ms-deals-ms-deals-module~ms-~a8d003f4",
+		"default~ms-brands-ms-brands-module~ms-collections-ms-collections-module~ms-offers-ms-offers-module~m~94c757c6",
 		"default~ms-brands-ms-brands-module~ms-collections-ms-collections-module~ms-deals-ms-deals-module~ms-~4095e54f",
-		"default~ms-brands-ms-brands-module~ms-collections-ms-collections-module~ms-releases-ms-releases-modu~14151ac4",
 		"default~ms-brands-ms-brands-module~ms-collections-ms-collections-module~ms-shops-ms-shops-module~ms-~1045d9c8",
 		"default~ms-brands-ms-brands-module~ms-style-ms-style-module",
 		"common",
