@@ -151,7 +151,7 @@ var DeleteStyleComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<h1>EDIT STYLE</h1>\n<style-form *ngIf=\"data\"\n    [data]=\"data\"\n    [brands]=\"brands\"\n    [styles]=\"styles\"\n    [categories]=\"categories\"\n    (accept)=\"submit($event)\"\n    [validationErrors]=\"validationErrors\"\n    (cancel)=\"cancel()\"\n    (dataChange)=\"dataChanged()\">\n</style-form>\n"
+module.exports = "<h1>EDIT STYLE</h1>\n<style-form *ngIf=\"data\"\n    [data]=\"data\"\n    [brands]=\"brands\"\n    [styles]=\"styles\"\n    [styleId]=\"styleId\"\n    [shops]=\"shops\"\n    [categories]=\"categories\"\n    (accept)=\"submit($event)\"\n    [validationErrors]=\"validationErrors\"\n    (cancel)=\"cancel()\"\n    (dataChange)=\"dataChanged()\">\n</style-form>\n"
 
 /***/ }),
 
@@ -230,6 +230,7 @@ var EditStyleComponent = /** @class */ (function () {
         this.brands = this.activatedRoute.snapshot.data.brands;
         this.categories = this.activatedRoute.snapshot.data.categories;
         this.styles = this.activatedRoute.snapshot.data.styles;
+        this.shops = this.activatedRoute.snapshot.data.shops;
     };
     EditStyleComponent.prototype.ngAfterViewInit = function () {
         this.getStyle();
@@ -428,7 +429,7 @@ var NewStyleComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<form class=\"flex-grow-1 min-height-0 display-flex flex-direction-column\" [askBeforeRefresh]=\"formGroup.dirty\" [formGroup]=\"formGroup\"\n  novalidate role=\"form\" (ngSubmit)=\"submitClicked()\" autocomplete=\"off\" inputFocus>\n\n  <div class=\"flex-grow-1 overflow-auto display-flex flex-direction-column\">\n\n    <div class=\"flex-grow-1 flex-shrink-0 display-flex flex-direction-column\">\n\n      <div class=\"justify-content-space-between margin-right-25px\" [fxFlex]=\"100\" fxLayout=\"row\" fxLayout.lt-md=\"column\">\n\n        <div [fxFlex]=\"25\" fxLayout=\"column\">\n\n          <mat-form-field class=\"margin-left-16px\">\n\n            <mat-label>Style Name</mat-label>\n\n            <input matInput type=\"text\" formControlName=\"name\" required>\n\n          </mat-form-field>\n\n          <mat-form-field class=\"padding-top-5px\">\n            <mat-label>Category</mat-label>\n            <mat-select placeholder=\"Select\" formControlName=\"category\" required>\n              <mat-option *ngFor=\"let category of categories\" [value]=\"category.id\">\n                {{category.name}}\n              </mat-option>\n            </mat-select>\n          </mat-form-field>\n\n          \n          <mat-form-field class=\"margin-left-16px\">\n\n              <mat-label>Description</mat-label>\n  \n              <textarea matInput formControlName=\"description\"></textarea>\n  \n            </mat-form-field>\n\n        </div>\n\n        <div class=\"margin-top-10px\" [fxFlex]=\"30\" fxLayout=\"column\">\n\n          <button class=\"margin-bottom-25px\" mat-stroked-button type=\"button\" (click)=\"showModalAddNewBrand()\">Add a new Brand</button>\n\n          <mat-form-field class=\"width-100pc\">\n\n            <mat-label>SELECT BRAND</mat-label>\n            <mat-select placeholder=\"Select\" formControlName=\"brand\" panelOpen=\"true\" required>\n              <mat-option *ngFor=\"let brand of brands\" [value]=\"brand.id\">\n                {{brand.name}}\n              </mat-option>\n            </mat-select>\n          </mat-form-field>\n\n        </div>\n\n        <div class=\"margin-top-10px\" [fxFlex]=\"30\" fxLayout=\"column\">\n          <button class=\"margin-bottom-25px\" mat-stroked-button type=\"button\">Add a new Parent</button>\n\n          <mat-form-field class=\"width-100pc\">\n\n            <mat-label>SELECT PARENT</mat-label>\n            <mat-select placeholder=\"Select\" formControlName=\"parent\">\n              <mat-option *ngFor=\"let style of styles\" [value]=\"style.id\">\n                {{style.name}}\n              </mat-option>\n            </mat-select>\n          </mat-form-field>\n        </div>\n      </div>\n\n      <div class=\"align-items-center\" [fxFlex]=\"100\" fxLayout=\"column\" fxLayout.lt-md=\"column\">\n        <button mat-stroked-button type=\"button\" class=\"max-width-480px\" (click)=\"showModalStoresSelling()\">See Stores Selling this Style</button>\n      </div>\n\n    </div>\n\n  </div>\n\n\n\n  <div class=\"margin-right-25px padding-top-25px padding-bottom-25px flex-shrink-0 display-flex border-top-style-solid border-top-width-2px border-top-color-grey\">\n\n    <button mat-raised-button type=\"submit\" color=\"primary\">{{'Save' | translate}}</button>\n\n    <button mat-raised-button type=\"button\" class=\"margin-left-10px\" (click)=\"cancelClicked()\">{{'Cancel' | translate}}</button>\n\n\n\n  </div>\n\n</form>"
+module.exports = "<form class=\"flex-grow-1 min-height-0 display-flex flex-direction-column\" [askBeforeRefresh]=\"formGroup.dirty\" [formGroup]=\"formGroup\"\n  novalidate role=\"form\" (ngSubmit)=\"submitClicked()\" autocomplete=\"off\" inputFocus>\n\n  <div class=\"flex-grow-1 overflow-auto display-flex flex-direction-column\">\n\n    <div class=\"flex-grow-1 flex-shrink-0 display-flex flex-direction-column\">\n\n      <div class=\"justify-content-space-between margin-right-25px\" [fxFlex]=\"100\" fxLayout=\"row\" fxLayout.lt-md=\"column\">\n\n        <div [fxFlex]=\"25\" fxLayout=\"column\">\n\n          <mat-form-field class=\"margin-left-16px\">\n\n            <mat-label>Style Name</mat-label>\n\n            <input matInput type=\"text\" formControlName=\"name\" required>\n\n          </mat-form-field>\n\n          <mat-form-field class=\"padding-top-5px\">\n            <mat-label>Category</mat-label>\n            <mat-select placeholder=\"Select\" formControlName=\"category\" required>\n              <mat-option *ngFor=\"let category of categories\" [value]=\"category.id\">\n                {{category.name}}\n              </mat-option>\n            </mat-select>\n          </mat-form-field>\n\n          \n          <mat-form-field class=\"margin-left-16px\">\n\n              <mat-label>Description</mat-label>\n  \n              <textarea matInput formControlName=\"description\"></textarea>\n  \n            </mat-form-field>\n\n        </div>\n\n        <div class=\"margin-top-10px\" [fxFlex]=\"30\" fxLayout=\"column\">\n\n          <button class=\"margin-bottom-25px max-width-480px\" mat-stroked-button type=\"button\" (click)=\"showModalAddNewBrand()\">Add a new Brand</button>\n\n          <mat-form-field class=\"width-100pc\">\n\n            <mat-label>SELECT BRAND</mat-label>\n            <mat-select placeholder=\"Select\" formControlName=\"brand\" panelOpen=\"true\" required>\n              <mat-option *ngFor=\"let brand of brands\" [value]=\"brand.id\">\n                {{brand.name}}\n              </mat-option>\n            </mat-select>\n            \n          </mat-form-field>\n\n        </div>\n\n        <div class=\"margin-top-10px\" [fxFlex]=\"30\" fxLayout=\"column\">\n          <button class=\"margin-bottom-25px max-width-480px\" mat-stroked-button type=\"button\">Add a new Parent</button>\n\n          <mat-form-field class=\"width-100pc\">\n\n            <mat-label>SELECT PARENT</mat-label>\n            <mat-select placeholder=\"Select\" formControlName=\"parent\">\n              <mat-option *ngFor=\"let style of styles\" [value]=\"style.id\">\n                {{style.name}}\n              </mat-option>\n            </mat-select>\n          </mat-form-field>\n        </div>\n      </div>\n\n      <div *ngIf=\"styleId\" class=\"align-items-center\" [fxFlex]=\"100\" fxLayout=\"column\" fxLayout.lt-md=\"column\">\n        <button mat-stroked-button type=\"button\" class=\"max-width-480px\" (click)=\"showModalStoresSelling()\">See Stores Selling this Style</button>\n      </div>\n\n    </div>\n\n  </div>\n\n\n\n  <div class=\"margin-right-25px padding-top-25px padding-bottom-25px flex-shrink-0 display-flex border-top-style-solid border-top-width-2px border-top-color-grey\">\n\n    <button mat-raised-button type=\"submit\" color=\"primary\">{{'Save' | translate}}</button>\n\n    <button mat-raised-button type=\"button\" class=\"margin-left-10px\" (click)=\"cancelClicked()\">{{'Cancel' | translate}}</button>\n\n\n\n  </div>\n\n</form>"
 
 /***/ }),
 
@@ -526,10 +527,13 @@ var StyleFormComponent = /** @class */ (function (_super) {
         }
     };
     StyleFormComponent.prototype.showModalStoresSelling = function () {
-        this.modalRef = this.dialog.open(_ms_shops_components_shops_selling_style_modal_shops_selling_style_modal_component__WEBPACK_IMPORTED_MODULE_5__["ShopsSellingStylecomponentModalComponent"], {
+        this.modalRef = this.dialog.open(_ms_shops_components_shops_selling_style_modal_shops_selling_style_modal_component__WEBPACK_IMPORTED_MODULE_5__["ShopsSellingStyleModalComponent"], {
             height: '90%',
             width: '90%',
-            data: { face: this.shop }
+            data: {
+                styleId: this.styleId,
+                shops: this.shops,
+            }
         });
     };
     StyleFormComponent.prototype.showModalAddNewBrand = function () {
@@ -551,6 +555,14 @@ var StyleFormComponent = /** @class */ (function (_super) {
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])(),
         __metadata("design:type", Array)
     ], StyleFormComponent.prototype, "styles", void 0);
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])(),
+        __metadata("design:type", String)
+    ], StyleFormComponent.prototype, "styleId", void 0);
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])(),
+        __metadata("design:type", Array)
+    ], StyleFormComponent.prototype, "shops", void 0);
     StyleFormComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
             selector: 'style-form',
@@ -774,6 +786,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _ms_categories_services_categories_resolve_service__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../ms-categories/services/categories-resolve.service */ "./src/app/ms-back-office/modules/ms-categories/services/categories-resolve.service.ts");
 /* harmony import */ var _ms_style_services_styles_resolve_service__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../ms-style/services/styles-resolve.service */ "./src/app/ms-back-office/modules/ms-style/services/styles-resolve.service.ts");
 /* harmony import */ var _routing_services_id_resolve_service__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../../../routing/services/id-resolve.service */ "./src/app/routing/services/id-resolve.service.ts");
+/* harmony import */ var _ms_shops_services_shops_resolve_service__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../ms-shops/services/shops-resolve.service */ "./src/app/ms-back-office/modules/ms-shops/services/shops-resolve.service.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -787,6 +800,7 @@ var __decorate = (undefined && undefined.__decorate) || function (decorators, ta
 
 
 //
+
 
 
 
@@ -824,6 +838,7 @@ var routes = [
             brands: _ms_brands_services_brands_resolve_service__WEBPACK_IMPORTED_MODULE_7__["BrandsResolveService"],
             categories: _ms_categories_services_categories_resolve_service__WEBPACK_IMPORTED_MODULE_8__["CategoriesResolveService"],
             styles: _ms_style_services_styles_resolve_service__WEBPACK_IMPORTED_MODULE_9__["StylesResolveService"],
+            shops: _ms_shops_services_shops_resolve_service__WEBPACK_IMPORTED_MODULE_11__["ShopsResolveService"],
         },
         data: { closeRouteCommand: ['../../'] }
     },
@@ -963,7 +978,7 @@ var MsStyleModule = /** @class */ (function () {
                 _components_delete_style_delete_style_component__WEBPACK_IMPORTED_MODULE_20__["DeleteStyleComponent"]
             ],
             entryComponents: [
-                _ms_shops_components_shops_selling_style_modal_shops_selling_style_modal_component__WEBPACK_IMPORTED_MODULE_24__["ShopsSellingStylecomponentModalComponent"],
+                _ms_shops_components_shops_selling_style_modal_shops_selling_style_modal_component__WEBPACK_IMPORTED_MODULE_24__["ShopsSellingStyleModalComponent"],
                 _ms_brands_components_new_brand_new_brand_component__WEBPACK_IMPORTED_MODULE_21__["NewBrandComponent"]
             ]
         })

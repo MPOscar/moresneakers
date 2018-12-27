@@ -10,62 +10,94 @@
 var map = {
 	"../home/home.module": [
 		"./src/app/ms-back-office/modules/home/home.module.ts",
+		"default~home-home-module~ms-tasks-ms-tasks-module~ms-users-ms-users-module",
 		"default~dashboard-dashboard-module~home-home-module",
+		"default~home-home-module~ms-tasks-ms-tasks-module",
 		"common",
 		"home-home-module"
 	],
+	"../ms-blogs/ms-blogs.module": [
+		"./src/app/ms-back-office/modules/ms-blogs/ms-blogs.module.ts",
+		"common",
+		"ms-blogs-ms-blogs-module"
+	],
 	"../ms-brands/ms-brands.module": [
 		"./src/app/ms-back-office/modules/ms-brands/ms-brands.module.ts",
-		"default~ms-brands-ms-brands-module~ms-categories-ms-categories-module~ms-collections-ms-collections-~9b80b7fc",
+		"default~ms-brands-ms-brands-module~ms-collections-ms-collections-module~ms-deals-ms-deals-module~ms-~a8d003f4",
+		"default~ms-brands-ms-brands-module~ms-collections-ms-collections-module~ms-deals-ms-deals-module~ms-~4095e54f",
+		"default~ms-brands-ms-brands-module~ms-collections-ms-collections-module~ms-releases-ms-releases-modu~14151ac4",
+		"default~ms-brands-ms-brands-module~ms-collections-ms-collections-module~ms-shops-ms-shops-module~ms-~1045d9c8",
 		"default~ms-brands-ms-brands-module~ms-style-ms-style-module",
 		"common"
 	],
 	"../ms-categories/ms-categories.module": [
 		"./src/app/ms-back-office/modules/ms-categories/ms-categories.module.ts",
-		"default~ms-brands-ms-brands-module~ms-categories-ms-categories-module~ms-collections-ms-collections-~9b80b7fc",
 		"common",
 		"ms-categories-ms-categories-module"
 	],
 	"../ms-collections/ms-collections.module": [
 		"./src/app/ms-back-office/modules/ms-collections/ms-collections.module.ts",
-		"default~ms-brands-ms-brands-module~ms-categories-ms-categories-module~ms-collections-ms-collections-~9b80b7fc",
+		"default~ms-brands-ms-brands-module~ms-collections-ms-collections-module~ms-deals-ms-deals-module~ms-~a8d003f4",
+		"default~ms-brands-ms-brands-module~ms-collections-ms-collections-module~ms-deals-ms-deals-module~ms-~4095e54f",
+		"default~ms-brands-ms-brands-module~ms-collections-ms-collections-module~ms-releases-ms-releases-modu~14151ac4",
+		"default~ms-brands-ms-brands-module~ms-collections-ms-collections-module~ms-shops-ms-shops-module~ms-~1045d9c8",
+		"default~ms-collections-ms-collections-module~ms-offers-ms-offers-module~ms-releases-ms-releases-modu~9021e546",
 		"common",
 		"ms-collections-ms-collections-module"
 	],
+	"../ms-deals/ms-deals.module": [
+		"./src/app/ms-back-office/modules/ms-deals/ms-deals.module.ts",
+		"default~ms-brands-ms-brands-module~ms-collections-ms-collections-module~ms-deals-ms-deals-module~ms-~a8d003f4",
+		"default~ms-brands-ms-brands-module~ms-collections-ms-collections-module~ms-deals-ms-deals-module~ms-~4095e54f",
+		"common"
+	],
 	"../ms-offers/ms-offers.module": [
 		"./src/app/ms-back-office/modules/ms-offers/ms-offers.module.ts",
-		"default~ms-brands-ms-brands-module~ms-categories-ms-categories-module~ms-collections-ms-collections-~9b80b7fc",
-		"default~ms-offers-ms-offers-module~ms-releases-ms-releases-module~ms-shops-ms-shops-module~ms-style-~7fefb74e",
-		"default~ms-offers-ms-offers-module~ms-releases-ms-releases-module",
-		"common"
+		"default~ms-brands-ms-brands-module~ms-collections-ms-collections-module~ms-deals-ms-deals-module~ms-~a8d003f4",
+		"default~ms-collections-ms-collections-module~ms-offers-ms-offers-module~ms-releases-ms-releases-modu~9021e546",
+		"common",
+		"ms-offers-ms-offers-module"
 	],
 	"../ms-releases/ms-releases.module": [
 		"./src/app/ms-back-office/modules/ms-releases/ms-releases.module.ts",
-		"default~ms-brands-ms-brands-module~ms-categories-ms-categories-module~ms-collections-ms-collections-~9b80b7fc",
-		"default~ms-offers-ms-offers-module~ms-releases-ms-releases-module~ms-shops-ms-shops-module~ms-style-~7fefb74e",
-		"default~ms-offers-ms-offers-module~ms-releases-ms-releases-module",
+		"default~ms-brands-ms-brands-module~ms-collections-ms-collections-module~ms-deals-ms-deals-module~ms-~a8d003f4",
+		"default~ms-brands-ms-brands-module~ms-collections-ms-collections-module~ms-releases-ms-releases-modu~14151ac4",
+		"default~ms-collections-ms-collections-module~ms-offers-ms-offers-module~ms-releases-ms-releases-modu~9021e546",
 		"common",
 		"ms-releases-ms-releases-module"
 	],
 	"../ms-shops/ms-shops.module": [
 		"./src/app/ms-back-office/modules/ms-shops/ms-shops.module.ts",
-		"default~ms-brands-ms-brands-module~ms-categories-ms-categories-module~ms-collections-ms-collections-~9b80b7fc",
-		"default~ms-offers-ms-offers-module~ms-releases-ms-releases-module~ms-shops-ms-shops-module~ms-style-~7fefb74e",
-		"default~ms-shops-ms-shops-module~ms-style-ms-style-module",
+		"default~ms-brands-ms-brands-module~ms-collections-ms-collections-module~ms-deals-ms-deals-module~ms-~a8d003f4",
+		"default~ms-brands-ms-brands-module~ms-collections-ms-collections-module~ms-deals-ms-deals-module~ms-~4095e54f",
+		"default~ms-brands-ms-brands-module~ms-collections-ms-collections-module~ms-releases-ms-releases-modu~14151ac4",
+		"default~ms-brands-ms-brands-module~ms-collections-ms-collections-module~ms-shops-ms-shops-module~ms-~1045d9c8",
 		"common"
 	],
 	"../ms-style/ms-style.module": [
 		"./src/app/ms-back-office/modules/ms-style/ms-style.module.ts",
-		"default~ms-brands-ms-brands-module~ms-categories-ms-categories-module~ms-collections-ms-collections-~9b80b7fc",
-		"default~ms-offers-ms-offers-module~ms-releases-ms-releases-module~ms-shops-ms-shops-module~ms-style-~7fefb74e",
-		"default~ms-shops-ms-shops-module~ms-style-ms-style-module",
+		"default~ms-brands-ms-brands-module~ms-collections-ms-collections-module~ms-deals-ms-deals-module~ms-~a8d003f4",
+		"default~ms-brands-ms-brands-module~ms-collections-ms-collections-module~ms-deals-ms-deals-module~ms-~4095e54f",
+		"default~ms-brands-ms-brands-module~ms-collections-ms-collections-module~ms-releases-ms-releases-modu~14151ac4",
+		"default~ms-brands-ms-brands-module~ms-collections-ms-collections-module~ms-shops-ms-shops-module~ms-~1045d9c8",
 		"default~ms-brands-ms-brands-module~ms-style-ms-style-module",
 		"common",
 		"ms-style-ms-style-module"
 	],
+	"../ms-tasks/ms-tasks.module": [
+		"./src/app/ms-back-office/modules/ms-tasks/ms-tasks.module.ts",
+		"default~home-home-module~ms-tasks-ms-tasks-module~ms-users-ms-users-module",
+		"default~home-home-module~ms-tasks-ms-tasks-module",
+		"common"
+	],
+	"../ms-urls/ms-urls.module": [
+		"./src/app/ms-back-office/modules/ms-urls/ms-urls.module.ts",
+		"common",
+		"ms-urls-ms-urls-module"
+	],
 	"../ms-users/ms-users.module": [
 		"./src/app/ms-back-office/modules/ms-users/ms-users.module.ts",
-		"default~ms-brands-ms-brands-module~ms-categories-ms-categories-module~ms-collections-ms-collections-~9b80b7fc",
+		"default~home-home-module~ms-tasks-ms-tasks-module~ms-users-ms-users-module",
 		"common",
 		"ms-users-ms-users-module"
 	],
@@ -4651,7 +4683,7 @@ module.exports = ":host { /* Safari */\r\n  display: flex; /* Safari */\r\n  fle
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"display-flex flex-grow-1 flex-shrink-1 flex-direction-column padding-0px-25px-25px-25px\">\r\n  <div class=\"align-self-center display-flex width-250px  flex-shrink-1 flex-direction-row card-container\">\r\n    <mat-card class=\"border-2px-solid-black box-shadow-none flex-grow-1 margin-0 mat-card-principal\" #imageContainer>\r\n      <img class=\"height-100-pc width-100-pc\" *ngIf=\"principal\" imageLoad [srcImage]=\"principal.imgUrl? principal.imgUrl : principal.file\"\r\n        [container]=\"imageContainer\" src=\"\">\r\n    </mat-card>\r\n  </div>\r\n  <div class=\"display-flex flex-grow-1 flex-shrink-1 flex-direction-row card-container justify-content-initial\">\r\n    <!--mat-card *ngFor=\"let faceItem of faceItems; index as cardIndex; trackBy:trackByFn\" class=\"display-flex background-color-secondary flex-direction-column flex-shrink-1 mat-card-images\">\r\n      <div class=\"image-container margin-10px flex-grow-1\" #imageContainer>\r\n        <img class=\"img\" imageLoad [srcImage]=\"faceItem.imgUrl? faceItem.imgUrl : faceItem.file\" [container]=\"imageContainer\" src=\"\">\r\n      </div>\r\n      <div class=\"image-card-btns display-flex margin-left-10px margin-right-10px margin-bottom-10px\">\r\n        <mat-radio-button value=\"primary\" class=\"margin-top-10px\" (click)=\"setMainImage(faceItem)\" matTooltip=\"{{ 'Principal' | translate }}\"></mat-radio-button>\r\n        <button type=\"button\" mat-icon-button class=\"margin-left-10px\" (click)=\"deleteFace(cardIndex)\">\r\n          <mat-icon mat-raised-button color=\"accent\" matTooltip=\"{{ 'Delete' | translate }}\">delete</mat-icon>\r\n        </button>\r\n      </div>\r\n    </mat-card-->\r\n  </div>\r\n  <div class=\"display-flex justify-content-center width-100-pc\"\r\n  drop-files\r\n  [faceItems]=\"faceItems\"\r\n  [ngClass]=\"{'border-dotted': !fileIsOver, 'border-dotted-drop': fileIsOver}\"\r\n  (filesOver)=\"fileOverDropZone($event)\"\r\n  (filesChange)=\"filesChange($event)\"\r\n  >\r\n    <div>\r\n      <div class=\"padding-bottom-10px\">\r\n        <p>Drop Files Here</p>\r\n        <button type=\"button\" class=\"border-none border-radius-5px\" (click)=\"fileInput.click()\" mat-stroked-button>\r\n          {{ 'Slect File' | translate }}\r\n          <mat-icon>add</mat-icon>\r\n        </button>\r\n      </div>\r\n      <input #fileInput style=\"display:none\" type=\"file\" name=\"files\" class=\"file-input glyphicon glyphicon-plus\"\r\n        accept=\"image/*\" multiple/>\r\n    </div>\r\n  </div>\r\n</div>\r\n"
+module.exports = "<div class=\"display-flex flex-grow-1 flex-shrink-1 flex-direction-column padding-0px-25px-25px-25px\">\r\n  <div class=\"align-self-center display-flex width-250px  flex-shrink-1 flex-direction-row card-container\">\r\n    <mat-card class=\"border-2px-solid-black box-shadow-none flex-grow-1 margin-0 mat-card-principal\" #imageContainer>\r\n      <img class=\"height-100-pc width-100-pc\" *ngIf=\"principal\" imageLoad [srcImage]=\"principal.imgUrl? principal.imgUrl : principal.file\"\r\n        [container]=\"imageContainer\" src=\"\">\r\n    </mat-card>\r\n  </div>\r\n  <div class=\"display-flex flex-grow-1 flex-shrink-1 flex-direction-row card-container justify-content-initial\">\r\n  </div>\r\n  <div class=\"display-flex justify-content-center width-100-pc\" \r\n       drop-files [faceItems]=\"faceItems\" \r\n       [ngClass]=\"{'border-dotted': !fileIsOver, 'border-dotted-drop': fileIsOver}\"\r\n    (filesOver)=\"fileOverDropZone($event)\" (filesChange)=\"filesChange($event)\">\r\n    <div>\r\n      <div class=\"padding-bottom-10px\">\r\n        <p>Drop Files Here</p>\r\n        <button type=\"button\" class=\"border-none border-radius-5px\" (click)=\"fileInput.click()\" mat-stroked-button>\r\n          {{ 'Select File' | translate }}\r\n          <mat-icon>add</mat-icon>\r\n        </button>\r\n      </div>\r\n      <input #fileInput style=\"display:none\" type=\"file\" name=\"files\" class=\"file-input glyphicon glyphicon-plus\" accept=\"image/*\"\r\n        multiple/>\r\n    </div>\r\n  </div>\r\n</div>"
 
 /***/ }),
 
@@ -4691,8 +4723,8 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 //import { ImageCardEditActionDirective } from '../../directives/images-card-edit-actions.directive';
 //import { setTranslations } from 'ngx-translate';
 //import { TRANSLATIONS } from './i18n/images-card.component.translations';
-var imageSizeErrorMessageKey = 'Image Size Error Message';
-var imageTypeErrorMessageKey = 'Image Type Error Message';
+var imageSizeErrorMessageKey = 'Image Size Error';
+var imageTypeErrorMessageKey = 'Image Type Error';
 var ImageCardComponent = /** @class */ (function () {
     function ImageCardComponent(translate, toastr) {
         this.translate = translate;
@@ -5341,7 +5373,7 @@ var ImageCardModule = /** @class */ (function () {
 /*!******************************************************!*\
   !*** ./src/app/ui/modules/image-card/models/face.ts ***!
   \******************************************************/
-/*! exports provided: State, Status, Face */
+/*! exports provided: State, Status, Face, MainImage */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -5349,6 +5381,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "State", function() { return State; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Status", function() { return Status; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Face", function() { return Face; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "MainImage", function() { return MainImage; });
 var State;
 (function (State) {
     State[State["New"] = 0] = "New";
@@ -5370,6 +5403,12 @@ var Face = /** @class */ (function () {
         this.status = Status.Pending;
     }
     return Face;
+}());
+
+var MainImage = /** @class */ (function () {
+    function MainImage() {
+    }
+    return MainImage;
 }());
 
 
@@ -5394,7 +5433,7 @@ module.exports = ":host { /* Safari */\r\n  display: flex; /* Safari */\r\n  fle
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"display-flex flex-grow-1 flex-shrink-1 flex-direction-column padding-0px-25px-25px-25px\">\r\n  <div class=\"align-self-center display-flex width-250px  flex-shrink-1 flex-direction-row card-container\">\r\n    <mat-card class=\"border-2px-solid-black box-shadow-none flex-grow-1 margin-0 mat-card-principal\" #imageContainer>\r\n      <img class=\"height-100-pc width-100-pc\" *ngIf=\"principal\" imageLoad [srcImage]=\"principal.imgUrl? principal.imgUrl : principal.file\"\r\n        [container]=\"imageContainer\" src=\"\">\r\n    </mat-card>\r\n  </div>\r\n  <div class=\"display-flex flex-grow-1 flex-shrink-1 flex-direction-row card-container justify-content-initial\">\r\n    <mat-card *ngFor=\"let faceItem of faceItems; index as cardIndex; trackBy:trackByFn\" class=\"display-flex background-color-secondary flex-direction-column flex-shrink-1 mat-card-images\">\r\n      <div class=\"image-container margin-10px flex-grow-1\" #imageContainer>\r\n        <img class=\"img\" imageLoad [srcImage]=\"faceItem.imgUrl? faceItem.imgUrl : faceItem.file\" [container]=\"imageContainer\" src=\"\">\r\n      </div>\r\n      <div class=\"image-card-btns display-flex margin-left-10px margin-right-10px margin-bottom-10px\">\r\n        <mat-radio-button value=\"primary\" class=\"margin-top-10px\" (click)=\"setMainImage(faceItem)\" matTooltip=\"{{ 'Principal' | translate }}\"></mat-radio-button>\r\n        <button type=\"button\" mat-icon-button class=\"margin-left-10px\" (click)=\"deleteFace(cardIndex)\">\r\n          <mat-icon mat-raised-button color=\"accent\" matTooltip=\"{{ 'Delete' | translate }}\">delete</mat-icon>\r\n        </button>\r\n      </div>\r\n    </mat-card>\r\n  </div>\r\n  <div class=\"display-flex justify-content-center width-100-pc\"\r\n  drop-files\r\n  [faceItems]=\"faceItems\"\r\n  [ngClass]=\"{'border-dotted': !fileIsOver, 'border-dotted-drop': fileIsOver}\"\r\n  (filesOver)=\"fileOverDropZone($event)\"\r\n  (filesChange)=\"filesChange($event)\"\r\n  >\r\n    <div>\r\n      <div class=\"padding-bottom-10px\">\r\n        <p>Drop Files Here</p>\r\n        <button type=\"button\" class=\"border-none border-radius-5px\" (click)=\"fileInput.click()\" mat-stroked-button>\r\n          {{ 'Slect File' | translate }}\r\n          <mat-icon>add</mat-icon>\r\n        </button>\r\n      </div>\r\n      <input #fileInput style=\"display:none\" type=\"file\" name=\"files\" class=\"file-input glyphicon glyphicon-plus\"\r\n        accept=\"image/*\" multiple/>\r\n    </div>\r\n  </div>\r\n</div>\r\n"
+module.exports = "<div class=\"display-flex flex-grow-1 flex-shrink-1 flex-direction-column padding-0px-25px-25px-25px\">\r\n  <div class=\"align-self-center display-flex width-250px  flex-shrink-1 flex-direction-row card-container\">\r\n    <mat-card class=\"border-2px-solid-black box-shadow-none flex-grow-1 margin-0 mat-card-principal\" #imageContainer>\r\n      <img class=\"height-100-pc width-100-pc\" *ngIf=\"principal\" imageLoad [srcImage]=\"principal.imgUrl? principal.imgUrl : principal.file\"\r\n        [container]=\"imageContainer\" src=\"\">\r\n    </mat-card>\r\n  </div>\r\n  <div class=\"display-flex flex-grow-1 flex-shrink-1 flex-direction-row card-container justify-content-initial\">\r\n    <mat-card *ngFor=\"let faceItem of faceItems; index as cardIndex; trackBy:trackByFn\" class=\"display-flex background-color-secondary flex-direction-column flex-shrink-1 mat-card-images\">\r\n      <div class=\"image-container margin-10px flex-grow-1\" #imageContainer>\r\n        <img class=\"img\" imageLoad [srcImage]=\"faceItem.imgUrl? faceItem.imgUrl : faceItem.file\" [container]=\"imageContainer\" src=\"\">\r\n      </div>\r\n      <div class=\"image-card-btns display-flex margin-left-10px margin-right-10px margin-bottom-10px\">\r\n        <mat-radio-button value=\"primary\" class=\"margin-top-10px\" (click)=\"setMainImage(faceItem)\" matTooltip=\"{{ 'Principal' | translate }}\"></mat-radio-button>\r\n        <button type=\"button\" mat-icon-button class=\"margin-left-10px\" (click)=\"deleteFace(cardIndex)\">\r\n          <mat-icon mat-raised-button color=\"accent\" matTooltip=\"{{ 'Delete' | translate }}\">delete</mat-icon>\r\n        </button>\r\n      </div>\r\n    </mat-card>\r\n  </div>\r\n  <div class=\"display-flex justify-content-center width-100-pc\"\r\n  drop-files\r\n  [faceItems]=\"faceItems\"\r\n  [ngClass]=\"{'border-dotted': !fileIsOver, 'border-dotted-drop': fileIsOver}\"\r\n  (filesOver)=\"fileOverDropZone($event)\"\r\n  (filesChange)=\"filesChange($event)\"\r\n  >\r\n    <div>\r\n      <div class=\"padding-bottom-10px\">\r\n        <p>Drop Files Here</p>\r\n        <button type=\"button\" class=\"border-none border-radius-5px\" (click)=\"fileInput.click()\" mat-stroked-button>\r\n          {{ 'Select File' | translate }}\r\n          <mat-icon>add</mat-icon>\r\n        </button>\r\n      </div>\r\n      <input #fileInput style=\"display:none\" type=\"file\" name=\"files\" class=\"file-input glyphicon glyphicon-plus\"\r\n        accept=\"image/*\" multiple/>\r\n    </div>\r\n  </div>\r\n</div>\r\n"
 
 /***/ }),
 
@@ -5528,6 +5567,10 @@ var ImagesCardComponent = /** @class */ (function () {
     };
     ImagesCardComponent.prototype.deleteFace = function (index) {
         var deletedItem = this.faceItems.splice(index, 1).pop();
+        if (deletedItem.mainImage) {
+            console.log("esta es la imagen principal");
+            this.principal = null;
+        }
         this.faceItems = this.faceItems.slice();
         this.deletedFace.emit(deletedItem);
     };

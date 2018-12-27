@@ -26,6 +26,9 @@
     "collections": {
       "apiEndpoint": "http://ec2-35-180-74-253.eu-west-3.compute.amazonaws.com/api/v1/collections/"
     },
+    "offers": {
+      "apiEndpoint": "http://ec2-35-180-74-253.eu-west-3.compute.amazonaws.com/api/v1/Offers/"
+    },
     "shops": {
       "apiEndpoint": "http://ec2-35-180-74-253.eu-west-3.compute.amazonaws.com/api/v1/shops/"
     },
@@ -40,6 +43,18 @@
     },
     "images": {
       "apiEndpoint": "http://ec2-35-180-74-253.eu-west-3.compute.amazonaws.com/api/v1/image/"
+    },
+    "deals": {
+      "apiEndpoint": "http://ec2-35-180-74-253.eu-west-3.compute.amazonaws.com/api/v1/deals/"
+    },
+    "blogs": {
+      "apiEndpoint": "http://ec2-35-180-74-253.eu-west-3.compute.amazonaws.com/api/v1/blogs/"
+    },
+    "urls": {
+      "apiEndpoint": "http://ec2-35-180-74-253.eu-west-3.compute.amazonaws.com/api/v1/urls/"
+    },
+    "tasks": {
+      "apiEndpoint": "http://ec2-35-180-74-253.eu-west-3.compute.amazonaws.com/api/v1/tasks/"
     }
   }
 }
