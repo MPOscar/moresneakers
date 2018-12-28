@@ -1678,7 +1678,6 @@ var ReleasesCollectionTableComponent = /** @class */ (function () {
             'categoryId',
             'color',
             'createdAt',
-            'actions'
         ];
         this.genders = _models_gender__WEBPACK_IMPORTED_MODULE_8__["GENDERS"];
         this.totalLength = 0;
