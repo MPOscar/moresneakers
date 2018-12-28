@@ -1916,8 +1916,8 @@ var ShopsTableComponent = /** @class */ (function () {
     };
     ShopsTableComponent.prototype.changeStatus = function (shopData) {
         var _this = this;
-        shopData.createdAt = null;
-        shopData.updatedAt = null;
+        //shopData.createdAt = null;
+        //shopData.updatedAt = null;
         shopData.active = !shopData.active;
         this.shopsService.putShop(shopData).subscribe(function (response) {
             _this.loadPage();
