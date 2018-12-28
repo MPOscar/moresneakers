@@ -521,9 +521,9 @@ var EditReleaseModalComponent = /** @class */ (function () {
         this.releaseId = this.activatedRoute.snapshot.data.releaseId;
         this.shops = this.activatedRoute.snapshot.data.shops;
         this.getCase();
-        this.imageList.forEach(function (image) {
-            image.fileName = "";
-        });
+        /*this.imageList.forEach((image) => {
+          image.fileName = "";
+        });*/
     };
     EditReleaseModalComponent.prototype.submit = function (data) {
         delete data.updatedAt;
@@ -1678,6 +1678,7 @@ var ReleasesCollectionTableComponent = /** @class */ (function () {
             'categoryId',
             'color',
             'createdAt',
+            'actions'
         ];
         this.genders = _models_gender__WEBPACK_IMPORTED_MODULE_8__["GENDERS"];
         this.totalLength = 0;
