@@ -201,6 +201,32 @@ var BrandsService = /** @class */ (function () {
 
 /***/ }),
 
+/***/ "./src/app/ms-back-office/modules/ms-shops/models/currency.ts":
+/*!********************************************************************!*\
+  !*** ./src/app/ms-back-office/modules/ms-shops/models/currency.ts ***!
+  \********************************************************************/
+/*! exports provided: Currency, CURRENCY */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Currency", function() { return Currency; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CURRENCY", function() { return CURRENCY; });
+var Currency = /** @class */ (function () {
+    function Currency() {
+    }
+    return Currency;
+}());
+
+;
+var CURRENCY = [
+    { id: 'USD', name: 'USD' },
+    { id: 'EUR', name: 'EUR' },
+];
+
+
+/***/ }),
+
 /***/ "./src/app/ms-back-office/modules/ms-shops/services/shops.service.ts":
 /*!***************************************************************************!*\
   !*** ./src/app/ms-back-office/modules/ms-shops/services/shops.service.ts ***!

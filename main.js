@@ -13,12 +13,10 @@ var map = {
 		"default~home-home-module~ms-tasks-ms-tasks-module~ms-users-ms-users-module",
 		"default~dashboard-dashboard-module~home-home-module",
 		"default~home-home-module~ms-tasks-ms-tasks-module",
-		"common",
 		"home-home-module"
 	],
 	"../ms-blogs/ms-blogs.module": [
 		"./src/app/ms-back-office/modules/ms-blogs/ms-blogs.module.ts",
-		"common",
 		"ms-blogs-ms-blogs-module"
 	],
 	"../ms-brands/ms-brands.module": [
@@ -27,12 +25,10 @@ var map = {
 		"default~ms-brands-ms-brands-module~ms-collections-ms-collections-module~ms-offers-ms-offers-module~m~94c757c6",
 		"default~ms-brands-ms-brands-module~ms-collections-ms-collections-module~ms-deals-ms-deals-module~ms-~4095e54f",
 		"default~ms-brands-ms-brands-module~ms-collections-ms-collections-module~ms-shops-ms-shops-module~ms-~1045d9c8",
-		"default~ms-brands-ms-brands-module~ms-style-ms-style-module",
-		"common"
+		"default~ms-brands-ms-brands-module~ms-style-ms-style-module"
 	],
 	"../ms-categories/ms-categories.module": [
 		"./src/app/ms-back-office/modules/ms-categories/ms-categories.module.ts",
-		"common",
 		"ms-categories-ms-categories-module"
 	],
 	"../ms-collections/ms-collections.module": [
@@ -42,28 +38,26 @@ var map = {
 		"default~ms-brands-ms-brands-module~ms-collections-ms-collections-module~ms-deals-ms-deals-module~ms-~4095e54f",
 		"default~ms-brands-ms-brands-module~ms-collections-ms-collections-module~ms-shops-ms-shops-module~ms-~1045d9c8",
 		"default~ms-collections-ms-collections-module~ms-offers-ms-offers-module~ms-releases-ms-releases-modu~9021e546",
-		"common",
+		"default~ms-collections-ms-collections-module~ms-releases-ms-releases-module",
 		"ms-collections-ms-collections-module"
 	],
 	"../ms-deals/ms-deals.module": [
 		"./src/app/ms-back-office/modules/ms-deals/ms-deals.module.ts",
 		"default~ms-brands-ms-brands-module~ms-collections-ms-collections-module~ms-deals-ms-deals-module~ms-~a8d003f4",
-		"default~ms-brands-ms-brands-module~ms-collections-ms-collections-module~ms-deals-ms-deals-module~ms-~4095e54f",
-		"common"
+		"default~ms-brands-ms-brands-module~ms-collections-ms-collections-module~ms-deals-ms-deals-module~ms-~4095e54f"
 	],
 	"../ms-offers/ms-offers.module": [
 		"./src/app/ms-back-office/modules/ms-offers/ms-offers.module.ts",
 		"default~ms-brands-ms-brands-module~ms-collections-ms-collections-module~ms-deals-ms-deals-module~ms-~a8d003f4",
 		"default~ms-brands-ms-brands-module~ms-collections-ms-collections-module~ms-offers-ms-offers-module~m~94c757c6",
-		"default~ms-collections-ms-collections-module~ms-offers-ms-offers-module~ms-releases-ms-releases-modu~9021e546",
-		"common"
+		"default~ms-collections-ms-collections-module~ms-offers-ms-offers-module~ms-releases-ms-releases-modu~9021e546"
 	],
 	"../ms-releases/ms-releases.module": [
 		"./src/app/ms-back-office/modules/ms-releases/ms-releases.module.ts",
 		"default~ms-brands-ms-brands-module~ms-collections-ms-collections-module~ms-deals-ms-deals-module~ms-~a8d003f4",
 		"default~ms-brands-ms-brands-module~ms-collections-ms-collections-module~ms-offers-ms-offers-module~m~94c757c6",
 		"default~ms-collections-ms-collections-module~ms-offers-ms-offers-module~ms-releases-ms-releases-modu~9021e546",
-		"common",
+		"default~ms-collections-ms-collections-module~ms-releases-ms-releases-module",
 		"ms-releases-ms-releases-module"
 	],
 	"../ms-shops/ms-shops.module": [
@@ -71,8 +65,7 @@ var map = {
 		"default~ms-brands-ms-brands-module~ms-collections-ms-collections-module~ms-deals-ms-deals-module~ms-~a8d003f4",
 		"default~ms-brands-ms-brands-module~ms-collections-ms-collections-module~ms-offers-ms-offers-module~m~94c757c6",
 		"default~ms-brands-ms-brands-module~ms-collections-ms-collections-module~ms-deals-ms-deals-module~ms-~4095e54f",
-		"default~ms-brands-ms-brands-module~ms-collections-ms-collections-module~ms-shops-ms-shops-module~ms-~1045d9c8",
-		"common"
+		"default~ms-brands-ms-brands-module~ms-collections-ms-collections-module~ms-shops-ms-shops-module~ms-~1045d9c8"
 	],
 	"../ms-style/ms-style.module": [
 		"./src/app/ms-back-office/modules/ms-style/ms-style.module.ts",
@@ -81,24 +74,20 @@ var map = {
 		"default~ms-brands-ms-brands-module~ms-collections-ms-collections-module~ms-deals-ms-deals-module~ms-~4095e54f",
 		"default~ms-brands-ms-brands-module~ms-collections-ms-collections-module~ms-shops-ms-shops-module~ms-~1045d9c8",
 		"default~ms-brands-ms-brands-module~ms-style-ms-style-module",
-		"common",
 		"ms-style-ms-style-module"
 	],
 	"../ms-tasks/ms-tasks.module": [
 		"./src/app/ms-back-office/modules/ms-tasks/ms-tasks.module.ts",
 		"default~home-home-module~ms-tasks-ms-tasks-module~ms-users-ms-users-module",
-		"default~home-home-module~ms-tasks-ms-tasks-module",
-		"common"
+		"default~home-home-module~ms-tasks-ms-tasks-module"
 	],
 	"../ms-urls/ms-urls.module": [
 		"./src/app/ms-back-office/modules/ms-urls/ms-urls.module.ts",
-		"common",
 		"ms-urls-ms-urls-module"
 	],
 	"../ms-users/ms-users.module": [
 		"./src/app/ms-back-office/modules/ms-users/ms-users.module.ts",
 		"default~home-home-module~ms-tasks-ms-tasks-module~ms-users-ms-users-module",
-		"common",
 		"ms-users-ms-users-module"
 	],
 	"./blank-page/blank-page.module": [
@@ -112,7 +101,6 @@ var map = {
 	"./dashboard/dashboard.module": [
 		"./src/app/layout/dashboard/dashboard.module.ts",
 		"default~dashboard-dashboard-module~home-home-module",
-		"common",
 		"dashboard-dashboard-module"
 	],
 	"./forms/forms.module": [

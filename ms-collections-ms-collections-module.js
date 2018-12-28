@@ -7,7 +7,7 @@
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"\" [fxFlex]=\"100\" fxLayout=\"column\">\n    <div fxLayout=\"column\" class=\"padding-bottom-25px\">\n        <h1>COLLECTION CREATOR</h1>\n    </div>\n    <div class=\"flex-grow-1 display-flex flex-direction-column padding-10px overflow-auto border-top-width-2px border-top-color-grey\">\n\n        <div class=\"flex-grow-1 flex-shrink-0 display-flex flex-direction-column\">\n\n            <div class=\"\" [fxFlex]=\"100\" fxLayout=\"row\" fxLayout.lt-md=\"column\">\n\n                <div [fxFlex]=\"30\" class=\"margin-right-10px\">\n\n                    <button mat-stroked-button type=\"submit\" class=\"width-90pct max-width-480px\" (click)=\"showModal()\">Add a New Collection</button>\n\n                    <mat-form-field class=\"width-90pct padding-top-20px\">\n\n                        <mat-label>COLLECTION LIST</mat-label>\n\n                        <mat-select placeholder=\"Select\" panelOpen=\"true\">\n\n                            <mat-option *ngFor=\"let collection of collections\" [value]=\"collection.id\" (click)=\"changeCollection(collection.id)\">\n\n                                {{collection.name}}\n\n                            </mat-option>\n\n                        </mat-select>\n\n                    </mat-form-field>\n\n                </div>\n\n                <div [fxFlex]=\"70\" fxLayout=\"row\" class=\"border-2px-solid-black margin-bottom-25px liked-shops margin-right-10px padding-10px\">\n                    <div fxLayout=\"column\" class=\"flex-grow-1\">\n                        <div class=\"margin-right-25px padding-top-10px padding-bottom-10px flex-shrink-0 display-flex\">\n\n                            <mat-form-field class=\"width-90pct\">\n\n                                <mat-label>SELECT BRAND</mat-label>\n\n                                <mat-select placeholder=\"Select\" panelOpen=\"true\">\n\n                                    <mat-option *ngFor=\"let brand of brands\" [value]=\"brand.id\">\n\n                                        {{brand.name}}\n\n                                    </mat-option>\n\n                                </mat-select>\n\n                            </mat-form-field>\n\n                        </div>\n                        <h3>Linked Stores</h3>\n                        <div class=\"flex-grow-1 overflow-auto display-flex flex-direction-column padding-10px border-top-width-2px border-top-color-grey\">\n\n                            <!--div class=\"flex-grow-1 flex-shrink-0 display-flex flex-direction-column\"-->\n                            <div class=\"flex-wrap-wrap display-flex flex-grow-1 flex-shrink-1 flex-direction-row card-container justify-content-initial margin-top-10px\">\n                                <mat-card *ngFor=\"let shop of shops\" class=\"display-flex background-color-secondary flex-direction-column flex-shrink-1\">\n                                    <div class=\"image-container margin-10px flex-grow-1\" #imageContainer>\n                                        <img class=\"img\" imageLoad [srcImage]=\"shop.mainImage? shop.mainImage : ''\" [container]=\"imageContainer\" src=\"\">\n                                    </div>\n                                    <div class=\"image-card-btns display-flex margin-left-10px margin-right-10px margin-bottom-10px\">\n                                        <mat-checkbox [checked]=\"shop.checked\" class=\"margin-top-10px\" matTooltip=\"{{ 'Principal' | translate }}\" (click)=\"linked(shop)\">{{ shop.name }}</mat-checkbox>\n                                    </div>\n                                </mat-card>\n                                <!--/div-->\n                            </div>\n\n                        </div>\n                        <div class=\"justify-content-flex-end margin-right-25px padding-top-10px padding-bottom-10px flex-shrink-0 display-flex border-top-width-2px border-top-color-grey\">\n\n                            <button mat-stroked-button type=\"button\" [disabled]=\"!collectionId\">Remove Selection</button>\n\n                            <button mat-raised-button type=\"button\" [disabled]=\"!collectionId\" color=\"primary\" class=\"margin-left-10px\" (click)=\"linkShopsModal()\">{{ 'Link New Stores' | translate }}</button>\n\n                        </div>\n                        <h3>Linked Offers</h3>\n                        <div class=\"mb-20\" fxFlex fxLayout=\"column\" fxLayout.lt-md=\"column\">\n\n                            <div class=\"flex-grow-1 overflow-auto display-flex flex-direction-column\">\n\n                                <div class=\"flex-grow-1 flex-shrink-0 display-flex flex-direction-column\">\n\n                                    <offers-collection-table [collectionId]=\"collectionId\"></offers-collection-table>\n\n                                </div>\n\n                            </div>\n                            <div class=\"justify-content-flex-end margin-right-25px padding-top-10px padding-bottom-10px flex-shrink-0 display-flex border-top-width-2px border-top-color-grey\">\n\n                                <button mat-stroked-button type=\"button\" [disabled]=\"!collectionId\">Remove Selection</button>\n\n                                <button mat-raised-button type=\"button\" [disabled]=\"!collectionId\" color=\"primary\" class=\"margin-left-10px\" (click)=\"linkOffersModal()\">{{ 'Link New Offers' | translate }}</button>\n\n                            </div>\n\n                        </div>\n\n\n                    </div>\n\n                </div>\n\n            </div>\n\n        </div>\n\n    </div>\n\n    <div class=\"margin-right-25px padding-top-25px padding-bottom-25px flex-shrink-0 display-flex border-top-style-solid border-top-width-2px border-top-color-grey\">\n\n        <button mat-raised-button type=\"submit\" color=\"primary\">{{ 'Save Changes' | translate }}</button>\n\n        <button mat-raised-button type=\"button\" class=\"margin-left-10px\" (click)=\"close()\">{{ 'Cancel' | translate }}</button>\n\n    </div>\n</div>"
+module.exports = "<div class=\"\" [fxFlex]=\"100\" fxLayout=\"column\">\n    <div fxLayout=\"column\" class=\"padding-bottom-25px\">\n        <h1>COLLECTION CREATOR</h1>\n    </div>\n    <div class=\"flex-grow-1 display-flex flex-direction-column padding-10px overflow-auto border-top-width-2px border-top-color-grey\">\n\n        <div class=\"flex-grow-1 flex-shrink-0 display-flex flex-direction-column\">\n\n            <div class=\"\" [fxFlex]=\"100\" fxLayout=\"row\" fxLayout.lt-md=\"column\">\n\n                <div [fxFlex]=\"30\" class=\"margin-right-10px\">\n\n                    <button mat-stroked-button type=\"submit\" class=\"width-90pct max-width-480px\" (click)=\"showModal()\">Add a New Collection</button>\n\n                    <mat-form-field class=\"width-90pct padding-top-20px\">\n\n                        <mat-label>COLLECTION LIST</mat-label>\n\n                        <mat-select placeholder=\"Select\" panelOpen=\"true\">\n\n                            <mat-option *ngFor=\"let collection of collections\" [value]=\"collection.id\" (click)=\"changeCollection(collection.id)\">\n\n                                {{collection.name}}\n\n                            </mat-option>\n\n                        </mat-select>\n\n                    </mat-form-field>\n\n                </div>\n\n                <div [fxFlex]=\"70\" fxLayout=\"row\" class=\"border-2px-solid-black margin-bottom-25px liked-shops margin-right-10px padding-10px\">\n                    <div fxLayout=\"column\" class=\"flex-grow-1\">\n                        <div class=\"margin-right-25px padding-top-10px padding-bottom-10px flex-shrink-0 display-flex\">\n\n                            <mat-form-field class=\"width-90pct\">\n\n                                <mat-label>SELECT BRAND</mat-label>\n\n                                <mat-select placeholder=\"Select\" panelOpen=\"true\">\n\n                                    <mat-option *ngFor=\"let brand of brands\" [value]=\"brand.id\">\n\n                                        {{brand.name}}\n\n                                    </mat-option>\n\n                                </mat-select>\n\n                            </mat-form-field>\n\n                        </div>\n                        <h3>Linked Stores</h3>\n                        <div class=\"flex-grow-1 overflow-auto display-flex flex-direction-column padding-10px border-top-width-2px border-top-color-grey\">\n\n                            <!--div class=\"flex-grow-1 flex-shrink-0 display-flex flex-direction-column\"-->\n                            <div class=\"flex-wrap-wrap display-flex flex-grow-1 flex-shrink-1 flex-direction-row card-container justify-content-initial margin-top-10px\">\n                                <mat-card *ngFor=\"let shop of shops\" class=\"display-flex background-color-secondary flex-direction-column flex-shrink-1\">\n                                    <div class=\"image-container margin-10px flex-grow-1\" #imageContainer>\n                                        <img class=\"img\" imageLoad [srcImage]=\"shop.mainImage? shop.mainImage : ''\" [container]=\"imageContainer\" src=\"\">\n                                    </div>\n                                    <div class=\"image-card-btns display-flex margin-left-10px margin-right-10px margin-bottom-10px\">\n                                        <mat-checkbox [checked]=\"shop.checked\" class=\"margin-top-10px\" matTooltip=\"{{ 'Principal' | translate }}\" (click)=\"linked(shop)\">{{ shop.name }}</mat-checkbox>\n                                    </div>\n                                </mat-card>\n                                <!--/div-->\n                            </div>\n\n                        </div>\n                        <div class=\"justify-content-flex-end margin-right-25px padding-top-10px padding-bottom-10px flex-shrink-0 display-flex border-top-width-2px border-top-color-grey\">\n\n                            <button mat-stroked-button type=\"button\" [disabled]=\"!collectionId\">Remove Selection</button>\n\n                            <button mat-raised-button type=\"button\" [disabled]=\"!collectionId\" color=\"primary\" class=\"margin-left-10px\" (click)=\"linkShopsModal()\">{{ 'Link New Stores' | translate }}</button>\n\n                        </div>\n                        <h3>Linked Offers</h3>\n                        <div class=\"mb-20\" fxFlex fxLayout=\"column\" fxLayout.lt-md=\"column\">\n\n                            <div class=\"flex-grow-1 overflow-auto display-flex flex-direction-column\">\n\n                                <div class=\"flex-grow-1 flex-shrink-0 display-flex flex-direction-column\">\n\n                                    <offers-collection-table></offers-collection-table>\n\n                                </div>\n\n                            </div>\n                            <div class=\"justify-content-flex-end margin-right-25px padding-top-10px padding-bottom-10px flex-shrink-0 display-flex border-top-width-2px border-top-color-grey\">\n\n                                <button mat-stroked-button type=\"button\" [disabled]=\"!collectionId\">Remove Selection</button>\n\n                                <button mat-raised-button type=\"button\" [disabled]=\"!collectionId\" color=\"primary\" class=\"margin-left-10px\" (click)=\"linkOffersModal()\">{{ 'Link New Offers' | translate }}</button>\n\n                            </div>\n\n                        </div>\n\n                    </div>\n\n                </div>\n\n            </div>\n\n        </div>\n\n    </div>\n\n    <div class=\"margin-right-25px padding-top-25px padding-bottom-25px flex-shrink-0 display-flex border-top-style-solid border-top-width-2px border-top-color-grey\">\n\n        <button mat-raised-button type=\"submit\" color=\"primary\">{{ 'Save Changes' | translate }}</button>\n\n        <button mat-raised-button type=\"button\" class=\"margin-left-10px\" (click)=\"close()\">{{ 'Cancel' | translate }}</button>\n\n    </div>\n</div>"
 
 /***/ }),
 
@@ -352,7 +352,7 @@ var CollectionFormComponent = /** @class */ (function (_super) {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<h1>Collections Table</h1>\n\n<mat-toolbar class=\"margin-right-25px margin-bottom-10px width-auto flex-shrink-0 background-color-secondary color-primary mat-elevation-z2\"\n  [formGroup]=\"filter\">\n\n  <mat-icon matPrefix color=\"primary\">search</mat-icon>\n  <mat-form-field>\n    <input matInput formControlName=\"name\" placeholder=\"Name\">\n  </mat-form-field>\n\n  <mat-form-field>\n    <mat-label>Brand</mat-label>\n    <mat-select placeholder=\"Brand\" formControlName=\"brand\">\n      <mat-option *ngFor=\"let brand of brands\" [value]=\"brand.id\">\n        {{brand.name}}\n      </mat-option>\n    </mat-select>\n  </mat-form-field>\n\n  <span class=\"flex-grow-1\"></span>\n  <button mat-raised-button color=\"primary\" [routerLink]=\"['../create']\">CREATE A NEW COLLECTION</button>\n</mat-toolbar>\n\n<div class=\"flex-grow-1 overflow-auto display-flex\">\n\n  <table class=\"margin-top-10px margin-right-25px width-100pct\" mat-table [dataSource]=\"collections\" matSort [matSortActive]=\"collectionsService.previousSortColumn\"\n    [matSortDirection]=\"collectionsService.previousSortDirection\" matSortDisableClear (matSortChange)=\"onSort()\">\n\n    <ng-container matColumnDef=\"NAME\">\n      <th mat-header-cell *matHeaderCellDef mat-sort-header>\n        NAME\n      </th>\n      <td mat-cell *matCellDef=\"let element\" class=\"padding-table-td\"> {{ element.name }} </td>\n    </ng-container>\n\n    <ng-container matColumnDef=\"THUMBNAIL\">\n      <th mat-header-cell *matHeaderCellDef></th>\n      <td mat-cell *matCellDef=\"let element\" class=\"display-flex flex-grow-1 height-100pct padding-left-0px width-100pct\">\n        <div class=\"position-relative margin-top-5px\">\n          <img [src]=\"element.imgUrl\" class=\"height-90pct width-90pct margin-auto\" alt=\"50\">\n        </div>\n      </td>\n    </ng-container>\n\n    <ng-container matColumnDef=\"BRAND\">\n      <th mat-header-cell *matHeaderCellDef mat-sort-header>\n        BRAND\n      </th>\n      <td mat-cell *matCellDef=\"let element\" class=\"padding-table-td\"> {{ getBrand(element.brand) }} </td>\n    </ng-container>\n\n    <ng-container matColumnDef=\"ACTIONS\">\n      <th mat-header-cell *matHeaderCellDef mat-sort-header>\n      </th>\n      <td mat-cell *matCellDef=\"let element\">\n        <button mat-icon-button color=\"primary\" [matTooltip]=\"Edit\" [routerLink]=\"['../edit', element.id]\">\n          <mat-icon>edit</mat-icon>\n        </button>\n        <button mat-icon-button color=\"primary\" [matTooltip]=\"Delete\" [routerLink]=\"['../delete', element.id]\">\n          <mat-icon>delete</mat-icon>\n        </button>\n      </td>\n    </ng-container>\n\n    <tr mat-header-row *matHeaderRowDef=\"displayedColumns\"></tr>\n    <tr mat-row *matRowDef=\"let row; columns: displayedColumns;\" [ngClass]=\"row.is_active ? '' : 'text-decoration-line-through'\">\n    </tr>\n\n  </table>\n\n</div>\n\n<div class=\"margin-right-25px padding-top-15px padding-bottom-15px flex-shrink-0 display-flex border-top-style-solid border-top-width-2px border-top-color-grey\">\n  <span class=\"flex-grow-1\"></span>\n  <mat-paginator [length]=\"totalLength\" [pageSizeOptions]=\"[5, 10, 20, 50, 100]\" [pageIndex]=\"\" [pageSize]=\"50\" showFirstLastButtons\n    (page)=\"onPage()\">\n  </mat-paginator>\n</div>"
+module.exports = "<h1>Collections Table</h1>\n\n<mat-toolbar class=\"margin-right-25px margin-bottom-10px width-auto flex-shrink-0 background-color-secondary color-primary mat-elevation-z2\"\n  [formGroup]=\"filter\">\n\n  <mat-icon matPrefix color=\"primary\">search</mat-icon>\n  <mat-form-field>\n    <input matInput formControlName=\"name\" placeholder=\"Name\">\n  </mat-form-field>\n\n  <mat-form-field>\n    <mat-label>Brand</mat-label>\n    <mat-select placeholder=\"Brand\" formControlName=\"brand\">\n      <mat-option *ngFor=\"let brand of brands\" [value]=\"brand.id\">\n        {{brand.name}}\n      </mat-option>\n    </mat-select>\n  </mat-form-field>\n\n  <span class=\"flex-grow-1\"></span>\n  <button mat-raised-button color=\"primary\" [routerLink]=\"['../create']\">CREATE A NEW COLLECTION</button>\n</mat-toolbar>\n\n<div class=\"flex-grow-1 overflow-auto display-flex\">\n\n  <table class=\"margin-top-10px margin-right-25px width-100pct\" mat-table [dataSource]=\"collections\" matSort [matSortActive]=\"collectionsService.previousSortColumn\"\n    [matSortDirection]=\"collectionsService.previousSortDirection\" matSortDisableClear (matSortChange)=\"onSort()\">\n\n    <ng-container matColumnDef=\"name\">\n      <th mat-header-cell *matHeaderCellDef mat-sort-header>\n        NAME\n      </th>\n      <td mat-cell *matCellDef=\"let element\" class=\"padding-table-td\"> {{ element.name }} </td>\n    </ng-container>\n\n    <ng-container matColumnDef=\"thumbnail\">\n      <th mat-header-cell *matHeaderCellDef></th>\n      <td mat-cell *matCellDef=\"let element\" class=\"display-flex flex-grow-1 height-100pct padding-left-0px width-100pct\">\n        <div class=\"position-relative margin-top-5px\">\n          <img [src]=\"element.imgUrl\" class=\"height-90pct width-90pct margin-auto\" alt=\"50\">\n        </div>\n      </td>\n    </ng-container>\n\n    <ng-container matColumnDef=\"brand\">\n      <th mat-header-cell *matHeaderCellDef mat-sort-header>\n        BRAND\n      </th>\n      <td mat-cell *matCellDef=\"let element\" class=\"padding-table-td\"> {{ getBrand(element.brand) }} </td>\n    </ng-container>\n\n    <ng-container matColumnDef=\"action\">\n      <th mat-header-cell *matHeaderCellDef>\n      </th>\n      <td mat-cell *matCellDef=\"let element\">\n        <button mat-icon-button color=\"primary\" [matTooltip]=\"Edit\" [routerLink]=\"['../edit', element.id]\">\n          <mat-icon>edit</mat-icon>\n        </button>\n        <button mat-icon-button color=\"primary\" [matTooltip]=\"Delete\" [routerLink]=\"['../delete', element.id]\">\n          <mat-icon>delete</mat-icon>\n        </button>\n      </td>\n    </ng-container>\n\n    <tr mat-header-row *matHeaderRowDef=\"displayedColumns\"></tr>\n    <tr mat-row *matRowDef=\"let row; columns: displayedColumns;\" [ngClass]=\"row.is_active ? '' : 'text-decoration-line-through'\">\n    </tr>\n\n  </table>\n\n</div>\n\n<div class=\"margin-right-25px padding-top-15px padding-bottom-15px flex-shrink-0 display-flex border-top-style-solid border-top-width-2px border-top-color-grey\">\n  <span class=\"flex-grow-1\"></span>\n  <mat-paginator [length]=\"totalLength\" [pageSizeOptions]=\"[5, 10, 20, 50, 100]\" [pageIndex]=\"\" [pageSize]=\"50\" showFirstLastButtons\n    (page)=\"onPage()\">\n  </mat-paginator>\n</div>"
 
 /***/ }),
 
@@ -410,10 +410,10 @@ var CollectionsTableComponent = /** @class */ (function () {
         this.collectionsService = collectionsService;
         this.errorHandlingService = errorHandlingService;
         this.displayedColumns = [
-            'NAME',
-            'THUMBNAIL',
-            'BRAND',
-            'ACTIONS'
+            'name',
+            'thumbnail',
+            'brand',
+            'action'
         ];
         this.totalLength = 0;
         this.collections = [];
@@ -647,6 +647,237 @@ var DeleteCollectionComponent = /** @class */ (function () {
 
 /***/ }),
 
+/***/ "./src/app/ms-back-office/modules/ms-collections/components/edit-collection-form/edit-collection-form.component.html":
+/*!***************************************************************************************************************************!*\
+  !*** ./src/app/ms-back-office/modules/ms-collections/components/edit-collection-form/edit-collection-form.component.html ***!
+  \***************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<form class=\"flex-grow-1 min-height-0 display-flex flex-direction-column\" [askBeforeRefresh]=\"formGroup.dirty\" [formGroup]=\"formGroup\"\n    novalidate role=\"form\" (ngSubmit)=\"submitClicked()\" autocomplete=\"off\" inputFocus>\n\n    <mat-tab-group>\n\n        <mat-tab label=\"Collection\">\n\n            <div class=\"flex-grow-1 overflow-auto display-flex flex-direction-column padding-top-25px\">\n\n                <div class=\"flex-grow-1 flex-shrink-0 display-flex flex-direction-column\">\n\n                    <mat-form-field class=\"width-100pc margin-left-16px\">\n\n                        <mat-label>Name</mat-label>\n\n                        <input matInput type=\"text\" formControlName=\"name\" required>\n\n                    </mat-form-field>\n\n                    <mat-form-field>\n                        <mat-label>Brand</mat-label>\n                        <mat-select placeholder=\"Brand\" formControlName=\"brand\" required>\n                            <mat-option *ngFor=\"let brand of brands\" [value]=\"brand.id\">\n                                {{brand.name}}\n                            </mat-option>\n                        </mat-select>\n                    </mat-form-field>\n\n                    <div [fxFlex]=\"50\" class=\"border width-480px\">\n\n                        <image-card class=\"flex-grow-1 padding-10px\" formControlName=\"faces\" [principal]=\"principal\"></image-card>\n\n                    </div>\n\n                    <mat-form-field class=\"width-100pc margin-left-16px\">\n\n                        <mat-label>Description</mat-label>\n\n                        <textarea matInput formControlName=\"description\"></textarea>\n\n                    </mat-form-field>\n\n                </div>\n\n            </div>\n\n        </mat-tab>\n\n        <mat-tab label=\"Linked Shops\" class=\"width-50pc\">\n\n            <div fxLayout=\"row\" class=\"margin-bottom-25px liked-shops margin-right-10px padding-10px\">\n                <div fxLayout=\"column\" class=\"flex-grow-1\">\n\n                    <h3>Linked Stores</h3>\n                    <div class=\"flex-grow-1 overflow-auto display-flex flex-direction-column padding-10px border-top-width-2px border-top-color-grey\">\n\n                        <!--div class=\"flex-grow-1 flex-shrink-0 display-flex flex-direction-column\"-->\n                        <div class=\"flex-wrap-wrap display-flex flex-grow-1 flex-shrink-1 flex-direction-row card-container justify-content-initial margin-top-10px\">\n                            <mat-card *ngFor=\"let shop of shops\" class=\"display-flex background-color-secondary flex-direction-column flex-shrink-1\">\n                                <div class=\"image-container margin-10px flex-grow-1\" #imageContainer>\n                                    <img class=\"img\" imageLoad [srcImage]=\"shop.mainImage? shop.mainImage : ''\" [container]=\"imageContainer\" src=\"\">\n                                </div>\n                                <div class=\"image-card-btns display-flex margin-left-10px margin-right-10px margin-bottom-10px\">\n                                    <mat-checkbox [checked]=\"shop.checked\" class=\"margin-top-10px\" matTooltip=\"{{ 'Principal' | translate }}\" (click)=\"linked(shop)\">{{ shop.name }}</mat-checkbox>\n                                </div>\n                            </mat-card>\n                            <!--/div-->\n                        </div>\n\n                    </div>\n                    <div class=\"justify-content-flex-end margin-right-25px padding-top-10px padding-bottom-10px flex-shrink-0 display-flex border-top-width-2px border-top-color-grey\">\n\n                        <button mat-stroked-button type=\"button\" [disabled]=\"!collectionId\">Remove Selection</button>\n\n                        <button mat-raised-button type=\"button\" [disabled]=\"!collectionId\" color=\"primary\" class=\"margin-left-10px\" (click)=\"linkShopsModal()\">{{ 'Link New Stores' | translate }}</button>\n\n                    </div>\n                    <h3>Linked Offers</h3>\n                    <div class=\"mb-20\" fxFlex fxLayout=\"column\" fxLayout.lt-md=\"column\">\n\n                        <div class=\"flex-grow-1 overflow-auto display-flex flex-direction-column\">\n\n                            <div class=\"flex-grow-1 flex-shrink-0 display-flex flex-direction-column\">\n\n                                <offers-collection-table></offers-collection-table>\n\n                            </div>\n\n                        </div>\n                        <div class=\"justify-content-flex-end margin-right-25px padding-top-10px padding-bottom-10px flex-shrink-0 display-flex border-top-width-2px border-top-color-grey\">\n\n                            <button mat-stroked-button type=\"button\" [disabled]=\"!collectionId\">Remove Selection</button>\n\n                            <button mat-raised-button type=\"button\" [disabled]=\"!collectionId\" color=\"primary\" class=\"margin-left-10px\" (click)=\"linkOffersModal()\">{{ 'Link New Offers' | translate }}</button>\n\n                        </div>\n\n                    </div>\n\n                </div>\n\n            </div>\n\n        </mat-tab>\n\n        <mat-tab label=\"Releases\" class=\"width-50pc\">\n\n            <releases-collection-table [collectionId]=\"collectionId\"></releases-collection-table>\n\n        </mat-tab>\n    </mat-tab-group>\n\n    <div class=\"margin-right-25px padding-top-25px padding-bottom-25px flex-shrink-0 display-flex border-top-style-solid border-top-width-2px border-top-color-grey\">\n\n        <button mat-raised-button type=\"submit\" color=\"primary\">{{ 'Save' | translate }}</button>\n\n        <button mat-raised-button type=\"button\" class=\"margin-left-10px\" (click)=\"cancelClicked()\">{{ 'Cancel' | translate }}</button>\n\n    </div>\n</form>"
+
+/***/ }),
+
+/***/ "./src/app/ms-back-office/modules/ms-collections/components/edit-collection-form/edit-collection-form.component.scss":
+/*!***************************************************************************************************************************!*\
+  !*** ./src/app/ms-back-office/modules/ms-collections/components/edit-collection-form/edit-collection-form.component.scss ***!
+  \***************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = ":host {\n  display: flex;\n  flex-direction: column;\n  flex-grow: 1; }\n\n.height-34px {\n  height: 34px !important; }\n\n.width-100pc {\n  width: 100%; }\n\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvbXMtYmFjay1vZmZpY2UvbW9kdWxlcy9tcy1jb2xsZWN0aW9ucy9jb21wb25lbnRzL2VkaXQtY29sbGVjdGlvbi1mb3JtL0U6XFxQUk9HUkFNQUNJT04gSUlJXFxtb3Jlc25lYWtlcnMtYmFja29mZmljZS9zcmNcXGFwcFxcbXMtYmFjay1vZmZpY2VcXG1vZHVsZXNcXG1zLWNvbGxlY3Rpb25zXFxjb21wb25lbnRzXFxlZGl0LWNvbGxlY3Rpb24tZm9ybVxcZWRpdC1jb2xsZWN0aW9uLWZvcm0uY29tcG9uZW50LnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFDSSxjQUFhO0VBQ2IsdUJBQXNCO0VBQ3RCLGFBQVksRUFDZjs7QUFFRDtFQUNJLHdCQUF1QixFQUMxQjs7QUFFRDtFQUNJLFlBQVcsRUFDZCIsImZpbGUiOiJzcmMvYXBwL21zLWJhY2stb2ZmaWNlL21vZHVsZXMvbXMtY29sbGVjdGlvbnMvY29tcG9uZW50cy9lZGl0LWNvbGxlY3Rpb24tZm9ybS9lZGl0LWNvbGxlY3Rpb24tZm9ybS5jb21wb25lbnQuc2NzcyIsInNvdXJjZXNDb250ZW50IjpbIjpob3N0IHtcclxuICAgIGRpc3BsYXk6IGZsZXg7XHJcbiAgICBmbGV4LWRpcmVjdGlvbjogY29sdW1uO1xyXG4gICAgZmxleC1ncm93OiAxO1xyXG59XHJcblxyXG4uaGVpZ2h0LTM0cHh7XHJcbiAgICBoZWlnaHQ6IDM0cHggIWltcG9ydGFudDtcclxufVxyXG5cclxuLndpZHRoLTEwMHBje1xyXG4gICAgd2lkdGg6IDEwMCU7XHJcbn1cclxuXHJcbiJdfQ== */"
+
+/***/ }),
+
+/***/ "./src/app/ms-back-office/modules/ms-collections/components/edit-collection-form/edit-collection-form.component.ts":
+/*!*************************************************************************************************************************!*\
+  !*** ./src/app/ms-back-office/modules/ms-collections/components/edit-collection-form/edit-collection-form.component.ts ***!
+  \*************************************************************************************************************************/
+/*! exports provided: EditCollectionFormComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "EditCollectionFormComponent", function() { return EditCollectionFormComponent; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm5/forms.js");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+/* harmony import */ var _angular_material__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/material */ "./node_modules/@angular/material/esm5/material.es5.js");
+/* harmony import */ var _ngx_translate_core__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @ngx-translate/core */ "./node_modules/@ngx-translate/core/fesm5/ngx-translate-core.js");
+/* harmony import */ var _ui_modules_images_card_models_face__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../../../ui/modules/images-card/models/face */ "./src/app/ui/modules/images-card/models/face.ts");
+/* harmony import */ var _ui_components_base_reactive_form_base_reactive_form_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../../../../ui/components/base-reactive-form/base-reactive-form-component */ "./src/app/ui/components/base-reactive-form/base-reactive-form-component.ts");
+/* harmony import */ var _error_handling_services_error_handling_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../../../../error-handling/services/error-handling.service */ "./src/app/error-handling/services/error-handling.service.ts");
+/* harmony import */ var _error_handling_services_toastr_service__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../../../../error-handling/services/toastr.service */ "./src/app/error-handling/services/toastr.service.ts");
+/* harmony import */ var _services_collections_service__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../../services/collections.service */ "./src/app/ms-back-office/modules/ms-collections/services/collections.service.ts");
+/* harmony import */ var _ms_offers_components_link_offers_collection_link_offers_collection_modal_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../../../ms-offers/components/link-offers-collection/link-offers-collection-modal.component */ "./src/app/ms-back-office/modules/ms-offers/components/link-offers-collection/link-offers-collection-modal.component.ts");
+/* harmony import */ var _ms_shops_components_link_shops_collection_link_shops_collection_modal_component__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../../../ms-shops/components/link-shops-collection/link-shops-collection-modal.component */ "./src/app/ms-back-office/modules/ms-shops/components/link-shops-collection/link-shops-collection-modal.component.ts");
+var __extends = (undefined && undefined.__extends) || (function () {
+    var extendStatics = Object.setPrototypeOf ||
+        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+//
+
+
+//
+
+
+
+
+
+
+
+var errorKey = 'Error';
+var EditCollectionFormComponent = /** @class */ (function (_super) {
+    __extends(EditCollectionFormComponent, _super);
+    function EditCollectionFormComponent(activatedRoute, formBuilder, collectionsService, errorHandlingService, toastr, dialog, translateService) {
+        var _this = _super.call(this, translateService) || this;
+        _this.activatedRoute = activatedRoute;
+        _this.formBuilder = formBuilder;
+        _this.collectionsService = collectionsService;
+        _this.errorHandlingService = errorHandlingService;
+        _this.toastr = toastr;
+        _this.dialog = dialog;
+        _this.faceList = [];
+        return _this;
+        //setTranslations(this.translateService, TRANSLATIONS);TODO
+    }
+    EditCollectionFormComponent.prototype.ngOnInit = function () {
+        this.shops = this.activatedRoute.snapshot.data.shops;
+        var validationsErrors = [
+            {
+                type: 'required',
+                key: 'Required Field',
+                params: null,
+                translation: ''
+            }
+        ];
+        this.validationErrorMessages = validationsErrors;
+        this.createFormGroup();
+    };
+    EditCollectionFormComponent.prototype.createFormGroup = function () {
+        this.faces = this.formBuilder.control(this.faceList);
+        this.formGroup = new _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormGroup"]({
+            faces: this.faces,
+            name: new _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormControl"](this.data.name, [_angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].required]),
+            description: new _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormControl"](this.data.description),
+            brand: new _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormControl"](this.data.brand, [_angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].required]),
+        });
+    };
+    EditCollectionFormComponent.prototype.submitClicked = function () {
+        if (this.formGroup.valid) {
+            this.accept.emit(this.data);
+        }
+        else {
+            this.triggerValidation();
+        }
+    };
+    EditCollectionFormComponent.prototype.linkShopsModal = function () {
+        this.modalRef = this.dialog.open(_ms_shops_components_link_shops_collection_link_shops_collection_modal_component__WEBPACK_IMPORTED_MODULE_11__["LinkShopsCollentionModalComponent"], {
+            height: '90%',
+            width: '90%',
+            data: {
+                collectionId: this.collectionId,
+                shops: this.shops,
+            }
+        });
+    };
+    EditCollectionFormComponent.prototype.linkOffersModal = function () {
+        this.modalRef = this.dialog.open(_ms_offers_components_link_offers_collection_link_offers_collection_modal_component__WEBPACK_IMPORTED_MODULE_10__["LinkOffersCollentionModalComponent"], {
+            height: '90%',
+            width: '90%',
+            data: {
+                collectionId: this.collectionId,
+                shops: this.shops,
+            }
+        });
+    };
+    EditCollectionFormComponent.prototype.linked = function (shop) {
+        shop.linked = !shop.linked;
+        if (shop.linked) {
+            this.linkedShops = this.linkedShops.concat([shop.id]);
+        }
+        else {
+            var indexLinked_1 = this.linkedShops.findIndex(function (val) { return val === shop.id; });
+            if (indexLinked_1 > -1) {
+                var linked_1 = [];
+                this.linkedShops.forEach(function (shopId, index) {
+                    if (index != indexLinked_1) {
+                        linked_1 = linked_1.concat([shopId]);
+                    }
+                });
+                this.linkedShops = linked_1;
+            }
+        }
+    };
+    EditCollectionFormComponent.prototype.isLinked = function (id) {
+        var isLinked = this.linkedShops.findIndex(function (shopId) { return shopId === id; }) > -1;
+        if (isLinked) {
+            var index = this.shops.findIndex(function (shop) { return shop.id === id; });
+            this.shops[index].linked = true;
+            this.shops[index].checked = true;
+        }
+        else {
+            var index = this.shops.findIndex(function (shop) { return shop.id === id; });
+            this.shops[index].linked = false;
+            this.shops[index].checked = false;
+        }
+    };
+    EditCollectionFormComponent.prototype.changeCollection = function (collectionId) {
+        var _this = this;
+        this.collectionId = collectionId;
+        this.collectionsService.getCollectionLinkedShops(collectionId).subscribe(function (response) {
+            _this.linkedShops = response.data;
+            _this.shops.forEach(function (shop) {
+                _this.isLinked(shop.id);
+            });
+        }, function (error) {
+            _this.errorHandlingService.handleUiError(errorKey, error);
+        });
+    };
+    EditCollectionFormComponent.prototype.save = function () {
+        var _this = this;
+        this.collectionsService.postCollectionLinkedShops(this.collectionId, this.linkedShops).subscribe(function (response) {
+            _this.toastr.success("Saved");
+        }, function (error) {
+            _this.errorHandlingService.handleUiError(errorKey, error);
+        });
+    };
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])(),
+        __metadata("design:type", Array)
+    ], EditCollectionFormComponent.prototype, "brands", void 0);
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])(),
+        __metadata("design:type", Array)
+    ], EditCollectionFormComponent.prototype, "faceList", void 0);
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])(),
+        __metadata("design:type", _ui_modules_images_card_models_face__WEBPACK_IMPORTED_MODULE_5__["Face"])
+    ], EditCollectionFormComponent.prototype, "principal", void 0);
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])(),
+        __metadata("design:type", String)
+    ], EditCollectionFormComponent.prototype, "collectionId", void 0);
+    EditCollectionFormComponent = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+            selector: 'edit-collection-form',
+            template: __webpack_require__(/*! ./edit-collection-form.component.html */ "./src/app/ms-back-office/modules/ms-collections/components/edit-collection-form/edit-collection-form.component.html"),
+            styles: [__webpack_require__(/*! ./edit-collection-form.component.scss */ "./src/app/ms-back-office/modules/ms-collections/components/edit-collection-form/edit-collection-form.component.scss")],
+            changeDetection: _angular_core__WEBPACK_IMPORTED_MODULE_0__["ChangeDetectionStrategy"].OnPush
+        }),
+        __metadata("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"],
+            _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormBuilder"],
+            _services_collections_service__WEBPACK_IMPORTED_MODULE_9__["CollectionsService"],
+            _error_handling_services_error_handling_service__WEBPACK_IMPORTED_MODULE_7__["ErrorHandlingService"],
+            _error_handling_services_toastr_service__WEBPACK_IMPORTED_MODULE_8__["ToastrService"],
+            _angular_material__WEBPACK_IMPORTED_MODULE_3__["MatDialog"],
+            _ngx_translate_core__WEBPACK_IMPORTED_MODULE_4__["TranslateService"]])
+    ], EditCollectionFormComponent);
+    return EditCollectionFormComponent;
+}(_ui_components_base_reactive_form_base_reactive_form_component__WEBPACK_IMPORTED_MODULE_6__["BaseReactiveFormComponent"]));
+
+
+
+/***/ }),
+
 /***/ "./src/app/ms-back-office/modules/ms-collections/components/edit-collection/edit-collection.component.html":
 /*!*****************************************************************************************************************!*\
   !*** ./src/app/ms-back-office/modules/ms-collections/components/edit-collection/edit-collection.component.html ***!
@@ -654,7 +885,7 @@ var DeleteCollectionComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<h1>EDIT COLLECTION</h1>\n\n<collection-form *ngIf=\"data\"\n    [data]=\"data\"\n    [brands]=\"brands\"\n    [faceList]=\"faceList\"\n    [principal]=\"principal\"\n    (accept)=\"submit($event)\"\n    [validationErrors]=\"validationErrors\"\n    (cancel)=\"cancel()\"\n    (dataChange)=\"dataChanged()\">\n</collection-form>\n"
+module.exports = "<h1>EDIT COLLECTION</h1>\n\n<edit-collection-form *ngIf=\"data\"\n    [data]=\"data\"\n    [brands]=\"brands\"\n    [collectionId]=\"collectionId\"\n    [faceList]=\"faceList\"\n    [principal]=\"principal\"\n    (accept)=\"submit($event)\"\n    [validationErrors]=\"validationErrors\"\n    (cancel)=\"cancel()\"\n    (dataChange)=\"dataChanged()\">\n</edit-collection-form>\n"
 
 /***/ }),
 
@@ -1080,7 +1311,9 @@ var routes = [
         resolve: {
             config: _config_services_config_resolve_service__WEBPACK_IMPORTED_MODULE_7__["ConfigResolveService"],
             brands: _ms_brands_services_brands_resolve_service__WEBPACK_IMPORTED_MODULE_8__["BrandsResolveService"],
-            collectionId: _routing_services_id_resolve_service__WEBPACK_IMPORTED_MODULE_10__["IdResolveService"]
+            collectionId: _routing_services_id_resolve_service__WEBPACK_IMPORTED_MODULE_10__["IdResolveService"],
+            shops: _ms_shops_services_shops_resolve_service__WEBPACK_IMPORTED_MODULE_11__["ShopsResolveService"],
+            collections: _services_collections_resolve_service__WEBPACK_IMPORTED_MODULE_6__["CollectionsResolveService"],
         },
         data: { closeRouteCommand: ['../../'] }
     },
@@ -1139,15 +1372,18 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _ui_modules_image_card_image_card_module__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ../../../ui/modules/image-card/image-card.module */ "./src/app/ui/modules/image-card/image-card.module.ts");
 /* harmony import */ var _ms_offers_ms_offers_module__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ../ms-offers/ms-offers.module */ "./src/app/ms-back-office/modules/ms-offers/ms-offers.module.ts");
 /* harmony import */ var _ms_shops_ms_shops_module__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ../ms-shops/ms-shops.module */ "./src/app/ms-back-office/modules/ms-shops/ms-shops.module.ts");
-/* harmony import */ var _ms_shops_components_link_shops_collection_link_shops_collection_modal_component__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ../ms-shops/components/link-shops-collection/link-shops-collection-modal.component */ "./src/app/ms-back-office/modules/ms-shops/components/link-shops-collection/link-shops-collection-modal.component.ts");
-/* harmony import */ var _ms_offers_components_link_offers_collection_link_offers_collection_modal_component__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ../ms-offers/components/link-offers-collection/link-offers-collection-modal.component */ "./src/app/ms-back-office/modules/ms-offers/components/link-offers-collection/link-offers-collection-modal.component.ts");
-/* harmony import */ var _ms_collections_routing_module__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ./ms-collections-routing.module */ "./src/app/ms-back-office/modules/ms-collections/ms-collections-routing.module.ts");
-/* harmony import */ var _components_collection_creator_collection_creator_component__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ./components/collection-creator/collection-creator.component */ "./src/app/ms-back-office/modules/ms-collections/components/collection-creator/collection-creator.component.ts");
-/* harmony import */ var _components_collections_table_collections_table_component__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! ./components/collections-table/collections-table.component */ "./src/app/ms-back-office/modules/ms-collections/components/collections-table/collections-table.component.ts");
-/* harmony import */ var _components_collection_form_collection_form_component__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! ./components/collection-form/collection-form.component */ "./src/app/ms-back-office/modules/ms-collections/components/collection-form/collection-form.component.ts");
-/* harmony import */ var _components_new_collection_new_collection_component__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(/*! ./components/new-collection/new-collection.component */ "./src/app/ms-back-office/modules/ms-collections/components/new-collection/new-collection.component.ts");
-/* harmony import */ var _components_edit_collection_edit_collection_component__WEBPACK_IMPORTED_MODULE_25__ = __webpack_require__(/*! ./components/edit-collection/edit-collection.component */ "./src/app/ms-back-office/modules/ms-collections/components/edit-collection/edit-collection.component.ts");
-/* harmony import */ var _components_delete_collection_delete_collection_component__WEBPACK_IMPORTED_MODULE_26__ = __webpack_require__(/*! ./components/delete-collection/delete-collection.component */ "./src/app/ms-back-office/modules/ms-collections/components/delete-collection/delete-collection.component.ts");
+/* harmony import */ var _ms_releases_ms_releases_module__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ../ms-releases/ms-releases.module */ "./src/app/ms-back-office/modules/ms-releases/ms-releases.module.ts");
+/* harmony import */ var _ms_releases_components_new_release_modal_new_release_modal_component__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ../ms-releases/components/new-release-modal/new-release-modal.component */ "./src/app/ms-back-office/modules/ms-releases/components/new-release-modal/new-release-modal.component.ts");
+/* harmony import */ var _ms_shops_components_link_shops_collection_link_shops_collection_modal_component__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ../ms-shops/components/link-shops-collection/link-shops-collection-modal.component */ "./src/app/ms-back-office/modules/ms-shops/components/link-shops-collection/link-shops-collection-modal.component.ts");
+/* harmony import */ var _ms_offers_components_link_offers_collection_link_offers_collection_modal_component__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ../ms-offers/components/link-offers-collection/link-offers-collection-modal.component */ "./src/app/ms-back-office/modules/ms-offers/components/link-offers-collection/link-offers-collection-modal.component.ts");
+/* harmony import */ var _ms_collections_routing_module__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! ./ms-collections-routing.module */ "./src/app/ms-back-office/modules/ms-collections/ms-collections-routing.module.ts");
+/* harmony import */ var _components_collection_creator_collection_creator_component__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! ./components/collection-creator/collection-creator.component */ "./src/app/ms-back-office/modules/ms-collections/components/collection-creator/collection-creator.component.ts");
+/* harmony import */ var _components_collections_table_collections_table_component__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(/*! ./components/collections-table/collections-table.component */ "./src/app/ms-back-office/modules/ms-collections/components/collections-table/collections-table.component.ts");
+/* harmony import */ var _components_collection_form_collection_form_component__WEBPACK_IMPORTED_MODULE_25__ = __webpack_require__(/*! ./components/collection-form/collection-form.component */ "./src/app/ms-back-office/modules/ms-collections/components/collection-form/collection-form.component.ts");
+/* harmony import */ var _components_new_collection_new_collection_component__WEBPACK_IMPORTED_MODULE_26__ = __webpack_require__(/*! ./components/new-collection/new-collection.component */ "./src/app/ms-back-office/modules/ms-collections/components/new-collection/new-collection.component.ts");
+/* harmony import */ var _components_edit_collection_edit_collection_component__WEBPACK_IMPORTED_MODULE_27__ = __webpack_require__(/*! ./components/edit-collection/edit-collection.component */ "./src/app/ms-back-office/modules/ms-collections/components/edit-collection/edit-collection.component.ts");
+/* harmony import */ var _components_edit_collection_form_edit_collection_form_component__WEBPACK_IMPORTED_MODULE_28__ = __webpack_require__(/*! ./components/edit-collection-form/edit-collection-form.component */ "./src/app/ms-back-office/modules/ms-collections/components/edit-collection-form/edit-collection-form.component.ts");
+/* harmony import */ var _components_delete_collection_delete_collection_component__WEBPACK_IMPORTED_MODULE_29__ = __webpack_require__(/*! ./components/delete-collection/delete-collection.component */ "./src/app/ms-back-office/modules/ms-collections/components/delete-collection/delete-collection.component.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1186,6 +1422,9 @@ var __decorate = (undefined && undefined.__decorate) || function (decorators, ta
 
 
 
+
+
+
 var MsCollectionsModule = /** @class */ (function () {
     function MsCollectionsModule() {
     }
@@ -1209,35 +1448,40 @@ var MsCollectionsModule = /** @class */ (function () {
                 _angular_material_select__WEBPACK_IMPORTED_MODULE_8__["MatSelectModule"],
                 _angular_material_sort__WEBPACK_IMPORTED_MODULE_9__["MatSortModule"],
                 _angular_material__WEBPACK_IMPORTED_MODULE_6__["MatTableModule"],
+                _angular_material__WEBPACK_IMPORTED_MODULE_6__["MatTabsModule"],
                 _angular_material_toolbar__WEBPACK_IMPORTED_MODULE_10__["MatToolbarModule"],
                 _angular_material_tooltip__WEBPACK_IMPORTED_MODULE_11__["MatTooltipModule"],
                 _ngx_translate_core__WEBPACK_IMPORTED_MODULE_13__["TranslateModule"],
-                _ms_collections_routing_module__WEBPACK_IMPORTED_MODULE_20__["MsCollectionsRoutingModule"],
+                _ms_collections_routing_module__WEBPACK_IMPORTED_MODULE_22__["MsCollectionsRoutingModule"],
                 _ui_modules_ask_before_refresh_ask_before_refresh_module__WEBPACK_IMPORTED_MODULE_14__["AskBeforeRefreshModule"],
                 _ui_modules_image_card_image_card_module__WEBPACK_IMPORTED_MODULE_15__["ImageCardModule"],
                 _ms_offers_ms_offers_module__WEBPACK_IMPORTED_MODULE_16__["MsOffersModule"],
+                _ms_releases_ms_releases_module__WEBPACK_IMPORTED_MODULE_18__["MsReleasesModule"],
                 _ms_shops_ms_shops_module__WEBPACK_IMPORTED_MODULE_17__["MsShopsModule"],
             ],
             declarations: [
-                _components_collection_creator_collection_creator_component__WEBPACK_IMPORTED_MODULE_21__["CollectionCreatorComponent"],
-                _components_collections_table_collections_table_component__WEBPACK_IMPORTED_MODULE_22__["CollectionsTableComponent"],
-                _components_collection_form_collection_form_component__WEBPACK_IMPORTED_MODULE_23__["CollectionFormComponent"],
-                _components_new_collection_new_collection_component__WEBPACK_IMPORTED_MODULE_24__["NewCollectionComponent"],
-                _components_edit_collection_edit_collection_component__WEBPACK_IMPORTED_MODULE_25__["EditCollectionComponent"],
-                _components_delete_collection_delete_collection_component__WEBPACK_IMPORTED_MODULE_26__["DeleteCollectionComponent"]
+                _components_collection_creator_collection_creator_component__WEBPACK_IMPORTED_MODULE_23__["CollectionCreatorComponent"],
+                _components_collections_table_collections_table_component__WEBPACK_IMPORTED_MODULE_24__["CollectionsTableComponent"],
+                _components_collection_form_collection_form_component__WEBPACK_IMPORTED_MODULE_25__["CollectionFormComponent"],
+                _components_new_collection_new_collection_component__WEBPACK_IMPORTED_MODULE_26__["NewCollectionComponent"],
+                _components_edit_collection_edit_collection_component__WEBPACK_IMPORTED_MODULE_27__["EditCollectionComponent"],
+                _components_edit_collection_form_edit_collection_form_component__WEBPACK_IMPORTED_MODULE_28__["EditCollectionFormComponent"],
+                _components_delete_collection_delete_collection_component__WEBPACK_IMPORTED_MODULE_29__["DeleteCollectionComponent"]
             ],
             exports: [
-                _components_collection_creator_collection_creator_component__WEBPACK_IMPORTED_MODULE_21__["CollectionCreatorComponent"],
-                _components_collections_table_collections_table_component__WEBPACK_IMPORTED_MODULE_22__["CollectionsTableComponent"],
-                _components_collection_form_collection_form_component__WEBPACK_IMPORTED_MODULE_23__["CollectionFormComponent"],
-                _components_new_collection_new_collection_component__WEBPACK_IMPORTED_MODULE_24__["NewCollectionComponent"],
-                _components_edit_collection_edit_collection_component__WEBPACK_IMPORTED_MODULE_25__["EditCollectionComponent"],
-                _components_delete_collection_delete_collection_component__WEBPACK_IMPORTED_MODULE_26__["DeleteCollectionComponent"]
+                _components_collection_creator_collection_creator_component__WEBPACK_IMPORTED_MODULE_23__["CollectionCreatorComponent"],
+                _components_collections_table_collections_table_component__WEBPACK_IMPORTED_MODULE_24__["CollectionsTableComponent"],
+                _components_collection_form_collection_form_component__WEBPACK_IMPORTED_MODULE_25__["CollectionFormComponent"],
+                _components_new_collection_new_collection_component__WEBPACK_IMPORTED_MODULE_26__["NewCollectionComponent"],
+                _components_edit_collection_edit_collection_component__WEBPACK_IMPORTED_MODULE_27__["EditCollectionComponent"],
+                _components_edit_collection_form_edit_collection_form_component__WEBPACK_IMPORTED_MODULE_28__["EditCollectionFormComponent"],
+                _components_delete_collection_delete_collection_component__WEBPACK_IMPORTED_MODULE_29__["DeleteCollectionComponent"]
             ],
             entryComponents: [
-                _components_new_collection_new_collection_component__WEBPACK_IMPORTED_MODULE_24__["NewCollectionComponent"],
-                _ms_shops_components_link_shops_collection_link_shops_collection_modal_component__WEBPACK_IMPORTED_MODULE_18__["LinkShopsCollentionModalComponent"],
-                _ms_offers_components_link_offers_collection_link_offers_collection_modal_component__WEBPACK_IMPORTED_MODULE_19__["LinkOffersCollentionModalComponent"],
+                _components_new_collection_new_collection_component__WEBPACK_IMPORTED_MODULE_26__["NewCollectionComponent"],
+                _ms_shops_components_link_shops_collection_link_shops_collection_modal_component__WEBPACK_IMPORTED_MODULE_20__["LinkShopsCollentionModalComponent"],
+                _ms_offers_components_link_offers_collection_link_offers_collection_modal_component__WEBPACK_IMPORTED_MODULE_21__["LinkOffersCollentionModalComponent"],
+                _ms_releases_components_new_release_modal_new_release_modal_component__WEBPACK_IMPORTED_MODULE_19__["NewReleaseModalComponent"],
             ]
         })
     ], MsCollectionsModule);

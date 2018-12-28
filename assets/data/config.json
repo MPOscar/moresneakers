@@ -27,7 +27,7 @@
       "apiEndpoint": "http://ec2-35-180-74-253.eu-west-3.compute.amazonaws.com/api/v1/collections/"
     },
     "offers": {
-      "apiEndpoint": "http://ec2-35-180-74-253.eu-west-3.compute.amazonaws.com/api/v1/Offers/"
+      "apiEndpoint": "http://ec2-35-180-74-253.eu-west-3.compute.amazonaws.com/api/v1/offers/"
     },
     "shops": {
       "apiEndpoint": "http://ec2-35-180-74-253.eu-west-3.compute.amazonaws.com/api/v1/shops/"
