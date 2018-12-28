@@ -139,7 +139,7 @@ var BlogFormComponent = /** @class */ (function (_super) {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<h1>Blogs Table</h1>\n\n<mat-toolbar class=\"margin-right-25px margin-bottom-10px width-auto flex-shrink-0 background-color-secondary color-primary mat-elevation-z2\"\n  [formGroup]=\"filter\">\n\n  <mat-icon matPrefix color=\"primary\">search</mat-icon>\n  <mat-form-field>\n    <input matInput formControlName=\"title\" placeholder=\"TITLE\">\n  </mat-form-field>\n\n  <mat-form-field>\n    <input matInput formControlName=\"author\" placeholder=\"AUTHOR\">\n  </mat-form-field>\n\n  <mat-form-field class=\"width-100pc\">\n\n    <mat-select placeholder=\"TYPE\" formControlName=\"type\">\n\n      <mat-option *ngFor=\"let type of types\" [value]=\"type.id\">\n\n        {{type.name}}\n\n      </mat-option>\n\n    </mat-select>\n\n  </mat-form-field>\n\n  <span class=\"flex-grow-1\"></span>\n  <button mat-raised-button color=\"primary\" [routerLink]=\"['../create']\">WRITE A POST</button>\n</mat-toolbar>\n\n<div class=\"flex-grow-1 overflow-auto display-flex\">\n\n  <table class=\"margin-top-10px margin-right-25px width-100pct\" mat-table [dataSource]=\"blogs\" matSort [matSortActive]=\"blogsService.previousSortColumn\"\n    [matSortDirection]=\"blogsService.previousSortDirection\" matSortDisableClear (matSortChange)=\"onSort()\">\n\n    <ng-container matColumnDef=\"title\">\n      <th mat-header-cell *matHeaderCellDef mat-sort-header>\n        TITLE\n      </th>\n      <td mat-cell *matCellDef=\"let element\"> {{ element.title }} </td>\n    </ng-container>\n\n    <ng-container matColumnDef=\"thumbnail\">\n      <th mat-header-cell *matHeaderCellDef></th>\n      <td mat-cell *matCellDef=\"let element\" class=\"display-flex flex-grow-1 height-100pct padding-left-0px width-100pct\">\n        <div class=\"position-relative margin-top-5px\">\n          <img [src]=\"element.imgUrl\" class=\"height-90pct width-90pct margin-auto\" alt=\"50\">\n        </div>\n      </td>\n    </ng-container>\n\n    <ng-container matColumnDef=\"author\">\n      <th mat-header-cell *matHeaderCellDef mat-sort-header>\n        AUTHOR\n      </th>\n      <td mat-cell *matCellDef=\"let element\" class=\"padding-table-td\"> {{ element.author }} </td>\n    </ng-container>\n\n    <ng-container matColumnDef=\"type\">\n      <th mat-header-cell *matHeaderCellDef mat-sort-header>\n        TYPE\n      </th>\n      <td mat-cell *matCellDef=\"let element\" class=\"padding-table-td\"> {{ element.type }} </td>\n    </ng-container>\n\n    <ng-container matColumnDef=\"brandId\">\n      <th mat-header-cell *matHeaderCellDef mat-sort-header>\n        BRAND\n      </th>\n      <td mat-cell *matCellDef=\"let element\" class=\"padding-table-td\"> {{ element.brandId }} </td>\n    </ng-container>\n\n    <ng-container matColumnDef=\"updatedAt\">\n      <th mat-header-cell *matHeaderCellDef mat-sort-header>\n        DATE\n      </th>\n      <td mat-cell *matCellDef=\"let element\" class=\"padding-table-td\"> {{ element.updatedAt }} </td>\n    </ng-container>\n\n    <ng-container matColumnDef=\"actions\">\n      <th mat-header-cell *matHeaderCellDef>\n      </th>\n      <td mat-cell *matCellDef=\"let element\">\n        <button mat-icon-button color=\"primary\" [matTooltip]=\"Edit\" [routerLink]=\"['../edit', element.id]\">\n          <mat-icon>edit</mat-icon>\n        </button>\n        <button mat-icon-button color=\"primary\" [matTooltip]=\"Delete\" [routerLink]=\"['../delete', element.id]\">\n          <mat-icon>delete</mat-icon>\n        </button>\n      </td>\n    </ng-container>\n\n    <tr mat-header-row *matHeaderRowDef=\"displayedColumns\"></tr>\n    <tr mat-row *matRowDef=\"let row; columns: displayedColumns;\" [ngClass]=\"row.is_active ? '' : 'text-decoration-line-through'\">\n    </tr>\n\n  </table>\n\n</div>\n\n<div class=\"margin-right-25px padding-top-15px padding-bottom-15px flex-shrink-0 display-flex border-top-style-solid border-top-width-2px border-top-color-grey\">\n  <span class=\"flex-grow-1\"></span>\n  <mat-paginator [length]=\"totalLength\" [pageSizeOptions]=\"[5, 10, 20, 50, 100]\" [pageIndex]=\"\" [pageSize]=\"\" showFirstLastButtons\n    (page)=\"onPage()\">\n  </mat-paginator>\n</div>"
+module.exports = "<h1>Blog Table</h1>\n\n<mat-toolbar class=\"margin-right-25px margin-bottom-10px width-auto flex-shrink-0 background-color-secondary color-primary mat-elevation-z2\"\n  [formGroup]=\"filter\">\n\n  <mat-icon matPrefix color=\"primary\">search</mat-icon>\n  <mat-form-field>\n    <input matInput formControlName=\"title\" placeholder=\"TITLE\">\n  </mat-form-field>\n\n  <mat-form-field>\n    <input matInput formControlName=\"author\" placeholder=\"AUTHOR\">\n  </mat-form-field>\n\n  <mat-form-field class=\"width-100pc\">\n\n    <mat-select placeholder=\"TYPE\" formControlName=\"type\">\n\n      <mat-option *ngFor=\"let type of types\" [value]=\"type.id\">\n\n        {{type.name}}\n\n      </mat-option>\n\n    </mat-select>\n\n  </mat-form-field>\n\n  <span class=\"flex-grow-1\"></span>\n  <button mat-raised-button color=\"primary\" [routerLink]=\"['../create']\">WRITE A POST</button>\n</mat-toolbar>\n\n<div class=\"flex-grow-1 overflow-auto display-flex\">\n\n  <table class=\"margin-top-10px margin-right-25px width-100pct\" mat-table [dataSource]=\"blogs\" matSort [matSortActive]=\"blogsService.previousSortColumn\"\n    [matSortDirection]=\"blogsService.previousSortDirection\" matSortDisableClear (matSortChange)=\"onSort()\">\n\n    <ng-container matColumnDef=\"title\">\n      <th mat-header-cell *matHeaderCellDef mat-sort-header>\n        TITLE\n      </th>\n      <td mat-cell *matCellDef=\"let element\"> {{ element.title }} </td>\n    </ng-container>\n\n    <ng-container matColumnDef=\"thumbnail\">\n      <th mat-header-cell *matHeaderCellDef></th>\n      <td mat-cell *matCellDef=\"let element\" class=\"display-flex flex-grow-1 height-100pct padding-left-0px width-100pct\">\n        <div class=\"position-relative margin-top-5px\">\n          <img [src]=\"element.imgUrl\" class=\"height-90pct width-90pct margin-auto\" alt=\"50\">\n        </div>\n      </td>\n    </ng-container>\n\n    <ng-container matColumnDef=\"author\">\n      <th mat-header-cell *matHeaderCellDef mat-sort-header>\n        AUTHOR\n      </th>\n      <td mat-cell *matCellDef=\"let element\" class=\"padding-table-td\"> {{ element.author }} </td>\n    </ng-container>\n\n    <ng-container matColumnDef=\"type\">\n      <th mat-header-cell *matHeaderCellDef mat-sort-header>\n        TYPE\n      </th>\n      <td mat-cell *matCellDef=\"let element\" class=\"padding-table-td\"> {{ element.type }} </td>\n    </ng-container>\n\n    <ng-container matColumnDef=\"brandId\">\n      <th mat-header-cell *matHeaderCellDef mat-sort-header>\n        BRAND\n      </th>\n      <td mat-cell *matCellDef=\"let element\" class=\"padding-table-td\"> {{ getBrand(element.brandId) }} </td>\n    </ng-container>\n\n    <ng-container matColumnDef=\"updatedAt\">\n      <th mat-header-cell *matHeaderCellDef mat-sort-header>\n        DATE\n      </th>\n      <td mat-cell *matCellDef=\"let element\" class=\"padding-table-td\"> {{ element.updatedAt | date: 'dd/MM/yyyy' }} </td>\n    </ng-container>\n\n    <ng-container matColumnDef=\"actions\">\n      <th mat-header-cell *matHeaderCellDef>\n      </th>\n      <td mat-cell *matCellDef=\"let element\">\n        <button mat-icon-button color=\"primary\" [matTooltip]=\"Edit\" [routerLink]=\"['../edit', element.id]\">\n          <mat-icon>edit</mat-icon>\n        </button>\n        <button mat-icon-button color=\"primary\" [matTooltip]=\"Delete\" [routerLink]=\"['../delete', element.id]\">\n          <mat-icon>delete</mat-icon>\n        </button>\n      </td>\n    </ng-container>\n\n    <tr mat-header-row *matHeaderRowDef=\"displayedColumns\"></tr>\n    <tr mat-row *matRowDef=\"let row; columns: displayedColumns;\" [ngClass]=\"row.is_active ? '' : 'text-decoration-line-through'\">\n    </tr>\n\n  </table>\n\n</div>\n\n<div class=\"margin-right-25px padding-top-15px padding-bottom-15px flex-shrink-0 display-flex border-top-style-solid border-top-width-2px border-top-color-grey\">\n  <span class=\"flex-grow-1\"></span>\n  <mat-paginator [length]=\"totalLength\" [pageSizeOptions]=\"[5, 10, 20, 50, 100]\" [pageIndex]=\"\" [pageSize]=\"\" showFirstLastButtons\n    (page)=\"onPage()\">\n  </mat-paginator>\n</div>"
 
 /***/ }),
 
@@ -166,11 +166,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "BlogsTableComponent", function() { return BlogsTableComponent; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm5/forms.js");
-/* harmony import */ var _angular_material__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/material */ "./node_modules/@angular/material/esm5/material.es5.js");
-/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! rxjs/operators */ "./node_modules/rxjs/_esm5/operators/index.js");
-/* harmony import */ var _error_handling_services_error_handling_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../../../error-handling/services/error-handling.service */ "./src/app/error-handling/services/error-handling.service.ts");
-/* harmony import */ var _services_blogs_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../services/blogs.service */ "./src/app/ms-back-office/modules/ms-blogs/services/blogs.service.ts");
-/* harmony import */ var _models_type__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../models/type */ "./src/app/ms-back-office/modules/ms-blogs/models/type.ts");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+/* harmony import */ var _angular_material__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/material */ "./node_modules/@angular/material/esm5/material.es5.js");
+/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! rxjs/operators */ "./node_modules/rxjs/_esm5/operators/index.js");
+/* harmony import */ var _error_handling_services_error_handling_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../../../error-handling/services/error-handling.service */ "./src/app/error-handling/services/error-handling.service.ts");
+/* harmony import */ var _services_blogs_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../services/blogs.service */ "./src/app/ms-back-office/modules/ms-blogs/services/blogs.service.ts");
+/* harmony import */ var _models_type__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../models/type */ "./src/app/ms-back-office/modules/ms-blogs/models/type.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -180,6 +181,7 @@ var __decorate = (undefined && undefined.__decorate) || function (decorators, ta
 var __metadata = (undefined && undefined.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
+
 
 
 //
@@ -192,7 +194,8 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 
 var errorKey = 'Error';
 var BlogsTableComponent = /** @class */ (function () {
-    function BlogsTableComponent(blogsService, errorHandlingService) {
+    function BlogsTableComponent(activatedRoute, blogsService, errorHandlingService) {
+        this.activatedRoute = activatedRoute;
         this.blogsService = blogsService;
         this.errorHandlingService = errorHandlingService;
         this.displayedColumns = [
@@ -206,12 +209,13 @@ var BlogsTableComponent = /** @class */ (function () {
         ];
         this.blogs = [];
         this.totalLength = 0;
-        this.types = _models_type__WEBPACK_IMPORTED_MODULE_6__["TYPE"];
+        this.types = _models_type__WEBPACK_IMPORTED_MODULE_7__["TYPE"];
     }
     BlogsTableComponent.prototype.ngOnInit = function () {
         var _this = this;
+        this.brands = this.activatedRoute.snapshot.data.brands;
         this.filter = this.createFilterFormGroup();
-        this.filterValueChanges = this.filter.valueChanges.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["debounceTime"])(500)).subscribe(function (change) { return _this.onFilter(); });
+        this.filterValueChanges = this.filter.valueChanges.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["debounceTime"])(500)).subscribe(function (change) { return _this.onFilter(); });
         this.paginator.pageIndex = 0;
         // Begin observing style list changes.
         this.blogsList = this.blogsService.blogsList.subscribe(function (categoriesList) {
@@ -259,13 +263,23 @@ var BlogsTableComponent = /** @class */ (function () {
     BlogsTableComponent.prototype.onPage = function () {
         this.loadPage();
     };
+    BlogsTableComponent.prototype.getBrand = function (id) {
+        try {
+            return this.brands.find(function (brand) {
+                return brand.id === id;
+            }).name;
+        }
+        catch (err) {
+            return;
+        }
+    };
     __decorate([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ViewChild"])(_angular_material__WEBPACK_IMPORTED_MODULE_2__["MatPaginator"]),
-        __metadata("design:type", _angular_material__WEBPACK_IMPORTED_MODULE_2__["MatPaginator"])
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ViewChild"])(_angular_material__WEBPACK_IMPORTED_MODULE_3__["MatPaginator"]),
+        __metadata("design:type", _angular_material__WEBPACK_IMPORTED_MODULE_3__["MatPaginator"])
     ], BlogsTableComponent.prototype, "paginator", void 0);
     __decorate([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ViewChild"])(_angular_material__WEBPACK_IMPORTED_MODULE_2__["MatSort"]),
-        __metadata("design:type", _angular_material__WEBPACK_IMPORTED_MODULE_2__["MatSort"])
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ViewChild"])(_angular_material__WEBPACK_IMPORTED_MODULE_3__["MatSort"]),
+        __metadata("design:type", _angular_material__WEBPACK_IMPORTED_MODULE_3__["MatSort"])
     ], BlogsTableComponent.prototype, "sort", void 0);
     BlogsTableComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
@@ -273,8 +287,9 @@ var BlogsTableComponent = /** @class */ (function () {
             template: __webpack_require__(/*! ./blogs-table.component.html */ "./src/app/ms-back-office/modules/ms-blogs/components/blogs-table/blogs-table.component.html"),
             styles: [__webpack_require__(/*! ./blogs-table.component.scss */ "./src/app/ms-back-office/modules/ms-blogs/components/blogs-table/blogs-table.component.scss")]
         }),
-        __metadata("design:paramtypes", [_services_blogs_service__WEBPACK_IMPORTED_MODULE_5__["BlogsService"],
-            _error_handling_services_error_handling_service__WEBPACK_IMPORTED_MODULE_4__["ErrorHandlingService"]])
+        __metadata("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"],
+            _services_blogs_service__WEBPACK_IMPORTED_MODULE_6__["BlogsService"],
+            _error_handling_services_error_handling_service__WEBPACK_IMPORTED_MODULE_5__["ErrorHandlingService"]])
     ], BlogsTableComponent);
     return BlogsTableComponent;
 }());
@@ -822,6 +837,7 @@ var routes = [
         path: '',
         component: _components_blogs_table_blogs_table_component__WEBPACK_IMPORTED_MODULE_2__["BlogsTableComponent"],
         resolve: {
+            brands: _ms_brands_services_brands_resolve_service__WEBPACK_IMPORTED_MODULE_7__["BrandsResolveService"],
             config: _config_services_config_resolve_service__WEBPACK_IMPORTED_MODULE_6__["ConfigResolveService"]
         }
     },
