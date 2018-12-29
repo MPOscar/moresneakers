@@ -1083,10 +1083,10 @@ var Priority = /** @class */ (function () {
 ;
 var PRIORITY = [
     { value: 'Low', name: 'Low' },
-    { value: 'High', name: 'High' },
     { value: 'Medium', name: 'Medium' },
-    { value: 'Urgent', name: 'Urgent' },
+    { value: 'High', name: 'High' },
     { value: 'Very High', name: 'Very High' },
+    { value: 'Urgent', name: 'Urgent' },
 ];
 
 
