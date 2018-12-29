@@ -1,4 +1,4 @@
-(window["webpackJsonp"] = window["webpackJsonp"] || []).push([["default~ms-brands-ms-brands-module~ms-collections-ms-collections-module~ms-offers-ms-offers-module~m~94c757c6"],{
+(window["webpackJsonp"] = window["webpackJsonp"] || []).push([["ms-offers-ms-offers-module"],{
 
 /***/ "./src/app/ms-back-office/modules/ms-brands/services/brands-resolve.service.ts":
 /*!*************************************************************************************!*\
@@ -227,136 +227,86 @@ var CURRENCY = [
 
 /***/ }),
 
-/***/ "./src/app/ms-back-office/modules/ms-shops/services/shops.service.ts":
-/*!***************************************************************************!*\
-  !*** ./src/app/ms-back-office/modules/ms-shops/services/shops.service.ts ***!
-  \***************************************************************************/
-/*! exports provided: ASCENDING, ShopsService */
+/***/ "./src/app/ms-back-office/modules/ms-shops/models/shops.ts":
+/*!*****************************************************************!*\
+  !*** ./src/app/ms-back-office/modules/ms-shops/models/shops.ts ***!
+  \*****************************************************************/
+/*! exports provided: WeekHours, ShopImage, Shop, ShopsListResponse, ShopsResponse, ShopsImagesListResponse, ShopImagesResponse, EditShopModel */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ASCENDING", function() { return ASCENDING; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ShopsService", function() { return ShopsService; });
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
-/* harmony import */ var _error_handling_services_error_handling_http_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../../error-handling/services/error-handling-http.service */ "./src/app/error-handling/services/error-handling-http.service.ts");
-/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! rxjs */ "./node_modules/rxjs/_esm5/index.js");
-/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! rxjs/operators */ "./node_modules/rxjs/_esm5/operators/index.js");
-/* harmony import */ var _config_services_config_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../../config/services/config.service */ "./src/app/config/services/config.service.ts");
-var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (undefined && undefined.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-
-//
-
-
-//
-
-var ASCENDING = 'asc';
-var ShopsService = /** @class */ (function () {
-    function ShopsService(configService, http) {
-        this.configService = configService;
-        this.http = http;
-        this.previousFilter = {};
-        this.previousSortColumn = 'name';
-        this.previousSortDirection = 'asc';
-        this.previousPageIndex = 0;
-        this.previousPageSize = 10;
-        this.shopsList = new rxjs__WEBPACK_IMPORTED_MODULE_2__["BehaviorSubject"]({ dataCount: 0, data: [] });
-        this.apiEndpoint = this.configService.config.apiConfigs.shops.apiEndpoint;
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "WeekHours", function() { return WeekHours; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ShopImage", function() { return ShopImage; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Shop", function() { return Shop; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ShopsListResponse", function() { return ShopsListResponse; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ShopsResponse", function() { return ShopsResponse; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ShopsImagesListResponse", function() { return ShopsImagesListResponse; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ShopImagesResponse", function() { return ShopImagesResponse; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "EditShopModel", function() { return EditShopModel; });
+var __extends = (undefined && undefined.__extends) || (function () {
+    var extendStatics = Object.setPrototypeOf ||
+        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
+var WeekHours = /** @class */ (function () {
+    function WeekHours() {
     }
-    //
-    // Begin functions that most services have.
-    //
-    ShopsService.prototype.getShops = function (filter, sortColumn, sortDirection, pageIndex, pageSize) {
-        this.previousFilter = filter;
-        this.previousSortColumn = sortColumn;
-        this.previousSortDirection = sortDirection;
-        this.previousPageIndex = pageIndex;
-        this.previousPageSize = pageSize;
-        var queryParams = this.formatQueryParams(filter, sortColumn, sortDirection, pageIndex, pageSize);
-        return this.http.get(this.apiEndpoint + queryParams);
-    };
-    //
-    // Call this function to repeat the previous query, after deleting
-    // a brand for example.
-    //
-    ShopsService.prototype.reloadShops = function () {
-        return this.getShops(this.previousFilter, this.previousSortColumn, this.previousSortDirection, this.previousPageIndex, this.previousPageSize);
-    };
-    ShopsService.prototype.postShop = function (data) {
-        return this.http.post(this.apiEndpoint, JSON.stringify(data));
-    };
-    ShopsService.prototype.getShop = function (id) {
-        return this.http.get(this.apiEndpoint + id + '/');
-    };
-    ShopsService.prototype.putShop = function (data) {
-        return this.http.put(this.apiEndpoint + data.id + '/', JSON.stringify(data));
-    };
-    ShopsService.prototype.deleteShop = function (id) {
-        return this.http.delete(this.apiEndpoint + id + '/');
-    };
-    ShopsService.prototype.formatQueryParams = function (filter, sortColumn, sortDirection, pageIndex, pageSize) {
-        var queryParams = '';
-        if (filter.name && filter.name.length > 0) {
-            queryParams += queryParams.length > 0 ? '&' : '?';
-            queryParams += "name=" + filter.name;
-        }
-        if (filter.status && filter.status.length > 0) {
-            queryParams += queryParams.length > 0 ? '&' : '?';
-            queryParams += "active=" + filter.status;
-        }
-        if (sortColumn) {
-            var ordering = '';
-            if (sortDirection === 'desc') {
-                ordering = '-';
-            }
-            ordering += sortColumn;
-            queryParams += queryParams.length > 0 ? '&' : '?';
-            queryParams += "ordering=" + ordering;
-        }
-        if (pageIndex !== undefined) {
-            queryParams += queryParams.length > 0 ? '&' : '?';
-            queryParams += "offset=" + pageIndex * pageSize;
-        }
-        if (pageSize !== undefined) {
-            queryParams += queryParams.length > 0 ? '&' : '?';
-            queryParams += "limit=" + pageSize;
-        }
-        return queryParams;
-    };
-    //
-    // End functions that most services have.
-    //
-    //
-    // Begin special functions specific to only this service.
-    //
-    ShopsService.prototype.getAllShops = function () {
-        return this.http.get(this.apiEndpoint)
-            .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["map"])(function (response) {
-            return response.data;
-        }));
-    };
-    ShopsService = __decorate([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"])({
-            providedIn: 'root'
-        }),
-        __metadata("design:paramtypes", [_config_services_config_service__WEBPACK_IMPORTED_MODULE_4__["ConfigService"],
-            _error_handling_services_error_handling_http_service__WEBPACK_IMPORTED_MODULE_1__["ErrorHandlingHttpService"]])
-    ], ShopsService);
-    return ShopsService;
+    return WeekHours;
 }());
+
+var ShopImage = /** @class */ (function () {
+    function ShopImage() {
+    }
+    return ShopImage;
+}());
+
+var Shop = /** @class */ (function () {
+    function Shop() {
+    }
+    return Shop;
+}());
+
+var ShopsListResponse = /** @class */ (function () {
+    function ShopsListResponse() {
+    }
+    return ShopsListResponse;
+}());
+
+var ShopsResponse = /** @class */ (function () {
+    function ShopsResponse() {
+    }
+    return ShopsResponse;
+}());
+
+var ShopsImagesListResponse = /** @class */ (function () {
+    function ShopsImagesListResponse() {
+    }
+    return ShopsImagesListResponse;
+}());
+
+var ShopImagesResponse = /** @class */ (function () {
+    function ShopImagesResponse() {
+    }
+    return ShopImagesResponse;
+}());
+
+var EditShopModel = /** @class */ (function (_super) {
+    __extends(EditShopModel, _super);
+    function EditShopModel() {
+        return _super !== null && _super.apply(this, arguments) || this;
+    }
+    return EditShopModel;
+}(Shop));
 
 
 
 /***/ })
 
 }]);
-//# sourceMappingURL=default~ms-brands-ms-brands-module~ms-collections-ms-collections-module~ms-offers-ms-offers-module~m~94c757c6.js.map
+//# sourceMappingURL=ms-offers-ms-offers-module.js.map

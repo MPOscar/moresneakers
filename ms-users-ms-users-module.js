@@ -250,11 +250,11 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 
 
 
-var titleKey = 'Title Delete User';
-var deleteBtnKey = 'Delete User';
-var messageKey = 'Delete User Message';
+var titleKey = 'Delete';
+var deleteBtnKey = 'Delete';
+var messageKey = 'Are you sure you want to delete this User?';
 var errorKey = 'Error';
-var deletedUserMessageKey = 'Deleted User Message';
+var deletedMessageKey = 'Deleted';
 var DeleteUserComponent = /** @class */ (function () {
     function DeleteUserComponent(activatedRoute, dialog, usersService, errorHandlingService, router, translate, toastr) {
         this.activatedRoute = activatedRoute;
@@ -306,7 +306,7 @@ var DeleteUserComponent = /** @class */ (function () {
         this.usersService.deleteUser(this.data.id).subscribe(function (response) {
             _this.usersService.reloadUsers().subscribe(function (response) {
                 _this.usersService.usersList.next(response);
-                _this.toastr.success(deletedUserMessageKey);
+                _this.toastr.success(deletedMessageKey);
                 _this.close();
             }, function (error) { return _this.errorHandlingService.handleUiError(errorKey, error); });
         }, function (error) {

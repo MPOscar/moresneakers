@@ -65,7 +65,7 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 
 //import { LinkShopsModalComponent } from '../../../ms-shops/components/link-shops/link-shops-modal.component';
 var errorKey = 'Error';
-var savedStyleMessageKey = 'Saved Style Message';
+var savedMessageKey = 'Saved';
 var DealCreatorComponent = /** @class */ (function () {
     function DealCreatorComponent(activatedRoute, dealsService, errorHandlingService, router, translate, toastr, dialog) {
         this.activatedRoute = activatedRoute;
@@ -103,7 +103,7 @@ var DealCreatorComponent = /** @class */ (function () {
             _this.unsavedChanges = false;
             //this.close.emit();TODO
             _this.close();
-            _this.toastr.success(savedStyleMessageKey);
+            _this.toastr.success(savedMessageKey);
         }, function (error) {
             _this.errorHandlingService.handleUiError(errorKey, error);
             _this.validationErrors = error.formErrors;
@@ -152,7 +152,7 @@ var DealCreatorComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<form class=\"flex-grow-1 min-height-0 display-flex flex-direction-column\" [askBeforeRefresh]=\"formGroup.dirty\" [formGroup]=\"formGroup\"\n  novalidate role=\"form\" (ngSubmit)=\"submitClicked()\" autocomplete=\"off\" inputFocus>\n\n  <div class=\"flex-grow-1 overflow-auto display-flex flex-direction-column\">\n\n    <div class=\"flex-grow-1 flex-shrink-0 display-flex flex-direction-column\">\n\n      <div [fxFlex]=\"\" fxLayout=\"row\">\n\n        <div [fxFlex]=\"40\" fxLayout=\"column\" class=\"margin-left-10px margin-right-10px\">\n          <mat-form-field class=\"width-100pc\">\n\n            <mat-select placeholder=\"Url\" formControlName=\"url\" required>\n\n              <mat-option *ngFor=\"let url of urls\" [value]=\"url.id\">\n\n                {{url.url}}\n\n              </mat-option>\n\n            </mat-select>\n\n          </mat-form-field>\n\n          <div fxLayout=\"row\">\n\n            <div [fxFlex]=\"50\">\n\n              <mat-form-field class=\"width-100pc\">\n\n                <input matInput [matDatepicker]=\"startDate\" placeholder=\"Start Date\" formControlName=\"startDate\">\n\n                <mat-datepicker-toggle matSuffix [for]=\"startDate\"></mat-datepicker-toggle>\n\n                <mat-datepicker #startDate></mat-datepicker>\n\n              </mat-form-field>\n\n            </div>\n\n            <div [fxFlex]=\"50\" class=\"\">\n\n              <mat-form-field class=\"width-100pc\">\n\n                <input matInput [matDatepicker]=\"endDate\" placeholder=\"End Date\" formControlName=\"endDate\">\n\n                <mat-datepicker-toggle matSuffix [for]=\"endDate\"></mat-datepicker-toggle>\n\n                <mat-datepicker #endDate></mat-datepicker>\n\n              </mat-form-field>\n\n            </div>\n\n          </div>\n\n          <div fxLayout=\"row\">\n\n            <div [fxFlex]=\"50\">\n\n              <mat-form-field class=\"width-90pct\">\n\n                <mat-label>Sale Percentage</mat-label>\n\n                <input matInput type=\"number\" formControlName=\"salePercentage\" required>\n\n              </mat-form-field>\n\n            </div>\n\n            <div [fxFlex]=\"50\" class=\"\">\n\n              <mat-form-field class=\"width-100pc\">\n\n                <mat-select placeholder=\"Status\" formControlName=\"status\" required>\n\n                  <mat-option *ngFor=\"let state of status\" [value]=\"state.value\" >\n\n                    {{state.status}}\n\n                  </mat-option>\n\n                </mat-select>\n\n              </mat-form-field>\n\n            </div>\n\n          </div>\n\n          <mat-form-field class=\"width-100pc margin-left-16px\">\n\n            <mat-label>Promo Code</mat-label>\n\n            <input matInput type=\"text\" formControlName=\"promoCode\" required>\n\n          </mat-form-field>\n\n          <div fxLayout=\"column\" class=\"margin-top-18px flex-grow-0\">\n\n            <mat-label>Time</mat-label>\n\n            <div fxLayout=\"row\" class=\"flex-grow-0\">\n\n              <div [fxFlex]=\"50\">\n\n                <mat-form-field class=\"width-90pct\">\n\n                  <mat-label></mat-label>\n\n                  <input matInput atp-time-picker class=\"cursor-pointer\" formControlName=\"time\" />\n\n                </mat-form-field>\n\n              </div>\n\n              <!--div [fxFlex]=\"50\">\n\n                <mat-form-field class=\"width-100pct\">\n\n                  <mat-label></mat-label>\n\n                  <input matInput atp-time-picker class=\"cursor-pointer\"/>\n\n                </mat-form-field>\n\n              </div-->\n\n            </div>\n\n            <div [fxFlex]=\"50\">\n\n              <mat-checkbox formControlName=\"displayOnSale\">Display On Sale</mat-checkbox>\n\n            </div>\n\n          </div>\n\n        </div>\n\n        <div [fxFlex]=\"60\" class=\"margin-left-10px margin-right-10px\">\n\n          <image-card name=\"faces\" class=\"flex-grow-1\" formControlName=\"faces\" [principal]=\"principal\"></image-card>\n\n        </div>\n\n      </div>\n\n\n    </div>\n  </div>\n  <div class=\"margin-right-25px padding-top-25px padding-bottom-25px flex-shrink-0 display-flex border-top-style-solid border-top-width-2px border-top-color-grey\">\n\n    <button mat-raised-button type=\"submit\" color=\"primary\">{{ 'Save' | translate }}</button>\n\n    <button mat-raised-button type=\"button\" class=\"margin-left-10px\" (click)=\"cancelClicked()\">{{ 'Cancel' | translate }}</button>\n\n  </div>\n</form>"
+module.exports = "<form class=\"flex-grow-1 min-height-0 display-flex flex-direction-column\" [askBeforeRefresh]=\"formGroup.dirty\" [formGroup]=\"formGroup\"\n  novalidate role=\"form\" (ngSubmit)=\"submitClicked()\" autocomplete=\"off\" inputFocus>\n\n  <div class=\"flex-grow-1 overflow-auto display-flex flex-direction-column\">\n\n    <div class=\"flex-grow-1 flex-shrink-0 display-flex flex-direction-column\">\n\n      <div [fxFlex]=\"\" fxLayout=\"row\">\n\n        <div [fxFlex]=\"40\" fxLayout=\"column\" class=\"margin-left-10px margin-right-10px\">\n\n          <mat-form-field class=\"width-100pc\" *ngIf=\"!shopId\">\n\n            <mat-label>Shops</mat-label>\n\n            <mat-select placeholder=\"Select Shop\" formControlName=\"shopId\" required>\n\n              <mat-option *ngFor=\"let shop of shops\" [value]=\"shop.id\">\n\n                {{shop.name}}\n\n              </mat-option>\n\n            </mat-select>\n\n          </mat-form-field>\n\n          <mat-form-field class=\"width-100pc\">\n\n            <mat-select placeholder=\"Url\" formControlName=\"url\" required>\n\n              <mat-option *ngFor=\"let url of urls\" [value]=\"url.id\">\n\n                {{url.url}}\n\n              </mat-option>\n\n            </mat-select>\n\n          </mat-form-field>\n\n          <div fxLayout=\"row\">\n\n            <div [fxFlex]=\"50\">\n\n              <mat-form-field class=\"width-100pc\">\n\n                <input matInput [matDatepicker]=\"startDate\" placeholder=\"Start Date\" formControlName=\"startDate\">\n\n                <mat-datepicker-toggle matSuffix [for]=\"startDate\"></mat-datepicker-toggle>\n\n                <mat-datepicker #startDate></mat-datepicker>\n\n              </mat-form-field>\n\n            </div>\n\n            <div [fxFlex]=\"50\" class=\"\">\n\n              <mat-form-field class=\"width-100pc\">\n\n                <input matInput [matDatepicker]=\"endDate\" placeholder=\"End Date\" formControlName=\"endDate\">\n\n                <mat-datepicker-toggle matSuffix [for]=\"endDate\"></mat-datepicker-toggle>\n\n                <mat-datepicker #endDate></mat-datepicker>\n\n              </mat-form-field>\n\n            </div>\n\n          </div>\n\n          <div fxLayout=\"row\">\n\n            <div [fxFlex]=\"50\">\n\n              <mat-form-field class=\"width-90pct\">\n\n                <mat-label>Sale Percentage</mat-label>\n\n                <input matInput type=\"number\" formControlName=\"salePercentage\" required>\n\n              </mat-form-field>\n\n            </div>\n\n            <div [fxFlex]=\"50\" class=\"\">\n\n              <mat-form-field class=\"width-100pc\">\n\n                <mat-select placeholder=\"Status\" formControlName=\"status\" required>\n\n                  <mat-option *ngFor=\"let state of status\" [value]=\"state.value\">\n\n                    {{state.status}}\n\n                  </mat-option>\n\n                </mat-select>\n\n              </mat-form-field>\n\n            </div>\n\n          </div>\n\n          <mat-form-field class=\"width-100pc margin-left-16px\">\n\n            <mat-label>Promo Code</mat-label>\n\n            <input matInput type=\"text\" formControlName=\"promoCode\" required>\n\n          </mat-form-field>\n\n          <div fxLayout=\"column\" class=\"margin-top-18px flex-grow-0\">\n\n            <mat-label>Time</mat-label>\n\n            <div fxLayout=\"row\" class=\"flex-grow-0\">\n\n              <div [fxFlex]=\"50\">\n\n                <mat-form-field class=\"width-90pct\">\n\n                  <mat-label></mat-label>\n\n                  <input matInput atp-time-picker class=\"cursor-pointer\" formControlName=\"time\" />\n\n                </mat-form-field>\n\n              </div>\n\n              <!--div [fxFlex]=\"50\">\n\n                <mat-form-field class=\"width-100pct\">\n\n                  <mat-label></mat-label>\n\n                  <input matInput atp-time-picker class=\"cursor-pointer\"/>\n\n                </mat-form-field>\n\n              </div-->\n\n            </div>\n\n            <div [fxFlex]=\"50\">\n\n              <mat-checkbox formControlName=\"displayOnSale\">Display On Sale</mat-checkbox>\n\n            </div>\n\n          </div>\n\n        </div>\n\n        <div [fxFlex]=\"60\" class=\"margin-left-10px margin-right-10px\">\n\n          <image-card name=\"faces\" class=\"flex-grow-1\" formControlName=\"faces\" [principal]=\"principal\"></image-card>\n\n        </div>\n\n      </div>\n\n\n    </div>\n  </div>\n  <div class=\"margin-right-25px padding-top-25px padding-bottom-25px flex-shrink-0 display-flex border-top-style-solid border-top-width-2px border-top-color-grey\">\n\n    <button mat-raised-button type=\"submit\" color=\"primary\">{{ 'Save' | translate }}</button>\n\n    <button mat-raised-button type=\"button\" class=\"margin-left-10px\" (click)=\"cancelClicked()\">{{ 'Cancel' | translate }}</button>\n\n  </div>\n</form>"
 
 /***/ }),
 
@@ -248,7 +248,7 @@ var DealFormComponent = /** @class */ (function (_super) {
             displayOnSale: new _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormControl"](this.data.displayOnSale),
             salePercentage: new _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormControl"](this.data.salePercentage),
             status: new _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormControl"](this.data.status),
-            shopId: new _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormControl"](this.shopId),
+            shopId: new _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormControl"](this.shopId ? this.shopId : this.data.shopId),
         });
     };
     DealFormComponent.prototype.submitClicked = function () {
@@ -275,6 +275,10 @@ var DealFormComponent = /** @class */ (function (_super) {
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])(),
         __metadata("design:type", String)
     ], DealFormComponent.prototype, "shopId", void 0);
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])(),
+        __metadata("design:type", Array)
+    ], DealFormComponent.prototype, "shops", void 0);
     DealFormComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
             selector: 'deal-form',
@@ -293,38 +297,38 @@ var DealFormComponent = /** @class */ (function (_super) {
 
 /***/ }),
 
-/***/ "./src/app/ms-back-office/modules/ms-deals/components/deals-table/deals-table.component.html":
-/*!***************************************************************************************************!*\
-  !*** ./src/app/ms-back-office/modules/ms-deals/components/deals-table/deals-table.component.html ***!
-  \***************************************************************************************************/
+/***/ "./src/app/ms-back-office/modules/ms-deals/components/deals-shop-table/deals-shop-table.component.html":
+/*!*************************************************************************************************************!*\
+  !*** ./src/app/ms-back-office/modules/ms-deals/components/deals-shop-table/deals-shop-table.component.html ***!
+  \*************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<h3>Deals</h3>\n\n<mat-toolbar class=\"margin-right-25px margin-bottom-10px width-auto flex-shrink-0 background-color-secondary color-primary mat-elevation-z2\"\n  [formGroup]=\"filter\">\n\n  <mat-icon matPrefix color=\"primary\">search</mat-icon>\n  <mat-form-field>\n    <input matInput formControlName=\"url\" placeholder=\"url\">\n  </mat-form-field>\n\n  <!--mat-form-field>\n    <mat-label>Collection</mat-label>\n    <mat-select placeholder=\"Collection\" formControlName=\"collection\">\n        <mat-option *ngFor=\"let collection of collections\" [value]=\"collection.id\">\n          {{collection.name}}\n        </mat-option>\n      </mat-select>\n  </mat-form-field-->\n\n  <span class=\"flex-grow-1\"></span>\n  <button mat-raised-button type=\"button\" color=\"primary\" (click)=\"addNewDealModal()\">CREATE A DEAL</button>\n</mat-toolbar>\n\n<div class=\"flex-grow-1 overflow-auto display-flex\">\n\n  <table class=\"margin-top-10px margin-right-25px width-100pct\" mat-table [dataSource]=\"deals\" matSort [matSortActive]=\"dealsService.previousSortColumn\"\n    [matSortDirection]=\"dealsService.previousSortDirection\" matSortDisableClear (matSortChange)=\"onSort()\">\n\n    <ng-container matColumnDef=\"URL\">\n      <th mat-header-cell *matHeaderCellDef mat-sort-header>\n        URL\n      </th>\n      <td mat-cell *matCellDef=\"let element\"> {{ element.url }} </td>\n    </ng-container>\n\n    <ng-container matColumnDef=\"THUMBNAIL\">\n      <th mat-header-cell *matHeaderCellDef></th>\n      <td mat-cell *matCellDef=\"let element\" class=\"display-flex flex-grow-1 height-100pct padding-left-0px width-100pct\">\n        <div class=\"position-relative margin-top-5px\">\n          <img [src]=\"element.imgUrl\" class=\"height-90pct width-90pct margin-auto\" alt=\"50\">\n        </div>\n      </td>\n    </ng-container>\n\n    <ng-container matColumnDef=\"SALEPERCENTAGE\">\n      <th mat-header-cell *matHeaderCellDef mat-sort-header>\n        SALEPERCENTAGE\n      </th>\n      <td mat-cell *matCellDef=\"let element\"> {{ element.salePercentage }} </td>\n    </ng-container>\n    \n    <ng-container matColumnDef=\"STATUS\">\n      <th mat-header-cell *matHeaderCellDef mat-sort-header>\n        STATUS\n      </th>\n      <td mat-cell *matCellDef=\"let element\"> {{ element.status }} </td>\n    </ng-container>\n\n    <ng-container matColumnDef=\"PROMOCODE\">\n      <th mat-header-cell *matHeaderCellDef mat-sort-header>\n        PROMOCODE\n      </th>\n      <td mat-cell *matCellDef=\"let element\"> {{ element.promoCode }} </td>\n    </ng-container>\n\n    <ng-container matColumnDef=\"TIME\">\n      <th mat-header-cell *matHeaderCellDef mat-sort-header>\n        TIME\n      </th>\n      <td mat-cell *matCellDef=\"let element\"> {{ element.time }} </td>\n    </ng-container>\n\n    <ng-container matColumnDef=\"ACTIONS\">\n      <th mat-header-cell *matHeaderCellDef>\n      </th>\n      <td mat-cell *matCellDef=\"let element\">\n        <button mat-icon-button color=\"primary\" type=\"button\" [matTooltip]=\"Edit\" (click)=\"editDealModal(element.id)\">\n          <mat-icon>edit</mat-icon>\n        </button>\n        <button mat-icon-button color=\"primary\" type=\"button\" [matTooltip]=\"Delete\" (click)=\"getDealToDelete(element)\">\n          <mat-icon>delete</mat-icon>\n        </button>\n      </td>\n    </ng-container>\n\n    <tr mat-header-row *matHeaderRowDef=\"displayedColumns\"></tr>\n    <tr mat-row *matRowDef=\"let row; columns: displayedColumns;\" [ngClass]=\"row.is_active ? '' : 'text-decoration-line-through'\">\n    </tr>\n\n  </table>\n\n</div>\n\n<div class=\"margin-right-25px padding-top-15px padding-bottom-15px flex-shrink-0 display-flex border-top-color-grey\">\n  <span class=\"flex-grow-1\"></span>\n  <mat-paginator [length]=\"totalLength\" [pageSizeOptions]=\"[5, 10, 20, 50, 100]\" [pageIndex]=\"\" [pageSize]=\"50\" showFirstLastButtons\n    (page)=\"onPage()\">\n  </mat-paginator>\n</div>"
+module.exports = "<div class=\"display-flex justify-content-end margin-right-25px\">\n\n  <button mat-stroked-button type=\"button\" class=\"max-width-480px\" (click)=\"addNewDealModal()\">CREATE A DEAL</button>\n\n</div>\n<div class=\"flex-grow-1 overflow-auto display-flex\">\n\n  <table class=\"margin-top-10px margin-right-25px width-100pct\" mat-table [dataSource]=\"deals\" matSort [matSortActive]=\"dealsService.previousSortColumn\"\n    [matSortDirection]=\"dealsService.previousSortDirection\" matSortDisableClear (matSortChange)=\"onSort()\">\n\n    <ng-container matColumnDef=\"URL\">\n      <th mat-header-cell *matHeaderCellDef mat-sort-header>\n        URL\n      </th>\n      <td mat-cell *matCellDef=\"let element\" [ngClass]=\"{'background-td': element.id === dealId}\"> {{ getUrl(element.url) }} </td>\n    </ng-container>\n\n    <ng-container matColumnDef=\"THUMBNAIL\">\n      <th mat-header-cell *matHeaderCellDef></th>\n      <td mat-cell *matCellDef=\"let element\" class=\"display-flex flex-grow-1 height-100pct padding-left-0px width-100pct\" [ngClass]=\"{'background-td': element.id === dealId}\">\n        <div class=\"position-relative margin-top-5px\">\n          <img [src]=\"element.imgUrl\" class=\"height-90pct width-90pct margin-auto\" alt=\"50\">\n        </div>\n      </td>\n    </ng-container>\n\n    <ng-container matColumnDef=\"SALEPERCENTAGE\">\n      <th mat-header-cell *matHeaderCellDef mat-sort-header>\n        SALEPERCENTAGE\n      </th>\n      <td mat-cell *matCellDef=\"let element\" [ngClass]=\"{'background-td': element.id === dealId}\"> {{ element.salePercentage }} </td>\n    </ng-container>\n    \n    <ng-container matColumnDef=\"STATUS\">\n      <th mat-header-cell *matHeaderCellDef mat-sort-header>\n        STATUS\n      </th>\n      <td mat-cell *matCellDef=\"let element\" [ngClass]=\"{'background-td': element.id === dealId}\"> {{ element.status }} </td>\n    </ng-container>\n\n    <ng-container matColumnDef=\"PROMOCODE\">\n      <th mat-header-cell *matHeaderCellDef mat-sort-header>\n        PROMOCODE\n      </th>\n      <td mat-cell *matCellDef=\"let element\" [ngClass]=\"{'background-td': element.id === dealId}\"> {{ element.promoCode }} </td>\n    </ng-container>\n\n    <ng-container matColumnDef=\"TIME\">\n      <th mat-header-cell *matHeaderCellDef mat-sort-header>\n        TIME\n      </th>\n      <td mat-cell *matCellDef=\"let element\" [ngClass]=\"{'background-td': element.id === dealId}\"> {{ element.time }} </td>\n    </ng-container>\n\n    <ng-container matColumnDef=\"ACTIONS\">\n      <th mat-header-cell *matHeaderCellDef>\n      </th>\n      <td mat-cell *matCellDef=\"let element\" [ngClass]=\"{'background-td': element.id === dealId}\">\n        <button mat-icon-button color=\"primary\" type=\"button\" [matTooltip]=\"Edit\" (click)=\"editDealModal(element.id)\">\n          <mat-icon>edit</mat-icon>\n        </button>\n        <button mat-icon-button color=\"primary\" type=\"button\" [matTooltip]=\"Delete\" (click)=\"getDealToDelete(element)\">\n          <mat-icon>delete</mat-icon>\n        </button>\n      </td>\n    </ng-container>\n\n    <tr mat-header-row *matHeaderRowDef=\"displayedColumns\"></tr>\n    <tr mat-row *matRowDef=\"let row; columns: displayedColumns;\" [ngClass]=\"row.is_active ? '' : 'text-decoration-line-through'\">\n    </tr>\n\n  </table>\n\n</div>\n\n<div class=\"margin-right-25px padding-top-15px padding-bottom-15px flex-shrink-0 display-flex border-top-color-grey\">\n  <span class=\"flex-grow-1\"></span>\n  <mat-paginator [length]=\"totalLength\" [pageSizeOptions]=\"[5, 10, 20, 50, 100]\" [pageIndex]=\"\" [pageSize]=\"50\" showFirstLastButtons\n    (page)=\"onPage()\">\n  </mat-paginator>\n</div>"
 
 /***/ }),
 
-/***/ "./src/app/ms-back-office/modules/ms-deals/components/deals-table/deals-table.component.scss":
-/*!***************************************************************************************************!*\
-  !*** ./src/app/ms-back-office/modules/ms-deals/components/deals-table/deals-table.component.scss ***!
-  \***************************************************************************************************/
+/***/ "./src/app/ms-back-office/modules/ms-deals/components/deals-shop-table/deals-shop-table.component.scss":
+/*!*************************************************************************************************************!*\
+  !*** ./src/app/ms-back-office/modules/ms-deals/components/deals-shop-table/deals-shop-table.component.scss ***!
+  \*************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ":host {\n  display: flex;\n  flex-direction: column;\n  flex-grow: 1; }\n\ntable {\n  width: 100%; }\n\n.mat-form-field {\n  font-size: 14px;\n  padding-right: 5px;\n  width: 100px !important; }\n\ntd,\nth {\n  width: 25%; }\n\n.padding-bottom-10 {\n  padding-bottom: 10px; }\n\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvbXMtYmFjay1vZmZpY2UvbW9kdWxlcy9tcy1kZWFscy9jb21wb25lbnRzL2RlYWxzLXRhYmxlL0U6XFxQUk9HUkFNQUNJT04gSUlJXFxtb3Jlc25lYWtlcnMtYmFja29mZmljZS9zcmNcXGFwcFxcbXMtYmFjay1vZmZpY2VcXG1vZHVsZXNcXG1zLWRlYWxzXFxjb21wb25lbnRzXFxkZWFscy10YWJsZVxcZGVhbHMtdGFibGUuY29tcG9uZW50LnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFDSSxjQUFhO0VBQ2IsdUJBQXNCO0VBQ3RCLGFBQVksRUFDZjs7QUFFRDtFQUNJLFlBQVcsRUFDZDs7QUFFRDtFQUNJLGdCQUFlO0VBQ2YsbUJBQWtCO0VBQ2xCLHdCQUF1QixFQUMxQjs7QUFFRDs7RUFFSSxXQUFVLEVBQ2I7O0FBRUQ7RUFDSSxxQkFDSixFQUFDIiwiZmlsZSI6InNyYy9hcHAvbXMtYmFjay1vZmZpY2UvbW9kdWxlcy9tcy1kZWFscy9jb21wb25lbnRzL2RlYWxzLXRhYmxlL2RlYWxzLXRhYmxlLmNvbXBvbmVudC5zY3NzIiwic291cmNlc0NvbnRlbnQiOlsiOmhvc3Qge1xyXG4gICAgZGlzcGxheTogZmxleDtcclxuICAgIGZsZXgtZGlyZWN0aW9uOiBjb2x1bW47XHJcbiAgICBmbGV4LWdyb3c6IDE7XHJcbn1cclxuXHJcbnRhYmxlIHtcclxuICAgIHdpZHRoOiAxMDAlO1xyXG59XHJcblxyXG4ubWF0LWZvcm0tZmllbGQge1xyXG4gICAgZm9udC1zaXplOiAxNHB4O1xyXG4gICAgcGFkZGluZy1yaWdodDogNXB4O1xyXG4gICAgd2lkdGg6IDEwMHB4ICFpbXBvcnRhbnQ7XHJcbn1cclxuXHJcbnRkLFxyXG50aCB7XHJcbiAgICB3aWR0aDogMjUlO1xyXG59XHJcblxyXG4ucGFkZGluZy1ib3R0b20tMTB7XHJcbiAgICBwYWRkaW5nLWJvdHRvbTogMTBweFxyXG59XHJcblxyXG4iXX0= */"
+module.exports = ":host {\n  display: flex;\n  flex-direction: column;\n  flex-grow: 1; }\n\ntable {\n  width: 100%; }\n\n.mat-form-field {\n  font-size: 14px;\n  padding-right: 5px;\n  width: 100px !important; }\n\ntd,\nth {\n  width: 25%; }\n\n.padding-bottom-10 {\n  padding-bottom: 10px; }\n\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvbXMtYmFjay1vZmZpY2UvbW9kdWxlcy9tcy1kZWFscy9jb21wb25lbnRzL2RlYWxzLXNob3AtdGFibGUvRTpcXFBST0dSQU1BQ0lPTiBJSUlcXG1vcmVzbmVha2Vycy1iYWNrb2ZmaWNlL3NyY1xcYXBwXFxtcy1iYWNrLW9mZmljZVxcbW9kdWxlc1xcbXMtZGVhbHNcXGNvbXBvbmVudHNcXGRlYWxzLXNob3AtdGFibGVcXGRlYWxzLXNob3AtdGFibGUuY29tcG9uZW50LnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFDSSxjQUFhO0VBQ2IsdUJBQXNCO0VBQ3RCLGFBQVksRUFDZjs7QUFFRDtFQUNJLFlBQVcsRUFDZDs7QUFFRDtFQUNJLGdCQUFlO0VBQ2YsbUJBQWtCO0VBQ2xCLHdCQUF1QixFQUMxQjs7QUFFRDs7RUFFSSxXQUFVLEVBQ2I7O0FBRUQ7RUFDSSxxQkFDSixFQUFDIiwiZmlsZSI6InNyYy9hcHAvbXMtYmFjay1vZmZpY2UvbW9kdWxlcy9tcy1kZWFscy9jb21wb25lbnRzL2RlYWxzLXNob3AtdGFibGUvZGVhbHMtc2hvcC10YWJsZS5jb21wb25lbnQuc2NzcyIsInNvdXJjZXNDb250ZW50IjpbIjpob3N0IHtcclxuICAgIGRpc3BsYXk6IGZsZXg7XHJcbiAgICBmbGV4LWRpcmVjdGlvbjogY29sdW1uO1xyXG4gICAgZmxleC1ncm93OiAxO1xyXG59XHJcblxyXG50YWJsZSB7XHJcbiAgICB3aWR0aDogMTAwJTtcclxufVxyXG5cclxuLm1hdC1mb3JtLWZpZWxkIHtcclxuICAgIGZvbnQtc2l6ZTogMTRweDtcclxuICAgIHBhZGRpbmctcmlnaHQ6IDVweDtcclxuICAgIHdpZHRoOiAxMDBweCAhaW1wb3J0YW50O1xyXG59XHJcblxyXG50ZCxcclxudGgge1xyXG4gICAgd2lkdGg6IDI1JTtcclxufVxyXG5cclxuLnBhZGRpbmctYm90dG9tLTEwe1xyXG4gICAgcGFkZGluZy1ib3R0b206IDEwcHhcclxufVxyXG5cclxuIl19 */"
 
 /***/ }),
 
-/***/ "./src/app/ms-back-office/modules/ms-deals/components/deals-table/deals-table.component.ts":
-/*!*************************************************************************************************!*\
-  !*** ./src/app/ms-back-office/modules/ms-deals/components/deals-table/deals-table.component.ts ***!
-  \*************************************************************************************************/
-/*! exports provided: DealsTableComponent */
+/***/ "./src/app/ms-back-office/modules/ms-deals/components/deals-shop-table/deals-shop-table.component.ts":
+/*!***********************************************************************************************************!*\
+  !*** ./src/app/ms-back-office/modules/ms-deals/components/deals-shop-table/deals-shop-table.component.ts ***!
+  \***********************************************************************************************************/
+/*! exports provided: DealsShopTableComponent */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "DealsTableComponent", function() { return DealsTableComponent; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "DealsShopTableComponent", function() { return DealsShopTableComponent; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm5/forms.js");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
@@ -360,13 +364,13 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 
 
 
-var titleKey = 'Title Delete Deal';
-var deleteBtnKey = 'Delete Deal';
-var deletedDealMessageKey = 'Deleted Deal';
-var messageKey = 'Delete Deal';
+var titleKey = 'Delete';
+var deleteBtnKey = 'Delete';
+var messageKey = 'Are you sure you want to delete this Deal?';
 var errorKey = 'Error';
-var DealsTableComponent = /** @class */ (function () {
-    function DealsTableComponent(activatedRoute, dealsService, dialog, errorHandlingService, toastr) {
+var deletedMessageKey = 'Deleted';
+var DealsShopTableComponent = /** @class */ (function () {
+    function DealsShopTableComponent(activatedRoute, dealsService, dialog, errorHandlingService, toastr) {
         this.activatedRoute = activatedRoute;
         this.dealsService = dealsService;
         this.dialog = dialog;
@@ -384,13 +388,274 @@ var DealsTableComponent = /** @class */ (function () {
         this.totalLength = 0;
         this.deals = [];
     }
-    DealsTableComponent.prototype.ngOnInit = function () {
+    DealsShopTableComponent.prototype.ngOnInit = function () {
         var _this = this;
         this.filter = this.createFilterFormGroup();
         this.filterValueChanges = this.filter.valueChanges.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["debounceTime"])(500)).subscribe(function (change) { return _this.onFilter(); });
         this.paginator.pageIndex = 0;
         this.collections = this.activatedRoute.snapshot.data.collections;
         this.urls = this.activatedRoute.snapshot.data.urls;
+        // Begin observing style list changes.
+        this.dealsList = this.dealsService.dealsList.subscribe(function (dealsList) {
+            _this.totalLength = dealsList.dataCount;
+            _this.deals = dealsList.data;
+            if (_this.deals.length === 0 && _this.totalLength > 0 && _this.dealsService.previousPageSize > 0) {
+                _this.dealsService.previousPageIndex =
+                    Math.ceil(_this.totalLength / _this.dealsService.previousPageSize) - 1;
+                _this.dealsService.reloadDeals().subscribe(function (response) {
+                    _this.dealsService.dealsList.next(response);
+                }, function (error) { return _this.errorHandlingService.handleUiError(errorKey, error); });
+            }
+        });
+    };
+    DealsShopTableComponent.prototype.ngAfterViewInit = function () {
+        this.loadPage();
+    };
+    DealsShopTableComponent.prototype.ngOnDestroy = function () {
+        this.dealsList.unsubscribe();
+        this.filterValueChanges.unsubscribe();
+    };
+    DealsShopTableComponent.prototype.createFilterFormGroup = function () {
+        var group = {};
+        group['url'] = new _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormControl"]('');
+        group['shopId'] = new _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormControl"](this.shopId);
+        //group['collection'] = new FormControl('');
+        return new _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormGroup"](group);
+    };
+    DealsShopTableComponent.prototype.loadPage = function () {
+        var _this = this;
+        this.dealsService.getDeals(Object.assign({}, this.filter.value), this.sort.active, this.sort.direction, this.paginator.pageIndex, this.paginator.pageSize).subscribe(function (response) {
+            _this.dealsService.dealsList.next(response);
+        }, function (err) {
+            _this.errorHandlingService.handleUiError(errorKey, err);
+        });
+    };
+    DealsShopTableComponent.prototype.onFilter = function () {
+        this.paginator.pageIndex = 0;
+        this.loadPage();
+    };
+    DealsShopTableComponent.prototype.onSort = function () {
+        this.paginator.pageIndex = 0;
+        this.loadPage();
+    };
+    DealsShopTableComponent.prototype.onPage = function () {
+        this.loadPage();
+    };
+    DealsShopTableComponent.prototype.addNewDealModal = function () {
+        var _this = this;
+        this.modalRef = this.dialog.open(_new_deal_new_deal_component__WEBPACK_IMPORTED_MODULE_9__["NewDealComponent"], {
+            height: '90%',
+            width: '90%',
+            data: {
+                urls: this.urls,
+                shopId: this.shopId,
+            }
+        });
+        this.modalRef.afterClosed().subscribe(function () {
+            _this.loadPage();
+        });
+    };
+    DealsShopTableComponent.prototype.editDealModal = function (dealId) {
+        var _this = this;
+        this.modalRef = this.dialog.open(_edit_deal_edit_deal_component__WEBPACK_IMPORTED_MODULE_10__["EditDealComponent"], {
+            height: '90%',
+            width: '90%',
+            data: {
+                dealId: dealId,
+                urls: this.urls,
+                shopId: this.shopId,
+            }
+        });
+        this.modalRef.afterClosed().subscribe(function () {
+            _this.loadPage();
+        });
+    };
+    DealsShopTableComponent.prototype.getDealToDelete = function (data) {
+        var _this = this;
+        this.dealsService.getDeal(data.id).subscribe(function (response) {
+            data = response.data;
+            _this.confirmDeleteDeal(data);
+        }, function (error) { return _this.errorHandlingService.handleUiError(errorKey, error); });
+    };
+    DealsShopTableComponent.prototype.confirmDeleteDeal = function (data) {
+        var _this = this;
+        this.modalRef = this.dialog.open(_ui_modules_confirm_dialog_components_confirm_dialog_confirm_dialog_component__WEBPACK_IMPORTED_MODULE_5__["ConfirmDialogComponent"], {
+            data: {
+                titleKey: titleKey,
+                okBtnKey: deleteBtnKey,
+                messageKey: messageKey,
+                messageParam: { param: data.id }
+            }
+        });
+        this.modalRef.afterClosed().subscribe(function (result) {
+            if (result) {
+                _this.deleteDeal(data);
+            }
+        });
+    };
+    DealsShopTableComponent.prototype.deleteDeal = function (data) {
+        var _this = this;
+        this.dealsService.deleteDeal(data.id).subscribe(function (response) {
+            _this.dealsService.reloadDeals().subscribe(function (response) {
+                _this.dealsService.dealsList.next(response);
+                _this.toastr.success(deletedMessageKey);
+                _this.loadPage();
+            }, function (error) { return _this.errorHandlingService.handleUiError(errorKey, error); });
+        }, function (error) {
+            _this.errorHandlingService.handleUiError(errorKey, error);
+        });
+    };
+    DealsShopTableComponent.prototype.getUrl = function (id) {
+        try {
+            return this.urls.find(function (url) {
+                return url.id === id;
+            }).url;
+        }
+        catch (err) {
+            return;
+        }
+    };
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ViewChild"])(_angular_material__WEBPACK_IMPORTED_MODULE_3__["MatPaginator"]),
+        __metadata("design:type", _angular_material__WEBPACK_IMPORTED_MODULE_3__["MatPaginator"])
+    ], DealsShopTableComponent.prototype, "paginator", void 0);
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ViewChild"])(_angular_material__WEBPACK_IMPORTED_MODULE_3__["MatSort"]),
+        __metadata("design:type", _angular_material__WEBPACK_IMPORTED_MODULE_3__["MatSort"])
+    ], DealsShopTableComponent.prototype, "sort", void 0);
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])(),
+        __metadata("design:type", String)
+    ], DealsShopTableComponent.prototype, "shopId", void 0);
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])(),
+        __metadata("design:type", String)
+    ], DealsShopTableComponent.prototype, "offerId", void 0);
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])(),
+        __metadata("design:type", String)
+    ], DealsShopTableComponent.prototype, "dealId", void 0);
+    DealsShopTableComponent = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+            selector: 'deals-shop-table',
+            template: __webpack_require__(/*! ./deals-shop-table.component.html */ "./src/app/ms-back-office/modules/ms-deals/components/deals-shop-table/deals-shop-table.component.html"),
+            styles: [__webpack_require__(/*! ./deals-shop-table.component.scss */ "./src/app/ms-back-office/modules/ms-deals/components/deals-shop-table/deals-shop-table.component.scss")]
+        }),
+        __metadata("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"],
+            _services_deals_service__WEBPACK_IMPORTED_MODULE_8__["DealsService"],
+            _angular_material__WEBPACK_IMPORTED_MODULE_3__["MatDialog"],
+            _error_handling_services_error_handling_service__WEBPACK_IMPORTED_MODULE_6__["ErrorHandlingService"],
+            _error_handling_services_toastr_service__WEBPACK_IMPORTED_MODULE_7__["ToastrService"]])
+    ], DealsShopTableComponent);
+    return DealsShopTableComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/ms-back-office/modules/ms-deals/components/deals-table/deals-table.component.html":
+/*!***************************************************************************************************!*\
+  !*** ./src/app/ms-back-office/modules/ms-deals/components/deals-table/deals-table.component.html ***!
+  \***************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<h3>Deals</h3>\n\n<mat-toolbar class=\"margin-right-25px margin-bottom-10px width-auto flex-shrink-0 background-color-secondary color-primary mat-elevation-z2\"\n  [formGroup]=\"filter\">\n\n  <mat-icon matPrefix color=\"primary\">search</mat-icon>\n  <mat-form-field>\n    <input matInput formControlName=\"url\" placeholder=\"url\">\n  </mat-form-field>\n\n  <!--mat-form-field>\n    <mat-label>Collection</mat-label>\n    <mat-select placeholder=\"Collection\" formControlName=\"collection\">\n        <mat-option *ngFor=\"let collection of collections\" [value]=\"collection.id\">\n          {{collection.name}}\n        </mat-option>\n      </mat-select>\n  </mat-form-field-->\n\n  <span class=\"flex-grow-1\"></span>\n  <button mat-raised-button type=\"button\" color=\"primary\" (click)=\"addNewDealModal()\">CREATE A DEAL</button>\n</mat-toolbar>\n\n<div class=\"flex-grow-1 overflow-auto display-flex\">\n\n  <table class=\"margin-top-10px margin-right-25px width-100pct\" mat-table [dataSource]=\"deals\" matSort [matSortActive]=\"dealsService.previousSortColumn\"\n    [matSortDirection]=\"dealsService.previousSortDirection\" matSortDisableClear (matSortChange)=\"onSort()\">\n\n    <ng-container matColumnDef=\"URL\">\n      <th mat-header-cell *matHeaderCellDef mat-sort-header>\n        URL\n      </th>\n      <td mat-cell *matCellDef=\"let element\"> {{ getUrl(element.url) }} </td>\n    </ng-container>\n\n    <ng-container matColumnDef=\"THUMBNAIL\">\n      <th mat-header-cell *matHeaderCellDef></th>\n      <td mat-cell *matCellDef=\"let element\" class=\"display-flex flex-grow-1 height-100pct padding-left-0px width-100pct\">\n        <div class=\"position-relative margin-top-5px\">\n          <img [src]=\"element.imgUrl\" class=\"height-90pct width-90pct margin-auto\" alt=\"50\">\n        </div>\n      </td>\n    </ng-container>\n\n    <ng-container matColumnDef=\"SALEPERCENTAGE\">\n      <th mat-header-cell *matHeaderCellDef mat-sort-header>\n        SALEPERCENTAGE\n      </th>\n      <td mat-cell *matCellDef=\"let element\"> {{ element.salePercentage }} </td>\n    </ng-container>\n    \n    <ng-container matColumnDef=\"STATUS\">\n      <th mat-header-cell *matHeaderCellDef mat-sort-header>\n        STATUS\n      </th>\n      <td mat-cell *matCellDef=\"let element\"> {{ element.status }} </td>\n    </ng-container>\n\n    <ng-container matColumnDef=\"PROMOCODE\">\n      <th mat-header-cell *matHeaderCellDef mat-sort-header>\n        PROMOCODE\n      </th>\n      <td mat-cell *matCellDef=\"let element\"> {{ element.promoCode }} </td>\n    </ng-container>\n\n    <ng-container matColumnDef=\"TIME\">\n      <th mat-header-cell *matHeaderCellDef mat-sort-header>\n        TIME\n      </th>\n      <td mat-cell *matCellDef=\"let element\"> {{ element.time }} </td>\n    </ng-container>\n\n    <ng-container matColumnDef=\"ACTIONS\">\n      <th mat-header-cell *matHeaderCellDef>\n      </th>\n      <td mat-cell *matCellDef=\"let element\">\n        <button mat-icon-button color=\"primary\" type=\"button\" [matTooltip]=\"Edit\" [routerLink]=\"['../../shops/edit', element.shopId]\" [queryParams]=\"{dealId: element.id, returnUrl: location.path()}\">\n          <mat-icon>edit</mat-icon>\n        </button>\n        <button mat-icon-button color=\"primary\" type=\"button\" [matTooltip]=\"Delete\" (click)=\"getDealToDelete(element)\">\n          <mat-icon>delete</mat-icon>\n        </button>\n      </td>\n    </ng-container>\n\n    <tr mat-header-row *matHeaderRowDef=\"displayedColumns\"></tr>\n    <tr mat-row *matRowDef=\"let row; columns: displayedColumns;\" [ngClass]=\"row.is_active ? '' : 'text-decoration-line-through'\">\n    </tr>\n\n  </table>\n\n</div>\n\n<div class=\"margin-right-25px padding-top-15px padding-bottom-15px flex-shrink-0 display-flex border-top-color-grey\">\n  <span class=\"flex-grow-1\"></span>\n  <mat-paginator [length]=\"totalLength\" [pageSizeOptions]=\"[5, 10, 20, 50, 100]\" [pageIndex]=\"\" [pageSize]=\"50\" showFirstLastButtons\n    (page)=\"onPage()\">\n  </mat-paginator>\n</div>"
+
+/***/ }),
+
+/***/ "./src/app/ms-back-office/modules/ms-deals/components/deals-table/deals-table.component.scss":
+/*!***************************************************************************************************!*\
+  !*** ./src/app/ms-back-office/modules/ms-deals/components/deals-table/deals-table.component.scss ***!
+  \***************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = ":host {\n  display: flex;\n  flex-direction: column;\n  flex-grow: 1; }\n\ntable {\n  width: 100%; }\n\n.mat-form-field {\n  font-size: 14px;\n  padding-right: 5px;\n  width: 100px !important; }\n\ntd,\nth {\n  width: 25%; }\n\n.padding-bottom-10 {\n  padding-bottom: 10px; }\n\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvbXMtYmFjay1vZmZpY2UvbW9kdWxlcy9tcy1kZWFscy9jb21wb25lbnRzL2RlYWxzLXRhYmxlL0U6XFxQUk9HUkFNQUNJT04gSUlJXFxtb3Jlc25lYWtlcnMtYmFja29mZmljZS9zcmNcXGFwcFxcbXMtYmFjay1vZmZpY2VcXG1vZHVsZXNcXG1zLWRlYWxzXFxjb21wb25lbnRzXFxkZWFscy10YWJsZVxcZGVhbHMtdGFibGUuY29tcG9uZW50LnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFDSSxjQUFhO0VBQ2IsdUJBQXNCO0VBQ3RCLGFBQVksRUFDZjs7QUFFRDtFQUNJLFlBQVcsRUFDZDs7QUFFRDtFQUNJLGdCQUFlO0VBQ2YsbUJBQWtCO0VBQ2xCLHdCQUF1QixFQUMxQjs7QUFFRDs7RUFFSSxXQUFVLEVBQ2I7O0FBRUQ7RUFDSSxxQkFDSixFQUFDIiwiZmlsZSI6InNyYy9hcHAvbXMtYmFjay1vZmZpY2UvbW9kdWxlcy9tcy1kZWFscy9jb21wb25lbnRzL2RlYWxzLXRhYmxlL2RlYWxzLXRhYmxlLmNvbXBvbmVudC5zY3NzIiwic291cmNlc0NvbnRlbnQiOlsiOmhvc3Qge1xyXG4gICAgZGlzcGxheTogZmxleDtcclxuICAgIGZsZXgtZGlyZWN0aW9uOiBjb2x1bW47XHJcbiAgICBmbGV4LWdyb3c6IDE7XHJcbn1cclxuXHJcbnRhYmxlIHtcclxuICAgIHdpZHRoOiAxMDAlO1xyXG59XHJcblxyXG4ubWF0LWZvcm0tZmllbGQge1xyXG4gICAgZm9udC1zaXplOiAxNHB4O1xyXG4gICAgcGFkZGluZy1yaWdodDogNXB4O1xyXG4gICAgd2lkdGg6IDEwMHB4ICFpbXBvcnRhbnQ7XHJcbn1cclxuXHJcbnRkLFxyXG50aCB7XHJcbiAgICB3aWR0aDogMjUlO1xyXG59XHJcblxyXG4ucGFkZGluZy1ib3R0b20tMTB7XHJcbiAgICBwYWRkaW5nLWJvdHRvbTogMTBweFxyXG59XHJcblxyXG4iXX0= */"
+
+/***/ }),
+
+/***/ "./src/app/ms-back-office/modules/ms-deals/components/deals-table/deals-table.component.ts":
+/*!*************************************************************************************************!*\
+  !*** ./src/app/ms-back-office/modules/ms-deals/components/deals-table/deals-table.component.ts ***!
+  \*************************************************************************************************/
+/*! exports provided: DealsTableComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "DealsTableComponent", function() { return DealsTableComponent; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm5/forms.js");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/common */ "./node_modules/@angular/common/fesm5/common.js");
+/* harmony import */ var _angular_material__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/material */ "./node_modules/@angular/material/esm5/material.es5.js");
+/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! rxjs/operators */ "./node_modules/rxjs/_esm5/operators/index.js");
+/* harmony import */ var _ui_modules_confirm_dialog_components_confirm_dialog_confirm_dialog_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../../../../ui/modules/confirm-dialog/components/confirm-dialog/confirm-dialog.component */ "./src/app/ui/modules/confirm-dialog/components/confirm-dialog/confirm-dialog.component.ts");
+/* harmony import */ var _error_handling_services_error_handling_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../../../../error-handling/services/error-handling.service */ "./src/app/error-handling/services/error-handling.service.ts");
+/* harmony import */ var _error_handling_services_toastr_service__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../../../../error-handling/services/toastr.service */ "./src/app/error-handling/services/toastr.service.ts");
+/* harmony import */ var _services_deals_service__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../../services/deals.service */ "./src/app/ms-back-office/modules/ms-deals/services/deals.service.ts");
+/* harmony import */ var _new_deal_new_deal_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../new-deal/new-deal.component */ "./src/app/ms-back-office/modules/ms-deals/components/new-deal/new-deal.component.ts");
+/* harmony import */ var _edit_deal_edit_deal_component__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../edit-deal/edit-deal.component */ "./src/app/ms-back-office/modules/ms-deals/components/edit-deal/edit-deal.component.ts");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+//
+
+
+
+//
+
+
+
+//
+
+
+
+var titleKey = 'Delete';
+var deleteBtnKey = 'Delete';
+var messageKey = 'Are you sure you want to delete this Deal?';
+var errorKey = 'Error';
+var deletedMessageKey = 'Deleted';
+var DealsTableComponent = /** @class */ (function () {
+    function DealsTableComponent(activatedRoute, dealsService, dialog, errorHandlingService, location, toastr) {
+        this.activatedRoute = activatedRoute;
+        this.dealsService = dealsService;
+        this.dialog = dialog;
+        this.errorHandlingService = errorHandlingService;
+        this.location = location;
+        this.toastr = toastr;
+        this.displayedColumns = [
+            'URL',
+            'THUMBNAIL',
+            'SALEPERCENTAGE',
+            'STATUS',
+            'PROMOCODE',
+            'TIME',
+            'ACTIONS'
+        ];
+        this.totalLength = 0;
+        this.deals = [];
+    }
+    DealsTableComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        this.filter = this.createFilterFormGroup();
+        this.filterValueChanges = this.filter.valueChanges.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_5__["debounceTime"])(500)).subscribe(function (change) { return _this.onFilter(); });
+        this.paginator.pageIndex = 0;
+        this.collections = this.activatedRoute.snapshot.data.collections;
+        this.urls = this.activatedRoute.snapshot.data.urls;
+        this.shops = this.activatedRoute.snapshot.data.shops;
         // Begin observing style list changes.
         this.dealsList = this.dealsService.dealsList.subscribe(function (dealsList) {
             _this.totalLength = dealsList.dataCount;
@@ -439,12 +704,13 @@ var DealsTableComponent = /** @class */ (function () {
     };
     DealsTableComponent.prototype.addNewDealModal = function () {
         var _this = this;
-        this.modalRef = this.dialog.open(_new_deal_new_deal_component__WEBPACK_IMPORTED_MODULE_9__["NewDealComponent"], {
+        this.modalRef = this.dialog.open(_new_deal_new_deal_component__WEBPACK_IMPORTED_MODULE_10__["NewDealComponent"], {
             height: '90%',
             width: '90%',
             data: {
                 urls: this.urls,
                 shopId: this.shopId,
+                shops: this.shops,
             }
         });
         this.modalRef.afterClosed().subscribe(function () {
@@ -453,13 +719,14 @@ var DealsTableComponent = /** @class */ (function () {
     };
     DealsTableComponent.prototype.editDealModal = function (dealId) {
         var _this = this;
-        this.modalRef = this.dialog.open(_edit_deal_edit_deal_component__WEBPACK_IMPORTED_MODULE_10__["EditDealComponent"], {
+        this.modalRef = this.dialog.open(_edit_deal_edit_deal_component__WEBPACK_IMPORTED_MODULE_11__["EditDealComponent"], {
             height: '90%',
             width: '90%',
             data: {
                 dealId: dealId,
                 urls: this.urls,
                 shopId: this.shopId,
+                shops: this.shops,
             }
         });
         this.modalRef.afterClosed().subscribe(function () {
@@ -475,7 +742,7 @@ var DealsTableComponent = /** @class */ (function () {
     };
     DealsTableComponent.prototype.confirmDeleteDeal = function (data) {
         var _this = this;
-        this.modalRef = this.dialog.open(_ui_modules_confirm_dialog_components_confirm_dialog_confirm_dialog_component__WEBPACK_IMPORTED_MODULE_5__["ConfirmDialogComponent"], {
+        this.modalRef = this.dialog.open(_ui_modules_confirm_dialog_components_confirm_dialog_confirm_dialog_component__WEBPACK_IMPORTED_MODULE_6__["ConfirmDialogComponent"], {
             data: {
                 titleKey: titleKey,
                 okBtnKey: deleteBtnKey,
@@ -494,20 +761,30 @@ var DealsTableComponent = /** @class */ (function () {
         this.dealsService.deleteDeal(data.id).subscribe(function (response) {
             _this.dealsService.reloadDeals().subscribe(function (response) {
                 _this.dealsService.dealsList.next(response);
-                _this.toastr.success(deletedDealMessageKey);
+                _this.toastr.success(deletedMessageKey);
                 _this.loadPage();
             }, function (error) { return _this.errorHandlingService.handleUiError(errorKey, error); });
         }, function (error) {
             _this.errorHandlingService.handleUiError(errorKey, error);
         });
     };
+    DealsTableComponent.prototype.getUrl = function (id) {
+        try {
+            return this.urls.find(function (url) {
+                return url.id === id;
+            }).url;
+        }
+        catch (err) {
+            return;
+        }
+    };
     __decorate([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ViewChild"])(_angular_material__WEBPACK_IMPORTED_MODULE_3__["MatPaginator"]),
-        __metadata("design:type", _angular_material__WEBPACK_IMPORTED_MODULE_3__["MatPaginator"])
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ViewChild"])(_angular_material__WEBPACK_IMPORTED_MODULE_4__["MatPaginator"]),
+        __metadata("design:type", _angular_material__WEBPACK_IMPORTED_MODULE_4__["MatPaginator"])
     ], DealsTableComponent.prototype, "paginator", void 0);
     __decorate([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ViewChild"])(_angular_material__WEBPACK_IMPORTED_MODULE_3__["MatSort"]),
-        __metadata("design:type", _angular_material__WEBPACK_IMPORTED_MODULE_3__["MatSort"])
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ViewChild"])(_angular_material__WEBPACK_IMPORTED_MODULE_4__["MatSort"]),
+        __metadata("design:type", _angular_material__WEBPACK_IMPORTED_MODULE_4__["MatSort"])
     ], DealsTableComponent.prototype, "sort", void 0);
     __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])(),
@@ -520,10 +797,11 @@ var DealsTableComponent = /** @class */ (function () {
             styles: [__webpack_require__(/*! ./deals-table.component.scss */ "./src/app/ms-back-office/modules/ms-deals/components/deals-table/deals-table.component.scss")]
         }),
         __metadata("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"],
-            _services_deals_service__WEBPACK_IMPORTED_MODULE_8__["DealsService"],
-            _angular_material__WEBPACK_IMPORTED_MODULE_3__["MatDialog"],
-            _error_handling_services_error_handling_service__WEBPACK_IMPORTED_MODULE_6__["ErrorHandlingService"],
-            _error_handling_services_toastr_service__WEBPACK_IMPORTED_MODULE_7__["ToastrService"]])
+            _services_deals_service__WEBPACK_IMPORTED_MODULE_9__["DealsService"],
+            _angular_material__WEBPACK_IMPORTED_MODULE_4__["MatDialog"],
+            _error_handling_services_error_handling_service__WEBPACK_IMPORTED_MODULE_7__["ErrorHandlingService"],
+            _angular_common__WEBPACK_IMPORTED_MODULE_3__["Location"],
+            _error_handling_services_toastr_service__WEBPACK_IMPORTED_MODULE_8__["ToastrService"]])
     ], DealsTableComponent);
     return DealsTableComponent;
 }());
@@ -591,11 +869,11 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 
 
 
-var titleKey = 'Title Delete Deal';
-var deleteBtnKey = 'Delete Deal';
-var messageKey = 'Delete Deal';
+var titleKey = 'Delete';
+var deleteBtnKey = 'Delete';
+var messageKey = 'Are you sure you want to delete this Deal?';
 var errorKey = 'Error';
-var deletedDealMessageKey = 'Deleted Deal Message';
+var deletedMessageKey = 'Deleted';
 var DeleteDealComponent = /** @class */ (function () {
     function DeleteDealComponent(activatedRoute, dialog, dealsService, errorHandlingService, router, translate, toastr) {
         this.activatedRoute = activatedRoute;
@@ -647,7 +925,7 @@ var DeleteDealComponent = /** @class */ (function () {
         this.dealsService.deleteDeal(this.data.id).subscribe(function (response) {
             _this.dealsService.reloadDeals().subscribe(function (response) {
                 _this.dealsService.dealsList.next(response);
-                _this.toastr.success(deletedDealMessageKey);
+                _this.toastr.success(deletedMessageKey);
                 _this.close();
             }, function (error) { return _this.errorHandlingService.handleUiError(errorKey, error); });
         }, function (error) {
@@ -683,7 +961,7 @@ var DeleteDealComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<h1>EDIT DEAL</h1>\n\n<deal-form *ngIf=\"data\"\n    [data]=\"data\"\n    [urls]=\"dialogData.urls\"\n    [faceList]=\"faceList\"\n    [principal]=\"principal\"\n    (accept)=\"submit($event)\"\n    [validationErrors]=\"validationErrors\"\n    (cancel)=\"cancel()\"\n    (dataChange)=\"dataChanged()\">\n</deal-form>\n"
+module.exports = "<h1>EDIT DEAL</h1>\n\n<deal-form *ngIf=\"data\"\n    [data]=\"data\"\n    [urls]=\"dialogData.urls\"\n    [shops]=\"DialogData.shops\"\n    [faceList]=\"faceList\"\n    [principal]=\"principal\"\n    (accept)=\"submit($event)\"\n    [validationErrors]=\"validationErrors\"\n    (cancel)=\"cancel()\"\n    (dataChange)=\"dataChanged()\">\n</deal-form>\n"
 
 /***/ }),
 
@@ -694,7 +972,7 @@ module.exports = "<h1>EDIT DEAL</h1>\n\n<deal-form *ngIf=\"data\"\n    [data]=\"
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ":host {\n  display: flex;\n  flex-direction: column;\n  flex-grow: 1; }\n\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvbXMtYmFjay1vZmZpY2UvbW9kdWxlcy9tcy1kZWFscy9jb21wb25lbnRzL2VkaXQtZGVhbC9FOlxcUFJPR1JBTUFDSU9OIElJSVxcbW9yZXNuZWFrZXJzLWJhY2tvZmZpY2Uvc3JjXFxhcHBcXG1zLWJhY2stb2ZmaWNlXFxtb2R1bGVzXFxtcy1kZWFsc1xcY29tcG9uZW50c1xcZWRpdC1kZWFsXFxlZGl0LWRlYWwuY29tcG9uZW50LnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFDSSxjQUFhO0VBQ2IsdUJBQXNCO0VBQ3RCLGFBQVksRUFDZiIsImZpbGUiOiJzcmMvYXBwL21zLWJhY2stb2ZmaWNlL21vZHVsZXMvbXMtZGVhbHMvY29tcG9uZW50cy9lZGl0LWRlYWwvZWRpdC1kZWFsLmNvbXBvbmVudC5zY3NzIiwic291cmNlc0NvbnRlbnQiOlsiOmhvc3Qge1xyXG4gICAgZGlzcGxheTogZmxleDtcclxuICAgIGZsZXgtZGlyZWN0aW9uOiBjb2x1bW47XHJcbiAgICBmbGV4LWdyb3c6IDE7XHJcbn0iXX0= */"
+module.exports = ":host {\n  display: flex;\n  flex-grow: 1;\n  flex-direction: column;\n  height: 100%; }\n\n.mat-dialog-container {\n  padding: 10px; }\n\n.mat-dialog-content {\n  height: 60%;\n  max-height: 82vh;\n  margin-bottom: 10px; }\n\n.mat-dialog-actions {\n  padding: 10px 0; }\n\nmat-card {\n  padding: 0px;\n  align-self: flex-start;\n  height: 200px;\n  width: 150px;\n  margin-left: 2px;\n  margin-right: 15px;\n  margin-bottom: 15px; }\n\nmat-icon {\n  font-size: 24px;\n  width: 24px;\n  height: 24px; }\n\n.max-width-60-pct {\n  max-width: 60% !important; }\n\n.border {\n  border: 1px solid #f1f1f1; }\n\ntd.mat-cell {\n  border: none !important; }\n\nth.mat-header-cell {\n  border: none !important; }\n\n/*  ::ng-deep .mat-dialog-container {\r\n    padding-right: 0px !important;\r\n  }*/\n\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvbXMtYmFjay1vZmZpY2UvbW9kdWxlcy9tcy1kZWFscy9jb21wb25lbnRzL2VkaXQtZGVhbC9FOlxcUFJPR1JBTUFDSU9OIElJSVxcbW9yZXNuZWFrZXJzLWJhY2tvZmZpY2Uvc3JjXFxhcHBcXG1zLWJhY2stb2ZmaWNlXFxtb2R1bGVzXFxtcy1kZWFsc1xcY29tcG9uZW50c1xcZWRpdC1kZWFsXFxlZGl0LWRlYWwuY29tcG9uZW50LnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFDSSxjQUFhO0VBQ2IsYUFBWTtFQUNaLHVCQUFzQjtFQUN0QixhQUNGLEVBQUM7O0FBRUQ7RUFDRSxjQUFhLEVBQ2Q7O0FBRUQ7RUFDRSxZQUFXO0VBQ1gsaUJBQWdCO0VBQ2hCLG9CQUFtQixFQUNwQjs7QUFFRDtFQUNFLGdCQUFlLEVBQ2hCOztBQUVEO0VBQ0UsYUFBWTtFQUNaLHVCQUFzQjtFQUN0QixjQUFhO0VBQ2IsYUFBWTtFQUNaLGlCQUFnQjtFQUNoQixtQkFBa0I7RUFDbEIsb0JBQW1CLEVBQ3BCOztBQUVEO0VBQ0UsZ0JBQWU7RUFDZixZQUFXO0VBQ1gsYUFBWSxFQUNiOztBQUVEO0VBQ0UsMEJBQXlCLEVBQzFCOztBQUVEO0VBQ0UsMEJBQXlCLEVBQzFCOztBQUVEO0VBQ0Usd0JBQXVCLEVBQ3hCOztBQUNEO0VBQ0Usd0JBQXVCLEVBQ3hCOztBQUVIOztLQUVLIiwiZmlsZSI6InNyYy9hcHAvbXMtYmFjay1vZmZpY2UvbW9kdWxlcy9tcy1kZWFscy9jb21wb25lbnRzL2VkaXQtZGVhbC9lZGl0LWRlYWwuY29tcG9uZW50LnNjc3MiLCJzb3VyY2VzQ29udGVudCI6WyI6aG9zdCB7XHJcbiAgICBkaXNwbGF5OiBmbGV4O1xyXG4gICAgZmxleC1ncm93OiAxO1xyXG4gICAgZmxleC1kaXJlY3Rpb246IGNvbHVtbjtcclxuICAgIGhlaWdodDogMTAwJVxyXG4gIH1cclxuICBcclxuICAubWF0LWRpYWxvZy1jb250YWluZXIge1xyXG4gICAgcGFkZGluZzogMTBweDtcclxuICB9XHJcbiAgXHJcbiAgLm1hdC1kaWFsb2ctY29udGVudCB7XHJcbiAgICBoZWlnaHQ6IDYwJTtcclxuICAgIG1heC1oZWlnaHQ6IDgydmg7XHJcbiAgICBtYXJnaW4tYm90dG9tOiAxMHB4O1xyXG4gIH1cclxuICBcclxuICAubWF0LWRpYWxvZy1hY3Rpb25zIHtcclxuICAgIHBhZGRpbmc6IDEwcHggMDtcclxuICB9XHJcbiAgXHJcbiAgbWF0LWNhcmQge1xyXG4gICAgcGFkZGluZzogMHB4O1xyXG4gICAgYWxpZ24tc2VsZjogZmxleC1zdGFydDtcclxuICAgIGhlaWdodDogMjAwcHg7XHJcbiAgICB3aWR0aDogMTUwcHg7XHJcbiAgICBtYXJnaW4tbGVmdDogMnB4O1xyXG4gICAgbWFyZ2luLXJpZ2h0OiAxNXB4O1xyXG4gICAgbWFyZ2luLWJvdHRvbTogMTVweDtcclxuICB9XHJcbiAgXHJcbiAgbWF0LWljb24ge1xyXG4gICAgZm9udC1zaXplOiAyNHB4O1xyXG4gICAgd2lkdGg6IDI0cHg7XHJcbiAgICBoZWlnaHQ6IDI0cHg7XHJcbiAgfVxyXG4gIFxyXG4gIC5tYXgtd2lkdGgtNjAtcGN0e1xyXG4gICAgbWF4LXdpZHRoOiA2MCUgIWltcG9ydGFudDtcclxuICB9XHJcbiAgXHJcbiAgLmJvcmRlcntcclxuICAgIGJvcmRlcjogMXB4IHNvbGlkICNmMWYxZjE7XHJcbiAgfVxyXG4gIFxyXG4gIHRkLm1hdC1jZWxse1xyXG4gICAgYm9yZGVyOiBub25lICFpbXBvcnRhbnQ7XHJcbiAgfVxyXG4gIHRoLm1hdC1oZWFkZXItY2VsbHtcclxuICAgIGJvcmRlcjogbm9uZSAhaW1wb3J0YW50O1xyXG4gIH1cclxuXHJcbi8qICA6Om5nLWRlZXAgLm1hdC1kaWFsb2ctY29udGFpbmVyIHtcclxuICAgIHBhZGRpbmctcmlnaHQ6IDBweCAhaW1wb3J0YW50O1xyXG4gIH0qLyJdfQ== */"
 
 /***/ }),
 
@@ -745,7 +1023,7 @@ var __param = (undefined && undefined.__param) || function (paramIndex, decorato
 
 //import { setTranslations } from '@c/ngx-translate';
 var errorKey = 'Error';
-var updatedDealMessageKey = 'Updated';
+var updatedMessageKey = 'Updated';
 var EditDealComponent = /** @class */ (function () {
     function EditDealComponent(activatedRoute, DealsService, dialog, dialogRef, errorHandlingService, imagesService, router, snackBar, translate, toastr, dialogData) {
         this.activatedRoute = activatedRoute;
@@ -809,7 +1087,7 @@ var EditDealComponent = /** @class */ (function () {
                         _this.DealsService.putDeal(dealData).subscribe(function (response) {
                             _this.unsavedChanges = false;
                             _this.close();
-                            _this.toastr.success(updatedDealMessageKey);
+                            _this.toastr.success(updatedMessageKey);
                         }, function (error) {
                             _this.errorHandlingService.handleUiError(errorKey, error);
                             _this.validationErrors = error.formErrors;
@@ -823,7 +1101,7 @@ var EditDealComponent = /** @class */ (function () {
                     this.DealsService.putDeal(dealData).subscribe(function (response) {
                         _this.unsavedChanges = false;
                         _this.close();
-                        _this.toastr.success(updatedDealMessageKey);
+                        _this.toastr.success(updatedMessageKey);
                     }, function (error) {
                         _this.errorHandlingService.handleUiError(errorKey, error);
                         _this.validationErrors = error.formErrors;
@@ -835,7 +1113,7 @@ var EditDealComponent = /** @class */ (function () {
             this.DealsService.putDeal(dealData).subscribe(function (response) {
                 _this.unsavedChanges = false;
                 _this.close();
-                _this.toastr.success(updatedDealMessageKey);
+                _this.toastr.success(updatedMessageKey);
             }, function (error) {
                 _this.errorHandlingService.handleUiError(errorKey, error);
                 _this.validationErrors = error.formErrors;
@@ -875,7 +1153,7 @@ var EditDealComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<h1>ADD NEW DEAL</h1>\n<deal-form class=\"flex-grow-1\"\n    [data]=\"data\"        \n    [urls]=\"DialogData.urls\"\n    [shopId]=\"DialogData.shopId\"\n    (accept)=\"submit($event)\"\n    (cancel)=\"cancel()\"\n    [validationErrors]=\"validationErrors\"\n    (dataChange)=\"dataChanged()\">\n</deal-form>"
+module.exports = "<h1>ADD NEW DEAL</h1>\n<deal-form class=\"flex-grow-1\"\n    [data]=\"data\"        \n    [urls]=\"DialogData.urls\"\n    [shops]=\"DialogData.shops\"\n    [shopId]=\"DialogData.shopId\"\n    (accept)=\"submit($event)\"\n    (cancel)=\"cancel()\"\n    [validationErrors]=\"validationErrors\"\n    (dataChange)=\"dataChanged()\">\n</deal-form>"
 
 /***/ }),
 
@@ -886,7 +1164,7 @@ module.exports = "<h1>ADD NEW DEAL</h1>\n<deal-form class=\"flex-grow-1\"\n    [
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ":host {\n  display: flex;\n  flex-grow: 1;\n  flex-direction: column;\n  height: 100%; }\n\n.mat-dialog-container {\n  padding: 10px; }\n\n.mat-dialog-content {\n  height: 60%;\n  max-height: 82vh;\n  margin-bottom: 10px; }\n\n.mat-dialog-actions {\n  padding: 10px 0; }\n\nmat-card {\n  padding: 0px;\n  align-self: flex-start;\n  height: 200px;\n  width: 150px;\n  margin-left: 2px;\n  margin-right: 15px;\n  margin-bottom: 15px; }\n\nmat-icon {\n  font-size: 24px;\n  width: 24px;\n  height: 24px; }\n\n.max-width-60-pct {\n  max-width: 60% !important; }\n\n.border {\n  border: 1px solid #f1f1f1; }\n\ntd.mat-cell {\n  border: none !important; }\n\nth.mat-header-cell {\n  border: none !important; }\n\n::ng-deep .mat-dialog-container {\n  padding-right: 0px !important; }\n\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvbXMtYmFjay1vZmZpY2UvbW9kdWxlcy9tcy1kZWFscy9jb21wb25lbnRzL25ldy1kZWFsL0U6XFxQUk9HUkFNQUNJT04gSUlJXFxtb3Jlc25lYWtlcnMtYmFja29mZmljZS9zcmNcXGFwcFxcbXMtYmFjay1vZmZpY2VcXG1vZHVsZXNcXG1zLWRlYWxzXFxjb21wb25lbnRzXFxuZXctZGVhbFxcbmV3LWRlYWwuY29tcG9uZW50LnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFDSSxjQUFhO0VBQ2IsYUFBWTtFQUNaLHVCQUFzQjtFQUN0QixhQUNGLEVBQUM7O0FBRUQ7RUFDRSxjQUFhLEVBQ2Q7O0FBRUQ7RUFDRSxZQUFXO0VBQ1gsaUJBQWdCO0VBQ2hCLG9CQUFtQixFQUNwQjs7QUFFRDtFQUNFLGdCQUFlLEVBQ2hCOztBQUVEO0VBQ0UsYUFBWTtFQUNaLHVCQUFzQjtFQUN0QixjQUFhO0VBQ2IsYUFBWTtFQUNaLGlCQUFnQjtFQUNoQixtQkFBa0I7RUFDbEIsb0JBQW1CLEVBQ3BCOztBQUVEO0VBQ0UsZ0JBQWU7RUFDZixZQUFXO0VBQ1gsYUFBWSxFQUNiOztBQUVEO0VBQ0UsMEJBQXlCLEVBQzFCOztBQUVEO0VBQ0UsMEJBQXlCLEVBQzFCOztBQUVEO0VBQ0Usd0JBQXVCLEVBQ3hCOztBQUNEO0VBQ0Usd0JBQXVCLEVBQ3hCOztBQUVEO0VBQ0UsOEJBQTZCLEVBQzlCIiwiZmlsZSI6InNyYy9hcHAvbXMtYmFjay1vZmZpY2UvbW9kdWxlcy9tcy1kZWFscy9jb21wb25lbnRzL25ldy1kZWFsL25ldy1kZWFsLmNvbXBvbmVudC5zY3NzIiwic291cmNlc0NvbnRlbnQiOlsiOmhvc3Qge1xyXG4gICAgZGlzcGxheTogZmxleDtcclxuICAgIGZsZXgtZ3JvdzogMTtcclxuICAgIGZsZXgtZGlyZWN0aW9uOiBjb2x1bW47XHJcbiAgICBoZWlnaHQ6IDEwMCVcclxuICB9XHJcbiAgXHJcbiAgLm1hdC1kaWFsb2ctY29udGFpbmVyIHtcclxuICAgIHBhZGRpbmc6IDEwcHg7XHJcbiAgfVxyXG4gIFxyXG4gIC5tYXQtZGlhbG9nLWNvbnRlbnQge1xyXG4gICAgaGVpZ2h0OiA2MCU7XHJcbiAgICBtYXgtaGVpZ2h0OiA4MnZoO1xyXG4gICAgbWFyZ2luLWJvdHRvbTogMTBweDtcclxuICB9XHJcbiAgXHJcbiAgLm1hdC1kaWFsb2ctYWN0aW9ucyB7XHJcbiAgICBwYWRkaW5nOiAxMHB4IDA7XHJcbiAgfVxyXG4gIFxyXG4gIG1hdC1jYXJkIHtcclxuICAgIHBhZGRpbmc6IDBweDtcclxuICAgIGFsaWduLXNlbGY6IGZsZXgtc3RhcnQ7XHJcbiAgICBoZWlnaHQ6IDIwMHB4O1xyXG4gICAgd2lkdGg6IDE1MHB4O1xyXG4gICAgbWFyZ2luLWxlZnQ6IDJweDtcclxuICAgIG1hcmdpbi1yaWdodDogMTVweDtcclxuICAgIG1hcmdpbi1ib3R0b206IDE1cHg7XHJcbiAgfVxyXG4gIFxyXG4gIG1hdC1pY29uIHtcclxuICAgIGZvbnQtc2l6ZTogMjRweDtcclxuICAgIHdpZHRoOiAyNHB4O1xyXG4gICAgaGVpZ2h0OiAyNHB4O1xyXG4gIH1cclxuICBcclxuICAubWF4LXdpZHRoLTYwLXBjdHtcclxuICAgIG1heC13aWR0aDogNjAlICFpbXBvcnRhbnQ7XHJcbiAgfVxyXG4gIFxyXG4gIC5ib3JkZXJ7XHJcbiAgICBib3JkZXI6IDFweCBzb2xpZCAjZjFmMWYxO1xyXG4gIH1cclxuICBcclxuICB0ZC5tYXQtY2VsbHtcclxuICAgIGJvcmRlcjogbm9uZSAhaW1wb3J0YW50O1xyXG4gIH1cclxuICB0aC5tYXQtaGVhZGVyLWNlbGx7XHJcbiAgICBib3JkZXI6IG5vbmUgIWltcG9ydGFudDtcclxuICB9XHJcblxyXG4gIDo6bmctZGVlcCAubWF0LWRpYWxvZy1jb250YWluZXIge1xyXG4gICAgcGFkZGluZy1yaWdodDogMHB4ICFpbXBvcnRhbnQ7XHJcbiAgfSJdfQ== */"
+module.exports = ":host {\n  display: flex;\n  flex-grow: 1;\n  flex-direction: column;\n  height: 100%; }\n\n.mat-dialog-container {\n  padding: 10px; }\n\n.mat-dialog-content {\n  height: 60%;\n  max-height: 82vh;\n  margin-bottom: 10px; }\n\n.mat-dialog-actions {\n  padding: 10px 0; }\n\nmat-card {\n  padding: 0px;\n  align-self: flex-start;\n  height: 200px;\n  width: 150px;\n  margin-left: 2px;\n  margin-right: 15px;\n  margin-bottom: 15px; }\n\nmat-icon {\n  font-size: 24px;\n  width: 24px;\n  height: 24px; }\n\n.max-width-60-pct {\n  max-width: 60% !important; }\n\n.border {\n  border: 1px solid #f1f1f1; }\n\ntd.mat-cell {\n  border: none !important; }\n\nth.mat-header-cell {\n  border: none !important; }\n\n/*  ::ng-deep .mat-dialog-container {\r\n    padding-right: 0px !important;\r\n  }*/\n\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvbXMtYmFjay1vZmZpY2UvbW9kdWxlcy9tcy1kZWFscy9jb21wb25lbnRzL25ldy1kZWFsL0U6XFxQUk9HUkFNQUNJT04gSUlJXFxtb3Jlc25lYWtlcnMtYmFja29mZmljZS9zcmNcXGFwcFxcbXMtYmFjay1vZmZpY2VcXG1vZHVsZXNcXG1zLWRlYWxzXFxjb21wb25lbnRzXFxuZXctZGVhbFxcbmV3LWRlYWwuY29tcG9uZW50LnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFDSSxjQUFhO0VBQ2IsYUFBWTtFQUNaLHVCQUFzQjtFQUN0QixhQUNGLEVBQUM7O0FBRUQ7RUFDRSxjQUFhLEVBQ2Q7O0FBRUQ7RUFDRSxZQUFXO0VBQ1gsaUJBQWdCO0VBQ2hCLG9CQUFtQixFQUNwQjs7QUFFRDtFQUNFLGdCQUFlLEVBQ2hCOztBQUVEO0VBQ0UsYUFBWTtFQUNaLHVCQUFzQjtFQUN0QixjQUFhO0VBQ2IsYUFBWTtFQUNaLGlCQUFnQjtFQUNoQixtQkFBa0I7RUFDbEIsb0JBQW1CLEVBQ3BCOztBQUVEO0VBQ0UsZ0JBQWU7RUFDZixZQUFXO0VBQ1gsYUFBWSxFQUNiOztBQUVEO0VBQ0UsMEJBQXlCLEVBQzFCOztBQUVEO0VBQ0UsMEJBQXlCLEVBQzFCOztBQUVEO0VBQ0Usd0JBQXVCLEVBQ3hCOztBQUNEO0VBQ0Usd0JBQXVCLEVBQ3hCOztBQUVIOztLQUVLIiwiZmlsZSI6InNyYy9hcHAvbXMtYmFjay1vZmZpY2UvbW9kdWxlcy9tcy1kZWFscy9jb21wb25lbnRzL25ldy1kZWFsL25ldy1kZWFsLmNvbXBvbmVudC5zY3NzIiwic291cmNlc0NvbnRlbnQiOlsiOmhvc3Qge1xyXG4gICAgZGlzcGxheTogZmxleDtcclxuICAgIGZsZXgtZ3JvdzogMTtcclxuICAgIGZsZXgtZGlyZWN0aW9uOiBjb2x1bW47XHJcbiAgICBoZWlnaHQ6IDEwMCVcclxuICB9XHJcbiAgXHJcbiAgLm1hdC1kaWFsb2ctY29udGFpbmVyIHtcclxuICAgIHBhZGRpbmc6IDEwcHg7XHJcbiAgfVxyXG4gIFxyXG4gIC5tYXQtZGlhbG9nLWNvbnRlbnQge1xyXG4gICAgaGVpZ2h0OiA2MCU7XHJcbiAgICBtYXgtaGVpZ2h0OiA4MnZoO1xyXG4gICAgbWFyZ2luLWJvdHRvbTogMTBweDtcclxuICB9XHJcbiAgXHJcbiAgLm1hdC1kaWFsb2ctYWN0aW9ucyB7XHJcbiAgICBwYWRkaW5nOiAxMHB4IDA7XHJcbiAgfVxyXG4gIFxyXG4gIG1hdC1jYXJkIHtcclxuICAgIHBhZGRpbmc6IDBweDtcclxuICAgIGFsaWduLXNlbGY6IGZsZXgtc3RhcnQ7XHJcbiAgICBoZWlnaHQ6IDIwMHB4O1xyXG4gICAgd2lkdGg6IDE1MHB4O1xyXG4gICAgbWFyZ2luLWxlZnQ6IDJweDtcclxuICAgIG1hcmdpbi1yaWdodDogMTVweDtcclxuICAgIG1hcmdpbi1ib3R0b206IDE1cHg7XHJcbiAgfVxyXG4gIFxyXG4gIG1hdC1pY29uIHtcclxuICAgIGZvbnQtc2l6ZTogMjRweDtcclxuICAgIHdpZHRoOiAyNHB4O1xyXG4gICAgaGVpZ2h0OiAyNHB4O1xyXG4gIH1cclxuICBcclxuICAubWF4LXdpZHRoLTYwLXBjdHtcclxuICAgIG1heC13aWR0aDogNjAlICFpbXBvcnRhbnQ7XHJcbiAgfVxyXG4gIFxyXG4gIC5ib3JkZXJ7XHJcbiAgICBib3JkZXI6IDFweCBzb2xpZCAjZjFmMWYxO1xyXG4gIH1cclxuICBcclxuICB0ZC5tYXQtY2VsbHtcclxuICAgIGJvcmRlcjogbm9uZSAhaW1wb3J0YW50O1xyXG4gIH1cclxuICB0aC5tYXQtaGVhZGVyLWNlbGx7XHJcbiAgICBib3JkZXI6IG5vbmUgIWltcG9ydGFudDtcclxuICB9XHJcblxyXG4vKiAgOjpuZy1kZWVwIC5tYXQtZGlhbG9nLWNvbnRhaW5lciB7XHJcbiAgICBwYWRkaW5nLXJpZ2h0OiAwcHggIWltcG9ydGFudDtcclxuICB9Ki8iXX0= */"
 
 /***/ }),
 
@@ -935,7 +1213,7 @@ var __param = (undefined && undefined.__param) || function (paramIndex, decorato
 
 
 var errorKey = 'Error';
-var savedStyleMessageKey = 'Saved Style';
+var savedMessageKey = 'Saved';
 var NewDealComponent = /** @class */ (function () {
     function NewDealComponent(dialogRef, activatedRoute, DealsService, errorHandlingService, imagesService, router, translate, toastr, dialog, DialogData) {
         this.dialogRef = dialogRef;
@@ -980,7 +1258,7 @@ var NewDealComponent = /** @class */ (function () {
                     _this.DealsService.postDeal(dealData).subscribe(function (response) {
                         _this.unsavedChanges = false;
                         _this.close();
-                        _this.toastr.success(savedStyleMessageKey);
+                        _this.toastr.success(savedMessageKey);
                     }, function (error) {
                         _this.errorHandlingService.handleUiError(errorKey, error);
                         _this.validationErrors = error.formErrors;
@@ -995,7 +1273,7 @@ var NewDealComponent = /** @class */ (function () {
             this.DealsService.postDeal(dealData).subscribe(function (response) {
                 _this.unsavedChanges = false;
                 _this.close();
-                _this.toastr.success(savedStyleMessageKey);
+                _this.toastr.success(savedMessageKey);
             }, function (error) {
                 _this.errorHandlingService.handleUiError(errorKey, error);
                 _this.validationErrors = error.formErrors;
@@ -1073,7 +1351,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _ms_collections_services_collections_resolve_service__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../ms-collections/services/collections-resolve.service */ "./src/app/ms-back-office/modules/ms-collections/services/collections-resolve.service.ts");
 /* harmony import */ var _ms_categories_services_categories_resolve_service__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../ms-categories/services/categories-resolve.service */ "./src/app/ms-back-office/modules/ms-categories/services/categories-resolve.service.ts");
 /* harmony import */ var _ms_urls_services_urls_resolve_service__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../ms-urls/services/urls-resolve.service */ "./src/app/ms-back-office/modules/ms-urls/services/urls-resolve.service.ts");
-/* harmony import */ var _routing_services_id_resolve_service__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../../../routing/services/id-resolve.service */ "./src/app/routing/services/id-resolve.service.ts");
+/* harmony import */ var _ms_shops_services_shops_resolve_service__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../ms-shops/services/shops-resolve.service */ "./src/app/ms-back-office/modules/ms-shops/services/shops-resolve.service.ts");
+/* harmony import */ var _routing_services_id_resolve_service__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ../../../routing/services/id-resolve.service */ "./src/app/routing/services/id-resolve.service.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1094,6 +1373,7 @@ var __decorate = (undefined && undefined.__decorate) || function (decorators, ta
 
 
 
+
 var routes = [
     {
         path: '',
@@ -1101,7 +1381,8 @@ var routes = [
         resolve: {
             config: _config_services_config_resolve_service__WEBPACK_IMPORTED_MODULE_6__["ConfigResolveService"],
             collections: _ms_collections_services_collections_resolve_service__WEBPACK_IMPORTED_MODULE_8__["CollectionsResolveService"],
-            urls: _ms_urls_services_urls_resolve_service__WEBPACK_IMPORTED_MODULE_10__["UrlsResolveService"]
+            urls: _ms_urls_services_urls_resolve_service__WEBPACK_IMPORTED_MODULE_10__["UrlsResolveService"],
+            shops: _ms_shops_services_shops_resolve_service__WEBPACK_IMPORTED_MODULE_11__["ShopsResolveService"],
         }
     },
     {
@@ -1121,7 +1402,7 @@ var routes = [
         //canActivate: [AuthGuardService],
         resolve: {
             config: _config_services_config_resolve_service__WEBPACK_IMPORTED_MODULE_6__["ConfigResolveService"],
-            styleId: _routing_services_id_resolve_service__WEBPACK_IMPORTED_MODULE_11__["IdResolveService"],
+            styleId: _routing_services_id_resolve_service__WEBPACK_IMPORTED_MODULE_12__["IdResolveService"],
             urls: _ms_urls_services_urls_resolve_service__WEBPACK_IMPORTED_MODULE_10__["UrlsResolveService"]
         },
         data: { closeRouteCommand: ['../../'] }
@@ -1132,7 +1413,7 @@ var routes = [
         //canActivate: [AuthGuardService],
         resolve: {
             config: _config_services_config_resolve_service__WEBPACK_IMPORTED_MODULE_6__["ConfigResolveService"],
-            DealId: _routing_services_id_resolve_service__WEBPACK_IMPORTED_MODULE_11__["IdResolveService"],
+            DealId: _routing_services_id_resolve_service__WEBPACK_IMPORTED_MODULE_12__["IdResolveService"],
         },
         data: { closeRouteCommand: ['../../'] }
     }
@@ -1181,12 +1462,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _ui_modules_ask_before_refresh_ask_before_refresh_module__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ../../../ui/modules/ask-before-refresh/ask-before-refresh.module */ "./src/app/ui/modules/ask-before-refresh/ask-before-refresh.module.ts");
 /* harmony import */ var _ui_modules_image_card_image_card_module__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ../../../ui/modules/image-card/image-card.module */ "./src/app/ui/modules/image-card/image-card.module.ts");
 /* harmony import */ var _components_deals_table_deals_table_component__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./components/deals-table/deals-table.component */ "./src/app/ms-back-office/modules/ms-deals/components/deals-table/deals-table.component.ts");
-/* harmony import */ var _ms_deals_routing_module__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./ms-deals-routing.module */ "./src/app/ms-back-office/modules/ms-deals/ms-deals-routing.module.ts");
-/* harmony import */ var _components_deal_creator_deal_creator_component__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ./components/deal-creator/deal-creator.component */ "./src/app/ms-back-office/modules/ms-deals/components/deal-creator/deal-creator.component.ts");
-/* harmony import */ var _components_deal_form_deal_form_component__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ./components/deal-form/deal-form.component */ "./src/app/ms-back-office/modules/ms-deals/components/deal-form/deal-form.component.ts");
-/* harmony import */ var _components_new_deal_new_deal_component__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ./components/new-deal/new-deal.component */ "./src/app/ms-back-office/modules/ms-deals/components/new-deal/new-deal.component.ts");
-/* harmony import */ var _components_edit_deal_edit_deal_component__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! ./components/edit-deal/edit-deal.component */ "./src/app/ms-back-office/modules/ms-deals/components/edit-deal/edit-deal.component.ts");
-/* harmony import */ var _components_delete_deal_delete_deal_component__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! ./components/delete-deal/delete-deal.component */ "./src/app/ms-back-office/modules/ms-deals/components/delete-deal/delete-deal.component.ts");
+/* harmony import */ var _components_deals_shop_table_deals_shop_table_component__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./components/deals-shop-table/deals-shop-table.component */ "./src/app/ms-back-office/modules/ms-deals/components/deals-shop-table/deals-shop-table.component.ts");
+/* harmony import */ var _ms_deals_routing_module__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ./ms-deals-routing.module */ "./src/app/ms-back-office/modules/ms-deals/ms-deals-routing.module.ts");
+/* harmony import */ var _components_deal_creator_deal_creator_component__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ./components/deal-creator/deal-creator.component */ "./src/app/ms-back-office/modules/ms-deals/components/deal-creator/deal-creator.component.ts");
+/* harmony import */ var _components_deal_form_deal_form_component__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ./components/deal-form/deal-form.component */ "./src/app/ms-back-office/modules/ms-deals/components/deal-form/deal-form.component.ts");
+/* harmony import */ var _components_new_deal_new_deal_component__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! ./components/new-deal/new-deal.component */ "./src/app/ms-back-office/modules/ms-deals/components/new-deal/new-deal.component.ts");
+/* harmony import */ var _components_edit_deal_edit_deal_component__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! ./components/edit-deal/edit-deal.component */ "./src/app/ms-back-office/modules/ms-deals/components/edit-deal/edit-deal.component.ts");
+/* harmony import */ var _components_delete_deal_delete_deal_component__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(/*! ./components/delete-deal/delete-deal.component */ "./src/app/ms-back-office/modules/ms-deals/components/delete-deal/delete-deal.component.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1222,6 +1504,7 @@ var __decorate = (undefined && undefined.__decorate) || function (decorators, ta
 
 
 
+
 //import { LinkShopsModalComponent } from '../ms-shops/components/link-shops/link-shops-modal.component';
 var MsDealsModule = /** @class */ (function () {
     function MsDealsModule() {
@@ -1245,35 +1528,38 @@ var MsDealsModule = /** @class */ (function () {
                 _angular_material_icon__WEBPACK_IMPORTED_MODULE_8__["MatIconModule"],
                 _angular_material__WEBPACK_IMPORTED_MODULE_7__["MatInputModule"],
                 _angular_material__WEBPACK_IMPORTED_MODULE_7__["MatPaginatorModule"],
+                _angular_material__WEBPACK_IMPORTED_MODULE_7__["MatNativeDateModule"],
                 _angular_material_select__WEBPACK_IMPORTED_MODULE_9__["MatSelectModule"],
                 _angular_material_sort__WEBPACK_IMPORTED_MODULE_10__["MatSortModule"],
                 _angular_material__WEBPACK_IMPORTED_MODULE_7__["MatTableModule"],
                 _angular_material_toolbar__WEBPACK_IMPORTED_MODULE_11__["MatToolbarModule"],
                 _angular_material_tooltip__WEBPACK_IMPORTED_MODULE_12__["MatTooltipModule"],
                 _ngx_translate_core__WEBPACK_IMPORTED_MODULE_14__["TranslateModule"],
-                _ms_deals_routing_module__WEBPACK_IMPORTED_MODULE_18__["MsDealsRoutingModule"],
+                _ms_deals_routing_module__WEBPACK_IMPORTED_MODULE_19__["MsDealsRoutingModule"],
                 _ui_modules_ask_before_refresh_ask_before_refresh_module__WEBPACK_IMPORTED_MODULE_15__["AskBeforeRefreshModule"],
                 _ui_modules_image_card_image_card_module__WEBPACK_IMPORTED_MODULE_16__["ImageCardModule"],
             ],
             declarations: [
                 _components_deals_table_deals_table_component__WEBPACK_IMPORTED_MODULE_17__["DealsTableComponent"],
-                _components_deal_creator_deal_creator_component__WEBPACK_IMPORTED_MODULE_19__["DealCreatorComponent"],
-                _components_deal_form_deal_form_component__WEBPACK_IMPORTED_MODULE_20__["DealFormComponent"],
-                _components_new_deal_new_deal_component__WEBPACK_IMPORTED_MODULE_21__["NewDealComponent"],
-                _components_edit_deal_edit_deal_component__WEBPACK_IMPORTED_MODULE_22__["EditDealComponent"],
-                _components_delete_deal_delete_deal_component__WEBPACK_IMPORTED_MODULE_23__["DeleteDealComponent"]
+                _components_deal_creator_deal_creator_component__WEBPACK_IMPORTED_MODULE_20__["DealCreatorComponent"],
+                _components_deal_form_deal_form_component__WEBPACK_IMPORTED_MODULE_21__["DealFormComponent"],
+                _components_new_deal_new_deal_component__WEBPACK_IMPORTED_MODULE_22__["NewDealComponent"],
+                _components_edit_deal_edit_deal_component__WEBPACK_IMPORTED_MODULE_23__["EditDealComponent"],
+                _components_delete_deal_delete_deal_component__WEBPACK_IMPORTED_MODULE_24__["DeleteDealComponent"],
+                _components_deals_shop_table_deals_shop_table_component__WEBPACK_IMPORTED_MODULE_18__["DealsShopTableComponent"]
             ],
             exports: [
                 _components_deals_table_deals_table_component__WEBPACK_IMPORTED_MODULE_17__["DealsTableComponent"],
-                _components_deal_creator_deal_creator_component__WEBPACK_IMPORTED_MODULE_19__["DealCreatorComponent"],
-                _components_deal_form_deal_form_component__WEBPACK_IMPORTED_MODULE_20__["DealFormComponent"],
-                _components_new_deal_new_deal_component__WEBPACK_IMPORTED_MODULE_21__["NewDealComponent"],
-                _components_edit_deal_edit_deal_component__WEBPACK_IMPORTED_MODULE_22__["EditDealComponent"],
-                _components_delete_deal_delete_deal_component__WEBPACK_IMPORTED_MODULE_23__["DeleteDealComponent"]
+                _components_deal_creator_deal_creator_component__WEBPACK_IMPORTED_MODULE_20__["DealCreatorComponent"],
+                _components_deal_form_deal_form_component__WEBPACK_IMPORTED_MODULE_21__["DealFormComponent"],
+                _components_new_deal_new_deal_component__WEBPACK_IMPORTED_MODULE_22__["NewDealComponent"],
+                _components_edit_deal_edit_deal_component__WEBPACK_IMPORTED_MODULE_23__["EditDealComponent"],
+                _components_delete_deal_delete_deal_component__WEBPACK_IMPORTED_MODULE_24__["DeleteDealComponent"],
+                _components_deals_shop_table_deals_shop_table_component__WEBPACK_IMPORTED_MODULE_18__["DealsShopTableComponent"]
             ],
             entryComponents: [
-                _components_new_deal_new_deal_component__WEBPACK_IMPORTED_MODULE_21__["NewDealComponent"],
-                _components_edit_deal_edit_deal_component__WEBPACK_IMPORTED_MODULE_22__["EditDealComponent"],
+                _components_new_deal_new_deal_component__WEBPACK_IMPORTED_MODULE_22__["NewDealComponent"],
+                _components_edit_deal_edit_deal_component__WEBPACK_IMPORTED_MODULE_23__["EditDealComponent"],
             ]
         })
     ], MsDealsModule);

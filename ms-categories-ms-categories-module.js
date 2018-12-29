@@ -509,11 +509,11 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 
 
 
-var titleKey = 'Title Delete Category';
-var deleteBtnKey = 'Delete Category';
-var messageKey = 'Delete Category Message';
+var titleKey = 'Delete';
+var deleteBtnKey = 'Delete';
+var messageKey = 'Are you sure you want to delete this Category?';
 var errorKey = 'Error';
-var deletedCategoryMessageKey = 'Deleted Category Message';
+var deletedMessageKey = 'Deleted';
 var DeleteCategoryComponent = /** @class */ (function () {
     function DeleteCategoryComponent(activatedRoute, dialog, categoriesService, errorHandlingService, router, translate, toastr) {
         this.activatedRoute = activatedRoute;
@@ -565,7 +565,7 @@ var DeleteCategoryComponent = /** @class */ (function () {
         this.categoriesService.deleteCategory(this.data.id).subscribe(function (response) {
             _this.categoriesService.reloadCategories().subscribe(function (response) {
                 _this.categoriesService.categoriesList.next(response);
-                _this.toastr.success(deletedCategoryMessageKey);
+                _this.toastr.success(deletedMessageKey);
                 _this.close();
             }, function (error) { return _this.errorHandlingService.handleUiError(errorKey, error); });
         }, function (error) {
@@ -794,7 +794,7 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 
 
 var errorKey = 'Error';
-var savedStyleMessageKey = 'Saved Style Message';
+var savedMessageKey = 'Saved';
 var NewCategoryComponent = /** @class */ (function () {
     //@Input() brands: Array<Brand>;TODO
     //@Output() close = new EventEmitter();TODO
@@ -832,7 +832,7 @@ var NewCategoryComponent = /** @class */ (function () {
             _this.unsavedChanges = false;
             //this.close.emit();TODO
             _this.close();
-            _this.toastr.success(savedStyleMessageKey);
+            _this.toastr.success(savedMessageKey);
         }, function (error) {
             _this.errorHandlingService.handleUiError(errorKey, error);
             _this.validationErrors = error.formErrors;

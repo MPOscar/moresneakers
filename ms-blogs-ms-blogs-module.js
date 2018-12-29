@@ -7,7 +7,7 @@
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<form class=\"flex-grow-1 min-height-0 display-flex flex-direction-column\" [askBeforeRefresh]=\"formGroup.dirty\" [formGroup]=\"formGroup\"\n  novalidate role=\"form\" (ngSubmit)=\"submitClicked()\" autocomplete=\"off\" inputFocus>\n\n  <div class=\"flex-grow-1 overflow-auto display-flex flex-direction-column\">\n\n    <div class=\"flex-grow-1 flex-shrink-0 display-flex flex-direction-column\">\n\n      <mat-radio-group formControlName=\"type\">\n\n        <div class=\"display-flex padding-bottom-25px\" fxLayout=\"row\">\n\n          <div class=\"display-flex margin-right-25px\">\n\n            <mat-radio-button value=\"Article\" class=\"margin-top-10px\" matTooltip=\"{{ 'Create an Article' | translate }}\">Create an Article</mat-radio-button>\n\n          </div>\n\n          <div class=\"display-flex\">\n\n            <mat-radio-button value=\"Focus\" class=\"margin-top-10px\" matTooltip=\"{{ 'Create a Focus' | translate }}\">Create a Focus</mat-radio-button>\n\n          </div>\n\n        </div>\n\n      </mat-radio-group>\n\n\n      <div class=\"mb-20\" fxFlex fxLayout=\"row\" fxLayout.lt-md=\"column\" fxLayoutGap=\"20px\">\n        <div [fxFlex]=\"50\">\n\n          <div fxLayout=\"row\" fxLayout.lt-md=\"column\" fxLayoutGap=\"20px\" class=\"max-width-480px\">\n\n            \n            <div [fxFlex]=\"50\">\n\n\n              <mat-form-field class=\"width-100pc margin-left-16px\">\n\n                <mat-label>Author</mat-label>\n\n                <input matInput type=\"text\" formControlName=\"author\" required>\n\n              </mat-form-field>\n\n            </div>\n\n            <div [fxFlex]=\"50\">\n\n                <mat-form-field class=\"width-100pc\">\n\n                    <mat-label>Brand</mat-label>\n                    <mat-select placeholder=\"Select\" formControlName=\"brandId\" panelOpen=\"true\" required>\n                      <mat-option *ngFor=\"let brand of brands\" [value]=\"brand.id\">\n                        {{brand.name}}\n                      </mat-option>\n                    </mat-select>\n                    \n                  </mat-form-field>\n\n            </div>\n\n          </div>\n          <mat-form-field class=\"width-100pc margin-left-16px\">\n\n            <mat-label>Title</mat-label>\n\n            <input matInput type=\"text\" formControlName=\"title\" required>\n\n          </mat-form-field>\n\n          <mat-form-field class=\"width-100pc margin-left-16px\">\n\n            <mat-label>Body</mat-label>\n\n            <input matInput type=\"text\" formControlName=\"body\" required>\n\n          </mat-form-field>\n\n        </div>\n\n        <div [fxFlex]=\"50\" class=\"max-width-480px\">\n\n          <div class=\"display-flex justify-content-center\">\n            <h3>Image</h3>\n          </div>\n\n          <image-card formControlName=\"faces\" name=\"faces\" class=\"flex-grow-1\" formControlName=\"faces\" [principal]=\"principal\"></image-card>\n\n        </div>\n\n      </div>\n\n\n    </div>\n\n  </div>\n\n  <div class=\"margin-right-25px padding-top-25px padding-bottom-25px flex-shrink-0 display-flex border-top-style-solid border-top-width-2px border-top-color-grey\">\n\n    <button mat-raised-button type=\"submit\" color=\"primary\">{{ 'Save' | translate }}</button>\n\n    <button mat-raised-button type=\"button\" class=\"margin-left-10px\" (click)=\"cancelClicked()\">{{ 'Cancel' | translate }}</button>\n\n  </div>\n</form>"
+module.exports = "<form class=\"flex-grow-1 min-height-0 display-flex flex-direction-column\" [askBeforeRefresh]=\"formGroup.dirty\" [formGroup]=\"formGroup\"\r\n  novalidate role=\"form\" (ngSubmit)=\"submitClicked()\" autocomplete=\"off\" inputFocus>\r\n\r\n  <div class=\"flex-grow-1 overflow-auto display-flex flex-direction-column\">\r\n\r\n    <div class=\"flex-grow-1 flex-shrink-0 display-flex flex-direction-column\">\r\n\r\n      <mat-radio-group formControlName=\"type\">\r\n\r\n        <div class=\"display-flex padding-bottom-25px\" fxLayout=\"row\">\r\n\r\n          <div class=\"display-flex margin-right-25px\">\r\n\r\n            <mat-radio-button value=\"Article\" class=\"margin-top-10px\" matTooltip=\"{{ 'Create an Article' | translate }}\">Create an Article</mat-radio-button>\r\n\r\n          </div>\r\n\r\n          <div class=\"display-flex\">\r\n\r\n            <mat-radio-button value=\"Focus\" class=\"margin-top-10px\" matTooltip=\"{{ 'Create a Focus' | translate }}\">Create a Focus</mat-radio-button>\r\n\r\n          </div>\r\n\r\n        </div>\r\n\r\n      </mat-radio-group>\r\n\r\n\r\n      <div class=\"mb-20\" fxFlex fxLayout=\"row\" fxLayout.lt-md=\"column\" fxLayoutGap=\"20px\">\r\n        <div [fxFlex]=\"50\">\r\n\r\n          <div fxLayout=\"row\" fxLayout.lt-md=\"column\" fxLayoutGap=\"20px\" class=\"max-width-480px\">\r\n\r\n            \r\n            <div [fxFlex]=\"50\">\r\n\r\n\r\n              <mat-form-field class=\"width-100pc margin-left-16px\">\r\n\r\n                <mat-label>Author</mat-label>\r\n\r\n                <input matInput type=\"text\" formControlName=\"author\" required>\r\n\r\n              </mat-form-field>\r\n\r\n            </div>\r\n\r\n            <div [fxFlex]=\"50\">\r\n\r\n                <mat-form-field class=\"width-100pc\">\r\n\r\n                    <mat-label>Brand</mat-label>\r\n                    <mat-select placeholder=\"Select\" formControlName=\"brandId\" panelOpen=\"true\" required>\r\n                      <mat-option *ngFor=\"let brand of brands\" [value]=\"brand.id\">\r\n                        {{brand.name}}\r\n                      </mat-option>\r\n                    </mat-select>\r\n                    \r\n                  </mat-form-field>\r\n\r\n            </div>\r\n\r\n          </div>\r\n          <mat-form-field class=\"width-100pc margin-left-16px\">\r\n\r\n            <mat-label>Title</mat-label>\r\n\r\n            <input matInput type=\"text\" formControlName=\"title\" required>\r\n\r\n          </mat-form-field>\r\n\r\n          <mat-form-field class=\"width-100pc margin-left-16px\">\r\n\r\n            <mat-label>Body</mat-label>\r\n\r\n            <input matInput type=\"text\" formControlName=\"body\" required>\r\n\r\n          </mat-form-field>\r\n\r\n        </div>\r\n\r\n        <div [fxFlex]=\"50\" class=\"border max-width-480px\">\r\n\r\n          <div class=\"display-flex justify-content-center\">\r\n            <h3>Image</h3>\r\n          </div>\r\n\r\n          <image-card formControlName=\"faces\" name=\"faces\" class=\"flex-grow-1\" formControlName=\"faces\" [principal]=\"principal\"></image-card>\r\n\r\n        </div>\r\n\r\n      </div>\r\n\r\n\r\n    </div>\r\n\r\n  </div>\r\n\r\n  <div class=\"margin-right-25px padding-top-25px padding-bottom-25px flex-shrink-0 display-flex border-top-style-solid border-top-width-2px border-top-color-grey\">\r\n\r\n    <button mat-raised-button type=\"submit\" color=\"primary\">{{ 'Save' | translate }}</button>\r\n\r\n    <button mat-raised-button type=\"button\" class=\"margin-left-10px\" (click)=\"cancelClicked()\">{{ 'Cancel' | translate }}</button>\r\n\r\n  </div>\r\n</form>"
 
 /***/ }),
 
@@ -139,7 +139,7 @@ var BlogFormComponent = /** @class */ (function (_super) {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<h1>Blog Table</h1>\n\n<mat-toolbar class=\"margin-right-25px margin-bottom-10px width-auto flex-shrink-0 background-color-secondary color-primary mat-elevation-z2\"\n  [formGroup]=\"filter\">\n\n  <mat-icon matPrefix color=\"primary\">search</mat-icon>\n  <mat-form-field>\n    <input matInput formControlName=\"title\" placeholder=\"TITLE\">\n  </mat-form-field>\n\n  <mat-form-field>\n    <input matInput formControlName=\"author\" placeholder=\"AUTHOR\">\n  </mat-form-field>\n\n  <mat-form-field class=\"width-100pc\">\n\n    <mat-select placeholder=\"TYPE\" formControlName=\"type\">\n\n      <mat-option *ngFor=\"let type of types\" [value]=\"type.id\">\n\n        {{type.name}}\n\n      </mat-option>\n\n    </mat-select>\n\n  </mat-form-field>\n\n  <span class=\"flex-grow-1\"></span>\n  <button mat-raised-button color=\"primary\" [routerLink]=\"['../create']\">WRITE A POST</button>\n</mat-toolbar>\n\n<div class=\"flex-grow-1 overflow-auto display-flex\">\n\n  <table class=\"margin-top-10px margin-right-25px width-100pct\" mat-table [dataSource]=\"blogs\" matSort [matSortActive]=\"blogsService.previousSortColumn\"\n    [matSortDirection]=\"blogsService.previousSortDirection\" matSortDisableClear (matSortChange)=\"onSort()\">\n\n    <ng-container matColumnDef=\"title\">\n      <th mat-header-cell *matHeaderCellDef mat-sort-header>\n        TITLE\n      </th>\n      <td mat-cell *matCellDef=\"let element\"> {{ element.title }} </td>\n    </ng-container>\n\n    <ng-container matColumnDef=\"thumbnail\">\n      <th mat-header-cell *matHeaderCellDef></th>\n      <td mat-cell *matCellDef=\"let element\" class=\"display-flex flex-grow-1 height-100pct padding-left-0px width-100pct\">\n        <div class=\"position-relative margin-top-5px\">\n          <img [src]=\"element.imgUrl\" class=\"height-90pct width-90pct margin-auto\" alt=\"50\">\n        </div>\n      </td>\n    </ng-container>\n\n    <ng-container matColumnDef=\"author\">\n      <th mat-header-cell *matHeaderCellDef mat-sort-header>\n        AUTHOR\n      </th>\n      <td mat-cell *matCellDef=\"let element\" class=\"padding-table-td\"> {{ element.author }} </td>\n    </ng-container>\n\n    <ng-container matColumnDef=\"type\">\n      <th mat-header-cell *matHeaderCellDef mat-sort-header>\n        TYPE\n      </th>\n      <td mat-cell *matCellDef=\"let element\" class=\"padding-table-td\"> {{ element.type }} </td>\n    </ng-container>\n\n    <ng-container matColumnDef=\"brandId\">\n      <th mat-header-cell *matHeaderCellDef mat-sort-header>\n        BRAND\n      </th>\n      <td mat-cell *matCellDef=\"let element\" class=\"padding-table-td\"> {{ getBrand(element.brandId) }} </td>\n    </ng-container>\n\n    <ng-container matColumnDef=\"updatedAt\">\n      <th mat-header-cell *matHeaderCellDef mat-sort-header>\n        DATE\n      </th>\n      <td mat-cell *matCellDef=\"let element\" class=\"padding-table-td\"> {{ element.updatedAt | date: 'dd/MM/yyyy' }} </td>\n    </ng-container>\n\n    <ng-container matColumnDef=\"actions\">\n      <th mat-header-cell *matHeaderCellDef>\n      </th>\n      <td mat-cell *matCellDef=\"let element\">\n        <button mat-icon-button color=\"primary\" [matTooltip]=\"Edit\" [routerLink]=\"['../edit', element.id]\">\n          <mat-icon>edit</mat-icon>\n        </button>\n        <button mat-icon-button color=\"primary\" [matTooltip]=\"Delete\" [routerLink]=\"['../delete', element.id]\">\n          <mat-icon>delete</mat-icon>\n        </button>\n      </td>\n    </ng-container>\n\n    <tr mat-header-row *matHeaderRowDef=\"displayedColumns\"></tr>\n    <tr mat-row *matRowDef=\"let row; columns: displayedColumns;\" [ngClass]=\"row.is_active ? '' : 'text-decoration-line-through'\">\n    </tr>\n\n  </table>\n\n</div>\n\n<div class=\"margin-right-25px padding-top-15px padding-bottom-15px flex-shrink-0 display-flex border-top-style-solid border-top-width-2px border-top-color-grey\">\n  <span class=\"flex-grow-1\"></span>\n  <mat-paginator [length]=\"totalLength\" [pageSizeOptions]=\"[5, 10, 20, 50, 100]\" [pageIndex]=\"\" [pageSize]=\"\" showFirstLastButtons\n    (page)=\"onPage()\">\n  </mat-paginator>\n</div>"
+module.exports = "<h1>Blog Table</h1>\r\n\r\n<mat-toolbar class=\"margin-right-25px margin-bottom-10px width-auto flex-shrink-0 background-color-secondary color-primary mat-elevation-z2\"\r\n  [formGroup]=\"filter\">\r\n\r\n  <mat-icon matPrefix color=\"primary\">search</mat-icon>\r\n  <mat-form-field>\r\n    <input matInput formControlName=\"title\" placeholder=\"TITLE\">\r\n  </mat-form-field>\r\n\r\n  <mat-form-field>\r\n    <input matInput formControlName=\"author\" placeholder=\"AUTHOR\">\r\n  </mat-form-field>\r\n\r\n  <mat-form-field class=\"width-100pc\">\r\n\r\n    <mat-select placeholder=\"TYPE\" formControlName=\"type\">\r\n\r\n      <mat-option *ngFor=\"let type of types\" [value]=\"type.id\">\r\n\r\n        {{type.name}}\r\n\r\n      </mat-option>\r\n\r\n    </mat-select>\r\n\r\n  </mat-form-field>\r\n\r\n  <span class=\"flex-grow-1\"></span>\r\n  <button mat-raised-button color=\"primary\" [routerLink]=\"['../create']\">WRITE A POST</button>\r\n</mat-toolbar>\r\n\r\n<div class=\"flex-grow-1 overflow-auto display-flex\">\r\n\r\n  <table class=\"margin-top-10px margin-right-25px width-100pct\" mat-table [dataSource]=\"blogs\" matSort [matSortActive]=\"blogsService.previousSortColumn\"\r\n    [matSortDirection]=\"blogsService.previousSortDirection\" matSortDisableClear (matSortChange)=\"onSort()\">\r\n\r\n    <ng-container matColumnDef=\"title\">\r\n      <th mat-header-cell *matHeaderCellDef mat-sort-header>\r\n        TITLE\r\n      </th>\r\n      <td mat-cell *matCellDef=\"let element\"> {{ element.title }} </td>\r\n    </ng-container>\r\n\r\n    <ng-container matColumnDef=\"thumbnail\">\r\n      <th mat-header-cell *matHeaderCellDef></th>\r\n      <td mat-cell *matCellDef=\"let element\" class=\"display-flex flex-grow-1 height-100pct padding-left-0px width-100pct\">\r\n        <div class=\"position-relative margin-top-5px\">\r\n          <img [src]=\"element.imgUrl\" class=\"height-90pct width-90pct margin-auto\" alt=\"50\">\r\n        </div>\r\n      </td>\r\n    </ng-container>\r\n\r\n    <ng-container matColumnDef=\"author\">\r\n      <th mat-header-cell *matHeaderCellDef mat-sort-header>\r\n        AUTHOR\r\n      </th>\r\n      <td mat-cell *matCellDef=\"let element\" class=\"padding-table-td\"> {{ element.author }} </td>\r\n    </ng-container>\r\n\r\n    <ng-container matColumnDef=\"type\">\r\n      <th mat-header-cell *matHeaderCellDef mat-sort-header>\r\n        TYPE\r\n      </th>\r\n      <td mat-cell *matCellDef=\"let element\" class=\"padding-table-td\"> {{ element.type }} </td>\r\n    </ng-container>\r\n\r\n    <ng-container matColumnDef=\"brandId\">\r\n      <th mat-header-cell *matHeaderCellDef mat-sort-header>\r\n        BRAND\r\n      </th>\r\n      <td mat-cell *matCellDef=\"let element\" class=\"padding-table-td\"> {{ getBrand(element.brandId) }} </td>\r\n    </ng-container>\r\n\r\n    <ng-container matColumnDef=\"updatedAt\">\r\n      <th mat-header-cell *matHeaderCellDef mat-sort-header>\r\n        DATE\r\n      </th>\r\n      <td mat-cell *matCellDef=\"let element\" class=\"padding-table-td\"> {{ element.updatedAt | date: 'dd/MM/yyyy' }} </td>\r\n    </ng-container>\r\n\r\n    <ng-container matColumnDef=\"actions\">\r\n      <th mat-header-cell *matHeaderCellDef>\r\n      </th>\r\n      <td mat-cell *matCellDef=\"let element\">\r\n        <button mat-icon-button color=\"primary\" [matTooltip]=\"Edit\" [routerLink]=\"['../edit', element.id]\">\r\n          <mat-icon>edit</mat-icon>\r\n        </button>\r\n        <button mat-icon-button color=\"primary\" [matTooltip]=\"Delete\" (click)=\"confirmDeleteBlog(element)\">\r\n          <mat-icon>delete</mat-icon>\r\n        </button>\r\n      </td>\r\n    </ng-container>\r\n\r\n    <tr mat-header-row *matHeaderRowDef=\"displayedColumns\"></tr>\r\n    <tr mat-row *matRowDef=\"let row; columns: displayedColumns;\" [ngClass]=\"row.is_active ? '' : 'text-decoration-line-through'\">\r\n    </tr>\r\n\r\n  </table>\r\n\r\n</div>\r\n\r\n<div class=\"margin-right-25px padding-top-15px padding-bottom-15px flex-shrink-0 display-flex border-top-style-solid border-top-width-2px border-top-color-grey\">\r\n  <span class=\"flex-grow-1\"></span>\r\n  <mat-paginator [length]=\"totalLength\" [pageSizeOptions]=\"[5, 10, 20, 50, 100]\" [pageIndex]=\"\" [pageSize]=\"\" showFirstLastButtons\r\n    (page)=\"onPage()\">\r\n  </mat-paginator>\r\n</div>"
 
 /***/ }),
 
@@ -169,9 +169,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
 /* harmony import */ var _angular_material__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/material */ "./node_modules/@angular/material/esm5/material.es5.js");
 /* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! rxjs/operators */ "./node_modules/rxjs/_esm5/operators/index.js");
-/* harmony import */ var _error_handling_services_error_handling_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../../../error-handling/services/error-handling.service */ "./src/app/error-handling/services/error-handling.service.ts");
-/* harmony import */ var _services_blogs_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../services/blogs.service */ "./src/app/ms-back-office/modules/ms-blogs/services/blogs.service.ts");
-/* harmony import */ var _models_type__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../models/type */ "./src/app/ms-back-office/modules/ms-blogs/models/type.ts");
+/* harmony import */ var _ui_modules_confirm_dialog_components_confirm_dialog_confirm_dialog_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../../../ui/modules/confirm-dialog/components/confirm-dialog/confirm-dialog.component */ "./src/app/ui/modules/confirm-dialog/components/confirm-dialog/confirm-dialog.component.ts");
+/* harmony import */ var _error_handling_services_error_handling_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../../../../error-handling/services/error-handling.service */ "./src/app/error-handling/services/error-handling.service.ts");
+/* harmony import */ var _error_handling_services_toastr_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../../../../error-handling/services/toastr.service */ "./src/app/error-handling/services/toastr.service.ts");
+/* harmony import */ var _services_blogs_service__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../services/blogs.service */ "./src/app/ms-back-office/modules/ms-blogs/services/blogs.service.ts");
+/* harmony import */ var _models_type__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../../models/type */ "./src/app/ms-back-office/modules/ms-blogs/models/type.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -187,17 +189,26 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 //
 
 
-//
 
 //
 
 
+
+//
+
+
+var titleKey = 'Delete';
+var deleteBtnKey = 'Delete';
+var messageKey = 'Are you sure you want to delete this Blog?';
 var errorKey = 'Error';
+var deletedBlogMessageKey = 'Deleted';
 var BlogsTableComponent = /** @class */ (function () {
-    function BlogsTableComponent(activatedRoute, blogsService, errorHandlingService) {
+    function BlogsTableComponent(activatedRoute, blogsService, dialog, errorHandlingService, toastr) {
         this.activatedRoute = activatedRoute;
         this.blogsService = blogsService;
+        this.dialog = dialog;
         this.errorHandlingService = errorHandlingService;
+        this.toastr = toastr;
         this.displayedColumns = [
             'title',
             'thumbnail',
@@ -209,7 +220,7 @@ var BlogsTableComponent = /** @class */ (function () {
         ];
         this.blogs = [];
         this.totalLength = 0;
-        this.types = _models_type__WEBPACK_IMPORTED_MODULE_7__["TYPE"];
+        this.types = _models_type__WEBPACK_IMPORTED_MODULE_9__["TYPE"];
     }
     BlogsTableComponent.prototype.ngOnInit = function () {
         var _this = this;
@@ -273,6 +284,34 @@ var BlogsTableComponent = /** @class */ (function () {
             return;
         }
     };
+    BlogsTableComponent.prototype.confirmDeleteBlog = function (data) {
+        var _this = this;
+        this.modalRef = this.dialog.open(_ui_modules_confirm_dialog_components_confirm_dialog_confirm_dialog_component__WEBPACK_IMPORTED_MODULE_5__["ConfirmDialogComponent"], {
+            data: {
+                titleKey: titleKey,
+                okBtnKey: deleteBtnKey,
+                messageKey: messageKey,
+                messageParam: { param: data }
+            }
+        });
+        this.modalRef.afterClosed().subscribe(function (result) {
+            if (result) {
+                _this.deleteBlog(data);
+            }
+        });
+    };
+    BlogsTableComponent.prototype.deleteBlog = function (data) {
+        var _this = this;
+        this.blogsService.deleteBlog(data.id).subscribe(function (response) {
+            _this.blogsService.reloadBlogs().subscribe(function (response) {
+                _this.blogsService.blogsList.next(response);
+                _this.toastr.success(deletedBlogMessageKey);
+                _this.loadPage();
+            }, function (error) { return _this.errorHandlingService.handleUiError(errorKey, error); });
+        }, function (error) {
+            _this.errorHandlingService.handleUiError(errorKey, error);
+        });
+    };
     __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ViewChild"])(_angular_material__WEBPACK_IMPORTED_MODULE_3__["MatPaginator"]),
         __metadata("design:type", _angular_material__WEBPACK_IMPORTED_MODULE_3__["MatPaginator"])
@@ -288,8 +327,10 @@ var BlogsTableComponent = /** @class */ (function () {
             styles: [__webpack_require__(/*! ./blogs-table.component.scss */ "./src/app/ms-back-office/modules/ms-blogs/components/blogs-table/blogs-table.component.scss")]
         }),
         __metadata("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"],
-            _services_blogs_service__WEBPACK_IMPORTED_MODULE_6__["BlogsService"],
-            _error_handling_services_error_handling_service__WEBPACK_IMPORTED_MODULE_5__["ErrorHandlingService"]])
+            _services_blogs_service__WEBPACK_IMPORTED_MODULE_8__["BlogsService"],
+            _angular_material__WEBPACK_IMPORTED_MODULE_3__["MatDialog"],
+            _error_handling_services_error_handling_service__WEBPACK_IMPORTED_MODULE_6__["ErrorHandlingService"],
+            _error_handling_services_toastr_service__WEBPACK_IMPORTED_MODULE_7__["ToastrService"]])
     ], BlogsTableComponent);
     return BlogsTableComponent;
 }());
@@ -357,11 +398,11 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 
 
 
-var titleKey = 'Title Delete Blog';
-var deleteBtnKey = 'Delete Blog';
-var messageKey = 'Delete Blog Message';
+var titleKey = 'Delete';
+var deleteBtnKey = 'Delete';
+var messageKey = 'Are you sure you want to delete this Blog?';
 var errorKey = 'Error';
-var deletedBlogMessageKey = 'Deleted Blog Message';
+var deletedBlogMessageKey = 'Deleted';
 var DeleteBlogComponent = /** @class */ (function () {
     function DeleteBlogComponent(activatedRoute, dialog, blogsService, errorHandlingService, router, translate, toastr) {
         this.activatedRoute = activatedRoute;
@@ -374,12 +415,12 @@ var DeleteBlogComponent = /** @class */ (function () {
         //setTranslations(this.translate, TRANSLATIONS);
     }
     DeleteBlogComponent.prototype.ngAfterViewInit = function () {
-        this.getCollection();
+        this.getBlog();
     };
     DeleteBlogComponent.prototype.ngOnInit = function () {
         this.blogId = this.activatedRoute.snapshot.data.blogId;
     };
-    DeleteBlogComponent.prototype.getCollection = function () {
+    DeleteBlogComponent.prototype.getBlog = function () {
         var _this = this;
         this.blogsService.getBlog(this.blogId).subscribe(function (response) {
             _this.data = response.data;
@@ -690,7 +731,7 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 
 
 var errorKey = 'Error';
-var savedStyleMessageKey = 'Saved Style Message';
+var savedMessageKey = 'Saved';
 var NewBlogComponent = /** @class */ (function () {
     //@Input() brands: Array<Brand>;TODO
     //@Output() close = new EventEmitter();TODO
@@ -734,7 +775,7 @@ var NewBlogComponent = /** @class */ (function () {
                 _this.blogsService.postBlog(blogData).subscribe(function (response) {
                     _this.unsavedChanges = false;
                     _this.close();
-                    _this.toastr.success(savedStyleMessageKey);
+                    _this.toastr.success(savedMessageKey);
                 }, function (error) {
                     _this.errorHandlingService.handleUiError(errorKey, error);
                     _this.validationErrors = error.formErrors;

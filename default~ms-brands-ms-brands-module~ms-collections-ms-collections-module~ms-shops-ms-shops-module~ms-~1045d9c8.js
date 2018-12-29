@@ -59,11 +59,11 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 
 
 
-var titleKey = 'Title Delete Shop';
-var deleteBtnKey = 'Delete Shop';
-var messageKey = 'Delete Shop Message';
+var titleKey = 'Delete';
+var deleteBtnKey = 'Delete';
+var messageKey = 'Are you sure you want to delete this Shop?';
 var errorKey = 'Error';
-var deletedUserMessageKey = 'Deleted Shop Message';
+var deletedMessageKey = 'Deleted';
 var DeleteShopComponent = /** @class */ (function () {
     function DeleteShopComponent(activatedRoute, dialog, shopsService, errorHandlingService, router, translate, toastr) {
         this.activatedRoute = activatedRoute;
@@ -115,7 +115,7 @@ var DeleteShopComponent = /** @class */ (function () {
         this.shopsService.deleteShop(this.data.id).subscribe(function (response) {
             _this.shopsService.reloadShops().subscribe(function (response) {
                 _this.shopsService.shopsList.next(response);
-                _this.toastr.success(deletedUserMessageKey);
+                _this.toastr.success(deletedMessageKey);
                 _this.close();
             }, function (error) { return _this.errorHandlingService.handleUiError(errorKey, error); });
         }, function (error) {
@@ -151,7 +151,7 @@ var DeleteShopComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<form class=\"flex-grow-1 min-height-0 display-flex flex-direction-column\" [askBeforeRefresh]=\"formGroup.dirty\" [formGroup]=\"formGroup\"\n  novalidate role=\"form\" (ngSubmit)=\"submitClicked()\" autocomplete=\"off\" inputFocus>\n\n  <mat-tab-group>\n\n    <mat-tab label=\"Shop\">\n\n      <div class=\"flex-grow-1 overflow-auto display-flex flex-direction-column padding-top-25px\">\n\n        <div class=\"flex-grow-1 flex-shrink-0 display-flex flex-direction-column\">\n\n          <div class=\"mb-20\" fxFlex fxLayout=\"row\" fxLayout.lt-md=\"column\" fxLayoutGap=\"20px\">\n\n            <div [fxFlex]=\"25\">\n\n              <mat-form-field class=\"width-100pc margin-left-16px\">\n\n                <mat-label>Shop Name</mat-label>\n\n                <input matInput type=\"text\" formControlName=\"name\" required>\n\n              </mat-form-field>\n\n              <mat-form-field class=\"width-100pc margin-left-16px\">\n\n                <mat-label>Traking list base URL</mat-label>\n\n                <input matInput type=\"text\" formControlName=\"trackingListBaseUrl\">\n\n              </mat-form-field>\n\n              <!--mat-form-field class=\"width-100pc\">\n\n            <mat-label>Collection</mat-label>\n\n            <mat-select placeholder=\"Select\" formControlName=\"collection\">\n\n              <mat-option *ngFor=\"let collection of collections\" [value]=\"collection.id\">\n\n                {{collection.name}}\n\n              </mat-option>\n\n            </mat-select>\n\n          </mat-form-field-->\n\n              <mat-form-field class=\"width-100pc margin-left-16px\">\n\n                <mat-label>Description</mat-label>\n\n                <textarea matInput formControlName=\"description\"></textarea>\n\n              </mat-form-field>\n\n              <!--mat-form-field class=\"width-100pc\">\n\n            <mat-label>Gender</mat-label>\n\n            <mat-select placeholder=\"Select\" formControlName=\"gender\">\n\n              <mat-option *ngFor=\"let gender of genders\" [value]=\"gender.id\">\n\n                {{gender.name}}\n\n              </mat-option>\n\n            </mat-select>\n\n          </mat-form-field-->\n\n\n\n              <mat-form-field class=\"width-100pc margin-left-16px\">\n\n                <mat-label>Address</mat-label>\n\n                <input matInput type=\"text\" formControlName=\"address\">\n\n              </mat-form-field>\n\n              <mat-form-field class=\"width-100pc margin-left-16px\">\n\n                <mat-label>Shipping Details</mat-label>\n\n                <textarea matInput formControlName=\"shippingDetails\"></textarea>\n\n              </mat-form-field>\n\n              <div [fxFlex]=\"100\" fxLayout=\"row\" fxLayout.lt-md=\"column\">\n\n                <div [fxFlex]=\"50\">\n\n                  <mat-form-field class=\"width-90pct\">\n\n                    <mat-select placeholder=\"Region\" formControlName=\"region\">\n\n                      <mat-option *ngFor=\"let region of regions\" [value]=\"region.id\">\n\n                        {{region.name}}\n\n                      </mat-option>\n\n                    </mat-select>\n\n                  </mat-form-field>\n\n                </div>\n\n                <div [fxFlex]=\"50\" class=\"\">\n\n                  <mat-form-field class=\"width-100pc\">\n\n                    <mat-select placeholder=\"Country\" formControlName=\"country\">\n\n                      <mat-option *ngFor=\"let country of countries\" [value]=\"country.id\">\n\n                        {{country.name}}\n\n                      </mat-option>\n\n                    </mat-select>\n\n                  </mat-form-field>\n\n                </div>\n\n              </div>\n\n              <div [fxFlex]=\"100\" fxLayout=\"row\" fxLayout.lt-md=\"column\">\n\n                <div [fxFlex]=\"50\">\n\n                  <mat-form-field class=\"width-90pct\">\n\n                    <mat-select placeholder=\"Rank\" formControlName=\"rank\">\n\n                      <mat-option *ngFor=\"let rank_ of rank\" [value]=\"rank_.value\">\n\n                        {{rank_.value}}\n\n                      </mat-option>\n\n                    </mat-select>\n\n                  </mat-form-field>\n\n                </div>\n\n                <div [fxFlex]=\"50\" class=\"\">\n\n                  <mat-form-field class=\"width-100pc\">\n\n                    <mat-select placeholder=\"Currency\" formControlName=\"currency\">\n\n                      <mat-option *ngFor=\"let currenc of currency\" [value]=\"currenc.id\">\n\n                        {{currenc.name}}\n\n                      </mat-option>\n\n                    </mat-select>\n\n                  </mat-form-field>\n\n                </div>\n\n              </div>\n\n            </div>\n\n            <div [fxFlex]=\"25\">\n\n              <mat-form-field class=\"width-100pc\">\n\n                <mat-select placeholder=\"Select Brand\" formControlName=\"brand\" multiple>\n\n                  <mat-option *ngFor=\"let brand of brands\" [value]=\"brand.id\">\n\n                    {{brand.name}}\n\n                  </mat-option>\n\n                </mat-select>\n\n              </mat-form-field>\n\n              <mat-form-field class=\"width-100pc\">\n\n                <mat-select placeholder=\"Select Category\" formControlName=\"category\" multiple>\n\n                  <mat-option *ngFor=\"let category of categories\" [value]=\"category.id\">\n\n                    {{category.name}}\n\n                  </mat-option>\n\n                </mat-select>\n\n              </mat-form-field>\n\n              <div>\n\n                <mat-slide-toggle formControlName=\"makeDeal\" class=\"margin-bottom-25px margin-top-25px\">Hot</mat-slide-toggle>\n\n              </div>\n              <!--mat-form-field class=\"width-100pc\">\n\n            <mat-label>Color</mat-label>\n\n            <mat-select placeholder=\"Select\" formControlName=\"color\">\n\n              <mat-option *ngFor=\"let color of colors\" [value]=\"color.id\">\n\n                {{color.name}}\n\n              </mat-option>\n\n            </mat-select>\n\n          </mat-form-field-->\n\n              <!--mat-form-field class=\"width-100pc margin-left-16px\">\n\n            <mat-label>Suplied Color</mat-label>\n\n            <input matInput type=\"text\" formControlName=\"supliedColor\">\n\n          </mat-form-field>\n\n          <mat-slide-toggle formControlName=\"children\">Children</mat-slide-toggle-->\n\n            </div>\n\n            <div [fxFlex]=\"50\" class=\"border margin-right-25px max-width-480px\">\n              <div class=\"display-flex justify-content-center\">\n                <h3>Shop Logo</h3>\n              </div>\n\n              <images-card name=\"faces\" class=\"flex-grow-1\" formControlName=\"faces\" (deletedFace)=\"onDeleteFace($event)\" [principal]=\"principal\"></images-card>\n\n            </div>\n\n          </div>\n          <div class=\"mb-20 color-material\" fxFlex fxLayout=\"row\" fxLayout.lt-md=\"column\" fxLayoutGap=\"20px\">\n\n\n            <div [fxFlex]=\"60\" fxLayout=\"column\" class=\"max-width-480px\">\n\n              <div [fxFlex]=\"100\" fxLayout=\"row\" class=\"margin-bottom-25px\">\n\n                <div [fxFlex]=\"70\">\n\n                  <h3>Working Hours</h3>\n\n                </div>\n\n                <div [fxFlex]=\"30\">\n\n                  <h5>Non-Working</h5>\n\n                </div>\n\n              </div>\n\n              <div [fxFlex]=\"100\" fxLayout=\"row\">\n\n                <div [fxFlex]=\"100\">\n\n                  Monday\n\n                </div>\n\n                <div [fxFlex]=\"100\">\n\n                  <input matInput atp-time-picker class=\"cursor-pointer\" value=\"00:00\"/>\n\n                </div>\n\n                <div [fxFlex]=\"100\">\n\n                  <input matInput atp-time-picker class=\"cursor-pointer\" value=\"00:00\"/>\n\n                </div>\n\n                <div [fxFlex]=\"100\">\n\n                  <mat-checkbox></mat-checkbox>\n\n                </div>\n\n              </div>\n\n              <div [fxFlex]=\"100\" fxLayout=\"row\">\n\n                <div [fxFlex]=\"100\">\n\n                  Tuesday\n\n                </div>\n\n                <div [fxFlex]=\"100\">\n\n                  <input matInput atp-time-picker class=\"cursor-pointer\" value=\"00:00\" />\n\n                </div>\n\n                <div [fxFlex]=\"100\">\n\n                  <input matInput atp-time-picker class=\"cursor-pointer\" value=\"00:00\" />\n\n                </div>\n\n                <div [fxFlex]=\"100\">\n\n                  <mat-checkbox></mat-checkbox>\n\n                </div>\n\n              </div>\n\n              <div [fxFlex]=\"100\" fxLayout=\"row\">\n\n                <div [fxFlex]=\"100\">\n\n                  Wednesday\n\n                </div>\n\n                <div [fxFlex]=\"100\">\n\n                  <input matInput atp-time-picker class=\"cursor-pointer\" value=\"00:00\" />\n\n                </div>\n\n                <div [fxFlex]=\"100\">\n\n                  <input matInput atp-time-picker class=\"cursor-pointer\" value=\"00:00\" />\n\n                </div>\n\n                <div [fxFlex]=\"100\">\n\n                  <mat-checkbox></mat-checkbox>\n\n                </div>\n\n              </div>\n\n              <div [fxFlex]=\"100\" fxLayout=\"row\">\n\n                <div [fxFlex]=\"100\">\n\n                  Thursday\n\n                </div>\n\n                <div [fxFlex]=\"100\">\n\n                  <input matInput atp-time-picker class=\"cursor-pointer\" value=\"00:00\" />\n\n                </div>\n\n                <div [fxFlex]=\"100\">\n\n                  <input matInput atp-time-picker class=\"cursor-pointer\" value=\"00:00\" />\n\n                </div>\n\n                <div [fxFlex]=\"100\">\n\n                  <mat-checkbox></mat-checkbox>\n\n                </div>\n\n              </div>\n\n              <div [fxFlex]=\"100\" fxLayout=\"row\">\n\n                <div [fxFlex]=\"100\">\n\n                  Friday\n\n                </div>\n\n                <div [fxFlex]=\"100\">\n\n                  <input matInput atp-time-picker class=\"cursor-pointer\" value=\"00:00\" />\n\n                </div>\n\n                <div [fxFlex]=\"100\">\n\n                  <input matInput atp-time-picker class=\"cursor-pointer\" value=\"00:00\" />\n\n                </div>\n\n                <div [fxFlex]=\"100\">\n\n                  <mat-checkbox></mat-checkbox>\n\n                </div>\n\n              </div>\n\n              <div [fxFlex]=\"100\" fxLayout=\"row\">\n\n                <div [fxFlex]=\"100\">\n\n                  Saturday\n\n                </div>\n\n                <div [fxFlex]=\"100\">\n\n                  <input matInput atp-time-picker class=\"cursor-pointer\" value=\"00:00\" />\n\n                </div>\n\n                <div [fxFlex]=\"100\">\n\n                  <input matInput atp-time-picker class=\"cursor-pointer\" value=\"00:00\" />\n\n                </div>\n\n                <div [fxFlex]=\"100\">\n\n                  <mat-checkbox></mat-checkbox>\n\n                </div>\n\n              </div>\n\n              <div [fxFlex]=\"100\" fxLayout=\"row\">\n\n                <div [fxFlex]=\"100\">\n\n                  Sunday\n\n                </div>\n\n                <div [fxFlex]=\"100\">\n\n                  <input matInput atp-time-picker class=\"cursor-pointer\" value=\"00:00\" />\n\n                </div>\n\n                <div [fxFlex]=\"100\">\n\n                  <input matInput atp-time-picker class=\"cursor-pointer\" value=\"00:00\" />\n\n                </div>\n\n                <div [fxFlex]=\"100\">\n\n                  <mat-checkbox></mat-checkbox>\n\n                </div>\n\n              </div>\n\n            </div>\n\n\n            <!--div [fxFlex]=\"60\" fxLayout=\"column\" class=\" margin-right-25px\">\n\n              <div [fxFlex]=\"\" fxLayout=\"row\" class=\"justify-content-space-between\">\n\n                <div>\n\n                  <mat-slide-toggle>Make Deal</mat-slide-toggle>\n\n                </div>\n\n                <div class=\"padding-bottom-10px\">\n\n                  <button type=\"button\" class=\"border-none border-radius-5px\" mat-stroked-button>\n                    \n                    Add a new Deal\n\n                    <mat-icon>add</mat-icon>\n\n                  </button>\n\n                </div>\n\n              </div>              \n\n            </div-->\n\n          </div>\n\n        </div>\n\n      </div>\n\n    </mat-tab>\n\n    <mat-tab label=\"Deals\" class=\"width-50pc\">\n\n      <deals-table [shopId]=\"shopId\" class=\"padding-top-25px\"></deals-table>\n\n    </mat-tab>\n\n  </mat-tab-group>\n\n  <div class=\"margin-right-25px padding-top-25px padding-bottom-25px flex-shrink-0 display-flex border-top-style-solid border-top-width-2px border-top-color-grey\">\n\n    <button mat-raised-button type=\"submit\" color=\"primary\">{{ 'Save' | translate }}</button>\n\n    <button mat-raised-button type=\"button\" class=\"margin-left-10px\" (click)=\"cancelClicked()\">{{ 'Cancel' | translate }}</button>\n\n  </div>\n\n</form>\n"
+module.exports = "<form class=\"flex-grow-1 min-height-0 display-flex flex-direction-column\" [askBeforeRefresh]=\"formGroup.dirty\" [formGroup]=\"formGroup\"\n  novalidate role=\"form\" (ngSubmit)=\"submitClicked()\" autocomplete=\"off\" inputFocus>\n\n  <mat-tab-group>\n\n    <mat-tab label=\"Shop\">\n\n      <div class=\"flex-grow-1 overflow-auto display-flex flex-direction-column padding-top-25px\">\n\n        <div class=\"flex-grow-1 flex-shrink-0 display-flex flex-direction-column\">\n\n          <div class=\"mb-20\" fxFlex fxLayout=\"row\" fxLayout.lt-md=\"column\" fxLayoutGap=\"20px\">\n\n            <div [fxFlex]=\"25\">\n\n              <mat-form-field class=\"width-100pc margin-left-16px\">\n\n                <mat-label>Shop Name</mat-label>\n\n                <input matInput type=\"text\" formControlName=\"name\" required>\n\n              </mat-form-field>\n\n              <mat-form-field class=\"width-100pc margin-left-16px\">\n\n                <mat-label>Traking list base URL</mat-label>\n\n                <input matInput type=\"text\" formControlName=\"trackingListBaseUrl\">\n\n              </mat-form-field>\n\n              <!--mat-form-field class=\"width-100pc\">\n\n            <mat-label>Collection</mat-label>\n\n            <mat-select placeholder=\"Select\" formControlName=\"collection\">\n\n              <mat-option *ngFor=\"let collection of collections\" [value]=\"collection.id\">\n\n                {{collection.name}}\n\n              </mat-option>\n\n            </mat-select>\n\n          </mat-form-field-->\n\n              <mat-form-field class=\"width-100pc margin-left-16px\">\n\n                <mat-label>Description</mat-label>\n\n                <textarea matInput formControlName=\"description\"></textarea>\n\n              </mat-form-field>\n\n              <!--mat-form-field class=\"width-100pc\">\n\n            <mat-label>Gender</mat-label>\n\n            <mat-select placeholder=\"Select\" formControlName=\"gender\">\n\n              <mat-option *ngFor=\"let gender of genders\" [value]=\"gender.id\">\n\n                {{gender.name}}\n\n              </mat-option>\n\n            </mat-select>\n\n          </mat-form-field-->\n\n\n\n              <mat-form-field class=\"width-100pc margin-left-16px\">\n\n                <mat-label>Address</mat-label>\n\n                <input matInput type=\"text\" formControlName=\"address\">\n\n              </mat-form-field>\n\n              <mat-form-field class=\"width-100pc margin-left-16px\">\n\n                <mat-label>Shipping Details</mat-label>\n\n                <textarea matInput formControlName=\"shippingDetails\"></textarea>\n\n              </mat-form-field>\n\n              <div [fxFlex]=\"100\" fxLayout=\"row\" fxLayout.lt-md=\"column\">\n\n                <div [fxFlex]=\"50\">\n\n                  <mat-form-field class=\"width-90pct\">\n\n                    <mat-select placeholder=\"Region\" formControlName=\"region\">\n\n                      <mat-option *ngFor=\"let region of regions\" [value]=\"region.id\">\n\n                        {{region.name}}\n\n                      </mat-option>\n\n                    </mat-select>\n\n                  </mat-form-field>\n\n                </div>\n\n                <div [fxFlex]=\"50\" class=\"\">\n\n                  <mat-form-field class=\"width-100pc\">\n\n                    <mat-select placeholder=\"Country\" formControlName=\"country\">\n\n                      <mat-option *ngFor=\"let country of countries\" [value]=\"country.id\">\n\n                        {{country.name}}\n\n                      </mat-option>\n\n                    </mat-select>\n\n                  </mat-form-field>\n\n                </div>\n\n              </div>\n\n              <div [fxFlex]=\"100\" fxLayout=\"row\" fxLayout.lt-md=\"column\">\n\n                <div [fxFlex]=\"50\">\n\n                  <mat-form-field class=\"width-90pct\">\n\n                    <mat-select placeholder=\"Rank\" formControlName=\"rank\">\n\n                      <mat-option *ngFor=\"let rank_ of rank\" [value]=\"rank_.value\">\n\n                        {{rank_.value}}\n\n                      </mat-option>\n\n                    </mat-select>\n\n                  </mat-form-field>\n\n                </div>\n\n                <div [fxFlex]=\"50\" class=\"\">\n\n                  <mat-form-field class=\"width-100pc\">\n\n                    <mat-select placeholder=\"Currency\" formControlName=\"currency\">\n\n                      <mat-option *ngFor=\"let currenc of currency\" [value]=\"currenc.id\">\n\n                        {{currenc.name}}\n\n                      </mat-option>\n\n                    </mat-select>\n\n                  </mat-form-field>\n\n                </div>\n\n              </div>\n\n            </div>\n\n            <div [fxFlex]=\"25\">\n\n              <mat-form-field class=\"width-100pc\">\n\n                <mat-select placeholder=\"Select Brand\" formControlName=\"brand\" multiple>\n\n                  <mat-option *ngFor=\"let brand of brands\" [value]=\"brand.id\">\n\n                    {{brand.name}}\n\n                  </mat-option>\n\n                </mat-select>\n\n              </mat-form-field>\n\n              <mat-form-field class=\"width-100pc\">\n\n                <mat-select placeholder=\"Select Category\" formControlName=\"category\" multiple>\n\n                  <mat-option *ngFor=\"let category of categories\" [value]=\"category.id\">\n\n                    {{category.name}}\n\n                  </mat-option>\n\n                </mat-select>\n\n              </mat-form-field>\n\n              <div>\n\n                <mat-slide-toggle formControlName=\"makeDeal\" class=\"margin-bottom-25px margin-top-25px\">Hot</mat-slide-toggle>\n\n              </div>\n              <!--mat-form-field class=\"width-100pc\">\n\n            <mat-label>Color</mat-label>\n\n            <mat-select placeholder=\"Select\" formControlName=\"color\">\n\n              <mat-option *ngFor=\"let color of colors\" [value]=\"color.id\">\n\n                {{color.name}}\n\n              </mat-option>\n\n            </mat-select>\n\n          </mat-form-field-->\n\n              <!--mat-form-field class=\"width-100pc margin-left-16px\">\n\n            <mat-label>Suplied Color</mat-label>\n\n            <input matInput type=\"text\" formControlName=\"supliedColor\">\n\n          </mat-form-field>\n\n          <mat-slide-toggle formControlName=\"children\">Children</mat-slide-toggle-->\n\n            </div>\n\n            <div [fxFlex]=\"50\" class=\"border margin-right-25px max-width-480px\">\n              <div class=\"display-flex justify-content-center\">\n                <h3>Shop Logo</h3>\n              </div>\n\n              <images-card name=\"faces\" class=\"flex-grow-1\" formControlName=\"faces\" (deletedFace)=\"onDeleteFace($event)\" [principal]=\"principal\"></images-card>\n\n            </div>\n\n          </div>\n          <div class=\"mb-20 color-material\" fxFlex fxLayout=\"row\" fxLayout.lt-md=\"column\" fxLayoutGap=\"20px\">\n\n\n            <div [fxFlex]=\"60\" fxLayout=\"column\" class=\"max-width-480px\">\n\n              <div [fxFlex]=\"100\" fxLayout=\"row\" class=\"margin-bottom-25px\">\n\n                <div [fxFlex]=\"70\">\n\n                  <h3>Working Hours</h3>\n\n                </div>\n\n                <div [fxFlex]=\"30\">\n\n                  <h5>Non-Working</h5>\n\n                </div>\n\n              </div>\n\n              <div [fxFlex]=\"100\" fxLayout=\"row\">\n\n                <div [fxFlex]=\"100\">\n\n                  Monday\n\n                </div>\n\n                <div [fxFlex]=\"100\">\n\n                  <input matInput atp-time-picker class=\"cursor-pointer\" value=\"00:00\"/>\n\n                </div>\n\n                <div [fxFlex]=\"100\">\n\n                  <input matInput atp-time-picker class=\"cursor-pointer\" value=\"00:00\"/>\n\n                </div>\n\n                <div [fxFlex]=\"100\">\n\n                  <mat-checkbox></mat-checkbox>\n\n                </div>\n\n              </div>\n\n              <div [fxFlex]=\"100\" fxLayout=\"row\">\n\n                <div [fxFlex]=\"100\">\n\n                  Tuesday\n\n                </div>\n\n                <div [fxFlex]=\"100\">\n\n                  <input matInput atp-time-picker class=\"cursor-pointer\" value=\"00:00\" />\n\n                </div>\n\n                <div [fxFlex]=\"100\">\n\n                  <input matInput atp-time-picker class=\"cursor-pointer\" value=\"00:00\" />\n\n                </div>\n\n                <div [fxFlex]=\"100\">\n\n                  <mat-checkbox></mat-checkbox>\n\n                </div>\n\n              </div>\n\n              <div [fxFlex]=\"100\" fxLayout=\"row\">\n\n                <div [fxFlex]=\"100\">\n\n                  Wednesday\n\n                </div>\n\n                <div [fxFlex]=\"100\">\n\n                  <input matInput atp-time-picker class=\"cursor-pointer\" value=\"00:00\" />\n\n                </div>\n\n                <div [fxFlex]=\"100\">\n\n                  <input matInput atp-time-picker class=\"cursor-pointer\" value=\"00:00\" />\n\n                </div>\n\n                <div [fxFlex]=\"100\">\n\n                  <mat-checkbox></mat-checkbox>\n\n                </div>\n\n              </div>\n\n              <div [fxFlex]=\"100\" fxLayout=\"row\">\n\n                <div [fxFlex]=\"100\">\n\n                  Thursday\n\n                </div>\n\n                <div [fxFlex]=\"100\">\n\n                  <input matInput atp-time-picker class=\"cursor-pointer\" value=\"00:00\" />\n\n                </div>\n\n                <div [fxFlex]=\"100\">\n\n                  <input matInput atp-time-picker class=\"cursor-pointer\" value=\"00:00\" />\n\n                </div>\n\n                <div [fxFlex]=\"100\">\n\n                  <mat-checkbox></mat-checkbox>\n\n                </div>\n\n              </div>\n\n              <div [fxFlex]=\"100\" fxLayout=\"row\">\n\n                <div [fxFlex]=\"100\">\n\n                  Friday\n\n                </div>\n\n                <div [fxFlex]=\"100\">\n\n                  <input matInput atp-time-picker class=\"cursor-pointer\" value=\"00:00\" />\n\n                </div>\n\n                <div [fxFlex]=\"100\">\n\n                  <input matInput atp-time-picker class=\"cursor-pointer\" value=\"00:00\" />\n\n                </div>\n\n                <div [fxFlex]=\"100\">\n\n                  <mat-checkbox></mat-checkbox>\n\n                </div>\n\n              </div>\n\n              <div [fxFlex]=\"100\" fxLayout=\"row\">\n\n                <div [fxFlex]=\"100\">\n\n                  Saturday\n\n                </div>\n\n                <div [fxFlex]=\"100\">\n\n                  <input matInput atp-time-picker class=\"cursor-pointer\" value=\"00:00\" />\n\n                </div>\n\n                <div [fxFlex]=\"100\">\n\n                  <input matInput atp-time-picker class=\"cursor-pointer\" value=\"00:00\" />\n\n                </div>\n\n                <div [fxFlex]=\"100\">\n\n                  <mat-checkbox></mat-checkbox>\n\n                </div>\n\n              </div>\n\n              <div [fxFlex]=\"100\" fxLayout=\"row\">\n\n                <div [fxFlex]=\"100\">\n\n                  Sunday\n\n                </div>\n\n                <div [fxFlex]=\"100\">\n\n                  <input matInput atp-time-picker class=\"cursor-pointer\" value=\"00:00\" />\n\n                </div>\n\n                <div [fxFlex]=\"100\">\n\n                  <input matInput atp-time-picker class=\"cursor-pointer\" value=\"00:00\" />\n\n                </div>\n\n                <div [fxFlex]=\"100\">\n\n                  <mat-checkbox></mat-checkbox>\n\n                </div>\n\n              </div>\n\n            </div>\n\n\n            <!--div [fxFlex]=\"60\" fxLayout=\"column\" class=\" margin-right-25px\">\n\n              <div [fxFlex]=\"\" fxLayout=\"row\" class=\"justify-content-space-between\">\n\n                <div>\n\n                  <mat-slide-toggle>Make Deal</mat-slide-toggle>\n\n                </div>\n\n                <div class=\"padding-bottom-10px\">\n\n                  <button type=\"button\" class=\"border-none border-radius-5px\" mat-stroked-button>\n                    \n                    Add a new Deal\n\n                    <mat-icon>add</mat-icon>\n\n                  </button>\n\n                </div>\n\n              </div>              \n\n            </div-->\n\n          </div>\n\n        </div>\n\n      </div>\n\n    </mat-tab>\n\n    <mat-tab label=\"Deals\" class=\"width-50pc\">\n\n      <deals-shop-table [shopId]=\"shopId\" [dealId]=\"dealId\" class=\"padding-top-25px\"></deals-shop-table>\n\n    </mat-tab>\n\n  </mat-tab-group>\n\n  <div class=\"margin-right-25px padding-top-25px padding-bottom-25px flex-shrink-0 display-flex border-top-style-solid border-top-width-2px border-top-color-grey\">\n\n    <button mat-raised-button type=\"submit\" color=\"primary\">{{ 'Save' | translate }}</button>\n\n    <button mat-raised-button type=\"button\" class=\"margin-left-10px\" (click)=\"cancelClicked()\">{{ 'Cancel' | translate }}</button>\n\n  </div>\n\n</form>\n"
 
 /***/ }),
 
@@ -447,6 +447,10 @@ var EditShopFormComponent = /** @class */ (function (_super) {
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])(),
         __metadata("design:type", String)
     ], EditShopFormComponent.prototype, "shopId", void 0);
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])(),
+        __metadata("design:type", String)
+    ], EditShopFormComponent.prototype, "dealId", void 0);
     EditShopFormComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
             selector: 'edit-shop-form',
@@ -475,7 +479,7 @@ var EditShopFormComponent = /** @class */ (function (_super) {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<h1>EDIT SHOP</h1>\n\n<edit-shop-form *ngIf=\"data\"\n    [data]=\"data\"\n    [brands]=\"brands\"\n    [shopId]=\"shopId\"\n    [categories]=\"categories\"\n    [collections]=\"collections\"\n    [faceList]=\"faceList\"\n    (accept)=\"submit($event)\"\n    [validationErrors]=\"validationErrors\"\n    (cancel)=\"cancel()\"\n    (dataChange)=\"dataChanged()\">\n</edit-shop-form>"
+module.exports = "<h1>EDIT SHOP</h1>\n\n<edit-shop-form *ngIf=\"data\"\n    [data]=\"data\"\n    [brands]=\"brands\"\n    [shopId]=\"shopId\"\n    [dealId]=\"dealId\"\n    [categories]=\"categories\"\n    [collections]=\"collections\"\n    [faceList]=\"faceList\"\n    (accept)=\"submit($event)\"\n    [validationErrors]=\"validationErrors\"\n    (cancel)=\"cancel()\"\n    (dataChange)=\"dataChanged()\">\n</edit-shop-form>"
 
 /***/ }),
 
@@ -569,6 +573,8 @@ var EditShopComponent = /** @class */ (function () {
         this.categories = this.activatedRoute.snapshot.data.categories;
         this.collections = this.activatedRoute.snapshot.data.collections;
         this.faceList = this.activatedRoute.snapshot.data.shopAllImages;
+        this.dealId = this.activatedRoute.snapshot.queryParams.dealId;
+        this.returnUrl = this.activatedRoute.snapshot.queryParams['returnUrl'];
         /*this.shopsImgesService.getShopAllImages(this.shopId).subscribe(response => {
           this.faceList = response.data;
         },
@@ -602,7 +608,12 @@ var EditShopComponent = /** @class */ (function () {
         this.close();
     };
     EditShopComponent.prototype.close = function () {
-        this.router.navigate(this.activatedRoute.snapshot.data.closeRouteCommand, { relativeTo: this.activatedRoute });
+        if (this.returnUrl && this.returnUrl.length > 0) {
+            this.router.navigateByUrl(this.returnUrl);
+        }
+        else {
+            this.router.navigate(this.activatedRoute.snapshot.data.closeRouteCommand, { relativeTo: this.activatedRoute });
+        }
     };
     EditShopComponent.prototype.updateShop = function (data) {
         var _this = this;
@@ -1792,7 +1803,7 @@ var ShopsSellingStyleModalComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<h1>Shops Table</h1>\n\n<mat-toolbar class=\"margin-right-25px margin-bottom-10px width-auto flex-shrink-0 background-color-secondary color-primary mat-elevation-z2\"\n  [formGroup]=\"filter\">\n\n  <mat-icon matPrefix color=\"primary\">search</mat-icon>\n  <mat-form-field>\n    <input matInput formControlName=\"name\" placeholder=\"NAME\">\n  </mat-form-field>\n\n  <mat-form-field>\n    <mat-label>STATUS</mat-label>\n    <mat-select formControlName=\"status\">\n      <mat-option *ngFor=\"let state of status\" [value]=\"state.value\">\n        {{state.status}}\n      </mat-option>\n    </mat-select>\n  </mat-form-field>\n\n  <mat-form-field>\n    <mat-label>COUNTRY</mat-label>\n    <mat-select formControlName=\"country\">\n      <mat-option [value]=\"null\">name</mat-option>\n    </mat-select>\n  </mat-form-field>\n\n  <span class=\"flex-grow-1\"></span>\n  <button mat-raised-button color=\"primary\" [routerLink]=\"['../create']\">CREATE A NEW SHOP</button>\n</mat-toolbar>\n\n<div class=\"flex-grow-1 overflow-auto display-flex\">\n\n  <table class=\"margin-top-10px margin-right-25px width-100pct\" mat-table [dataSource]=\"shops\" matSort [matSortActive]=\"shopsService.previousSortColumn\"\n    [matSortDirection]=\"shopsService.previousSortDirection\" matSortDisableClear (matSortChange)=\"onSort()\">\n\n    <!--ng-container matColumnDef=\"ID\">\n      <th mat-header-cell *matHeaderCellDef mat-sort-header>\n        ID\n      </th>\n      <td mat-cell *matCellDef=\"let element\"> {{ element.id }} </td>\n    </ng-container-->\n\n    <ng-container matColumnDef=\"name\">\n      <th mat-header-cell *matHeaderCellDef mat-sort-header>\n        SHOP NAME\n      </th>\n      <td mat-cell *matCellDef=\"let element\" class=\"padding-table-td\"> {{ element.name }} </td>\n    </ng-container>\n\n    <ng-container matColumnDef=\"thumbnail\">\n      <th mat-header-cell *matHeaderCellDef></th>\n      <td mat-cell *matCellDef=\"let element\" class=\"display-flex flex-grow-1 height-100pct padding-left-0px width-100pct\">\n        <div class=\"position-relative margin-top-5px\">\n          <img [src]=\"element.mainImage\" class=\"height-90pct width-90pct margin-auto\" alt=\"50\">\n        </div>\n      </td>\n    </ng-container>\n\n    <ng-container matColumnDef=\"active\">\n      <th mat-header-cell *matHeaderCellDef mat-sort-header>\n        STATUS\n      </th>\n      <td mat-cell *matCellDef=\"let element\" class=\"padding-table-td\">\n        <div>\n        {{ element.active?'Active':'Inactive' }}\n        <mat-slide-toggle class=\"margin-bottom-25px margin-top-25px margin-left-5px\" [checked]=\"element.active\" (click)=\"changeStatus(element)\"></mat-slide-toggle>\n        </div>\n      </td>\n    </ng-container>\n\n    <ng-container matColumnDef=\"country\">\n      <th mat-header-cell *matHeaderCellDef mat-sort-header>\n        COUNTRY\n      </th>\n      <td mat-cell *matCellDef=\"let element\" class=\"padding-table-td\"> {{ element.country }} </td>\n    </ng-container>\n\n    <ng-container matColumnDef=\"currency\">\n      <th mat-header-cell *matHeaderCellDef mat-sort-header>\n        CURRENCY\n      </th>\n      <td mat-cell *matCellDef=\"let element\" class=\"padding-table-td\"> {{ element.currency }} </td>\n    </ng-container>\n\n    <ng-container matColumnDef=\"updatedAt\">\n      <th mat-header-cell *matHeaderCellDef mat-sort-header>\n        LATEST UPDATE\n      </th>\n      <td mat-cell *matCellDef=\"let element\" class=\"padding-table-td\"> {{ element.updatedAt  | date: 'dd/MM/yyyy' }} </td>\n    </ng-container>\n\n    <ng-container matColumnDef=\"rank\">\n      <th mat-header-cell *matHeaderCellDef mat-sort-header>\n        RANK\n      </th>\n      <td mat-cell *matCellDef=\"let element\" class=\"padding-table-td\"> {{ element.rank }} </td>\n    </ng-container>\n\n    <ng-container matColumnDef=\"shipingDetails\">\n      <th mat-header-cell *matHeaderCellDef mat-sort-header>\n        SHIPPING DETAILS\n      </th>\n      <td mat-cell *matCellDef=\"let element\" class=\"padding-table-td\"> {{ element.shippingDetails }} </td>\n    </ng-container>\n\n    <ng-container matColumnDef=\"action\">\n      <th mat-header-cell *matHeaderCellDef mat-sort-header>\n      </th>\n      <td mat-cell *matCellDef=\"let element\">\n        <button mat-icon-button color=\"primary\" [matTooltip]=\"Edit\" [routerLink]=\"['../edit', element.id]\">\n          <mat-icon>edit</mat-icon>\n        </button>\n        <button mat-icon-button color=\"primary\" [matTooltip]=\"Edit\" [routerLink]=\"['../delete', element.id]\">\n          <mat-icon>delete</mat-icon>\n        </button>\n      </td>\n    </ng-container>\n\n    <tr mat-header-row *matHeaderRowDef=\"displayedColumns\"></tr>\n    <tr mat-row *matRowDef=\"let row; columns: displayedColumns;\" [ngClass]=\"row.is_active ? '' : 'text-decoration-line-through'\">\n    </tr>\n\n  </table>\n\n</div>\n\n<div class=\"margin-right-25px padding-top-15px padding-bottom-15px flex-shrink-0 display-flex border-top-style-solid border-top-width-2px border-top-color-grey\">\n  <span class=\"flex-grow-1\"></span>\n  <mat-paginator [length]=\"totalLength\" [pageSizeOptions]=\"[5, 10, 20, 50, 100]\" [pageIndex]=\"\" [pageSize]=\"50\" showFirstLastButtons\n    (page)=\"onPage()\">\n  </mat-paginator>\n</div>"
+module.exports = "<h1>Shops Table</h1>\r\n\r\n<mat-toolbar class=\"margin-right-25px margin-bottom-10px width-auto flex-shrink-0 background-color-secondary color-primary mat-elevation-z2\"\r\n  [formGroup]=\"filter\">\r\n\r\n  <mat-icon matPrefix color=\"primary\">search</mat-icon>\r\n  <mat-form-field>\r\n    <input matInput formControlName=\"name\" placeholder=\"NAME\">\r\n  </mat-form-field>\r\n\r\n  <mat-form-field>\r\n    <mat-label>STATUS</mat-label>\r\n    <mat-select formControlName=\"status\">\r\n      <mat-option *ngFor=\"let state of status\" [value]=\"state.value\">\r\n        {{state.status}}\r\n      </mat-option>\r\n    </mat-select>\r\n  </mat-form-field>\r\n\r\n  <mat-form-field>\r\n    <mat-label>COUNTRY</mat-label>\r\n    <mat-select formControlName=\"country\">\r\n      <mat-option [value]=\"null\">name</mat-option>\r\n    </mat-select>\r\n  </mat-form-field>\r\n\r\n  <span class=\"flex-grow-1\"></span>\r\n  <button mat-raised-button color=\"primary\" [routerLink]=\"['../create']\">CREATE A NEW SHOP</button>\r\n</mat-toolbar>\r\n\r\n<div class=\"flex-grow-1 overflow-auto display-flex\">\r\n\r\n  <table class=\"margin-top-10px margin-right-25px width-100pct\" mat-table [dataSource]=\"shops\" matSort [matSortActive]=\"shopsService.previousSortColumn\"\r\n    [matSortDirection]=\"shopsService.previousSortDirection\" matSortDisableClear (matSortChange)=\"onSort()\">\r\n\r\n    <!--ng-container matColumnDef=\"ID\">\r\n      <th mat-header-cell *matHeaderCellDef mat-sort-header>\r\n        ID\r\n      </th>\r\n      <td mat-cell *matCellDef=\"let element\"> {{ element.id }} </td>\r\n    </ng-container-->\r\n\r\n    <ng-container matColumnDef=\"name\">\r\n      <th mat-header-cell *matHeaderCellDef mat-sort-header>\r\n        SHOP NAME\r\n      </th>\r\n      <td mat-cell *matCellDef=\"let element\" class=\"padding-table-td\"> {{ element.name }} </td>\r\n    </ng-container>\r\n\r\n    <ng-container matColumnDef=\"thumbnail\">\r\n      <th mat-header-cell *matHeaderCellDef></th>\r\n      <td mat-cell *matCellDef=\"let element\" class=\"display-flex flex-grow-1 height-100pct padding-left-0px width-100pct\">\r\n        <div class=\"position-relative margin-top-5px\">\r\n          <img [src]=\"element.mainImage\" class=\"height-90pct width-90pct margin-auto\" alt=\"50\">\r\n        </div>\r\n      </td>\r\n    </ng-container>\r\n\r\n    <ng-container matColumnDef=\"active\">\r\n      <th mat-header-cell *matHeaderCellDef mat-sort-header>\r\n        STATUS\r\n      </th>\r\n      <td mat-cell *matCellDef=\"let element\" class=\"padding-table-td\">\r\n        <div>\r\n        {{ element.active?'Active':'Inactive' }}\r\n        <mat-slide-toggle class=\"margin-bottom-25px margin-top-25px margin-left-5px\" [checked]=\"element.active\" (click)=\"changeStatus(element)\"></mat-slide-toggle>\r\n        </div>\r\n      </td>\r\n    </ng-container>\r\n\r\n    <ng-container matColumnDef=\"country\">\r\n      <th mat-header-cell *matHeaderCellDef mat-sort-header>\r\n        COUNTRY\r\n      </th>\r\n      <td mat-cell *matCellDef=\"let element\" class=\"padding-table-td\"> {{ element.country }} </td>\r\n    </ng-container>\r\n\r\n    <ng-container matColumnDef=\"currency\">\r\n      <th mat-header-cell *matHeaderCellDef mat-sort-header>\r\n        CURRENCY\r\n      </th>\r\n      <td mat-cell *matCellDef=\"let element\" class=\"padding-table-td\"> {{ element.currency }} </td>\r\n    </ng-container>\r\n\r\n    <ng-container matColumnDef=\"updatedAt\">\r\n      <th mat-header-cell *matHeaderCellDef mat-sort-header>\r\n        LATEST UPDATE\r\n      </th>\r\n      <td mat-cell *matCellDef=\"let element\" class=\"padding-table-td\"> {{ element.updatedAt  | date: 'dd/MM/yyyy' }} </td>\r\n    </ng-container>\r\n\r\n    <ng-container matColumnDef=\"rank\">\r\n      <th mat-header-cell *matHeaderCellDef mat-sort-header>\r\n        RANK\r\n      </th>\r\n      <td mat-cell *matCellDef=\"let element\" class=\"padding-table-td\"> {{ element.rank }} </td>\r\n    </ng-container>\r\n\r\n    <ng-container matColumnDef=\"shipingDetails\">\r\n      <th mat-header-cell *matHeaderCellDef mat-sort-header>\r\n        SHIPPING DETAILS\r\n      </th>\r\n      <td mat-cell *matCellDef=\"let element\" class=\"padding-table-td\"> {{ element.shippingDetails }} </td>\r\n    </ng-container>\r\n\r\n    <ng-container matColumnDef=\"action\">\r\n      <th mat-header-cell *matHeaderCellDef mat-sort-header>\r\n      </th>\r\n      <td mat-cell *matCellDef=\"let element\">\r\n        <button mat-icon-button color=\"primary\" [matTooltip]=\"Edit\" [routerLink]=\"['../edit', element.id]\">\r\n          <mat-icon>edit</mat-icon>\r\n        </button>\r\n        <button mat-icon-button color=\"primary\" [matTooltip]=\"Edit\" [routerLink]=\"['../delete', element.id]\">\r\n          <mat-icon>delete</mat-icon>\r\n        </button>\r\n      </td>\r\n    </ng-container>\r\n\r\n    <tr mat-header-row *matHeaderRowDef=\"displayedColumns\"></tr>\r\n    <tr mat-row *matRowDef=\"let row; columns: displayedColumns;\" [ngClass]=\"row.is_active ? '' : 'text-decoration-line-through'\">\r\n    </tr>\r\n\r\n  </table>\r\n\r\n</div>\r\n\r\n<div class=\"margin-right-25px padding-top-15px padding-bottom-15px flex-shrink-0 display-flex border-top-style-solid border-top-width-2px border-top-color-grey\">\r\n  <span class=\"flex-grow-1\"></span>\r\n  <mat-paginator [length]=\"totalLength\" [pageSizeOptions]=\"[5, 10, 20, 50, 100]\" [pageIndex]=\"\" [pageSize]=\"50\" showFirstLastButtons\r\n    (page)=\"onPage()\">\r\n  </mat-paginator>\r\n</div>"
 
 /***/ }),
 
@@ -2026,87 +2037,6 @@ var REGIONS = [
     { id: 'America', name: 'America' },
     { id: 'Europe', name: 'Europe' },
 ];
-
-
-/***/ }),
-
-/***/ "./src/app/ms-back-office/modules/ms-shops/models/shops.ts":
-/*!*****************************************************************!*\
-  !*** ./src/app/ms-back-office/modules/ms-shops/models/shops.ts ***!
-  \*****************************************************************/
-/*! exports provided: WeekHours, ShopImage, Shop, ShopsListResponse, ShopsResponse, ShopsImagesListResponse, ShopImagesResponse, EditShopModel */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "WeekHours", function() { return WeekHours; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ShopImage", function() { return ShopImage; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Shop", function() { return Shop; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ShopsListResponse", function() { return ShopsListResponse; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ShopsResponse", function() { return ShopsResponse; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ShopsImagesListResponse", function() { return ShopsImagesListResponse; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ShopImagesResponse", function() { return ShopImagesResponse; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "EditShopModel", function() { return EditShopModel; });
-var __extends = (undefined && undefined.__extends) || (function () {
-    var extendStatics = Object.setPrototypeOf ||
-        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
-    return function (d, b) {
-        extendStatics(d, b);
-        function __() { this.constructor = d; }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
-})();
-var WeekHours = /** @class */ (function () {
-    function WeekHours() {
-    }
-    return WeekHours;
-}());
-
-var ShopImage = /** @class */ (function () {
-    function ShopImage() {
-    }
-    return ShopImage;
-}());
-
-var Shop = /** @class */ (function () {
-    function Shop() {
-    }
-    return Shop;
-}());
-
-var ShopsListResponse = /** @class */ (function () {
-    function ShopsListResponse() {
-    }
-    return ShopsListResponse;
-}());
-
-var ShopsResponse = /** @class */ (function () {
-    function ShopsResponse() {
-    }
-    return ShopsResponse;
-}());
-
-var ShopsImagesListResponse = /** @class */ (function () {
-    function ShopsImagesListResponse() {
-    }
-    return ShopsImagesListResponse;
-}());
-
-var ShopImagesResponse = /** @class */ (function () {
-    function ShopImagesResponse() {
-    }
-    return ShopImagesResponse;
-}());
-
-var EditShopModel = /** @class */ (function (_super) {
-    __extends(EditShopModel, _super);
-    function EditShopModel() {
-        return _super !== null && _super.apply(this, arguments) || this;
-    }
-    return EditShopModel;
-}(Shop));
-
 
 
 /***/ }),
@@ -2590,145 +2520,6 @@ var ShopsImgesService = /** @class */ (function () {
             _error_handling_services_error_handling_http_service__WEBPACK_IMPORTED_MODULE_4__["ErrorHandlingHttpService"]])
     ], ShopsImgesService);
     return ShopsImgesService;
-}());
-
-
-
-/***/ }),
-
-/***/ "./src/app/ms-back-office/modules/ms-style/services/styles.service.ts":
-/*!****************************************************************************!*\
-  !*** ./src/app/ms-back-office/modules/ms-style/services/styles.service.ts ***!
-  \****************************************************************************/
-/*! exports provided: ASCENDING, StylesService */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ASCENDING", function() { return ASCENDING; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "StylesService", function() { return StylesService; });
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
-/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! rxjs */ "./node_modules/rxjs/_esm5/index.js");
-/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! rxjs/operators */ "./node_modules/rxjs/_esm5/operators/index.js");
-/* harmony import */ var _config_services_config_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../config/services/config.service */ "./src/app/config/services/config.service.ts");
-/* harmony import */ var _error_handling_services_error_handling_http_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../../error-handling/services/error-handling-http.service */ "./src/app/error-handling/services/error-handling-http.service.ts");
-var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (undefined && undefined.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-//
-
-
-//
-
-
-//import { User, UsersListResponse, UsersListItem } from '../models/user';
-var ASCENDING = 'asc';
-var StylesService = /** @class */ (function () {
-    function StylesService(configService, http) {
-        this.configService = configService;
-        this.http = http;
-        //selectedStyles = new BehaviorSubject<Array<UsersListItem>>([]);TODO
-        this.previousFilter = {};
-        this.previousSortColumn = 'name';
-        this.previousSortDirection = 'asc';
-        this.previousPageIndex = 0;
-        this.previousPageSize = 10;
-        this.stylesList = new rxjs__WEBPACK_IMPORTED_MODULE_1__["BehaviorSubject"]({ dataCount: 0, data: [] });
-        this.apiEndpoint = this.configService.config.apiConfigs.styles.apiEndpoint;
-    }
-    StylesService.prototype.getStyles = function (filter, sortColumn, sortDirection, pageIndex, pageSize) {
-        this.previousFilter = filter;
-        this.previousSortColumn = sortColumn;
-        this.previousSortDirection = sortDirection;
-        this.previousPageIndex = pageIndex;
-        this.previousPageSize = pageSize;
-        var queryParams = this.formatQueryParams(filter, sortColumn, sortDirection, pageIndex, pageSize);
-        return this.http.get(this.apiEndpoint + queryParams);
-    };
-    StylesService.prototype.reloadStyles = function () {
-        console.log("reload");
-        return this.getStyles(this.previousFilter, this.previousSortColumn, this.previousSortDirection, this.previousPageIndex, this.previousPageSize);
-    };
-    StylesService.prototype.postStyle = function (data) {
-        return this.http.post(this.apiEndpoint, JSON.stringify(data));
-    };
-    StylesService.prototype.postStyleLinkedShops = function (id, data) {
-        return this.http.post(this.apiEndpoint + id + '/shops/', JSON.stringify(data));
-    };
-    StylesService.prototype.getStyleLinkedShops = function (id) {
-        return this.http.get(this.apiEndpoint + id + '/shops/');
-    };
-    StylesService.prototype.getStyle = function (id) {
-        return this.http.get(this.apiEndpoint + id + '/');
-    };
-    StylesService.prototype.putStyle = function (data) {
-        return this.http.put(this.apiEndpoint + data.id + '/', JSON.stringify(data));
-    };
-    StylesService.prototype.deleteStyle = function (id) {
-        return this.http.delete(this.apiEndpoint + id + '/');
-    };
-    StylesService.prototype.formatQueryParams = function (filter, sortColumn, sortDirection, pageIndex, pageSize) {
-        var queryParams = '';
-        if (sortColumn) {
-            var ordering = '';
-            if (sortDirection === 'desc') {
-                ordering = '-';
-            }
-            ordering += sortColumn;
-            queryParams += queryParams.length > 0 ? '&' : '?';
-            queryParams += "ordering=" + ordering;
-        }
-        if (pageIndex !== undefined) {
-            queryParams += queryParams.length > 0 ? '&' : '?';
-            queryParams += "offset=" + pageIndex * pageSize;
-        }
-        if (pageSize !== undefined) {
-            queryParams += queryParams.length > 0 ? '&' : '?';
-            queryParams += "limit=" + pageSize;
-        }
-        if (filter.sku && filter.sku.length > 0) {
-            queryParams += queryParams.length > 0 ? '&' : '?';
-            queryParams += "sku=" + filter.sku;
-        }
-        if (filter.name && filter.name.length > 0) {
-            queryParams += queryParams.length > 0 ? '&' : '?';
-            queryParams += "name=" + filter.name;
-        }
-        if (filter.brand && filter.brand.length > 0) {
-            queryParams += queryParams.length > 0 ? '&' : '?';
-            queryParams += "brand=" + filter.brand;
-        }
-        if (filter.collection && filter.collection.length > 0) {
-            queryParams += queryParams.length > 0 ? '&' : '?';
-            queryParams += "collection=" + filter.collection;
-        }
-        if (filter.category && filter.category.length > 0) {
-            queryParams += queryParams.length > 0 ? '&' : '?';
-            queryParams += "category=" + filter.category;
-        }
-        return queryParams;
-    };
-    StylesService.prototype.getAllStyles = function () {
-        return this.http.get(this.apiEndpoint)
-            .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_2__["map"])(function (response) {
-            return response.data;
-        }));
-    };
-    StylesService = __decorate([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"])({
-            providedIn: 'root'
-        }),
-        __metadata("design:paramtypes", [_config_services_config_service__WEBPACK_IMPORTED_MODULE_3__["ConfigService"],
-            _error_handling_services_error_handling_http_service__WEBPACK_IMPORTED_MODULE_4__["ErrorHandlingHttpService"]])
-    ], StylesService);
-    return StylesService;
 }());
 
 
