@@ -4332,7 +4332,7 @@ module.exports = ":host .panel .panel-body {\r\n    word-wrap: break-word;\r\n}\
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<h1 mat-dialog-title>{{((data && data.titleKey) ? data.titleKey : titleKey) | translate}}</h1>\r\n<div mat-dialog-content [ngStyle]=\"data.contentStyle ? data.contentStyle : null\">{{((data && data.messageKey) ? data.messageKey : messageKey) | translate:((data && data.messageParam) ? data.messageParam : messageParam)}}</div>\r\n<div mat-dialog-actions>\r\n  <button mat-raised-button [color]=\"data.okBtnColor ? data.okBtnColor : 'warn'\" (click)=\"accept()\">{{((data && data.okBtnKey) ? data.okBtnKey : okBtnKey) | translate }}</button>\r\n  <button mat-raised-button (click)=\"cancel()\">{{ ((data && data.cancelBtnKey) ? data.cancelBtnKey : cancelBtnKey) | translate}}</button>\r\n</div>\r\n"
+module.exports = "<h1 mat-dialog-title>{{((data && data.titleKey) ? data.titleKey : titleKey) | translate}}</h1>\r\n<div mat-dialog-content [ngStyle]=\"data.contentStyle ? data.contentStyle : null\" innerHtml=\"{{((data && data.messageKey) ? data.messageKey : messageKey) | translate:((data && data.messageParam) ? data.messageParam : messageParam)}}\"></div>\r\n<div mat-dialog-actions>\r\n  <button mat-raised-button [color]=\"data.okBtnColor ? data.okBtnColor : 'warn'\" (click)=\"accept()\">{{((data && data.okBtnKey) ? data.okBtnKey : okBtnKey) | translate }}</button>\r\n  <button mat-raised-button (click)=\"cancel()\">{{ ((data && data.cancelBtnKey) ? data.cancelBtnKey : cancelBtnKey) | translate}}</button>\r\n</div>\r\n"
 
 /***/ }),
 

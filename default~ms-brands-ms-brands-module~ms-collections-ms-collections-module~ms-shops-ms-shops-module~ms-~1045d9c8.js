@@ -61,7 +61,7 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 
 var titleKey = 'Delete';
 var deleteBtnKey = 'Delete';
-var messageKey = 'Are you sure you want to delete this Shop?';
+var messageKey = 'Are you sure you want to delete this Shop?<br><br> Note: By deleting this Shop, all the offers linked ot it will be deleted as well.<br><br>';
 var errorKey = 'Error';
 var deletedMessageKey = 'Deleted';
 var DeleteShopComponent = /** @class */ (function () {
