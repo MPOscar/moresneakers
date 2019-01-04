@@ -429,7 +429,7 @@ var NewStyleComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<form class=\"flex-grow-1 min-height-0 display-flex flex-direction-column\" [askBeforeRefresh]=\"formGroup.dirty\" [formGroup]=\"formGroup\"\n  novalidate role=\"form\" (ngSubmit)=\"submitClicked()\" autocomplete=\"off\" inputFocus>\n\n  <div class=\"flex-grow-1 overflow-auto display-flex flex-direction-column\">\n\n    <div class=\"flex-grow-1 flex-shrink-0 display-flex flex-direction-column\">\n\n      <div class=\"margin-right-25px\" [fxFlex]=\"100\" fxLayout=\"row\" fxLayout.lt-md=\"column\">\n\n        <div [fxFlex]=\"25\" fxLayout=\"column\" class=\"margin-right-25px\">\n\n          <mat-form-field class=\"margin-left-16px\">\n\n            <mat-label>Style Name</mat-label>\n\n            <input matInput type=\"text\" formControlName=\"name\" required>\n\n          </mat-form-field>         \n\n          <mat-form-field class=\"padding-top-5px\">\n            <mat-label>Category</mat-label>\n            <mat-select placeholder=\"Select\" formControlName=\"category\" required>\n              <mat-option *ngFor=\"let category of categories\" [value]=\"category.id\">\n                {{category.name}}\n              </mat-option>\n            </mat-select>\n          </mat-form-field>         \n\n          <mat-form-field class=\"margin-left-16px\">\n\n            <mat-label>Description</mat-label>\n\n            <textarea matInput formControlName=\"description\"></textarea>\n\n          </mat-form-field>\n\n          <mat-form-field class=\"width-100pc\">\n            <mat-label>Slect Parent</mat-label>\n            <mat-select placeholder=\"Select\" formControlName=\"parent\">\n              <mat-option *ngFor=\"let style of styles\" [value]=\"style.id\">\n                {{style.name}}\n              </mat-option>\n            </mat-select>\n          </mat-form-field>\n\n        </div>\n\n        <div class=\"margin-top-10px\" [fxFlex]=\"30\" fxLayout=\"column\">\n\n          <button class=\"margin-bottom-25px max-width-480px\" mat-stroked-button type=\"button\" (click)=\"showModalAddNewBrand()\">Add a new Brand</button>\n\n          <mat-form-field class=\"width-100pc\">\n\n            <mat-label>SELECT BRAND</mat-label>\n            <mat-select placeholder=\"Select\" formControlName=\"brand\" panelOpen=\"true\" required>\n              <mat-option *ngFor=\"let brand of brands\" [value]=\"brand.id\">\n                {{brand.name}}\n              </mat-option>\n            </mat-select>\n\n          </mat-form-field>\n\n          \n\n\n\n        </div>\n\n        <!--div class=\"margin-top-10px\" [fxFlex]=\"30\" fxLayout=\"column\">\n          <button class=\"margin-bottom-25px max-width-480px\" mat-stroked-button type=\"button\">Add a new Parent</button>\n\n          <mat-form-field class=\"width-100pc\">\n\n            <mat-label>SELECT PARENT</mat-label>\n            <mat-select placeholder=\"Select\" formControlName=\"parent\">\n              <mat-option *ngFor=\"let style of styles\" [value]=\"style.id\">\n                {{style.name}}\n              </mat-option>\n            </mat-select>\n          </mat-form-field>\n        </div-->\n      </div>\n\n      <div *ngIf=\"styleId\" class=\"align-items-center\" [fxFlex]=\"100\" fxLayout=\"column\" fxLayout.lt-md=\"column\">\n        <button mat-stroked-button type=\"button\" class=\"max-width-480px\" (click)=\"showModalStoresSelling()\">See Stores Selling this Style</button>\n      </div>\n\n    </div>\n\n  </div>\n\n\n\n  <div class=\"margin-right-25px padding-top-25px padding-bottom-25px flex-shrink-0 display-flex border-top-style-solid border-top-width-2px border-top-color-grey\">\n\n    <button mat-raised-button type=\"submit\" color=\"primary\">{{'Save' | translate}}</button>\n\n    <button mat-raised-button type=\"button\" class=\"margin-left-10px\" (click)=\"cancelClicked()\">{{'Cancel' | translate}}</button>\n\n\n\n  </div>\n\n</form>"
+module.exports = "<form class=\"flex-grow-1 min-height-0 display-flex flex-direction-column\" [askBeforeRefresh]=\"formGroup.dirty\" [formGroup]=\"formGroup\"\n  novalidate role=\"form\" (ngSubmit)=\"submitClicked()\" autocomplete=\"off\" inputFocus>\n\n  <div class=\"flex-grow-1 overflow-auto display-flex flex-direction-column\">\n\n    <div class=\"flex-grow-1 flex-shrink-0 display-flex flex-direction-column\">\n\n      <div class=\"margin-right-25px\" [fxFlex]=\"100\" fxLayout=\"row\" fxLayout.lt-md=\"column\">\n\n        <div [fxFlex]=\"50\" fxLayout=\"column\" class=\"margin-right-25px\">\n\n          <mat-form-field class=\"margin-left-16px\">\n\n            <mat-label>Style Name</mat-label>\n\n            <input matInput type=\"text\" formControlName=\"name\" required>\n\n          </mat-form-field>\n\n          <mat-form-field class=\"padding-top-5px\">\n            <mat-label>Category</mat-label>\n            <mat-select placeholder=\"Select\" formControlName=\"category\" required>\n              <mat-option>...</mat-option>\n              <mat-option *ngFor=\"let category of categories\" [value]=\"category.id\">\n                {{category.name}}\n              </mat-option>\n            </mat-select>\n          </mat-form-field>\n\n          <mat-form-field class=\"margin-left-16px\">\n\n            <mat-label>Description</mat-label>\n\n            <textarea matInput formControlName=\"description\"></textarea>\n\n          </mat-form-field>\n\n          <mat-form-field class=\"width-100pc\">\n            <mat-label>Slect Parent</mat-label>\n            <mat-option>...</mat-option>\n            <mat-select placeholder=\"Select\" formControlName=\"parent\">\n              <mat-option>...</mat-option>\n              <mat-option *ngFor=\"let style of styles\" [value]=\"style.id\">\n                {{style.name}}\n              </mat-option>\n            </mat-select>\n          </mat-form-field>\n\n        </div>\n\n        <div class=\"margin-top-10px\" [fxFlex]=\"50\" fxLayout=\"column\">\n\n          <button class=\"margin-bottom-25px max-width-480px\" mat-stroked-button type=\"button\" (click)=\"showModalAddNewBrand()\">Add a new Brand</button>\n\n          <mat-form-field class=\"width-100pc\">\n\n            <mat-label>SELECT BRAND</mat-label>\n            <mat-select placeholder=\"Select\" formControlName=\"brand\" panelOpen=\"true\" required>\n              <mat-option (click)=\"selectParent('')\">...</mat-option>\n              <mat-option *ngFor=\"let brand of brands\" [value]=\"brand.id\" (click)=\"selectParent(brand.id)\">\n                {{brand.name}}\n              </mat-option>\n            </mat-select>\n\n          </mat-form-field>\n\n        </div>\n\n        <!--div class=\"margin-top-10px\" [fxFlex]=\"30\" fxLayout=\"column\">\n          <button class=\"margin-bottom-25px max-width-480px\" mat-stroked-button type=\"button\">Add a new Parent</button>\n\n          <mat-form-field class=\"width-100pc\">\n\n            <mat-label>SELECT PARENT</mat-label>\n            <mat-select placeholder=\"Select\" formControlName=\"parent\">\n              <mat-option *ngFor=\"let style of styles\" [value]=\"style.id\">\n                {{style.name}}\n              </mat-option>\n            </mat-select>\n          </mat-form-field>\n        </div-->\n      </div>\n\n      <div *ngIf=\"styleId\" class=\"align-items-center\" [fxFlex]=\"100\" fxLayout=\"row\" fxLayout.lt-md=\"column\">\n        <button mat-stroked-button type=\"button\" class=\"max-width-480px\" (click)=\"showModalStoresSelling()\">See Stores Selling this Style</button>\n        <button mat-stroked-button type=\"button\" class=\"margin-left-25px max-width-480px\" [routerLink]=\"['../../../releases/create']\"\n          [queryParams]=\"{styleId: styleId, returnUrl: location.path()}\">Create a Release</button>\n      </div>\n\n    </div>\n\n  </div>\n\n\n\n  <div class=\"margin-right-25px padding-top-25px padding-bottom-25px flex-shrink-0 display-flex border-top-style-solid border-top-width-2px border-top-color-grey\">\n\n    <button mat-raised-button type=\"submit\" color=\"primary\">{{'Save' | translate}}</button>\n\n    <button mat-raised-button type=\"button\" class=\"margin-left-10px\" (click)=\"cancelClicked()\">{{'Cancel' | translate}}</button>\n\n\n\n  </div>\n\n</form>"
 
 /***/ }),
 
@@ -456,11 +456,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "StyleFormComponent", function() { return StyleFormComponent; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm5/forms.js");
-/* harmony import */ var _ngx_translate_core__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @ngx-translate/core */ "./node_modules/@ngx-translate/core/fesm5/ngx-translate-core.js");
-/* harmony import */ var _ui_components_base_reactive_form_base_reactive_form_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../../ui/components/base-reactive-form/base-reactive-form-component */ "./src/app/ui/components/base-reactive-form/base-reactive-form-component.ts");
-/* harmony import */ var _ms_brands_components_new_brand_new_brand_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../ms-brands/components/new-brand/new-brand.component */ "./src/app/ms-back-office/modules/ms-brands/components/new-brand/new-brand.component.ts");
-/* harmony import */ var _ms_shops_components_shops_selling_style_modal_shops_selling_style_modal_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../ms-shops/components/shops-selling-style-modal/shops-selling-style-modal.component */ "./src/app/ms-back-office/modules/ms-shops/components/shops-selling-style-modal/shops-selling-style-modal.component.ts");
-/* harmony import */ var _angular_material__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @angular/material */ "./node_modules/@angular/material/esm5/material.es5.js");
+/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common */ "./node_modules/@angular/common/fesm5/common.js");
+/* harmony import */ var _ngx_translate_core__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @ngx-translate/core */ "./node_modules/@ngx-translate/core/fesm5/ngx-translate-core.js");
+/* harmony import */ var _ui_components_base_reactive_form_base_reactive_form_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../../../ui/components/base-reactive-form/base-reactive-form-component */ "./src/app/ui/components/base-reactive-form/base-reactive-form-component.ts");
+/* harmony import */ var _ms_brands_services_brands_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../ms-brands/services/brands.service */ "./src/app/ms-back-office/modules/ms-brands/services/brands.service.ts");
+/* harmony import */ var _services_styles_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../services/styles.service */ "./src/app/ms-back-office/modules/ms-style/services/styles.service.ts");
+/* harmony import */ var _ms_brands_components_new_brand_new_brand_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../../ms-brands/components/new-brand/new-brand.component */ "./src/app/ms-back-office/modules/ms-brands/components/new-brand/new-brand.component.ts");
+/* harmony import */ var _ms_shops_components_shops_selling_style_modal_shops_selling_style_modal_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../../ms-shops/components/shops-selling-style-modal/shops-selling-style-modal.component */ "./src/app/ms-back-office/modules/ms-shops/components/shops-selling-style-modal/shops-selling-style-modal.component.ts");
+/* harmony import */ var _angular_material__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @angular/material */ "./node_modules/@angular/material/esm5/material.es5.js");
 var __extends = (undefined && undefined.__extends) || (function () {
     var extendStatics = Object.setPrototypeOf ||
         ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
@@ -482,18 +485,24 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 };
 
 
+
 //
 
 //
+
+
 
 
 
 
 var StyleFormComponent = /** @class */ (function (_super) {
     __extends(StyleFormComponent, _super);
-    function StyleFormComponent(dialog, translateService) {
+    function StyleFormComponent(dialog, location, brandsService, stylesService, translateService) {
         var _this = _super.call(this, translateService) || this;
         _this.dialog = dialog;
+        _this.location = location;
+        _this.brandsService = brandsService;
+        _this.stylesService = stylesService;
         return _this;
         //setTranslations(this.translateService, TRANSLATIONS);
     }
@@ -508,6 +517,7 @@ var StyleFormComponent = /** @class */ (function (_super) {
         ];
         this.validationErrorMessages = validationsErrors;
         this.createFormGroup();
+        this.allStyles = this.styles;
     };
     StyleFormComponent.prototype.createFormGroup = function () {
         this.formGroup = new _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormGroup"]({
@@ -527,7 +537,7 @@ var StyleFormComponent = /** @class */ (function (_super) {
         }
     };
     StyleFormComponent.prototype.showModalStoresSelling = function () {
-        this.modalRef = this.dialog.open(_ms_shops_components_shops_selling_style_modal_shops_selling_style_modal_component__WEBPACK_IMPORTED_MODULE_5__["ShopsSellingStyleModalComponent"], {
+        this.modalRef = this.dialog.open(_ms_shops_components_shops_selling_style_modal_shops_selling_style_modal_component__WEBPACK_IMPORTED_MODULE_8__["ShopsSellingStyleModalComponent"], {
             height: '90%',
             width: '90%',
             data: {
@@ -537,10 +547,42 @@ var StyleFormComponent = /** @class */ (function (_super) {
         });
     };
     StyleFormComponent.prototype.showModalAddNewBrand = function () {
-        this.modalRef = this.dialog.open(_ms_brands_components_new_brand_new_brand_component__WEBPACK_IMPORTED_MODULE_4__["NewBrandComponent"], {
+        var _this = this;
+        this.modalRef = this.dialog.open(_ms_brands_components_new_brand_new_brand_component__WEBPACK_IMPORTED_MODULE_7__["NewBrandComponent"], {
             height: '90%',
             width: '90%',
             data: { face: this.shop }
+        });
+        this.modalRef.afterClosed().subscribe(function () {
+            _this.brandsService.getAllBrands().subscribe(function (response) {
+                _this.brands = response;
+            });
+        });
+    };
+    StyleFormComponent.prototype.selectParent = function (brandId) {
+        var _this = this;
+        this.stylesService.getAllStyles().subscribe(function (response) {
+            if (brandId) {
+                _this.styles = response.filter(function (style) {
+                    return style.brand === brandId;
+                });
+            }
+            else {
+                _this.styles = response;
+            }
+        });
+    };
+    StyleFormComponent.prototype.selectBrand = function (brandId) {
+        var _this = this;
+        this.brandsService.getAllBrands().subscribe(function (response) {
+            if (brandId) {
+                _this.brands = response.filter(function (brand) {
+                    return brand.id === brandId;
+                });
+            }
+            else {
+                _this.brands = response;
+            }
         });
     };
     __decorate([
@@ -570,11 +612,14 @@ var StyleFormComponent = /** @class */ (function (_super) {
             styles: [__webpack_require__(/*! ./style-form.component.scss */ "./src/app/ms-back-office/modules/ms-style/components/style-form/style-form.component.scss")],
             changeDetection: _angular_core__WEBPACK_IMPORTED_MODULE_0__["ChangeDetectionStrategy"].OnPush
         }),
-        __metadata("design:paramtypes", [_angular_material__WEBPACK_IMPORTED_MODULE_6__["MatDialog"],
-            _ngx_translate_core__WEBPACK_IMPORTED_MODULE_2__["TranslateService"]])
+        __metadata("design:paramtypes", [_angular_material__WEBPACK_IMPORTED_MODULE_9__["MatDialog"],
+            _angular_common__WEBPACK_IMPORTED_MODULE_2__["Location"],
+            _ms_brands_services_brands_service__WEBPACK_IMPORTED_MODULE_5__["BrandsService"],
+            _services_styles_service__WEBPACK_IMPORTED_MODULE_6__["StylesService"],
+            _ngx_translate_core__WEBPACK_IMPORTED_MODULE_3__["TranslateService"]])
     ], StyleFormComponent);
     return StyleFormComponent;
-}(_ui_components_base_reactive_form_base_reactive_form_component__WEBPACK_IMPORTED_MODULE_3__["BaseReactiveFormComponent"]));
+}(_ui_components_base_reactive_form_base_reactive_form_component__WEBPACK_IMPORTED_MODULE_4__["BaseReactiveFormComponent"]));
 
 
 
@@ -587,7 +632,7 @@ var StyleFormComponent = /** @class */ (function (_super) {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<h1>Style Table</h1>\r\n\r\n<mat-toolbar class=\"margin-right-25px margin-bottom-10px width-auto flex-shrink-0 background-color-secondary color-primary mat-elevation-z2\"\r\n  [formGroup]=\"filter\">\r\n\r\n  <mat-icon matPrefix color=\"primary\">search</mat-icon>\r\n\r\n  <mat-form-field>\r\n    <input matInput formControlName=\"name\" placeholder=\"Name\">\r\n  </mat-form-field>\r\n\r\n  <mat-form-field>\r\n    <mat-label>Brand</mat-label>\r\n    <mat-select placeholder=\"Select\" formControlName=\"brand\">\r\n      <mat-option *ngFor=\"let brand of brands\" [value]=\"brand.id\">\r\n        {{brand.name}}\r\n      </mat-option>\r\n    </mat-select>\r\n  </mat-form-field>\r\n\r\n  <mat-form-field>\r\n    <mat-label>Category</mat-label>\r\n    <mat-select placeholder=\"Select\" formControlName=\"category\">\r\n      <mat-option *ngFor=\"let category of categories\" [value]=\"category.id\">\r\n        {{category.name}}\r\n      </mat-option>\r\n    </mat-select>\r\n  </mat-form-field>\r\n\r\n  <span class=\"flex-grow-1\"></span>\r\n  <button mat-raised-button color=\"primary\" [routerLink]=\"['../create']\">CREATE A NEW STYLE</button>\r\n</mat-toolbar>\r\n\r\n<div class=\"flex-grow-1 overflow-auto display-flex\">\r\n\r\n  <table class=\"margin-top-10px margin-right-25px width-100pct\" mat-table [dataSource]=\"styles\" matSort [matSortActive]=\"stylesService.previousSortColumn\"\r\n    [matSortDirection]=\"stylesService.previousSortDirection\" matSortDisableClear (matSortChange)=\"onSort()\">\r\n\r\n    <ng-container matColumnDef=\"name\">\r\n      <th mat-header-cell *matHeaderCellDef mat-sort-header>\r\n        NAME\r\n        <td mat-cell *matCellDef=\"let element\"> {{ element.name }} </td>\r\n    </ng-container>\r\n\r\n    <ng-container matColumnDef=\"parent\">\r\n      <th mat-header-cell *matHeaderCellDef mat-sort-header>\r\n        PARENT\r\n        <td mat-cell *matCellDef=\"let element\"> {{ getParent(element.parent) }} </td>\r\n    </ng-container>\r\n\r\n    <ng-container matColumnDef=\"brand\">\r\n      <th mat-header-cell *matHeaderCellDef mat-sort-header>\r\n        BRAND\r\n      </th>\r\n      <td mat-cell *matCellDef=\"let element\"> {{ getBrand(element.brand) }} </td>\r\n    </ng-container>\r\n\r\n    <!--ng-container matColumnDef=\"collection\">\r\n      <th mat-header-cell *matHeaderCellDef mat-sort-header>\r\n        COLLECTION\r\n      </th>\r\n      <td mat-cell *matCellDef=\"let element\"> {{ element.description }} </td>\r\n    </ng-container-->\r\n\r\n    <ng-container matColumnDef=\"category\">\r\n      <th mat-header-cell *matHeaderCellDef mat-sort-header>\r\n        CATEGORY\r\n      </th>\r\n      <td mat-cell *matCellDef=\"let element\"> {{ getCategory(element.category) }} </td>\r\n    </ng-container>\r\n\r\n    <ng-container matColumnDef=\"updatedAt\">\r\n      <th mat-header-cell *matHeaderCellDef mat-sort-header>\r\n        LAST UPDATE\r\n      </th>\r\n      <td mat-cell *matCellDef=\"let element\"> {{ element.updatedAt | date: 'dd/MM/yyyy' }} </td>\r\n    </ng-container>\r\n\r\n    <ng-container matColumnDef=\"actions\">\r\n      <th mat-header-cell *matHeaderCellDef>\r\n      </th>\r\n      <td mat-cell *matCellDef=\"let element\">\r\n        <button mat-icon-button color=\"primary\" [matTooltip]=\"Edit\" [routerLink]=\"['../edit', element.id]\">\r\n          <mat-icon>edit</mat-icon>\r\n        </button>\r\n        <button mat-icon-button color=\"primary\" [matTooltip]=\"Edit\" [routerLink]=\"['../delete', element.id]\">\r\n          <mat-icon>delete</mat-icon>\r\n        </button>\r\n      </td>\r\n    </ng-container>\r\n\r\n    <tr mat-header-row *matHeaderRowDef=\"displayedColumns\"></tr>\r\n    <tr mat-row *matRowDef=\"let row; columns: displayedColumns;\" [ngClass]=\"row.is_active ? '' : 'text-decoration-line-through'\">\r\n    </tr>\r\n\r\n  </table>\r\n\r\n</div>\r\n\r\n<div class=\"margin-right-25px padding-top-15px padding-bottom-15px flex-shrink-0 display-flex border-top-style-solid border-top-width-2px border-top-color-grey\">\r\n  <span class=\"flex-grow-1\"></span>\r\n  <mat-paginator [length]=\"totalLength\" [pageSizeOptions]=\"[5, 10, 20, 50, 100]\" [pageIndex]=\"\" [pageSize]=\"50\" showFirstLastButtons\r\n    (page)=\"onPage()\">\r\n  </mat-paginator>\r\n</div>"
+module.exports = "<h1>Style Table</h1>\r\n\r\n<mat-toolbar class=\"margin-right-25px margin-bottom-10px width-auto flex-shrink-0 background-color-secondary color-primary mat-elevation-z2\"\r\n  [formGroup]=\"filter\">\r\n\r\n  <mat-icon matPrefix color=\"primary\">search</mat-icon>\r\n\r\n  <mat-form-field>\r\n    <input matInput formControlName=\"name\" placeholder=\"Name\">\r\n  </mat-form-field>\r\n\r\n  <mat-form-field>\r\n    <mat-label>Brand</mat-label>\r\n    <mat-select placeholder=\"Select\" formControlName=\"brand\">\r\n      <mat-option>...</mat-option>\r\n      <mat-option *ngFor=\"let brand of brands\" [value]=\"brand.id\">\r\n        {{brand.name}}\r\n      </mat-option>\r\n    </mat-select>\r\n  </mat-form-field>\r\n\r\n  <mat-form-field>\r\n    <mat-label>Category</mat-label>\r\n    <mat-select placeholder=\"Select\" formControlName=\"category\">\r\n      <mat-option>...</mat-option>\r\n      <mat-option *ngFor=\"let category of categories\" [value]=\"category.id\">\r\n        {{category.name}}\r\n      </mat-option>\r\n    </mat-select>\r\n  </mat-form-field>\r\n\r\n  <span class=\"flex-grow-1\"></span>\r\n  <button mat-raised-button color=\"primary\" [routerLink]=\"['../create']\">CREATE A NEW STYLE</button>\r\n</mat-toolbar>\r\n\r\n<div class=\"flex-grow-1 overflow-auto display-flex\">\r\n\r\n  <table class=\"margin-top-10px margin-right-25px width-100pct\" mat-table [dataSource]=\"styles\" matSort [matSortActive]=\"stylesService.previousSortColumn\"\r\n    [matSortDirection]=\"stylesService.previousSortDirection\" matSortDisableClear (matSortChange)=\"onSort()\">\r\n\r\n    <ng-container matColumnDef=\"name\">\r\n      <th mat-header-cell *matHeaderCellDef mat-sort-header>\r\n        NAME\r\n        <td mat-cell *matCellDef=\"let element\"> {{ element.name }} </td>\r\n    </ng-container>\r\n\r\n    <ng-container matColumnDef=\"parent\">\r\n      <th mat-header-cell *matHeaderCellDef mat-sort-header>\r\n        PARENT\r\n        <td mat-cell *matCellDef=\"let element\"> {{ getParent(element.parent) }} </td>\r\n    </ng-container>\r\n\r\n    <ng-container matColumnDef=\"brand\">\r\n      <th mat-header-cell *matHeaderCellDef mat-sort-header>\r\n        BRAND\r\n      </th>\r\n      <td mat-cell *matCellDef=\"let element\"> {{ getBrand(element.brand) }} </td>\r\n    </ng-container>\r\n\r\n    <!--ng-container matColumnDef=\"collection\">\r\n      <th mat-header-cell *matHeaderCellDef mat-sort-header>\r\n        COLLECTION\r\n      </th>\r\n      <td mat-cell *matCellDef=\"let element\"> {{ element.description }} </td>\r\n    </ng-container-->\r\n\r\n    <ng-container matColumnDef=\"category\">\r\n      <th mat-header-cell *matHeaderCellDef mat-sort-header>\r\n        CATEGORY\r\n      </th>\r\n      <td mat-cell *matCellDef=\"let element\"> {{ getCategory(element.category) }} </td>\r\n    </ng-container>\r\n\r\n    <ng-container matColumnDef=\"updatedAt\">\r\n      <th mat-header-cell *matHeaderCellDef mat-sort-header>\r\n        LAST UPDATE\r\n      </th>\r\n      <td mat-cell *matCellDef=\"let element\"> {{ element.updatedAt | date: 'dd/MM/yyyy' }} </td>\r\n    </ng-container>\r\n\r\n    <ng-container matColumnDef=\"actions\">\r\n      <th mat-header-cell *matHeaderCellDef>\r\n      </th>\r\n      <td mat-cell *matCellDef=\"let element\" class=\"min-width-80px\">\r\n        <button mat-icon-button color=\"primary\" [matTooltip]=\"Edit\" [routerLink]=\"['../edit', element.id]\">\r\n          <mat-icon>edit</mat-icon>\r\n        </button>\r\n        <button mat-icon-button color=\"primary\" [matTooltip]=\"Edit\" [routerLink]=\"['../delete', element.id]\">\r\n          <mat-icon>delete</mat-icon>\r\n        </button>\r\n      </td>\r\n    </ng-container>\r\n\r\n    <tr mat-header-row *matHeaderRowDef=\"displayedColumns\"></tr>\r\n    <tr mat-row *matRowDef=\"let row; columns: displayedColumns;\" [ngClass]=\"row.is_active ? '' : 'text-decoration-line-through'\">\r\n    </tr>\r\n\r\n  </table>\r\n\r\n</div>\r\n\r\n<div class=\"margin-right-25px padding-top-5px padding-bottom-5px flex-shrink-0 display-flex border-top-style-solid border-top-width-2px border-top-color-grey\">\r\n  <span class=\"flex-grow-1\"></span>\r\n  <mat-paginator [length]=\"totalLength\" [pageSizeOptions]=\"[5, 10, 20, 50, 100]\" [pageIndex]=\"\" [pageSize]=\"50\" showFirstLastButtons\r\n    (page)=\"onPage()\">\r\n  </mat-paginator>\r\n</div>"
 
 /***/ }),
 
