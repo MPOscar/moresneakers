@@ -23017,6 +23017,12 @@ var ShopsService = /** @class */ (function () {
     ShopsService.prototype.getShop = function (id) {
         return this.http.get(this.apiEndpoint + id + '/');
     };
+    ShopsService.prototype.postShopLinkedSubShops = function (id, data) {
+        return this.http.post(this.apiEndpoint + id + '/shops/', JSON.stringify(data));
+    };
+    ShopsService.prototype.getShopLinkedSubShops = function (id) {
+        return this.http.get(this.apiEndpoint + id + '/shops/');
+    };
     ShopsService.prototype.putShop = function (data) {
         return this.http.put(this.apiEndpoint + data.id + '/', JSON.stringify(data));
     };

@@ -572,7 +572,7 @@ var NewUserComponent = /** @class */ (function () {
             _this.close();
             _this.toastr.success(savedUserMessageKey);
         }, function (error) {
-            _this.errorHandlingService.handleUiError(errorKey, error);
+            _this.errorHandlingService.handleUiError(errorKey, error, 'user');
             _this.validationErrors = error.formErrors;
         });
     };

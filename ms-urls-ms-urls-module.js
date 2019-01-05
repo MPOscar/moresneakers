@@ -597,7 +597,7 @@ var NewUrlComponent = /** @class */ (function () {
             _this.close();
             _this.toastr.success(savedMessageKey);
         }, function (error) {
-            _this.errorHandlingService.handleUiError(errorKey, error);
+            _this.errorHandlingService.handleUiError(errorKey, error, 'url');
             _this.validationErrors = error.formErrors;
         });
     };

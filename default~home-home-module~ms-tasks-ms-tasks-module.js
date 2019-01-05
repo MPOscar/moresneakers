@@ -396,7 +396,7 @@ var NewTaskComponent = /** @class */ (function () {
             _this.close();
             _this.toastr.success(savedMessageKey);
         }, function (error) {
-            _this.errorHandlingService.handleUiError(errorKey, error);
+            _this.errorHandlingService.handleUiError(errorKey, error, 'task');
             _this.validationErrors = error.formErrors;
         });
     };

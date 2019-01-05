@@ -379,7 +379,7 @@ var NewStyleComponent = /** @class */ (function () {
         this.styles = this.activatedRoute.snapshot.data.styles;
     };
     NewStyleComponent.prototype.submit = function (data) {
-        this.createUser(data);
+        this.createStyle(data);
     };
     NewStyleComponent.prototype.cancel = function () {
         //this.close.emit();TODO
@@ -388,7 +388,7 @@ var NewStyleComponent = /** @class */ (function () {
     NewStyleComponent.prototype.close = function () {
         this.router.navigate(this.activatedRoute.snapshot.data.closeRouteCommand, { relativeTo: this.activatedRoute });
     };
-    NewStyleComponent.prototype.createUser = function (data) {
+    NewStyleComponent.prototype.createStyle = function (data) {
         var _this = this;
         this.stylesService.postStyle(data).subscribe(function (response) {
             _this.unsavedChanges = false;
@@ -396,7 +396,7 @@ var NewStyleComponent = /** @class */ (function () {
             _this.close();
             _this.toastr.success(savedUserMessageKey);
         }, function (error) {
-            _this.errorHandlingService.handleUiError(errorKey, error);
+            _this.errorHandlingService.handleUiError(errorKey, error, 'style');
             _this.validationErrors = error.formErrors;
         });
     };

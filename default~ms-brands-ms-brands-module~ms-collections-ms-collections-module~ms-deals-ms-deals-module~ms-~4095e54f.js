@@ -1259,7 +1259,7 @@ var NewDealComponent = /** @class */ (function () {
                         _this.close();
                         _this.toastr.success(savedMessageKey);
                     }, function (error) {
-                        _this.errorHandlingService.handleUiError(errorKey, error);
+                        _this.errorHandlingService.handleUiError(errorKey, error, 'deal');
                         _this.validationErrors = error.formErrors;
                     });
                 }, function (error) {
@@ -1274,7 +1274,7 @@ var NewDealComponent = /** @class */ (function () {
                 _this.close();
                 _this.toastr.success(savedMessageKey);
             }, function (error) {
-                _this.errorHandlingService.handleUiError(errorKey, error);
+                _this.errorHandlingService.handleUiError(errorKey, error, 'deal');
                 _this.validationErrors = error.formErrors;
             });
         }

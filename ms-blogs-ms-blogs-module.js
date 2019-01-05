@@ -777,7 +777,7 @@ var NewBlogComponent = /** @class */ (function () {
                     _this.close();
                     _this.toastr.success(savedMessageKey);
                 }, function (error) {
-                    _this.errorHandlingService.handleUiError(errorKey, error);
+                    _this.errorHandlingService.handleUiError(errorKey, error, 'blog');
                     _this.validationErrors = error.formErrors;
                 });
             }, function (error) {

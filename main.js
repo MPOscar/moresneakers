@@ -2569,17 +2569,64 @@ var ErrorHandlingService = /** @class */ (function () {
             return handledError;
         }
     };
-    ErrorHandlingService.prototype.handleUiError = function (key, err) {
+    ErrorHandlingService.prototype.handleUiError = function (key, err, url) {
         var serverState = this.serverOnline.getValue();
         var error = err.error;
         // If server state is online then continues managing the 
-        console.log("............................");
-        console.log(error);
         if (serverState) {
             // Displaying the error if it really contains a message
             if (error.message) {
                 if (error.message === 'Invalid unique constraints') {
-                    error.message = 'Already exits';
+                    switch (url) {
+                        case 'style': {
+                            error.message = 'This style already exists';
+                            break;
+                        }
+                        case 'blog': {
+                            error.message = 'This blog already exists';
+                            break;
+                        }
+                        case 'brand': {
+                            error.message = 'This brand already exists';
+                            break;
+                        }
+                        case 'deal': {
+                            error.message = 'This deal already exists';
+                            break;
+                        }
+                        case 'offer': {
+                            error.message = 'This offer already exists';
+                            break;
+                        }
+                        case 'task': {
+                            error.message = 'This task already exists';
+                            break;
+                        }
+                        case 'release': {
+                            error.message = 'This release already exists';
+                            break;
+                        }
+                        case 'shop': {
+                            error.message = 'This shop already exists';
+                            break;
+                        }
+                        case 'release': {
+                            error.message = 'This release already exists';
+                            break;
+                        }
+                        case 'url': {
+                            error.message = 'This url already exists';
+                            break;
+                        }
+                        case 'user': {
+                            error.message = 'This user already exists';
+                            break;
+                        }
+                        default: {
+                            error.message = 'This already exists';
+                            break;
+                        }
+                    }
                 }
                 this.showNotificationObservable.next({
                     key: key,
