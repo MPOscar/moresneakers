@@ -1708,7 +1708,10 @@ var ShopFormComponent = /** @class */ (function (_super) {
     };
     ShopFormComponent.prototype.submitClicked = function () {
         if (this.formGroup.valid) {
-            this.data.countries = this.data.countries.join();
+            try {
+                this.data.countries = this.data.countries.join();
+            }
+            catch (_a) { }
             this.data.workingHours = this.buidlWorkingHours(this.data.workingHours);
             this.accept.emit(this.data);
         }
