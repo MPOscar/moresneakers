@@ -1,5 +1,775 @@
 (window["webpackJsonp"] = window["webpackJsonp"] || []).push([["default~ms-brands-ms-brands-module~ms-collections-ms-collections-module~ms-shops-ms-shops-module~ms-~1045d9c8"],{
 
+/***/ "./node_modules/primeng/components/tabview/tabview.js":
+/*!************************************************************!*\
+  !*** ./node_modules/primeng/components/tabview/tabview.js ***!
+  \************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+var core_1 = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+var common_1 = __webpack_require__(/*! @angular/common */ "./node_modules/@angular/common/fesm5/common.js");
+var tooltip_1 = __webpack_require__(/*! ../tooltip/tooltip */ "./node_modules/primeng/components/tooltip/tooltip.js");
+var shared_1 = __webpack_require__(/*! ../common/shared */ "./node_modules/primeng/components/common/shared.js");
+var idx = 0;
+var TabViewNav = /** @class */ (function () {
+    function TabViewNav() {
+        this.orientation = 'top';
+        this.onTabClick = new core_1.EventEmitter();
+        this.onTabCloseClick = new core_1.EventEmitter();
+    }
+    TabViewNav.prototype.getDefaultHeaderClass = function (tab) {
+        var styleClass = 'ui-state-default ui-corner-' + this.orientation;
+        if (tab.headerStyleClass) {
+            styleClass = styleClass + " " + tab.headerStyleClass;
+        }
+        return styleClass;
+    };
+    TabViewNav.prototype.clickTab = function (event, tab) {
+        this.onTabClick.emit({
+            originalEvent: event,
+            tab: tab
+        });
+    };
+    TabViewNav.prototype.clickClose = function (event, tab) {
+        this.onTabCloseClick.emit({
+            originalEvent: event,
+            tab: tab
+        });
+    };
+    __decorate([
+        core_1.Input(),
+        __metadata("design:type", Array)
+    ], TabViewNav.prototype, "tabs", void 0);
+    __decorate([
+        core_1.Input(),
+        __metadata("design:type", String)
+    ], TabViewNav.prototype, "orientation", void 0);
+    __decorate([
+        core_1.Output(),
+        __metadata("design:type", core_1.EventEmitter)
+    ], TabViewNav.prototype, "onTabClick", void 0);
+    __decorate([
+        core_1.Output(),
+        __metadata("design:type", core_1.EventEmitter)
+    ], TabViewNav.prototype, "onTabCloseClick", void 0);
+    TabViewNav = __decorate([
+        core_1.Component({
+            selector: '[p-tabViewNav]',
+            host: {
+                '[class.ui-tabview-nav]': 'true',
+                '[class.ui-helper-reset]': 'true',
+                '[class.ui-helper-clearfix]': 'true',
+                '[class.ui-widget-header]': 'true',
+                '[class.ui-corner-all]': 'true'
+            },
+            template: "\n        <ng-template ngFor let-tab [ngForOf]=\"tabs\">\n            <li [class]=\"getDefaultHeaderClass(tab)\" [ngStyle]=\"tab.headerStyle\" role=\"presentation\"\n                [ngClass]=\"{'ui-tabview-selected ui-state-active': tab.selected, 'ui-state-disabled': tab.disabled}\"\n                (click)=\"clickTab($event,tab)\" *ngIf=\"!tab.closed\" tabindex=\"0\" (keydown.enter)=\"clickTab($event,tab)\">\n                <a [attr.id]=\"tab.id + '-label'\" role=\"tab\" [attr.aria-selected]=\"tab.selected\" [attr.aria-controls]=\"tab.id\" [pTooltip]=\"tab.tooltip\" [tooltipPosition]=\"orientation\">\n                    <ng-container *ngIf=\"!tab.headerTemplate\" >\n                        <span class=\"ui-tabview-left-icon\" [ngClass]=\"tab.leftIcon\" *ngIf=\"tab.leftIcon\"></span>\n                        <span class=\"ui-tabview-title\">{{tab.header}}</span>\n                        <span class=\"ui-tabview-right-icon\" [ngClass]=\"tab.rightIcon\" *ngIf=\"tab.rightIcon\"></span>\n                    </ng-container>\n                    <ng-container *ngIf=\"tab.headerTemplate\">\n                        <ng-container *ngTemplateOutlet=\"tab.headerTemplate\"></ng-container>\n                    </ng-container>\n                </a>\n                <span *ngIf=\"tab.closable\" class=\"ui-tabview-close pi pi-times\" (click)=\"clickClose($event,tab)\"></span>\n            </li>\n        </ng-template>\n    ",
+        })
+    ], TabViewNav);
+    return TabViewNav;
+}());
+exports.TabViewNav = TabViewNav;
+var TabPanel = /** @class */ (function () {
+    function TabPanel(viewContainer) {
+        this.viewContainer = viewContainer;
+        this.cache = true;
+        this.id = "ui-tabpanel-" + idx++;
+    }
+    TabPanel.prototype.ngAfterContentInit = function () {
+        var _this = this;
+        this.templates.forEach(function (item) {
+            switch (item.getType()) {
+                case 'header':
+                    _this.headerTemplate = item.template;
+                    break;
+                case 'content':
+                    _this.contentTemplate = item.template;
+                    break;
+                default:
+                    _this.contentTemplate = item.template;
+                    break;
+            }
+        });
+    };
+    Object.defineProperty(TabPanel.prototype, "selected", {
+        get: function () {
+            return this._selected;
+        },
+        set: function (val) {
+            this._selected = val;
+            this.loaded = true;
+        },
+        enumerable: true,
+        configurable: true
+    });
+    TabPanel.prototype.ngOnDestroy = function () {
+        this.view = null;
+    };
+    __decorate([
+        core_1.Input(),
+        __metadata("design:type", String)
+    ], TabPanel.prototype, "header", void 0);
+    __decorate([
+        core_1.Input(),
+        __metadata("design:type", Boolean)
+    ], TabPanel.prototype, "disabled", void 0);
+    __decorate([
+        core_1.Input(),
+        __metadata("design:type", Boolean)
+    ], TabPanel.prototype, "closable", void 0);
+    __decorate([
+        core_1.Input(),
+        __metadata("design:type", Object)
+    ], TabPanel.prototype, "headerStyle", void 0);
+    __decorate([
+        core_1.Input(),
+        __metadata("design:type", String)
+    ], TabPanel.prototype, "headerStyleClass", void 0);
+    __decorate([
+        core_1.Input(),
+        __metadata("design:type", String)
+    ], TabPanel.prototype, "leftIcon", void 0);
+    __decorate([
+        core_1.Input(),
+        __metadata("design:type", String)
+    ], TabPanel.prototype, "rightIcon", void 0);
+    __decorate([
+        core_1.Input(),
+        __metadata("design:type", Boolean)
+    ], TabPanel.prototype, "cache", void 0);
+    __decorate([
+        core_1.Input(),
+        __metadata("design:type", Object)
+    ], TabPanel.prototype, "tooltip", void 0);
+    __decorate([
+        core_1.ContentChildren(shared_1.PrimeTemplate),
+        __metadata("design:type", core_1.QueryList)
+    ], TabPanel.prototype, "templates", void 0);
+    __decorate([
+        core_1.Input(),
+        __metadata("design:type", Boolean),
+        __metadata("design:paramtypes", [Boolean])
+    ], TabPanel.prototype, "selected", null);
+    TabPanel = __decorate([
+        core_1.Component({
+            selector: 'p-tabPanel',
+            template: "\n        <div [attr.id]=\"id\" class=\"ui-tabview-panel ui-widget-content\" [ngClass]=\"{'ui-helper-hidden': !selected}\"\n            role=\"tabpanel\" [attr.aria-hidden]=\"!selected\" [attr.aria-labelledby]=\"id + '-label'\" *ngIf=\"!closed\">\n            <ng-content></ng-content>\n            <ng-container *ngIf=\"contentTemplate && (cache ? loaded : selected)\">\n                <ng-container *ngTemplateOutlet=\"contentTemplate\"></ng-container>\n            </ng-container>\n        </div>\n    "
+        }),
+        __metadata("design:paramtypes", [core_1.ViewContainerRef])
+    ], TabPanel);
+    return TabPanel;
+}());
+exports.TabPanel = TabPanel;
+var TabView = /** @class */ (function () {
+    function TabView(el) {
+        this.el = el;
+        this.orientation = 'top';
+        this.onChange = new core_1.EventEmitter();
+        this.onClose = new core_1.EventEmitter();
+        this.activeIndexChange = new core_1.EventEmitter();
+    }
+    TabView.prototype.ngAfterContentInit = function () {
+        var _this = this;
+        this.initTabs();
+        this.tabPanels.changes.subscribe(function (_) {
+            _this.initTabs();
+        });
+    };
+    TabView.prototype.initTabs = function () {
+        this.tabs = this.tabPanels.toArray();
+        var selectedTab = this.findSelectedTab();
+        if (!selectedTab && this.tabs.length) {
+            if (this.activeIndex != null && this.tabs.length > this.activeIndex)
+                this.tabs[this.activeIndex].selected = true;
+            else
+                this.tabs[0].selected = true;
+        }
+    };
+    TabView.prototype.open = function (event, tab) {
+        if (tab.disabled) {
+            if (event) {
+                event.preventDefault();
+            }
+            return;
+        }
+        if (!tab.selected) {
+            var selectedTab = this.findSelectedTab();
+            if (selectedTab) {
+                selectedTab.selected = false;
+            }
+            tab.selected = true;
+            var selectedTabIndex = this.findTabIndex(tab);
+            this.preventActiveIndexPropagation = true;
+            this.activeIndexChange.emit(selectedTabIndex);
+            this.onChange.emit({ originalEvent: event, index: selectedTabIndex });
+        }
+        if (event) {
+            event.preventDefault();
+        }
+    };
+    TabView.prototype.close = function (event, tab) {
+        var _this = this;
+        if (this.controlClose) {
+            this.onClose.emit({
+                originalEvent: event,
+                index: this.findTabIndex(tab),
+                close: function () {
+                    _this.closeTab(tab);
+                }
+            });
+        }
+        else {
+            this.closeTab(tab);
+            this.onClose.emit({
+                originalEvent: event,
+                index: this.findTabIndex(tab)
+            });
+        }
+        event.stopPropagation();
+    };
+    TabView.prototype.closeTab = function (tab) {
+        if (tab.disabled) {
+            return;
+        }
+        if (tab.selected) {
+            tab.selected = false;
+            for (var i = 0; i < this.tabs.length; i++) {
+                var tabPanel = this.tabs[i];
+                if (!tabPanel.closed && !tab.disabled) {
+                    tabPanel.selected = true;
+                    break;
+                }
+            }
+        }
+        tab.closed = true;
+    };
+    TabView.prototype.findSelectedTab = function () {
+        for (var i = 0; i < this.tabs.length; i++) {
+            if (this.tabs[i].selected) {
+                return this.tabs[i];
+            }
+        }
+        return null;
+    };
+    TabView.prototype.findTabIndex = function (tab) {
+        var index = -1;
+        for (var i = 0; i < this.tabs.length; i++) {
+            if (this.tabs[i] == tab) {
+                index = i;
+                break;
+            }
+        }
+        return index;
+    };
+    TabView.prototype.getBlockableElement = function () {
+        return this.el.nativeElement.children[0];
+    };
+    Object.defineProperty(TabView.prototype, "activeIndex", {
+        get: function () {
+            return this._activeIndex;
+        },
+        set: function (val) {
+            this._activeIndex = val;
+            if (this.preventActiveIndexPropagation) {
+                this.preventActiveIndexPropagation = false;
+                return;
+            }
+            if (this.tabs && this.tabs.length && this._activeIndex != null && this.tabs.length > this._activeIndex) {
+                this.findSelectedTab().selected = false;
+                this.tabs[this._activeIndex].selected = true;
+            }
+        },
+        enumerable: true,
+        configurable: true
+    });
+    __decorate([
+        core_1.Input(),
+        __metadata("design:type", String)
+    ], TabView.prototype, "orientation", void 0);
+    __decorate([
+        core_1.Input(),
+        __metadata("design:type", Object)
+    ], TabView.prototype, "style", void 0);
+    __decorate([
+        core_1.Input(),
+        __metadata("design:type", String)
+    ], TabView.prototype, "styleClass", void 0);
+    __decorate([
+        core_1.Input(),
+        __metadata("design:type", Boolean)
+    ], TabView.prototype, "controlClose", void 0);
+    __decorate([
+        core_1.ContentChildren(TabPanel),
+        __metadata("design:type", core_1.QueryList)
+    ], TabView.prototype, "tabPanels", void 0);
+    __decorate([
+        core_1.Output(),
+        __metadata("design:type", core_1.EventEmitter)
+    ], TabView.prototype, "onChange", void 0);
+    __decorate([
+        core_1.Output(),
+        __metadata("design:type", core_1.EventEmitter)
+    ], TabView.prototype, "onClose", void 0);
+    __decorate([
+        core_1.Output(),
+        __metadata("design:type", core_1.EventEmitter)
+    ], TabView.prototype, "activeIndexChange", void 0);
+    __decorate([
+        core_1.Input(),
+        __metadata("design:type", Number),
+        __metadata("design:paramtypes", [Number])
+    ], TabView.prototype, "activeIndex", null);
+    TabView = __decorate([
+        core_1.Component({
+            selector: 'p-tabView',
+            template: "\n        <div [ngClass]=\"'ui-tabview ui-widget ui-widget-content ui-corner-all ui-tabview-' + orientation\" [ngStyle]=\"style\" [class]=\"styleClass\">\n            <ul p-tabViewNav role=\"tablist\" *ngIf=\"orientation!='bottom'\" [tabs]=\"tabs\" [orientation]=\"orientation\"\n                (onTabClick)=\"open($event.originalEvent, $event.tab)\" (onTabCloseClick)=\"close($event.originalEvent, $event.tab)\"></ul>\n            <div class=\"ui-tabview-panels\">\n                <ng-content></ng-content>\n            </div>\n            <ul p-tabViewNav role=\"tablist\" *ngIf=\"orientation=='bottom'\" [tabs]=\"tabs\" [orientation]=\"orientation\"\n                (onTabClick)=\"open($event.originalEvent, $event.tab)\" (onTabCloseClick)=\"close($event.originalEvent, $event.tab)\"></ul>\n        </div>\n    ",
+        }),
+        __metadata("design:paramtypes", [core_1.ElementRef])
+    ], TabView);
+    return TabView;
+}());
+exports.TabView = TabView;
+var TabViewModule = /** @class */ (function () {
+    function TabViewModule() {
+    }
+    TabViewModule = __decorate([
+        core_1.NgModule({
+            imports: [common_1.CommonModule, shared_1.SharedModule, tooltip_1.TooltipModule],
+            exports: [TabView, TabPanel, TabViewNav, shared_1.SharedModule],
+            declarations: [TabView, TabPanel, TabViewNav]
+        })
+    ], TabViewModule);
+    return TabViewModule;
+}());
+exports.TabViewModule = TabViewModule;
+//# sourceMappingURL=tabview.js.map
+
+/***/ }),
+
+/***/ "./node_modules/primeng/components/tooltip/tooltip.js":
+/*!************************************************************!*\
+  !*** ./node_modules/primeng/components/tooltip/tooltip.js ***!
+  \************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+var core_1 = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+var common_1 = __webpack_require__(/*! @angular/common */ "./node_modules/@angular/common/fesm5/common.js");
+var domhandler_1 = __webpack_require__(/*! ../dom/domhandler */ "./node_modules/primeng/components/dom/domhandler.js");
+var Tooltip = /** @class */ (function () {
+    function Tooltip(el, zone) {
+        this.el = el;
+        this.zone = zone;
+        this.tooltipPosition = 'right';
+        this.tooltipEvent = 'hover';
+        this.appendTo = 'body';
+        this.tooltipZIndex = 'auto';
+        this.escape = true;
+    }
+    Tooltip.prototype.ngAfterViewInit = function () {
+        var _this = this;
+        this.zone.runOutsideAngular(function () {
+            if (_this.tooltipEvent === 'hover') {
+                _this.mouseEnterListener = _this.onMouseEnter.bind(_this);
+                _this.mouseLeaveListener = _this.onMouseLeave.bind(_this);
+                _this.clickListener = _this.onClick.bind(_this);
+                _this.el.nativeElement.addEventListener('mouseenter', _this.mouseEnterListener);
+                _this.el.nativeElement.addEventListener('mouseleave', _this.mouseLeaveListener);
+                _this.el.nativeElement.addEventListener('click', _this.clickListener);
+            }
+            else if (_this.tooltipEvent === 'focus') {
+                _this.focusListener = _this.onFocus.bind(_this);
+                _this.blurListener = _this.onBlur.bind(_this);
+                _this.el.nativeElement.addEventListener('focus', _this.focusListener);
+                _this.el.nativeElement.addEventListener('blur', _this.blurListener);
+            }
+        });
+    };
+    Tooltip.prototype.onMouseEnter = function (e) {
+        if (!this.container && !this.showTimeout) {
+            this.activate();
+        }
+    };
+    Tooltip.prototype.onMouseLeave = function (e) {
+        this.deactivate();
+    };
+    Tooltip.prototype.onFocus = function (e) {
+        this.activate();
+    };
+    Tooltip.prototype.onBlur = function (e) {
+        this.deactivate();
+    };
+    Tooltip.prototype.onClick = function (e) {
+        this.deactivate();
+    };
+    Tooltip.prototype.activate = function () {
+        var _this = this;
+        this.active = true;
+        this.clearHideTimeout();
+        if (this.showDelay)
+            this.showTimeout = setTimeout(function () { _this.show(); }, this.showDelay);
+        else
+            this.show();
+        if (this.life) {
+            var duration = this.showDelay ? this.life + this.showDelay : this.life;
+            this.hideTimeout = setTimeout(function () { _this.hide(); }, duration);
+        }
+    };
+    Tooltip.prototype.deactivate = function () {
+        var _this = this;
+        this.active = false;
+        this.clearShowTimeout();
+        if (this.hideDelay) {
+            this.clearHideTimeout(); //life timeout
+            this.hideTimeout = setTimeout(function () { _this.hide(); }, this.hideDelay);
+        }
+        else {
+            this.hide();
+        }
+    };
+    Object.defineProperty(Tooltip.prototype, "text", {
+        get: function () {
+            return this._text;
+        },
+        set: function (text) {
+            this._text = text;
+            if (this.active) {
+                if (this._text) {
+                    if (this.container && this.container.offsetParent)
+                        this.updateText();
+                    else
+                        this.show();
+                }
+                else {
+                    this.hide();
+                }
+            }
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Tooltip.prototype.create = function () {
+        this.container = document.createElement('div');
+        var tooltipArrow = document.createElement('div');
+        tooltipArrow.className = 'ui-tooltip-arrow';
+        this.container.appendChild(tooltipArrow);
+        this.tooltipText = document.createElement('div');
+        this.tooltipText.className = 'ui-tooltip-text ui-shadow ui-corner-all';
+        this.updateText();
+        if (this.positionStyle) {
+            this.container.style.position = this.positionStyle;
+        }
+        this.container.appendChild(this.tooltipText);
+        if (this.appendTo === 'body')
+            document.body.appendChild(this.container);
+        else if (this.appendTo === 'target')
+            domhandler_1.DomHandler.appendChild(this.container, this.el.nativeElement);
+        else
+            domhandler_1.DomHandler.appendChild(this.container, this.appendTo);
+        this.container.style.display = 'inline-block';
+    };
+    Tooltip.prototype.show = function () {
+        if (!this.text || this.disabled) {
+            return;
+        }
+        this.create();
+        this.align();
+        domhandler_1.DomHandler.fadeIn(this.container, 250);
+        if (this.tooltipZIndex === 'auto')
+            this.container.style.zIndex = ++domhandler_1.DomHandler.zindex;
+        else
+            this.container.style.zIndex = this.tooltipZIndex;
+        this.bindDocumentResizeListener();
+    };
+    Tooltip.prototype.hide = function () {
+        this.remove();
+    };
+    Tooltip.prototype.updateText = function () {
+        if (this.escape) {
+            this.tooltipText.innerHTML = '';
+            this.tooltipText.appendChild(document.createTextNode(this._text));
+        }
+        else {
+            this.tooltipText.innerHTML = this._text;
+        }
+    };
+    Tooltip.prototype.align = function () {
+        var position = this.tooltipPosition;
+        switch (position) {
+            case 'top':
+                this.alignTop();
+                if (this.isOutOfBounds()) {
+                    this.alignBottom();
+                }
+                break;
+            case 'bottom':
+                this.alignBottom();
+                if (this.isOutOfBounds()) {
+                    this.alignTop();
+                }
+                break;
+            case 'left':
+                this.alignLeft();
+                if (this.isOutOfBounds()) {
+                    this.alignRight();
+                    if (this.isOutOfBounds()) {
+                        this.alignTop();
+                        if (this.isOutOfBounds()) {
+                            this.alignBottom();
+                        }
+                    }
+                }
+                break;
+            case 'right':
+                this.alignRight();
+                if (this.isOutOfBounds()) {
+                    this.alignLeft();
+                    if (this.isOutOfBounds()) {
+                        this.alignTop();
+                        if (this.isOutOfBounds()) {
+                            this.alignBottom();
+                        }
+                    }
+                }
+                break;
+        }
+    };
+    Tooltip.prototype.getHostOffset = function () {
+        if (this.appendTo === 'body' || this.appendTo === 'target') {
+            var offset = this.el.nativeElement.getBoundingClientRect();
+            var targetLeft = offset.left + domhandler_1.DomHandler.getWindowScrollLeft();
+            var targetTop = offset.top + domhandler_1.DomHandler.getWindowScrollTop();
+            return { left: targetLeft, top: targetTop };
+        }
+        else {
+            return { left: 0, top: 0 };
+        }
+    };
+    Tooltip.prototype.alignRight = function () {
+        this.preAlign('right');
+        var hostOffset = this.getHostOffset();
+        var left = hostOffset.left + domhandler_1.DomHandler.getOuterWidth(this.el.nativeElement);
+        var top = hostOffset.top + (domhandler_1.DomHandler.getOuterHeight(this.el.nativeElement) - domhandler_1.DomHandler.getOuterHeight(this.container)) / 2;
+        this.container.style.left = left + 'px';
+        this.container.style.top = top + 'px';
+    };
+    Tooltip.prototype.alignLeft = function () {
+        this.preAlign('left');
+        var hostOffset = this.getHostOffset();
+        var left = hostOffset.left - domhandler_1.DomHandler.getOuterWidth(this.container);
+        var top = hostOffset.top + (domhandler_1.DomHandler.getOuterHeight(this.el.nativeElement) - domhandler_1.DomHandler.getOuterHeight(this.container)) / 2;
+        this.container.style.left = left + 'px';
+        this.container.style.top = top + 'px';
+    };
+    Tooltip.prototype.alignTop = function () {
+        this.preAlign('top');
+        var hostOffset = this.getHostOffset();
+        var left = hostOffset.left + (domhandler_1.DomHandler.getOuterWidth(this.el.nativeElement) - domhandler_1.DomHandler.getOuterWidth(this.container)) / 2;
+        var top = hostOffset.top - domhandler_1.DomHandler.getOuterHeight(this.container);
+        this.container.style.left = left + 'px';
+        this.container.style.top = top + 'px';
+    };
+    Tooltip.prototype.alignBottom = function () {
+        this.preAlign('bottom');
+        var hostOffset = this.getHostOffset();
+        var left = hostOffset.left + (domhandler_1.DomHandler.getOuterWidth(this.el.nativeElement) - domhandler_1.DomHandler.getOuterWidth(this.container)) / 2;
+        var top = hostOffset.top + domhandler_1.DomHandler.getOuterHeight(this.el.nativeElement);
+        this.container.style.left = left + 'px';
+        this.container.style.top = top + 'px';
+    };
+    Tooltip.prototype.preAlign = function (position) {
+        this.container.style.left = -999 + 'px';
+        this.container.style.top = -999 + 'px';
+        var defaultClassName = 'ui-tooltip ui-widget ui-tooltip-' + position;
+        this.container.className = this.tooltipStyleClass ? defaultClassName + ' ' + this.tooltipStyleClass : defaultClassName;
+    };
+    Tooltip.prototype.isOutOfBounds = function () {
+        var offset = this.container.getBoundingClientRect();
+        var targetTop = offset.top;
+        var targetLeft = offset.left;
+        var width = domhandler_1.DomHandler.getOuterWidth(this.container);
+        var height = domhandler_1.DomHandler.getOuterHeight(this.container);
+        var viewport = domhandler_1.DomHandler.getViewport();
+        return (targetLeft + width > viewport.width) || (targetLeft < 0) || (targetTop < 0) || (targetTop + height > viewport.height);
+    };
+    Tooltip.prototype.onWindowResize = function (e) {
+        this.hide();
+    };
+    Tooltip.prototype.bindDocumentResizeListener = function () {
+        var _this = this;
+        this.zone.runOutsideAngular(function () {
+            _this.resizeListener = _this.onWindowResize.bind(_this);
+            window.addEventListener('resize', _this.resizeListener);
+        });
+    };
+    Tooltip.prototype.unbindDocumentResizeListener = function () {
+        if (this.resizeListener) {
+            window.removeEventListener('resize', this.resizeListener);
+            this.resizeListener = null;
+        }
+    };
+    Tooltip.prototype.unbindEvents = function () {
+        if (this.tooltipEvent === 'hover') {
+            this.el.nativeElement.removeEventListener('mouseenter', this.mouseEnterListener);
+            this.el.nativeElement.removeEventListener('mouseleave', this.mouseLeaveListener);
+            this.el.nativeElement.removeEventListener('click', this.clickListener);
+        }
+        else if (this.tooltipEvent === 'focus') {
+            this.el.nativeElement.removeEventListener('focus', this.focusListener);
+            this.el.nativeElement.removeEventListener('blur', this.blurListener);
+        }
+        this.unbindDocumentResizeListener();
+    };
+    Tooltip.prototype.remove = function () {
+        if (this.container && this.container.parentElement) {
+            if (this.appendTo === 'body')
+                document.body.removeChild(this.container);
+            else if (this.appendTo === 'target')
+                this.el.nativeElement.removeChild(this.container);
+            else
+                domhandler_1.DomHandler.removeChild(this.container, this.appendTo);
+        }
+        this.unbindDocumentResizeListener();
+        this.clearTimeouts();
+        this.container = null;
+    };
+    Tooltip.prototype.clearShowTimeout = function () {
+        if (this.showTimeout) {
+            clearTimeout(this.showTimeout);
+            this.showTimeout = null;
+        }
+    };
+    Tooltip.prototype.clearHideTimeout = function () {
+        if (this.hideTimeout) {
+            clearTimeout(this.hideTimeout);
+            this.hideTimeout = null;
+        }
+    };
+    Tooltip.prototype.clearTimeouts = function () {
+        this.clearShowTimeout();
+        this.clearHideTimeout();
+    };
+    Tooltip.prototype.ngOnDestroy = function () {
+        this.unbindEvents();
+        this.remove();
+    };
+    __decorate([
+        core_1.Input(),
+        __metadata("design:type", String)
+    ], Tooltip.prototype, "tooltipPosition", void 0);
+    __decorate([
+        core_1.Input(),
+        __metadata("design:type", String)
+    ], Tooltip.prototype, "tooltipEvent", void 0);
+    __decorate([
+        core_1.Input(),
+        __metadata("design:type", Object)
+    ], Tooltip.prototype, "appendTo", void 0);
+    __decorate([
+        core_1.Input(),
+        __metadata("design:type", String)
+    ], Tooltip.prototype, "positionStyle", void 0);
+    __decorate([
+        core_1.Input(),
+        __metadata("design:type", String)
+    ], Tooltip.prototype, "tooltipStyleClass", void 0);
+    __decorate([
+        core_1.Input(),
+        __metadata("design:type", String)
+    ], Tooltip.prototype, "tooltipZIndex", void 0);
+    __decorate([
+        core_1.Input("tooltipDisabled"),
+        __metadata("design:type", Boolean)
+    ], Tooltip.prototype, "disabled", void 0);
+    __decorate([
+        core_1.Input(),
+        __metadata("design:type", Boolean)
+    ], Tooltip.prototype, "escape", void 0);
+    __decorate([
+        core_1.Input(),
+        __metadata("design:type", Number)
+    ], Tooltip.prototype, "showDelay", void 0);
+    __decorate([
+        core_1.Input(),
+        __metadata("design:type", Number)
+    ], Tooltip.prototype, "hideDelay", void 0);
+    __decorate([
+        core_1.Input(),
+        __metadata("design:type", Number)
+    ], Tooltip.prototype, "life", void 0);
+    __decorate([
+        core_1.Input('pTooltip'),
+        __metadata("design:type", String),
+        __metadata("design:paramtypes", [String])
+    ], Tooltip.prototype, "text", null);
+    Tooltip = __decorate([
+        core_1.Directive({
+            selector: '[pTooltip]'
+        }),
+        __metadata("design:paramtypes", [core_1.ElementRef, core_1.NgZone])
+    ], Tooltip);
+    return Tooltip;
+}());
+exports.Tooltip = Tooltip;
+var TooltipModule = /** @class */ (function () {
+    function TooltipModule() {
+    }
+    TooltipModule = __decorate([
+        core_1.NgModule({
+            imports: [common_1.CommonModule],
+            exports: [Tooltip],
+            declarations: [Tooltip]
+        })
+    ], TooltipModule);
+    return TooltipModule;
+}());
+exports.TooltipModule = TooltipModule;
+//# sourceMappingURL=tooltip.js.map
+
+/***/ }),
+
+/***/ "./node_modules/primeng/tabview.js":
+/*!*****************************************!*\
+  !*** ./node_modules/primeng/tabview.js ***!
+  \*****************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/* Shorthand */
+
+function __export(m) {
+    for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
+}
+Object.defineProperty(exports, "__esModule", { value: true });
+__export(__webpack_require__(/*! ./components/tabview/tabview */ "./node_modules/primeng/components/tabview/tabview.js"));
+
+/***/ }),
+
 /***/ "./src/app/ms-back-office/modules/ms-shops/components/delete-shop/delete-shop.component.html":
 /*!***************************************************************************************************!*\
   !*** ./src/app/ms-back-office/modules/ms-shops/components/delete-shop/delete-shop.component.html ***!
@@ -151,7 +921,7 @@ var DeleteShopComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<form class=\"flex-grow-1 min-height-0 display-flex flex-direction-column\" [askBeforeRefresh]=\"formGroup.dirty\" [formGroup]=\"formGroup\"\n  novalidate role=\"form\" (ngSubmit)=\"submitClicked()\" autocomplete=\"off\" inputFocus>\n\n\n\n  <div class=\"flex-grow-1 overflow-auto display-flex flex-direction-column padding-top-25px\">\n\n    <div class=\"flex-grow-1 flex-shrink-0 display-flex flex-direction-column\">\n\n      <mat-tab-group>\n\n        <mat-tab label=\"Shop\">\n\n          <div class=\"mb-20 margin-top-25px\" fxFlex fxLayout=\"row\" fxLayout.lt-md=\"column\" fxLayoutGap=\"20px\">\n\n            <div [fxFlex]=\"50\" fxFlex fxLayout=\"column\" fxLayout.lt-md=\"column\">\n\n              <div fxLayout=\"row\" fxLayout.lt-md=\"column\">\n\n                <div [fxFlex]=\"50\" class=\"margin-right-25px\">\n\n                  <mat-form-field class=\"width-100pc margin-left-16px\">\n\n                    <mat-label>Shop Name</mat-label>\n\n                    <input matInput type=\"text\" formControlName=\"name\" required>\n\n                  </mat-form-field>\n\n                  <mat-form-field class=\"width-100pc margin-left-16px\">\n\n                    <mat-label>Traking list base URL</mat-label>\n\n                    <input matInput type=\"text\" formControlName=\"trackingListBaseUrl\">\n\n                  </mat-form-field>\n\n                  <!--mat-form-field class=\"width-100pc\">\n\n            <mat-label>Collection</mat-label>\n\n            <mat-select placeholder=\"Select\" formControlName=\"collection\">\n\n              <mat-option *ngFor=\"let collection of collections\" [value]=\"collection.id\">\n\n                {{collection.name}}\n\n              </mat-option>\n\n            </mat-select>\n\n          </mat-form-field-->\n\n\n\n                  <!--mat-form-field class=\"width-100pc\">\n\n            <mat-label>Gender</mat-label>\n\n            <mat-select placeholder=\"Select\" formControlName=\"gender\">\n\n              <mat-option *ngFor=\"let gender of genders\" [value]=\"gender.id\">\n\n                {{gender.name}}\n\n              </mat-option>\n\n            </mat-select>\n\n          </mat-form-field-->\n\n\n\n                  <mat-form-field class=\"width-100pc margin-left-16px\">\n\n                    <mat-label>Address</mat-label>\n\n                    <input matInput type=\"text\" formControlName=\"address\">\n\n                  </mat-form-field>\n\n\n                  <div [fxFlex]=\"100\" fxLayout=\"row\" fxLayout.lt-md=\"column\">\n\n                    <div [fxFlex]=\"50\">\n\n                      <mat-form-field class=\"width-90pct\">\n\n                        <mat-select placeholder=\"Region\" formControlName=\"region\">\n\n                          <mat-option>...</mat-option>\n\n                          <mat-option *ngFor=\"let region of regions\" [value]=\"region.id\">\n\n                            {{region.name}}\n\n                          </mat-option>\n\n                        </mat-select>\n\n                      </mat-form-field>\n\n                    </div>\n\n                    <div [fxFlex]=\"50\" class=\"\">\n\n                      <mat-form-field class=\"width-100pc\">\n\n                        <mat-select placeholder=\"Country\" formControlName=\"country\">\n\n                          <mat-option>...</mat-option>\n\n                          <mat-option *ngFor=\"let country of countries\" [value]=\"country.id\">\n\n                            {{country.name}}\n\n                          </mat-option>\n\n                        </mat-select>\n\n                      </mat-form-field>\n\n                    </div>\n\n                  </div>\n\n                  <mat-form-field class=\"width-100pc margin-left-16px\">\n\n                    <mat-label>Zip Code</mat-label>\n\n                    <input matInput type=\"text\" formControlName=\"zipCode\">\n\n                  </mat-form-field>\n\n                  <div [fxFlex]=\"100\" fxLayout=\"row\" fxLayout.lt-md=\"column\">\n\n                    <div [fxFlex]=\"50\">\n\n                      <mat-form-field class=\"width-90pct\">\n\n                        <mat-select placeholder=\"Rank\" formControlName=\"rank\">\n\n                          <mat-option>...</mat-option>\n\n                          <mat-option *ngFor=\"let rank_ of rank\" [value]=\"rank_.value\">\n\n                            {{rank_.value}}\n\n                          </mat-option>\n\n                        </mat-select>\n\n                      </mat-form-field>\n\n                    </div>\n\n                    <div [fxFlex]=\"50\" class=\"\">\n\n                      <mat-form-field class=\"width-100pc\">\n\n                        <mat-select placeholder=\"Currency\" formControlName=\"currency\">\n\n                          <mat-option>...</mat-option>\n\n                          <mat-option *ngFor=\"let currenc of currency\" [value]=\"currenc.id\">\n\n                            {{currenc.name}}\n\n                          </mat-option>\n\n                        </mat-select>\n\n                      </mat-form-field>\n\n                    </div>\n\n                  </div>\n\n                </div>\n\n                <div [fxFlex]=\"50\">\n\n                  <mat-form-field class=\"width-100pc\">\n\n                    <mat-select placeholder=\"Select Brands\" formControlName=\"brand\" multiple>\n\n                      <mat-option *ngFor=\"let brand of brands\" [value]=\"brand.id\">\n\n                        {{brand.name}}\n\n                      </mat-option>\n\n                    </mat-select>\n\n                  </mat-form-field>\n\n                  <mat-form-field class=\"width-100pc\">\n\n                    <mat-select placeholder=\"Select Category\" formControlName=\"category\" multiple>\n\n                      <mat-option>...</mat-option>\n\n                      <mat-option *ngFor=\"let category of categories\" [value]=\"category.id\">\n\n                        {{category.name}}\n\n                      </mat-option>\n\n                    </mat-select>\n\n                  </mat-form-field>\n\n                  <mat-form-field class=\"width-100pc margin-left-16px\" appearance=\"fill\">\n\n                    <mat-label>Shipping Details</mat-label>\n\n                    <textarea matInput formControlName=\"shippingDetails\" class=\"min-height-100px\"></textarea>\n\n                  </mat-form-field>\n\n                  <mat-form-field class=\"width-100pc\">\n\n                    <mat-select placeholder=\"Shipping Countries\" formControlName=\"shippingCountries\">\n\n                      <mat-option>...</mat-option>\n\n                      <mat-option *ngFor=\"let option of shippingCountries\" [value]=\"option.id\">\n\n                        {{option.name}}\n\n                      </mat-option>\n\n                    </mat-select>\n\n                  </mat-form-field>\n\n                  <mat-form-field *ngIf=\"formGroup.get('shippingCountries').value ==='Select Countries'\" class=\"width-100pc\">\n\n                    <mat-select placeholder=\"Country\" formControlName=\"countries\" multiple>\n\n                      <mat-option *ngFor=\"let country of countries\" [value]=\"country.id\">\n\n                        {{country.name}}\n\n                      </mat-option>\n\n                    </mat-select>\n\n                  </mat-form-field>\n\n                  <!--div>\n\n                    <mat-slide-toggle formControlName=\"makeDeal\" class=\"margin-bottom-25px margin-top-25px\">Hot</mat-slide-toggle>\n\n                  </div-->\n                  <!--mat-form-field class=\"width-100pc\">\n\n            <mat-label>Color</mat-label>\n\n            <mat-select placeholder=\"Select\" formControlName=\"color\">\n\n              <mat-option *ngFor=\"let color of colors\" [value]=\"color.id\">\n\n                {{color.name}}\n\n              </mat-option>\n\n            </mat-select>\n\n          </mat-form-field-->\n\n                  <!--mat-form-field class=\"width-100pc margin-left-16px\">\n\n            <mat-label>Suplied Color</mat-label>\n\n            <input matInput type=\"text\" formControlName=\"supliedColor\">\n\n          </mat-form-field>\n\n          <mat-slide-toggle formControlName=\"children\">Children</mat-slide-toggle-->\n\n                </div>\n\n              </div>\n\n              <mat-form-field class=\"width-100pc margin-left-16px\" appearance=\"fill\">\n\n                <mat-label>Description</mat-label>\n\n                <textarea matInput formControlName=\"description\" class=\"min-height-100px\"></textarea>\n\n              </mat-form-field>\n\n            </div>\n\n            <div [fxFlex]=\"50\" class=\"border margin-right-25px max-width-480px\">\n              <div class=\"display-flex justify-content-center\">\n                <h3>Shop Logo</h3>\n              </div>\n\n              <images-card name=\"faces\" class=\"flex-grow-1\" formControlName=\"faces\" (deletedFace)=\"onDeleteFace($event)\" [principal]=\"principal\"></images-card>\n\n            </div>\n\n          </div>\n          <div class=\"mb-20 color-material\" fxFlex fxLayout=\"row\" fxLayout.lt-md=\"column\" fxLayoutGap=\"20px\">\n\n\n            <div [fxFlex]=\"60\" fxLayout=\"column\" class=\"max-width-480px\">\n\n              <div [fxFlex]=\"100\" fxLayout=\"row\" class=\"margin-bottom-25px\">\n\n                <div [fxFlex]=\"70\">\n\n                  <h3>Working Hours</h3>\n\n                </div>\n\n                <div [fxFlex]=\"30\">\n\n                  <h5>Non-Working</h5>\n\n                </div>\n\n              </div>\n\n              <div [fxFlex]=\"100\" fxLayout=\"row\">\n\n                <div [fxFlex]=\"100\">\n\n                  Monday\n\n                </div>\n\n                <div [fxFlex]=\"100\">\n\n                  <input matInput atp-time-picker class=\"cursor-pointer\" value=\"00:00\" />\n\n                </div>\n\n                <div [fxFlex]=\"100\">\n\n                  <input matInput atp-time-picker class=\"cursor-pointer\" value=\"00:00\" />\n\n                </div>\n\n                <div [fxFlex]=\"100\">\n\n                  <mat-checkbox></mat-checkbox>\n\n                </div>\n\n              </div>\n\n              <div [fxFlex]=\"100\" fxLayout=\"row\">\n\n                <div [fxFlex]=\"100\">\n\n                  Tuesday\n\n                </div>\n\n                <div [fxFlex]=\"100\">\n\n                  <input matInput atp-time-picker class=\"cursor-pointer\" value=\"00:00\" />\n\n                </div>\n\n                <div [fxFlex]=\"100\">\n\n                  <input matInput atp-time-picker class=\"cursor-pointer\" value=\"00:00\" />\n\n                </div>\n\n                <div [fxFlex]=\"100\">\n\n                  <mat-checkbox></mat-checkbox>\n\n                </div>\n\n              </div>\n\n              <div [fxFlex]=\"100\" fxLayout=\"row\">\n\n                <div [fxFlex]=\"100\">\n\n                  Wednesday\n\n                </div>\n\n                <div [fxFlex]=\"100\">\n\n                  <input matInput atp-time-picker class=\"cursor-pointer\" value=\"00:00\" />\n\n                </div>\n\n                <div [fxFlex]=\"100\">\n\n                  <input matInput atp-time-picker class=\"cursor-pointer\" value=\"00:00\" />\n\n                </div>\n\n                <div [fxFlex]=\"100\">\n\n                  <mat-checkbox></mat-checkbox>\n\n                </div>\n\n              </div>\n\n              <div [fxFlex]=\"100\" fxLayout=\"row\">\n\n                <div [fxFlex]=\"100\">\n\n                  Thursday\n\n                </div>\n\n                <div [fxFlex]=\"100\">\n\n                  <input matInput atp-time-picker class=\"cursor-pointer\" value=\"00:00\" />\n\n                </div>\n\n                <div [fxFlex]=\"100\">\n\n                  <input matInput atp-time-picker class=\"cursor-pointer\" value=\"00:00\" />\n\n                </div>\n\n                <div [fxFlex]=\"100\">\n\n                  <mat-checkbox></mat-checkbox>\n\n                </div>\n\n              </div>\n\n              <div [fxFlex]=\"100\" fxLayout=\"row\">\n\n                <div [fxFlex]=\"100\">\n\n                  Friday\n\n                </div>\n\n                <div [fxFlex]=\"100\">\n\n                  <input matInput atp-time-picker class=\"cursor-pointer\" value=\"00:00\" />\n\n                </div>\n\n                <div [fxFlex]=\"100\">\n\n                  <input matInput atp-time-picker class=\"cursor-pointer\" value=\"00:00\" />\n\n                </div>\n\n                <div [fxFlex]=\"100\">\n\n                  <mat-checkbox></mat-checkbox>\n\n                </div>\n\n              </div>\n\n              <div [fxFlex]=\"100\" fxLayout=\"row\">\n\n                <div [fxFlex]=\"100\">\n\n                  Saturday\n\n                </div>\n\n                <div [fxFlex]=\"100\">\n\n                  <input matInput atp-time-picker class=\"cursor-pointer\" value=\"00:00\" />\n\n                </div>\n\n                <div [fxFlex]=\"100\">\n\n                  <input matInput atp-time-picker class=\"cursor-pointer\" value=\"00:00\" />\n\n                </div>\n\n                <div [fxFlex]=\"100\">\n\n                  <mat-checkbox></mat-checkbox>\n\n                </div>\n\n              </div>\n\n              <div [fxFlex]=\"100\" fxLayout=\"row\">\n\n                <div [fxFlex]=\"100\">\n\n                  Sunday\n\n                </div>\n\n                <div [fxFlex]=\"100\">\n\n                  <input matInput atp-time-picker class=\"cursor-pointer\" value=\"00:00\" />\n\n                </div>\n\n                <div [fxFlex]=\"100\">\n\n                  <input matInput atp-time-picker class=\"cursor-pointer\" value=\"00:00\" />\n\n                </div>\n\n                <div [fxFlex]=\"100\">\n\n                  <mat-checkbox></mat-checkbox>\n\n                </div>\n\n              </div>\n\n            </div>\n\n\n            <!--div [fxFlex]=\"60\" fxLayout=\"column\" class=\" margin-right-25px\">\n\n              <div [fxFlex]=\"\" fxLayout=\"row\" class=\"justify-content-space-between\">\n\n                <div>\n\n                  <mat-slide-toggle>Make Deal</mat-slide-toggle>\n\n                </div>\n\n                <div class=\"padding-bottom-10px\">\n\n                  <button type=\"button\" class=\"border-none border-radius-5px\" mat-stroked-button>\n                    \n                    Add a new Deal\n\n                    <mat-icon>add</mat-icon>\n\n                  </button>\n\n                </div>\n\n              </div>              \n\n            </div-->\n\n          </div>\n\n        </mat-tab>\n\n        <mat-tab label=\"Deals\" class=\"width-50pc\">\n\n          <deals-shop-table [shopId]=\"shopId\" [dealId]=\"dealId\" class=\"padding-top-25px\"></deals-shop-table>\n\n        </mat-tab>\n\n        <mat-tab label=\"Link\" class=\"width-50pc\">\n\n          <div fxLayout=\"row\" class=\"margin-bottom-25px liked-shops margin-right-10px padding-10px\">\n            <div fxLayout=\"column\" class=\"flex-grow-1\">\n\n              <h3>Linked Stores</h3>\n              <div class=\"flex-grow-1 overflow-auto display-flex flex-direction-column padding-10px border-top-width-2px border-top-color-grey\">\n\n                <!--div class=\"flex-grow-1 flex-shrink-0 display-flex flex-direction-column\"-->\n                <div class=\"flex-wrap-wrap display-flex flex-grow-1 flex-shrink-1 flex-direction-row card-container justify-content-initial margin-top-10px\">\n                  <mat-card *ngFor=\"let shop of shops\" class=\"display-flex background-color-secondary flex-direction-column flex-shrink-1\">\n                    <div class=\"image-container margin-10px flex-grow-1\" #imageContainer>\n                      <img class=\"img\" imageLoad [srcImage]=\"shop.mainImage? shop.mainImage : ''\" [container]=\"imageContainer\" src=\"\">\n                    </div>\n                    <div class=\"image-card-btns display-flex margin-left-10px margin-right-10px margin-bottom-10px\">\n                      <mat-checkbox [checked]=\"shop.checked\" class=\"margin-top-10px\" matTooltip=\"{{ 'Principal' | translate }}\" (click)=\"linked(shop)\">{{ shop.name }}</mat-checkbox>\n                    </div>\n                  </mat-card>\n                  <!--/div-->\n                </div>\n\n              </div>\n              <div class=\"justify-content-flex-end margin-right-25px padding-top-10px padding-bottom-10px flex-shrink-0 display-flex border-top-width-2px border-top-color-grey\">\n\n                <button mat-stroked-button type=\"button\">Remove Selection</button>\n\n                <button mat-raised-button type=\"button\" color=\"primary\" class=\"margin-left-10px\" (click)=\"showLinkSubShopsModal()\">{{ 'Link New Stores' | translate }}</button>\n\n              </div>\n\n\n            </div>\n\n          </div>\n\n        </mat-tab>\n\n      </mat-tab-group>\n\n\n    </div>\n\n  </div>\n\n\n\n  <div class=\"margin-right-25px padding-top-25px padding-bottom-25px flex-shrink-0 display-flex border-top-style-solid border-top-width-2px border-top-color-grey\">\n\n    <button mat-raised-button type=\"submit\" color=\"primary\">{{ 'Save' | translate }}</button>\n\n    <button mat-raised-button type=\"button\" class=\"margin-left-10px\" (click)=\"cancelClicked()\">{{ 'Cancel' | translate }}</button>\n\n  </div>\n\n</form>"
+module.exports = "<form class=\"flex-grow-1 min-height-0 display-flex flex-direction-column\" [askBeforeRefresh]=\"formGroup.dirty\" [formGroup]=\"formGroup\"\n  novalidate role=\"form\" (ngSubmit)=\"submitClicked()\" autocomplete=\"off\" inputFocus>\n\n\n\n  <div class=\"flex-grow-1 overflow-auto display-flex flex-direction-column padding-top-25px\">\n\n    <div class=\"flex-grow-1 flex-shrink-0 display-flex flex-direction-column\">\n\n      <mat-tab-group>\n\n        <mat-tab label=\"Shop\">\n\n          <div class=\"mb-20 margin-top-25px\" fxFlex fxLayout=\"row\" fxLayout.lt-md=\"column\" fxLayoutGap=\"20px\">\n\n            <div [fxFlex]=\"50\" fxFlex fxLayout=\"column\" fxLayout.lt-md=\"column\">\n\n              <div fxLayout=\"row\" fxLayout.lt-md=\"column\">\n\n                <div [fxFlex]=\"50\" class=\"margin-right-25px\">\n\n                  <mat-form-field class=\"width-100pc margin-left-16px\">\n\n                    <mat-label>Shop Name</mat-label>\n\n                    <input matInput type=\"text\" formControlName=\"name\" required>\n\n                  </mat-form-field>\n\n                  <mat-form-field class=\"width-100pc margin-left-16px\">\n\n                    <mat-label>Traking list base URL</mat-label>\n\n                    <input matInput type=\"text\" formControlName=\"trackingListBaseUrl\">\n\n                  </mat-form-field>\n\n                  <!--mat-form-field class=\"width-100pc\">\n\n            <mat-label>Collection</mat-label>\n\n            <mat-select placeholder=\"Select\" formControlName=\"collection\">\n\n              <mat-option *ngFor=\"let collection of collections\" [value]=\"collection.id\">\n\n                {{collection.name}}\n\n              </mat-option>\n\n            </mat-select>\n\n          </mat-form-field-->\n\n\n\n                  <!--mat-form-field class=\"width-100pc\">\n\n            <mat-label>Gender</mat-label>\n\n            <mat-select placeholder=\"Select\" formControlName=\"gender\">\n\n              <mat-option *ngFor=\"let gender of genders\" [value]=\"gender.id\">\n\n                {{gender.name}}\n\n              </mat-option>\n\n            </mat-select>\n\n          </mat-form-field-->\n\n\n\n                  <mat-form-field class=\"width-100pc margin-left-16px\">\n\n                    <mat-label>Address</mat-label>\n\n                    <input matInput type=\"text\" formControlName=\"address\">\n\n                  </mat-form-field>\n\n\n                  <div [fxFlex]=\"100\" fxLayout=\"row\" fxLayout.lt-md=\"column\">\n\n                    <div [fxFlex]=\"50\">\n\n                      <mat-form-field class=\"width-90pct\">\n\n                        <mat-select placeholder=\"Region\" formControlName=\"region\">\n\n                          <mat-option>...</mat-option>\n\n                          <mat-option *ngFor=\"let region of regions\" [value]=\"region.id\">\n\n                            {{region.name}}\n\n                          </mat-option>\n\n                        </mat-select>\n\n                      </mat-form-field>\n\n                    </div>\n\n                    <div [fxFlex]=\"50\" class=\"\">\n\n                      <mat-form-field class=\"width-100pc\">\n\n                        <mat-select placeholder=\"Country\" formControlName=\"country\">\n\n                          <mat-option>...</mat-option>\n\n                          <mat-option *ngFor=\"let country of countries\" [value]=\"country.id\">\n\n                            {{country.name}}\n\n                          </mat-option>\n\n                        </mat-select>\n\n                      </mat-form-field>\n\n                    </div>\n\n                  </div>\n\n                  <mat-form-field class=\"width-100pc margin-left-16px\">\n\n                    <mat-label>Zip Code</mat-label>\n\n                    <input matInput type=\"text\" formControlName=\"zipCode\">\n\n                  </mat-form-field>\n\n                  <div [fxFlex]=\"100\" fxLayout=\"row\" fxLayout.lt-md=\"column\">\n\n                    <div [fxFlex]=\"50\">\n\n                      <mat-form-field class=\"width-90pct\">\n\n                        <mat-select placeholder=\"Rank\" formControlName=\"rank\">\n\n                          <mat-option>...</mat-option>\n\n                          <mat-option *ngFor=\"let rank_ of rank\" [value]=\"rank_.value\">\n\n                            {{rank_.value}}\n\n                          </mat-option>\n\n                        </mat-select>\n\n                      </mat-form-field>\n\n                    </div>\n\n                    <div [fxFlex]=\"50\" class=\"\">\n\n                      <mat-form-field class=\"width-100pc\">\n\n                        <mat-select placeholder=\"Currency\" formControlName=\"currency\">\n\n                          <mat-option>...</mat-option>\n\n                          <mat-option *ngFor=\"let currenc of currency\" [value]=\"currenc.id\">\n\n                            {{currenc.name}}\n\n                          </mat-option>\n\n                        </mat-select>\n\n                      </mat-form-field>\n\n                    </div>\n\n                  </div>\n\n                </div>\n\n                <div [fxFlex]=\"50\">\n\n                  <mat-form-field class=\"width-100pc\">\n\n                    <mat-select placeholder=\"Select Brands\" formControlName=\"brand\" multiple>\n\n                      <mat-option *ngFor=\"let brand of brands\" [value]=\"brand.id\">\n\n                        {{brand.name}}\n\n                      </mat-option>\n\n                    </mat-select>\n\n                  </mat-form-field>\n\n                  <mat-form-field class=\"width-100pc\">\n\n                    <mat-select placeholder=\"Select Category\" formControlName=\"category\" multiple>\n\n                      <mat-option>...</mat-option>\n\n                      <mat-option *ngFor=\"let category of categories\" [value]=\"category.id\">\n\n                        {{category.name}}\n\n                      </mat-option>\n\n                    </mat-select>\n\n                  </mat-form-field>\n\n                  <mat-form-field class=\"width-100pc margin-left-16px\" appearance=\"fill\">\n\n                    <mat-label>Shipping Details</mat-label>\n\n                    <textarea matInput formControlName=\"shippingDetails\" class=\"min-height-100px\"></textarea>\n\n                  </mat-form-field>\n\n                  <mat-form-field class=\"width-100pc\">\n\n                    <mat-select placeholder=\"Shipping Countries\" formControlName=\"shippingCountries\">\n\n                      <mat-option>...</mat-option>\n\n                      <mat-option *ngFor=\"let option of shippingCountries\" [value]=\"option.id\">\n\n                        {{option.name}}\n\n                      </mat-option>\n\n                    </mat-select>\n\n                  </mat-form-field>\n\n                  <mat-form-field *ngIf=\"formGroup.get('shippingCountries').value ==='Select Countries'\" class=\"width-100pc\">\n\n                    <mat-select placeholder=\"Country\" formControlName=\"countries\" multiple>\n\n                      <mat-option *ngFor=\"let country of countries\" [value]=\"country.id\">\n\n                        {{country.name}}\n\n                      </mat-option>\n\n                    </mat-select>\n\n                  </mat-form-field>\n\n                  <div>\n\n                    <mat-slide-toggle class=\"padding-top-15px padding-bottom-15px\" formControlName=\"isParent\">Is Parent</mat-slide-toggle>\n\n                  </div>\n\n                </div>\n\n              </div>\n\n              <mat-form-field class=\"width-100pc margin-left-16px\" appearance=\"fill\">\n\n                <mat-label>Description</mat-label>\n\n                <textarea matInput formControlName=\"description\" class=\"min-height-100px\"></textarea>\n\n              </mat-form-field>\n\n            </div>\n\n            <div [fxFlex]=\"50\" class=\"border margin-right-25px max-width-480px\">\n              <div class=\"display-flex justify-content-center\">\n                <h3>Shop Logo</h3>\n              </div>\n\n              <images-card name=\"faces\" class=\"flex-grow-1\" formControlName=\"faces\" (deletedFace)=\"onDeleteFace($event)\" [principal]=\"principal\"></images-card>\n\n            </div>\n\n          </div>\n          <div class=\"mb-20 color-material\" fxFlex fxLayout=\"row\" fxLayout.lt-md=\"column\" fxLayoutGap=\"20px\">\n\n\n            <div [fxFlex]=\"60\" fxLayout=\"column\" class=\"max-width-480px\">\n\n              <div [fxFlex]=\"100\" fxLayout=\"row\" class=\"margin-bottom-25px\">\n\n                <div [fxFlex]=\"70\">\n\n                  <h3>Working Hours</h3>\n\n                </div>\n\n                <div [fxFlex]=\"30\">\n\n                  <h5>Non-Working</h5>\n\n                </div>\n\n              </div>\n\n              <div [fxFlex]=\"100\" fxLayout=\"row\">\n\n                <div [fxFlex]=\"100\">\n\n                  Monday\n\n                </div>\n\n                <div [fxFlex]=\"100\">\n\n                  <input matInput atp-time-picker class=\"cursor-pointer\" value=\"00:00\" />\n\n                </div>\n\n                <div [fxFlex]=\"100\">\n\n                  <input matInput atp-time-picker class=\"cursor-pointer\" value=\"00:00\" />\n\n                </div>\n\n                <div [fxFlex]=\"100\">\n\n                  <mat-checkbox></mat-checkbox>\n\n                </div>\n\n              </div>\n\n              <div [fxFlex]=\"100\" fxLayout=\"row\">\n\n                <div [fxFlex]=\"100\">\n\n                  Tuesday\n\n                </div>\n\n                <div [fxFlex]=\"100\">\n\n                  <input matInput atp-time-picker class=\"cursor-pointer\" value=\"00:00\" />\n\n                </div>\n\n                <div [fxFlex]=\"100\">\n\n                  <input matInput atp-time-picker class=\"cursor-pointer\" value=\"00:00\" />\n\n                </div>\n\n                <div [fxFlex]=\"100\">\n\n                  <mat-checkbox></mat-checkbox>\n\n                </div>\n\n              </div>\n\n              <div [fxFlex]=\"100\" fxLayout=\"row\">\n\n                <div [fxFlex]=\"100\">\n\n                  Wednesday\n\n                </div>\n\n                <div [fxFlex]=\"100\">\n\n                  <input matInput atp-time-picker class=\"cursor-pointer\" value=\"00:00\" />\n\n                </div>\n\n                <div [fxFlex]=\"100\">\n\n                  <input matInput atp-time-picker class=\"cursor-pointer\" value=\"00:00\" />\n\n                </div>\n\n                <div [fxFlex]=\"100\">\n\n                  <mat-checkbox></mat-checkbox>\n\n                </div>\n\n              </div>\n\n              <div [fxFlex]=\"100\" fxLayout=\"row\">\n\n                <div [fxFlex]=\"100\">\n\n                  Thursday\n\n                </div>\n\n                <div [fxFlex]=\"100\">\n\n                  <input matInput atp-time-picker class=\"cursor-pointer\" value=\"00:00\" />\n\n                </div>\n\n                <div [fxFlex]=\"100\">\n\n                  <input matInput atp-time-picker class=\"cursor-pointer\" value=\"00:00\" />\n\n                </div>\n\n                <div [fxFlex]=\"100\">\n\n                  <mat-checkbox></mat-checkbox>\n\n                </div>\n\n              </div>\n\n              <div [fxFlex]=\"100\" fxLayout=\"row\">\n\n                <div [fxFlex]=\"100\">\n\n                  Friday\n\n                </div>\n\n                <div [fxFlex]=\"100\">\n\n                  <input matInput atp-time-picker class=\"cursor-pointer\" value=\"00:00\" />\n\n                </div>\n\n                <div [fxFlex]=\"100\">\n\n                  <input matInput atp-time-picker class=\"cursor-pointer\" value=\"00:00\" />\n\n                </div>\n\n                <div [fxFlex]=\"100\">\n\n                  <mat-checkbox></mat-checkbox>\n\n                </div>\n\n              </div>\n\n              <div [fxFlex]=\"100\" fxLayout=\"row\">\n\n                <div [fxFlex]=\"100\">\n\n                  Saturday\n\n                </div>\n\n                <div [fxFlex]=\"100\">\n\n                  <input matInput atp-time-picker class=\"cursor-pointer\" value=\"00:00\" />\n\n                </div>\n\n                <div [fxFlex]=\"100\">\n\n                  <input matInput atp-time-picker class=\"cursor-pointer\" value=\"00:00\" />\n\n                </div>\n\n                <div [fxFlex]=\"100\">\n\n                  <mat-checkbox></mat-checkbox>\n\n                </div>\n\n              </div>\n\n              <div [fxFlex]=\"100\" fxLayout=\"row\">\n\n                <div [fxFlex]=\"100\">\n\n                  Sunday\n\n                </div>\n\n                <div [fxFlex]=\"100\">\n\n                  <input matInput atp-time-picker class=\"cursor-pointer\" value=\"00:00\" />\n\n                </div>\n\n                <div [fxFlex]=\"100\">\n\n                  <input matInput atp-time-picker class=\"cursor-pointer\" value=\"00:00\" />\n\n                </div>\n\n                <div [fxFlex]=\"100\">\n\n                  <mat-checkbox></mat-checkbox>\n\n                </div>\n\n              </div>\n\n            </div>\n\n\n            <!--div [fxFlex]=\"60\" fxLayout=\"column\" class=\" margin-right-25px\">\n\n              <div [fxFlex]=\"\" fxLayout=\"row\" class=\"justify-content-space-between\">\n\n                <div>\n\n                  <mat-slide-toggle>Make Deal</mat-slide-toggle>\n\n                </div>\n\n                <div class=\"padding-bottom-10px\">\n\n                  <button type=\"button\" class=\"border-none border-radius-5px\" mat-stroked-button>\n                    \n                    Add a new Deal\n\n                    <mat-icon>add</mat-icon>\n\n                  </button>\n\n                </div>\n\n              </div>              \n\n            </div-->\n\n          </div>\n\n        </mat-tab>\n\n        <mat-tab label=\"Deals\" class=\"width-50pc\">\n\n          <deals-shop-table [shopId]=\"shopId\" [dealId]=\"dealId\" class=\"padding-top-25px\"></deals-shop-table>\n\n        </mat-tab>\n\n        <mat-tab *ngIf=\"data.isParent\" label=\"Link\" class=\"width-50pc\">\n\n          <div fxLayout=\"row\" class=\"margin-bottom-25px liked-shops margin-right-10px padding-10px\">\n            <div fxLayout=\"column\" class=\"flex-grow-1\">\n\n              <h3>Linked Stores</h3>\n              <div class=\"flex-grow-1 overflow-auto display-flex flex-direction-column padding-10px border-top-width-2px border-top-color-grey\">\n\n                <!--div class=\"flex-grow-1 flex-shrink-0 display-flex flex-direction-column\"-->\n                <div class=\"flex-wrap-wrap display-flex flex-grow-1 flex-shrink-1 flex-direction-row card-container justify-content-initial margin-top-10px\">\n                  <mat-card *ngFor=\"let shop of subShops\" class=\"display-flex background-color-secondary flex-direction-column flex-shrink-1\">\n                    <div class=\"image-container margin-10px flex-grow-1\" #imageContainer>\n                      <img class=\"img\" imageLoad [srcImage]=\"shop.mainImage? shop.mainImage : ''\" [container]=\"imageContainer\" src=\"\">\n                    </div>\n                    <div class=\"image-card-btns display-flex margin-left-10px margin-right-10px margin-bottom-10px\">\n                      <mat-checkbox [checked]=\"true\" class=\"margin-top-10px\" matTooltip=\"{{ 'Principal' | translate }}\" (click)=\"linked(shop)\" [disabled]=\"true\">{{ shop.name }}</mat-checkbox>\n                    </div>\n                  </mat-card>\n                  <!--/div-->\n                </div>\n\n              </div>\n              <div class=\"justify-content-flex-end margin-right-25px padding-top-10px padding-bottom-10px flex-shrink-0 display-flex border-top-width-2px border-top-color-grey\">\n\n                <!--button mat-stroked-button type=\"button\">Remove Selection</button-->\n\n                <button mat-raised-button type=\"button\" color=\"primary\" class=\"\" (click)=\"showLinkSubShopsModal()\">{{ 'Link New Stores' | translate }}</button>\n\n              </div>\n\n\n            </div>\n\n          </div>\n\n        </mat-tab>\n\n      </mat-tab-group>\n\n\n    </div>\n\n  </div>\n\n\n\n  <div class=\"margin-right-25px padding-top-25px padding-bottom-25px flex-shrink-0 display-flex border-top-style-solid border-top-width-2px border-top-color-grey\">\n\n    <button mat-raised-button type=\"submit\" color=\"primary\">{{ 'Save' | translate }}</button>\n\n    <button mat-raised-button type=\"button\" class=\"margin-left-10px\" (click)=\"cancelClicked()\">{{ 'Cancel' | translate }}</button>\n\n  </div>\n\n</form>"
 
 /***/ }),
 
@@ -186,11 +956,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _models_country__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../models/country */ "./src/app/ms-back-office/modules/ms-shops/models/country.ts");
 /* harmony import */ var _models_rank__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../models/rank */ "./src/app/ms-back-office/modules/ms-shops/models/rank.ts");
 /* harmony import */ var _models_regions__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../../models/regions */ "./src/app/ms-back-office/modules/ms-shops/models/regions.ts");
-/* harmony import */ var _services_shops_images_service__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../../services/shops-images.service */ "./src/app/ms-back-office/modules/ms-shops/services/shops-images.service.ts");
-/* harmony import */ var _shops_selling_style_modal_shops_selling_style_modal_component__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../shops-selling-style-modal/shops-selling-style-modal.component */ "./src/app/ms-back-office/modules/ms-shops/components/shops-selling-style-modal/shops-selling-style-modal.component.ts");
-/* harmony import */ var _link_shops_subshops_link_shops_subshops_modal_component__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ../link-shops-subshops/link-shops-subshops-modal.component */ "./src/app/ms-back-office/modules/ms-shops/components/link-shops-subshops/link-shops-subshops-modal.component.ts");
-/* harmony import */ var _models_shippingCountries__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ../../models/shippingCountries */ "./src/app/ms-back-office/modules/ms-shops/models/shippingCountries.ts");
-/* harmony import */ var _error_handling_services_error_handling_service__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ../../../../../error-handling/services/error-handling.service */ "./src/app/error-handling/services/error-handling.service.ts");
+/* harmony import */ var _services_shops_service__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../../services/shops.service */ "./src/app/ms-back-office/modules/ms-shops/services/shops.service.ts");
+/* harmony import */ var _services_shops_images_service__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../../services/shops-images.service */ "./src/app/ms-back-office/modules/ms-shops/services/shops-images.service.ts");
+/* harmony import */ var _shops_selling_style_modal_shops_selling_style_modal_component__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ../shops-selling-style-modal/shops-selling-style-modal.component */ "./src/app/ms-back-office/modules/ms-shops/components/shops-selling-style-modal/shops-selling-style-modal.component.ts");
+/* harmony import */ var _link_shops_subshops_link_shops_subshops_modal_component__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ../link-shops-subshops/link-shops-subshops-modal.component */ "./src/app/ms-back-office/modules/ms-shops/components/link-shops-subshops/link-shops-subshops-modal.component.ts");
+/* harmony import */ var _models_shippingCountries__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ../../models/shippingCountries */ "./src/app/ms-back-office/modules/ms-shops/models/shippingCountries.ts");
+/* harmony import */ var _error_handling_services_error_handling_service__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ../../../../../error-handling/services/error-handling.service */ "./src/app/error-handling/services/error-handling.service.ts");
 var __extends = (undefined && undefined.__extends) || (function () {
     var extendStatics = Object.setPrototypeOf ||
         ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
@@ -226,27 +997,32 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 
 
 
+
 var errorKey = 'Error';
 var EditShopFormComponent = /** @class */ (function (_super) {
     __extends(EditShopFormComponent, _super);
-    function EditShopFormComponent(activatedRoute, dialog, errorHandlingService, formBuilder, shopsImgesService, translateService) {
+    function EditShopFormComponent(activatedRoute, dialog, errorHandlingService, formBuilder, shopsService, shopsImgesService, translateService) {
         var _this = _super.call(this, translateService) || this;
         _this.activatedRoute = activatedRoute;
         _this.dialog = dialog;
         _this.errorHandlingService = errorHandlingService;
         _this.formBuilder = formBuilder;
+        _this.shopsService = shopsService;
         _this.shopsImgesService = shopsImgesService;
         _this.currency = _models_currency__WEBPACK_IMPORTED_MODULE_6__["CURRENCY"];
         _this.countries = _models_country__WEBPACK_IMPORTED_MODULE_7__["COUNTRIES"];
         _this.regions = _models_regions__WEBPACK_IMPORTED_MODULE_9__["REGIONS"];
         _this.rank = _models_rank__WEBPACK_IMPORTED_MODULE_8__["RANK"];
-        _this.shippingCountries = _models_shippingCountries__WEBPACK_IMPORTED_MODULE_13__["SHIPPINGCOUNTRIES"];
+        _this.shippingCountries = _models_shippingCountries__WEBPACK_IMPORTED_MODULE_14__["SHIPPINGCOUNTRIES"];
         _this.faceList = [];
         return _this;
         //setTranslations(this.translateService, TRANSLATIONS);TODO
     }
     EditShopFormComponent.prototype.ngOnInit = function () {
         var _this = this;
+        this.subShops = this.shops.filter(function (shop) {
+            return shop.parent === _this.shopId;
+        });
         this.data.workingHours.forEach(function (workinHour) {
             //this.isLinked(shop.id);
             if (!workinHour.openHour && !workinHour.closeHour) {
@@ -292,6 +1068,7 @@ var EditShopFormComponent = /** @class */ (function (_super) {
             category: new _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormControl"](this.data.category),
             trackingListBaseUrl: new _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormControl"](this.data.trackingListBaseUrl),
             zipCode: new _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormControl"](this.data.zipCode),
+            isParent: new _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormControl"](this.data.isParent),
             workingHours: this.formBuilder.array([
                 this.formBuilder.group({
                     dayOfWeekMonday: 1,
@@ -346,20 +1123,29 @@ var EditShopFormComponent = /** @class */ (function (_super) {
         }
     };
     EditShopFormComponent.prototype.showModal = function () {
-        this.modalRef = this.dialog.open(_shops_selling_style_modal_shops_selling_style_modal_component__WEBPACK_IMPORTED_MODULE_11__["ShopsSellingStyleModalComponent"], {
+        this.modalRef = this.dialog.open(_shops_selling_style_modal_shops_selling_style_modal_component__WEBPACK_IMPORTED_MODULE_12__["ShopsSellingStyleModalComponent"], {
             height: '800px',
             width: '60%',
             data: { face: this.shop }
         });
     };
     EditShopFormComponent.prototype.showLinkSubShopsModal = function () {
-        this.modalRef = this.dialog.open(_link_shops_subshops_link_shops_subshops_modal_component__WEBPACK_IMPORTED_MODULE_12__["LinkShopsSubShopsModalComponent"], {
+        var _this = this;
+        this.modalRef = this.dialog.open(_link_shops_subshops_link_shops_subshops_modal_component__WEBPACK_IMPORTED_MODULE_13__["LinkShopsSubShopsModalComponent"], {
             height: '90%',
             width: '90%',
             data: {
                 shopId: this.shopId,
                 shops: this.shops,
             }
+        });
+        this.modalRef.afterClosed().subscribe(function () {
+            _this.shopsService.getAllShops().subscribe(function (response) {
+                _this.shops = response;
+                _this.subShops = _this.shops.filter(function (shop) {
+                    return shop.parent === _this.shopId;
+                });
+            });
         });
     };
     EditShopFormComponent.prototype.onDeleteFace = function (face) {
@@ -468,6 +1254,10 @@ var EditShopFormComponent = /** @class */ (function (_super) {
     __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])(),
         __metadata("design:type", Array)
+    ], EditShopFormComponent.prototype, "subShops", void 0);
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])(),
+        __metadata("design:type", Array)
     ], EditShopFormComponent.prototype, "faceList", void 0);
     __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])(),
@@ -481,14 +1271,15 @@ var EditShopFormComponent = /** @class */ (function (_super) {
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
             selector: 'edit-shop-form',
             template: __webpack_require__(/*! ./edit-shop-form.component.html */ "./src/app/ms-back-office/modules/ms-shops/components/edit-shop-form/edit-shop-form.component.html"),
-            styles: [__webpack_require__(/*! ./edit-shop-form.component.scss */ "./src/app/ms-back-office/modules/ms-shops/components/edit-shop-form/edit-shop-form.component.scss")],
-            changeDetection: _angular_core__WEBPACK_IMPORTED_MODULE_0__["ChangeDetectionStrategy"].OnPush
+            changeDetection: _angular_core__WEBPACK_IMPORTED_MODULE_0__["ChangeDetectionStrategy"].OnPush,
+            styles: [__webpack_require__(/*! ./edit-shop-form.component.scss */ "./src/app/ms-back-office/modules/ms-shops/components/edit-shop-form/edit-shop-form.component.scss")]
         }),
         __metadata("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"],
             _angular_material__WEBPACK_IMPORTED_MODULE_3__["MatDialog"],
-            _error_handling_services_error_handling_service__WEBPACK_IMPORTED_MODULE_14__["ErrorHandlingService"],
+            _error_handling_services_error_handling_service__WEBPACK_IMPORTED_MODULE_15__["ErrorHandlingService"],
             _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormBuilder"],
-            _services_shops_images_service__WEBPACK_IMPORTED_MODULE_10__["ShopsImgesService"],
+            _services_shops_service__WEBPACK_IMPORTED_MODULE_10__["ShopsService"],
+            _services_shops_images_service__WEBPACK_IMPORTED_MODULE_11__["ShopsImgesService"],
             _ngx_translate_core__WEBPACK_IMPORTED_MODULE_4__["TranslateService"]])
     ], EditShopFormComponent);
     return EditShopFormComponent;
@@ -947,7 +1738,7 @@ var LinkShopsBrandModalComponent = /** @class */ (function () {
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
             selector: 'link-shops-brand-modal',
             template: __webpack_require__(/*! ./link-shops-brand-modal.component.html */ "./src/app/ms-back-office/modules/ms-shops/components/link-shops-brand/link-shops-brand-modal.component.html"),
-            styles: [__webpack_require__(/*! ./link-shops-brand-modal.component.css */ "./src/app/ms-back-office/modules/ms-shops/components/link-shops-brand/link-shops-brand-modal.component.css")],
+            styles: [__webpack_require__(/*! ./link-shops-brand-modal.component.css */ "./src/app/ms-back-office/modules/ms-shops/components/link-shops-brand/link-shops-brand-modal.component.css")]
         }),
         __param(7, Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Inject"])(_angular_material__WEBPACK_IMPORTED_MODULE_2__["MAT_DIALOG_DATA"])),
         __metadata("design:paramtypes", [_angular_core__WEBPACK_IMPORTED_MODULE_0__["ElementRef"],
@@ -1131,7 +1922,7 @@ var LinkShopsCollentionModalComponent = /** @class */ (function () {
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
             selector: 'link-shops-collection-modal',
             template: __webpack_require__(/*! ./link-shops-collection-modal.component.html */ "./src/app/ms-back-office/modules/ms-shops/components/link-shops-collection/link-shops-collection-modal.component.html"),
-            styles: [__webpack_require__(/*! ./link-shops-collection-modal.component.css */ "./src/app/ms-back-office/modules/ms-shops/components/link-shops-collection/link-shops-collection-modal.component.css")],
+            styles: [__webpack_require__(/*! ./link-shops-collection-modal.component.css */ "./src/app/ms-back-office/modules/ms-shops/components/link-shops-collection/link-shops-collection-modal.component.css")]
         }),
         __param(7, Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Inject"])(_angular_material__WEBPACK_IMPORTED_MODULE_2__["MAT_DIALOG_DATA"])),
         __metadata("design:paramtypes", [_angular_core__WEBPACK_IMPORTED_MODULE_0__["ElementRef"],
@@ -1167,7 +1958,7 @@ module.exports = ":host {\r\n  display: flex;\r\n  flex-grow: 1;\r\n  flex-direc
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"\" [fxFlex]=\"100\" fxLayout=\"column\">\r\n  <div class=\"flex-grow-1 overflow-auto display-flex flex-direction-column\">\r\n\r\n    <div class=\"flex-grow-1 flex-shrink-0 display-flex flex-direction-column\">\r\n\r\n      <div class=\"\" [fxFlex]=\"100\" fxLayout=\"row\">\r\n\r\n        <div class=\"flex-wrap-wrap display-flex flex-grow-1 flex-shrink-1 flex-direction-row card-container justify-content-initial margin-top-10px\">\r\n          <mat-card *ngFor=\"let shop of dialogData.shops\" class=\"display-flex background-color-secondary flex-direction-column flex-shrink-1\">\r\n            <div class=\"image-container margin-10px flex-grow-1\" #imageContainer>\r\n              <img class=\"img\" imageLoad [srcImage]=\"shop.mainImage? shop.mainImage : ''\" [container]=\"imageContainer\" src=\"\">\r\n            </div>\r\n            <div class=\"image-card-btns display-flex margin-left-10px margin-right-10px margin-bottom-10px\">\r\n              <mat-checkbox [checked]=\"shop.checked\" class=\"margin-top-10px\" matTooltip=\"{{ 'Principal' | translate }}\" (click)=\"linked(shop)\">{{ shop.name }}</mat-checkbox>\r\n            </div>\r\n          </mat-card>\r\n          <!--/div-->\r\n        </div>\r\n      </div>\r\n    </div>\r\n  </div>\r\n\r\n  <div class=\"margin-right-25px padding-top-25px flex-shrink-0 display-flex border-top-style-solid border-top-width-2px border-top-color-grey\">\r\n\r\n    <button mat-raised-button type=\"button\" color=\"primary\" (click)=\"save()\">{{ 'Save Changes' | translate }}</button>\r\n\r\n    <button mat-raised-button type=\"button\" class=\"margin-left-10px\" (click)=\"onNoClick()\">{{ 'Close' | translate }}</button>\r\n\r\n  </div>\r\n\r\n</div>\r\n"
+module.exports = "<div class=\"\" [fxFlex]=\"100\" fxLayout=\"column\">\r\n  <div class=\"flex-grow-1 overflow-auto display-flex flex-direction-column\">\r\n\r\n    <div class=\"flex-grow-1 flex-shrink-0 display-flex flex-direction-column\">\r\n\r\n      <div class=\"\" [fxFlex]=\"100\" fxLayout=\"row\">\r\n\r\n        <div class=\"flex-wrap-wrap display-flex flex-grow-1 flex-shrink-1 flex-direction-row card-container justify-content-initial margin-top-10px\">\r\n          <mat-card *ngFor=\"let shop of subShops\" class=\"display-flex background-color-secondary flex-direction-column flex-shrink-1\">\r\n            <div class=\"image-container margin-10px flex-grow-1\" #imageContainer>\r\n              <img class=\"img\" imageLoad [srcImage]=\"shop.mainImage? shop.mainImage : ''\" [container]=\"imageContainer\" src=\"\">\r\n            </div>\r\n            <div class=\"image-card-btns display-flex margin-left-10px margin-right-10px margin-bottom-10px\">\r\n              <mat-checkbox [checked]=\"shop.checked\" class=\"margin-top-10px\" matTooltip=\"{{ 'Principal' | translate }}\" (click)=\"linked(shop)\">{{ shop.name }}</mat-checkbox>\r\n            </div>\r\n          </mat-card>\r\n          <!--/div-->\r\n        </div>\r\n      </div>\r\n    </div>\r\n  </div>\r\n\r\n  <div class=\"margin-right-25px padding-top-25px flex-shrink-0 display-flex border-top-style-solid border-top-width-2px border-top-color-grey\">\r\n\r\n    <!--button mat-raised-button type=\"button\" color=\"primary\" (click)=\"save()\">{{ 'Save Changes' | translate }}</button-->\r\n\r\n    <button mat-raised-button type=\"button\" class=\"\" (click)=\"onNoClick()\">{{ 'Close' | translate }}</button>\r\n\r\n  </div>\r\n\r\n</div>\r\n"
 
 /***/ }),
 
@@ -1249,13 +2040,19 @@ var LinkShopsSubShopsModalComponent = /** @class */ (function () {
     }
     LinkShopsSubShopsModalComponent.prototype.ngOnInit = function () {
         var _this = this;
-        this.shopsService.getShopLinkedSubShops(this.dialogData.shopId).subscribe(function (response) {
-            _this.linkedShops = response.data;
-            _this.dialogData.shops.forEach(function (shop) {
-                _this.isLinked(shop.id);
-            });
-        }, function (error) {
-            _this.errorHandlingService.handleUiError(errorKey, error);
+        this.subShops = this.dialogData.shops.filter(function (shop) {
+            return !shop.isParent;
+        });
+        this.subShops.forEach(function (shop) {
+            //this.isLinked(shop.id);
+            if (shop.parent === _this.dialogData.shopId) {
+                shop.linked = true;
+                shop.checked = true;
+            }
+            else {
+                shop.linked = false;
+                shop.checked = false;
+            }
         });
     };
     LinkShopsSubShopsModalComponent.prototype.ngAfterViewInit = function () {
@@ -1274,23 +2071,35 @@ var LinkShopsSubShopsModalComponent = /** @class */ (function () {
     LinkShopsSubShopsModalComponent.prototype.onNoClick = function () {
         this.close();
     };
-    LinkShopsSubShopsModalComponent.prototype.linked = function (shop) {
-        shop.linked = !shop.linked;
-        if (shop.linked) {
-            this.linkedShops = this.linkedShops.concat([shop.id]);
+    LinkShopsSubShopsModalComponent.prototype.linked = function (shopData) {
+        var _this = this;
+        shopData.linked = !shopData.linked;
+        if (shopData.linked) {
+            shopData.parent = this.dialogData.shopId;
         }
         else {
-            var indexLinked_1 = this.linkedShops.findIndex(function (val) { return val === shop.id; });
-            if (indexLinked_1 > -1) {
-                var linked_1 = [];
-                this.linkedShops.forEach(function (shopId, index) {
-                    if (index != indexLinked_1) {
-                        linked_1 = linked_1.concat([shopId]);
-                    }
-                });
-                this.linkedShops = linked_1;
-            }
+            shopData.parent = "";
         }
+        this.shopsService.putShop(shopData).subscribe(function (response) {
+        }, function (error) {
+            _this.errorHandlingService.handleUiError(errorKey, error);
+        });
+        /* shop.linked = !shop.linked;
+         if (shop.linked) {
+           this.linkedShops = [...this.linkedShops, shop.id];
+         } else {
+           let indexLinked = this.linkedShops.findIndex((val) => val === shop.id);
+           if (indexLinked > -1) {
+             let linked: Array<string> = [];
+             this.linkedShops.forEach((shopId, index) => {
+               if (index != indexLinked) {
+                 linked = [...linked, shopId]
+               }
+             });
+             this.linkedShops = linked;
+     
+           }
+         }*/
     };
     LinkShopsSubShopsModalComponent.prototype.save = function () {
         var _this = this;
@@ -1318,7 +2127,7 @@ var LinkShopsSubShopsModalComponent = /** @class */ (function () {
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
             selector: 'link-shops-subshops-modal',
             template: __webpack_require__(/*! ./link-shops-subshops-modal.component.html */ "./src/app/ms-back-office/modules/ms-shops/components/link-shops-subshops/link-shops-subshops-modal.component.html"),
-            styles: [__webpack_require__(/*! ./link-shops-subshops-modal.component.css */ "./src/app/ms-back-office/modules/ms-shops/components/link-shops-subshops/link-shops-subshops-modal.component.css")],
+            styles: [__webpack_require__(/*! ./link-shops-subshops-modal.component.css */ "./src/app/ms-back-office/modules/ms-shops/components/link-shops-subshops/link-shops-subshops-modal.component.css")]
         }),
         __param(8, Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Inject"])(_angular_material__WEBPACK_IMPORTED_MODULE_2__["MAT_DIALOG_DATA"])),
         __metadata("design:paramtypes", [_angular_core__WEBPACK_IMPORTED_MODULE_0__["ElementRef"],
@@ -1553,7 +2362,7 @@ var NewShopComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<form class=\"flex-grow-1 min-height-0 display-flex flex-direction-column\" [askBeforeRefresh]=\"formGroup.dirty\" [formGroup]=\"formGroup\"\n  novalidate role=\"form\" (ngSubmit)=\"submitClicked()\" autocomplete=\"off\" inputFocus>\n\n  <div class=\"flex-grow-1 overflow-auto display-flex flex-direction-column padding-top-25px\">\n\n    <div class=\"flex-grow-1 flex-shrink-0 display-flex flex-direction-column\">\n\n      <div class=\"mb-20\" fxFlex fxLayout=\"row\" fxLayout.lt-md=\"column\" fxLayoutGap=\"20px\">\n\n        <div [fxFlex]=\"50\" fxFlex fxLayout=\"column\" fxLayout.lt-md=\"column\">\n\n          <div fxLayout=\"row\" fxLayout.lt-md=\"column\">\n\n            <div [fxFlex]=\"50\" class=\"margin-right-25px\">\n\n              <mat-form-field class=\"width-100pc margin-left-16px\">\n\n                <mat-label>Shop Name</mat-label>\n\n                <input matInput type=\"text\" formControlName=\"name\" required>\n\n              </mat-form-field>\n\n              <mat-form-field class=\"width-100pc margin-left-16px\">\n\n                <mat-label>Traking list base URL</mat-label>\n\n                <input matInput type=\"text\" formControlName=\"trackingListBaseUrl\">\n\n              </mat-form-field>\n\n              <!--mat-form-field class=\"width-100pc\">\n    \n                <mat-label>Collection</mat-label>\n    \n                <mat-select placeholder=\"Select\" formControlName=\"collection\">\n    \n                  <mat-option *ngFor=\"let collection of collections\" [value]=\"collection.id\">\n    \n                    {{collection.name}}\n    \n                  </mat-option>\n    \n                </mat-select>\n    \n              </mat-form-field-->\n\n\n\n              <!--mat-form-field class=\"width-100pc\">\n    \n                <mat-label>Gender</mat-label>\n    \n                <mat-select placeholder=\"Select\" formControlName=\"gender\">\n    \n                  <mat-option *ngFor=\"let gender of genders\" [value]=\"gender.id\">\n    \n                    {{gender.name}}\n    \n                  </mat-option>\n    \n                </mat-select>\n    \n              </mat-form-field-->\n\n\n\n              <mat-form-field class=\"width-100pc margin-left-16px\">\n\n                <mat-label>Address</mat-label>\n\n                <input matInput type=\"text\" formControlName=\"address\">\n\n              </mat-form-field>\n\n              <div [fxFlex]=\"100\" fxLayout=\"row\" fxLayout.lt-md=\"column\">\n\n                <div [fxFlex]=\"50\">\n\n                  <mat-form-field class=\"width-90pct\">\n\n                    <mat-select placeholder=\"Region\" formControlName=\"region\">\n\n                      <mat-option>...</mat-option>\n\n                      <mat-option *ngFor=\"let region of regions\" [value]=\"region.id\">\n\n                        {{region.name}}\n\n                      </mat-option>\n\n                    </mat-select>\n\n                  </mat-form-field>\n\n                </div>\n\n                <div [fxFlex]=\"50\" class=\"\">\n\n                  <mat-form-field class=\"width-100pc\">\n\n                    <mat-select placeholder=\"Country\" formControlName=\"country\">\n\n                      <mat-option>...</mat-option>\n\n                      <mat-option *ngFor=\"let country of countries\" [value]=\"country.id\">\n\n                        {{country.name}}\n\n                      </mat-option>\n\n                    </mat-select>\n\n                  </mat-form-field>\n\n                </div>\n\n              </div>\n\n              <mat-form-field class=\"width-100pc margin-left-16px\">\n\n                <mat-label>Zip Code</mat-label>\n\n                <input matInput type=\"text\" formControlName=\"zipCode\">\n\n              </mat-form-field>\n\n              <div [fxFlex]=\"100\" fxLayout=\"row\" fxLayout.lt-md=\"column\">\n\n                <div [fxFlex]=\"50\">\n\n                  <mat-form-field class=\"width-90pct\">\n\n                    <mat-select placeholder=\"Rank\">\n\n                      <mat-option>...</mat-option>\n\n                      <mat-option *ngFor=\"let rank_ of rank\" [value]=\"rank_.value\">\n\n                        {{rank_.value}}\n\n                      </mat-option>\n\n                    </mat-select>\n\n                  </mat-form-field>\n\n                </div>\n\n                <div [fxFlex]=\"50\" class=\"\">\n\n                  <mat-form-field class=\"width-100pc\">\n\n                    <mat-select placeholder=\"Currency\">\n\n                      <mat-option>...</mat-option>\n\n                      <mat-option *ngFor=\"let currenc of currency\" [value]=\"currenc.id\">\n\n                        {{currenc.name}}\n\n                      </mat-option>\n\n                    </mat-select>\n\n                  </mat-form-field>\n\n                </div>\n\n              </div>\n\n            </div>\n\n            <div [fxFlex]=\"50\">\n\n              <mat-form-field class=\"width-100pc\">\n\n                <mat-select placeholder=\"Select Brands\" formControlName=\"brand\" multiple>\n\n                  <mat-option *ngFor=\"let brand of brands\" [value]=\"brand.id\">\n\n                    {{brand.name}}\n\n                  </mat-option>\n\n                </mat-select>\n\n              </mat-form-field>\n\n              <mat-form-field class=\"width-100pc\">\n\n                <mat-select placeholder=\"Select Category\" formControlName=\"category\" multiple>\n\n                  <mat-option>...</mat-option>\n\n                  <mat-option *ngFor=\"let category of categories\" [value]=\"category.id\">\n\n                    {{category.name}}\n\n                  </mat-option>\n\n                </mat-select>\n\n              </mat-form-field>\n\n\n\n              <mat-form-field class=\"width-100pc margin-left-16px\" appearance=\"fill\">\n\n                <mat-label>Shipping Details</mat-label>\n\n                <textarea matInput formControlName=\"shippingDetails\" class=\"min-height-100px\"></textarea>\n\n              </mat-form-field>\n\n              <mat-form-field class=\"width-100pc\">\n\n                <mat-select placeholder=\"Shipping Countries\" formControlName=\"shippingCountries\">\n\n                  <mat-option>...</mat-option>\n\n                  <mat-option *ngFor=\"let option of shippingCountries\" [value]=\"option.id\">\n\n                    {{option.name}}\n\n                  </mat-option>\n\n                </mat-select>\n\n              </mat-form-field>\n\n              <mat-form-field *ngIf=\"formGroup.get('shippingCountries').value ==='Select Countries'\" class=\"width-100pc\">\n\n                <mat-select placeholder=\"Country\" formControlName=\"countries\" multiple>\n\n                  <mat-option *ngFor=\"let country of countries\" [value]=\"country.id\">\n\n                    {{country.name}}\n\n                  </mat-option>\n\n                </mat-select>\n\n              </mat-form-field>\n\n              <!--div>\n\n                <mat-slide-toggle formControlName=\"makeDeal\" class=\"margin-bottom-25px margin-top-25px\">Hot</mat-slide-toggle>\n\n              </div-->\n              <!--mat-form-field class=\"width-100pc\">\n    \n                <mat-label>Color</mat-label>\n    \n                <mat-select placeholder=\"Select\" formControlName=\"color\">\n    \n                  <mat-option *ngFor=\"let color of colors\" [value]=\"color.id\">\n    \n                    {{color.name}}\n    \n                  </mat-option>\n    \n                </mat-select>\n    \n              </mat-form-field-->\n\n              <!--mat-form-field class=\"width-100pc margin-left-16px\">\n    \n                <mat-label>Suplied Color</mat-label>\n    \n                <input matInput type=\"text\" formControlName=\"supliedColor\">\n    \n              </mat-form-field>\n    \n              <mat-slide-toggle formControlName=\"children\">Children</mat-slide-toggle-->\n\n            </div>\n\n          </div>\n\n          <mat-form-field class=\"width-100pc margin-left-16px\" appearance=\"fill\">\n\n            <mat-label>Description</mat-label>\n\n            <textarea matInput formControlName=\"description\" class=\"min-height-100px\"></textarea>\n\n          </mat-form-field>\n\n        </div>\n\n        <div [fxFlex]=\"50\" class=\"border margin-right-25px max-width-480px\">\n          <div class=\"display-flex justify-content-center\">\n            <h3>Shop Logo</h3>\n          </div>\n\n          <images-card formControlName=\"faces\" name=\"faces\" class=\"flex-grow-1\" formControlName=\"faces\"></images-card>\n\n        </div>\n\n      </div>\n      <div class=\"mb-20 color-material\" fxFlex fxLayout=\"row\" fxLayout.lt-md=\"column\" fxLayoutGap=\"20px\">\n\n        <div [fxFlex]=\"60\" fxLayout=\"column\" class=\"max-width-480px\">\n\n          <div [fxFlex]=\"100\" fxLayout=\"row\" class=\"margin-bottom-25px\">\n\n            <div [fxFlex]=\"70\">\n\n              <h3>Working Hours</h3>\n\n            </div>\n\n            <div [fxFlex]=\"30\">\n\n              <h5>Non-Working</h5>\n\n            </div>\n\n          </div>\n\n          <div [fxFlex]=\"100\" fxLayout=\"row\">\n\n            <div [fxFlex]=\"100\">\n\n              Monday\n\n            </div>\n\n            <div [fxFlex]=\"100\">\n\n              <input matInput atp-time-picker class=\"cursor-pointer\" value=\"00:00\" />\n\n            </div>\n\n            <div [fxFlex]=\"100\">\n\n              <input matInput atp-time-picker class=\"cursor-pointer\" value=\"00:00\" />\n\n            </div>\n\n            <div [fxFlex]=\"100\">\n\n              <mat-checkbox></mat-checkbox>\n\n            </div>\n\n          </div>\n\n          <div [fxFlex]=\"100\" fxLayout=\"row\">\n\n            <div [fxFlex]=\"100\">\n\n              Tuesday\n\n            </div>\n\n            <div [fxFlex]=\"100\">\n\n              <input matInput atp-time-picker class=\"cursor-pointer\" value=\"00:00\" />\n\n            </div>\n\n            <div [fxFlex]=\"100\">\n\n              <input matInput atp-time-picker class=\"cursor-pointer\" value=\"00:00\" />\n\n            </div>\n\n            <div [fxFlex]=\"100\">\n\n              <mat-checkbox></mat-checkbox>\n\n            </div>\n\n          </div>\n\n          <div [fxFlex]=\"100\" fxLayout=\"row\">\n\n            <div [fxFlex]=\"100\">\n\n              Wednesday\n\n            </div>\n\n            <div [fxFlex]=\"100\">\n\n              <input matInput atp-time-picker class=\"cursor-pointer\" value=\"00:00\" />\n\n            </div>\n\n            <div [fxFlex]=\"100\">\n\n              <input matInput atp-time-picker class=\"cursor-pointer\" value=\"00:00\" />\n\n            </div>\n\n            <div [fxFlex]=\"100\">\n\n              <mat-checkbox></mat-checkbox>\n\n            </div>\n\n          </div>\n\n          <div [fxFlex]=\"100\" fxLayout=\"row\">\n\n            <div [fxFlex]=\"100\">\n\n              Thursday\n\n            </div>\n\n            <div [fxFlex]=\"100\">\n\n              <input matInput atp-time-picker class=\"cursor-pointer\" value=\"00:00\" />\n\n            </div>\n\n            <div [fxFlex]=\"100\">\n\n              <input matInput atp-time-picker class=\"cursor-pointer\" value=\"00:00\" />\n\n            </div>\n\n            <div [fxFlex]=\"100\">\n\n              <mat-checkbox></mat-checkbox>\n\n            </div>\n\n          </div>\n\n          <div [fxFlex]=\"100\" fxLayout=\"row\">\n\n            <div [fxFlex]=\"100\">\n\n              Friday\n\n            </div>\n\n            <div [fxFlex]=\"100\">\n\n              <input matInput atp-time-picker class=\"cursor-pointer\" value=\"00:00\" />\n\n            </div>\n\n            <div [fxFlex]=\"100\">\n\n              <input matInput atp-time-picker class=\"cursor-pointer\" value=\"00:00\" />\n\n            </div>\n\n            <div [fxFlex]=\"100\">\n\n              <mat-checkbox></mat-checkbox>\n\n            </div>\n\n          </div>\n\n          <div [fxFlex]=\"100\" fxLayout=\"row\">\n\n            <div [fxFlex]=\"100\">\n\n              Saturday\n\n            </div>\n\n            <div [fxFlex]=\"100\">\n\n              <input matInput atp-time-picker class=\"cursor-pointer\" value=\"00:00\" />\n\n            </div>\n\n            <div [fxFlex]=\"100\">\n\n              <input matInput atp-time-picker class=\"cursor-pointer\" value=\"00:00\" />\n\n            </div>\n\n            <div [fxFlex]=\"100\">\n\n              <mat-checkbox></mat-checkbox>\n\n            </div>\n\n          </div>\n\n          <div [fxFlex]=\"100\" fxLayout=\"row\">\n\n            <div [fxFlex]=\"100\">\n\n              Sunday\n\n            </div>\n\n            <div [fxFlex]=\"100\">\n\n              <input matInput atp-time-picker class=\"cursor-pointer\" value=\"00:00\" />\n\n            </div>\n\n            <div [fxFlex]=\"100\">\n\n              <input matInput atp-time-picker class=\"cursor-pointer\" value=\"00:00\" />\n\n            </div>\n\n            <div [fxFlex]=\"100\">\n\n              <mat-checkbox></mat-checkbox>\n\n            </div>\n\n          </div>\n\n        </div>\n\n\n        <!--div [fxFlex]=\"60\" fxLayout=\"column\" class=\" margin-right-25px\">\n\n              <div [fxFlex]=\"\" fxLayout=\"row\" class=\"justify-content-space-between\">\n\n                <div>\n                  <mat-slide-toggle class=\"\">Make Deal</mat-slide-toggle>\n                </div>\n\n                <div class=\"padding-bottom-10px\">\n                  <button type=\"button\" class=\"border-none border-radius-5px\" mat-stroked-button>\n                    Add a new Deal\n                    <mat-icon>add</mat-icon>\n                  </button>\n                </div>\n\n              </div>         \n\n            </div-->\n\n      </div>\n\n    </div>\n\n  </div>\n\n  <div class=\"margin-right-25px padding-top-25px padding-bottom-25px flex-shrink-0 display-flex border-top-style-solid border-top-width-2px border-top-color-grey\">\n\n    <button mat-raised-button type=\"submit\" color=\"primary\">{{ 'Save' | translate }}</button>\n\n    <button mat-raised-button type=\"button\" class=\"margin-left-10px\" (click)=\"cancelClicked()\">{{ 'Cancel' | translate }}</button>\n\n  </div>\n\n</form>"
+module.exports = "<form class=\"flex-grow-1 min-height-0 display-flex flex-direction-column\" [askBeforeRefresh]=\"formGroup.dirty\" [formGroup]=\"formGroup\"\n  novalidate role=\"form\" (ngSubmit)=\"submitClicked()\" autocomplete=\"off\" inputFocus>\n\n  <div class=\"flex-grow-1 overflow-auto display-flex flex-direction-column padding-top-25px\">\n\n    <div class=\"flex-grow-1 flex-shrink-0 display-flex flex-direction-column\">\n\n      <div class=\"mb-20\" fxFlex fxLayout=\"row\" fxLayout.lt-md=\"column\" fxLayoutGap=\"20px\">\n\n        <div [fxFlex]=\"50\" fxFlex fxLayout=\"column\" fxLayout.lt-md=\"column\">\n\n          <div fxLayout=\"row\" fxLayout.lt-md=\"column\">\n\n            <div [fxFlex]=\"50\" class=\"margin-right-25px\">\n\n              <mat-form-field class=\"width-100pc margin-left-16px\">\n\n                <mat-label>Shop Name</mat-label>\n\n                <input matInput type=\"text\" formControlName=\"name\" required>\n\n              </mat-form-field>\n\n              <mat-form-field class=\"width-100pc margin-left-16px\">\n\n                <mat-label>Traking list base URL</mat-label>\n\n                <input matInput type=\"text\" formControlName=\"trackingListBaseUrl\">\n\n              </mat-form-field>\n\n              <!--mat-form-field class=\"width-100pc\">\n    \n                <mat-label>Collection</mat-label>\n    \n                <mat-select placeholder=\"Select\" formControlName=\"collection\">\n    \n                  <mat-option *ngFor=\"let collection of collections\" [value]=\"collection.id\">\n    \n                    {{collection.name}}\n    \n                  </mat-option>\n    \n                </mat-select>\n    \n              </mat-form-field-->\n\n\n\n              <!--mat-form-field class=\"width-100pc\">\n    \n                <mat-label>Gender</mat-label>\n    \n                <mat-select placeholder=\"Select\" formControlName=\"gender\">\n    \n                  <mat-option *ngFor=\"let gender of genders\" [value]=\"gender.id\">\n    \n                    {{gender.name}}\n    \n                  </mat-option>\n    \n                </mat-select>\n    \n              </mat-form-field-->\n\n\n\n              <mat-form-field class=\"width-100pc margin-left-16px\">\n\n                <mat-label>Address</mat-label>\n\n                <input matInput type=\"text\" formControlName=\"address\">\n\n              </mat-form-field>\n\n              <div [fxFlex]=\"100\" fxLayout=\"row\" fxLayout.lt-md=\"column\">\n\n                <div [fxFlex]=\"50\">\n\n                  <mat-form-field class=\"width-90pct\">\n\n                    <mat-select placeholder=\"Region\" formControlName=\"region\">\n\n                      <mat-option>...</mat-option>\n\n                      <mat-option *ngFor=\"let region of regions\" [value]=\"region.id\">\n\n                        {{region.name}}\n\n                      </mat-option>\n\n                    </mat-select>\n\n                  </mat-form-field>\n\n                </div>\n\n                <div [fxFlex]=\"50\" class=\"\">\n\n                  <mat-form-field class=\"width-100pc\">\n\n                    <mat-select placeholder=\"Country\" formControlName=\"country\">\n\n                      <mat-option>...</mat-option>\n\n                      <mat-option *ngFor=\"let country of countries\" [value]=\"country.id\">\n\n                        {{country.name}}\n\n                      </mat-option>\n\n                    </mat-select>\n\n                  </mat-form-field>\n\n                </div>\n\n              </div>\n\n              <mat-form-field class=\"width-100pc margin-left-16px\">\n\n                <mat-label>Zip Code</mat-label>\n\n                <input matInput type=\"text\" formControlName=\"zipCode\">\n\n              </mat-form-field>\n\n              <div [fxFlex]=\"100\" fxLayout=\"row\" fxLayout.lt-md=\"column\">\n\n                <div [fxFlex]=\"50\">\n\n                  <mat-form-field class=\"width-90pct\">\n\n                    <mat-select placeholder=\"Rank\">\n\n                      <mat-option>...</mat-option>\n\n                      <mat-option *ngFor=\"let rank_ of rank\" [value]=\"rank_.value\">\n\n                        {{rank_.value}}\n\n                      </mat-option>\n\n                    </mat-select>\n\n                  </mat-form-field>\n\n                </div>\n\n                <div [fxFlex]=\"50\" class=\"\">\n\n                  <mat-form-field class=\"width-100pc\">\n\n                    <mat-select placeholder=\"Currency\">\n\n                      <mat-option>...</mat-option>\n\n                      <mat-option *ngFor=\"let currenc of currency\" [value]=\"currenc.id\">\n\n                        {{currenc.name}}\n\n                      </mat-option>\n\n                    </mat-select>\n\n                  </mat-form-field>\n\n                </div>\n\n              </div>\n\n            </div>\n\n            <div [fxFlex]=\"50\">\n\n              <mat-form-field class=\"width-100pc\">\n\n                <mat-select placeholder=\"Select Brands\" formControlName=\"brand\" multiple>\n\n                  <mat-option *ngFor=\"let brand of brands\" [value]=\"brand.id\">\n\n                    {{brand.name}}\n\n                  </mat-option>\n\n                </mat-select>\n\n              </mat-form-field>\n\n              <mat-form-field class=\"width-100pc\">\n\n                <mat-select placeholder=\"Select Category\" formControlName=\"category\" multiple>\n\n                  <mat-option>...</mat-option>\n\n                  <mat-option *ngFor=\"let category of categories\" [value]=\"category.id\">\n\n                    {{category.name}}\n\n                  </mat-option>\n\n                </mat-select>\n\n              </mat-form-field>\n\n\n\n              <mat-form-field class=\"width-100pc margin-left-16px\" appearance=\"fill\">\n\n                <mat-label>Shipping Details</mat-label>\n\n                <textarea matInput formControlName=\"shippingDetails\" class=\"min-height-100px\"></textarea>\n\n              </mat-form-field>\n\n              <mat-form-field class=\"width-100pc\">\n\n                <mat-select placeholder=\"Shipping Countries\" formControlName=\"shippingCountries\">\n\n                  <mat-option>...</mat-option>\n\n                  <mat-option *ngFor=\"let option of shippingCountries\" [value]=\"option.id\">\n\n                    {{option.name}}\n\n                  </mat-option>\n\n                </mat-select>\n\n              </mat-form-field>\n\n              <mat-form-field *ngIf=\"formGroup.get('shippingCountries').value ==='Select Countries'\" class=\"width-100pc\">\n\n                <mat-select placeholder=\"Country\" formControlName=\"countries\" multiple>\n\n                  <mat-option *ngFor=\"let country of countries\" [value]=\"country.id\">\n\n                    {{country.name}}\n\n                  </mat-option>\n\n                </mat-select>\n\n              </mat-form-field>\n\n              <div>\n\n                <mat-slide-toggle class=\"padding-top-15px padding-bottom-15px\" formControlName=\"isParent\">Is Parent</mat-slide-toggle>\n              \n              </div>\n              <!--div>\n\n                <mat-slide-toggle formControlName=\"makeDeal\" class=\"margin-bottom-25px margin-top-25px\">Hot</mat-slide-toggle>\n\n              </div-->\n              <!--mat-form-field class=\"width-100pc\">\n    \n                <mat-label>Color</mat-label>\n    \n                <mat-select placeholder=\"Select\" formControlName=\"color\">\n    \n                  <mat-option *ngFor=\"let color of colors\" [value]=\"color.id\">\n    \n                    {{color.name}}\n    \n                  </mat-option>\n    \n                </mat-select>\n    \n              </mat-form-field-->\n\n              <!--mat-form-field class=\"width-100pc margin-left-16px\">\n    \n                <mat-label>Suplied Color</mat-label>\n    \n                <input matInput type=\"text\" formControlName=\"supliedColor\">\n    \n              </mat-form-field>\n    \n              <mat-slide-toggle formControlName=\"children\">Children</mat-slide-toggle-->\n\n            </div>\n\n          </div>\n\n          <mat-form-field class=\"width-100pc margin-left-16px\" appearance=\"fill\">\n\n            <mat-label>Description</mat-label>\n\n            <textarea matInput formControlName=\"description\" class=\"min-height-100px\"></textarea>\n\n          </mat-form-field>\n\n        </div>\n\n        <div [fxFlex]=\"50\" class=\"border margin-right-25px max-width-480px\">\n          <div class=\"display-flex justify-content-center\">\n            <h3>Shop Logo</h3>\n          </div>\n\n          <images-card formControlName=\"faces\" name=\"faces\" class=\"flex-grow-1\" formControlName=\"faces\"></images-card>\n\n        </div>\n\n      </div>\n      <div class=\"mb-20 color-material\" fxFlex fxLayout=\"row\" fxLayout.lt-md=\"column\" fxLayoutGap=\"20px\">\n\n        <div [fxFlex]=\"60\" fxLayout=\"column\" class=\"max-width-480px\">\n\n          <div [fxFlex]=\"100\" fxLayout=\"row\" class=\"margin-bottom-25px\">\n\n            <div [fxFlex]=\"70\">\n\n              <h3>Working Hours</h3>\n\n            </div>\n\n            <div [fxFlex]=\"30\">\n\n              <h5>Non-Working</h5>\n\n            </div>\n\n          </div>\n\n          <div [fxFlex]=\"100\" fxLayout=\"row\">\n\n            <div [fxFlex]=\"100\">\n\n              Monday\n\n            </div>\n\n            <div [fxFlex]=\"100\">\n\n              <input matInput atp-time-picker class=\"cursor-pointer\" value=\"00:00\" />\n\n            </div>\n\n            <div [fxFlex]=\"100\">\n\n              <input matInput atp-time-picker class=\"cursor-pointer\" value=\"00:00\" />\n\n            </div>\n\n            <div [fxFlex]=\"100\">\n\n              <mat-checkbox></mat-checkbox>\n\n            </div>\n\n          </div>\n\n          <div [fxFlex]=\"100\" fxLayout=\"row\">\n\n            <div [fxFlex]=\"100\">\n\n              Tuesday\n\n            </div>\n\n            <div [fxFlex]=\"100\">\n\n              <input matInput atp-time-picker class=\"cursor-pointer\" value=\"00:00\" />\n\n            </div>\n\n            <div [fxFlex]=\"100\">\n\n              <input matInput atp-time-picker class=\"cursor-pointer\" value=\"00:00\" />\n\n            </div>\n\n            <div [fxFlex]=\"100\">\n\n              <mat-checkbox></mat-checkbox>\n\n            </div>\n\n          </div>\n\n          <div [fxFlex]=\"100\" fxLayout=\"row\">\n\n            <div [fxFlex]=\"100\">\n\n              Wednesday\n\n            </div>\n\n            <div [fxFlex]=\"100\">\n\n              <input matInput atp-time-picker class=\"cursor-pointer\" value=\"00:00\" />\n\n            </div>\n\n            <div [fxFlex]=\"100\">\n\n              <input matInput atp-time-picker class=\"cursor-pointer\" value=\"00:00\" />\n\n            </div>\n\n            <div [fxFlex]=\"100\">\n\n              <mat-checkbox></mat-checkbox>\n\n            </div>\n\n          </div>\n\n          <div [fxFlex]=\"100\" fxLayout=\"row\">\n\n            <div [fxFlex]=\"100\">\n\n              Thursday\n\n            </div>\n\n            <div [fxFlex]=\"100\">\n\n              <input matInput atp-time-picker class=\"cursor-pointer\" value=\"00:00\" />\n\n            </div>\n\n            <div [fxFlex]=\"100\">\n\n              <input matInput atp-time-picker class=\"cursor-pointer\" value=\"00:00\" />\n\n            </div>\n\n            <div [fxFlex]=\"100\">\n\n              <mat-checkbox></mat-checkbox>\n\n            </div>\n\n          </div>\n\n          <div [fxFlex]=\"100\" fxLayout=\"row\">\n\n            <div [fxFlex]=\"100\">\n\n              Friday\n\n            </div>\n\n            <div [fxFlex]=\"100\">\n\n              <input matInput atp-time-picker class=\"cursor-pointer\" value=\"00:00\" />\n\n            </div>\n\n            <div [fxFlex]=\"100\">\n\n              <input matInput atp-time-picker class=\"cursor-pointer\" value=\"00:00\" />\n\n            </div>\n\n            <div [fxFlex]=\"100\">\n\n              <mat-checkbox></mat-checkbox>\n\n            </div>\n\n          </div>\n\n          <div [fxFlex]=\"100\" fxLayout=\"row\">\n\n            <div [fxFlex]=\"100\">\n\n              Saturday\n\n            </div>\n\n            <div [fxFlex]=\"100\">\n\n              <input matInput atp-time-picker class=\"cursor-pointer\" value=\"00:00\" />\n\n            </div>\n\n            <div [fxFlex]=\"100\">\n\n              <input matInput atp-time-picker class=\"cursor-pointer\" value=\"00:00\" />\n\n            </div>\n\n            <div [fxFlex]=\"100\">\n\n              <mat-checkbox></mat-checkbox>\n\n            </div>\n\n          </div>\n\n          <div [fxFlex]=\"100\" fxLayout=\"row\">\n\n            <div [fxFlex]=\"100\">\n\n              Sunday\n\n            </div>\n\n            <div [fxFlex]=\"100\">\n\n              <input matInput atp-time-picker class=\"cursor-pointer\" value=\"00:00\" />\n\n            </div>\n\n            <div [fxFlex]=\"100\">\n\n              <input matInput atp-time-picker class=\"cursor-pointer\" value=\"00:00\" />\n\n            </div>\n\n            <div [fxFlex]=\"100\">\n\n              <mat-checkbox></mat-checkbox>\n\n            </div>\n\n          </div>\n\n        </div>\n\n\n        <!--div [fxFlex]=\"60\" fxLayout=\"column\" class=\" margin-right-25px\">\n\n              <div [fxFlex]=\"\" fxLayout=\"row\" class=\"justify-content-space-between\">\n\n                <div>\n                  <mat-slide-toggle class=\"\">Make Deal</mat-slide-toggle>\n                </div>\n\n                <div class=\"padding-bottom-10px\">\n                  <button type=\"button\" class=\"border-none border-radius-5px\" mat-stroked-button>\n                    Add a new Deal\n                    <mat-icon>add</mat-icon>\n                  </button>\n                </div>\n\n              </div>         \n\n            </div-->\n\n      </div>\n\n    </div>\n\n  </div>\n\n  <div class=\"margin-right-25px padding-top-25px padding-bottom-25px flex-shrink-0 display-flex border-top-style-solid border-top-width-2px border-top-color-grey\">\n\n    <button mat-raised-button type=\"submit\" color=\"primary\">{{ 'Save' | translate }}</button>\n\n    <button mat-raised-button type=\"button\" class=\"margin-left-10px\" (click)=\"cancelClicked()\">{{ 'Cancel' | translate }}</button>\n\n  </div>\n\n</form>"
 
 /***/ }),
 
@@ -1667,6 +2476,7 @@ var ShopFormComponent = /** @class */ (function (_super) {
             category: new _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormControl"](this.data.category),
             trackingListBaseUrl: new _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormControl"](this.data.trackingListBaseUrl),
             zipCode: new _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormControl"](this.data.zipCode),
+            isParent: new _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormControl"](this.data.isParent),
             workingHours: this.formBuilder.array([
                 this.formBuilder.group({
                     dayOfWeekMonday: 1,
@@ -1823,8 +2633,8 @@ var ShopFormComponent = /** @class */ (function (_super) {
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
             selector: 'shop-form',
             template: __webpack_require__(/*! ./shop-form.component.html */ "./src/app/ms-back-office/modules/ms-shops/components/shop-form/shop-form.component.html"),
-            styles: [__webpack_require__(/*! ./shop-form.component.scss */ "./src/app/ms-back-office/modules/ms-shops/components/shop-form/shop-form.component.scss")],
-            changeDetection: _angular_core__WEBPACK_IMPORTED_MODULE_0__["ChangeDetectionStrategy"].OnPush
+            changeDetection: _angular_core__WEBPACK_IMPORTED_MODULE_0__["ChangeDetectionStrategy"].OnPush,
+            styles: [__webpack_require__(/*! ./shop-form.component.scss */ "./src/app/ms-back-office/modules/ms-shops/components/shop-form/shop-form.component.scss")]
         }),
         __metadata("design:paramtypes", [_angular_material__WEBPACK_IMPORTED_MODULE_10__["MatDialog"],
             _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormBuilder"],
@@ -2003,7 +2813,7 @@ var ShopsSellingStyleModalComponent = /** @class */ (function () {
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
             selector: 'shops-selling-style-modal',
             template: __webpack_require__(/*! ./shops-selling-style-modal.component.html */ "./src/app/ms-back-office/modules/ms-shops/components/shops-selling-style-modal/shops-selling-style-modal.component.html"),
-            styles: [__webpack_require__(/*! ./shops-selling-style-modal.component.css */ "./src/app/ms-back-office/modules/ms-shops/components/shops-selling-style-modal/shops-selling-style-modal.component.css")],
+            styles: [__webpack_require__(/*! ./shops-selling-style-modal.component.css */ "./src/app/ms-back-office/modules/ms-shops/components/shops-selling-style-modal/shops-selling-style-modal.component.css")]
         }),
         __param(7, Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Inject"])(_angular_material__WEBPACK_IMPORTED_MODULE_2__["MAT_DIALOG_DATA"])),
         __metadata("design:paramtypes", [_angular_core__WEBPACK_IMPORTED_MODULE_0__["ElementRef"],
@@ -2211,6 +3021,32 @@ var COUNTRIES = [
 
 /***/ }),
 
+/***/ "./src/app/ms-back-office/modules/ms-shops/models/currency.ts":
+/*!********************************************************************!*\
+  !*** ./src/app/ms-back-office/modules/ms-shops/models/currency.ts ***!
+  \********************************************************************/
+/*! exports provided: Currency, CURRENCY */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Currency", function() { return Currency; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CURRENCY", function() { return CURRENCY; });
+var Currency = /** @class */ (function () {
+    function Currency() {
+    }
+    return Currency;
+}());
+
+;
+var CURRENCY = [
+    { id: 'USD', name: 'USD' },
+    { id: 'EUR', name: 'EUR' },
+];
+
+
+/***/ }),
+
 /***/ "./src/app/ms-back-office/modules/ms-shops/models/rank.ts":
 /*!****************************************************************!*\
   !*** ./src/app/ms-back-office/modules/ms-shops/models/rank.ts ***!
@@ -2290,6 +3126,87 @@ var SHIPPINGCOUNTRIES = [
     { id: 'USA', name: 'USA' },
     { id: 'Select Countries', name: 'Select Countries' },
 ];
+
+
+/***/ }),
+
+/***/ "./src/app/ms-back-office/modules/ms-shops/models/shops.ts":
+/*!*****************************************************************!*\
+  !*** ./src/app/ms-back-office/modules/ms-shops/models/shops.ts ***!
+  \*****************************************************************/
+/*! exports provided: WeekHours, ShopImage, Shop, ShopsListResponse, ShopsResponse, ShopsImagesListResponse, ShopImagesResponse, EditShopModel */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "WeekHours", function() { return WeekHours; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ShopImage", function() { return ShopImage; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Shop", function() { return Shop; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ShopsListResponse", function() { return ShopsListResponse; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ShopsResponse", function() { return ShopsResponse; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ShopsImagesListResponse", function() { return ShopsImagesListResponse; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ShopImagesResponse", function() { return ShopImagesResponse; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "EditShopModel", function() { return EditShopModel; });
+var __extends = (undefined && undefined.__extends) || (function () {
+    var extendStatics = Object.setPrototypeOf ||
+        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
+var WeekHours = /** @class */ (function () {
+    function WeekHours() {
+    }
+    return WeekHours;
+}());
+
+var ShopImage = /** @class */ (function () {
+    function ShopImage() {
+    }
+    return ShopImage;
+}());
+
+var Shop = /** @class */ (function () {
+    function Shop() {
+    }
+    return Shop;
+}());
+
+var ShopsListResponse = /** @class */ (function () {
+    function ShopsListResponse() {
+    }
+    return ShopsListResponse;
+}());
+
+var ShopsResponse = /** @class */ (function () {
+    function ShopsResponse() {
+    }
+    return ShopsResponse;
+}());
+
+var ShopsImagesListResponse = /** @class */ (function () {
+    function ShopsImagesListResponse() {
+    }
+    return ShopsImagesListResponse;
+}());
+
+var ShopImagesResponse = /** @class */ (function () {
+    function ShopImagesResponse() {
+    }
+    return ShopImagesResponse;
+}());
+
+var EditShopModel = /** @class */ (function (_super) {
+    __extends(EditShopModel, _super);
+    function EditShopModel() {
+        return _super !== null && _super.apply(this, arguments) || this;
+    }
+    return EditShopModel;
+}(Shop));
+
 
 
 /***/ }),
@@ -2448,22 +3365,24 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_material_toolbar__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! @angular/material/toolbar */ "./node_modules/@angular/material/esm5/toolbar.es5.js");
 /* harmony import */ var _angular_material_tooltip__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! @angular/material/tooltip */ "./node_modules/@angular/material/esm5/tooltip.es5.js");
 /* harmony import */ var _angular_material_card__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! @angular/material/card */ "./node_modules/@angular/material/esm5/card.es5.js");
-/* harmony import */ var _ngx_translate_core__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! @ngx-translate/core */ "./node_modules/@ngx-translate/core/fesm5/ngx-translate-core.js");
-/* harmony import */ var _ui_modules_ask_before_refresh_ask_before_refresh_module__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ../../../ui/modules/ask-before-refresh/ask-before-refresh.module */ "./src/app/ui/modules/ask-before-refresh/ask-before-refresh.module.ts");
-/* harmony import */ var _ui_modules_spinner_indicator_200_spinner_indicator_200_module__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ../../../ui/modules/spinner-indicator-200/spinner-indicator-200.module */ "./src/app/ui/modules/spinner-indicator-200/spinner-indicator-200.module.ts");
-/* harmony import */ var _ms_shops_routing_module__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./ms-shops-routing.module */ "./src/app/ms-back-office/modules/ms-shops/ms-shops-routing.module.ts");
-/* harmony import */ var _components_shops_table_shops_table_component__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./components/shops-table/shops-table.component */ "./src/app/ms-back-office/modules/ms-shops/components/shops-table/shops-table.component.ts");
-/* harmony import */ var _components_shop_form_shop_form_component__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ./components/shop-form/shop-form.component */ "./src/app/ms-back-office/modules/ms-shops/components/shop-form/shop-form.component.ts");
-/* harmony import */ var _components_new_shop_new_shop_component__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ./components/new-shop/new-shop.component */ "./src/app/ms-back-office/modules/ms-shops/components/new-shop/new-shop.component.ts");
-/* harmony import */ var _components_edit_shop_edit_shop_component__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ./components/edit-shop/edit-shop.component */ "./src/app/ms-back-office/modules/ms-shops/components/edit-shop/edit-shop.component.ts");
-/* harmony import */ var _components_edit_shop_form_edit_shop_form_component__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! ./components/edit-shop-form/edit-shop-form.component */ "./src/app/ms-back-office/modules/ms-shops/components/edit-shop-form/edit-shop-form.component.ts");
-/* harmony import */ var _components_delete_shop_delete_shop_component__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! ./components/delete-shop/delete-shop.component */ "./src/app/ms-back-office/modules/ms-shops/components/delete-shop/delete-shop.component.ts");
-/* harmony import */ var _components_shops_selling_style_modal_shops_selling_style_modal_component__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(/*! ./components/shops-selling-style-modal/shops-selling-style-modal.component */ "./src/app/ms-back-office/modules/ms-shops/components/shops-selling-style-modal/shops-selling-style-modal.component.ts");
-/* harmony import */ var _components_link_shops_brand_link_shops_brand_modal_component__WEBPACK_IMPORTED_MODULE_25__ = __webpack_require__(/*! ./components/link-shops-brand/link-shops-brand-modal.component */ "./src/app/ms-back-office/modules/ms-shops/components/link-shops-brand/link-shops-brand-modal.component.ts");
-/* harmony import */ var _components_link_shops_collection_link_shops_collection_modal_component__WEBPACK_IMPORTED_MODULE_26__ = __webpack_require__(/*! ./components/link-shops-collection/link-shops-collection-modal.component */ "./src/app/ms-back-office/modules/ms-shops/components/link-shops-collection/link-shops-collection-modal.component.ts");
-/* harmony import */ var _components_link_shops_subshops_link_shops_subshops_modal_component__WEBPACK_IMPORTED_MODULE_27__ = __webpack_require__(/*! ./components/link-shops-subshops/link-shops-subshops-modal.component */ "./src/app/ms-back-office/modules/ms-shops/components/link-shops-subshops/link-shops-subshops-modal.component.ts");
-/* harmony import */ var _ui_modules_images_card_images_card_module__WEBPACK_IMPORTED_MODULE_28__ = __webpack_require__(/*! ../../../ui/modules/images-card/images-card.module */ "./src/app/ui/modules/images-card/images-card.module.ts");
-/* harmony import */ var _ms_deals_ms_deals_module__WEBPACK_IMPORTED_MODULE_29__ = __webpack_require__(/*! ../ms-deals/ms-deals.module */ "./src/app/ms-back-office/modules/ms-deals/ms-deals.module.ts");
+/* harmony import */ var primeng_tabview__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! primeng/tabview */ "./node_modules/primeng/tabview.js");
+/* harmony import */ var primeng_tabview__WEBPACK_IMPORTED_MODULE_14___default = /*#__PURE__*/__webpack_require__.n(primeng_tabview__WEBPACK_IMPORTED_MODULE_14__);
+/* harmony import */ var _ngx_translate_core__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! @ngx-translate/core */ "./node_modules/@ngx-translate/core/fesm5/ngx-translate-core.js");
+/* harmony import */ var _ui_modules_ask_before_refresh_ask_before_refresh_module__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ../../../ui/modules/ask-before-refresh/ask-before-refresh.module */ "./src/app/ui/modules/ask-before-refresh/ask-before-refresh.module.ts");
+/* harmony import */ var _ui_modules_spinner_indicator_200_spinner_indicator_200_module__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ../../../ui/modules/spinner-indicator-200/spinner-indicator-200.module */ "./src/app/ui/modules/spinner-indicator-200/spinner-indicator-200.module.ts");
+/* harmony import */ var _ms_shops_routing_module__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./ms-shops-routing.module */ "./src/app/ms-back-office/modules/ms-shops/ms-shops-routing.module.ts");
+/* harmony import */ var _components_shops_table_shops_table_component__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ./components/shops-table/shops-table.component */ "./src/app/ms-back-office/modules/ms-shops/components/shops-table/shops-table.component.ts");
+/* harmony import */ var _components_shop_form_shop_form_component__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ./components/shop-form/shop-form.component */ "./src/app/ms-back-office/modules/ms-shops/components/shop-form/shop-form.component.ts");
+/* harmony import */ var _components_new_shop_new_shop_component__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ./components/new-shop/new-shop.component */ "./src/app/ms-back-office/modules/ms-shops/components/new-shop/new-shop.component.ts");
+/* harmony import */ var _components_edit_shop_edit_shop_component__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! ./components/edit-shop/edit-shop.component */ "./src/app/ms-back-office/modules/ms-shops/components/edit-shop/edit-shop.component.ts");
+/* harmony import */ var _components_edit_shop_form_edit_shop_form_component__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! ./components/edit-shop-form/edit-shop-form.component */ "./src/app/ms-back-office/modules/ms-shops/components/edit-shop-form/edit-shop-form.component.ts");
+/* harmony import */ var _components_delete_shop_delete_shop_component__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(/*! ./components/delete-shop/delete-shop.component */ "./src/app/ms-back-office/modules/ms-shops/components/delete-shop/delete-shop.component.ts");
+/* harmony import */ var _components_shops_selling_style_modal_shops_selling_style_modal_component__WEBPACK_IMPORTED_MODULE_25__ = __webpack_require__(/*! ./components/shops-selling-style-modal/shops-selling-style-modal.component */ "./src/app/ms-back-office/modules/ms-shops/components/shops-selling-style-modal/shops-selling-style-modal.component.ts");
+/* harmony import */ var _components_link_shops_brand_link_shops_brand_modal_component__WEBPACK_IMPORTED_MODULE_26__ = __webpack_require__(/*! ./components/link-shops-brand/link-shops-brand-modal.component */ "./src/app/ms-back-office/modules/ms-shops/components/link-shops-brand/link-shops-brand-modal.component.ts");
+/* harmony import */ var _components_link_shops_collection_link_shops_collection_modal_component__WEBPACK_IMPORTED_MODULE_27__ = __webpack_require__(/*! ./components/link-shops-collection/link-shops-collection-modal.component */ "./src/app/ms-back-office/modules/ms-shops/components/link-shops-collection/link-shops-collection-modal.component.ts");
+/* harmony import */ var _components_link_shops_subshops_link_shops_subshops_modal_component__WEBPACK_IMPORTED_MODULE_28__ = __webpack_require__(/*! ./components/link-shops-subshops/link-shops-subshops-modal.component */ "./src/app/ms-back-office/modules/ms-shops/components/link-shops-subshops/link-shops-subshops-modal.component.ts");
+/* harmony import */ var _ui_modules_images_card_images_card_module__WEBPACK_IMPORTED_MODULE_29__ = __webpack_require__(/*! ../../../ui/modules/images-card/images-card.module */ "./src/app/ui/modules/images-card/images-card.module.ts");
+/* harmony import */ var _ms_deals_ms_deals_module__WEBPACK_IMPORTED_MODULE_30__ = __webpack_require__(/*! ../ms-deals/ms-deals.module */ "./src/app/ms-back-office/modules/ms-deals/ms-deals.module.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -2474,6 +3393,7 @@ var __decorate = (undefined && undefined.__decorate) || function (decorators, ta
 
 
 //
+
 
 
 
@@ -2536,42 +3456,43 @@ var MsShopsModule = /** @class */ (function () {
                 _angular_material__WEBPACK_IMPORTED_MODULE_7__["MatTabsModule"],
                 _angular_material_toolbar__WEBPACK_IMPORTED_MODULE_11__["MatToolbarModule"],
                 _angular_material_tooltip__WEBPACK_IMPORTED_MODULE_12__["MatTooltipModule"],
-                _ngx_translate_core__WEBPACK_IMPORTED_MODULE_14__["TranslateModule"],
-                _ms_shops_routing_module__WEBPACK_IMPORTED_MODULE_17__["MsShopsRoutingModule"],
-                _ui_modules_images_card_images_card_module__WEBPACK_IMPORTED_MODULE_28__["ImagesCardModule"],
-                _ui_modules_ask_before_refresh_ask_before_refresh_module__WEBPACK_IMPORTED_MODULE_15__["AskBeforeRefreshModule"],
-                _ui_modules_spinner_indicator_200_spinner_indicator_200_module__WEBPACK_IMPORTED_MODULE_16__["SpinnerIndicator200Module"],
-                _ms_deals_ms_deals_module__WEBPACK_IMPORTED_MODULE_29__["MsDealsModule"]
+                primeng_tabview__WEBPACK_IMPORTED_MODULE_14__["TabViewModule"],
+                _ngx_translate_core__WEBPACK_IMPORTED_MODULE_15__["TranslateModule"],
+                _ms_shops_routing_module__WEBPACK_IMPORTED_MODULE_18__["MsShopsRoutingModule"],
+                _ui_modules_images_card_images_card_module__WEBPACK_IMPORTED_MODULE_29__["ImagesCardModule"],
+                _ui_modules_ask_before_refresh_ask_before_refresh_module__WEBPACK_IMPORTED_MODULE_16__["AskBeforeRefreshModule"],
+                _ui_modules_spinner_indicator_200_spinner_indicator_200_module__WEBPACK_IMPORTED_MODULE_17__["SpinnerIndicator200Module"],
+                _ms_deals_ms_deals_module__WEBPACK_IMPORTED_MODULE_30__["MsDealsModule"],
             ],
             declarations: [
-                _components_shops_table_shops_table_component__WEBPACK_IMPORTED_MODULE_18__["ShopsTableComponent"],
-                _components_shop_form_shop_form_component__WEBPACK_IMPORTED_MODULE_19__["ShopFormComponent"],
-                _components_new_shop_new_shop_component__WEBPACK_IMPORTED_MODULE_20__["NewShopComponent"],
-                _components_edit_shop_edit_shop_component__WEBPACK_IMPORTED_MODULE_21__["EditShopComponent"],
-                _components_edit_shop_form_edit_shop_form_component__WEBPACK_IMPORTED_MODULE_22__["EditShopFormComponent"],
-                _components_delete_shop_delete_shop_component__WEBPACK_IMPORTED_MODULE_23__["DeleteShopComponent"],
-                _components_link_shops_brand_link_shops_brand_modal_component__WEBPACK_IMPORTED_MODULE_25__["LinkShopsBrandModalComponent"],
-                _components_link_shops_collection_link_shops_collection_modal_component__WEBPACK_IMPORTED_MODULE_26__["LinkShopsCollentionModalComponent"],
-                _components_link_shops_subshops_link_shops_subshops_modal_component__WEBPACK_IMPORTED_MODULE_27__["LinkShopsSubShopsModalComponent"],
-                _components_shops_selling_style_modal_shops_selling_style_modal_component__WEBPACK_IMPORTED_MODULE_24__["ShopsSellingStyleModalComponent"],
+                _components_shops_table_shops_table_component__WEBPACK_IMPORTED_MODULE_19__["ShopsTableComponent"],
+                _components_shop_form_shop_form_component__WEBPACK_IMPORTED_MODULE_20__["ShopFormComponent"],
+                _components_new_shop_new_shop_component__WEBPACK_IMPORTED_MODULE_21__["NewShopComponent"],
+                _components_edit_shop_edit_shop_component__WEBPACK_IMPORTED_MODULE_22__["EditShopComponent"],
+                _components_edit_shop_form_edit_shop_form_component__WEBPACK_IMPORTED_MODULE_23__["EditShopFormComponent"],
+                _components_delete_shop_delete_shop_component__WEBPACK_IMPORTED_MODULE_24__["DeleteShopComponent"],
+                _components_link_shops_brand_link_shops_brand_modal_component__WEBPACK_IMPORTED_MODULE_26__["LinkShopsBrandModalComponent"],
+                _components_link_shops_collection_link_shops_collection_modal_component__WEBPACK_IMPORTED_MODULE_27__["LinkShopsCollentionModalComponent"],
+                _components_link_shops_subshops_link_shops_subshops_modal_component__WEBPACK_IMPORTED_MODULE_28__["LinkShopsSubShopsModalComponent"],
+                _components_shops_selling_style_modal_shops_selling_style_modal_component__WEBPACK_IMPORTED_MODULE_25__["ShopsSellingStyleModalComponent"],
             ],
             exports: [
-                _components_shops_table_shops_table_component__WEBPACK_IMPORTED_MODULE_18__["ShopsTableComponent"],
-                _components_shop_form_shop_form_component__WEBPACK_IMPORTED_MODULE_19__["ShopFormComponent"],
-                _components_new_shop_new_shop_component__WEBPACK_IMPORTED_MODULE_20__["NewShopComponent"],
-                _components_edit_shop_edit_shop_component__WEBPACK_IMPORTED_MODULE_21__["EditShopComponent"],
-                _components_edit_shop_form_edit_shop_form_component__WEBPACK_IMPORTED_MODULE_22__["EditShopFormComponent"],
-                _components_delete_shop_delete_shop_component__WEBPACK_IMPORTED_MODULE_23__["DeleteShopComponent"],
-                _components_link_shops_brand_link_shops_brand_modal_component__WEBPACK_IMPORTED_MODULE_25__["LinkShopsBrandModalComponent"],
-                _components_link_shops_collection_link_shops_collection_modal_component__WEBPACK_IMPORTED_MODULE_26__["LinkShopsCollentionModalComponent"],
-                _components_link_shops_subshops_link_shops_subshops_modal_component__WEBPACK_IMPORTED_MODULE_27__["LinkShopsSubShopsModalComponent"],
-                _components_shops_selling_style_modal_shops_selling_style_modal_component__WEBPACK_IMPORTED_MODULE_24__["ShopsSellingStyleModalComponent"],
+                _components_shops_table_shops_table_component__WEBPACK_IMPORTED_MODULE_19__["ShopsTableComponent"],
+                _components_shop_form_shop_form_component__WEBPACK_IMPORTED_MODULE_20__["ShopFormComponent"],
+                _components_new_shop_new_shop_component__WEBPACK_IMPORTED_MODULE_21__["NewShopComponent"],
+                _components_edit_shop_edit_shop_component__WEBPACK_IMPORTED_MODULE_22__["EditShopComponent"],
+                _components_edit_shop_form_edit_shop_form_component__WEBPACK_IMPORTED_MODULE_23__["EditShopFormComponent"],
+                _components_delete_shop_delete_shop_component__WEBPACK_IMPORTED_MODULE_24__["DeleteShopComponent"],
+                _components_link_shops_brand_link_shops_brand_modal_component__WEBPACK_IMPORTED_MODULE_26__["LinkShopsBrandModalComponent"],
+                _components_link_shops_collection_link_shops_collection_modal_component__WEBPACK_IMPORTED_MODULE_27__["LinkShopsCollentionModalComponent"],
+                _components_link_shops_subshops_link_shops_subshops_modal_component__WEBPACK_IMPORTED_MODULE_28__["LinkShopsSubShopsModalComponent"],
+                _components_shops_selling_style_modal_shops_selling_style_modal_component__WEBPACK_IMPORTED_MODULE_25__["ShopsSellingStyleModalComponent"],
             ],
             entryComponents: [
-                _components_link_shops_brand_link_shops_brand_modal_component__WEBPACK_IMPORTED_MODULE_25__["LinkShopsBrandModalComponent"],
-                _components_link_shops_collection_link_shops_collection_modal_component__WEBPACK_IMPORTED_MODULE_26__["LinkShopsCollentionModalComponent"],
-                _components_link_shops_subshops_link_shops_subshops_modal_component__WEBPACK_IMPORTED_MODULE_27__["LinkShopsSubShopsModalComponent"],
-                _components_shops_selling_style_modal_shops_selling_style_modal_component__WEBPACK_IMPORTED_MODULE_24__["ShopsSellingStyleModalComponent"],
+                _components_link_shops_brand_link_shops_brand_modal_component__WEBPACK_IMPORTED_MODULE_26__["LinkShopsBrandModalComponent"],
+                _components_link_shops_collection_link_shops_collection_modal_component__WEBPACK_IMPORTED_MODULE_27__["LinkShopsCollentionModalComponent"],
+                _components_link_shops_subshops_link_shops_subshops_modal_component__WEBPACK_IMPORTED_MODULE_28__["LinkShopsSubShopsModalComponent"],
+                _components_shops_selling_style_modal_shops_selling_style_modal_component__WEBPACK_IMPORTED_MODULE_25__["ShopsSellingStyleModalComponent"],
             ]
         })
     ], MsShopsModule);
@@ -2781,6 +3702,145 @@ var ShopsImgesService = /** @class */ (function () {
             _error_handling_services_error_handling_http_service__WEBPACK_IMPORTED_MODULE_4__["ErrorHandlingHttpService"]])
     ], ShopsImgesService);
     return ShopsImgesService;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/ms-back-office/modules/ms-style/services/styles.service.ts":
+/*!****************************************************************************!*\
+  !*** ./src/app/ms-back-office/modules/ms-style/services/styles.service.ts ***!
+  \****************************************************************************/
+/*! exports provided: ASCENDING, StylesService */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ASCENDING", function() { return ASCENDING; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "StylesService", function() { return StylesService; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! rxjs */ "./node_modules/rxjs/_esm5/index.js");
+/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! rxjs/operators */ "./node_modules/rxjs/_esm5/operators/index.js");
+/* harmony import */ var _config_services_config_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../config/services/config.service */ "./src/app/config/services/config.service.ts");
+/* harmony import */ var _error_handling_services_error_handling_http_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../../error-handling/services/error-handling-http.service */ "./src/app/error-handling/services/error-handling-http.service.ts");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+//
+
+
+//
+
+
+//import { User, UsersListResponse, UsersListItem } from '../models/user';
+var ASCENDING = 'asc';
+var StylesService = /** @class */ (function () {
+    function StylesService(configService, http) {
+        this.configService = configService;
+        this.http = http;
+        //selectedStyles = new BehaviorSubject<Array<UsersListItem>>([]);TODO
+        this.previousFilter = {};
+        this.previousSortColumn = 'updatedAt';
+        this.previousSortDirection = 'desc';
+        this.previousPageIndex = 0;
+        this.previousPageSize = 10;
+        this.stylesList = new rxjs__WEBPACK_IMPORTED_MODULE_1__["BehaviorSubject"]({ dataCount: 0, data: [] });
+        this.apiEndpoint = this.configService.config.apiConfigs.styles.apiEndpoint;
+    }
+    StylesService.prototype.getStyles = function (filter, sortColumn, sortDirection, pageIndex, pageSize) {
+        this.previousFilter = filter;
+        this.previousSortColumn = sortColumn;
+        this.previousSortDirection = sortDirection;
+        this.previousPageIndex = pageIndex;
+        this.previousPageSize = pageSize;
+        var queryParams = this.formatQueryParams(filter, sortColumn, sortDirection, pageIndex, pageSize);
+        return this.http.get(this.apiEndpoint + queryParams);
+    };
+    StylesService.prototype.reloadStyles = function () {
+        console.log("reload");
+        return this.getStyles(this.previousFilter, this.previousSortColumn, this.previousSortDirection, this.previousPageIndex, this.previousPageSize);
+    };
+    StylesService.prototype.postStyle = function (data) {
+        return this.http.post(this.apiEndpoint, JSON.stringify(data));
+    };
+    StylesService.prototype.postStyleLinkedShops = function (id, data) {
+        return this.http.post(this.apiEndpoint + id + '/shops/', JSON.stringify(data));
+    };
+    StylesService.prototype.getStyleLinkedShops = function (id) {
+        return this.http.get(this.apiEndpoint + id + '/shops/');
+    };
+    StylesService.prototype.getStyle = function (id) {
+        return this.http.get(this.apiEndpoint + id + '/');
+    };
+    StylesService.prototype.putStyle = function (data) {
+        return this.http.put(this.apiEndpoint + data.id + '/', JSON.stringify(data));
+    };
+    StylesService.prototype.deleteStyle = function (id) {
+        return this.http.delete(this.apiEndpoint + id + '/');
+    };
+    StylesService.prototype.formatQueryParams = function (filter, sortColumn, sortDirection, pageIndex, pageSize) {
+        var queryParams = '';
+        if (sortColumn) {
+            var ordering = '';
+            if (sortDirection === 'desc') {
+                ordering = '-';
+            }
+            ordering += sortColumn;
+            queryParams += queryParams.length > 0 ? '&' : '?';
+            queryParams += "ordering=" + ordering;
+        }
+        if (pageIndex !== undefined) {
+            queryParams += queryParams.length > 0 ? '&' : '?';
+            queryParams += "offset=" + pageIndex * pageSize;
+        }
+        if (pageSize !== undefined) {
+            queryParams += queryParams.length > 0 ? '&' : '?';
+            queryParams += "limit=" + pageSize;
+        }
+        if (filter.sku && filter.sku.length > 0) {
+            queryParams += queryParams.length > 0 ? '&' : '?';
+            queryParams += "sku=" + filter.sku;
+        }
+        if (filter.name && filter.name.length > 0) {
+            queryParams += queryParams.length > 0 ? '&' : '?';
+            queryParams += "name=" + filter.name;
+        }
+        if (filter.brand && filter.brand.length > 0) {
+            queryParams += queryParams.length > 0 ? '&' : '?';
+            queryParams += "brand=" + filter.brand;
+        }
+        if (filter.collection && filter.collection.length > 0) {
+            queryParams += queryParams.length > 0 ? '&' : '?';
+            queryParams += "collection=" + filter.collection;
+        }
+        if (filter.category && filter.category.length > 0) {
+            queryParams += queryParams.length > 0 ? '&' : '?';
+            queryParams += "category=" + filter.category;
+        }
+        return queryParams;
+    };
+    StylesService.prototype.getAllStyles = function () {
+        return this.http.get(this.apiEndpoint)
+            .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_2__["map"])(function (response) {
+            return response.data;
+        }));
+    };
+    StylesService = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"])({
+            providedIn: 'root'
+        }),
+        __metadata("design:paramtypes", [_config_services_config_service__WEBPACK_IMPORTED_MODULE_3__["ConfigService"],
+            _error_handling_services_error_handling_http_service__WEBPACK_IMPORTED_MODULE_4__["ErrorHandlingHttpService"]])
+    ], StylesService);
+    return StylesService;
 }());
 
 

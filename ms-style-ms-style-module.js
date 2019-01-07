@@ -613,8 +613,8 @@ var StyleFormComponent = /** @class */ (function (_super) {
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
             selector: 'style-form',
             template: __webpack_require__(/*! ./style-form.component.html */ "./src/app/ms-back-office/modules/ms-style/components/style-form/style-form.component.html"),
-            styles: [__webpack_require__(/*! ./style-form.component.scss */ "./src/app/ms-back-office/modules/ms-style/components/style-form/style-form.component.scss")],
-            changeDetection: _angular_core__WEBPACK_IMPORTED_MODULE_0__["ChangeDetectionStrategy"].OnPush
+            changeDetection: _angular_core__WEBPACK_IMPORTED_MODULE_0__["ChangeDetectionStrategy"].OnPush,
+            styles: [__webpack_require__(/*! ./style-form.component.scss */ "./src/app/ms-back-office/modules/ms-style/components/style-form/style-form.component.scss")]
         }),
         __metadata("design:paramtypes", [_angular_material__WEBPACK_IMPORTED_MODULE_9__["MatDialog"],
             _angular_common__WEBPACK_IMPORTED_MODULE_2__["Location"],

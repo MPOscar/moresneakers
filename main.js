@@ -17,13 +17,14 @@ var map = {
 	],
 	"../ms-blogs/ms-blogs.module": [
 		"./src/app/ms-back-office/modules/ms-blogs/ms-blogs.module.ts",
+		"default~ms-blogs-ms-blogs-module~ms-brands-ms-brands-module~ms-collections-ms-collections-module~ms-~be74281d",
 		"ms-blogs-ms-blogs-module"
 	],
 	"../ms-brands/ms-brands.module": [
 		"./src/app/ms-back-office/modules/ms-brands/ms-brands.module.ts",
 		"default~ms-brands-ms-brands-module~ms-collections-ms-collections-module~ms-deals-ms-deals-module~ms-~a8d003f4",
 		"default~ms-brands-ms-brands-module~ms-collections-ms-collections-module~ms-deals-ms-deals-module~ms-~4095e54f",
-		"default~ms-brands-ms-brands-module~ms-collections-ms-collections-module~ms-releases-ms-releases-modu~14151ac4",
+		"default~ms-blogs-ms-blogs-module~ms-brands-ms-brands-module~ms-collections-ms-collections-module~ms-~be74281d",
 		"default~ms-brands-ms-brands-module~ms-collections-ms-collections-module~ms-shops-ms-shops-module~ms-~1045d9c8",
 		"default~ms-brands-ms-brands-module~ms-style-ms-style-module"
 	],
@@ -35,7 +36,7 @@ var map = {
 		"./src/app/ms-back-office/modules/ms-collections/ms-collections.module.ts",
 		"default~ms-brands-ms-brands-module~ms-collections-ms-collections-module~ms-deals-ms-deals-module~ms-~a8d003f4",
 		"default~ms-brands-ms-brands-module~ms-collections-ms-collections-module~ms-deals-ms-deals-module~ms-~4095e54f",
-		"default~ms-brands-ms-brands-module~ms-collections-ms-collections-module~ms-releases-ms-releases-modu~14151ac4",
+		"default~ms-blogs-ms-blogs-module~ms-brands-ms-brands-module~ms-collections-ms-collections-module~ms-~be74281d",
 		"default~ms-brands-ms-brands-module~ms-collections-ms-collections-module~ms-shops-ms-shops-module~ms-~1045d9c8",
 		"default~ms-collections-ms-collections-module~ms-offers-ms-offers-module~ms-releases-ms-releases-modu~9021e546",
 		"default~ms-collections-ms-collections-module~ms-releases-ms-releases-module",
@@ -55,7 +56,6 @@ var map = {
 	"../ms-releases/ms-releases.module": [
 		"./src/app/ms-back-office/modules/ms-releases/ms-releases.module.ts",
 		"default~ms-brands-ms-brands-module~ms-collections-ms-collections-module~ms-deals-ms-deals-module~ms-~a8d003f4",
-		"default~ms-brands-ms-brands-module~ms-collections-ms-collections-module~ms-releases-ms-releases-modu~14151ac4",
 		"default~ms-collections-ms-collections-module~ms-offers-ms-offers-module~ms-releases-ms-releases-modu~9021e546",
 		"default~ms-collections-ms-collections-module~ms-releases-ms-releases-module",
 		"ms-releases-ms-releases-module"
@@ -64,14 +64,14 @@ var map = {
 		"./src/app/ms-back-office/modules/ms-shops/ms-shops.module.ts",
 		"default~ms-brands-ms-brands-module~ms-collections-ms-collections-module~ms-deals-ms-deals-module~ms-~a8d003f4",
 		"default~ms-brands-ms-brands-module~ms-collections-ms-collections-module~ms-deals-ms-deals-module~ms-~4095e54f",
-		"default~ms-brands-ms-brands-module~ms-collections-ms-collections-module~ms-releases-ms-releases-modu~14151ac4",
+		"default~ms-blogs-ms-blogs-module~ms-brands-ms-brands-module~ms-collections-ms-collections-module~ms-~be74281d",
 		"default~ms-brands-ms-brands-module~ms-collections-ms-collections-module~ms-shops-ms-shops-module~ms-~1045d9c8"
 	],
 	"../ms-style/ms-style.module": [
 		"./src/app/ms-back-office/modules/ms-style/ms-style.module.ts",
 		"default~ms-brands-ms-brands-module~ms-collections-ms-collections-module~ms-deals-ms-deals-module~ms-~a8d003f4",
 		"default~ms-brands-ms-brands-module~ms-collections-ms-collections-module~ms-deals-ms-deals-module~ms-~4095e54f",
-		"default~ms-brands-ms-brands-module~ms-collections-ms-collections-module~ms-releases-ms-releases-modu~14151ac4",
+		"default~ms-blogs-ms-blogs-module~ms-brands-ms-brands-module~ms-collections-ms-collections-module~ms-~be74281d",
 		"default~ms-brands-ms-brands-module~ms-collections-ms-collections-module~ms-shops-ms-shops-module~ms-~1045d9c8",
 		"default~ms-brands-ms-brands-module~ms-style-ms-style-module",
 		"ms-style-ms-style-module"
@@ -721,8 +721,8 @@ var ChangePasswordFormComponent = /** @class */ (function (_super) {
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
             selector: 'change-password-form',
             template: __webpack_require__(/*! ./change-password-form.component.html */ "./src/app/authentication/components/change-password-form/change-password-form.component.html"),
-            styles: [__webpack_require__(/*! ./change-password-form.component.css */ "./src/app/authentication/components/change-password-form/change-password-form.component.css")],
-            changeDetection: _angular_core__WEBPACK_IMPORTED_MODULE_0__["ChangeDetectionStrategy"].OnPush
+            changeDetection: _angular_core__WEBPACK_IMPORTED_MODULE_0__["ChangeDetectionStrategy"].OnPush,
+            styles: [__webpack_require__(/*! ./change-password-form.component.css */ "./src/app/authentication/components/change-password-form/change-password-form.component.css")]
         }),
         __metadata("design:paramtypes", [_ngx_translate_core__WEBPACK_IMPORTED_MODULE_8__["TranslateService"]])
     ], ChangePasswordFormComponent);
@@ -2827,8 +2827,8 @@ var HttpRequestIndicatorComponent = /** @class */ (function () {
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
             selector: 'http-request-indicator',
             template: __webpack_require__(/*! ./http-request-indicator.component.html */ "./src/app/http-request-indicator/components/http-request-indicator/http-request-indicator.component.html"),
-            styles: [__webpack_require__(/*! ./http-request-indicator.component.css */ "./src/app/http-request-indicator/components/http-request-indicator/http-request-indicator.component.css")],
-            changeDetection: _angular_core__WEBPACK_IMPORTED_MODULE_0__["ChangeDetectionStrategy"].OnPush
+            changeDetection: _angular_core__WEBPACK_IMPORTED_MODULE_0__["ChangeDetectionStrategy"].OnPush,
+            styles: [__webpack_require__(/*! ./http-request-indicator.component.css */ "./src/app/http-request-indicator/components/http-request-indicator/http-request-indicator.component.css")]
         }),
         __metadata("design:paramtypes", [_services_http_request_indicators_service__WEBPACK_IMPORTED_MODULE_2__["HttpRequestIndicatorsService"],
             _services_loading_service__WEBPACK_IMPORTED_MODULE_3__["LoadingService"]])
@@ -4635,7 +4635,7 @@ var ErrorMessagesComponent = /** @class */ (function () {
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
             selector: 'error-messages',
             template: __webpack_require__(/*! ./error-messages.component.html */ "./src/app/ui/modules/error-messages/components/error-messages/error-messages.component.html"),
-            styles: [__webpack_require__(/*! ./error-messages.component.css */ "./src/app/ui/modules/error-messages/components/error-messages/error-messages.component.css")],
+            styles: [__webpack_require__(/*! ./error-messages.component.css */ "./src/app/ui/modules/error-messages/components/error-messages/error-messages.component.css")]
         }),
         __metadata("design:paramtypes", [_angular_forms__WEBPACK_IMPORTED_MODULE_1__["ControlContainer"],
             _capitalize_word_pipes_capitalize_word_pipe__WEBPACK_IMPORTED_MODULE_3__["CapitalizeWordPipe"]])
@@ -4906,10 +4906,10 @@ var ImageCardComponent = /** @class */ (function () {
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
             selector: 'image-card',
             template: __webpack_require__(/*! ./image-card.component.html */ "./src/app/ui/modules/image-card/components/image-card/image-card.component.html"),
-            styles: [__webpack_require__(/*! ./image-card.component.css */ "./src/app/ui/modules/image-card/components/image-card/image-card.component.css")],
             providers: [
                 { provide: _angular_forms__WEBPACK_IMPORTED_MODULE_1__["NG_VALUE_ACCESSOR"], useExisting: Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["forwardRef"])(function () { return ImageCardComponent_1; }), multi: true }
-            ]
+            ],
+            styles: [__webpack_require__(/*! ./image-card.component.css */ "./src/app/ui/modules/image-card/components/image-card/image-card.component.css")]
         }),
         __metadata("design:paramtypes", [_ngx_translate_core__WEBPACK_IMPORTED_MODULE_2__["TranslateService"],
             _error_handling_services_toastr_service__WEBPACK_IMPORTED_MODULE_3__["ToastrService"]])
@@ -5659,10 +5659,10 @@ var ImagesCardComponent = /** @class */ (function () {
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
             selector: 'images-card',
             template: __webpack_require__(/*! ./images-card.component.html */ "./src/app/ui/modules/images-card/components/images-card/images-card.component.html"),
-            styles: [__webpack_require__(/*! ./images-card.component.css */ "./src/app/ui/modules/images-card/components/images-card/images-card.component.css")],
             providers: [
                 { provide: _angular_forms__WEBPACK_IMPORTED_MODULE_1__["NG_VALUE_ACCESSOR"], useExisting: Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["forwardRef"])(function () { return ImagesCardComponent_1; }), multi: true }
-            ]
+            ],
+            styles: [__webpack_require__(/*! ./images-card.component.css */ "./src/app/ui/modules/images-card/components/images-card/images-card.component.css")]
         }),
         __metadata("design:paramtypes", [_ngx_translate_core__WEBPACK_IMPORTED_MODULE_2__["TranslateService"],
             _error_handling_services_toastr_service__WEBPACK_IMPORTED_MODULE_3__["ToastrService"]])

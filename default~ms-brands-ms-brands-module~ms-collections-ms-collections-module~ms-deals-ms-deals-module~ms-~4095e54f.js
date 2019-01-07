@@ -283,8 +283,8 @@ var DealFormComponent = /** @class */ (function (_super) {
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
             selector: 'deal-form',
             template: __webpack_require__(/*! ./deal-form.component.html */ "./src/app/ms-back-office/modules/ms-deals/components/deal-form/deal-form.component.html"),
-            styles: [__webpack_require__(/*! ./deal-form.component.scss */ "./src/app/ms-back-office/modules/ms-deals/components/deal-form/deal-form.component.scss")],
-            changeDetection: _angular_core__WEBPACK_IMPORTED_MODULE_0__["ChangeDetectionStrategy"].OnPush
+            changeDetection: _angular_core__WEBPACK_IMPORTED_MODULE_0__["ChangeDetectionStrategy"].OnPush,
+            styles: [__webpack_require__(/*! ./deal-form.component.scss */ "./src/app/ms-back-office/modules/ms-deals/components/deal-form/deal-form.component.scss")]
         }),
         __metadata("design:paramtypes", [_angular_material__WEBPACK_IMPORTED_MODULE_2__["MatDialog"],
             _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormBuilder"],

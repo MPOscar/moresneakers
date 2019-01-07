@@ -1,5 +1,234 @@
 (window["webpackJsonp"] = window["webpackJsonp"] || []).push([["ms-blogs-ms-blogs-module"],{
 
+/***/ "./node_modules/primeng/components/editor/editor.js":
+/*!**********************************************************!*\
+  !*** ./node_modules/primeng/components/editor/editor.js ***!
+  \**********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var __assign = (this && this.__assign) || function () {
+    __assign = Object.assign || function(t) {
+        for (var s, i = 1, n = arguments.length; i < n; i++) {
+            s = arguments[i];
+            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
+                t[p] = s[p];
+        }
+        return t;
+    };
+    return __assign.apply(this, arguments);
+};
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+var core_1 = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+var common_1 = __webpack_require__(/*! @angular/common */ "./node_modules/@angular/common/fesm5/common.js");
+var shared_1 = __webpack_require__(/*! ../common/shared */ "./node_modules/primeng/components/common/shared.js");
+var domhandler_1 = __webpack_require__(/*! ../dom/domhandler */ "./node_modules/primeng/components/dom/domhandler.js");
+var forms_1 = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm5/forms.js");
+exports.EDITOR_VALUE_ACCESSOR = {
+    provide: forms_1.NG_VALUE_ACCESSOR,
+    useExisting: core_1.forwardRef(function () { return Editor; }),
+    multi: true
+};
+var Editor = /** @class */ (function () {
+    function Editor(el) {
+        this.el = el;
+        this.onTextChange = new core_1.EventEmitter();
+        this.onSelectionChange = new core_1.EventEmitter();
+        this.onInit = new core_1.EventEmitter();
+        this.onModelChange = function () { };
+        this.onModelTouched = function () { };
+    }
+    Editor.prototype.ngAfterViewInit = function () {
+        var _this = this;
+        var editorElement = domhandler_1.DomHandler.findSingle(this.el.nativeElement, 'div.ui-editor-content');
+        var toolbarElement = domhandler_1.DomHandler.findSingle(this.el.nativeElement, 'div.ui-editor-toolbar');
+        var defaultModule = { toolbar: toolbarElement };
+        var modules = this.modules ? __assign({}, defaultModule, this.modules) : defaultModule;
+        this.quill = new Quill(editorElement, {
+            modules: modules,
+            placeholder: this.placeholder,
+            readOnly: this.readonly,
+            theme: 'snow',
+            formats: this.formats,
+            bounds: this.bounds,
+            debug: this.debug,
+            scrollingContainer: this.scrollingContainer
+        });
+        if (this.value) {
+            this.quill.pasteHTML(this.value);
+        }
+        this.quill.on('text-change', function (delta, oldContents, source) {
+            if (source === 'user') {
+                var html = editorElement.children[0].innerHTML;
+                var text = _this.quill.getText().trim();
+                if (text.length === 0) {
+                    html = null;
+                }
+                _this.onTextChange.emit({
+                    htmlValue: html,
+                    textValue: text,
+                    delta: delta,
+                    source: source
+                });
+                _this.onModelChange(html);
+                _this.onModelTouched();
+            }
+        });
+        this.quill.on('selection-change', function (range, oldRange, source) {
+            _this.onSelectionChange.emit({
+                range: range,
+                oldRange: oldRange,
+                source: source
+            });
+        });
+        this.onInit.emit({
+            editor: this.quill
+        });
+    };
+    Editor.prototype.writeValue = function (value) {
+        this.value = value;
+        if (this.quill) {
+            if (value)
+                this.quill.pasteHTML(value);
+            else
+                this.quill.setText('');
+        }
+    };
+    Editor.prototype.registerOnChange = function (fn) {
+        this.onModelChange = fn;
+    };
+    Editor.prototype.registerOnTouched = function (fn) {
+        this.onModelTouched = fn;
+    };
+    Editor.prototype.getQuill = function () {
+        return this.quill;
+    };
+    Object.defineProperty(Editor.prototype, "readonly", {
+        get: function () {
+            return this._readonly;
+        },
+        set: function (val) {
+            this._readonly = val;
+            if (this.quill) {
+                if (this._readonly)
+                    this.quill.disable();
+                else
+                    this.quill.enable();
+            }
+        },
+        enumerable: true,
+        configurable: true
+    });
+    __decorate([
+        core_1.Output(),
+        __metadata("design:type", core_1.EventEmitter)
+    ], Editor.prototype, "onTextChange", void 0);
+    __decorate([
+        core_1.Output(),
+        __metadata("design:type", core_1.EventEmitter)
+    ], Editor.prototype, "onSelectionChange", void 0);
+    __decorate([
+        core_1.ContentChild(shared_1.Header),
+        __metadata("design:type", Object)
+    ], Editor.prototype, "toolbar", void 0);
+    __decorate([
+        core_1.Input(),
+        __metadata("design:type", Object)
+    ], Editor.prototype, "style", void 0);
+    __decorate([
+        core_1.Input(),
+        __metadata("design:type", String)
+    ], Editor.prototype, "styleClass", void 0);
+    __decorate([
+        core_1.Input(),
+        __metadata("design:type", String)
+    ], Editor.prototype, "placeholder", void 0);
+    __decorate([
+        core_1.Input(),
+        __metadata("design:type", Array)
+    ], Editor.prototype, "formats", void 0);
+    __decorate([
+        core_1.Input(),
+        __metadata("design:type", Object)
+    ], Editor.prototype, "modules", void 0);
+    __decorate([
+        core_1.Input(),
+        __metadata("design:type", Element)
+    ], Editor.prototype, "bounds", void 0);
+    __decorate([
+        core_1.Input(),
+        __metadata("design:type", Element)
+    ], Editor.prototype, "scrollingContainer", void 0);
+    __decorate([
+        core_1.Input(),
+        __metadata("design:type", String)
+    ], Editor.prototype, "debug", void 0);
+    __decorate([
+        core_1.Output(),
+        __metadata("design:type", core_1.EventEmitter)
+    ], Editor.prototype, "onInit", void 0);
+    __decorate([
+        core_1.Input(),
+        __metadata("design:type", Boolean),
+        __metadata("design:paramtypes", [Boolean])
+    ], Editor.prototype, "readonly", null);
+    Editor = __decorate([
+        core_1.Component({
+            selector: 'p-editor',
+            template: "\n        <div [ngClass]=\"'ui-widget ui-editor-container ui-corner-all'\" [class]=\"styleClass\">\n            <div class=\"ui-editor-toolbar ui-widget-header ui-corner-top\" *ngIf=\"toolbar\">\n                <ng-content select=\"p-header\"></ng-content>\n            </div>\n            <div class=\"ui-editor-toolbar ui-widget-header ui-corner-top\" *ngIf=\"!toolbar\">\n                <span class=\"ql-formats\">\n                    <select class=\"ql-header\">\n                      <option value=\"1\">Heading</option>\n                      <option value=\"2\">Subheading</option>\n                      <option selected>Normal</option>\n                    </select>\n                    <select class=\"ql-font\">\n                      <option selected>Sans Serif</option>\n                      <option value=\"serif\">Serif</option>\n                      <option value=\"monospace\">Monospace</option>\n                    </select>\n                </span>\n                <span class=\"ql-formats\">\n                    <button class=\"ql-bold\" aria-label=\"Bold\"></button>\n                    <button class=\"ql-italic\" aria-label=\"Italic\"></button>\n                    <button class=\"ql-underline\" aria-label=\"Underline\"></button>\n                </span>\n                <span class=\"ql-formats\">\n                    <select class=\"ql-color\"></select>\n                    <select class=\"ql-background\"></select>\n                </span>\n                <span class=\"ql-formats\">\n                    <button class=\"ql-list\" value=\"ordered\" aria-label=\"Ordered List\"></button>\n                    <button class=\"ql-list\" value=\"bullet\" aria-label=\"Unordered List\"></button>\n                    <select class=\"ql-align\">\n                        <option selected></option>\n                        <option value=\"center\"></option>\n                        <option value=\"right\"></option>\n                        <option value=\"justify\"></option>\n                    </select>\n                </span>\n                <span class=\"ql-formats\">\n                    <button class=\"ql-link\" aria-label=\"Insert Link\"></button>\n                    <button class=\"ql-image\" aria-label=\"Insert Image\"></button>\n                    <button class=\"ql-code-block\" aria-label=\"Insert Code Block\"></button>\n                </span>\n                <span class=\"ql-formats\">\n                    <button class=\"ql-clean\" aria-label=\"Remove Styles\"></button>\n                </span>\n            </div>\n            <div class=\"ui-editor-content\" [ngStyle]=\"style\"></div>\n        </div>\n    ",
+            providers: [exports.EDITOR_VALUE_ACCESSOR]
+        }),
+        __metadata("design:paramtypes", [core_1.ElementRef])
+    ], Editor);
+    return Editor;
+}());
+exports.Editor = Editor;
+var EditorModule = /** @class */ (function () {
+    function EditorModule() {
+    }
+    EditorModule = __decorate([
+        core_1.NgModule({
+            imports: [common_1.CommonModule],
+            exports: [Editor, shared_1.SharedModule],
+            declarations: [Editor]
+        })
+    ], EditorModule);
+    return EditorModule;
+}());
+exports.EditorModule = EditorModule;
+//# sourceMappingURL=editor.js.map
+
+/***/ }),
+
+/***/ "./node_modules/primeng/editor.js":
+/*!****************************************!*\
+  !*** ./node_modules/primeng/editor.js ***!
+  \****************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/* Shorthand */
+
+function __export(m) {
+    for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
+}
+Object.defineProperty(exports, "__esModule", { value: true });
+__export(__webpack_require__(/*! ./components/editor/editor */ "./node_modules/primeng/components/editor/editor.js"));
+
+/***/ }),
+
 /***/ "./src/app/ms-back-office/modules/ms-blogs/components/blog-form/blog-form.component.html":
 /*!***********************************************************************************************!*\
   !*** ./src/app/ms-back-office/modules/ms-blogs/components/blog-form/blog-form.component.html ***!
@@ -7,7 +236,7 @@
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<form class=\"flex-grow-1 min-height-0 display-flex flex-direction-column\" [askBeforeRefresh]=\"formGroup.dirty\" [formGroup]=\"formGroup\"\r\n  novalidate role=\"form\" (ngSubmit)=\"submitClicked()\" autocomplete=\"off\" inputFocus>\r\n\r\n  <div class=\"flex-grow-1 overflow-auto display-flex flex-direction-column\">\r\n\r\n    <div class=\"flex-grow-1 flex-shrink-0 display-flex flex-direction-column\">\r\n\r\n      <mat-radio-group formControlName=\"type\">\r\n\r\n        <div class=\"display-flex padding-bottom-25px\" fxLayout=\"row\">\r\n\r\n          <div class=\"display-flex margin-right-25px\">\r\n\r\n            <mat-radio-button value=\"Article\" class=\"margin-top-10px\" matTooltip=\"{{ 'Create an Article' | translate }}\">Create an Article</mat-radio-button>\r\n\r\n          </div>\r\n\r\n          <div class=\"display-flex\">\r\n\r\n            <mat-radio-button value=\"Focus\" class=\"margin-top-10px\" matTooltip=\"{{ 'Create a Focus' | translate }}\">Create a Focus</mat-radio-button>\r\n\r\n          </div>\r\n\r\n        </div>\r\n\r\n      </mat-radio-group>\r\n\r\n\r\n      <div class=\"mb-20\" fxFlex fxLayout=\"row\" fxLayout.lt-md=\"column\" fxLayoutGap=\"20px\">\r\n        <div [fxFlex]=\"50\">\r\n\r\n          <div fxLayout=\"row\" fxLayout.lt-md=\"column\" fxLayoutGap=\"20px\" class=\"max-width-480px\">\r\n\r\n\r\n            <div [fxFlex]=\"50\">\r\n\r\n\r\n              <mat-form-field class=\"width-100pc margin-left-16px\">\r\n\r\n                <mat-label>Author</mat-label>\r\n\r\n                <input matInput type=\"text\" formControlName=\"author\" required>\r\n\r\n              </mat-form-field>\r\n\r\n            </div>\r\n\r\n            <div [fxFlex]=\"50\">\r\n\r\n              <mat-form-field class=\"width-100pc\">\r\n\r\n                <mat-label>Brand</mat-label>\r\n                <mat-select placeholder=\"Select\" formControlName=\"brandId\" panelOpen=\"true\" required>\r\n                  <mat-option>...</mat-option>\r\n                  <mat-option *ngFor=\"let brand of brands\" [value]=\"brand.id\">\r\n                    {{brand.name}}\r\n                  </mat-option>\r\n                </mat-select>\r\n\r\n              </mat-form-field>\r\n\r\n            </div>\r\n\r\n          </div>\r\n          <mat-form-field class=\"width-100pc margin-left-16px\">\r\n\r\n            <mat-label>Title</mat-label>\r\n\r\n            <input matInput type=\"text\" formControlName=\"title\" required>\r\n\r\n          </mat-form-field>\r\n\r\n          <mat-form-field class=\"width-100pc margin-left-16px\">\r\n\r\n            <mat-label>Body</mat-label>\r\n\r\n            <input matInput type=\"text\" formControlName=\"body\" required>\r\n\r\n          </mat-form-field>\r\n\r\n        </div>\r\n\r\n        <div [fxFlex]=\"50\" class=\"border max-width-480px\">\r\n\r\n          <div class=\"display-flex justify-content-center\">\r\n            <h3>Image</h3>\r\n          </div>\r\n\r\n          <image-card formControlName=\"faces\" name=\"faces\" class=\"flex-grow-1\" formControlName=\"faces\" [principal]=\"principal\"></image-card>\r\n\r\n        </div>\r\n\r\n      </div>\r\n\r\n\r\n    </div>\r\n\r\n  </div>\r\n\r\n  <div class=\"margin-right-25px padding-top-25px padding-bottom-25px flex-shrink-0 display-flex border-top-style-solid border-top-width-2px border-top-color-grey\">\r\n\r\n    <button mat-raised-button type=\"submit\" color=\"primary\">{{ 'Save' | translate }}</button>\r\n\r\n    <button mat-raised-button type=\"button\" class=\"margin-left-10px\" (click)=\"cancelClicked()\">{{ 'Cancel' | translate }}</button>\r\n\r\n  </div>\r\n</form>"
+module.exports = "<form class=\"flex-grow-1 min-height-0 display-flex flex-direction-column\" [askBeforeRefresh]=\"formGroup.dirty\" [formGroup]=\"formGroup\"\r\n  novalidate role=\"form\" (ngSubmit)=\"submitClicked()\" autocomplete=\"off\" inputFocus>\r\n\r\n  <div class=\"flex-grow-1 overflow-auto display-flex flex-direction-column\">\r\n\r\n    <div class=\"flex-grow-1 flex-shrink-0 display-flex flex-direction-column\">\r\n\r\n      <mat-radio-group formControlName=\"type\">\r\n\r\n        <div class=\"display-flex padding-bottom-25px\" fxLayout=\"row\">\r\n\r\n          <div class=\"display-flex margin-right-25px\">\r\n\r\n            <mat-radio-button value=\"Article\" class=\"margin-top-10px\" matTooltip=\"{{ 'Create an Article' | translate }}\">Create an Article</mat-radio-button>\r\n\r\n          </div>\r\n\r\n          <div class=\"display-flex\">\r\n\r\n            <mat-radio-button value=\"Focus\" class=\"margin-top-10px\" matTooltip=\"{{ 'Create a Focus' | translate }}\">Create a Focus</mat-radio-button>\r\n\r\n          </div>\r\n\r\n        </div>\r\n\r\n      </mat-radio-group>\r\n\r\n\r\n      <div class=\"mb-20\" fxFlex fxLayout=\"row\" fxLayout.lt-md=\"column\" fxLayoutGap=\"20px\">\r\n        <div [fxFlex]=\"50\">\r\n\r\n          <div fxLayout=\"row\" fxLayout.lt-md=\"column\" fxLayoutGap=\"20px\" class=\"max-width-480px\">\r\n\r\n\r\n            <div [fxFlex]=\"50\">\r\n\r\n\r\n              <mat-form-field class=\"width-100pc margin-left-16px\">\r\n\r\n                <mat-label>Author</mat-label>\r\n\r\n                <input matInput type=\"text\" formControlName=\"author\" required>\r\n\r\n              </mat-form-field>\r\n\r\n            </div>\r\n\r\n            <div [fxFlex]=\"50\">\r\n\r\n              <mat-form-field class=\"width-100pc\">\r\n\r\n                <mat-label>Brand</mat-label>\r\n                <mat-select placeholder=\"Select\" formControlName=\"brandId\" panelOpen=\"true\" required>\r\n                  <mat-option>...</mat-option>\r\n                  <mat-option *ngFor=\"let brand of brands\" [value]=\"brand.id\">\r\n                    {{brand.name}}\r\n                  </mat-option>\r\n                </mat-select>\r\n\r\n              </mat-form-field>\r\n\r\n            </div>\r\n\r\n          </div>\r\n          <mat-form-field class=\"width-100pc margin-left-16px\">\r\n\r\n            <mat-label>Title</mat-label>\r\n\r\n            <input matInput type=\"text\" formControlName=\"title\" required>\r\n\r\n          </mat-form-field>\r\n          <div class=\"padding-top-25px max-width-480px\">\r\n            <div class=\"padding-bottom-25px\">\r\n              <mat-label>Body</mat-label>\r\n            </div>\r\n            <p-editor [style]=\"{'height':'320px'}\" formControlName=\"body\"></p-editor>\r\n\r\n          </div>\r\n\r\n        </div>\r\n\r\n        <div [fxFlex]=\"50\" class=\"border max-width-480px\">\r\n\r\n          <div class=\"display-flex justify-content-center\">\r\n            <h3>Image</h3>\r\n          </div>\r\n\r\n          <image-card formControlName=\"faces\" name=\"faces\" class=\"flex-grow-1\" formControlName=\"faces\" [principal]=\"principal\"></image-card>\r\n\r\n        </div>\r\n\r\n      </div>\r\n\r\n\r\n    </div>\r\n\r\n  </div>\r\n\r\n  <div class=\"margin-right-25px padding-top-25px padding-bottom-25px flex-shrink-0 display-flex border-top-style-solid border-top-width-2px border-top-color-grey\">\r\n\r\n    <button mat-raised-button type=\"submit\" color=\"primary\">{{ 'Save' | translate }}</button>\r\n\r\n    <button mat-raised-button type=\"button\" class=\"margin-left-10px\" (click)=\"cancelClicked()\">{{ 'Cancel' | translate }}</button>\r\n\r\n  </div>\r\n</form>"
 
 /***/ }),
 
@@ -119,8 +348,8 @@ var BlogFormComponent = /** @class */ (function (_super) {
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
             selector: 'blog-form',
             template: __webpack_require__(/*! ./blog-form.component.html */ "./src/app/ms-back-office/modules/ms-blogs/components/blog-form/blog-form.component.html"),
-            styles: [__webpack_require__(/*! ./blog-form.component.scss */ "./src/app/ms-back-office/modules/ms-blogs/components/blog-form/blog-form.component.scss")],
-            changeDetection: _angular_core__WEBPACK_IMPORTED_MODULE_0__["ChangeDetectionStrategy"].OnPush
+            changeDetection: _angular_core__WEBPACK_IMPORTED_MODULE_0__["ChangeDetectionStrategy"].OnPush,
+            styles: [__webpack_require__(/*! ./blog-form.component.scss */ "./src/app/ms-back-office/modules/ms-blogs/components/blog-form/blog-form.component.scss")]
         }),
         __metadata("design:paramtypes", [_angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormBuilder"],
             _ngx_translate_core__WEBPACK_IMPORTED_MODULE_2__["TranslateService"]])
@@ -954,14 +1183,16 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_material_tooltip__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! @angular/material/tooltip */ "./node_modules/@angular/material/esm5/tooltip.es5.js");
 /* harmony import */ var _angular_material_card__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! @angular/material/card */ "./node_modules/@angular/material/esm5/card.es5.js");
 /* harmony import */ var _ngx_translate_core__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! @ngx-translate/core */ "./node_modules/@ngx-translate/core/fesm5/ngx-translate-core.js");
-/* harmony import */ var _ui_modules_image_card_image_card_module__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ../../../ui/modules/image-card/image-card.module */ "./src/app/ui/modules/image-card/image-card.module.ts");
-/* harmony import */ var _ui_modules_ask_before_refresh_ask_before_refresh_module__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ../../../ui/modules/ask-before-refresh/ask-before-refresh.module */ "./src/app/ui/modules/ask-before-refresh/ask-before-refresh.module.ts");
-/* harmony import */ var _components_blog_form_blog_form_component__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./components/blog-form/blog-form.component */ "./src/app/ms-back-office/modules/ms-blogs/components/blog-form/blog-form.component.ts");
-/* harmony import */ var _components_blogs_table_blogs_table_component__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./components/blogs-table/blogs-table.component */ "./src/app/ms-back-office/modules/ms-blogs/components/blogs-table/blogs-table.component.ts");
-/* harmony import */ var _components_delete_blog_delete_blog_component__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./components/delete-blog/delete-blog.component */ "./src/app/ms-back-office/modules/ms-blogs/components/delete-blog/delete-blog.component.ts");
-/* harmony import */ var _components_edit_blog_edit_blog_component__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ./components/edit-blog/edit-blog.component */ "./src/app/ms-back-office/modules/ms-blogs/components/edit-blog/edit-blog.component.ts");
-/* harmony import */ var _ms_blogs_routing_module__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ./ms-blogs-routing.module */ "./src/app/ms-back-office/modules/ms-blogs/ms-blogs-routing.module.ts");
-/* harmony import */ var _components_new_blog_new_blog_component__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ./components/new-blog/new-blog.component */ "./src/app/ms-back-office/modules/ms-blogs/components/new-blog/new-blog.component.ts");
+/* harmony import */ var primeng_editor__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! primeng/editor */ "./node_modules/primeng/editor.js");
+/* harmony import */ var primeng_editor__WEBPACK_IMPORTED_MODULE_14___default = /*#__PURE__*/__webpack_require__.n(primeng_editor__WEBPACK_IMPORTED_MODULE_14__);
+/* harmony import */ var _ui_modules_image_card_image_card_module__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ../../../ui/modules/image-card/image-card.module */ "./src/app/ui/modules/image-card/image-card.module.ts");
+/* harmony import */ var _ui_modules_ask_before_refresh_ask_before_refresh_module__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ../../../ui/modules/ask-before-refresh/ask-before-refresh.module */ "./src/app/ui/modules/ask-before-refresh/ask-before-refresh.module.ts");
+/* harmony import */ var _components_blog_form_blog_form_component__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./components/blog-form/blog-form.component */ "./src/app/ms-back-office/modules/ms-blogs/components/blog-form/blog-form.component.ts");
+/* harmony import */ var _components_blogs_table_blogs_table_component__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./components/blogs-table/blogs-table.component */ "./src/app/ms-back-office/modules/ms-blogs/components/blogs-table/blogs-table.component.ts");
+/* harmony import */ var _components_delete_blog_delete_blog_component__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ./components/delete-blog/delete-blog.component */ "./src/app/ms-back-office/modules/ms-blogs/components/delete-blog/delete-blog.component.ts");
+/* harmony import */ var _components_edit_blog_edit_blog_component__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ./components/edit-blog/edit-blog.component */ "./src/app/ms-back-office/modules/ms-blogs/components/edit-blog/edit-blog.component.ts");
+/* harmony import */ var _ms_blogs_routing_module__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ./ms-blogs-routing.module */ "./src/app/ms-back-office/modules/ms-blogs/ms-blogs-routing.module.ts");
+/* harmony import */ var _components_new_blog_new_blog_component__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! ./components/new-blog/new-blog.component */ "./src/app/ms-back-office/modules/ms-blogs/components/new-blog/new-blog.component.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -972,6 +1203,7 @@ var __decorate = (undefined && undefined.__decorate) || function (decorators, ta
 
 
 //
+
 
 
 
@@ -1021,23 +1253,24 @@ var MsBlogsModule = /** @class */ (function () {
                 _angular_material_toolbar__WEBPACK_IMPORTED_MODULE_10__["MatToolbarModule"],
                 _angular_material_tooltip__WEBPACK_IMPORTED_MODULE_11__["MatTooltipModule"],
                 _ngx_translate_core__WEBPACK_IMPORTED_MODULE_13__["TranslateModule"],
-                _ms_blogs_routing_module__WEBPACK_IMPORTED_MODULE_20__["MsBlogsRoutingModule"],
-                _ui_modules_ask_before_refresh_ask_before_refresh_module__WEBPACK_IMPORTED_MODULE_15__["AskBeforeRefreshModule"],
-                _ui_modules_image_card_image_card_module__WEBPACK_IMPORTED_MODULE_14__["ImageCardModule"],
+                _ms_blogs_routing_module__WEBPACK_IMPORTED_MODULE_21__["MsBlogsRoutingModule"],
+                _ui_modules_ask_before_refresh_ask_before_refresh_module__WEBPACK_IMPORTED_MODULE_16__["AskBeforeRefreshModule"],
+                _ui_modules_image_card_image_card_module__WEBPACK_IMPORTED_MODULE_15__["ImageCardModule"],
+                primeng_editor__WEBPACK_IMPORTED_MODULE_14__["EditorModule"]
             ],
             declarations: [
-                _components_blog_form_blog_form_component__WEBPACK_IMPORTED_MODULE_16__["BlogFormComponent"],
-                _components_blogs_table_blogs_table_component__WEBPACK_IMPORTED_MODULE_17__["BlogsTableComponent"],
-                _components_delete_blog_delete_blog_component__WEBPACK_IMPORTED_MODULE_18__["DeleteBlogComponent"],
-                _components_edit_blog_edit_blog_component__WEBPACK_IMPORTED_MODULE_19__["EditBlogComponent"],
-                _components_new_blog_new_blog_component__WEBPACK_IMPORTED_MODULE_21__["NewBlogComponent"]
+                _components_blog_form_blog_form_component__WEBPACK_IMPORTED_MODULE_17__["BlogFormComponent"],
+                _components_blogs_table_blogs_table_component__WEBPACK_IMPORTED_MODULE_18__["BlogsTableComponent"],
+                _components_delete_blog_delete_blog_component__WEBPACK_IMPORTED_MODULE_19__["DeleteBlogComponent"],
+                _components_edit_blog_edit_blog_component__WEBPACK_IMPORTED_MODULE_20__["EditBlogComponent"],
+                _components_new_blog_new_blog_component__WEBPACK_IMPORTED_MODULE_22__["NewBlogComponent"]
             ],
             exports: [
-                _components_blog_form_blog_form_component__WEBPACK_IMPORTED_MODULE_16__["BlogFormComponent"],
-                _components_blogs_table_blogs_table_component__WEBPACK_IMPORTED_MODULE_17__["BlogsTableComponent"],
-                _components_delete_blog_delete_blog_component__WEBPACK_IMPORTED_MODULE_18__["DeleteBlogComponent"],
-                _components_edit_blog_edit_blog_component__WEBPACK_IMPORTED_MODULE_19__["EditBlogComponent"],
-                _components_new_blog_new_blog_component__WEBPACK_IMPORTED_MODULE_21__["NewBlogComponent"]
+                _components_blog_form_blog_form_component__WEBPACK_IMPORTED_MODULE_17__["BlogFormComponent"],
+                _components_blogs_table_blogs_table_component__WEBPACK_IMPORTED_MODULE_18__["BlogsTableComponent"],
+                _components_delete_blog_delete_blog_component__WEBPACK_IMPORTED_MODULE_19__["DeleteBlogComponent"],
+                _components_edit_blog_edit_blog_component__WEBPACK_IMPORTED_MODULE_20__["EditBlogComponent"],
+                _components_new_blog_new_blog_component__WEBPACK_IMPORTED_MODULE_22__["NewBlogComponent"]
             ]
         })
     ], MsBlogsModule);
@@ -1177,207 +1410,6 @@ var BlogsService = /** @class */ (function () {
             _error_handling_services_error_handling_http_service__WEBPACK_IMPORTED_MODULE_1__["ErrorHandlingHttpService"]])
     ], BlogsService);
     return BlogsService;
-}());
-
-
-
-/***/ }),
-
-/***/ "./src/app/ms-back-office/modules/ms-brands/services/brands-resolve.service.ts":
-/*!*************************************************************************************!*\
-  !*** ./src/app/ms-back-office/modules/ms-brands/services/brands-resolve.service.ts ***!
-  \*************************************************************************************/
-/*! exports provided: BrandsResolveService */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "BrandsResolveService", function() { return BrandsResolveService; });
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
-/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! rxjs/operators */ "./node_modules/rxjs/_esm5/operators/index.js");
-/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! rxjs */ "./node_modules/rxjs/_esm5/index.js");
-/* harmony import */ var _ngx_translate_core__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @ngx-translate/core */ "./node_modules/@ngx-translate/core/fesm5/ngx-translate-core.js");
-/* harmony import */ var _error_handling_services_error_handling_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../../error-handling/services/error-handling.service */ "./src/app/error-handling/services/error-handling.service.ts");
-/* harmony import */ var _brands_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./brands.service */ "./src/app/ms-back-office/modules/ms-brands/services/brands.service.ts");
-var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (undefined && undefined.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-//
-
-
-
-//
-
-
-//import { setTranslations } from '@c/ngx-translate';
-var errorKey = 'Error';
-var BrandsResolveService = /** @class */ (function () {
-    function BrandsResolveService(brandsService, translate, errorHandlingService) {
-        this.brandsService = brandsService;
-        this.translate = translate;
-        this.errorHandlingService = errorHandlingService;
-        //setTranslations(this.translate, TRANSLATIONS);
-    }
-    BrandsResolveService.prototype.resolve = function (route) {
-        var _this = this;
-        return this.brandsService.getAllBrands().pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_1__["map"])(function (brands) { return brands; }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_1__["catchError"])(function (err) {
-            _this.errorHandlingService.handleUiError(errorKey, err);
-            return Object(rxjs__WEBPACK_IMPORTED_MODULE_2__["of"])(null);
-        }));
-    };
-    BrandsResolveService = __decorate([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"])({
-            providedIn: 'root'
-        }),
-        __metadata("design:paramtypes", [_brands_service__WEBPACK_IMPORTED_MODULE_5__["BrandsService"],
-            _ngx_translate_core__WEBPACK_IMPORTED_MODULE_3__["TranslateService"],
-            _error_handling_services_error_handling_service__WEBPACK_IMPORTED_MODULE_4__["ErrorHandlingService"]])
-    ], BrandsResolveService);
-    return BrandsResolveService;
-}());
-
-
-
-/***/ }),
-
-/***/ "./src/app/ms-back-office/modules/ms-brands/services/brands.service.ts":
-/*!*****************************************************************************!*\
-  !*** ./src/app/ms-back-office/modules/ms-brands/services/brands.service.ts ***!
-  \*****************************************************************************/
-/*! exports provided: ASCENDING, BrandsService */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ASCENDING", function() { return ASCENDING; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "BrandsService", function() { return BrandsService; });
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
-/* harmony import */ var _error_handling_services_error_handling_http_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../../error-handling/services/error-handling-http.service */ "./src/app/error-handling/services/error-handling-http.service.ts");
-/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! rxjs */ "./node_modules/rxjs/_esm5/index.js");
-/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! rxjs/operators */ "./node_modules/rxjs/_esm5/operators/index.js");
-/* harmony import */ var _config_services_config_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../../config/services/config.service */ "./src/app/config/services/config.service.ts");
-var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (undefined && undefined.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-
-//
-
-
-//
-
-var ASCENDING = 'asc';
-var BrandsService = /** @class */ (function () {
-    function BrandsService(configService, http) {
-        this.configService = configService;
-        this.http = http;
-        this.previousFilter = {};
-        this.previousSortColumn = 'createdAt';
-        this.previousSortDirection = 'desc';
-        this.previousPageIndex = 0;
-        this.previousPageSize = 10;
-        this.brandsList = new rxjs__WEBPACK_IMPORTED_MODULE_2__["BehaviorSubject"]({ dataCount: 0, data: [] });
-        this.apiEndpoint = this.configService.config.apiConfigs.brands.apiEndpoint;
-    }
-    //
-    // Begin functions that most services have.
-    //
-    BrandsService.prototype.getBrands = function (filter, sortColumn, sortDirection, pageIndex, pageSize) {
-        this.previousFilter = filter;
-        this.previousSortColumn = sortColumn;
-        this.previousSortDirection = sortDirection;
-        this.previousPageIndex = pageIndex;
-        this.previousPageSize = pageSize;
-        var queryParams = this.formatQueryParams(filter, sortColumn, sortDirection, pageIndex, pageSize);
-        return this.http.get(this.apiEndpoint + queryParams);
-    };
-    //
-    // Call this function to repeat the previous query, after deleting
-    // a brand for example.
-    //
-    BrandsService.prototype.reloadBrands = function () {
-        return this.getBrands(this.previousFilter, this.previousSortColumn, this.previousSortDirection, this.previousPageIndex, this.previousPageSize);
-    };
-    BrandsService.prototype.postBrand = function (data) {
-        return this.http.post(this.apiEndpoint, JSON.stringify(data));
-    };
-    BrandsService.prototype.getBrand = function (id) {
-        return this.http.get(this.apiEndpoint + id + '/');
-    };
-    BrandsService.prototype.postBrandLinkedShops = function (id, data) {
-        return this.http.post(this.apiEndpoint + id + '/shops/', JSON.stringify(data));
-    };
-    BrandsService.prototype.getBrandLinkedShops = function (id) {
-        return this.http.get(this.apiEndpoint + id + '/shops/');
-    };
-    BrandsService.prototype.putBrand = function (data) {
-        return this.http.put(this.apiEndpoint + data.id + '/', JSON.stringify(data));
-    };
-    BrandsService.prototype.deleteBrand = function (id) {
-        return this.http.delete(this.apiEndpoint + id + '/');
-    };
-    BrandsService.prototype.formatQueryParams = function (filter, sortColumn, sortDirection, pageIndex, pageSize) {
-        var queryParams = '';
-        if (filter.name && filter.name.length > 0) {
-            queryParams += queryParams.length > 0 ? '&' : '?';
-            queryParams += "name=" + filter.name;
-        }
-        /*if (filter.collection && filter.collection.length > 0) {
-            queryParams += queryParams.length > 0 ? '&' : '?';
-            queryParams += `collection=${filter.collection}`;
-        }*/
-        if (sortColumn) {
-            var ordering = '';
-            if (sortDirection === 'desc') {
-                ordering = '-';
-            }
-            ordering += sortColumn;
-            queryParams += queryParams.length > 0 ? '&' : '?';
-            queryParams += "ordering=" + ordering;
-        }
-        if (pageIndex !== undefined) {
-            queryParams += queryParams.length > 0 ? '&' : '?';
-            queryParams += "offset=" + pageIndex * pageSize;
-        }
-        if (pageSize !== undefined) {
-            queryParams += queryParams.length > 0 ? '&' : '?';
-            queryParams += "limit=" + pageSize;
-        }
-        return queryParams;
-    };
-    //
-    // End functions that most services have.
-    //
-    //
-    // Begin special functions specific to only this service.
-    //
-    BrandsService.prototype.getAllBrands = function () {
-        return this.http.get(this.apiEndpoint)
-            .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["map"])(function (response) {
-            return response.data;
-        }));
-    };
-    BrandsService = __decorate([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"])({
-            providedIn: 'root'
-        }),
-        __metadata("design:paramtypes", [_config_services_config_service__WEBPACK_IMPORTED_MODULE_4__["ConfigService"],
-            _error_handling_services_error_handling_http_service__WEBPACK_IMPORTED_MODULE_1__["ErrorHandlingHttpService"]])
-    ], BrandsService);
-    return BrandsService;
 }());
 
 

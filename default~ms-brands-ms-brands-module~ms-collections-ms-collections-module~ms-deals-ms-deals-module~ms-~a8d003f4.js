@@ -22148,7 +22148,7 @@ var AtpTimePickerComponent = (function () {
         var /** @type {?} */ config = this.config;
         config = {
             time: config.time || '00:00',
-            theme: ['light', 'dark', 'material'].indexOf(config.theme) > 0 ? config.theme : 'light' || config.theme || 'light',
+            theme: ['light', 'dark', 'material'].indexOf(config.theme) > 0 ? config.theme : 'light' || false || false,
             rangeTime: config.rangeTime || { start: '0:0', end: '24:0' },
             arrowStyle: config.arrowStyle || {}
         };
@@ -22283,7 +22283,7 @@ var AmazingTimePickerService = (function () {
         config = config || {};
         config = ({
             time: config.time || '00:00',
-            theme: thems.indexOf(config.theme) > 0 ? config.theme : 'light' || config.theme || 'light',
+            theme: thems.indexOf(config.theme) > 0 ? config.theme : 'light' || false || false,
             rangeTime: config.rangeTime || { start: '0:0', end: '24:0' },
             arrowStyle: config.arrowStyle || {},
             locale: config.locale || 'en',
