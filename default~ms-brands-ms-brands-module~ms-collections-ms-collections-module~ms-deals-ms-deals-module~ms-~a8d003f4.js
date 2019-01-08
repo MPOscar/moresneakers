@@ -23039,6 +23039,10 @@ var ShopsService = /** @class */ (function () {
             queryParams += queryParams.length > 0 ? '&' : '?';
             queryParams += "active=" + filter.status;
         }
+        if (filter.isParent === 0 || filter.isParent === 1) {
+            queryParams += queryParams.length > 0 ? '&' : '?';
+            queryParams += "isParent=" + filter.isParent;
+        }
         if (sortColumn) {
             var ordering = '';
             if (sortDirection === 'desc') {
