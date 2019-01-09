@@ -1134,8 +1134,8 @@ var NewReleaseModalComponent = /** @class */ (function () {
     NewReleaseModalComponent.prototype.cancel = function () {
         this.close();
     };
-    NewReleaseModalComponent.prototype.close = function () {
-        this.dialogRef.close();
+    NewReleaseModalComponent.prototype.close = function (id) {
+        this.dialogRef.close(id);
     };
     NewReleaseModalComponent.prototype.createRelease = function (releaseData) {
         var _this = this;
@@ -1188,7 +1188,7 @@ var NewReleaseModalComponent = /** @class */ (function () {
                         _this.validationErrors = error.formErrors;
                     });
                     _this.unsavedChanges = false;
-                    _this.close();
+                    _this.close(_this.releaseId);
                     _this.toastr.success((savedUserMessageKey));
                 }, function (error) {
                     _this.errorHandlingService.handleUiError(errorKey, error);
@@ -1196,7 +1196,7 @@ var NewReleaseModalComponent = /** @class */ (function () {
                 });
             }
             else {
-                _this.close();
+                _this.close(_this.releaseId);
             }
         }, function (error) {
             _this.errorHandlingService.handleUiError(errorKey, error);
@@ -1808,6 +1808,7 @@ var ReleasesCollectionTableComponent = /** @class */ (function () {
         this.genders = _models_gender__WEBPACK_IMPORTED_MODULE_8__["GENDERS"];
         this.totalLength = 0;
         this.releases = [];
+        this.newRelease = new _angular_core__WEBPACK_IMPORTED_MODULE_0__["EventEmitter"]();
     }
     ReleasesCollectionTableComponent.prototype.ngOnInit = function () {
         var _this = this;
@@ -1913,7 +1914,9 @@ var ReleasesCollectionTableComponent = /** @class */ (function () {
                 styles: this.styles
             }
         });
-        this.modalRef.afterClosed().subscribe(function () {
+        this.modalRef.afterClosed().subscribe(function (newReleaseId) {
+            console.log(newReleaseId);
+            _this.newRelease.emit(newReleaseId);
             _this.loadPage();
         });
     };
@@ -1956,6 +1959,10 @@ var ReleasesCollectionTableComponent = /** @class */ (function () {
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])(),
         __metadata("design:type", String)
     ], ReleasesCollectionTableComponent.prototype, "collectionId", void 0);
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"])(),
+        __metadata("design:type", Object)
+    ], ReleasesCollectionTableComponent.prototype, "newRelease", void 0);
     ReleasesCollectionTableComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
             selector: 'releases-collection-table',
