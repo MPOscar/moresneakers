@@ -1,4 +1,205 @@
-(window["webpackJsonp"] = window["webpackJsonp"] || []).push([["default~ms-collections-ms-collections-module~ms-offers-ms-offers-module~ms-releases-ms-releases-modu~9021e546"],{
+(window["webpackJsonp"] = window["webpackJsonp"] || []).push([["default~ms-brands-ms-brands-module~ms-collections-ms-collections-module~ms-offers-ms-offers-module~m~94c757c6"],{
+
+/***/ "./src/app/ms-back-office/modules/ms-brands/services/brands-resolve.service.ts":
+/*!*************************************************************************************!*\
+  !*** ./src/app/ms-back-office/modules/ms-brands/services/brands-resolve.service.ts ***!
+  \*************************************************************************************/
+/*! exports provided: BrandsResolveService */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "BrandsResolveService", function() { return BrandsResolveService; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! rxjs/operators */ "./node_modules/rxjs/_esm5/operators/index.js");
+/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! rxjs */ "./node_modules/rxjs/_esm5/index.js");
+/* harmony import */ var _ngx_translate_core__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @ngx-translate/core */ "./node_modules/@ngx-translate/core/fesm5/ngx-translate-core.js");
+/* harmony import */ var _error_handling_services_error_handling_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../../error-handling/services/error-handling.service */ "./src/app/error-handling/services/error-handling.service.ts");
+/* harmony import */ var _brands_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./brands.service */ "./src/app/ms-back-office/modules/ms-brands/services/brands.service.ts");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+//
+
+
+
+//
+
+
+//import { setTranslations } from '@c/ngx-translate';
+var errorKey = 'Error';
+var BrandsResolveService = /** @class */ (function () {
+    function BrandsResolveService(brandsService, translate, errorHandlingService) {
+        this.brandsService = brandsService;
+        this.translate = translate;
+        this.errorHandlingService = errorHandlingService;
+        //setTranslations(this.translate, TRANSLATIONS);
+    }
+    BrandsResolveService.prototype.resolve = function (route) {
+        var _this = this;
+        return this.brandsService.getAllBrands().pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_1__["map"])(function (brands) { return brands; }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_1__["catchError"])(function (err) {
+            _this.errorHandlingService.handleUiError(errorKey, err);
+            return Object(rxjs__WEBPACK_IMPORTED_MODULE_2__["of"])(null);
+        }));
+    };
+    BrandsResolveService = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"])({
+            providedIn: 'root'
+        }),
+        __metadata("design:paramtypes", [_brands_service__WEBPACK_IMPORTED_MODULE_5__["BrandsService"],
+            _ngx_translate_core__WEBPACK_IMPORTED_MODULE_3__["TranslateService"],
+            _error_handling_services_error_handling_service__WEBPACK_IMPORTED_MODULE_4__["ErrorHandlingService"]])
+    ], BrandsResolveService);
+    return BrandsResolveService;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/ms-back-office/modules/ms-brands/services/brands.service.ts":
+/*!*****************************************************************************!*\
+  !*** ./src/app/ms-back-office/modules/ms-brands/services/brands.service.ts ***!
+  \*****************************************************************************/
+/*! exports provided: ASCENDING, BrandsService */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ASCENDING", function() { return ASCENDING; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "BrandsService", function() { return BrandsService; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _error_handling_services_error_handling_http_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../../error-handling/services/error-handling-http.service */ "./src/app/error-handling/services/error-handling-http.service.ts");
+/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! rxjs */ "./node_modules/rxjs/_esm5/index.js");
+/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! rxjs/operators */ "./node_modules/rxjs/_esm5/operators/index.js");
+/* harmony import */ var _config_services_config_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../../config/services/config.service */ "./src/app/config/services/config.service.ts");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+//
+
+
+//
+
+var ASCENDING = 'asc';
+var BrandsService = /** @class */ (function () {
+    function BrandsService(configService, http) {
+        this.configService = configService;
+        this.http = http;
+        this.previousFilter = {};
+        this.previousSortColumn = 'createdAt';
+        this.previousSortDirection = 'desc';
+        this.previousPageIndex = 0;
+        this.previousPageSize = 10;
+        this.brandsList = new rxjs__WEBPACK_IMPORTED_MODULE_2__["BehaviorSubject"]({ dataCount: 0, data: [] });
+        this.apiEndpoint = this.configService.config.apiConfigs.brands.apiEndpoint;
+    }
+    //
+    // Begin functions that most services have.
+    //
+    BrandsService.prototype.getBrands = function (filter, sortColumn, sortDirection, pageIndex, pageSize) {
+        this.previousFilter = filter;
+        this.previousSortColumn = sortColumn;
+        this.previousSortDirection = sortDirection;
+        this.previousPageIndex = pageIndex;
+        this.previousPageSize = pageSize;
+        var queryParams = this.formatQueryParams(filter, sortColumn, sortDirection, pageIndex, pageSize);
+        return this.http.get(this.apiEndpoint + queryParams);
+    };
+    //
+    // Call this function to repeat the previous query, after deleting
+    // a brand for example.
+    //
+    BrandsService.prototype.reloadBrands = function () {
+        return this.getBrands(this.previousFilter, this.previousSortColumn, this.previousSortDirection, this.previousPageIndex, this.previousPageSize);
+    };
+    BrandsService.prototype.postBrand = function (data) {
+        return this.http.post(this.apiEndpoint, JSON.stringify(data));
+    };
+    BrandsService.prototype.getBrand = function (id) {
+        return this.http.get(this.apiEndpoint + id + '/');
+    };
+    BrandsService.prototype.postBrandLinkedShops = function (id, data) {
+        return this.http.post(this.apiEndpoint + id + '/shops/', JSON.stringify(data));
+    };
+    BrandsService.prototype.getBrandLinkedShops = function (id) {
+        return this.http.get(this.apiEndpoint + id + '/shops/');
+    };
+    BrandsService.prototype.putBrand = function (data) {
+        return this.http.put(this.apiEndpoint + data.id + '/', JSON.stringify(data));
+    };
+    BrandsService.prototype.deleteBrand = function (id) {
+        return this.http.delete(this.apiEndpoint + id + '/');
+    };
+    BrandsService.prototype.formatQueryParams = function (filter, sortColumn, sortDirection, pageIndex, pageSize) {
+        var queryParams = '';
+        if (filter.name && filter.name.length > 0) {
+            queryParams += queryParams.length > 0 ? '&' : '?';
+            queryParams += "name=" + filter.name;
+        }
+        /*if (filter.collection && filter.collection.length > 0) {
+            queryParams += queryParams.length > 0 ? '&' : '?';
+            queryParams += `collection=${filter.collection}`;
+        }*/
+        if (sortColumn) {
+            var ordering = '';
+            if (sortDirection === 'desc') {
+                ordering = '-';
+            }
+            ordering += sortColumn;
+            queryParams += queryParams.length > 0 ? '&' : '?';
+            queryParams += "ordering=" + ordering;
+        }
+        if (pageIndex !== undefined) {
+            queryParams += queryParams.length > 0 ? '&' : '?';
+            queryParams += "offset=" + pageIndex * pageSize;
+        }
+        if (pageSize !== undefined) {
+            queryParams += queryParams.length > 0 ? '&' : '?';
+            queryParams += "limit=" + pageSize;
+        }
+        return queryParams;
+    };
+    //
+    // End functions that most services have.
+    //
+    //
+    // Begin special functions specific to only this service.
+    //
+    BrandsService.prototype.getAllBrands = function () {
+        return this.http.get(this.apiEndpoint)
+            .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["map"])(function (response) {
+            return response.data;
+        }));
+    };
+    BrandsService = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"])({
+            providedIn: 'root'
+        }),
+        __metadata("design:paramtypes", [_config_services_config_service__WEBPACK_IMPORTED_MODULE_4__["ConfigService"],
+            _error_handling_services_error_handling_http_service__WEBPACK_IMPORTED_MODULE_1__["ErrorHandlingHttpService"]])
+    ], BrandsService);
+    return BrandsService;
+}());
+
+
+
+/***/ }),
 
 /***/ "./src/app/ms-back-office/modules/ms-offers/components/delete-offer/delete-offer.component.html":
 /*!******************************************************************************************************!*\
@@ -310,7 +511,7 @@ module.exports = ":host {\r\n  display: flex;\r\n  flex-grow: 1;\r\n  flex-direc
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<h1>Link New Offers</h1>\r\n<!--mat-toolbar class=\"margin-right-25px margin-bottom-10px width-auto flex-shrink-0 background-color-secondary color-primary mat-elevation-z2\"\r\n  [formGroup]=\"filter\">\r\n\r\n  <mat-icon matPrefix color=\"primary\">search</mat-icon-->\r\n<!--mat-form-field>\r\n    <input matInput formControlName=\"name\" placeholder=\"Name\">\r\n  </mat-form-field-->\r\n\r\n<!--mat-form-field>\r\n    <mat-label>Collection</mat-label>\r\n    <mat-select placeholder=\"Collection\" formControlName=\"collection\">\r\n        <mat-option *ngFor=\"let collection of collections\" [value]=\"collection.id\">\r\n          {{collection.name}}\r\n        </mat-option>\r\n      </mat-select>\r\n  </mat-form-field-->\r\n\r\n<!--span class=\"flex-grow-1\"></span>\r\n  <button mat-raised-button color=\"primary\" (click)=\"addNewOfferModal()\">CREATE A OFFER</button>\r\n</mat-toolbar-->\r\n\r\n<div class=\"flex-grow-1 overflow-auto display-flex\">\r\n\r\n  <table class=\"margin-top-10px margin-right-25px width-100pct\" mat-table [dataSource]=\"offers\" matSort [matSortActive]=\"offersService.previousSortColumn\"\r\n    [matSortDirection]=\"offersService.previousSortDirection\" matSortDisableClear (matSortChange)=\"onSort()\">\r\n\r\n\r\n    <ng-container matColumnDef=\"linked\">\r\n      <th mat-header-cell *matHeaderCellDef mat-sort-header>\r\n\r\n      </th>\r\n      <td mat-cell *matCellDef=\"let element\" class=\"padding-table-td\">\r\n        <mat-checkbox [checked]=\"element.checked\" class=\"margin-top-10px\" matTooltip=\"{{ 'Link' | translate }}\" (click)=\"linked(element)\"></mat-checkbox>\r\n      </td>\r\n    </ng-container>\r\n\r\n    <ng-container matColumnDef=\"sku\">\r\n      <th mat-header-cell *matHeaderCellDef mat-sort-header>\r\n        SKU\r\n      </th>\r\n      <td mat-cell *matCellDef=\"let element\" class=\"padding-table-td\"> {{ getReleaseSku(element.releaseId) }} </td>\r\n    </ng-container>\r\n\r\n    <ng-container matColumnDef=\"RELEASE NAME\">\r\n      <th mat-header-cell *matHeaderCellDef mat-sort-header>\r\n        RELEASE NAME\r\n      </th>\r\n      <td mat-cell *matCellDef=\"let element\" class=\"padding-table-td\"> {{ getReleaseName(element.releaseId) }} </td>\r\n    </ng-container>\r\n\r\n    <ng-container matColumnDef=\"COLLECTION\">\r\n      <th mat-header-cell *matHeaderCellDef mat-sort-header>\r\n        COLLECTION\r\n      </th>\r\n      <td mat-cell *matCellDef=\"let element\" class=\"padding-table-td\"> {{ getCollectionNameRelease(element.releaseId) }} </td>\r\n    </ng-container>\r\n\r\n    <ng-container matColumnDef=\"COLOR\">\r\n      <th mat-header-cell *matHeaderCellDef mat-sort-header>\r\n        COLOR\r\n      </th>\r\n      <td mat-cell *matCellDef=\"let element\" class=\"padding-table-td\"> {{ getReleaseColor(element.releaseId) }} </td>\r\n    </ng-container>\r\n\r\n    <ng-container matColumnDef=\"OFFICIAL RELEASE\">\r\n      <th mat-header-cell *matHeaderCellDef mat-sort-header>\r\n        OFFICIAL RELEASE\r\n      </th>\r\n      <td mat-cell *matCellDef=\"let element\" class=\"padding-table-td\"> {{ getReleaseDate(element.releaseId) | date: 'dd/MM/yyyy' }} </td>\r\n    </ng-container>\r\n\r\n    <ng-container matColumnDef=\"SHOP\">\r\n      <th mat-header-cell *matHeaderCellDef mat-sort-header>\r\n        SHOP\r\n      </th>\r\n      <td mat-cell *matCellDef=\"let element\" class=\"padding-table-td\"> {{ getShop(element.shopId) }} </td>\r\n    </ng-container>\r\n\r\n    <ng-container matColumnDef=\"STATUS\">\r\n      <th mat-header-cell *matHeaderCellDef mat-sort-header>\r\n        STATUS\r\n      </th>\r\n      <td mat-cell *matCellDef=\"let element\" class=\"padding-table-td\"> {{ element.status }} </td>\r\n    </ng-container>\r\n\r\n    <ng-container matColumnDef=\"ACTION\">\r\n      <th mat-header-cell *matHeaderCellDef mat-sort-header>\r\n      </th>\r\n      <td mat-cell *matCellDef=\"let element\"  class=\"min-width-80px\">\r\n        <button mat-icon-button color=\"primary\" type=\"button\" [matTooltip]=\"Edit\" (click)=\"editOfferModal(element.id)\">\r\n          <mat-icon>edit</mat-icon>\r\n        </button>\r\n        <button mat-icon-button color=\"primary\" type=\"button\" [matTooltip]=\"Delete\" (click)=\"getOfferToDelete(element)\">\r\n          <mat-icon>delete</mat-icon>\r\n        </button>\r\n      </td>\r\n    </ng-container>\r\n\r\n    <tr mat-header-row *matHeaderRowDef=\"displayedColumns\"></tr>\r\n    <tr mat-row *matRowDef=\"let row; columns: displayedColumns;\" [ngClass]=\"row.is_active ? '' : 'text-decoration-line-through'\">\r\n    </tr>\r\n\r\n  </table>\r\n\r\n</div>\r\n\r\n<div class=\"margin-right-25px padding-top-5px padding-bottom-5px flex-shrink-0 display-flex\">\r\n  <span class=\"flex-grow-1\"></span>\r\n  <mat-paginator [length]=\"totalLength\" [pageSizeOptions]=\"[5, 10, 20, 50, 100]\" [pageIndex]=\"\" [pageSize]=\"50\" showFirstLastButtons\r\n    (page)=\"onPage()\">\r\n  </mat-paginator>\r\n</div>\r\n<div class=\"margin-right-25px padding-top-25px flex-shrink-0 display-flex border-top-style-solid border-top-width-2px border-top-color-grey\">\r\n\r\n  <button mat-raised-button type=\"buttom\" color=\"primary\" (click)=\"save()\">{{ 'Save' | translate }}</button>\r\n\r\n  <button mat-raised-button type=\"button\" class=\"margin-left-10px\" (click)=\"close()\">{{ 'Cancel' | translate }}</button>\r\n\r\n</div>"
+module.exports = "<h1>Link New Offers</h1>\r\n<!--mat-toolbar class=\"margin-right-25px margin-bottom-10px width-auto flex-shrink-0 background-color-secondary color-primary mat-elevation-z2\"\r\n  [formGroup]=\"filter\">\r\n\r\n  <mat-icon matPrefix color=\"primary\">search</mat-icon-->\r\n<!--mat-form-field>\r\n    <input matInput formControlName=\"name\" placeholder=\"Name\">\r\n  </mat-form-field-->\r\n\r\n<!--mat-form-field>\r\n    <mat-label>Collection</mat-label>\r\n    <mat-select disableOptionCentering placeholder=\"Collection\" formControlName=\"collection\">\r\n        <mat-option *ngFor=\"let collection of collections\" [value]=\"collection.id\">\r\n          {{collection.name}}\r\n        </mat-option>\r\n      </mat-select>\r\n  </mat-form-field-->\r\n\r\n<!--span class=\"flex-grow-1\"></span>\r\n  <button mat-raised-button color=\"primary\" (click)=\"addNewOfferModal()\">CREATE A OFFER</button>\r\n</mat-toolbar-->\r\n\r\n<div class=\"flex-grow-1 overflow-auto display-flex\">\r\n\r\n  <table class=\"margin-top-10px margin-right-25px width-100pct\" mat-table [dataSource]=\"offers\" matSort [matSortActive]=\"offersService.previousSortColumn\"\r\n    [matSortDirection]=\"offersService.previousSortDirection\" matSortDisableClear (matSortChange)=\"onSort()\">\r\n\r\n\r\n    <ng-container matColumnDef=\"linked\">\r\n      <th mat-header-cell *matHeaderCellDef mat-sort-header>\r\n\r\n      </th>\r\n      <td mat-cell *matCellDef=\"let element\" class=\"padding-table-td\">\r\n        <mat-checkbox [checked]=\"element.checked\" class=\"margin-top-10px\" matTooltip=\"{{ 'Link' | translate }}\" (click)=\"linked(element)\"></mat-checkbox>\r\n      </td>\r\n    </ng-container>\r\n\r\n    <ng-container matColumnDef=\"sku\">\r\n      <th mat-header-cell *matHeaderCellDef mat-sort-header>\r\n        SKU\r\n      </th>\r\n      <td mat-cell *matCellDef=\"let element\" class=\"padding-table-td\"> {{ getReleaseSku(element.releaseId) }} </td>\r\n    </ng-container>\r\n\r\n    <ng-container matColumnDef=\"RELEASE NAME\">\r\n      <th mat-header-cell *matHeaderCellDef mat-sort-header>\r\n        RELEASE NAME\r\n      </th>\r\n      <td mat-cell *matCellDef=\"let element\" class=\"padding-table-td\"> {{ getReleaseName(element.releaseId) }} </td>\r\n    </ng-container>\r\n\r\n    <ng-container matColumnDef=\"COLLECTION\">\r\n      <th mat-header-cell *matHeaderCellDef mat-sort-header>\r\n        COLLECTION\r\n      </th>\r\n      <td mat-cell *matCellDef=\"let element\" class=\"padding-table-td\"> {{ getCollectionNameRelease(element.releaseId) }} </td>\r\n    </ng-container>\r\n\r\n    <ng-container matColumnDef=\"COLOR\">\r\n      <th mat-header-cell *matHeaderCellDef mat-sort-header>\r\n        COLOR\r\n      </th>\r\n      <td mat-cell *matCellDef=\"let element\" class=\"padding-table-td\"> {{ getReleaseColor(element.releaseId) }} </td>\r\n    </ng-container>\r\n\r\n    <ng-container matColumnDef=\"OFFICIAL RELEASE\">\r\n      <th mat-header-cell *matHeaderCellDef mat-sort-header>\r\n        OFFICIAL RELEASE\r\n      </th>\r\n      <td mat-cell *matCellDef=\"let element\" class=\"padding-table-td\"> {{ getReleaseDate(element.releaseId) | date: 'dd/MM/yyyy' }} </td>\r\n    </ng-container>\r\n\r\n    <ng-container matColumnDef=\"SHOP\">\r\n      <th mat-header-cell *matHeaderCellDef mat-sort-header>\r\n        SHOP\r\n      </th>\r\n      <td mat-cell *matCellDef=\"let element\" class=\"padding-table-td\"> {{ getShop(element.shopId) }} </td>\r\n    </ng-container>\r\n\r\n    <ng-container matColumnDef=\"STATUS\">\r\n      <th mat-header-cell *matHeaderCellDef mat-sort-header>\r\n        STATUS\r\n      </th>\r\n      <td mat-cell *matCellDef=\"let element\" class=\"padding-table-td\"> {{ element.status }} </td>\r\n    </ng-container>\r\n\r\n    <ng-container matColumnDef=\"ACTION\">\r\n      <th mat-header-cell *matHeaderCellDef mat-sort-header>\r\n      </th>\r\n      <td mat-cell *matCellDef=\"let element\"  class=\"min-width-80px\">\r\n        <button mat-icon-button color=\"primary\" type=\"button\" [matTooltip]=\"Edit\" (click)=\"editOfferModal(element.id)\">\r\n          <mat-icon>edit</mat-icon>\r\n        </button>\r\n        <button mat-icon-button color=\"primary\" type=\"button\" [matTooltip]=\"Delete\" (click)=\"getOfferToDelete(element)\">\r\n          <mat-icon>delete</mat-icon>\r\n        </button>\r\n      </td>\r\n    </ng-container>\r\n\r\n    <tr mat-header-row *matHeaderRowDef=\"displayedColumns\"></tr>\r\n    <tr mat-row *matRowDef=\"let row; columns: displayedColumns;\" [ngClass]=\"row.is_active ? '' : 'text-decoration-line-through'\">\r\n    </tr>\r\n\r\n  </table>\r\n\r\n</div>\r\n\r\n<div class=\"margin-right-25px padding-top-5px padding-bottom-5px flex-shrink-0 display-flex\">\r\n  <span class=\"flex-grow-1\"></span>\r\n  <mat-paginator [length]=\"totalLength\" [pageSizeOptions]=\"[5, 10, 20, 50, 100]\" [pageIndex]=\"\" [pageSize]=\"50\" showFirstLastButtons\r\n    (page)=\"onPage()\">\r\n  </mat-paginator>\r\n</div>\r\n<div class=\"margin-right-25px padding-top-25px flex-shrink-0 display-flex border-top-style-solid border-top-width-2px border-top-color-grey\">\r\n\r\n  <button mat-raised-button type=\"buttom\" color=\"primary\" (click)=\"save()\">{{ 'Save' | translate }}</button>\r\n\r\n  <button mat-raised-button type=\"button\" class=\"margin-left-10px\" (click)=\"close()\">{{ 'Cancel' | translate }}</button>\r\n\r\n</div>"
 
 /***/ }),
 
@@ -738,7 +939,7 @@ var NewOfferComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<form class=\"flex-grow-1 min-height-0 display-flex flex-direction-column\" [askBeforeRefresh]=\"formGroup.dirty\" [formGroup]=\"formGroup\"\r\n  novalidate role=\"form\" (ngSubmit)=\"submitClicked()\" autocomplete=\"off\" inputFocus>\r\n\r\n  <div class=\"flex-grow-1 overflow-auto display-flex flex-direction-column padding-bottom-25px\">\r\n\r\n    <div class=\"flex-grow-1 flex-shrink-0 display-flex flex-direction-column\">\r\n\r\n      <div [fxFlex]=\"100\" fxLayout=\"row\" class=\"padding-top-10px\">\r\n\r\n        <div [fxFlex]=\"25\" class=\"margin-right-25px\">\r\n\r\n          <mat-radio-group *ngIf=\"!customized\" formControlName=\"raffle\">\r\n\r\n            <div class=\"display-flex padding-bottom-25px\" fxLayout=\"row\">\r\n\r\n              <div class=\"display-flex margin-right-25px\">\r\n\r\n                <mat-radio-button value=\"true\" class=\"margin-top-10px\" matTooltip=\"{{ 'Principal' | translate }}\">Release</mat-radio-button>\r\n\r\n              </div>\r\n\r\n              <div class=\"display-flex\">\r\n\r\n                <mat-radio-button value=\"false\" class=\"margin-top-10px\" matTooltip=\"{{ 'Principal' | translate }}\">Rafle</mat-radio-button>\r\n\r\n              </div>\r\n\r\n            </div>\r\n\r\n          </mat-radio-group>\r\n\r\n          <mat-form-field class=\"width-100pc\">\r\n\r\n            <mat-label>Shops</mat-label>\r\n\r\n            <mat-select placeholder=\"Select Shop\" formControlName=\"shopId\" required>\r\n\r\n              <mat-option>...</mat-option>\r\n\r\n              <mat-option *ngFor=\"let shop of shops\" [value]=\"shop.id\" (click)=\"changeShop(shop)\">\r\n\r\n                {{shop.name}}\r\n\r\n              </mat-option>\r\n\r\n            </mat-select>\r\n\r\n          </mat-form-field>\r\n\r\n          <mat-form-field class=\"width-100pc\" *ngIf=\"!releaseId\">\r\n\r\n            <mat-label>Releases</mat-label>\r\n\r\n            <mat-select placeholder=\"Select Release\" formControlName=\"releaseId\" required>\r\n\r\n              <mat-option>...</mat-option>\r\n\r\n              <mat-option *ngFor=\"let release of releases\" [value]=\"release.id\">\r\n\r\n                {{release.name}}\r\n\r\n              </mat-option>\r\n\r\n            </mat-select>\r\n\r\n          </mat-form-field>\r\n\r\n\r\n\r\n          <mat-form-field class=\"width-100pc\">\r\n\r\n            <mat-label>Shipping</mat-label>\r\n\r\n            <mat-select placeholder=\"Select Status\" formControlName=\"shipping\" required>\r\n\r\n              <mat-option>...</mat-option>\r\n\r\n              <mat-option *ngFor=\"let _shipping of shipping\" [value]=\"_shipping.id\">\r\n\r\n                {{_shipping.name}}\r\n\r\n              </mat-option>\r\n\r\n            </mat-select>\r\n\r\n          </mat-form-field>\r\n\r\n        </div>\r\n\r\n        <div [fxFlex]=\"75\" fxLayout=\"column\" class=\"margin-left-10px\">\r\n\r\n          <div fxLayout=\"row\">\r\n\r\n            <div [fxFlex]=\"25\" fxLayout=\"column\">\r\n\r\n              <mat-card class=\"display-flex background-color-secondary flex-direction-column flex-shrink-1\">\r\n                <div class=\"image-container flex-grow-1\" #imageContainer>\r\n                  <img class=\"img\" imageLoad [srcImage]=\"shopSlected.mainImage? shopSlected.mainImage : ''\" [container]=\"imageContainer\" src=\"\">\r\n                </div>\r\n              </mat-card>\r\n\r\n            </div>\r\n\r\n            <div [fxFlex]=\"60\" fxLayout=\"row\" class=\"margin-left-25px\">\r\n\r\n              <div [fxFlex]=\"50\">\r\n\r\n                <h3>{{ shopSlected.name }}</h3>\r\n\r\n              </div>\r\n\r\n            </div>\r\n\r\n          </div>\r\n\r\n          <div [fxFlex]=\"100\" fxLayout=\"row\">\r\n\r\n            <div [fxFlex]=\"30\" fxLayout=\"column\" class=\"margin-right-25px\">\r\n\r\n              <div fxLayout=\"row\" class=\"margin-top-18px flex-grow-0\">\r\n\r\n                <div [fxFlex]=\"50\">\r\n\r\n                  <mat-form-field class=\"width-90pct\">\r\n\r\n                    <mat-label>Retail Price</mat-label>\r\n\r\n                    <input matInput type=\"number\" formControlName=\"price\" required>\r\n\r\n                  </mat-form-field>\r\n\r\n                </div>\r\n\r\n                <div [fxFlex]=\"50\">\r\n\r\n                  <mat-form-field class=\"width-100pct\">\r\n\r\n                    <mat-label>Currency</mat-label>\r\n\r\n                    <mat-select placeholder=\"Select Shop\">\r\n\r\n                      <mat-option>...</mat-option>\r\n\r\n                      <mat-option *ngFor=\"let _currency of currency\" [value]=\"_currency.id\">\r\n\r\n                        {{_currency.name}}\r\n\r\n                      </mat-option>\r\n\r\n                    </mat-select>\r\n\r\n                  </mat-form-field>\r\n                </div>\r\n\r\n              </div>\r\n\r\n              <mat-form-field class=\"width-100pc\">\r\n\r\n                <mat-label>Status</mat-label>\r\n\r\n                <mat-select placeholder=\"Select Status\" formControlName=\"status\" required>\r\n\r\n                  <mat-option>...</mat-option>\r\n\r\n                  <mat-option *ngFor=\"let state of status\" [value]=\"state.id\">\r\n\r\n                    {{state.name}}\r\n\r\n                  </mat-option>\r\n\r\n                </mat-select>\r\n\r\n              </mat-form-field>\r\n\r\n              <div *ngIf=\"formGroup.get('raffle').value === 'true'\" fxLayout=\"column\" class=\"margin-top-18px flex-grow-0\">\r\n\r\n                <mat-label>Release Time</mat-label>\r\n\r\n                <div fxLayout=\"row\" class=\"margin-top-18px flex-grow-0\">\r\n\r\n                  <div [fxFlex]=\"50\">\r\n\r\n                    <mat-form-field class=\"width-90pct\">\r\n\r\n                      <mat-label>Time</mat-label>\r\n\r\n                      <input matInput atp-time-picker class=\"cursor-pointer\" value=\"00:00\" />\r\n\r\n                    </mat-form-field>\r\n\r\n                  </div>\r\n\r\n                  <div [fxFlex]=\"50\">\r\n\r\n                    <mat-form-field class=\"width-100pct\">\r\n\r\n                      <mat-label>Time Zone</mat-label>\r\n\r\n                      <mat-select placeholder=\"Select Shop\">\r\n\r\n                        <mat-option>...</mat-option>\r\n\r\n                        <mat-option *ngFor=\"let _timeZone of timeZone\" [value]=\"_timeZone.id\">\r\n\r\n                          {{_timeZone.name}}\r\n\r\n                        </mat-option>\r\n\r\n                      </mat-select>\r\n\r\n                    </mat-form-field>\r\n\r\n                  </div>\r\n\r\n                </div>\r\n\r\n              </div>\r\n\r\n              <div *ngIf=\"formGroup.get('raffle').value === 'false'\" fxLayout=\"column\" class=\"margin-top-18px flex-grow-0\">\r\n\r\n                <mat-label>Raffle Time</mat-label>\r\n\r\n                <div fxLayout=\"row\" class=\"margin-top-18px flex-grow-0\">\r\n\r\n                  <div [fxFlex]=\"50\">\r\n\r\n                    <mat-form-field class=\"width-90pct\">\r\n\r\n                      <mat-label>Start</mat-label>\r\n\r\n                      <input matInput atp-time-picker class=\"cursor-pointer\" value=\"00:00\" />\r\n\r\n                    </mat-form-field>\r\n\r\n                  </div>\r\n\r\n                  <div [fxFlex]=\"50\">\r\n\r\n                    <mat-form-field class=\"width-100pct\">\r\n\r\n                      <mat-label>End</mat-label>\r\n\r\n                      <input matInput atp-time-picker class=\"cursor-pointer\" value=\"00:00\" />\r\n\r\n                    </mat-form-field>\r\n\r\n                  </div>\r\n\r\n                </div>\r\n\r\n              </div>\r\n\r\n              <mat-form-field class=\"width-100pct\">\r\n\r\n                <mat-label>Sale Price</mat-label>\r\n\r\n                <input matInput type=\"text\">\r\n\r\n              </mat-form-field>\r\n\r\n              <mat-form-field class=\"width-100pct\">\r\n\r\n                <mat-label>Sale Percentage</mat-label>\r\n\r\n                <input matInput type=\"number\" formControlName=\"salePercentage\">\r\n\r\n              </mat-form-field>\r\n\r\n              <div>\r\n\r\n                <mat-checkbox value=\"primary\" class=\"margin-top-10px\" matTooltip=\"{{ 'Display on Whats New' | translate }}\">Display on What's New</mat-checkbox>\r\n\r\n              </div>\r\n\r\n            </div>\r\n\r\n            <div [fxFlex]=\"50\" fxLayout=\"column\" class=\"margin-right-25px margin-left-25px\">\r\n\r\n              <mat-form-field appearance=\"fill\">\r\n\r\n                <mat-label>Description</mat-label>\r\n\r\n                <textarea matInput formControlName=\"description\" class=\"min-height-100px\"></textarea>\r\n\r\n              </mat-form-field>\r\n\r\n              <h3>Links</h3>\r\n\r\n              <div fxLayout=\"column\" class=\"border flex-grow-1 overflow-auto display-flex max-height-350px\">\r\n\r\n                <div class=\"flex-grow-1 overflow-auto display-flex flex-direction-column padding-bottom-25px\">\r\n\r\n                  <div class=\"flex-grow-1 flex-shrink-0 display-flex flex-direction-column\">\r\n\r\n                    <!--table class=\"width-100pct\" mat-table [dataSource]=\"links\" matSort matSortDisableClear (matSortChange)=\"onSort()\">\r\n\r\n                      <ng-container matColumnDef=\"checkbox\">\r\n\r\n                        <th mat-header-cell *matHeaderCellDef mat-sort-header>\r\n\r\n                          <td mat-cell *matCellDef=\"let element\">\r\n\r\n                            <mat-checkbox value=\"primary\" class=\"margin-top-10px\" matTooltip=\"{{ 'Principal' | translate }}\"></mat-checkbox>\r\n\r\n                          </td>\r\n\r\n                      </ng-container>\r\n\r\n                      <ng-container matColumnDef=\"text\">\r\n\r\n                        <th mat-header-cell *matHeaderCellDef mat-sort-header>\r\n                          Text\r\n                        </th>\r\n                        <td mat-cell *matCellDef=\"let element\"> {{ element.text }} </td>\r\n\r\n                      </ng-container>\r\n\r\n                      <ng-container matColumnDef=\"url\">\r\n                        <th mat-header-cell *matHeaderCellDef mat-sort-header>\r\n                          Url\r\n                        </th>\r\n                        <td mat-cell *matCellDef=\"let element\"> {{ element.url }} </td>\r\n                      </ng-container>\r\n\r\n                      <ng-container matColumnDef=\"actions\">\r\n                        <th mat-header-cell *matHeaderCellDef mat-sort-header>\r\n                        </th>\r\n                        <td mat-cell *matCellDef=\"let element\">\r\n                          <button mat-icon-button color=\"primary\" [matTooltip]=\"Edit\" [routerLink]=\"['../edit', element.id]\">\r\n                            <mat-icon>edit</mat-icon>\r\n                          </button>\r\n                          <button mat-icon-button color=\"primary\" [matTooltip]=\"Edit\" [routerLink]=\"['../delete', element.id]\">\r\n                            <mat-icon>delete</mat-icon>\r\n                          </button>\r\n                        </td>\r\n                      </ng-container>\r\n\r\n                      <tr mat-header-row *matHeaderRowDef=\"displayedColumns\"></tr>\r\n                      <tr mat-row *matRowDef=\"let row; columns: displayedColumns;\" [ngClass]=\"row.is_active ? '' : 'text-decoration-line-through'\">\r\n                      </tr>\r\n\r\n                    </table-->\r\n                  </div>\r\n                </div>\r\n                <div class=\"margin-left-25px margin-right-25px padding-top-25px padding-bottom-25px flex-shrink-0 display-flex border-top-style-solid border-top-width-2px border-top-color-grey\">\r\n\r\n                  <mat-checkbox class=\"margin-top-10px margin-right-25px\" value=\"primary\" matTooltip=\"{{ 'Principal' | translate }}\">Check All</mat-checkbox>\r\n\r\n                  <button mat-icon-button color=\"primary\" [matTooltip]=\"Edit\">\r\n                    <mat-icon>edit</mat-icon>\r\n                  </button>\r\n\r\n                  <button mat-icon-button color=\"primary\" [matTooltip]=\"Delete\">\r\n                    <mat-icon>delete</mat-icon>\r\n                  </button>\r\n\r\n                  <button mat-icon-button color=\"primary\" [matTooltip]=\"Delete\">\r\n                    <mat-icon>delete</mat-icon>\r\n                  </button>\r\n                </div>\r\n              </div>\r\n            </div>\r\n          </div>\r\n\r\n        </div>\r\n      </div>\r\n    </div>\r\n  </div>\r\n  <div class=\"margin-right-25px padding-top-25px flex-shrink-0 display-flex border-top-style-solid border-top-width-2px border-top-color-grey\">\r\n\r\n    <button mat-raised-button type=\"submit\" color=\"primary\">{{ 'Save' | translate }}</button>\r\n\r\n    <button mat-raised-button type=\"button\" class=\"margin-left-10px\" (click)=\"cancelClicked()\">{{ 'Cancel' | translate }}</button>\r\n\r\n  </div>\r\n</form>"
+module.exports = "<form class=\"flex-grow-1 min-height-0 display-flex flex-direction-column\" [askBeforeRefresh]=\"formGroup.dirty\" [formGroup]=\"formGroup\"\r\n  novalidate role=\"form\" (ngSubmit)=\"submitClicked()\" autocomplete=\"off\" inputFocus>\r\n\r\n  <div class=\"flex-grow-1 overflow-auto display-flex flex-direction-column padding-bottom-25px\">\r\n\r\n    <div class=\"flex-grow-1 flex-shrink-0 display-flex flex-direction-column\">\r\n\r\n      <div [fxFlex]=\"100\" fxLayout=\"row\" class=\"padding-top-10px\">\r\n\r\n        <div [fxFlex]=\"25\" class=\"margin-right-25px\">\r\n\r\n          <mat-radio-group *ngIf=\"!customized\" formControlName=\"raffle\">\r\n\r\n            <div class=\"display-flex padding-bottom-25px\" fxLayout=\"row\">\r\n\r\n              <div class=\"display-flex margin-right-25px\">\r\n\r\n                <mat-radio-button value=\"true\" class=\"margin-top-10px\" matTooltip=\"{{ 'Principal' | translate }}\">Release</mat-radio-button>\r\n\r\n              </div>\r\n\r\n              <div class=\"display-flex\">\r\n\r\n                <mat-radio-button value=\"false\" class=\"margin-top-10px\" matTooltip=\"{{ 'Principal' | translate }}\">Rafle</mat-radio-button>\r\n\r\n              </div>\r\n\r\n            </div>\r\n\r\n          </mat-radio-group>\r\n\r\n          <mat-form-field class=\"width-100pc\">\r\n\r\n            <mat-label>Shops</mat-label>\r\n\r\n            <mat-select disableOptionCentering placeholder=\"Select Shop\" formControlName=\"shopId\" required>\r\n\r\n              <mat-option>...</mat-option>\r\n\r\n              <mat-option *ngFor=\"let shop of shops\" [value]=\"shop.id\" (click)=\"changeShop(shop)\">\r\n\r\n                {{shop.name}}\r\n\r\n              </mat-option>\r\n\r\n            </mat-select>\r\n\r\n          </mat-form-field>\r\n\r\n          <mat-form-field class=\"width-100pc\" *ngIf=\"!releaseId\">\r\n\r\n            <mat-label>Releases</mat-label>\r\n\r\n            <mat-select disableOptionCentering placeholder=\"Select Release\" formControlName=\"releaseId\" required>\r\n\r\n              <mat-option>...</mat-option>\r\n\r\n              <mat-option *ngFor=\"let release of releases\" [value]=\"release.id\">\r\n\r\n                {{release.name}}\r\n\r\n              </mat-option>\r\n\r\n            </mat-select>\r\n\r\n          </mat-form-field>\r\n\r\n\r\n\r\n          <mat-form-field class=\"width-100pc\">\r\n\r\n            <mat-label>Shipping</mat-label>\r\n\r\n            <mat-select disableOptionCentering placeholder=\"Select Status\" formControlName=\"shipping\" required>\r\n\r\n              <mat-option>...</mat-option>\r\n\r\n              <mat-option *ngFor=\"let _shipping of shipping\" [value]=\"_shipping.id\">\r\n\r\n                {{_shipping.name}}\r\n\r\n              </mat-option>\r\n\r\n            </mat-select>\r\n\r\n          </mat-form-field>\r\n\r\n        </div>\r\n\r\n        <div [fxFlex]=\"75\" fxLayout=\"column\" class=\"margin-left-10px\">\r\n\r\n          <div fxLayout=\"row\">\r\n\r\n            <div [fxFlex]=\"25\" fxLayout=\"column\">\r\n\r\n              <mat-card class=\"display-flex background-color-secondary flex-direction-column flex-shrink-1\">\r\n                <div class=\"image-container flex-grow-1\" #imageContainer>\r\n                  <img class=\"img\" imageLoad [srcImage]=\"shopSlected.mainImage? shopSlected.mainImage : ''\" [container]=\"imageContainer\" src=\"\">\r\n                </div>\r\n              </mat-card>\r\n\r\n            </div>\r\n\r\n            <div [fxFlex]=\"60\" fxLayout=\"row\" class=\"margin-left-25px\">\r\n\r\n              <div [fxFlex]=\"50\">\r\n\r\n                <h3>{{ shopSlected.name }}</h3>\r\n\r\n              </div>\r\n\r\n            </div>\r\n\r\n          </div>\r\n\r\n          <div [fxFlex]=\"100\" fxLayout=\"row\">\r\n\r\n            <div [fxFlex]=\"30\" fxLayout=\"column\" class=\"margin-right-25px\">\r\n\r\n              <div fxLayout=\"row\" class=\"margin-top-18px flex-grow-0\">\r\n\r\n                <div [fxFlex]=\"50\">\r\n\r\n                  <mat-form-field class=\"width-90pct\">\r\n\r\n                    <mat-label>Retail Price</mat-label>\r\n\r\n                    <input matInput type=\"number\" formControlName=\"price\" required>\r\n\r\n                  </mat-form-field>\r\n\r\n                </div>\r\n\r\n                <div [fxFlex]=\"50\">\r\n\r\n                  <mat-form-field class=\"width-100pct\">\r\n\r\n                    <mat-label>Currency</mat-label>\r\n\r\n                    <mat-select disableOptionCentering placeholder=\"Select Shop\">\r\n\r\n                      <mat-option>...</mat-option>\r\n\r\n                      <mat-option *ngFor=\"let _currency of currency\" [value]=\"_currency.id\">\r\n\r\n                        {{_currency.name}}\r\n\r\n                      </mat-option>\r\n\r\n                    </mat-select>\r\n\r\n                  </mat-form-field>\r\n                </div>\r\n\r\n              </div>\r\n\r\n              <mat-form-field class=\"width-100pc\">\r\n\r\n                <mat-label>Status</mat-label>\r\n\r\n                <mat-select disableOptionCentering placeholder=\"Select Status\" formControlName=\"status\" required>\r\n\r\n                  <mat-option>...</mat-option>\r\n\r\n                  <mat-option *ngFor=\"let state of status\" [value]=\"state.id\">\r\n\r\n                    {{state.name}}\r\n\r\n                  </mat-option>\r\n\r\n                </mat-select>\r\n\r\n              </mat-form-field>\r\n\r\n              <div *ngIf=\"formGroup.get('raffle').value === 'true'\" fxLayout=\"column\" class=\"margin-top-18px flex-grow-0\">\r\n\r\n                <mat-label>Release Time</mat-label>\r\n\r\n                <div fxLayout=\"row\" class=\"margin-top-18px flex-grow-0\">\r\n\r\n                  <div [fxFlex]=\"50\">\r\n\r\n                    <mat-form-field class=\"width-90pct\">\r\n\r\n                      <mat-label>Time</mat-label>\r\n\r\n                      <input matInput atp-time-picker class=\"cursor-pointer\" value=\"00:00\" />\r\n\r\n                    </mat-form-field>\r\n\r\n                  </div>\r\n\r\n                  <div [fxFlex]=\"50\">\r\n\r\n                    <mat-form-field class=\"width-100pct\">\r\n\r\n                      <mat-label>Time Zone</mat-label>\r\n\r\n                      <mat-select disableOptionCentering placeholder=\"Select Shop\">\r\n\r\n                        <mat-option>...</mat-option>\r\n\r\n                        <mat-option *ngFor=\"let _timeZone of timeZone\" [value]=\"_timeZone.id\">\r\n\r\n                          {{_timeZone.name}}\r\n\r\n                        </mat-option>\r\n\r\n                      </mat-select>\r\n\r\n                    </mat-form-field>\r\n\r\n                  </div>\r\n\r\n                </div>\r\n\r\n              </div>\r\n\r\n              <div *ngIf=\"formGroup.get('raffle').value === 'false'\" fxLayout=\"column\" class=\"margin-top-18px flex-grow-0\">\r\n\r\n                <mat-label>Raffle Time</mat-label>\r\n\r\n                <div fxLayout=\"row\" class=\"margin-top-18px flex-grow-0\">\r\n\r\n                  <div [fxFlex]=\"50\">\r\n\r\n                    <mat-form-field class=\"width-90pct\">\r\n\r\n                      <mat-label>Start</mat-label>\r\n\r\n                      <input matInput atp-time-picker class=\"cursor-pointer\" value=\"00:00\" />\r\n\r\n                    </mat-form-field>\r\n\r\n                  </div>\r\n\r\n                  <div [fxFlex]=\"50\">\r\n\r\n                    <mat-form-field class=\"width-100pct\">\r\n\r\n                      <mat-label>End</mat-label>\r\n\r\n                      <input matInput atp-time-picker class=\"cursor-pointer\" value=\"00:00\" />\r\n\r\n                    </mat-form-field>\r\n\r\n                  </div>\r\n\r\n                </div>\r\n\r\n              </div>\r\n\r\n              <mat-form-field class=\"width-100pct\">\r\n\r\n                <mat-label>Sale Price</mat-label>\r\n\r\n                <input matInput type=\"text\">\r\n\r\n              </mat-form-field>\r\n\r\n              <mat-form-field class=\"width-100pct\">\r\n\r\n                <mat-label>Sale Percentage</mat-label>\r\n\r\n                <input matInput type=\"number\" formControlName=\"salePercentage\">\r\n\r\n              </mat-form-field>\r\n\r\n              <div>\r\n\r\n                <mat-checkbox value=\"primary\" class=\"margin-top-10px\" matTooltip=\"{{ 'Display on Whats New' | translate }}\">Display on What's New</mat-checkbox>\r\n\r\n              </div>\r\n\r\n            </div>\r\n\r\n            <div [fxFlex]=\"50\" fxLayout=\"column\" class=\"margin-right-25px margin-left-25px\">\r\n\r\n              <mat-form-field appearance=\"fill\">\r\n\r\n                <mat-label>Description</mat-label>\r\n\r\n                <textarea matInput formControlName=\"description\" class=\"min-height-100px\"></textarea>\r\n\r\n              </mat-form-field>\r\n\r\n              <h3>Links</h3>\r\n\r\n              <div fxLayout=\"column\" class=\"border flex-grow-1 overflow-auto display-flex max-height-350px\">\r\n\r\n                <div class=\"flex-grow-1 overflow-auto display-flex flex-direction-column padding-bottom-25px\">\r\n\r\n                  <div class=\"flex-grow-1 flex-shrink-0 display-flex flex-direction-column\">\r\n\r\n                    <!--table class=\"width-100pct\" mat-table [dataSource]=\"links\" matSort matSortDisableClear (matSortChange)=\"onSort()\">\r\n\r\n                      <ng-container matColumnDef=\"checkbox\">\r\n\r\n                        <th mat-header-cell *matHeaderCellDef mat-sort-header>\r\n\r\n                          <td mat-cell *matCellDef=\"let element\">\r\n\r\n                            <mat-checkbox value=\"primary\" class=\"margin-top-10px\" matTooltip=\"{{ 'Principal' | translate }}\"></mat-checkbox>\r\n\r\n                          </td>\r\n\r\n                      </ng-container>\r\n\r\n                      <ng-container matColumnDef=\"text\">\r\n\r\n                        <th mat-header-cell *matHeaderCellDef mat-sort-header>\r\n                          Text\r\n                        </th>\r\n                        <td mat-cell *matCellDef=\"let element\"> {{ element.text }} </td>\r\n\r\n                      </ng-container>\r\n\r\n                      <ng-container matColumnDef=\"url\">\r\n                        <th mat-header-cell *matHeaderCellDef mat-sort-header>\r\n                          Url\r\n                        </th>\r\n                        <td mat-cell *matCellDef=\"let element\"> {{ element.url }} </td>\r\n                      </ng-container>\r\n\r\n                      <ng-container matColumnDef=\"actions\">\r\n                        <th mat-header-cell *matHeaderCellDef mat-sort-header>\r\n                        </th>\r\n                        <td mat-cell *matCellDef=\"let element\">\r\n                          <button mat-icon-button color=\"primary\" [matTooltip]=\"Edit\" [routerLink]=\"['../edit', element.id]\">\r\n                            <mat-icon>edit</mat-icon>\r\n                          </button>\r\n                          <button mat-icon-button color=\"primary\" [matTooltip]=\"Edit\" [routerLink]=\"['../delete', element.id]\">\r\n                            <mat-icon>delete</mat-icon>\r\n                          </button>\r\n                        </td>\r\n                      </ng-container>\r\n\r\n                      <tr mat-header-row *matHeaderRowDef=\"displayedColumns\"></tr>\r\n                      <tr mat-row *matRowDef=\"let row; columns: displayedColumns;\" [ngClass]=\"row.is_active ? '' : 'text-decoration-line-through'\">\r\n                      </tr>\r\n\r\n                    </table-->\r\n                  </div>\r\n                </div>\r\n                <div class=\"margin-left-25px margin-right-25px padding-top-25px padding-bottom-25px flex-shrink-0 display-flex border-top-style-solid border-top-width-2px border-top-color-grey\">\r\n\r\n                  <mat-checkbox class=\"margin-top-10px margin-right-25px\" value=\"primary\" matTooltip=\"{{ 'Principal' | translate }}\">Check All</mat-checkbox>\r\n\r\n                  <button mat-icon-button color=\"primary\" [matTooltip]=\"Edit\">\r\n                    <mat-icon>edit</mat-icon>\r\n                  </button>\r\n\r\n                  <button mat-icon-button color=\"primary\" [matTooltip]=\"Delete\">\r\n                    <mat-icon>delete</mat-icon>\r\n                  </button>\r\n\r\n                  <button mat-icon-button color=\"primary\" [matTooltip]=\"Delete\">\r\n                    <mat-icon>delete</mat-icon>\r\n                  </button>\r\n                </div>\r\n              </div>\r\n            </div>\r\n          </div>\r\n\r\n        </div>\r\n      </div>\r\n    </div>\r\n  </div>\r\n  <div class=\"margin-right-25px padding-top-25px flex-shrink-0 display-flex border-top-style-solid border-top-width-2px border-top-color-grey\">\r\n\r\n    <button mat-raised-button type=\"submit\" color=\"primary\">{{ 'Save' | translate }}</button>\r\n\r\n    <button mat-raised-button type=\"button\" class=\"margin-left-10px\" (click)=\"cancelClicked()\">{{ 'Cancel' | translate }}</button>\r\n\r\n  </div>\r\n</form>"
 
 /***/ }),
 
@@ -914,7 +1115,7 @@ var OfferFormComponent = /** @class */ (function (_super) {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<!--mat-toolbar class=\"margin-right-25px margin-bottom-10px width-auto flex-shrink-0 background-color-secondary color-primary mat-elevation-z2\"\n  [formGroup]=\"filter\">\n\n  <mat-icon matPrefix color=\"primary\">search</mat-icon>\n  <!--mat-form-field>\n    <input matInput formControlName=\"name\" placeholder=\"Name\">\n  </mat-form-field-->\n\n  <!--mat-form-field>\n    <mat-label>Collection</mat-label>\n    <mat-select placeholder=\"Collection\" formControlName=\"collection\">\n        <mat-option *ngFor=\"let collection of collections\" [value]=\"collection.id\">\n          {{collection.name}}\n        </mat-option>\n      </mat-select>\n  </mat-form-field-->\n\n  <!--span class=\"flex-grow-1\"></span>\n  <button mat-raised-button color=\"primary\" (click)=\"addNewOfferModal()\">CREATE A OFFER</button>\n</mat-toolbar-->\n\n<div class=\"flex-grow-1 overflow-auto display-flex\">\n\n  <table class=\"margin-top-10px margin-right-25px width-100pct\" mat-table [dataSource]=\"offers\" matSort [matSortActive]=\"offersService.previousSortColumn\"\n    [matSortDirection]=\"offersService.previousSortDirection\" matSortDisableClear (matSortChange)=\"onSort()\">\n\n    <ng-container matColumnDef=\"SKU\">\n      <th mat-header-cell *matHeaderCellDef mat-sort-header>\n        SKU\n      </th>\n      <td mat-cell *matCellDef=\"let element\" class=\"padding-table-td\"> {{ getReleaseSku(element.releaseId) }} </td>\n    </ng-container>\n\n    <ng-container matColumnDef=\"RELEASE NAME\">\n      <th mat-header-cell *matHeaderCellDef>\n        RELEASE NAME\n      </th>\n      <td mat-cell *matCellDef=\"let element\" class=\"padding-table-td\"> {{ getReleaseName(element.releaseId) }} </td>\n    </ng-container>\n\n    <ng-container matColumnDef=\"COLLECTION\">\n      <th mat-header-cell *matHeaderCellDef>\n        COLLECTION\n      </th>\n      <td mat-cell *matCellDef=\"let element\" class=\"padding-table-td\"> {{ getCollectionNameRelease(element.releaseId) }} </td>\n    </ng-container>\n    \n    <ng-container matColumnDef=\"COLOR\">\n        <th mat-header-cell *matHeaderCellDef>\n            COLOR\n        </th>\n        <td mat-cell *matCellDef=\"let element\" class=\"padding-table-td\"> {{ getReleaseColor(element.releaseId) }} </td>\n      </ng-container>\n\n    <ng-container matColumnDef=\"OFFICIAL RELEASE\">\n      <th mat-header-cell *matHeaderCellDef mat-sort-header>\n          OFFICIAL RELEASE\n      </th>\n      <td mat-cell *matCellDef=\"let element\" class=\"padding-table-td\"> {{ getReleaseDate(element.releaseId) | date: 'dd/MM/yyyy' }} </td>\n    </ng-container>\n\n    <ng-container matColumnDef=\"SHOP\">\n      <th mat-header-cell *matHeaderCellDef mat-sort-header>\n          SHOP\n      </th>\n      <td mat-cell *matCellDef=\"let element\" class=\"padding-table-td\"> {{ getShop(element.shopId) }} </td>\n    </ng-container>\n\n    <ng-container matColumnDef=\"STATUS\" >\n      <th mat-header-cell *matHeaderCellDef mat-sort-header>\n          STATUS\n      </th>\n      <td mat-cell *matCellDef=\"let element\" class=\"padding-table-td\"> {{ element.status }} </td>\n    </ng-container>\n\n    <ng-container matColumnDef=\"SHIPING\">\n      <th mat-header-cell *matHeaderCellDef mat-sort-header>\n          SHIPING\n      </th>\n      <td mat-cell *matCellDef=\"let element\" class=\"padding-table-td\"> {{ element.shipping }} </td>\n    </ng-container>\n\n    <ng-container matColumnDef=\"UPDATED\">\n      <th mat-header-cell *matHeaderCellDef mat-sort-header>\n          UPDATED\n      </th>\n      <td mat-cell *matCellDef=\"let element\" class=\"padding-table-td\"> {{ element.updatedAt | date: 'dd/MM/yyyy' }} </td>\n    </ng-container>\n\n    <ng-container matColumnDef=\"ACTION\">\n      <th mat-header-cell *matHeaderCellDef mat-sort-header>\n      </th>\n      <td mat-cell *matCellDef=\"let element\"  class=\"min-width-80px\">\n        <button mat-icon-button color=\"primary\" type=\"button\" [matTooltip]=\"Edit\" (click)=\"editOfferModal(element.id)\">\n          <mat-icon>edit</mat-icon>\n        </button>\n        <button mat-icon-button color=\"primary\" type=\"button\" [matTooltip]=\"Delete\" (click)=\"getOfferToDelete(element)\">\n          <mat-icon>delete</mat-icon>\n        </button>\n      </td>\n    </ng-container>\n\n    <tr mat-header-row *matHeaderRowDef=\"displayedColumns\"></tr>\n    <tr mat-row *matRowDef=\"let row; columns: displayedColumns;\" [ngClass]=\"row.is_active ? '' : 'text-decoration-line-through'\">\n    </tr>\n\n  </table>\n\n</div>\n\n<div class=\"margin-right-25px padding-top-5px padding-bottom-5px flex-shrink-0 display-flex\">\n  <span class=\"flex-grow-1\"></span>\n  <mat-paginator [length]=\"totalLength\" [pageSizeOptions]=\"[5, 10, 20, 50, 100]\" [pageIndex]=\"\" [pageSize]=\"50\" showFirstLastButtons\n    (page)=\"onPage()\">\n  </mat-paginator>\n</div>\n"
+module.exports = "<!--mat-toolbar class=\"margin-right-25px margin-bottom-10px width-auto flex-shrink-0 background-color-secondary color-primary mat-elevation-z2\"\n  [formGroup]=\"filter\">\n\n  <mat-icon matPrefix color=\"primary\">search</mat-icon>\n  <!--mat-form-field>\n    <input matInput formControlName=\"name\" placeholder=\"Name\">\n  </mat-form-field-->\n\n  <!--mat-form-field>\n    <mat-label>Collection</mat-label>\n    <mat-select disableOptionCentering placeholder=\"Collection\" formControlName=\"collection\">\n        <mat-option *ngFor=\"let collection of collections\" [value]=\"collection.id\">\n          {{collection.name}}\n        </mat-option>\n      </mat-select>\n  </mat-form-field-->\n\n  <!--span class=\"flex-grow-1\"></span>\n  <button mat-raised-button color=\"primary\" (click)=\"addNewOfferModal()\">CREATE A OFFER</button>\n</mat-toolbar-->\n\n<div class=\"flex-grow-1 overflow-auto display-flex\">\n\n  <table class=\"margin-top-10px margin-right-25px width-100pct\" mat-table [dataSource]=\"offers\" matSort [matSortActive]=\"offersService.previousSortColumn\"\n    [matSortDirection]=\"offersService.previousSortDirection\" matSortDisableClear (matSortChange)=\"onSort()\">\n\n    <ng-container matColumnDef=\"SKU\">\n      <th mat-header-cell *matHeaderCellDef mat-sort-header>\n        SKU\n      </th>\n      <td mat-cell *matCellDef=\"let element\" class=\"padding-table-td\"> {{ getReleaseSku(element.releaseId) }} </td>\n    </ng-container>\n\n    <ng-container matColumnDef=\"RELEASE NAME\">\n      <th mat-header-cell *matHeaderCellDef>\n        RELEASE NAME\n      </th>\n      <td mat-cell *matCellDef=\"let element\" class=\"padding-table-td\"> {{ getReleaseName(element.releaseId) }} </td>\n    </ng-container>\n\n    <ng-container matColumnDef=\"COLLECTION\">\n      <th mat-header-cell *matHeaderCellDef>\n        COLLECTION\n      </th>\n      <td mat-cell *matCellDef=\"let element\" class=\"padding-table-td\"> {{ getCollectionNameRelease(element.releaseId) }} </td>\n    </ng-container>\n    \n    <ng-container matColumnDef=\"COLOR\">\n        <th mat-header-cell *matHeaderCellDef>\n            COLOR\n        </th>\n        <td mat-cell *matCellDef=\"let element\" class=\"padding-table-td\"> {{ getReleaseColor(element.releaseId) }} </td>\n      </ng-container>\n\n    <ng-container matColumnDef=\"OFFICIAL RELEASE\">\n      <th mat-header-cell *matHeaderCellDef mat-sort-header>\n          OFFICIAL RELEASE\n      </th>\n      <td mat-cell *matCellDef=\"let element\" class=\"padding-table-td\"> {{ getReleaseDate(element.releaseId) | date: 'dd/MM/yyyy' }} </td>\n    </ng-container>\n\n    <ng-container matColumnDef=\"SHOP\">\n      <th mat-header-cell *matHeaderCellDef mat-sort-header>\n          SHOP\n      </th>\n      <td mat-cell *matCellDef=\"let element\" class=\"padding-table-td\"> {{ getShop(element.shopId) }} </td>\n    </ng-container>\n\n    <ng-container matColumnDef=\"STATUS\" >\n      <th mat-header-cell *matHeaderCellDef mat-sort-header>\n          STATUS\n      </th>\n      <td mat-cell *matCellDef=\"let element\" class=\"padding-table-td\"> {{ element.status }} </td>\n    </ng-container>\n\n    <ng-container matColumnDef=\"SHIPING\">\n      <th mat-header-cell *matHeaderCellDef mat-sort-header>\n          SHIPING\n      </th>\n      <td mat-cell *matCellDef=\"let element\" class=\"padding-table-td\"> {{ element.shipping }} </td>\n    </ng-container>\n\n    <ng-container matColumnDef=\"UPDATED\">\n      <th mat-header-cell *matHeaderCellDef mat-sort-header>\n          UPDATED\n      </th>\n      <td mat-cell *matCellDef=\"let element\" class=\"padding-table-td\"> {{ element.updatedAt | date: 'dd/MM/yyyy' }} </td>\n    </ng-container>\n\n    <ng-container matColumnDef=\"ACTION\">\n      <th mat-header-cell *matHeaderCellDef mat-sort-header>\n      </th>\n      <td mat-cell *matCellDef=\"let element\"  class=\"min-width-80px\">\n        <button mat-icon-button color=\"primary\" type=\"button\" [matTooltip]=\"Edit\" (click)=\"editOfferModal(element.id)\">\n          <mat-icon>edit</mat-icon>\n        </button>\n        <button mat-icon-button color=\"primary\" type=\"button\" [matTooltip]=\"Delete\" (click)=\"getOfferToDelete(element)\">\n          <mat-icon>delete</mat-icon>\n        </button>\n      </td>\n    </ng-container>\n\n    <tr mat-header-row *matHeaderRowDef=\"displayedColumns\"></tr>\n    <tr mat-row *matRowDef=\"let row; columns: displayedColumns;\" [ngClass]=\"row.is_active ? '' : 'text-decoration-line-through'\">\n    </tr>\n\n  </table>\n\n</div>\n\n<div class=\"margin-right-25px padding-top-5px padding-bottom-5px flex-shrink-0 display-flex\">\n  <span class=\"flex-grow-1\"></span>\n  <mat-paginator [length]=\"totalLength\" [pageSizeOptions]=\"[5, 10, 20, 50, 100]\" [pageIndex]=\"\" [pageSize]=\"50\" showFirstLastButtons\n    (page)=\"onPage()\">\n  </mat-paginator>\n</div>\n"
 
 /***/ }),
 
@@ -1576,6 +1777,333 @@ var OffersReleaseTableComponent = /** @class */ (function () {
 
 /***/ }),
 
+/***/ "./src/app/ms-back-office/modules/ms-offers/components/offers-shop-table/offers-shop-table.component.html":
+/*!****************************************************************************************************************!*\
+  !*** ./src/app/ms-back-office/modules/ms-offers/components/offers-shop-table/offers-shop-table.component.html ***!
+  \****************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<!--mat-toolbar class=\"margin-right-25px margin-bottom-10px width-auto flex-shrink-0 background-color-secondary color-primary mat-elevation-z2\"\n  [formGroup]=\"filter\">\n\n  <mat-icon matPrefix color=\"primary\">search</mat-icon>\n  <!--mat-form-field>\n    <input matInput formControlName=\"name\" placeholder=\"Name\">\n  </mat-form-field-->\n\n  <!--mat-form-field>\n    <mat-label>Collection</mat-label>\n    <mat-select disableOptionCentering placeholder=\"Collection\" formControlName=\"collection\">\n        <mat-option *ngFor=\"let collection of collections\" [value]=\"collection.id\">\n          {{collection.name}}\n        </mat-option>\n      </mat-select>\n  </mat-form-field-->\n\n  <!--span class=\"flex-grow-1\"></span>\n  <button mat-raised-button color=\"primary\" (click)=\"addNewOfferModal()\">CREATE A OFFER</button>\n</mat-toolbar-->\n\n<div class=\"flex-grow-1 overflow-auto display-flex\">\n\n    <table class=\"margin-top-10px margin-right-25px width-100pct\" mat-table [dataSource]=\"offers\" matSort [matSortActive]=\"offersService.previousSortColumn\"\n      [matSortDirection]=\"offersService.previousSortDirection\" matSortDisableClear (matSortChange)=\"onSort()\">\n  \n      <ng-container matColumnDef=\"SKU\">\n        <th mat-header-cell *matHeaderCellDef mat-sort-header>\n          SKU\n        </th>\n        <td mat-cell *matCellDef=\"let element\" class=\"padding-table-td\"> {{ getReleaseSku(element.releaseId) }} </td>\n      </ng-container>\n  \n      <ng-container matColumnDef=\"RELEASE NAME\">\n        <th mat-header-cell *matHeaderCellDef>\n          RELEASE NAME\n        </th>\n        <td mat-cell *matCellDef=\"let element\" class=\"padding-table-td\"> {{ getReleaseName(element.releaseId) }} </td>\n      </ng-container>\n  \n      <ng-container matColumnDef=\"COLLECTION\">\n        <th mat-header-cell *matHeaderCellDef>\n          COLLECTION\n        </th>\n        <td mat-cell *matCellDef=\"let element\" class=\"padding-table-td\"> {{ getCollectionNameRelease(element.releaseId) }} </td>\n      </ng-container>\n      \n      <ng-container matColumnDef=\"COLOR\">\n          <th mat-header-cell *matHeaderCellDef>\n              COLOR\n          </th>\n          <td mat-cell *matCellDef=\"let element\" class=\"padding-table-td\"> {{ getReleaseColor(element.releaseId) }} </td>\n        </ng-container>\n  \n      <ng-container matColumnDef=\"OFFICIAL RELEASE\">\n        <th mat-header-cell *matHeaderCellDef mat-sort-header>\n            OFFICIAL RELEASE\n        </th>\n        <td mat-cell *matCellDef=\"let element\" class=\"padding-table-td\"> {{ getReleaseDate(element.releaseId) | date: 'dd/MM/yyyy' }} </td>\n      </ng-container>\n  \n      <ng-container matColumnDef=\"SHOP\">\n        <th mat-header-cell *matHeaderCellDef mat-sort-header>\n            SHOP\n        </th>\n        <td mat-cell *matCellDef=\"let element\" class=\"padding-table-td\"> {{ getShop(element.shopId) }} </td>\n      </ng-container>\n  \n      <ng-container matColumnDef=\"STATUS\" >\n        <th mat-header-cell *matHeaderCellDef mat-sort-header>\n            STATUS\n        </th>\n        <td mat-cell *matCellDef=\"let element\" class=\"padding-table-td\"> {{ element.status }} </td>\n      </ng-container>\n  \n      <ng-container matColumnDef=\"SHIPING\">\n        <th mat-header-cell *matHeaderCellDef mat-sort-header>\n            SHIPING\n        </th>\n        <td mat-cell *matCellDef=\"let element\" class=\"padding-table-td\"> {{ element.shipping }} </td>\n      </ng-container>\n  \n      <ng-container matColumnDef=\"UPDATED\">\n        <th mat-header-cell *matHeaderCellDef mat-sort-header>\n            UPDATED\n        </th>\n        <td mat-cell *matCellDef=\"let element\" class=\"padding-table-td\"> {{ element.updatedAt | date: 'dd/MM/yyyy' }} </td>\n      </ng-container>\n  \n      <ng-container matColumnDef=\"ACTION\">\n        <th mat-header-cell *matHeaderCellDef mat-sort-header>\n        </th>\n        <td mat-cell *matCellDef=\"let element\"  class=\"min-width-80px\">\n          <button mat-icon-button color=\"primary\" type=\"button\" [matTooltip]=\"Edit\" (click)=\"editOfferModal(element.id)\">\n            <mat-icon>edit</mat-icon>\n          </button>\n          <button mat-icon-button color=\"primary\" type=\"button\" [matTooltip]=\"Delete\" (click)=\"getOfferToDelete(element)\">\n            <mat-icon>delete</mat-icon>\n          </button>\n        </td>\n      </ng-container>\n  \n      <tr mat-header-row *matHeaderRowDef=\"displayedColumns\"></tr>\n      <tr mat-row *matRowDef=\"let row; columns: displayedColumns;\" [ngClass]=\"row.is_active ? '' : 'text-decoration-line-through'\">\n      </tr>\n  \n    </table>\n  \n  </div>\n  \n  <div class=\"margin-right-25px padding-top-5px padding-bottom-5px flex-shrink-0 display-flex\">\n    <span class=\"flex-grow-1\"></span>\n    <mat-paginator [length]=\"totalLength\" [pageSizeOptions]=\"[5, 10, 20, 50, 100]\" [pageIndex]=\"\" [pageSize]=\"50\" showFirstLastButtons\n      (page)=\"onPage()\">\n    </mat-paginator>\n  </div>\n"
+
+/***/ }),
+
+/***/ "./src/app/ms-back-office/modules/ms-offers/components/offers-shop-table/offers-shop-table.component.scss":
+/*!****************************************************************************************************************!*\
+  !*** ./src/app/ms-back-office/modules/ms-offers/components/offers-shop-table/offers-shop-table.component.scss ***!
+  \****************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = ":host {\n  display: flex;\n  flex-direction: column;\n  flex-grow: 1; }\n\ntable {\n  width: 100%; }\n\n.mat-form-field {\n  font-size: 14px;\n  padding-right: 5px;\n  width: 100px !important; }\n\ntd,\nth {\n  width: 25%; }\n\n.padding-bottom-10 {\n  padding-bottom: 10px; }\n\nimg {\n  height: 60px !important;\n  width: 100px !important; }\n\nmat-card {\n  padding: 0px;\n  align-self: flex-start;\n  height: 200px;\n  width: 150px;\n  margin-left: 2px;\n  margin-right: 15px;\n  margin-bottom: 15px; }\n\nmat-icon {\n  font-size: 24px;\n  width: 24px;\n  height: 24px; }\n\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvbXMtYmFjay1vZmZpY2UvbW9kdWxlcy9tcy1vZmZlcnMvY29tcG9uZW50cy9vZmZlcnMtc2hvcC10YWJsZS9FOlxcUFJPR1JBTUFDSU9OIElJSVxcbW9yZXNuZWFrZXJzLWJhY2tvZmZpY2Uvc3JjXFxhcHBcXG1zLWJhY2stb2ZmaWNlXFxtb2R1bGVzXFxtcy1vZmZlcnNcXGNvbXBvbmVudHNcXG9mZmVycy1zaG9wLXRhYmxlXFxvZmZlcnMtc2hvcC10YWJsZS5jb21wb25lbnQuc2NzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUNJLGNBQWE7RUFDYix1QkFBc0I7RUFDdEIsYUFBWSxFQUNmOztBQUVEO0VBQ0ksWUFBVyxFQUNkOztBQUVEO0VBQ0ksZ0JBQWU7RUFDZixtQkFBa0I7RUFDbEIsd0JBQXVCLEVBQzFCOztBQUVEOztFQUVJLFdBQVUsRUFDYjs7QUFFRDtFQUNJLHFCQUNKLEVBQUM7O0FBRUQ7RUFDSSx3QkFBdUI7RUFDdkIsd0JBQXVCLEVBQzFCOztBQUVEO0VBQ0ksYUFBWTtFQUNaLHVCQUFzQjtFQUN0QixjQUFhO0VBQ2IsYUFBWTtFQUNaLGlCQUFnQjtFQUNoQixtQkFBa0I7RUFDbEIsb0JBQW1CLEVBQ3BCOztBQUVEO0VBQ0UsZ0JBQWU7RUFDZixZQUFXO0VBQ1gsYUFBWSxFQUNiIiwiZmlsZSI6InNyYy9hcHAvbXMtYmFjay1vZmZpY2UvbW9kdWxlcy9tcy1vZmZlcnMvY29tcG9uZW50cy9vZmZlcnMtc2hvcC10YWJsZS9vZmZlcnMtc2hvcC10YWJsZS5jb21wb25lbnQuc2NzcyIsInNvdXJjZXNDb250ZW50IjpbIjpob3N0IHtcclxuICAgIGRpc3BsYXk6IGZsZXg7XHJcbiAgICBmbGV4LWRpcmVjdGlvbjogY29sdW1uO1xyXG4gICAgZmxleC1ncm93OiAxO1xyXG59XHJcblxyXG50YWJsZSB7XHJcbiAgICB3aWR0aDogMTAwJTtcclxufVxyXG5cclxuLm1hdC1mb3JtLWZpZWxkIHtcclxuICAgIGZvbnQtc2l6ZTogMTRweDtcclxuICAgIHBhZGRpbmctcmlnaHQ6IDVweDtcclxuICAgIHdpZHRoOiAxMDBweCAhaW1wb3J0YW50O1xyXG59XHJcblxyXG50ZCxcclxudGgge1xyXG4gICAgd2lkdGg6IDI1JTtcclxufVxyXG5cclxuLnBhZGRpbmctYm90dG9tLTEwe1xyXG4gICAgcGFkZGluZy1ib3R0b206IDEwcHhcclxufVxyXG5cclxuaW1ne1xyXG4gICAgaGVpZ2h0OiA2MHB4ICFpbXBvcnRhbnQ7XHJcbiAgICB3aWR0aDogMTAwcHggIWltcG9ydGFudDtcclxufVxyXG5cclxubWF0LWNhcmQge1xyXG4gICAgcGFkZGluZzogMHB4O1xyXG4gICAgYWxpZ24tc2VsZjogZmxleC1zdGFydDtcclxuICAgIGhlaWdodDogMjAwcHg7XHJcbiAgICB3aWR0aDogMTUwcHg7XHJcbiAgICBtYXJnaW4tbGVmdDogMnB4O1xyXG4gICAgbWFyZ2luLXJpZ2h0OiAxNXB4O1xyXG4gICAgbWFyZ2luLWJvdHRvbTogMTVweDtcclxuICB9XHJcbiAgXHJcbiAgbWF0LWljb24ge1xyXG4gICAgZm9udC1zaXplOiAyNHB4O1xyXG4gICAgd2lkdGg6IDI0cHg7XHJcbiAgICBoZWlnaHQ6IDI0cHg7XHJcbiAgfSJdfQ== */"
+
+/***/ }),
+
+/***/ "./src/app/ms-back-office/modules/ms-offers/components/offers-shop-table/offers-shop-table.component.ts":
+/*!**************************************************************************************************************!*\
+  !*** ./src/app/ms-back-office/modules/ms-offers/components/offers-shop-table/offers-shop-table.component.ts ***!
+  \**************************************************************************************************************/
+/*! exports provided: OffersShopTableComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "OffersShopTableComponent", function() { return OffersShopTableComponent; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm5/forms.js");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+/* harmony import */ var _angular_material__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/material */ "./node_modules/@angular/material/esm5/material.es5.js");
+/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! rxjs/operators */ "./node_modules/rxjs/_esm5/operators/index.js");
+/* harmony import */ var _ui_modules_confirm_dialog_components_confirm_dialog_confirm_dialog_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../../../ui/modules/confirm-dialog/components/confirm-dialog/confirm-dialog.component */ "./src/app/ui/modules/confirm-dialog/components/confirm-dialog/confirm-dialog.component.ts");
+/* harmony import */ var _error_handling_services_error_handling_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../../../../error-handling/services/error-handling.service */ "./src/app/error-handling/services/error-handling.service.ts");
+/* harmony import */ var _error_handling_services_toastr_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../../../../error-handling/services/toastr.service */ "./src/app/error-handling/services/toastr.service.ts");
+/* harmony import */ var _services_offers_service__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../services/offers.service */ "./src/app/ms-back-office/modules/ms-offers/services/offers.service.ts");
+/* harmony import */ var _new_offer_new_offer_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../new-offer/new-offer.component */ "./src/app/ms-back-office/modules/ms-offers/components/new-offer/new-offer.component.ts");
+/* harmony import */ var _edit_offer_edit_offer_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../edit-offer/edit-offer.component */ "./src/app/ms-back-office/modules/ms-offers/components/edit-offer/edit-offer.component.ts");
+/* harmony import */ var _delete_offer_delete_offer_component__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../delete-offer/delete-offer.component */ "./src/app/ms-back-office/modules/ms-offers/components/delete-offer/delete-offer.component.ts");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+//
+
+
+
+//
+
+
+
+//
+
+
+
+
+var titleKey = 'Title Delete Offer';
+var deleteBtnKey = 'Delete Offer';
+var messageKey = 'Delete Offer';
+var errorKey = 'Error';
+var deletedOfferMessageKey = 'Deleted Offer';
+var OffersShopTableComponent = /** @class */ (function () {
+    function OffersShopTableComponent(activatedRoute, dialog, offersService, errorHandlingService, toastr) {
+        this.activatedRoute = activatedRoute;
+        this.dialog = dialog;
+        this.offersService = offersService;
+        this.errorHandlingService = errorHandlingService;
+        this.toastr = toastr;
+        this.displayedColumns = [
+            'SKU',
+            'RELEASE NAME',
+            'COLLECTION',
+            'COLOR',
+            'OFFICIAL RELEASE',
+            'SHOP',
+            'STATUS',
+            //'SHIPING',
+            'UPDATED',
+        ];
+        this.totalLength = 0;
+        this.offers = [];
+    }
+    OffersShopTableComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        this.filter = this.createFilterFormGroup();
+        this.filterValueChanges = this.filter.valueChanges.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["debounceTime"])(500)).subscribe(function (change) { return _this.onFilter(); });
+        this.paginator.pageIndex = 0;
+        /*this.collections = this.activatedRoute.snapshot.data.collections;
+         this.releases = this.activatedRoute.snapshot.data.releases;
+         this.shops = this.activatedRoute.snapshot.data.shops;*/
+        // Begin observing style list changes.
+        this.offersList = this.offersService.offersList.subscribe(function (offersList) {
+            _this.totalLength = offersList.dataCount;
+            _this.offers = offersList.data;
+            if (_this.offers.length === 0 && _this.totalLength > 0 && _this.offersService.previousPageSize > 0) {
+                _this.offersService.previousPageIndex =
+                    Math.ceil(_this.totalLength / _this.offersService.previousPageSize) - 1;
+                _this.offersService.reloadOffers().subscribe(function (response) {
+                    _this.offersService.offersList.next(response);
+                }, function (error) { return _this.errorHandlingService.handleUiError(errorKey, error); });
+            }
+        });
+    };
+    OffersShopTableComponent.prototype.ngAfterViewInit = function () {
+        this.loadPage();
+    };
+    OffersShopTableComponent.prototype.ngOnDestroy = function () {
+        this.offersList.unsubscribe();
+        this.filterValueChanges.unsubscribe();
+    };
+    OffersShopTableComponent.prototype.createFilterFormGroup = function () {
+        var group = {};
+        //group['name'] = new FormControl('');
+        group['shopId'] = new _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormControl"](this.shopId);
+        return new _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormGroup"](group);
+    };
+    OffersShopTableComponent.prototype.loadPage = function () {
+        var _this = this;
+        this.offersService.getOffers(Object.assign({}, this.filter.value), this.sort.active, this.sort.direction, this.paginator.pageIndex, this.paginator.pageSize).subscribe(function (response) {
+            _this.offersService.offersList.next(response);
+        }, function (err) {
+            _this.errorHandlingService.handleUiError(errorKey, err);
+        });
+    };
+    OffersShopTableComponent.prototype.onFilter = function () {
+        this.paginator.pageIndex = 0;
+        this.loadPage();
+    };
+    OffersShopTableComponent.prototype.onSort = function () {
+        this.paginator.pageIndex = 0;
+        this.loadPage();
+    };
+    OffersShopTableComponent.prototype.onPage = function () {
+        this.loadPage();
+    };
+    OffersShopTableComponent.prototype.getReleaseName = function (id) {
+        try {
+            return this.releases.find(function (release) {
+                return release.id === id;
+            }).name;
+        }
+        catch (err) {
+            return;
+        }
+    };
+    OffersShopTableComponent.prototype.getReleaseSku = function (id) {
+        try {
+            return this.releases.find(function (release) {
+                return release.id === id;
+            }).sku;
+        }
+        catch (err) {
+            return;
+        }
+    };
+    OffersShopTableComponent.prototype.getReleaseDate = function (id) {
+        try {
+            return this.releases.find(function (release) {
+                return release.id === id;
+            }).updatedAt;
+        }
+        catch (err) {
+            return;
+        }
+    };
+    OffersShopTableComponent.prototype.getReleaseColor = function (id) {
+        try {
+            return this.releases.find(function (release) {
+                return release.id === id;
+            }).color;
+        }
+        catch (err) {
+            return;
+        }
+    };
+    OffersShopTableComponent.prototype.getCollectionNameRelease = function (id) {
+        try {
+            var collectionId_1 = this.releases.find(function (release) {
+                return release.id === id;
+            }).collectionId;
+            return this.collections.find(function (collection) {
+                return collection.id === collectionId_1;
+            }).name;
+        }
+        catch (err) {
+            return;
+        }
+    };
+    OffersShopTableComponent.prototype.getShop = function (id) {
+        try {
+            return this.shops.find(function (shop) {
+                return shop.id === id;
+            }).name;
+        }
+        catch (err) {
+            return;
+        }
+    };
+    OffersShopTableComponent.prototype.addNewOfferModal = function () {
+        var _this = this;
+        this.modalRef = this.dialog.open(_new_offer_new_offer_component__WEBPACK_IMPORTED_MODULE_9__["NewOfferComponent"], {
+            height: '90%',
+            width: '90%',
+            data: {
+                shops: this.shops,
+                releaseId: this.releaseId,
+            }
+        });
+        this.modalRef.afterClosed().subscribe(function () {
+            _this.loadPage();
+        });
+    };
+    OffersShopTableComponent.prototype.editOfferModal = function (offerId) {
+        var _this = this;
+        this.modalRef = this.dialog.open(_edit_offer_edit_offer_component__WEBPACK_IMPORTED_MODULE_10__["EditOfferComponent"], {
+            height: '90%',
+            width: '90%',
+            data: {
+                offerId: offerId,
+                shops: this.shops,
+                releaseId: this.releaseId,
+            }
+        });
+        this.modalRef.afterClosed().subscribe(function () {
+            _this.loadPage();
+        });
+    };
+    //delete
+    OffersShopTableComponent.prototype.getOfferToDelete = function (data) {
+        var _this = this;
+        this.offersService.getOffer(data.id).subscribe(function (response) {
+            data = response.data;
+            _this.confirmDeleteOffer(data);
+        }, function (error) { return _this.errorHandlingService.handleUiError(errorKey, error); });
+    };
+    OffersShopTableComponent.prototype.confirmDeleteOffer = function (data) {
+        var _this = this;
+        this.modalRef = this.dialog.open(_ui_modules_confirm_dialog_components_confirm_dialog_confirm_dialog_component__WEBPACK_IMPORTED_MODULE_5__["ConfirmDialogComponent"], {
+            data: {
+                titleKey: titleKey,
+                okBtnKey: deleteBtnKey,
+                messageKey: messageKey,
+                messageParam: { param: data.name }
+            }
+        });
+        this.modalRef.afterClosed().subscribe(function (result) {
+            if (result) {
+                _this.deleteOffer(data);
+            }
+        });
+    };
+    OffersShopTableComponent.prototype.deleteOffer = function (data) {
+        var _this = this;
+        this.offersService.deleteOffer(data.id).subscribe(function (response) {
+            _this.offersService.reloadOffers().subscribe(function (response) {
+                _this.offersService.offersList.next(response);
+                _this.toastr.success(deletedOfferMessageKey);
+                _this.loadPage();
+            }, function (error) { return _this.errorHandlingService.handleUiError(errorKey, error); });
+        }, function (error) {
+            _this.errorHandlingService.handleUiError(errorKey, error);
+        });
+    };
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ViewChild"])(_angular_material__WEBPACK_IMPORTED_MODULE_3__["MatPaginator"]),
+        __metadata("design:type", _angular_material__WEBPACK_IMPORTED_MODULE_3__["MatPaginator"])
+    ], OffersShopTableComponent.prototype, "paginator", void 0);
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ViewChild"])(_angular_material__WEBPACK_IMPORTED_MODULE_3__["MatSort"]),
+        __metadata("design:type", _angular_material__WEBPACK_IMPORTED_MODULE_3__["MatSort"])
+    ], OffersShopTableComponent.prototype, "sort", void 0);
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ViewChild"])(_delete_offer_delete_offer_component__WEBPACK_IMPORTED_MODULE_11__["DeleteOfferComponent"]),
+        __metadata("design:type", _delete_offer_delete_offer_component__WEBPACK_IMPORTED_MODULE_11__["DeleteOfferComponent"])
+    ], OffersShopTableComponent.prototype, "deleteOfferComponent", void 0);
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])(),
+        __metadata("design:type", Array)
+    ], OffersShopTableComponent.prototype, "collections", void 0);
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])(),
+        __metadata("design:type", Array)
+    ], OffersShopTableComponent.prototype, "releases", void 0);
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])(),
+        __metadata("design:type", Array)
+    ], OffersShopTableComponent.prototype, "shops", void 0);
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])(),
+        __metadata("design:type", String)
+    ], OffersShopTableComponent.prototype, "releaseId", void 0);
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])(),
+        __metadata("design:type", String)
+    ], OffersShopTableComponent.prototype, "shopId", void 0);
+    OffersShopTableComponent = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+            selector: 'offers-shop-table',
+            template: __webpack_require__(/*! ./offers-shop-table.component.html */ "./src/app/ms-back-office/modules/ms-offers/components/offers-shop-table/offers-shop-table.component.html"),
+            styles: [__webpack_require__(/*! ./offers-shop-table.component.scss */ "./src/app/ms-back-office/modules/ms-offers/components/offers-shop-table/offers-shop-table.component.scss")]
+        }),
+        __metadata("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"],
+            _angular_material__WEBPACK_IMPORTED_MODULE_3__["MatDialog"],
+            _services_offers_service__WEBPACK_IMPORTED_MODULE_8__["OffersService"],
+            _error_handling_services_error_handling_service__WEBPACK_IMPORTED_MODULE_6__["ErrorHandlingService"],
+            _error_handling_services_toastr_service__WEBPACK_IMPORTED_MODULE_7__["ToastrService"]])
+    ], OffersShopTableComponent);
+    return OffersShopTableComponent;
+}());
+
+
+
+/***/ }),
+
 /***/ "./src/app/ms-back-office/modules/ms-offers/components/offers-table/offers-table.component.html":
 /*!******************************************************************************************************!*\
   !*** ./src/app/ms-back-office/modules/ms-offers/components/offers-table/offers-table.component.html ***!
@@ -1583,7 +2111,7 @@ var OffersReleaseTableComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<h1>Offers Table</h1>\r\n\r\n<mat-toolbar class=\"margin-right-25px margin-bottom-10px width-auto flex-shrink-0 background-color-secondary color-primary mat-elevation-z2\"\r\n  [formGroup]=\"filter\">\r\n\r\n  <mat-icon matPrefix color=\"primary\">search</mat-icon>\r\n  <!--mat-form-field>\r\n    <input matInput formControlName=\"name\" placeholder=\"Name\">\r\n  </mat-form-field-->\r\n\r\n  <!--mat-form-field>\r\n    <mat-label>Collection</mat-label>\r\n    <mat-select placeholder=\"Collection\" formControlName=\"collection\">\r\n        <mat-option *ngFor=\"let collection of collections\" [value]=\"collection.id\">\r\n          {{collection.name}}\r\n        </mat-option>\r\n      </mat-select>\r\n  </mat-form-field-->\r\n\r\n  <span class=\"flex-grow-1\"></span>\r\n  <button mat-raised-button color=\"primary\" (click)=\"addNewOfferModal()\">CREATE AN OFFER</button>\r\n</mat-toolbar>\r\n\r\n<div class=\"flex-grow-1 overflow-auto display-flex\">\r\n\r\n  <table class=\"margin-top-10px margin-right-25px width-100pct\" mat-table [dataSource]=\"offers\" matSort [matSortActive]=\"offersService.previousSortColumn\"\r\n    [matSortDirection]=\"offersService.previousSortDirection\" matSortDisableClear (matSortChange)=\"onSort()\">\r\n\r\n    <ng-container matColumnDef=\"sku\">\r\n      <th mat-header-cell *matHeaderCellDef mat-sort-header>\r\n        SKU\r\n      </th>\r\n      <td mat-cell *matCellDef=\"let element\" class=\"padding-table-td\"> {{ getReleaseSku(element.releaseId) }} </td>\r\n    </ng-container>\r\n\r\n    <ng-container matColumnDef=\"mainImage\">\r\n      <th mat-header-cell *matHeaderCellDef></th>\r\n      <td mat-cell *matCellDef=\"let element\" class=\"padding-table-td display-flex flex-grow-1 height-100pct padding-left-0px width-100pct\">\r\n        <div class=\"position-relative margin-top-5px\">\r\n          <img [src]=\"getReleaseImage(element.releaseId)\" class=\"margin-auto\" alt=\"50\">\r\n        </div>\r\n      </td>\r\n    </ng-container>\r\n\r\n    <ng-container matColumnDef=\"releaseId\">\r\n      <th mat-header-cell *matHeaderCellDef mat-sort-header>\r\n        RELEASE NAME\r\n      </th>\r\n      <td mat-cell *matCellDef=\"let element\" class=\"padding-table-td\"> {{ getReleaseName(element.releaseId) }} </td>\r\n    </ng-container>\r\n\r\n    <ng-container matColumnDef=\"collectionId\">\r\n      <th mat-header-cell *matHeaderCellDef>\r\n        COLLECTION\r\n      </th>\r\n      <td mat-cell *matCellDef=\"let element\" class=\"padding-table-td\"> {{ getCollectionNameRelease(element.releaseId) }} </td>\r\n    </ng-container>\r\n\r\n    <ng-container matColumnDef=\"color\">\r\n      <th mat-header-cell *matHeaderCellDef>\r\n        COLOR\r\n      </th>\r\n      <td mat-cell *matCellDef=\"let element\" class=\"padding-table-td\"> {{ getReleaseColor(element.releaseId) }} </td>\r\n    </ng-container>\r\n\r\n    <ng-container matColumnDef=\"offerDate\">\r\n      <th mat-header-cell *matHeaderCellDef mat-sort-header>\r\n        OFFICIAL RELEASE\r\n      </th>\r\n      <td mat-cell *matCellDef=\"let element\" class=\"padding-table-td\"> {{ getReleaseDate(element.releaseId) | date: 'dd/MM/yyyy' }} </td>\r\n    </ng-container>\r\n\r\n    <ng-container matColumnDef=\"shopId\">\r\n      <th mat-header-cell *matHeaderCellDef mat-sort-header>\r\n        SHOP\r\n      </th>\r\n      <td mat-cell *matCellDef=\"let element\" class=\"padding-table-td\"> {{ getShop(element.shopId) }} </td>\r\n    </ng-container>\r\n\r\n    <ng-container matColumnDef=\"status\">\r\n      <th mat-header-cell *matHeaderCellDef mat-sort-header>\r\n        STATUS\r\n      </th>\r\n      <td mat-cell *matCellDef=\"let element\" class=\"padding-table-td\">\r\n        <div>\r\n          {{ element.status }}\r\n          <mat-slide-toggle *ngIf=\"element.status === 'sold_out'\" class=\"margin-bottom-25px margin-top-25px margin-left-5px\" [checked]=\"false\"\r\n            (click)=\"changeStatus(element)\"></mat-slide-toggle>\r\n        </div>\r\n      </td>\r\n    </ng-container>\r\n\r\n    <ng-container matColumnDef=\"shipping\">\r\n      <th mat-header-cell *matHeaderCellDef mat-sort-header>\r\n        SHIPPING\r\n      </th>\r\n      <td mat-cell *matCellDef=\"let element\" class=\"padding-table-td\"> {{ element.shipping }} </td>\r\n    </ng-container>\r\n\r\n    <ng-container matColumnDef=\"updatedAt\">\r\n      <th mat-header-cell *matHeaderCellDef mat-sort-header>\r\n        UPDATED\r\n      </th>\r\n      <td mat-cell *matCellDef=\"let element\" class=\"padding-table-td\"> {{ element.updatedAt | date: 'dd/MM/yyyy' }} </td>\r\n    </ng-container>\r\n\r\n    <ng-container matColumnDef=\"actions\">\r\n      <th mat-header-cell *matHeaderCellDef>\r\n      </th>\r\n      <td mat-cell *matCellDef=\"let element\" class=\"min-width-80px\">\r\n        <button mat-icon-button color=\"primary\" type=\"button\" [matTooltip]=\"Edit\" [routerLink]=\"['../../releases/edit', element.releaseId]\"\r\n          [queryParams]=\"{offerId: element.id, returnUrl: location.path()}\"  class=\"min-width-80px\">\r\n          <mat-icon>edit</mat-icon>\r\n        </button>\r\n        <button mat-icon-button color=\"primary\" type=\"button\" [matTooltip]=\"Delete\" (click)=\"getOfferToDelete(element)\">\r\n          <mat-icon>delete</mat-icon>\r\n        </button>\r\n      </td>\r\n    </ng-container>\r\n\r\n    <tr mat-header-row *matHeaderRowDef=\"displayedColumns\"></tr>\r\n    <tr mat-row *matRowDef=\"let row; columns: displayedColumns;\" [ngClass]=\"row.is_active ? '' : 'text-decoration-line-through'\">\r\n    </tr>\r\n\r\n  </table>\r\n\r\n</div>\r\n\r\n<div class=\"margin-right-25px padding-top-5px padding-bottom-5px flex-shrink-0 display-flex border-top-style-solid border-top-width-2px border-top-color-grey\">\r\n  <span class=\"flex-grow-1\"></span>\r\n  <mat-paginator [length]=\"totalLength\" [pageSizeOptions]=\"[5, 10, 20, 50, 100]\" [pageIndex]=\"\" [pageSize]=\"50\" showFirstLastButtons\r\n    (page)=\"onPage()\">\r\n  </mat-paginator>\r\n</div>"
+module.exports = "<h1>Offers Table</h1>\r\n\r\n<mat-toolbar class=\"margin-right-25px margin-bottom-10px width-auto flex-shrink-0 background-color-secondary color-primary mat-elevation-z2\"\r\n  [formGroup]=\"filter\">\r\n\r\n  <mat-icon matPrefix color=\"primary\">search</mat-icon>\r\n  <!--mat-form-field>\r\n    <input matInput formControlName=\"name\" placeholder=\"Name\">\r\n  </mat-form-field-->\r\n\r\n  <!--mat-form-field>\r\n    <mat-label>Collection</mat-label>\r\n    <mat-select disableOptionCentering placeholder=\"Collection\" formControlName=\"collection\">\r\n        <mat-option *ngFor=\"let collection of collections\" [value]=\"collection.id\">\r\n          {{collection.name}}\r\n        </mat-option>\r\n      </mat-select>\r\n  </mat-form-field-->\r\n\r\n  <span class=\"flex-grow-1\"></span>\r\n  <button mat-raised-button color=\"primary\" (click)=\"addNewOfferModal()\">CREATE AN OFFER</button>\r\n</mat-toolbar>\r\n\r\n<div class=\"flex-grow-1 overflow-auto display-flex\">\r\n\r\n  <table class=\"margin-top-10px margin-right-25px width-100pct\" mat-table [dataSource]=\"offers\" matSort [matSortActive]=\"offersService.previousSortColumn\"\r\n    [matSortDirection]=\"offersService.previousSortDirection\" matSortDisableClear (matSortChange)=\"onSort()\">\r\n\r\n    <ng-container matColumnDef=\"sku\">\r\n      <th mat-header-cell *matHeaderCellDef mat-sort-header>\r\n        SKU\r\n      </th>\r\n      <td mat-cell *matCellDef=\"let element\" class=\"padding-table-td\"> {{ getReleaseSku(element.releaseId) }} </td>\r\n    </ng-container>\r\n\r\n    <ng-container matColumnDef=\"mainImage\">\r\n      <th mat-header-cell *matHeaderCellDef></th>\r\n      <td mat-cell *matCellDef=\"let element\" class=\"padding-table-td display-flex flex-grow-1 height-100pct padding-left-0px width-100pct\">\r\n        <div class=\"position-relative margin-top-5px\">\r\n          <img [src]=\"getReleaseImage(element.releaseId)\" class=\"margin-auto\" alt=\"50\">\r\n        </div>\r\n      </td>\r\n    </ng-container>\r\n\r\n    <ng-container matColumnDef=\"releaseId\">\r\n      <th mat-header-cell *matHeaderCellDef mat-sort-header>\r\n        RELEASE NAME\r\n      </th>\r\n      <td mat-cell *matCellDef=\"let element\" class=\"padding-table-td\"> {{ getReleaseName(element.releaseId) }} </td>\r\n    </ng-container>\r\n\r\n    <ng-container matColumnDef=\"collectionId\">\r\n      <th mat-header-cell *matHeaderCellDef>\r\n        COLLECTION\r\n      </th>\r\n      <td mat-cell *matCellDef=\"let element\" class=\"padding-table-td\"> {{ getCollectionNameRelease(element.releaseId) }} </td>\r\n    </ng-container>\r\n\r\n    <ng-container matColumnDef=\"color\">\r\n      <th mat-header-cell *matHeaderCellDef>\r\n        COLOR\r\n      </th>\r\n      <td mat-cell *matCellDef=\"let element\" class=\"padding-table-td\"> {{ getReleaseColor(element.releaseId) }} </td>\r\n    </ng-container>\r\n\r\n    <ng-container matColumnDef=\"offerDate\">\r\n      <th mat-header-cell *matHeaderCellDef mat-sort-header>\r\n        OFFICIAL RELEASE\r\n      </th>\r\n      <td mat-cell *matCellDef=\"let element\" class=\"padding-table-td\"> {{ getReleaseDate(element.releaseId) | date: 'dd/MM/yyyy' }} </td>\r\n    </ng-container>\r\n\r\n    <ng-container matColumnDef=\"shopId\">\r\n      <th mat-header-cell *matHeaderCellDef mat-sort-header>\r\n        SHOP\r\n      </th>\r\n      <td mat-cell *matCellDef=\"let element\" class=\"padding-table-td\"> {{ getShop(element.shopId) }} </td>\r\n    </ng-container>\r\n\r\n    <ng-container matColumnDef=\"status\">\r\n      <th mat-header-cell *matHeaderCellDef mat-sort-header>\r\n        STATUS\r\n      </th>\r\n      <td mat-cell *matCellDef=\"let element\" class=\"padding-table-td\">\r\n        <div>\r\n          {{ element.status }}\r\n          <mat-slide-toggle *ngIf=\"element.status === 'sold_out'\" class=\"margin-bottom-25px margin-top-25px margin-left-5px\" [checked]=\"false\"\r\n            (click)=\"changeStatus(element)\"></mat-slide-toggle>\r\n        </div>\r\n      </td>\r\n    </ng-container>\r\n\r\n    <ng-container matColumnDef=\"shipping\">\r\n      <th mat-header-cell *matHeaderCellDef mat-sort-header>\r\n        SHIPPING\r\n      </th>\r\n      <td mat-cell *matCellDef=\"let element\" class=\"padding-table-td\"> {{ element.shipping }} </td>\r\n    </ng-container>\r\n\r\n    <ng-container matColumnDef=\"updatedAt\">\r\n      <th mat-header-cell *matHeaderCellDef mat-sort-header>\r\n        UPDATED\r\n      </th>\r\n      <td mat-cell *matCellDef=\"let element\" class=\"padding-table-td\"> {{ element.updatedAt | date: 'dd/MM/yyyy' }} </td>\r\n    </ng-container>\r\n\r\n    <ng-container matColumnDef=\"actions\">\r\n      <th mat-header-cell *matHeaderCellDef>\r\n      </th>\r\n      <td mat-cell *matCellDef=\"let element\" class=\"min-width-80px\">\r\n        <button mat-icon-button color=\"primary\" type=\"button\" [matTooltip]=\"Edit\" [routerLink]=\"['../../releases/edit', element.releaseId]\"\r\n          [queryParams]=\"{offerId: element.id, returnUrl: location.path()}\"  class=\"min-width-80px\">\r\n          <mat-icon>edit</mat-icon>\r\n        </button>\r\n        <button mat-icon-button color=\"primary\" type=\"button\" [matTooltip]=\"Delete\" (click)=\"getOfferToDelete(element)\">\r\n          <mat-icon>delete</mat-icon>\r\n        </button>\r\n      </td>\r\n    </ng-container>\r\n\r\n    <tr mat-header-row *matHeaderRowDef=\"displayedColumns\"></tr>\r\n    <tr mat-row *matRowDef=\"let row; columns: displayedColumns;\" [ngClass]=\"row.is_active ? '' : 'text-decoration-line-through'\">\r\n    </tr>\r\n\r\n  </table>\r\n\r\n</div>\r\n\r\n<div class=\"margin-right-25px padding-top-5px padding-bottom-5px flex-shrink-0 display-flex border-top-style-solid border-top-width-2px border-top-color-grey\">\r\n  <span class=\"flex-grow-1\"></span>\r\n  <mat-paginator [length]=\"totalLength\" [pageSizeOptions]=\"[5, 10, 20, 50, 100]\" [pageIndex]=\"\" [pageSize]=\"50\" showFirstLastButtons\r\n    (page)=\"onPage()\">\r\n  </mat-paginator>\r\n</div>"
 
 /***/ }),
 
@@ -2125,12 +2653,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_offers_table_offers_table_component__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./components/offers-table/offers-table.component */ "./src/app/ms-back-office/modules/ms-offers/components/offers-table/offers-table.component.ts");
 /* harmony import */ var _components_offers_collection_table_offers_collection_table_component__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./components/offers-collection-table/offers-collection-table.component */ "./src/app/ms-back-office/modules/ms-offers/components/offers-collection-table/offers-collection-table.component.ts");
 /* harmony import */ var _components_offers_release_table_offers_release_table_component__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ./components/offers-release-table/offers-release-table.component */ "./src/app/ms-back-office/modules/ms-offers/components/offers-release-table/offers-release-table.component.ts");
-/* harmony import */ var _components_link_offers_collection_link_offers_collection_modal_component__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ./components/link-offers-collection/link-offers-collection-modal.component */ "./src/app/ms-back-office/modules/ms-offers/components/link-offers-collection/link-offers-collection-modal.component.ts");
-/* harmony import */ var _ms_offers_routing_module__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ./ms-offers-routing.module */ "./src/app/ms-back-office/modules/ms-offers/ms-offers-routing.module.ts");
-/* harmony import */ var _components_offer_form_offer_form_component__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! ./components/offer-form/offer-form.component */ "./src/app/ms-back-office/modules/ms-offers/components/offer-form/offer-form.component.ts");
-/* harmony import */ var _components_new_offer_new_offer_component__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! ./components/new-offer/new-offer.component */ "./src/app/ms-back-office/modules/ms-offers/components/new-offer/new-offer.component.ts");
-/* harmony import */ var _components_edit_offer_edit_offer_component__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(/*! ./components/edit-offer/edit-offer.component */ "./src/app/ms-back-office/modules/ms-offers/components/edit-offer/edit-offer.component.ts");
-/* harmony import */ var _components_delete_offer_delete_offer_component__WEBPACK_IMPORTED_MODULE_25__ = __webpack_require__(/*! ./components/delete-offer/delete-offer.component */ "./src/app/ms-back-office/modules/ms-offers/components/delete-offer/delete-offer.component.ts");
+/* harmony import */ var _components_offers_shop_table_offers_shop_table_component__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ./components/offers-shop-table/offers-shop-table.component */ "./src/app/ms-back-office/modules/ms-offers/components/offers-shop-table/offers-shop-table.component.ts");
+/* harmony import */ var _components_link_offers_collection_link_offers_collection_modal_component__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ./components/link-offers-collection/link-offers-collection-modal.component */ "./src/app/ms-back-office/modules/ms-offers/components/link-offers-collection/link-offers-collection-modal.component.ts");
+/* harmony import */ var _ms_offers_routing_module__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! ./ms-offers-routing.module */ "./src/app/ms-back-office/modules/ms-offers/ms-offers-routing.module.ts");
+/* harmony import */ var _components_offer_form_offer_form_component__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! ./components/offer-form/offer-form.component */ "./src/app/ms-back-office/modules/ms-offers/components/offer-form/offer-form.component.ts");
+/* harmony import */ var _components_new_offer_new_offer_component__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(/*! ./components/new-offer/new-offer.component */ "./src/app/ms-back-office/modules/ms-offers/components/new-offer/new-offer.component.ts");
+/* harmony import */ var _components_edit_offer_edit_offer_component__WEBPACK_IMPORTED_MODULE_25__ = __webpack_require__(/*! ./components/edit-offer/edit-offer.component */ "./src/app/ms-back-office/modules/ms-offers/components/edit-offer/edit-offer.component.ts");
+/* harmony import */ var _components_delete_offer_delete_offer_component__WEBPACK_IMPORTED_MODULE_26__ = __webpack_require__(/*! ./components/delete-offer/delete-offer.component */ "./src/app/ms-back-office/modules/ms-offers/components/delete-offer/delete-offer.component.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -2158,6 +2687,7 @@ var __decorate = (undefined && undefined.__decorate) || function (decorators, ta
 
 
 //
+
 
 
 
@@ -2198,37 +2728,39 @@ var MsOffersModule = /** @class */ (function () {
                 _angular_material_toolbar__WEBPACK_IMPORTED_MODULE_11__["MatToolbarModule"],
                 _angular_material_tooltip__WEBPACK_IMPORTED_MODULE_12__["MatTooltipModule"],
                 _ngx_translate_core__WEBPACK_IMPORTED_MODULE_14__["TranslateModule"],
-                _ms_offers_routing_module__WEBPACK_IMPORTED_MODULE_21__["MsOffersRoutingModule"],
+                _ms_offers_routing_module__WEBPACK_IMPORTED_MODULE_22__["MsOffersRoutingModule"],
                 _ui_modules_ask_before_refresh_ask_before_refresh_module__WEBPACK_IMPORTED_MODULE_16__["AskBeforeRefreshModule"],
                 _ui_modules_images_card_images_card_module__WEBPACK_IMPORTED_MODULE_15__["ImagesCardModule"]
             ],
             declarations: [
                 _components_offers_collection_table_offers_collection_table_component__WEBPACK_IMPORTED_MODULE_18__["OffersCollectionTableComponent"],
                 _components_offers_table_offers_table_component__WEBPACK_IMPORTED_MODULE_17__["OffersTableComponent"],
-                _components_offer_form_offer_form_component__WEBPACK_IMPORTED_MODULE_22__["OfferFormComponent"],
+                _components_offer_form_offer_form_component__WEBPACK_IMPORTED_MODULE_23__["OfferFormComponent"],
                 _components_offers_release_table_offers_release_table_component__WEBPACK_IMPORTED_MODULE_19__["OffersReleaseTableComponent"],
-                _components_link_offers_collection_link_offers_collection_modal_component__WEBPACK_IMPORTED_MODULE_20__["LinkOffersCollentionModalComponent"],
-                _components_new_offer_new_offer_component__WEBPACK_IMPORTED_MODULE_23__["NewOfferComponent"],
-                _components_edit_offer_edit_offer_component__WEBPACK_IMPORTED_MODULE_24__["EditOfferComponent"],
-                _components_delete_offer_delete_offer_component__WEBPACK_IMPORTED_MODULE_25__["DeleteOfferComponent"]
+                _components_offers_shop_table_offers_shop_table_component__WEBPACK_IMPORTED_MODULE_20__["OffersShopTableComponent"],
+                _components_link_offers_collection_link_offers_collection_modal_component__WEBPACK_IMPORTED_MODULE_21__["LinkOffersCollentionModalComponent"],
+                _components_new_offer_new_offer_component__WEBPACK_IMPORTED_MODULE_24__["NewOfferComponent"],
+                _components_edit_offer_edit_offer_component__WEBPACK_IMPORTED_MODULE_25__["EditOfferComponent"],
+                _components_delete_offer_delete_offer_component__WEBPACK_IMPORTED_MODULE_26__["DeleteOfferComponent"]
             ],
             exports: [
                 _components_offers_collection_table_offers_collection_table_component__WEBPACK_IMPORTED_MODULE_18__["OffersCollectionTableComponent"],
                 _components_offers_table_offers_table_component__WEBPACK_IMPORTED_MODULE_17__["OffersTableComponent"],
-                _components_offer_form_offer_form_component__WEBPACK_IMPORTED_MODULE_22__["OfferFormComponent"],
+                _components_offer_form_offer_form_component__WEBPACK_IMPORTED_MODULE_23__["OfferFormComponent"],
                 _components_offers_release_table_offers_release_table_component__WEBPACK_IMPORTED_MODULE_19__["OffersReleaseTableComponent"],
-                _components_link_offers_collection_link_offers_collection_modal_component__WEBPACK_IMPORTED_MODULE_20__["LinkOffersCollentionModalComponent"],
-                _components_new_offer_new_offer_component__WEBPACK_IMPORTED_MODULE_23__["NewOfferComponent"],
-                _components_edit_offer_edit_offer_component__WEBPACK_IMPORTED_MODULE_24__["EditOfferComponent"],
-                _components_delete_offer_delete_offer_component__WEBPACK_IMPORTED_MODULE_25__["DeleteOfferComponent"]
+                _components_offers_shop_table_offers_shop_table_component__WEBPACK_IMPORTED_MODULE_20__["OffersShopTableComponent"],
+                _components_link_offers_collection_link_offers_collection_modal_component__WEBPACK_IMPORTED_MODULE_21__["LinkOffersCollentionModalComponent"],
+                _components_new_offer_new_offer_component__WEBPACK_IMPORTED_MODULE_24__["NewOfferComponent"],
+                _components_edit_offer_edit_offer_component__WEBPACK_IMPORTED_MODULE_25__["EditOfferComponent"],
+                _components_delete_offer_delete_offer_component__WEBPACK_IMPORTED_MODULE_26__["DeleteOfferComponent"]
             ],
             providers: [
                 _angular_common__WEBPACK_IMPORTED_MODULE_1__["DatePipe"]
             ],
             entryComponents: [
-                _components_new_offer_new_offer_component__WEBPACK_IMPORTED_MODULE_23__["NewOfferComponent"],
-                _components_edit_offer_edit_offer_component__WEBPACK_IMPORTED_MODULE_24__["EditOfferComponent"],
-                _components_link_offers_collection_link_offers_collection_modal_component__WEBPACK_IMPORTED_MODULE_20__["LinkOffersCollentionModalComponent"]
+                _components_new_offer_new_offer_component__WEBPACK_IMPORTED_MODULE_24__["NewOfferComponent"],
+                _components_edit_offer_edit_offer_component__WEBPACK_IMPORTED_MODULE_25__["EditOfferComponent"],
+                _components_link_offers_collection_link_offers_collection_modal_component__WEBPACK_IMPORTED_MODULE_21__["LinkOffersCollentionModalComponent"]
             ]
         })
     ], MsOffersModule);
@@ -2320,6 +2852,10 @@ var OffersService = /** @class */ (function () {
         if (filter.releaseId && filter.releaseId.length > 0) {
             queryParams += queryParams.length > 0 ? '&' : '?';
             queryParams += "releaseId=" + filter.releaseId;
+        }
+        if (filter.shopId && filter.shopId.length > 0) {
+            queryParams += queryParams.length > 0 ? '&' : '?';
+            queryParams += "shopId=" + filter.shopId;
         }
         if (sortColumn) {
             var ordering = '';
@@ -2640,7 +3176,114 @@ var ReleasesService = /** @class */ (function () {
 
 
 
+/***/ }),
+
+/***/ "./src/app/ms-back-office/modules/ms-shops/models/currency.ts":
+/*!********************************************************************!*\
+  !*** ./src/app/ms-back-office/modules/ms-shops/models/currency.ts ***!
+  \********************************************************************/
+/*! exports provided: Currency, CURRENCY */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Currency", function() { return Currency; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CURRENCY", function() { return CURRENCY; });
+var Currency = /** @class */ (function () {
+    function Currency() {
+    }
+    return Currency;
+}());
+
+;
+var CURRENCY = [
+    { id: 'USD', name: 'USD' },
+    { id: 'EUR', name: 'EUR' },
+];
+
+
+/***/ }),
+
+/***/ "./src/app/ms-back-office/modules/ms-shops/models/shops.ts":
+/*!*****************************************************************!*\
+  !*** ./src/app/ms-back-office/modules/ms-shops/models/shops.ts ***!
+  \*****************************************************************/
+/*! exports provided: WeekHours, ShopImage, Shop, ShopsListResponse, ShopsResponse, ShopsImagesListResponse, ShopImagesResponse, EditShopModel */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "WeekHours", function() { return WeekHours; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ShopImage", function() { return ShopImage; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Shop", function() { return Shop; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ShopsListResponse", function() { return ShopsListResponse; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ShopsResponse", function() { return ShopsResponse; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ShopsImagesListResponse", function() { return ShopsImagesListResponse; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ShopImagesResponse", function() { return ShopImagesResponse; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "EditShopModel", function() { return EditShopModel; });
+var __extends = (undefined && undefined.__extends) || (function () {
+    var extendStatics = Object.setPrototypeOf ||
+        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
+var WeekHours = /** @class */ (function () {
+    function WeekHours() {
+    }
+    return WeekHours;
+}());
+
+var ShopImage = /** @class */ (function () {
+    function ShopImage() {
+    }
+    return ShopImage;
+}());
+
+var Shop = /** @class */ (function () {
+    function Shop() {
+    }
+    return Shop;
+}());
+
+var ShopsListResponse = /** @class */ (function () {
+    function ShopsListResponse() {
+    }
+    return ShopsListResponse;
+}());
+
+var ShopsResponse = /** @class */ (function () {
+    function ShopsResponse() {
+    }
+    return ShopsResponse;
+}());
+
+var ShopsImagesListResponse = /** @class */ (function () {
+    function ShopsImagesListResponse() {
+    }
+    return ShopsImagesListResponse;
+}());
+
+var ShopImagesResponse = /** @class */ (function () {
+    function ShopImagesResponse() {
+    }
+    return ShopImagesResponse;
+}());
+
+var EditShopModel = /** @class */ (function (_super) {
+    __extends(EditShopModel, _super);
+    function EditShopModel() {
+        return _super !== null && _super.apply(this, arguments) || this;
+    }
+    return EditShopModel;
+}(Shop));
+
+
+
 /***/ })
 
 }]);
-//# sourceMappingURL=default~ms-collections-ms-collections-module~ms-offers-ms-offers-module~ms-releases-ms-releases-modu~9021e546.js.map
+//# sourceMappingURL=default~ms-brands-ms-brands-module~ms-collections-ms-collections-module~ms-offers-ms-offers-module~m~94c757c6.js.map

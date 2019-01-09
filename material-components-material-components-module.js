@@ -782,7 +782,7 @@ var PizzaPartyComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<mat-card>\n    <mat-card-header>\n        <mat-card-title>Tooltip</mat-card-title>\n    </mat-card-header>\n    <mat-card-content>\n        <mat-form-field class=\"example-user-input\">\n            <mat-select placeholder=\"Tooltip position\" [formControl]=\"position\">\n                <mat-option *ngFor=\"let positionOption of positionOptions\" [value]=\"positionOption\">\n                    {{ positionOption }}\n                </mat-option>\n            </mat-select>\n        </mat-form-field>\n\n        <button mat-raised-button matTooltip=\"Info about the action\" [matTooltipPosition]=\"position.value\" aria-label=\"Button that displays a tooltip in various positions\">\n            Action\n        </button>\n    </mat-card-content>\n</mat-card>"
+module.exports = "<mat-card>\n    <mat-card-header>\n        <mat-card-title>Tooltip</mat-card-title>\n    </mat-card-header>\n    <mat-card-content>\n        <mat-form-field class=\"example-user-input\">\n            <mat-select disableOptionCentering placeholder=\"Tooltip position\" [formControl]=\"position\">\n                <mat-option *ngFor=\"let positionOption of positionOptions\" [value]=\"positionOption\">\n                    {{ positionOption }}\n                </mat-option>\n            </mat-select>\n        </mat-form-field>\n\n        <button mat-raised-button matTooltip=\"Info about the action\" [matTooltipPosition]=\"position.value\" aria-label=\"Button that displays a tooltip in various positions\">\n            Action\n        </button>\n    </mat-card-content>\n</mat-card>"
 
 /***/ }),
 

@@ -244,7 +244,7 @@ var DatePickerComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<mat-card>\n    <mat-card-header>\n        <mat-card-title>Form Field</mat-card-title>\n    </mat-card-header>\n    <mat-card-content>\n        <mat-form-field>\n            <input matInput placeholder=\"Input\">\n        </mat-form-field>\n\n        <mat-form-field>\n            <textarea matInput placeholder=\"Textarea\"></textarea>\n        </mat-form-field>\n\n        <mat-form-field>\n            <mat-select placeholder=\"Select\">\n                <mat-option value=\"option\">Option</mat-option>\n            </mat-select>\n        </mat-form-field>\n    </mat-card-content>\n</mat-card>\n\n"
+module.exports = "<mat-card>\n    <mat-card-header>\n        <mat-card-title>Form Field</mat-card-title>\n    </mat-card-header>\n    <mat-card-content>\n        <mat-form-field>\n            <input matInput placeholder=\"Input\">\n        </mat-form-field>\n\n        <mat-form-field>\n            <textarea matInput placeholder=\"Textarea\"></textarea>\n        </mat-form-field>\n\n        <mat-form-field>\n            <mat-select disableOptionCentering placeholder=\"Select\">\n                <mat-option value=\"option\">Option</mat-option>\n            </mat-select>\n        </mat-form-field>\n    </mat-card-content>\n</mat-card>\n\n"
 
 /***/ }),
 
