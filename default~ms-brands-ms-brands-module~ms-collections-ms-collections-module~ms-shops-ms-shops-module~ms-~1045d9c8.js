@@ -2951,7 +2951,7 @@ var ShopsTableComponent = /** @class */ (function () {
             'currency',
             'updatedAt',
             'rank',
-            'shipingDetails',
+            //'shipingDetails',
             'action'
         ];
         this.status = _models_status__WEBPACK_IMPORTED_MODULE_6__["STATUS"];
