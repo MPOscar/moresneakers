@@ -378,6 +378,10 @@ var routes = [
             {
                 path: 'tasks',
                 loadChildren: '../ms-tasks/ms-tasks.module#MsTasksModule'
+            },
+            {
+                path: 'layout',
+                loadChildren: '../ms-layout/ms-layout-slider.module#MsLayoutSliderModule'
             }
         ]
     }
