@@ -3197,8 +3197,9 @@ var Currency = /** @class */ (function () {
 
 ;
 var CURRENCY = [
-    { id: 'USD', name: 'USD' },
+    { id: 'GBP', name: 'GBP' },
     { id: 'EUR', name: 'EUR' },
+    { id: 'USD', name: 'USD' },
 ];
 
 
