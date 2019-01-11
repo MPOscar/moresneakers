@@ -48,9 +48,9 @@ var map = {
 		"default~ms-brands-ms-brands-module~ms-collections-ms-collections-module~ms-deals-ms-deals-module~ms-~a8d003f4",
 		"default~ms-brands-ms-brands-module~ms-collections-ms-collections-module~ms-deals-ms-deals-module~ms-~4095e54f"
 	],
-	"../ms-layout/ms-layout-slider.module": [
-		"./src/app/ms-back-office/modules/ms-layout/ms-layout-slider.module.ts",
-		"ms-layout-ms-layout-slider-module"
+	"../ms-layout/ms-layout.module": [
+		"./src/app/ms-back-office/modules/ms-layout/ms-layout.module.ts",
+		"ms-layout-ms-layout-module"
 	],
 	"../ms-offers/ms-offers.module": [
 		"./src/app/ms-back-office/modules/ms-offers/ms-offers.module.ts",

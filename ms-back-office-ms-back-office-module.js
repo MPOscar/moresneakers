@@ -63,6 +63,102 @@ var BackOfficeComponent = /** @class */ (function () {
 
 /***/ }),
 
+/***/ "./src/app/ms-back-office/components/layout-topnav/layout-slider-topnav.component.html":
+/*!*********************************************************************************************!*\
+  !*** ./src/app/ms-back-office/components/layout-topnav/layout-slider-topnav.component.html ***!
+  \*********************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<mat-toolbar color=\"primary\" class=\"fix-nav\">\n    <button type=\"button\" mat-icon-button class=\"visible-md\" (click)=\"toggleSidebar()\">\n        <mat-icon aria-label=\"Side nav toggle icon\">menu</mat-icon>\n    </button>\n    <div class=\"nav-brand cursor-pointer\" [routerLink]=\"['/backoffice/home']\">\n        MoreSneakers\n    </div>\n    <span class=\"nav-spacer\"></span>\n    <!--button class=\"hidden-sm\" mat-icon-button [matMenuTriggerFor]=\"language\">\n        <mat-icon>language</mat-icon>\n    </button>\n    <mat-menu #language=\"matMenu\">\n        <button mat-menu-item (click)=\"changeLang('en')\">\n            <span>{{ 'English' | translate }}</span>\n        </button>\n        <button mat-menu-item (click)=\"changeLang('fr')\">\n            <span>{{ 'French' | translate }}</span>\n        </button>\n    </mat-menu-->\n    <span class=\"flex-grow-1\"></span>\n    <div class=\"marging-right-10px width-80px\">\n        <button class=\"hidden-sm\" mat-icon-button [matMenuTriggerFor]=\"profile\">\n            <mat-icon>account_circle</mat-icon> Admin\n        </button>\n        <mat-menu #profile=\"matMenu\">\n            <button mat-menu-item>\n                <mat-icon>person</mat-icon>\n                <span>{{ 'Profile' | translate }}</span>\n            </button>\n        </mat-menu>\n    </div>\n    <div>\n        <button mat-icon-button [routerLink]=\"['/logout']\" [queryParams]=\"\" matTooltip=\"{{ 'Exit' | translate }}\">\n            <mat-icon>exit_to_app</mat-icon>\n        </button>\n    </div>\n</mat-toolbar>"
+
+/***/ }),
+
+/***/ "./src/app/ms-back-office/components/layout-topnav/layout-slider-topnav.component.scss":
+/*!*********************************************************************************************!*\
+  !*** ./src/app/ms-back-office/components/layout-topnav/layout-slider-topnav.component.scss ***!
+  \*********************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = ":host {\n  display: block;\n  position: fixed;\n  left: 0;\n  right: 0;\n  top: 0;\n  z-index: 1000; }\n\n.nav-brand {\n  width: 215px;\n  text-align: center; }\n\n.topnav-icon {\n  text-decoration: none;\n  display: flex;\n  color: #fff; }\n\n.nav-spacer {\n  flex: 1 1 auto; }\n\n.visible-md {\n  display: none; }\n\n.visible-sm {\n  display: none; }\n\n@media screen and (max-width: 992px) {\n  .visible-md {\n    display: block; } }\n\n@media screen and (max-width: 768px) {\n  .visible-sm {\n    display: block; }\n  .nav-brand {\n    width: 100%; } }\n\n@media screen and (max-width: 768px) {\n  .hidden-sm {\n    display: none; } }\n\n.width-80px {\n  width: 80px; }\n\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvbXMtYmFjay1vZmZpY2UvY29tcG9uZW50cy9sYXlvdXQtdG9wbmF2L0U6XFxQUk9HUkFNQUNJT04gSUlJXFxtb3Jlc25lYWtlcnMtYmFja29mZmljZS9zcmNcXGFwcFxcbXMtYmFjay1vZmZpY2VcXGNvbXBvbmVudHNcXGxheW91dC10b3BuYXZcXGxheW91dC1zbGlkZXItdG9wbmF2LmNvbXBvbmVudC5zY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0VBQ0ksZUFBYztFQUNkLGdCQUFlO0VBQ2YsUUFBTztFQUNQLFNBQVE7RUFDUixPQUFNO0VBQ04sY0FBYSxFQUNoQjs7QUFDRDtFQUNJLGFBQVk7RUFDWixtQkFBa0IsRUFDckI7O0FBQ0Q7RUFDSSxzQkFBcUI7RUFDckIsY0FBYTtFQUNiLFlBQVcsRUFDZDs7QUFFRDtFQUNJLGVBQWMsRUFDakI7O0FBRUQ7RUFDSSxjQUFhLEVBQ2hCOztBQUNEO0VBQ0ksY0FBYSxFQUNoQjs7QUFDRDtFQUNJO0lBQ0ksZUFBYyxFQUNqQixFQUFBOztBQUVMO0VBQ0k7SUFDSSxlQUFjLEVBQ2pCO0VBQ0Q7SUFDSSxZQUFXLEVBQ2QsRUFBQTs7QUFFTDtFQUNJO0lBQ0ksY0FBYSxFQUNoQixFQUFBOztBQUdMO0VBQ0ksWUFBVSxFQUNiIiwiZmlsZSI6InNyYy9hcHAvbXMtYmFjay1vZmZpY2UvY29tcG9uZW50cy9sYXlvdXQtdG9wbmF2L2xheW91dC1zbGlkZXItdG9wbmF2LmNvbXBvbmVudC5zY3NzIiwic291cmNlc0NvbnRlbnQiOlsiOmhvc3Qge1xuICAgIGRpc3BsYXk6IGJsb2NrO1xuICAgIHBvc2l0aW9uOiBmaXhlZDtcbiAgICBsZWZ0OiAwO1xuICAgIHJpZ2h0OiAwO1xuICAgIHRvcDogMDtcbiAgICB6LWluZGV4OiAxMDAwO1xufVxuLm5hdi1icmFuZCB7XG4gICAgd2lkdGg6IDIxNXB4O1xuICAgIHRleHQtYWxpZ246IGNlbnRlcjtcbn1cbi50b3BuYXYtaWNvbiB7XG4gICAgdGV4dC1kZWNvcmF0aW9uOiBub25lO1xuICAgIGRpc3BsYXk6IGZsZXg7XG4gICAgY29sb3I6ICNmZmY7XG59XG5cbi5uYXYtc3BhY2VyIHtcbiAgICBmbGV4OiAxIDEgYXV0bztcbn1cblxuLnZpc2libGUtbWQge1xuICAgIGRpc3BsYXk6IG5vbmU7XG59XG4udmlzaWJsZS1zbSB7XG4gICAgZGlzcGxheTogbm9uZTtcbn1cbkBtZWRpYSBzY3JlZW4gYW5kIChtYXgtd2lkdGg6IDk5MnB4KSB7XG4gICAgLnZpc2libGUtbWQge1xuICAgICAgICBkaXNwbGF5OiBibG9jaztcbiAgICB9XG59XG5AbWVkaWEgc2NyZWVuIGFuZCAobWF4LXdpZHRoOiA3NjhweCkge1xuICAgIC52aXNpYmxlLXNtIHtcbiAgICAgICAgZGlzcGxheTogYmxvY2s7XG4gICAgfVxuICAgIC5uYXYtYnJhbmQge1xuICAgICAgICB3aWR0aDogMTAwJTtcbiAgICB9XG59XG5AbWVkaWEgc2NyZWVuIGFuZCAobWF4LXdpZHRoOiA3NjhweCkge1xuICAgIC5oaWRkZW4tc20ge1xuICAgICAgICBkaXNwbGF5OiBub25lO1xuICAgIH1cbn1cblxuLndpZHRoLTgwcHh7XG4gICAgd2lkdGg6ODBweDtcbn0iXX0= */"
+
+/***/ }),
+
+/***/ "./src/app/ms-back-office/components/layout-topnav/layout-slider-topnav.component.ts":
+/*!*******************************************************************************************!*\
+  !*** ./src/app/ms-back-office/components/layout-topnav/layout-slider-topnav.component.ts ***!
+  \*******************************************************************************************/
+/*! exports provided: LayoutSliderTopnavComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "LayoutSliderTopnavComponent", function() { return LayoutSliderTopnavComponent; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+/* harmony import */ var _ngx_translate_core__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @ngx-translate/core */ "./node_modules/@ngx-translate/core/fesm5/ngx-translate-core.js");
+/* harmony import */ var _authentication_services_auth_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../authentication/services/auth.service */ "./src/app/authentication/services/auth.service.ts");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+//
+
+var LayoutSliderTopnavComponent = /** @class */ (function () {
+    function LayoutSliderTopnavComponent(authService, router, translate) {
+        var _this = this;
+        this.authService = authService;
+        this.router = router;
+        this.translate = translate;
+        this.pushRightClass = 'push-right';
+        this.router.events.subscribe(function (val) {
+            if (val instanceof _angular_router__WEBPACK_IMPORTED_MODULE_1__["NavigationEnd"] && window.innerWidth <= 992 && _this.isToggled()) {
+                _this.toggleSidebar();
+            }
+        });
+    }
+    LayoutSliderTopnavComponent.prototype.ngOnInit = function () { };
+    LayoutSliderTopnavComponent.prototype.isToggled = function () {
+        var dom = document.querySelector('body');
+        return dom.classList.contains(this.pushRightClass);
+    };
+    LayoutSliderTopnavComponent.prototype.toggleSidebar = function () {
+        var dom = document.querySelector('body');
+        dom.classList.toggle(this.pushRightClass);
+    };
+    LayoutSliderTopnavComponent.prototype.onLoggedout = function () {
+        localStorage.removeItem('isLoggedin');
+        this.router.navigate(['/login']);
+    };
+    LayoutSliderTopnavComponent.prototype.changeLang = function (language) {
+        this.translate.use(language);
+    };
+    LayoutSliderTopnavComponent = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+            selector: 'layout-slider-topnav',
+            template: __webpack_require__(/*! ./layout-slider-topnav.component.html */ "./src/app/ms-back-office/components/layout-topnav/layout-slider-topnav.component.html"),
+            styles: [__webpack_require__(/*! ./layout-slider-topnav.component.scss */ "./src/app/ms-back-office/components/layout-topnav/layout-slider-topnav.component.scss")]
+        }),
+        __metadata("design:paramtypes", [_authentication_services_auth_service__WEBPACK_IMPORTED_MODULE_3__["AuthService"],
+            _angular_router__WEBPACK_IMPORTED_MODULE_1__["Router"],
+            _ngx_translate_core__WEBPACK_IMPORTED_MODULE_2__["TranslateService"]])
+    ], LayoutSliderTopnavComponent);
+    return LayoutSliderTopnavComponent;
+}());
+
+
+
+/***/ }),
+
 /***/ "./src/app/ms-back-office/components/nav/nav.component.html":
 /*!******************************************************************!*\
   !*** ./src/app/ms-back-office/components/nav/nav.component.html ***!
@@ -206,7 +302,7 @@ var SidebarComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<mat-toolbar color=\"primary\" class=\"fix-nav\">\n    <button type=\"button\" mat-icon-button class=\"visible-md\" (click)=\"toggleSidebar()\">\n        <mat-icon aria-label=\"Side nav toggle icon\">menu</mat-icon>\n    </button>\n    <div class=\"nav-brand cursor-pointer\" [routerLink]=\"['/backoffice/home']\">\n        MoreSneakers\n    </div>\n    <span class=\"nav-spacer\"></span>\n    <!--button class=\"hidden-sm\" mat-icon-button [matMenuTriggerFor]=\"language\">\n        <mat-icon>language</mat-icon>\n    </button>\n    <mat-menu #language=\"matMenu\">\n        <button mat-menu-item (click)=\"changeLang('en')\">\n            <span>{{ 'English' | translate }}</span>\n        </button>\n        <button mat-menu-item (click)=\"changeLang('fr')\">\n            <span>{{ 'French' | translate }}</span>\n        </button>\n    </mat-menu-->\n    <span class=\"flex-grow-1\"></span>\n    <div class=\"marging-right-10px width-80px\">\n        <button class=\"hidden-sm\" mat-icon-button [matMenuTriggerFor]=\"profile\">\n            <mat-icon>account_circle</mat-icon> Admin\n        </button>\n        <mat-menu #profile=\"matMenu\">\n            <button mat-menu-item>\n                <mat-icon>person</mat-icon>\n                <span>{{ 'Profile' | translate }}</span>\n            </button>\n        </mat-menu>\n    </div>\n    <div>\n        <button mat-icon-button [routerLink]=\"['/logout']\" [queryParams]=\"\" matTooltip=\"{{ 'Exit' | translate }}\">\n            <mat-icon>exit_to_app</mat-icon>\n        </button>\n    </div>\n</mat-toolbar>"
+module.exports = "<mat-toolbar color=\"primary\" class=\"fix-nav\">\n    <button type=\"button\" mat-icon-button class=\"visible-md\" (click)=\"toggleSidebar()\">\n        <mat-icon aria-label=\"Side nav toggle icon\">menu</mat-icon>\n    </button>\n    <div class=\"nav-brand cursor-pointer\" [routerLink]=\"['/backoffice/home']\">\n        MoreSneakers\n    </div>\n    <span class=\"nav-spacer\"></span>\n    <!--button class=\"hidden-sm\" mat-icon-button [matMenuTriggerFor]=\"language\">\n        <mat-icon>language</mat-icon>\n    </button>\n    <mat-menu #language=\"matMenu\">\n        <button mat-menu-item (click)=\"changeLang('en')\">\n            <span>{{ 'English' | translate }}</span>\n        </button>\n        <button mat-menu-item (click)=\"changeLang('fr')\">\n            <span>{{ 'French' | translate }}</span>\n        </button>\n    </mat-menu-->\n    <span class=\"flex-grow-1\"></span>\n    <!--div class=\"marging-right-10px width-80px\">\n        <button class=\"hidden-sm\" mat-icon-button [matMenuTriggerFor]=\"profile\">\n            <mat-icon>account_circle</mat-icon> Admin\n        </button>\n        <mat-menu #profile=\"matMenu\">\n            <button mat-menu-item>\n                <mat-icon>person</mat-icon>\n                <span>{{ 'Profile' | translate }}</span>\n            </button>\n        </mat-menu>\n    </div-->\n    <div class=\"marging-right-10px width-80px\">\n        <button class=\"hidden-sm\" mat-icon-button>\n            <mat-icon>account_circle</mat-icon> Admin\n        </button>\n        \n    </div>\n    <div>\n        <button mat-icon-button [routerLink]=\"['/logout']\" [queryParams]=\"\" matTooltip=\"{{ 'Exit' | translate }}\">\n            <mat-icon>exit_to_app</mat-icon>\n        </button>\n    </div>\n</mat-toolbar>"
 
 /***/ }),
 
@@ -381,7 +477,7 @@ var routes = [
             },
             {
                 path: 'layout',
-                loadChildren: '../ms-layout/ms-layout-slider.module#MsLayoutSliderModule'
+                loadChildren: '../ms-layout/ms-layout.module#MsLayoutModule'
             }
         ]
     }
@@ -420,8 +516,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_nav_nav_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./components/nav/nav.component */ "./src/app/ms-back-office/components/nav/nav.component.ts");
 /* harmony import */ var _components_sidebar_sidebar_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./components/sidebar/sidebar.component */ "./src/app/ms-back-office/components/sidebar/sidebar.component.ts");
 /* harmony import */ var _components_topnav_topnav_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./components/topnav/topnav.component */ "./src/app/ms-back-office/components/topnav/topnav.component.ts");
-/* harmony import */ var _modules_ms_back_office_routing_ms_back_office_routing_module__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./modules/ms-back-office-routing/ms-back-office-routing.module */ "./src/app/ms-back-office/modules/ms-back-office-routing/ms-back-office-routing.module.ts");
-/* harmony import */ var _config_config_module__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../config/config.module */ "./src/app/config/config.module.ts");
+/* harmony import */ var _components_layout_topnav_layout_slider_topnav_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./components/layout-topnav/layout-slider-topnav.component */ "./src/app/ms-back-office/components/layout-topnav/layout-slider-topnav.component.ts");
+/* harmony import */ var _modules_ms_back_office_routing_ms_back_office_routing_module__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./modules/ms-back-office-routing/ms-back-office-routing.module */ "./src/app/ms-back-office/modules/ms-back-office-routing/ms-back-office-routing.module.ts");
+/* harmony import */ var _config_config_module__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../config/config.module */ "./src/app/config/config.module.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -440,6 +537,7 @@ var __decorate = (undefined && undefined.__decorate) || function (decorators, ta
 
 
 
+
 var MsBackOfficeModule = /** @class */ (function () {
     function MsBackOfficeModule() {
     }
@@ -447,8 +545,8 @@ var MsBackOfficeModule = /** @class */ (function () {
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
             imports: [
                 _angular_common__WEBPACK_IMPORTED_MODULE_0__["CommonModule"],
-                _modules_ms_back_office_routing_ms_back_office_routing_module__WEBPACK_IMPORTED_MODULE_8__["MsBackOfficeRoutingModule"],
-                _config_config_module__WEBPACK_IMPORTED_MODULE_9__["ConfigModule"],
+                _modules_ms_back_office_routing_ms_back_office_routing_module__WEBPACK_IMPORTED_MODULE_9__["MsBackOfficeRoutingModule"],
+                _config_config_module__WEBPACK_IMPORTED_MODULE_10__["ConfigModule"],
                 _angular_material__WEBPACK_IMPORTED_MODULE_3__["MatToolbarModule"],
                 _angular_material__WEBPACK_IMPORTED_MODULE_3__["MatButtonModule"],
                 _angular_material__WEBPACK_IMPORTED_MODULE_3__["MatSidenavModule"],
@@ -463,7 +561,8 @@ var MsBackOfficeModule = /** @class */ (function () {
                 _components_back_office_back_office_component__WEBPACK_IMPORTED_MODULE_2__["BackOfficeComponent"],
                 _components_nav_nav_component__WEBPACK_IMPORTED_MODULE_5__["NavComponent"],
                 _components_topnav_topnav_component__WEBPACK_IMPORTED_MODULE_7__["TopnavComponent"],
-                _components_sidebar_sidebar_component__WEBPACK_IMPORTED_MODULE_6__["SidebarComponent"]
+                _components_sidebar_sidebar_component__WEBPACK_IMPORTED_MODULE_6__["SidebarComponent"],
+                _components_layout_topnav_layout_slider_topnav_component__WEBPACK_IMPORTED_MODULE_8__["LayoutSliderTopnavComponent"]
             ]
         })
     ], MsBackOfficeModule);

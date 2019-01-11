@@ -1,4 +1,4 @@
-(window["webpackJsonp"] = window["webpackJsonp"] || []).push([["ms-layout-ms-layout-slider-module"],{
+(window["webpackJsonp"] = window["webpackJsonp"] || []).push([["ms-layout-ms-layout-module"],{
 
 /***/ "./src/app/ms-back-office/modules/ms-brands/services/brands-resolve.service.ts":
 /*!*************************************************************************************!*\
@@ -201,10 +201,10 @@ var BrandsService = /** @class */ (function () {
 
 /***/ }),
 
-/***/ "./src/app/ms-back-office/modules/ms-layout/components/delete-url/delete-url.component.html":
-/*!**************************************************************************************************!*\
-  !*** ./src/app/ms-back-office/modules/ms-layout/components/delete-url/delete-url.component.html ***!
-  \**************************************************************************************************/
+/***/ "./src/app/ms-back-office/modules/ms-layout/components/delete-layout/delete-layout.component.html":
+/*!********************************************************************************************************!*\
+  !*** ./src/app/ms-back-office/modules/ms-layout/components/delete-layout/delete-layout.component.html ***!
+  \********************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
@@ -212,27 +212,27 @@ module.exports = ""
 
 /***/ }),
 
-/***/ "./src/app/ms-back-office/modules/ms-layout/components/delete-url/delete-url.component.scss":
-/*!**************************************************************************************************!*\
-  !*** ./src/app/ms-back-office/modules/ms-layout/components/delete-url/delete-url.component.scss ***!
-  \**************************************************************************************************/
+/***/ "./src/app/ms-back-office/modules/ms-layout/components/delete-layout/delete-layout.component.scss":
+/*!********************************************************************************************************!*\
+  !*** ./src/app/ms-back-office/modules/ms-layout/components/delete-layout/delete-layout.component.scss ***!
+  \********************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL21zLWJhY2stb2ZmaWNlL21vZHVsZXMvbXMtbGF5b3V0L2NvbXBvbmVudHMvZGVsZXRlLXVybC9kZWxldGUtdXJsLmNvbXBvbmVudC5zY3NzIn0= */"
+module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL21zLWJhY2stb2ZmaWNlL21vZHVsZXMvbXMtbGF5b3V0L2NvbXBvbmVudHMvZGVsZXRlLWxheW91dC9kZWxldGUtbGF5b3V0LmNvbXBvbmVudC5zY3NzIn0= */"
 
 /***/ }),
 
-/***/ "./src/app/ms-back-office/modules/ms-layout/components/delete-url/delete-url.component.ts":
-/*!************************************************************************************************!*\
-  !*** ./src/app/ms-back-office/modules/ms-layout/components/delete-url/delete-url.component.ts ***!
-  \************************************************************************************************/
-/*! exports provided: DeleteUrlComponent */
+/***/ "./src/app/ms-back-office/modules/ms-layout/components/delete-layout/delete-layout.component.ts":
+/*!******************************************************************************************************!*\
+  !*** ./src/app/ms-back-office/modules/ms-layout/components/delete-layout/delete-layout.component.ts ***!
+  \******************************************************************************************************/
+/*! exports provided: DeleteLayoutComponent */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "DeleteUrlComponent", function() { return DeleteUrlComponent; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "DeleteLayoutComponent", function() { return DeleteLayoutComponent; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
 /* harmony import */ var _angular_material__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/material */ "./node_modules/@angular/material/esm5/material.es5.js");
@@ -240,7 +240,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _ui_modules_confirm_dialog_components_confirm_dialog_confirm_dialog_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../../../ui/modules/confirm-dialog/components/confirm-dialog/confirm-dialog.component */ "./src/app/ui/modules/confirm-dialog/components/confirm-dialog/confirm-dialog.component.ts");
 /* harmony import */ var _error_handling_services_error_handling_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../../../error-handling/services/error-handling.service */ "./src/app/error-handling/services/error-handling.service.ts");
 /* harmony import */ var _error_handling_services_toastr_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../../../../error-handling/services/toastr.service */ "./src/app/error-handling/services/toastr.service.ts");
-/* harmony import */ var _services_layout_slider_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../services/layout-slider.service */ "./src/app/ms-back-office/modules/ms-layout/services/layout-slider.service.ts");
+/* harmony import */ var _services_layout_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../services/layout.service */ "./src/app/ms-back-office/modules/ms-layout/services/layout.service.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -265,8 +265,8 @@ var deleteBtnKey = 'Delete';
 var messageKey = 'Are you sure you want to delete this Url?';
 var errorKey = 'Error';
 var deletedMessageKey = 'Deleted';
-var DeleteUrlComponent = /** @class */ (function () {
-    function DeleteUrlComponent(activatedRoute, dialog, urlsService, errorHandlingService, router, translate, toastr) {
+var DeleteLayoutComponent = /** @class */ (function () {
+    function DeleteLayoutComponent(activatedRoute, dialog, urlsService, errorHandlingService, router, translate, toastr) {
         this.activatedRoute = activatedRoute;
         this.dialog = dialog;
         this.urlsService = urlsService;
@@ -276,23 +276,23 @@ var DeleteUrlComponent = /** @class */ (function () {
         this.toastr = toastr;
         //setTranslations(this.translate, TRANSLATIONS);
     }
-    DeleteUrlComponent.prototype.ngAfterViewInit = function () {
+    DeleteLayoutComponent.prototype.ngAfterViewInit = function () {
         this.getCollection();
     };
-    DeleteUrlComponent.prototype.ngOnInit = function () {
+    DeleteLayoutComponent.prototype.ngOnInit = function () {
         this.urlId = this.activatedRoute.snapshot.data.urlId;
     };
-    DeleteUrlComponent.prototype.getCollection = function () {
+    DeleteLayoutComponent.prototype.getCollection = function () {
         var _this = this;
         this.urlsService.getUrl(this.urlId).subscribe(function (response) {
             _this.data = response.data;
             _this.confirmDeleteUrl();
         }, function (error) { return _this.errorHandlingService.handleUiError(errorKey, error); });
     };
-    DeleteUrlComponent.prototype.close = function () {
+    DeleteLayoutComponent.prototype.close = function () {
         this.router.navigate(this.activatedRoute.snapshot.data.closeRouteCommand, { relativeTo: this.activatedRoute });
     };
-    DeleteUrlComponent.prototype.confirmDeleteUrl = function () {
+    DeleteLayoutComponent.prototype.confirmDeleteUrl = function () {
         var _this = this;
         this.modalRef = this.dialog.open(_ui_modules_confirm_dialog_components_confirm_dialog_confirm_dialog_component__WEBPACK_IMPORTED_MODULE_4__["ConfirmDialogComponent"], {
             data: {
@@ -311,7 +311,7 @@ var DeleteUrlComponent = /** @class */ (function () {
             }
         });
     };
-    DeleteUrlComponent.prototype.deleteUrl = function () {
+    DeleteLayoutComponent.prototype.deleteUrl = function () {
         var _this = this;
         this.urlsService.deleteUrl(this.data.id).subscribe(function (response) {
             _this.urlsService.reloadUrls().subscribe(function (response) {
@@ -324,21 +324,21 @@ var DeleteUrlComponent = /** @class */ (function () {
             _this.close();
         });
     };
-    DeleteUrlComponent = __decorate([
+    DeleteLayoutComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
-            selector: 'delete-url',
-            template: __webpack_require__(/*! ./delete-url.component.html */ "./src/app/ms-back-office/modules/ms-layout/components/delete-url/delete-url.component.html"),
-            styles: [__webpack_require__(/*! ./delete-url.component.scss */ "./src/app/ms-back-office/modules/ms-layout/components/delete-url/delete-url.component.scss")]
+            selector: 'delete-layout',
+            template: __webpack_require__(/*! ./delete-layout.component.html */ "./src/app/ms-back-office/modules/ms-layout/components/delete-layout/delete-layout.component.html"),
+            styles: [__webpack_require__(/*! ./delete-layout.component.scss */ "./src/app/ms-back-office/modules/ms-layout/components/delete-layout/delete-layout.component.scss")]
         }),
         __metadata("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_1__["ActivatedRoute"],
             _angular_material__WEBPACK_IMPORTED_MODULE_2__["MatDialog"],
-            _services_layout_slider_service__WEBPACK_IMPORTED_MODULE_7__["LayoutService"],
+            _services_layout_service__WEBPACK_IMPORTED_MODULE_7__["LayoutService"],
             _error_handling_services_error_handling_service__WEBPACK_IMPORTED_MODULE_5__["ErrorHandlingService"],
             _angular_router__WEBPACK_IMPORTED_MODULE_1__["Router"],
             _ngx_translate_core__WEBPACK_IMPORTED_MODULE_3__["TranslateService"],
             _error_handling_services_toastr_service__WEBPACK_IMPORTED_MODULE_6__["ToastrService"]])
-    ], DeleteUrlComponent);
-    return DeleteUrlComponent;
+    ], DeleteLayoutComponent);
+    return DeleteLayoutComponent;
 }());
 
 
@@ -385,7 +385,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _ui_helpers_mixin_decorator__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../../../ui/helpers/mixin-decorator */ "./src/app/ui/helpers/mixin-decorator.ts");
 /* harmony import */ var _error_handling_services_error_handling_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../../../../error-handling/services/error-handling.service */ "./src/app/error-handling/services/error-handling.service.ts");
 /* harmony import */ var _error_handling_services_toastr_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../../../../error-handling/services/toastr.service */ "./src/app/error-handling/services/toastr.service.ts");
-/* harmony import */ var _services_layout_slider_service__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../services/layout-slider.service */ "./src/app/ms-back-office/modules/ms-layout/services/layout-slider.service.ts");
+/* harmony import */ var _services_layout_service__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../services/layout.service */ "./src/app/ms-back-office/modules/ms-layout/services/layout.service.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -476,7 +476,7 @@ var EditUrlComponent = /** @class */ (function () {
         __metadata("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_1__["ActivatedRoute"],
             _angular_material__WEBPACK_IMPORTED_MODULE_2__["MatDialog"],
             _angular_material__WEBPACK_IMPORTED_MODULE_2__["MatDialogRef"],
-            _services_layout_slider_service__WEBPACK_IMPORTED_MODULE_8__["LayoutService"],
+            _services_layout_service__WEBPACK_IMPORTED_MODULE_8__["LayoutService"],
             _error_handling_services_error_handling_service__WEBPACK_IMPORTED_MODULE_6__["ErrorHandlingService"],
             _angular_router__WEBPACK_IMPORTED_MODULE_1__["Router"],
             _angular_material__WEBPACK_IMPORTED_MODULE_2__["MatSnackBar"],
@@ -484,6 +484,102 @@ var EditUrlComponent = /** @class */ (function () {
             _error_handling_services_toastr_service__WEBPACK_IMPORTED_MODULE_7__["ToastrService"], Object])
     ], EditUrlComponent);
     return EditUrlComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/ms-back-office/modules/ms-layout/components/layout-topnav/layout-slider-topnav.component.html":
+/*!***************************************************************************************************************!*\
+  !*** ./src/app/ms-back-office/modules/ms-layout/components/layout-topnav/layout-slider-topnav.component.html ***!
+  \***************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<mat-toolbar color=\"\" class=\"fix-nav\">\n    <div class=\"nav-brand cursor-pointer display-flex flex-grow-1 justify-content-center\" [routerLink]=\"['/backoffice/home']\">\n        HOME \n    </div>\n    <div>\n        |\n    </div>\n    <div class=\"nav-brand cursor-pointer display-flex flex-grow-1 justify-content-center\" [routerLink]=\"['/backoffice/home']\">\n        WHAT'S NEW \n    </div>\n    <div>\n        |\n    </div>\n    <div class=\"nav-brand cursor-pointer display-flex flex-grow-1 justify-content-center\" [routerLink]=\"['/backoffice/home']\">\n        RELEASE CALENDAR\n    </div>\n    <div>\n        |\n    </div>\n    <div class=\"nav-brand cursor-pointer display-flex flex-grow-1 justify-content-center\" [routerLink]=\"['/backoffice/home']\">\n        SHOE \n    </div>\n    <div>\n        |\n    </div>\n    <div class=\"nav-brand cursor-pointer display-flex flex-grow-1 justify-content-center\" [routerLink]=\"['/backoffice/home']\">\n        BRANDS \n    </div>\n    <div>\n        |\n    </div>\n    <div class=\"nav-brand cursor-pointer display-flex flex-grow-1 justify-content-center\" [routerLink]=\"['/backoffice/home']\">\n        STYLE \n    </div>\n    <div>\n        |\n    </div>\n    <div class=\"nav-brand cursor-pointer display-flex flex-grow-1 justify-content-center\" [routerLink]=\"['/backoffice/home']\">\n        CUSTOMIZED \n    </div>\n    <div>\n        |\n    </div>\n    <div class=\"nav-brand cursor-pointer display-flex flex-grow-1 justify-content-center\" [routerLink]=\"['/backoffice/home']\">\n        BLOG \n    </div>\n</mat-toolbar>"
+
+/***/ }),
+
+/***/ "./src/app/ms-back-office/modules/ms-layout/components/layout-topnav/layout-slider-topnav.component.scss":
+/*!***************************************************************************************************************!*\
+  !*** ./src/app/ms-back-office/modules/ms-layout/components/layout-topnav/layout-slider-topnav.component.scss ***!
+  \***************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = ".nav-brand {\n  margin-right: 10px;\n  margin-left: 10px;\n  text-align: center; }\n\n.topnav-icon {\n  text-decoration: none;\n  display: flex;\n  color: #fff; }\n\n.mat-toolbar-single-row {\n  height: 36px !important; }\n\n.nav-spacer {\n  flex: 1 1 auto; }\n\n.visible-md {\n  display: none; }\n\n.visible-sm {\n  display: none; }\n\n@media screen and (max-width: 992px) {\n  .visible-md {\n    display: block; } }\n\n@media screen and (max-width: 768px) {\n  .visible-sm {\n    display: block; }\n  .nav-brand {\n    width: 100%; } }\n\n@media screen and (max-width: 768px) {\n  .hidden-sm {\n    display: none; } }\n\n.width-80px {\n  width: 80px; }\n\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvbXMtYmFjay1vZmZpY2UvbW9kdWxlcy9tcy1sYXlvdXQvY29tcG9uZW50cy9sYXlvdXQtdG9wbmF2L0U6XFxQUk9HUkFNQUNJT04gSUlJXFxtb3Jlc25lYWtlcnMtYmFja29mZmljZS9zcmNcXGFwcFxcbXMtYmFjay1vZmZpY2VcXG1vZHVsZXNcXG1zLWxheW91dFxcY29tcG9uZW50c1xcbGF5b3V0LXRvcG5hdlxcbGF5b3V0LXNsaWRlci10b3BuYXYuY29tcG9uZW50LnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFDSSxtQkFBa0I7RUFDbEIsa0JBQWlCO0VBQ2pCLG1CQUFrQixFQUNyQjs7QUFDRDtFQUNJLHNCQUFxQjtFQUNyQixjQUFhO0VBQ2IsWUFBVyxFQUNkOztBQUVEO0VBQ0ksd0JBQXVCLEVBQzFCOztBQUNEO0VBQ0ksZUFBYyxFQUNqQjs7QUFFRDtFQUNJLGNBQWEsRUFDaEI7O0FBQ0Q7RUFDSSxjQUFhLEVBQ2hCOztBQUNEO0VBQ0k7SUFDSSxlQUFjLEVBQ2pCLEVBQUE7O0FBRUw7RUFDSTtJQUNJLGVBQWMsRUFDakI7RUFDRDtJQUNJLFlBQVcsRUFDZCxFQUFBOztBQUVMO0VBQ0k7SUFDSSxjQUFhLEVBQ2hCLEVBQUE7O0FBR0w7RUFDSSxZQUFVLEVBQ2IiLCJmaWxlIjoic3JjL2FwcC9tcy1iYWNrLW9mZmljZS9tb2R1bGVzL21zLWxheW91dC9jb21wb25lbnRzL2xheW91dC10b3BuYXYvbGF5b3V0LXNsaWRlci10b3BuYXYuY29tcG9uZW50LnNjc3MiLCJzb3VyY2VzQ29udGVudCI6WyIubmF2LWJyYW5kIHtcbiAgICBtYXJnaW4tcmlnaHQ6IDEwcHg7XG4gICAgbWFyZ2luLWxlZnQ6IDEwcHg7XG4gICAgdGV4dC1hbGlnbjogY2VudGVyO1xufVxuLnRvcG5hdi1pY29uIHtcbiAgICB0ZXh0LWRlY29yYXRpb246IG5vbmU7XG4gICAgZGlzcGxheTogZmxleDtcbiAgICBjb2xvcjogI2ZmZjtcbn1cblxuLm1hdC10b29sYmFyLXNpbmdsZS1yb3d7XG4gICAgaGVpZ2h0OiAzNnB4ICFpbXBvcnRhbnQ7XG59XG4ubmF2LXNwYWNlciB7XG4gICAgZmxleDogMSAxIGF1dG87XG59XG5cbi52aXNpYmxlLW1kIHtcbiAgICBkaXNwbGF5OiBub25lO1xufVxuLnZpc2libGUtc20ge1xuICAgIGRpc3BsYXk6IG5vbmU7XG59XG5AbWVkaWEgc2NyZWVuIGFuZCAobWF4LXdpZHRoOiA5OTJweCkge1xuICAgIC52aXNpYmxlLW1kIHtcbiAgICAgICAgZGlzcGxheTogYmxvY2s7XG4gICAgfVxufVxuQG1lZGlhIHNjcmVlbiBhbmQgKG1heC13aWR0aDogNzY4cHgpIHtcbiAgICAudmlzaWJsZS1zbSB7XG4gICAgICAgIGRpc3BsYXk6IGJsb2NrO1xuICAgIH1cbiAgICAubmF2LWJyYW5kIHtcbiAgICAgICAgd2lkdGg6IDEwMCU7XG4gICAgfVxufVxuQG1lZGlhIHNjcmVlbiBhbmQgKG1heC13aWR0aDogNzY4cHgpIHtcbiAgICAuaGlkZGVuLXNtIHtcbiAgICAgICAgZGlzcGxheTogbm9uZTtcbiAgICB9XG59XG5cbi53aWR0aC04MHB4e1xuICAgIHdpZHRoOjgwcHg7XG59Il19 */"
+
+/***/ }),
+
+/***/ "./src/app/ms-back-office/modules/ms-layout/components/layout-topnav/layout-slider-topnav.component.ts":
+/*!*************************************************************************************************************!*\
+  !*** ./src/app/ms-back-office/modules/ms-layout/components/layout-topnav/layout-slider-topnav.component.ts ***!
+  \*************************************************************************************************************/
+/*! exports provided: LayoutSliderTopnavComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "LayoutSliderTopnavComponent", function() { return LayoutSliderTopnavComponent; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+/* harmony import */ var _ngx_translate_core__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @ngx-translate/core */ "./node_modules/@ngx-translate/core/fesm5/ngx-translate-core.js");
+/* harmony import */ var _authentication_services_auth_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../../authentication/services/auth.service */ "./src/app/authentication/services/auth.service.ts");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+//
+
+var LayoutSliderTopnavComponent = /** @class */ (function () {
+    function LayoutSliderTopnavComponent(authService, router, translate) {
+        var _this = this;
+        this.authService = authService;
+        this.router = router;
+        this.translate = translate;
+        this.pushRightClass = 'push-right';
+        this.router.events.subscribe(function (val) {
+            if (val instanceof _angular_router__WEBPACK_IMPORTED_MODULE_1__["NavigationEnd"] && window.innerWidth <= 992 && _this.isToggled()) {
+                _this.toggleSidebar();
+            }
+        });
+    }
+    LayoutSliderTopnavComponent.prototype.ngOnInit = function () { };
+    LayoutSliderTopnavComponent.prototype.isToggled = function () {
+        var dom = document.querySelector('body');
+        return dom.classList.contains(this.pushRightClass);
+    };
+    LayoutSliderTopnavComponent.prototype.toggleSidebar = function () {
+        var dom = document.querySelector('body');
+        dom.classList.toggle(this.pushRightClass);
+    };
+    LayoutSliderTopnavComponent.prototype.onLoggedout = function () {
+        localStorage.removeItem('isLoggedin');
+        this.router.navigate(['/login']);
+    };
+    LayoutSliderTopnavComponent.prototype.changeLang = function (language) {
+        this.translate.use(language);
+    };
+    LayoutSliderTopnavComponent = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+            selector: 'layout-slider-topnav',
+            template: __webpack_require__(/*! ./layout-slider-topnav.component.html */ "./src/app/ms-back-office/modules/ms-layout/components/layout-topnav/layout-slider-topnav.component.html"),
+            styles: [__webpack_require__(/*! ./layout-slider-topnav.component.scss */ "./src/app/ms-back-office/modules/ms-layout/components/layout-topnav/layout-slider-topnav.component.scss")]
+        }),
+        __metadata("design:paramtypes", [_authentication_services_auth_service__WEBPACK_IMPORTED_MODULE_3__["AuthService"],
+            _angular_router__WEBPACK_IMPORTED_MODULE_1__["Router"],
+            _ngx_translate_core__WEBPACK_IMPORTED_MODULE_2__["TranslateService"]])
+    ], LayoutSliderTopnavComponent);
+    return LayoutSliderTopnavComponent;
 }());
 
 
@@ -531,7 +627,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _error_handling_services_error_handling_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../../../../error-handling/services/error-handling.service */ "./src/app/error-handling/services/error-handling.service.ts");
 /* harmony import */ var _error_handling_services_toastr_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../../../../error-handling/services/toastr.service */ "./src/app/error-handling/services/toastr.service.ts");
 /* harmony import */ var _models_layout__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../models/layout */ "./src/app/ms-back-office/modules/ms-layout/models/layout.ts");
-/* harmony import */ var _services_layout_slider_service__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../../services/layout-slider.service */ "./src/app/ms-back-office/modules/ms-layout/services/layout-slider.service.ts");
+/* harmony import */ var _services_layout_service__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../../services/layout.service */ "./src/app/ms-back-office/modules/ms-layout/services/layout.service.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -611,7 +707,7 @@ var NewUrlComponent = /** @class */ (function () {
         __param(8, Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Inject"])(_angular_material__WEBPACK_IMPORTED_MODULE_2__["MAT_DIALOG_DATA"])),
         __metadata("design:paramtypes", [_angular_material__WEBPACK_IMPORTED_MODULE_2__["MatDialogRef"],
             _angular_router__WEBPACK_IMPORTED_MODULE_1__["ActivatedRoute"],
-            _services_layout_slider_service__WEBPACK_IMPORTED_MODULE_9__["LayoutService"],
+            _services_layout_service__WEBPACK_IMPORTED_MODULE_9__["LayoutService"],
             _error_handling_services_error_handling_service__WEBPACK_IMPORTED_MODULE_6__["ErrorHandlingService"],
             _angular_router__WEBPACK_IMPORTED_MODULE_1__["Router"],
             _ngx_translate_core__WEBPACK_IMPORTED_MODULE_3__["TranslateService"],
@@ -742,7 +838,7 @@ var UrlFormComponent = /** @class */ (function (_super) {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ""
+module.exports = "<h1>Select the page you want to configure</h1>\n<layout-slider-topnav></layout-slider-topnav>\n<div class=\"flex-grow-1 overflow-auto display-flex flex-direction-column\">\n\n    <div class=\"flex-grow-1 flex-shrink-0 display-flex flex-direction-column\">\n\n        <mat-tab-group class=\"padding-top-25px\">\n            <mat-tab label=\"Slider\">\n                <div class=\"mb-20 margin-top-25px\" fxFlex fxLayout=\"row\" fxLayout.lt-md=\"column\" fxLayoutGap=\"20px\">\n\n                    <div [fxFlex]=\"100\" fxFlex fxLayout=\"column\" fxLayout.lt-md=\"column\">\n\n                        <div fxLayout=\"row\" fxLayout.lt-md=\"column\">\n\n                            <div [fxFlex]=\"40\" fxLayout=\"column\" class=\"margin-right-25px\">\n\n                                <mat-form-field class=\"margin-left-16px max-width-480px\">\n\n                                    <mat-label>URL</mat-label>\n\n                                    <input matInput type=\"text\">\n\n                                </mat-form-field>\n\n                                <mat-form-field class=\"margin-left-16px max-width-480px\">\n\n                                    <mat-label>Numbers of Items</mat-label>\n\n                                    <input matInput type=\"text\">\n\n                                </mat-form-field>\n                            </div>\n                            <div [fxFlex]=\"60\" class=\"margin-right-25px\">\n\n                                <div [fxFlex]=\"50\" class=\"border margin-right-25px max-width-480px\">\n  \n                                    <images-card name=\"faces\" class=\"flex-grow-1\"></images-card>\n\n                                </div>\n\n                            </div>\n                        </div>\n                    </div>\n                </div>\n            </mat-tab>\n            <mat-tab label=\"Header\">\n                <div class=\"mb-20 margin-top-25px\" fxFlex fxLayout=\"row\" fxLayout.lt-md=\"column\" fxLayoutGap=\"20px\">\n\n                    <div [fxFlex]=\"100\" fxFlex fxLayout=\"column\" fxLayout.lt-md=\"column\">\n\n                        <div fxLayout=\"row\" fxLayout.lt-md=\"column\">\n\n                            <div [fxFlex]=\"40\" fxLayout=\"column\" class=\"margin-right-25px\">\n\n                                <mat-form-field class=\"margin-left-16px max-width-480px\">\n\n                                    <mat-label>URL</mat-label>\n\n                                    <input matInput type=\"text\">\n\n                                </mat-form-field>\n\n                                <mat-form-field class=\"margin-left-16px max-width-480px\">\n\n                                    <mat-label>Numbers of Items</mat-label>\n\n                                    <input matInput type=\"text\">\n\n                                </mat-form-field>\n                            </div>\n                            <div [fxFlex]=\"60\" class=\"margin-right-25px\">\n\n                                <mat-form-field class=\"width-100pc margin-left-16px\">\n\n                                    <mat-label>URL</mat-label>\n\n                                    <input matInput type=\"text\">\n\n                                </mat-form-field>\n\n                                <mat-form-field class=\"width-100pc margin-left-16px\">\n\n                                    <mat-label>Traking list base URL</mat-label>\n\n                                    <input matInput type=\"text\">\n\n                                </mat-form-field>\n                            </div>\n                        </div>\n                    </div>\n                </div>\n            </mat-tab>\n            <mat-tab label=\"Hottest\">\n                <div class=\"mb-20 margin-top-25px\" fxFlex fxLayout=\"row\" fxLayout.lt-md=\"column\" fxLayoutGap=\"20px\">\n\n                    <div [fxFlex]=\"100\" fxFlex fxLayout=\"column\" fxLayout.lt-md=\"column\">\n\n                        <div fxLayout=\"row\" fxLayout.lt-md=\"column\">\n\n                            <div [fxFlex]=\"40\" fxLayout=\"column\" class=\"margin-right-25px\">\n\n                                <mat-form-field class=\"margin-left-16px max-width-480px\">\n\n                                    <mat-label>URL</mat-label>\n\n                                    <input matInput type=\"text\">\n\n                                </mat-form-field>\n\n                                <mat-form-field class=\"margin-left-16px max-width-480px\">\n\n                                    <mat-label>Numbers of Items</mat-label>\n\n                                    <input matInput type=\"text\">\n\n                                </mat-form-field>\n                            </div>\n                            <div [fxFlex]=\"60\" class=\"margin-right-25px\">\n\n                                <mat-form-field class=\"width-100pc margin-left-16px\">\n\n                                    <mat-label>URL</mat-label>\n\n                                    <input matInput type=\"text\">\n\n                                </mat-form-field>\n\n                                <mat-form-field class=\"width-100pc margin-left-16px\">\n\n                                    <mat-label>Traking list base URL</mat-label>\n\n                                    <input matInput type=\"text\">\n\n                                </mat-form-field>\n                            </div>\n                        </div>\n                    </div>\n                </div>\n            </mat-tab>\n            <mat-tab label=\"Heading\">\n                <div class=\"mb-20 margin-top-25px\" fxFlex fxLayout=\"row\" fxLayout.lt-md=\"column\" fxLayoutGap=\"20px\">\n\n                    <div [fxFlex]=\"100\" fxFlex fxLayout=\"column\" fxLayout.lt-md=\"column\">\n\n                        <div fxLayout=\"row\" fxLayout.lt-md=\"column\">\n\n                            <div [fxFlex]=\"40\" fxLayout=\"column\" class=\"margin-right-25px\">\n\n                                <mat-form-field class=\"margin-left-16px max-width-480px\">\n\n                                    <mat-label>URL</mat-label>\n\n                                    <input matInput type=\"text\">\n\n                                </mat-form-field>\n\n                                <mat-form-field class=\"margin-left-16px max-width-480px\">\n\n                                    <mat-label>Numbers of Items</mat-label>\n\n                                    <input matInput type=\"text\">\n\n                                </mat-form-field>\n                            </div>\n                            <div [fxFlex]=\"60\" class=\"margin-right-25px\">\n\n                                <mat-form-field class=\"width-100pc margin-left-16px\">\n\n                                    <mat-label>URL</mat-label>\n\n                                    <input matInput type=\"text\">\n\n                                </mat-form-field>\n\n                                <mat-form-field class=\"width-100pc margin-left-16px\">\n\n                                    <mat-label>Traking list base URL</mat-label>\n\n                                    <input matInput type=\"text\">\n\n                                </mat-form-field>\n                            </div>\n                        </div>\n                    </div>\n                </div>\n            </mat-tab>\n        </mat-tab-group>\n\n    </div>\n\n</div>"
 
 /***/ }),
 
@@ -753,7 +849,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ":host {\n  display: flex;\n  flex-direction: column;\n  flex-grow: 1; }\n\ntable {\n  width: 100%; }\n\n.mat-form-field {\n  font-size: 14px;\n  padding-right: 5px;\n  width: 100px !important; }\n\ntd,\nth {\n  width: 25%; }\n\n.padding-bottom-10 {\n  padding-bottom: 10px; }\n\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvbXMtYmFjay1vZmZpY2UvbW9kdWxlcy9tcy1sYXlvdXQvY29tcG9uZW50cy91cmxzLXRhYmxlL0U6XFxQUk9HUkFNQUNJT04gSUlJXFxtb3Jlc25lYWtlcnMtYmFja29mZmljZS9zcmNcXGFwcFxcbXMtYmFjay1vZmZpY2VcXG1vZHVsZXNcXG1zLWxheW91dFxcY29tcG9uZW50c1xcdXJscy10YWJsZVxcdXJscy10YWJsZS5jb21wb25lbnQuc2NzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUNJLGNBQWE7RUFDYix1QkFBc0I7RUFDdEIsYUFBWSxFQUNmOztBQUVEO0VBQ0ksWUFBVyxFQUNkOztBQUVEO0VBQ0ksZ0JBQWU7RUFDZixtQkFBa0I7RUFDbEIsd0JBQXVCLEVBQzFCOztBQUVEOztFQUVJLFdBQVUsRUFDYjs7QUFFRDtFQUNJLHFCQUNKLEVBQUMiLCJmaWxlIjoic3JjL2FwcC9tcy1iYWNrLW9mZmljZS9tb2R1bGVzL21zLWxheW91dC9jb21wb25lbnRzL3VybHMtdGFibGUvdXJscy10YWJsZS5jb21wb25lbnQuc2NzcyIsInNvdXJjZXNDb250ZW50IjpbIjpob3N0IHtcclxuICAgIGRpc3BsYXk6IGZsZXg7XHJcbiAgICBmbGV4LWRpcmVjdGlvbjogY29sdW1uO1xyXG4gICAgZmxleC1ncm93OiAxO1xyXG59XHJcblxyXG50YWJsZSB7XHJcbiAgICB3aWR0aDogMTAwJTtcclxufVxyXG5cclxuLm1hdC1mb3JtLWZpZWxkIHtcclxuICAgIGZvbnQtc2l6ZTogMTRweDtcclxuICAgIHBhZGRpbmctcmlnaHQ6IDVweDtcclxuICAgIHdpZHRoOiAxMDBweCAhaW1wb3J0YW50O1xyXG59XHJcblxyXG50ZCxcclxudGgge1xyXG4gICAgd2lkdGg6IDI1JTtcclxufVxyXG5cclxuLnBhZGRpbmctYm90dG9tLTEwe1xyXG4gICAgcGFkZGluZy1ib3R0b206IDEwcHhcclxufVxyXG5cclxuIl19 */"
+module.exports = ":host {\n  display: flex;\n  flex-direction: column;\n  flex-grow: 1; }\n\ntable {\n  width: 100%; }\n\ntd,\nth {\n  width: 25%; }\n\n.padding-bottom-10 {\n  padding-bottom: 10px; }\n\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvbXMtYmFjay1vZmZpY2UvbW9kdWxlcy9tcy1sYXlvdXQvY29tcG9uZW50cy91cmxzLXRhYmxlL0U6XFxQUk9HUkFNQUNJT04gSUlJXFxtb3Jlc25lYWtlcnMtYmFja29mZmljZS9zcmNcXGFwcFxcbXMtYmFjay1vZmZpY2VcXG1vZHVsZXNcXG1zLWxheW91dFxcY29tcG9uZW50c1xcdXJscy10YWJsZVxcdXJscy10YWJsZS5jb21wb25lbnQuc2NzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUNJLGNBQWE7RUFDYix1QkFBc0I7RUFDdEIsYUFBWSxFQUNmOztBQUVEO0VBQ0ksWUFBVyxFQUNkOztBQUVEOztFQUVJLFdBQVUsRUFDYjs7QUFFRDtFQUNJLHFCQUNKLEVBQUMiLCJmaWxlIjoic3JjL2FwcC9tcy1iYWNrLW9mZmljZS9tb2R1bGVzL21zLWxheW91dC9jb21wb25lbnRzL3VybHMtdGFibGUvdXJscy10YWJsZS5jb21wb25lbnQuc2NzcyIsInNvdXJjZXNDb250ZW50IjpbIjpob3N0IHtcclxuICAgIGRpc3BsYXk6IGZsZXg7XHJcbiAgICBmbGV4LWRpcmVjdGlvbjogY29sdW1uO1xyXG4gICAgZmxleC1ncm93OiAxO1xyXG59XHJcblxyXG50YWJsZSB7XHJcbiAgICB3aWR0aDogMTAwJTtcclxufVxyXG5cclxudGQsXHJcbnRoIHtcclxuICAgIHdpZHRoOiAyNSU7XHJcbn1cclxuXHJcbi5wYWRkaW5nLWJvdHRvbS0xMHtcclxuICAgIHBhZGRpbmctYm90dG9tOiAxMHB4XHJcbn1cclxuXHJcbiJdfQ== */"
 
 /***/ }),
 
@@ -768,13 +864,9 @@ module.exports = ":host {\n  display: flex;\n  flex-direction: column;\n  flex-g
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "UrlsTableComponent", function() { return UrlsTableComponent; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
-/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm5/forms.js");
-/* harmony import */ var _angular_material__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/material */ "./node_modules/@angular/material/esm5/material.es5.js");
-/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! rxjs/operators */ "./node_modules/rxjs/_esm5/operators/index.js");
-/* harmony import */ var _error_handling_services_error_handling_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../../../error-handling/services/error-handling.service */ "./src/app/error-handling/services/error-handling.service.ts");
-/* harmony import */ var _services_layout_slider_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../services/layout-slider.service */ "./src/app/ms-back-office/modules/ms-layout/services/layout-slider.service.ts");
-/* harmony import */ var _edit_url_edit_url_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../edit-url/edit-url.component */ "./src/app/ms-back-office/modules/ms-layout/components/edit-url/edit-url.component.ts");
-/* harmony import */ var _new_url_new_url_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../new-url/new-url.component */ "./src/app/ms-back-office/modules/ms-layout/components/new-url/new-url.component.ts");
+/* harmony import */ var _angular_material__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/material */ "./node_modules/@angular/material/esm5/material.es5.js");
+/* harmony import */ var _error_handling_services_error_handling_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../../error-handling/services/error-handling.service */ "./src/app/error-handling/services/error-handling.service.ts");
+/* harmony import */ var _services_layout_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../services/layout.service */ "./src/app/ms-back-office/modules/ms-layout/services/layout.service.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -785,16 +877,12 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 
-
 //
-
 
 
 //
 
 //
-
-
 
 var errorKey = 'Error';
 var UrlsTableComponent = /** @class */ (function () {
@@ -811,83 +899,18 @@ var UrlsTableComponent = /** @class */ (function () {
         this.urls = [];
     }
     UrlsTableComponent.prototype.ngOnInit = function () {
-        var _this = this;
-        this.filter = this.createFilterFormGroup();
-        this.filterValueChanges = this.filter.valueChanges.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["debounceTime"])(500)).subscribe(function (change) { return _this.onFilter(); });
-        this.paginator.pageIndex = 0;
-        // Begin observing style list changes.
-        this.urlsList = this.urlsService.urlsList.subscribe(function (urlsList) {
-            _this.totalLength = urlsList.dataCount;
-            _this.urls = urlsList.data;
-            if (_this.urls.length === 0 && _this.totalLength > 0 && _this.urlsService.previousPageSize > 0) {
-                _this.urlsService.previousPageIndex =
-                    Math.ceil(_this.totalLength / _this.urlsService.previousPageSize) - 1;
-                _this.urlsService.reloadUrls().subscribe(function (response) {
-                    _this.urlsService.urlsList.next(response);
-                }, function (error) { return _this.errorHandlingService.handleUiError(errorKey, error); });
-            }
-        });
     };
     UrlsTableComponent.prototype.ngAfterViewInit = function () {
-        this.loadPage();
     };
     UrlsTableComponent.prototype.ngOnDestroy = function () {
-        this.urlsList.unsubscribe();
-        this.filterValueChanges.unsubscribe();
-    };
-    UrlsTableComponent.prototype.createFilterFormGroup = function () {
-        var group = {};
-        group['url'] = new _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormControl"]('');
-        return new _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormGroup"](group);
-    };
-    UrlsTableComponent.prototype.loadPage = function () {
-        var _this = this;
-        this.urlsService.getUrls(Object.assign({}, this.filter.value), this.sort.active, this.sort.direction, this.paginator.pageIndex, this.paginator.pageSize).subscribe(function (response) {
-            _this.urlsService.urlsList.next(response);
-        }, function (err) {
-            _this.errorHandlingService.handleUiError(errorKey, err);
-        });
-    };
-    UrlsTableComponent.prototype.onFilter = function () {
-        this.paginator.pageIndex = 0;
-        this.loadPage();
-    };
-    UrlsTableComponent.prototype.onSort = function () {
-        this.paginator.pageIndex = 0;
-        this.loadPage();
-    };
-    UrlsTableComponent.prototype.onPage = function () {
-        this.loadPage();
-    };
-    UrlsTableComponent.prototype.addUrlModalBrand = function () {
-        var _this = this;
-        this.modalRef = this.dialog.open(_new_url_new_url_component__WEBPACK_IMPORTED_MODULE_7__["NewUrlComponent"], {
-            height: '50%',
-            width: '50%',
-            data: { dialogData: this.urls }
-        });
-        this.modalRef.afterClosed().subscribe(function () {
-            _this.loadPage();
-        });
-    };
-    UrlsTableComponent.prototype.editUrlModalBrand = function (id) {
-        var _this = this;
-        this.modalRef = this.dialog.open(_edit_url_edit_url_component__WEBPACK_IMPORTED_MODULE_6__["EditUrlComponent"], {
-            height: '50%',
-            width: '50%',
-            data: { id: id }
-        });
-        this.modalRef.afterClosed().subscribe(function () {
-            _this.loadPage();
-        });
     };
     __decorate([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ViewChild"])(_angular_material__WEBPACK_IMPORTED_MODULE_2__["MatPaginator"]),
-        __metadata("design:type", _angular_material__WEBPACK_IMPORTED_MODULE_2__["MatPaginator"])
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ViewChild"])(_angular_material__WEBPACK_IMPORTED_MODULE_1__["MatPaginator"]),
+        __metadata("design:type", _angular_material__WEBPACK_IMPORTED_MODULE_1__["MatPaginator"])
     ], UrlsTableComponent.prototype, "paginator", void 0);
     __decorate([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ViewChild"])(_angular_material__WEBPACK_IMPORTED_MODULE_2__["MatSort"]),
-        __metadata("design:type", _angular_material__WEBPACK_IMPORTED_MODULE_2__["MatSort"])
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ViewChild"])(_angular_material__WEBPACK_IMPORTED_MODULE_1__["MatSort"]),
+        __metadata("design:type", _angular_material__WEBPACK_IMPORTED_MODULE_1__["MatSort"])
     ], UrlsTableComponent.prototype, "sort", void 0);
     UrlsTableComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
@@ -895,9 +918,9 @@ var UrlsTableComponent = /** @class */ (function () {
             template: __webpack_require__(/*! ./urls-table.component.html */ "./src/app/ms-back-office/modules/ms-layout/components/urls-table/urls-table.component.html"),
             styles: [__webpack_require__(/*! ./urls-table.component.scss */ "./src/app/ms-back-office/modules/ms-layout/components/urls-table/urls-table.component.scss")]
         }),
-        __metadata("design:paramtypes", [_angular_material__WEBPACK_IMPORTED_MODULE_2__["MatDialog"],
-            _services_layout_slider_service__WEBPACK_IMPORTED_MODULE_5__["LayoutService"],
-            _error_handling_services_error_handling_service__WEBPACK_IMPORTED_MODULE_4__["ErrorHandlingService"]])
+        __metadata("design:paramtypes", [_angular_material__WEBPACK_IMPORTED_MODULE_1__["MatDialog"],
+            _services_layout_service__WEBPACK_IMPORTED_MODULE_3__["LayoutService"],
+            _error_handling_services_error_handling_service__WEBPACK_IMPORTED_MODULE_2__["ErrorHandlingService"]])
     ], UrlsTableComponent);
     return UrlsTableComponent;
 }());
@@ -940,10 +963,10 @@ var UrlsResponse = /** @class */ (function () {
 
 /***/ }),
 
-/***/ "./src/app/ms-back-office/modules/ms-layout/ms-layout-slider-routing.module.ts":
-/*!*************************************************************************************!*\
-  !*** ./src/app/ms-back-office/modules/ms-layout/ms-layout-slider-routing.module.ts ***!
-  \*************************************************************************************/
+/***/ "./src/app/ms-back-office/modules/ms-layout/ms-layout-routing.module.ts":
+/*!******************************************************************************!*\
+  !*** ./src/app/ms-back-office/modules/ms-layout/ms-layout-routing.module.ts ***!
+  \******************************************************************************/
 /*! exports provided: MsLayoutRoutingModule */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -953,7 +976,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
 /* harmony import */ var _components_urls_table_urls_table_component__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./components/urls-table/urls-table.component */ "./src/app/ms-back-office/modules/ms-layout/components/urls-table/urls-table.component.ts");
-/* harmony import */ var _components_delete_url_delete_url_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./components/delete-url/delete-url.component */ "./src/app/ms-back-office/modules/ms-layout/components/delete-url/delete-url.component.ts");
+/* harmony import */ var _components_delete_layout_delete_layout_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./components/delete-layout/delete-layout.component */ "./src/app/ms-back-office/modules/ms-layout/components/delete-layout/delete-layout.component.ts");
 /* harmony import */ var _components_edit_url_edit_url_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./components/edit-url/edit-url.component */ "./src/app/ms-back-office/modules/ms-layout/components/edit-url/edit-url.component.ts");
 /* harmony import */ var _components_new_url_new_url_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./components/new-url/new-url.component */ "./src/app/ms-back-office/modules/ms-layout/components/new-url/new-url.component.ts");
 /* harmony import */ var _config_services_config_resolve_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../../config/services/config-resolve.service */ "./src/app/config/services/config-resolve.service.ts");
@@ -1009,7 +1032,7 @@ var routes = [
     },
     {
         path: 'delete/:id',
-        component: _components_delete_url_delete_url_component__WEBPACK_IMPORTED_MODULE_3__["DeleteUrlComponent"],
+        component: _components_delete_layout_delete_layout_component__WEBPACK_IMPORTED_MODULE_3__["DeleteLayoutComponent"],
         //canActivate: [AuthGuardService],
         resolve: {
             config: _config_services_config_resolve_service__WEBPACK_IMPORTED_MODULE_6__["ConfigResolveService"],
@@ -1034,16 +1057,16 @@ var MsLayoutRoutingModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ "./src/app/ms-back-office/modules/ms-layout/ms-layout-slider.module.ts":
-/*!*****************************************************************************!*\
-  !*** ./src/app/ms-back-office/modules/ms-layout/ms-layout-slider.module.ts ***!
-  \*****************************************************************************/
-/*! exports provided: MsLayoutSliderModule */
+/***/ "./src/app/ms-back-office/modules/ms-layout/ms-layout.module.ts":
+/*!**********************************************************************!*\
+  !*** ./src/app/ms-back-office/modules/ms-layout/ms-layout.module.ts ***!
+  \**********************************************************************/
+/*! exports provided: MsLayoutModule */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "MsLayoutSliderModule", function() { return MsLayoutSliderModule; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "MsLayoutModule", function() { return MsLayoutModule; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/common */ "./node_modules/@angular/common/fesm5/common.js");
 /* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm5/forms.js");
@@ -1059,12 +1082,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_material_card__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! @angular/material/card */ "./node_modules/@angular/material/esm5/card.es5.js");
 /* harmony import */ var _ngx_translate_core__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! @ngx-translate/core */ "./node_modules/@ngx-translate/core/fesm5/ngx-translate-core.js");
 /* harmony import */ var _ui_modules_ask_before_refresh_ask_before_refresh_module__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ../../../ui/modules/ask-before-refresh/ask-before-refresh.module */ "./src/app/ui/modules/ask-before-refresh/ask-before-refresh.module.ts");
-/* harmony import */ var _components_url_form_url_form_component__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./components/url-form/url-form.component */ "./src/app/ms-back-office/modules/ms-layout/components/url-form/url-form.component.ts");
-/* harmony import */ var _components_urls_table_urls_table_component__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./components/urls-table/urls-table.component */ "./src/app/ms-back-office/modules/ms-layout/components/urls-table/urls-table.component.ts");
-/* harmony import */ var _components_delete_url_delete_url_component__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./components/delete-url/delete-url.component */ "./src/app/ms-back-office/modules/ms-layout/components/delete-url/delete-url.component.ts");
-/* harmony import */ var _components_edit_url_edit_url_component__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./components/edit-url/edit-url.component */ "./src/app/ms-back-office/modules/ms-layout/components/edit-url/edit-url.component.ts");
-/* harmony import */ var _ms_layout_slider_routing_module__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ./ms-layout-slider-routing.module */ "./src/app/ms-back-office/modules/ms-layout/ms-layout-slider-routing.module.ts");
-/* harmony import */ var _components_new_url_new_url_component__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ./components/new-url/new-url.component */ "./src/app/ms-back-office/modules/ms-layout/components/new-url/new-url.component.ts");
+/* harmony import */ var _ui_modules_images_card_images_card_module__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ../../../ui/modules/images-card/images-card.module */ "./src/app/ui/modules/images-card/images-card.module.ts");
+/* harmony import */ var _components_url_form_url_form_component__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./components/url-form/url-form.component */ "./src/app/ms-back-office/modules/ms-layout/components/url-form/url-form.component.ts");
+/* harmony import */ var _components_urls_table_urls_table_component__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./components/urls-table/urls-table.component */ "./src/app/ms-back-office/modules/ms-layout/components/urls-table/urls-table.component.ts");
+/* harmony import */ var _components_delete_layout_delete_layout_component__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./components/delete-layout/delete-layout.component */ "./src/app/ms-back-office/modules/ms-layout/components/delete-layout/delete-layout.component.ts");
+/* harmony import */ var _components_edit_url_edit_url_component__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ./components/edit-url/edit-url.component */ "./src/app/ms-back-office/modules/ms-layout/components/edit-url/edit-url.component.ts");
+/* harmony import */ var _ms_layout_routing_module__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ./ms-layout-routing.module */ "./src/app/ms-back-office/modules/ms-layout/ms-layout-routing.module.ts");
+/* harmony import */ var _components_new_url_new_url_component__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ./components/new-url/new-url.component */ "./src/app/ms-back-office/modules/ms-layout/components/new-url/new-url.component.ts");
+/* harmony import */ var _components_layout_topnav_layout_slider_topnav_component__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! ./components/layout-topnav/layout-slider-topnav.component */ "./src/app/ms-back-office/modules/ms-layout/components/layout-topnav/layout-slider-topnav.component.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1098,10 +1123,12 @@ var __decorate = (undefined && undefined.__decorate) || function (decorators, ta
 
 
 
-var MsLayoutSliderModule = /** @class */ (function () {
-    function MsLayoutSliderModule() {
+
+
+var MsLayoutModule = /** @class */ (function () {
+    function MsLayoutModule() {
     }
-    MsLayoutSliderModule = __decorate([
+    MsLayoutModule = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["NgModule"])({
             imports: [
                 _angular_common__WEBPACK_IMPORTED_MODULE_1__["CommonModule"],
@@ -1116,47 +1143,52 @@ var MsLayoutSliderModule = /** @class */ (function () {
                 _angular_material__WEBPACK_IMPORTED_MODULE_6__["MatFormFieldModule"],
                 _angular_material_icon__WEBPACK_IMPORTED_MODULE_7__["MatIconModule"],
                 _angular_material__WEBPACK_IMPORTED_MODULE_6__["MatInputModule"],
+                _angular_material__WEBPACK_IMPORTED_MODULE_6__["MatMenuModule"],
                 _angular_material__WEBPACK_IMPORTED_MODULE_6__["MatPaginatorModule"],
                 _angular_material_select__WEBPACK_IMPORTED_MODULE_8__["MatSelectModule"],
                 _angular_material_sort__WEBPACK_IMPORTED_MODULE_9__["MatSortModule"],
                 _angular_material__WEBPACK_IMPORTED_MODULE_6__["MatTableModule"],
+                _angular_material__WEBPACK_IMPORTED_MODULE_6__["MatTabsModule"],
                 _angular_material_toolbar__WEBPACK_IMPORTED_MODULE_10__["MatToolbarModule"],
                 _angular_material_tooltip__WEBPACK_IMPORTED_MODULE_11__["MatTooltipModule"],
                 _ngx_translate_core__WEBPACK_IMPORTED_MODULE_13__["TranslateModule"],
-                _ms_layout_slider_routing_module__WEBPACK_IMPORTED_MODULE_19__["MsLayoutRoutingModule"],
-                _ui_modules_ask_before_refresh_ask_before_refresh_module__WEBPACK_IMPORTED_MODULE_14__["AskBeforeRefreshModule"]
+                _ms_layout_routing_module__WEBPACK_IMPORTED_MODULE_20__["MsLayoutRoutingModule"],
+                _ui_modules_ask_before_refresh_ask_before_refresh_module__WEBPACK_IMPORTED_MODULE_14__["AskBeforeRefreshModule"],
+                _ui_modules_images_card_images_card_module__WEBPACK_IMPORTED_MODULE_15__["ImagesCardModule"]
             ],
             declarations: [
-                _components_url_form_url_form_component__WEBPACK_IMPORTED_MODULE_15__["UrlFormComponent"],
-                _components_urls_table_urls_table_component__WEBPACK_IMPORTED_MODULE_16__["UrlsTableComponent"],
-                _components_delete_url_delete_url_component__WEBPACK_IMPORTED_MODULE_17__["DeleteUrlComponent"],
-                _components_edit_url_edit_url_component__WEBPACK_IMPORTED_MODULE_18__["EditUrlComponent"],
-                _components_new_url_new_url_component__WEBPACK_IMPORTED_MODULE_20__["NewUrlComponent"]
+                _components_url_form_url_form_component__WEBPACK_IMPORTED_MODULE_16__["UrlFormComponent"],
+                _components_urls_table_urls_table_component__WEBPACK_IMPORTED_MODULE_17__["UrlsTableComponent"],
+                _components_delete_layout_delete_layout_component__WEBPACK_IMPORTED_MODULE_18__["DeleteLayoutComponent"],
+                _components_edit_url_edit_url_component__WEBPACK_IMPORTED_MODULE_19__["EditUrlComponent"],
+                _components_new_url_new_url_component__WEBPACK_IMPORTED_MODULE_21__["NewUrlComponent"],
+                _components_layout_topnav_layout_slider_topnav_component__WEBPACK_IMPORTED_MODULE_22__["LayoutSliderTopnavComponent"],
             ],
             exports: [
-                _components_url_form_url_form_component__WEBPACK_IMPORTED_MODULE_15__["UrlFormComponent"],
-                _components_urls_table_urls_table_component__WEBPACK_IMPORTED_MODULE_16__["UrlsTableComponent"],
-                _components_delete_url_delete_url_component__WEBPACK_IMPORTED_MODULE_17__["DeleteUrlComponent"],
-                _components_edit_url_edit_url_component__WEBPACK_IMPORTED_MODULE_18__["EditUrlComponent"],
-                _components_new_url_new_url_component__WEBPACK_IMPORTED_MODULE_20__["NewUrlComponent"]
+                _components_url_form_url_form_component__WEBPACK_IMPORTED_MODULE_16__["UrlFormComponent"],
+                _components_urls_table_urls_table_component__WEBPACK_IMPORTED_MODULE_17__["UrlsTableComponent"],
+                _components_delete_layout_delete_layout_component__WEBPACK_IMPORTED_MODULE_18__["DeleteLayoutComponent"],
+                _components_edit_url_edit_url_component__WEBPACK_IMPORTED_MODULE_19__["EditUrlComponent"],
+                _components_new_url_new_url_component__WEBPACK_IMPORTED_MODULE_21__["NewUrlComponent"],
+                _components_layout_topnav_layout_slider_topnav_component__WEBPACK_IMPORTED_MODULE_22__["LayoutSliderTopnavComponent"],
             ],
             entryComponents: [
-                _components_new_url_new_url_component__WEBPACK_IMPORTED_MODULE_20__["NewUrlComponent"],
-                _components_edit_url_edit_url_component__WEBPACK_IMPORTED_MODULE_18__["EditUrlComponent"],
+                _components_new_url_new_url_component__WEBPACK_IMPORTED_MODULE_21__["NewUrlComponent"],
+                _components_edit_url_edit_url_component__WEBPACK_IMPORTED_MODULE_19__["EditUrlComponent"],
             ]
         })
-    ], MsLayoutSliderModule);
-    return MsLayoutSliderModule;
+    ], MsLayoutModule);
+    return MsLayoutModule;
 }());
 
 
 
 /***/ }),
 
-/***/ "./src/app/ms-back-office/modules/ms-layout/services/layout-slider.service.ts":
-/*!************************************************************************************!*\
-  !*** ./src/app/ms-back-office/modules/ms-layout/services/layout-slider.service.ts ***!
-  \************************************************************************************/
+/***/ "./src/app/ms-back-office/modules/ms-layout/services/layout.service.ts":
+/*!*****************************************************************************!*\
+  !*** ./src/app/ms-back-office/modules/ms-layout/services/layout.service.ts ***!
+  \*****************************************************************************/
 /*! exports provided: ASCENDING, LayoutService */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -1510,4 +1542,4 @@ var IdResolveService = /** @class */ (function () {
 /***/ })
 
 }]);
-//# sourceMappingURL=ms-layout-ms-layout-slider-module.js.map
+//# sourceMappingURL=ms-layout-ms-layout-module.js.map
