@@ -396,8 +396,8 @@ var CollectionFormComponent = /** @class */ (function (_super) {
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
             selector: 'collection-form',
             template: __webpack_require__(/*! ./collection-form.component.html */ "./src/app/ms-back-office/modules/ms-collections/components/collection-form/collection-form.component.html"),
-            changeDetection: _angular_core__WEBPACK_IMPORTED_MODULE_0__["ChangeDetectionStrategy"].OnPush,
-            styles: [__webpack_require__(/*! ./collection-form.component.scss */ "./src/app/ms-back-office/modules/ms-collections/components/collection-form/collection-form.component.scss")]
+            styles: [__webpack_require__(/*! ./collection-form.component.scss */ "./src/app/ms-back-office/modules/ms-collections/components/collection-form/collection-form.component.scss")],
+            changeDetection: _angular_core__WEBPACK_IMPORTED_MODULE_0__["ChangeDetectionStrategy"].OnPush
         }),
         __metadata("design:paramtypes", [_angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormBuilder"],
             _ngx_translate_core__WEBPACK_IMPORTED_MODULE_2__["TranslateService"]])
@@ -416,7 +416,7 @@ var CollectionFormComponent = /** @class */ (function (_super) {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<h1>Collections Table</h1>\n\n<mat-toolbar class=\"margin-right-25px margin-bottom-10px width-auto flex-shrink-0 background-color-secondary color-primary mat-elevation-z2\"\n  [formGroup]=\"filter\">\n\n  <mat-icon matPrefix color=\"primary\">search</mat-icon>\n  <mat-form-field>\n    <input matInput formControlName=\"name\" placeholder=\"Name\">\n  </mat-form-field>\n\n  <mat-form-field>\n    <mat-label>Brand</mat-label>\n    <mat-select disableOptionCentering placeholder=\"Brand\" formControlName=\"brand\">\n      <mat-option>...</mat-option>\n      <mat-option *ngFor=\"let brand of brands\" [value]=\"brand.id\">\n        {{brand.name}}\n      </mat-option>\n    </mat-select>\n  </mat-form-field>\n\n  <span class=\"flex-grow-1\"></span>\n  <button mat-raised-button color=\"primary\" [routerLink]=\"['../create']\">CREATE A NEW COLLECTION</button>\n</mat-toolbar>\n\n<div class=\"flex-grow-1 overflow-auto display-flex\">\n\n  <table class=\"margin-top-10px margin-right-25px width-100pct\" mat-table [dataSource]=\"collections\" matSort [matSortActive]=\"collectionsService.previousSortColumn\"\n    [matSortDirection]=\"collectionsService.previousSortDirection\" matSortDisableClear (matSortChange)=\"onSort()\">\n\n    <ng-container matColumnDef=\"name\">\n      <th mat-header-cell *matHeaderCellDef mat-sort-header>\n        NAME\n      </th>\n      <td mat-cell *matCellDef=\"let element\" class=\"padding-table-td\"> {{ element.name }} </td>\n    </ng-container>\n\n    <ng-container matColumnDef=\"thumbnail\">\n      <th mat-header-cell *matHeaderCellDef></th>\n      <td mat-cell *matCellDef=\"let element\" class=\"display-flex flex-grow-1 height-100pct padding-left-0px width-100pct\">\n        <div class=\"position-relative margin-top-5px\">\n          <img [src]=\"element.imgUrl\" class=\"height-90pct width-90pct margin-auto\" alt=\"50\">\n        </div>\n      </td>\n    </ng-container>\n\n    <ng-container matColumnDef=\"brand\">\n      <th mat-header-cell *matHeaderCellDef mat-sort-header>\n        BRAND\n      </th>\n      <td mat-cell *matCellDef=\"let element\" class=\"padding-table-td\"> {{ getBrand(element.brand) }} </td>\n    </ng-container>\n\n    <ng-container matColumnDef=\"action\">\n      <th mat-header-cell *matHeaderCellDef>\n      </th>\n      <td mat-cell *matCellDef=\"let element\" class=\"min-width-80px\">\n        <button mat-icon-button color=\"primary\" [matTooltip]=\"Edit\" [routerLink]=\"['../edit', element.id]\">\n          <mat-icon>edit</mat-icon>\n        </button>\n        <button mat-icon-button color=\"primary\" [matTooltip]=\"Delete\" [routerLink]=\"['../delete', element.id]\">\n          <mat-icon>delete</mat-icon>\n        </button>\n      </td>\n    </ng-container>\n\n    <tr mat-header-row *matHeaderRowDef=\"displayedColumns\"></tr>\n    <tr mat-row *matRowDef=\"let row; columns: displayedColumns;\" [ngClass]=\"row.is_active ? '' : 'text-decoration-line-through'\">\n    </tr>\n\n  </table>\n\n</div>\n\n<div class=\"margin-right-25px padding-top-5px padding-bottom-5px flex-shrink-0 display-flex border-top-style-solid border-top-width-2px border-top-color-grey\">\n  <span class=\"flex-grow-1\"></span>\n  <mat-paginator [length]=\"totalLength\" [pageSizeOptions]=\"[5, 10, 20, 50, 100]\" [pageIndex]=\"\" [pageSize]=\"50\" showFirstLastButtons\n    (page)=\"onPage()\">\n  </mat-paginator>\n</div>"
+module.exports = "<h1>Collections Table</h1>\n\n<mat-toolbar class=\"margin-right-25px margin-bottom-10px width-auto flex-shrink-0 background-color-secondary color-primary mat-elevation-z2\"\n  [formGroup]=\"filter\">\n\n  <mat-icon matPrefix color=\"primary\">search</mat-icon>\n  <mat-form-field>\n    <input matInput formControlName=\"name\" placeholder=\"Name\">\n  </mat-form-field>\n\n  <mat-form-field>\n    <mat-label>Brand</mat-label>\n    <mat-select disableOptionCentering placeholder=\"Brand\" formControlName=\"brand\">\n      <mat-option>...</mat-option>\n      <mat-option *ngFor=\"let brand of brands\" [value]=\"brand.id\">\n        {{brand.name}}\n      </mat-option>\n    </mat-select>\n  </mat-form-field>\n\n  <span class=\"flex-grow-1\"></span>\n  <button mat-raised-button color=\"primary\" [routerLink]=\"['../create']\">CREATE A NEW COLLECTION</button>\n</mat-toolbar>\n\n<div class=\"flex-grow-1 overflow-auto display-flex\">\n\n  <table class=\"margin-top-10px margin-right-25px width-100pct\" mat-table [dataSource]=\"collections\" matSort [matSortActive]=\"collectionsService.previousSortColumn\"\n    [matSortDirection]=\"collectionsService.previousSortDirection\" matSortDisableClear (matSortChange)=\"onSort()\">\n\n    <ng-container matColumnDef=\"name\">\n      <th mat-header-cell *matHeaderCellDef mat-sort-header>\n        NAME\n      </th>\n      <td mat-cell *matCellDef=\"let element\" class=\"padding-table-td\"> {{ element.name }} </td>\n    </ng-container>\n\n    <ng-container matColumnDef=\"thumbnail\">\n      <th mat-header-cell *matHeaderCellDef></th>\n      <td mat-cell *matCellDef=\"let element\" class=\"display-flex flex-grow-1 height-100pct padding-left-0px width-100pct\">\n        <div class=\"position-relative margin-top-5px\">\n          <img [src]=\"element.imgUrl\" class=\"height-90pct width-90pct margin-auto\" alt=\"50\">\n        </div>\n      </td>\n    </ng-container>\n\n    <ng-container matColumnDef=\"brand\">\n      <th mat-header-cell *matHeaderCellDef mat-sort-header>\n        BRAND\n      </th>\n      <td mat-cell *matCellDef=\"let element\" class=\"padding-table-td\"> {{ getBrand(element.brand) }} </td>\n    </ng-container>\n\n    <ng-container matColumnDef=\"action\">\n      <th mat-header-cell *matHeaderCellDef>\n      </th>\n      <td mat-cell *matCellDef=\"let element\" class=\"min-width-80px\">\n          <button mat-icon-button color=\"primary\" type=\"button\" [matTooltip]=\"Edit\" class=\"min-width-80px\" (click)=\"seeCollectionModal(element.id)\">\n              <mat-icon>remove_red_eye</mat-icon>\n          </button>\n        <button mat-icon-button color=\"primary\" [matTooltip]=\"Edit\" [routerLink]=\"['../edit', element.id]\">\n          <mat-icon>edit</mat-icon>\n        </button>\n        <button mat-icon-button color=\"primary\" [matTooltip]=\"Delete\" [routerLink]=\"['../delete', element.id]\">\n          <mat-icon>delete</mat-icon>\n        </button>\n      </td>\n    </ng-container>\n\n    <tr mat-header-row *matHeaderRowDef=\"displayedColumns\"></tr>\n    <tr mat-row *matRowDef=\"let row; columns: displayedColumns;\" [ngClass]=\"row.is_active ? '' : 'text-decoration-line-through'\">\n    </tr>\n\n  </table>\n\n</div>\n\n<div class=\"margin-right-25px padding-top-5px padding-bottom-5px flex-shrink-0 display-flex border-top-style-solid border-top-width-2px border-top-color-grey\">\n  <span class=\"flex-grow-1\"></span>\n  <mat-paginator [length]=\"totalLength\" [pageSizeOptions]=\"[5, 10, 20, 50, 100]\" [pageIndex]=\"\" [pageSize]=\"50\" showFirstLastButtons\n    (page)=\"onPage()\">\n  </mat-paginator>\n</div>"
 
 /***/ }),
 
@@ -448,6 +448,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! rxjs/operators */ "./node_modules/rxjs/_esm5/operators/index.js");
 /* harmony import */ var _error_handling_services_error_handling_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../../../error-handling/services/error-handling.service */ "./src/app/error-handling/services/error-handling.service.ts");
 /* harmony import */ var _services_collections_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../services/collections.service */ "./src/app/ms-back-office/modules/ms-collections/services/collections.service.ts");
+/* harmony import */ var _see_collection_see_collection_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../see-collection/see-collection.component */ "./src/app/ms-back-office/modules/ms-collections/components/see-collection/see-collection.component.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -463,13 +464,15 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 //
 
 
-//
+
 
 //
+
 
 var errorKey = 'Error';
 var CollectionsTableComponent = /** @class */ (function () {
-    function CollectionsTableComponent(activatedRoute, collectionsService, errorHandlingService) {
+    function CollectionsTableComponent(dialog, activatedRoute, collectionsService, errorHandlingService) {
+        this.dialog = dialog;
         this.activatedRoute = activatedRoute;
         this.collectionsService = collectionsService;
         this.errorHandlingService = errorHandlingService;
@@ -542,6 +545,31 @@ var CollectionsTableComponent = /** @class */ (function () {
             return;
         }
     };
+    CollectionsTableComponent.prototype.seeCollectionModal = function (id) {
+        var _this = this;
+        this.collectionsService.getCollection(id).subscribe(function (response) {
+            _this.data = response.data;
+            if (_this.data.imgUrl) {
+                var face = {
+                    imgUrl: _this.data.imgUrl,
+                };
+                _this.faceList = [face];
+                _this.principal = face;
+            }
+            _this.modalRef = _this.dialog.open(_see_collection_see_collection_component__WEBPACK_IMPORTED_MODULE_7__["SeeCollectionComponent"], {
+                height: '90%',
+                width: '95%',
+                data: {
+                    id: id,
+                    faceList: _this.faceList,
+                    principal: _this.principal,
+                    data: response.data,
+                    brands: _this.brands,
+                    collectioId: id,
+                }
+            });
+        }, function (error) { return _this.errorHandlingService.handleUiError(errorKey, error); });
+    };
     __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ViewChild"])(_angular_material__WEBPACK_IMPORTED_MODULE_3__["MatPaginator"]),
         __metadata("design:type", _angular_material__WEBPACK_IMPORTED_MODULE_3__["MatPaginator"])
@@ -556,7 +584,8 @@ var CollectionsTableComponent = /** @class */ (function () {
             template: __webpack_require__(/*! ./collections-table.component.html */ "./src/app/ms-back-office/modules/ms-collections/components/collections-table/collections-table.component.html"),
             styles: [__webpack_require__(/*! ./collections-table.component.scss */ "./src/app/ms-back-office/modules/ms-collections/components/collections-table/collections-table.component.scss")]
         }),
-        __metadata("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"],
+        __metadata("design:paramtypes", [_angular_material__WEBPACK_IMPORTED_MODULE_3__["MatDialog"],
+            _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"],
             _services_collections_service__WEBPACK_IMPORTED_MODULE_6__["CollectionsService"],
             _error_handling_services_error_handling_service__WEBPACK_IMPORTED_MODULE_5__["ErrorHandlingService"]])
     ], CollectionsTableComponent);
@@ -940,8 +969,8 @@ var EditCollectionFormComponent = /** @class */ (function (_super) {
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
             selector: 'edit-collection-form',
             template: __webpack_require__(/*! ./edit-collection-form.component.html */ "./src/app/ms-back-office/modules/ms-collections/components/edit-collection-form/edit-collection-form.component.html"),
-            changeDetection: _angular_core__WEBPACK_IMPORTED_MODULE_0__["ChangeDetectionStrategy"].OnPush,
-            styles: [__webpack_require__(/*! ./edit-collection-form.component.scss */ "./src/app/ms-back-office/modules/ms-collections/components/edit-collection-form/edit-collection-form.component.scss")]
+            styles: [__webpack_require__(/*! ./edit-collection-form.component.scss */ "./src/app/ms-back-office/modules/ms-collections/components/edit-collection-form/edit-collection-form.component.scss")],
+            changeDetection: _angular_core__WEBPACK_IMPORTED_MODULE_0__["ChangeDetectionStrategy"].OnPush
         }),
         __metadata("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"],
             _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormBuilder"],
@@ -1323,6 +1352,256 @@ var NewCollectionComponent = /** @class */ (function () {
 
 /***/ }),
 
+/***/ "./src/app/ms-back-office/modules/ms-collections/components/see-collection/see-collection.component.html":
+/*!***************************************************************************************************************!*\
+  !*** ./src/app/ms-back-office/modules/ms-collections/components/see-collection/see-collection.component.html ***!
+  \***************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<form class=\"flex-grow-1 min-height-0 display-flex flex-direction-column\" [askBeforeRefresh]=\"formGroup.dirty\" [formGroup]=\"formGroup\"\r\n    novalidate role=\"form\" (ngSubmit)=\"submitClicked()\" autocomplete=\"off\" inputFocus>\r\n\r\n\r\n\r\n    <div class=\"flex-grow-1 overflow-auto display-flex flex-direction-column padding-top-25px\">\r\n\r\n        <div class=\"flex-grow-1 flex-shrink-0 display-flex flex-direction-column\">\r\n\r\n            <mat-tab-group>\r\n\r\n                <mat-tab label=\"Collection\">\r\n\r\n                    <div fxLayout=\"column\" class=\"flex-grow-1 padding-top-25px\">\r\n\r\n                        <mat-form-field class=\"width-100pc margin-left-16px\">\r\n\r\n                            <mat-label>Name</mat-label>\r\n\r\n                            <input matInput type=\"text\" formControlName=\"name\" required>\r\n\r\n                        </mat-form-field>\r\n\r\n                        <mat-form-field>\r\n                            <mat-label>Brand</mat-label>\r\n                            <mat-select disableOptionCentering placeholder=\"Brand\" formControlName=\"brand\" required [disabled]=\"true\">\r\n                                <mat-option>...</mat-option>\r\n                                <mat-option *ngFor=\"let brand of dialogData.brands\" [value]=\"brand.id\">\r\n                                    {{brand.name}}\r\n                                </mat-option>\r\n                            </mat-select>\r\n                        </mat-form-field>\r\n\r\n                        <div [fxFlex]=\"50\" class=\"border width-480px\">\r\n\r\n                            <image-card class=\"flex-grow-1 padding-10px\" formControlName=\"faces\" [principal]=\"principal\"></image-card>\r\n\r\n                        </div>\r\n\r\n                        <mat-form-field class=\"width-100pc margin-left-16px\" appearance=\"fill\">\r\n\r\n                            <mat-label>Description</mat-label>\r\n\r\n                            <textarea matInput formControlName=\"description\" class=\"min-height-100px\" readonly></textarea>\r\n\r\n                        </mat-form-field>\r\n\r\n                    </div>\r\n\r\n                </mat-tab>\r\n\r\n                <mat-tab label=\"Link\" class=\"width-50pc\">\r\n\r\n                    <div fxLayout=\"row\" class=\"margin-bottom-25px liked-shops margin-right-10px padding-10px\">\r\n                        <div fxLayout=\"column\" class=\"flex-grow-1\">\r\n\r\n                            <h3>Linked Stores</h3>\r\n                            <div class=\"flex-grow-1 overflow-auto display-flex flex-direction-column padding-10px border-top-width-2px border-top-color-grey\">\r\n\r\n                                <!--div class=\"flex-grow-1 flex-shrink-0 display-flex flex-direction-column\"-->\r\n                                <div class=\"flex-wrap-wrap display-flex flex-grow-1 flex-shrink-1 flex-direction-row card-container justify-content-initial margin-top-10px\">\r\n                                    <mat-card *ngFor=\"let shop of dialogData.shops\" class=\"display-flex background-color-secondary flex-direction-column flex-shrink-1\">\r\n                                        <div class=\"image-container margin-10px flex-grow-1\" #imageContainer>\r\n                                            <img class=\"img\" imageLoad [srcImage]=\"shop.mainImage? shop.mainImage : ''\" [container]=\"imageContainer\" src=\"\">\r\n                                        </div>\r\n                                        <div class=\"image-card-btns display-flex margin-left-10px margin-right-10px margin-bottom-10px\">\r\n                                            <mat-checkbox [checked]=\"shop.checked\" class=\"margin-top-10px\" matTooltip=\"{{ 'Principal' | translate }}\" (click)=\"linked(shop)\">{{ shop.name }}</mat-checkbox>\r\n                                        </div>\r\n                                    </mat-card>\r\n                                    <!--/div-->\r\n                                </div>\r\n\r\n                            </div>\r\n                            <div class=\"justify-content-flex-end margin-right-25px padding-top-10px padding-bottom-10px flex-shrink-0 display-flex border-top-width-2px border-top-color-grey\">\r\n\r\n                                <button mat-stroked-button type=\"button\" [disabled]=\"!collectionId\">Remove Selection</button>\r\n\r\n                                <button mat-raised-button type=\"button\" [disabled]=\"!collectionId\" color=\"primary\" class=\"margin-left-10px\" (click)=\"linkShopsModal()\">{{ 'Link New Stores' | translate }}</button>\r\n\r\n                            </div>\r\n                            <!--h3>Linked Offers</h3>\r\n                            <div class=\"mb-20\" fxFlex fxLayout=\"column\" fxLayout.lt-md=\"column\">\r\n\r\n                                <div class=\"flex-grow-1 overflow-auto display-flex flex-direction-column\">\r\n\r\n                                    <div class=\"flex-grow-1 flex-shrink-0 display-flex flex-direction-column\">\r\n\r\n                                        <offers-collection-table [collections]=\"collections\" [releases]=\"releases\"></offers-collection-table>\r\n\r\n                                    </div>\r\n\r\n                                </div>\r\n                                <div class=\"justify-content-flex-end margin-right-25px padding-top-10px padding-bottom-10px flex-shrink-0 display-flex border-top-width-2px border-top-color-grey\">\r\n\r\n                                    <button mat-stroked-button type=\"button\" [disabled]=\"!collectionId\">Remove Selection</button>\r\n\r\n                                    <button mat-raised-button type=\"button\" [disabled]=\"!collectionId\" color=\"primary\" class=\"margin-left-10px\" (click)=\"linkOffersModal()\">{{ 'Link New Offers' | translate }}</button>\r\n\r\n                                </div>\r\n\r\n                            </div-->\r\n\r\n                        </div>\r\n\r\n                    </div>\r\n\r\n                </mat-tab>\r\n\r\n                <mat-tab label=\"Releases\" class=\"width-50pc\">\r\n\r\n                    <releases-collection-table [collectionId]=\"dialogData.collectionId\" [collections]=\"dialogData.collections\" [brands]=\"dialogData.brands\"  [styles]=\"dialogData.styles\" ></releases-collection-table>\r\n\r\n                </mat-tab>\r\n            </mat-tab-group>\r\n\r\n\r\n        </div>\r\n\r\n    </div>\r\n\r\n\r\n    <div class=\"margin-right-25px padding-top-25px padding-bottom-25px flex-shrink-0 display-flex border-top-style-solid border-top-width-2px border-top-color-grey\">\r\n\r\n        <button mat-raised-button type=\"button\" class=\"margin-left-10px\" (click)=\"cancelClicked()\">{{ 'Cancel' | translate }}</button>\r\n\r\n    </div>\r\n</form>\r\n\r\n"
+
+/***/ }),
+
+/***/ "./src/app/ms-back-office/modules/ms-collections/components/see-collection/see-collection.component.scss":
+/*!***************************************************************************************************************!*\
+  !*** ./src/app/ms-back-office/modules/ms-collections/components/see-collection/see-collection.component.scss ***!
+  \***************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = ":host {\n  display: flex;\n  flex-grow: 1;\n  flex-direction: column;\n  height: 100%; }\n\n.mat-dialog-container {\n  padding: 10px; }\n\n.mat-dialog-content {\n  height: 60%;\n  max-height: 82vh;\n  margin-bottom: 10px; }\n\n.mat-dialog-actions {\n  padding: 10px 0; }\n\nmat-card {\n  padding: 0px;\n  align-self: flex-start;\n  height: 200px;\n  width: 150px;\n  margin-left: 2px;\n  margin-right: 15px;\n  margin-bottom: 15px; }\n\nmat-icon {\n  font-size: 24px;\n  width: 24px;\n  height: 24px; }\n\n.max-width-60-pct {\n  max-width: 60% !important; }\n\n.border {\n  border: 1px solid #f1f1f1; }\n\ntd.mat-cell {\n  border: none !important; }\n\nth.mat-header-cell {\n  border: none !important; }\n\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvbXMtYmFjay1vZmZpY2UvbW9kdWxlcy9tcy1jb2xsZWN0aW9ucy9jb21wb25lbnRzL3NlZS1jb2xsZWN0aW9uL0U6XFxQUk9HUkFNQUNJT04gSUlJXFxtb3Jlc25lYWtlcnMtYmFja29mZmljZS9zcmNcXGFwcFxcbXMtYmFjay1vZmZpY2VcXG1vZHVsZXNcXG1zLWNvbGxlY3Rpb25zXFxjb21wb25lbnRzXFxzZWUtY29sbGVjdGlvblxcc2VlLWNvbGxlY3Rpb24uY29tcG9uZW50LnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFDSSxjQUFhO0VBQ2IsYUFBWTtFQUNaLHVCQUFzQjtFQUN0QixhQUNGLEVBQUM7O0FBRUQ7RUFDRSxjQUFhLEVBQ2Q7O0FBRUQ7RUFDRSxZQUFXO0VBQ1gsaUJBQWdCO0VBQ2hCLG9CQUFtQixFQUNwQjs7QUFFRDtFQUNFLGdCQUFlLEVBQ2hCOztBQUVEO0VBQ0UsYUFBWTtFQUNaLHVCQUFzQjtFQUN0QixjQUFhO0VBQ2IsYUFBWTtFQUNaLGlCQUFnQjtFQUNoQixtQkFBa0I7RUFDbEIsb0JBQW1CLEVBQ3BCOztBQUVEO0VBQ0UsZ0JBQWU7RUFDZixZQUFXO0VBQ1gsYUFBWSxFQUNiOztBQUVEO0VBQ0UsMEJBQXlCLEVBQzFCOztBQUVEO0VBQ0UsMEJBQXlCLEVBQzFCOztBQUVEO0VBQ0Usd0JBQXVCLEVBQ3hCOztBQUNEO0VBQ0Usd0JBQXVCLEVBQ3hCIiwiZmlsZSI6InNyYy9hcHAvbXMtYmFjay1vZmZpY2UvbW9kdWxlcy9tcy1jb2xsZWN0aW9ucy9jb21wb25lbnRzL3NlZS1jb2xsZWN0aW9uL3NlZS1jb2xsZWN0aW9uLmNvbXBvbmVudC5zY3NzIiwic291cmNlc0NvbnRlbnQiOlsiOmhvc3Qge1xyXG4gICAgZGlzcGxheTogZmxleDtcclxuICAgIGZsZXgtZ3JvdzogMTtcclxuICAgIGZsZXgtZGlyZWN0aW9uOiBjb2x1bW47XHJcbiAgICBoZWlnaHQ6IDEwMCVcclxuICB9XHJcbiAgXHJcbiAgLm1hdC1kaWFsb2ctY29udGFpbmVyIHtcclxuICAgIHBhZGRpbmc6IDEwcHg7XHJcbiAgfVxyXG4gIFxyXG4gIC5tYXQtZGlhbG9nLWNvbnRlbnQge1xyXG4gICAgaGVpZ2h0OiA2MCU7XHJcbiAgICBtYXgtaGVpZ2h0OiA4MnZoO1xyXG4gICAgbWFyZ2luLWJvdHRvbTogMTBweDtcclxuICB9XHJcbiAgXHJcbiAgLm1hdC1kaWFsb2ctYWN0aW9ucyB7XHJcbiAgICBwYWRkaW5nOiAxMHB4IDA7XHJcbiAgfVxyXG4gIFxyXG4gIG1hdC1jYXJkIHtcclxuICAgIHBhZGRpbmc6IDBweDtcclxuICAgIGFsaWduLXNlbGY6IGZsZXgtc3RhcnQ7XHJcbiAgICBoZWlnaHQ6IDIwMHB4O1xyXG4gICAgd2lkdGg6IDE1MHB4O1xyXG4gICAgbWFyZ2luLWxlZnQ6IDJweDtcclxuICAgIG1hcmdpbi1yaWdodDogMTVweDtcclxuICAgIG1hcmdpbi1ib3R0b206IDE1cHg7XHJcbiAgfVxyXG4gIFxyXG4gIG1hdC1pY29uIHtcclxuICAgIGZvbnQtc2l6ZTogMjRweDtcclxuICAgIHdpZHRoOiAyNHB4O1xyXG4gICAgaGVpZ2h0OiAyNHB4O1xyXG4gIH1cclxuICBcclxuICAubWF4LXdpZHRoLTYwLXBjdHtcclxuICAgIG1heC13aWR0aDogNjAlICFpbXBvcnRhbnQ7XHJcbiAgfVxyXG4gIFxyXG4gIC5ib3JkZXJ7XHJcbiAgICBib3JkZXI6IDFweCBzb2xpZCAjZjFmMWYxO1xyXG4gIH1cclxuICBcclxuICB0ZC5tYXQtY2VsbHtcclxuICAgIGJvcmRlcjogbm9uZSAhaW1wb3J0YW50O1xyXG4gIH1cclxuICB0aC5tYXQtaGVhZGVyLWNlbGx7XHJcbiAgICBib3JkZXI6IG5vbmUgIWltcG9ydGFudDtcclxuICB9XHJcbiJdfQ== */"
+
+/***/ }),
+
+/***/ "./src/app/ms-back-office/modules/ms-collections/components/see-collection/see-collection.component.ts":
+/*!*************************************************************************************************************!*\
+  !*** ./src/app/ms-back-office/modules/ms-collections/components/see-collection/see-collection.component.ts ***!
+  \*************************************************************************************************************/
+/*! exports provided: SeeCollectionComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SeeCollectionComponent", function() { return SeeCollectionComponent; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm5/forms.js");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+/* harmony import */ var _angular_material__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/material */ "./node_modules/@angular/material/esm5/material.es5.js");
+/* harmony import */ var _ngx_translate_core__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @ngx-translate/core */ "./node_modules/@ngx-translate/core/fesm5/ngx-translate-core.js");
+/* harmony import */ var _ui_modules_images_card_models_face__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../../../ui/modules/images-card/models/face */ "./src/app/ui/modules/images-card/models/face.ts");
+/* harmony import */ var _ui_components_base_reactive_form_base_reactive_form_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../../../../ui/components/base-reactive-form/base-reactive-form-component */ "./src/app/ui/components/base-reactive-form/base-reactive-form-component.ts");
+/* harmony import */ var _error_handling_services_error_handling_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../../../../error-handling/services/error-handling.service */ "./src/app/error-handling/services/error-handling.service.ts");
+/* harmony import */ var _error_handling_services_toastr_service__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../../../../error-handling/services/toastr.service */ "./src/app/error-handling/services/toastr.service.ts");
+/* harmony import */ var _services_collections_service__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../../services/collections.service */ "./src/app/ms-back-office/modules/ms-collections/services/collections.service.ts");
+/* harmony import */ var _ms_offers_components_link_offers_collection_link_offers_collection_modal_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../../../ms-offers/components/link-offers-collection/link-offers-collection-modal.component */ "./src/app/ms-back-office/modules/ms-offers/components/link-offers-collection/link-offers-collection-modal.component.ts");
+/* harmony import */ var _ms_shops_components_link_shops_collection_link_shops_collection_modal_component__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../../../ms-shops/components/link-shops-collection/link-shops-collection-modal.component */ "./src/app/ms-back-office/modules/ms-shops/components/link-shops-collection/link-shops-collection-modal.component.ts");
+var __extends = (undefined && undefined.__extends) || (function () {
+    var extendStatics = Object.setPrototypeOf ||
+        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+var __param = (undefined && undefined.__param) || function (paramIndex, decorator) {
+    return function (target, key) { decorator(target, key, paramIndex); }
+};
+
+
+
+//
+
+
+//
+
+
+
+
+
+
+
+var errorKey = 'Error';
+var SeeCollectionComponent = /** @class */ (function (_super) {
+    __extends(SeeCollectionComponent, _super);
+    function SeeCollectionComponent(activatedRoute, formBuilder, collectionsService, errorHandlingService, toastr, dialog, translateService, dialogRef, dialogData) {
+        var _this = _super.call(this, translateService) || this;
+        _this.activatedRoute = activatedRoute;
+        _this.formBuilder = formBuilder;
+        _this.collectionsService = collectionsService;
+        _this.errorHandlingService = errorHandlingService;
+        _this.toastr = toastr;
+        _this.dialog = dialog;
+        _this.dialogRef = dialogRef;
+        _this.dialogData = dialogData;
+        _this.faceList = [];
+        return _this;
+        //setTranslations(this.translateService, TRANSLATIONS);TODO
+    }
+    SeeCollectionComponent.prototype.ngOnInit = function () {
+        /*this.shopsToShow = this.shops.filter((shop) =>{
+            return this.linkedShops.findIndex((val) => val === shop.id);
+        });*/
+        var validationsErrors = [
+            {
+                type: 'required',
+                key: 'Required Field',
+                params: null,
+                translation: ''
+            }
+        ];
+        this.validationErrorMessages = validationsErrors;
+        this.createFormGroup();
+    };
+    SeeCollectionComponent.prototype.createFormGroup = function () {
+        this.faces = this.formBuilder.control(this.dialogData.faceList);
+        this.formGroup = new _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormGroup"]({
+            faces: this.faces,
+            name: new _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormControl"](this.dialogData.data.name, [_angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].required]),
+            description: new _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormControl"](this.dialogData.data.description),
+            brand: new _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormControl"](this.dialogData.data.brand, [_angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].required]),
+        });
+    };
+    SeeCollectionComponent.prototype.submitClicked = function () {
+        if (this.formGroup.valid) {
+            this.accept.emit(this.data);
+        }
+        else {
+            this.triggerValidation();
+        }
+    };
+    SeeCollectionComponent.prototype.linkShopsModal = function () {
+        this.modalRef = this.dialog.open(_ms_shops_components_link_shops_collection_link_shops_collection_modal_component__WEBPACK_IMPORTED_MODULE_11__["LinkShopsCollentionModalComponent"], {
+            height: '90%',
+            width: '90%',
+            data: {
+                collectionId: this.collectionId,
+                shops: this.shops,
+            }
+        });
+    };
+    SeeCollectionComponent.prototype.linkOffersModal = function () {
+        this.modalRef = this.dialog.open(_ms_offers_components_link_offers_collection_link_offers_collection_modal_component__WEBPACK_IMPORTED_MODULE_10__["LinkOffersCollentionModalComponent"], {
+            height: '90%',
+            width: '90%',
+            data: {
+                collectionId: this.collectionId,
+                shops: this.shops,
+                releases: this.releases,
+                collections: this.collections
+            }
+        });
+    };
+    SeeCollectionComponent.prototype.linked = function (shop) {
+        shop.linked = !shop.linked;
+        if (shop.linked) {
+            this.linkedShops = this.linkedShops.concat([shop.id]);
+        }
+        else {
+            var indexLinked_1 = this.linkedShops.findIndex(function (val) { return val === shop.id; });
+            if (indexLinked_1 > -1) {
+                var linked_1 = [];
+                this.linkedShops.forEach(function (shopId, index) {
+                    if (index != indexLinked_1) {
+                        linked_1 = linked_1.concat([shopId]);
+                    }
+                });
+                this.linkedShops = linked_1;
+            }
+        }
+    };
+    SeeCollectionComponent.prototype.isLinked = function (id) {
+        var isLinked = this.linkedShops.findIndex(function (shopId) { return shopId === id; }) > -1;
+        if (isLinked) {
+            var index = this.shops.findIndex(function (shop) { return shop.id === id; });
+            this.shops[index].linked = true;
+            this.shops[index].checked = true;
+        }
+        else {
+            var index = this.shops.findIndex(function (shop) { return shop.id === id; });
+            this.shops[index].linked = false;
+            this.shops[index].checked = false;
+        }
+    };
+    SeeCollectionComponent.prototype.changeCollection = function (collectionId) {
+        var _this = this;
+        this.collectionId = collectionId;
+        this.collectionsService.getCollectionLinkedShops(collectionId).subscribe(function (response) {
+            _this.linkedShops = response.data;
+            _this.shops.forEach(function (shop) {
+                _this.isLinked(shop.id);
+            });
+        }, function (error) {
+            _this.errorHandlingService.handleUiError(errorKey, error);
+        });
+    };
+    SeeCollectionComponent.prototype.save = function () {
+        var _this = this;
+        this.collectionsService.postCollectionLinkedShops(this.collectionId, this.linkedShops).subscribe(function (response) {
+            _this.toastr.success("Saved");
+        }, function (error) {
+            _this.errorHandlingService.handleUiError(errorKey, error);
+        });
+    };
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])(),
+        __metadata("design:type", Array)
+    ], SeeCollectionComponent.prototype, "brands", void 0);
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])(),
+        __metadata("design:type", Array)
+    ], SeeCollectionComponent.prototype, "faceList", void 0);
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])(),
+        __metadata("design:type", _ui_modules_images_card_models_face__WEBPACK_IMPORTED_MODULE_5__["Face"])
+    ], SeeCollectionComponent.prototype, "principal", void 0);
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])(),
+        __metadata("design:type", String)
+    ], SeeCollectionComponent.prototype, "collectionId", void 0);
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])(),
+        __metadata("design:type", Array)
+    ], SeeCollectionComponent.prototype, "releases", void 0);
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])(),
+        __metadata("design:type", Array)
+    ], SeeCollectionComponent.prototype, "collections", void 0);
+    SeeCollectionComponent = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+            selector: 'see-collection',
+            template: __webpack_require__(/*! ./see-collection.component.html */ "./src/app/ms-back-office/modules/ms-collections/components/see-collection/see-collection.component.html"),
+            styles: [__webpack_require__(/*! ./see-collection.component.scss */ "./src/app/ms-back-office/modules/ms-collections/components/see-collection/see-collection.component.scss")],
+            changeDetection: _angular_core__WEBPACK_IMPORTED_MODULE_0__["ChangeDetectionStrategy"].OnPush
+        }),
+        __param(8, Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Inject"])(_angular_material__WEBPACK_IMPORTED_MODULE_3__["MAT_DIALOG_DATA"])),
+        __metadata("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"],
+            _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormBuilder"],
+            _services_collections_service__WEBPACK_IMPORTED_MODULE_9__["CollectionsService"],
+            _error_handling_services_error_handling_service__WEBPACK_IMPORTED_MODULE_7__["ErrorHandlingService"],
+            _error_handling_services_toastr_service__WEBPACK_IMPORTED_MODULE_8__["ToastrService"],
+            _angular_material__WEBPACK_IMPORTED_MODULE_3__["MatDialog"],
+            _ngx_translate_core__WEBPACK_IMPORTED_MODULE_4__["TranslateService"],
+            _angular_material__WEBPACK_IMPORTED_MODULE_3__["MatDialogRef"], Object])
+    ], SeeCollectionComponent);
+    return SeeCollectionComponent;
+}(_ui_components_base_reactive_form_base_reactive_form_component__WEBPACK_IMPORTED_MODULE_6__["BaseReactiveFormComponent"]));
+
+
+
+/***/ }),
+
 /***/ "./src/app/ms-back-office/modules/ms-collections/ms-collections-routing.module.ts":
 /*!****************************************************************************************!*\
   !*** ./src/app/ms-back-office/modules/ms-collections/ms-collections-routing.module.ts ***!
@@ -1470,10 +1749,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_collection_creator_collection_creator_component__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! ./components/collection-creator/collection-creator.component */ "./src/app/ms-back-office/modules/ms-collections/components/collection-creator/collection-creator.component.ts");
 /* harmony import */ var _components_collections_table_collections_table_component__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(/*! ./components/collections-table/collections-table.component */ "./src/app/ms-back-office/modules/ms-collections/components/collections-table/collections-table.component.ts");
 /* harmony import */ var _components_collection_form_collection_form_component__WEBPACK_IMPORTED_MODULE_25__ = __webpack_require__(/*! ./components/collection-form/collection-form.component */ "./src/app/ms-back-office/modules/ms-collections/components/collection-form/collection-form.component.ts");
-/* harmony import */ var _components_new_collection_new_collection_component__WEBPACK_IMPORTED_MODULE_26__ = __webpack_require__(/*! ./components/new-collection/new-collection.component */ "./src/app/ms-back-office/modules/ms-collections/components/new-collection/new-collection.component.ts");
-/* harmony import */ var _components_edit_collection_edit_collection_component__WEBPACK_IMPORTED_MODULE_27__ = __webpack_require__(/*! ./components/edit-collection/edit-collection.component */ "./src/app/ms-back-office/modules/ms-collections/components/edit-collection/edit-collection.component.ts");
-/* harmony import */ var _components_edit_collection_form_edit_collection_form_component__WEBPACK_IMPORTED_MODULE_28__ = __webpack_require__(/*! ./components/edit-collection-form/edit-collection-form.component */ "./src/app/ms-back-office/modules/ms-collections/components/edit-collection-form/edit-collection-form.component.ts");
-/* harmony import */ var _components_delete_collection_delete_collection_component__WEBPACK_IMPORTED_MODULE_29__ = __webpack_require__(/*! ./components/delete-collection/delete-collection.component */ "./src/app/ms-back-office/modules/ms-collections/components/delete-collection/delete-collection.component.ts");
+/* harmony import */ var _components_see_collection_see_collection_component__WEBPACK_IMPORTED_MODULE_26__ = __webpack_require__(/*! ./components/see-collection/see-collection.component */ "./src/app/ms-back-office/modules/ms-collections/components/see-collection/see-collection.component.ts");
+/* harmony import */ var _components_new_collection_new_collection_component__WEBPACK_IMPORTED_MODULE_27__ = __webpack_require__(/*! ./components/new-collection/new-collection.component */ "./src/app/ms-back-office/modules/ms-collections/components/new-collection/new-collection.component.ts");
+/* harmony import */ var _components_edit_collection_edit_collection_component__WEBPACK_IMPORTED_MODULE_28__ = __webpack_require__(/*! ./components/edit-collection/edit-collection.component */ "./src/app/ms-back-office/modules/ms-collections/components/edit-collection/edit-collection.component.ts");
+/* harmony import */ var _components_edit_collection_form_edit_collection_form_component__WEBPACK_IMPORTED_MODULE_29__ = __webpack_require__(/*! ./components/edit-collection-form/edit-collection-form.component */ "./src/app/ms-back-office/modules/ms-collections/components/edit-collection-form/edit-collection-form.component.ts");
+/* harmony import */ var _components_delete_collection_delete_collection_component__WEBPACK_IMPORTED_MODULE_30__ = __webpack_require__(/*! ./components/delete-collection/delete-collection.component */ "./src/app/ms-back-office/modules/ms-collections/components/delete-collection/delete-collection.component.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1499,6 +1779,7 @@ var __decorate = (undefined && undefined.__decorate) || function (decorators, ta
 
 
 //
+
 
 
 
@@ -1553,25 +1834,28 @@ var MsCollectionsModule = /** @class */ (function () {
                 _components_collection_creator_collection_creator_component__WEBPACK_IMPORTED_MODULE_23__["CollectionCreatorComponent"],
                 _components_collections_table_collections_table_component__WEBPACK_IMPORTED_MODULE_24__["CollectionsTableComponent"],
                 _components_collection_form_collection_form_component__WEBPACK_IMPORTED_MODULE_25__["CollectionFormComponent"],
-                _components_new_collection_new_collection_component__WEBPACK_IMPORTED_MODULE_26__["NewCollectionComponent"],
-                _components_edit_collection_edit_collection_component__WEBPACK_IMPORTED_MODULE_27__["EditCollectionComponent"],
-                _components_edit_collection_form_edit_collection_form_component__WEBPACK_IMPORTED_MODULE_28__["EditCollectionFormComponent"],
-                _components_delete_collection_delete_collection_component__WEBPACK_IMPORTED_MODULE_29__["DeleteCollectionComponent"]
+                _components_new_collection_new_collection_component__WEBPACK_IMPORTED_MODULE_27__["NewCollectionComponent"],
+                _components_edit_collection_edit_collection_component__WEBPACK_IMPORTED_MODULE_28__["EditCollectionComponent"],
+                _components_edit_collection_form_edit_collection_form_component__WEBPACK_IMPORTED_MODULE_29__["EditCollectionFormComponent"],
+                _components_delete_collection_delete_collection_component__WEBPACK_IMPORTED_MODULE_30__["DeleteCollectionComponent"],
+                _components_see_collection_see_collection_component__WEBPACK_IMPORTED_MODULE_26__["SeeCollectionComponent"]
             ],
             exports: [
                 _components_collection_creator_collection_creator_component__WEBPACK_IMPORTED_MODULE_23__["CollectionCreatorComponent"],
                 _components_collections_table_collections_table_component__WEBPACK_IMPORTED_MODULE_24__["CollectionsTableComponent"],
                 _components_collection_form_collection_form_component__WEBPACK_IMPORTED_MODULE_25__["CollectionFormComponent"],
-                _components_new_collection_new_collection_component__WEBPACK_IMPORTED_MODULE_26__["NewCollectionComponent"],
-                _components_edit_collection_edit_collection_component__WEBPACK_IMPORTED_MODULE_27__["EditCollectionComponent"],
-                _components_edit_collection_form_edit_collection_form_component__WEBPACK_IMPORTED_MODULE_28__["EditCollectionFormComponent"],
-                _components_delete_collection_delete_collection_component__WEBPACK_IMPORTED_MODULE_29__["DeleteCollectionComponent"]
+                _components_new_collection_new_collection_component__WEBPACK_IMPORTED_MODULE_27__["NewCollectionComponent"],
+                _components_edit_collection_edit_collection_component__WEBPACK_IMPORTED_MODULE_28__["EditCollectionComponent"],
+                _components_edit_collection_form_edit_collection_form_component__WEBPACK_IMPORTED_MODULE_29__["EditCollectionFormComponent"],
+                _components_delete_collection_delete_collection_component__WEBPACK_IMPORTED_MODULE_30__["DeleteCollectionComponent"],
+                _components_see_collection_see_collection_component__WEBPACK_IMPORTED_MODULE_26__["SeeCollectionComponent"]
             ],
             entryComponents: [
-                _components_new_collection_new_collection_component__WEBPACK_IMPORTED_MODULE_26__["NewCollectionComponent"],
+                _components_new_collection_new_collection_component__WEBPACK_IMPORTED_MODULE_27__["NewCollectionComponent"],
                 _ms_shops_components_link_shops_collection_link_shops_collection_modal_component__WEBPACK_IMPORTED_MODULE_20__["LinkShopsCollentionModalComponent"],
                 _ms_offers_components_link_offers_collection_link_offers_collection_modal_component__WEBPACK_IMPORTED_MODULE_21__["LinkOffersCollentionModalComponent"],
                 _ms_releases_components_new_release_modal_new_release_modal_component__WEBPACK_IMPORTED_MODULE_19__["NewReleaseModalComponent"],
+                _components_see_collection_see_collection_component__WEBPACK_IMPORTED_MODULE_26__["SeeCollectionComponent"]
             ]
         })
     ], MsCollectionsModule);

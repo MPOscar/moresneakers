@@ -447,7 +447,7 @@ var EditReleaseFormComponent = /** @class */ (function (_super) {
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
             selector: 'edit-release-form',
             template: __webpack_require__(/*! ./edit-release-form.component.html */ "./src/app/ms-back-office/modules/ms-releases/components/edit-release-form/edit-release-form.component.html"),
-            styles: [__webpack_require__(/*! ./edit-release-form.component.scss */ "./src/app/ms-back-office/modules/ms-releases/components/edit-release-form/edit-release-form.component.scss")]
+            styles: [__webpack_require__(/*! ./edit-release-form.component.scss */ "./src/app/ms-back-office/modules/ms-releases/components/edit-release-form/edit-release-form.component.scss")],
         }),
         __metadata("design:paramtypes", [_angular_material__WEBPACK_IMPORTED_MODULE_2__["MatDialog"],
             _ms_brands_services_brands_service__WEBPACK_IMPORTED_MODULE_14__["BrandsService"],
@@ -1704,8 +1704,8 @@ var ReleaseFormComponent = /** @class */ (function (_super) {
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
             selector: 'release-form',
             template: __webpack_require__(/*! ./release-form.component.html */ "./src/app/ms-back-office/modules/ms-releases/components/release-form/release-form.component.html"),
-            changeDetection: _angular_core__WEBPACK_IMPORTED_MODULE_0__["ChangeDetectionStrategy"].OnPush,
-            styles: [__webpack_require__(/*! ./release-form.component.scss */ "./src/app/ms-back-office/modules/ms-releases/components/release-form/release-form.component.scss")]
+            styles: [__webpack_require__(/*! ./release-form.component.scss */ "./src/app/ms-back-office/modules/ms-releases/components/release-form/release-form.component.scss")],
+            changeDetection: _angular_core__WEBPACK_IMPORTED_MODULE_0__["ChangeDetectionStrategy"].OnPush
         }),
         __metadata("design:paramtypes", [_angular_material__WEBPACK_IMPORTED_MODULE_2__["MatDialog"],
             _ms_brands_services_brands_service__WEBPACK_IMPORTED_MODULE_6__["BrandsService"],
@@ -1997,7 +1997,7 @@ var ReleasesCollectionTableComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<h1>Releases Table</h1>\n\n<mat-toolbar class=\"margin-right-25px margin-bottom-10px width-auto flex-shrink-0 background-color-secondary color-primary mat-elevation-z2\"\n    [formGroup]=\"filter\">\n\n    <mat-icon matPrefix color=\"primary\">search</mat-icon>\n    <mat-form-field>\n        <input matInput formControlName=\"sku\" placeholder=\"SKU\">\n    </mat-form-field>\n\n    <mat-form-field>\n        <mat-label>RELEASE NAME</mat-label>\n        <input matInput formControlName=\"name\" placeholder=\"Name\">\n    </mat-form-field>\n\n    <mat-form-field>\n        <mat-label>BRAND</mat-label>\n        <mat-select disableOptionCentering placeholder=\"Select\" formControlName=\"brandId\">\n            <mat-option>...</mat-option>\n            <mat-option *ngFor=\"let brand of brands\" [value]=\"brand.id\">\n                {{brand.name}}\n            </mat-option>\n        </mat-select>\n    </mat-form-field>\n\n    <mat-form-field>\n        <mat-label>COLLECTION</mat-label>\n        <mat-select disableOptionCentering placeholder=\"Select\" formControlName=\"collectionId\">\n            <mat-option>...</mat-option>\n            <mat-option *ngFor=\"let collection of collections\" [value]=\"collection.id\">\n                {{collection.name}}\n            </mat-option>\n        </mat-select>\n    </mat-form-field>\n\n    <mat-form-field>\n        <mat-label>GENDER</mat-label>\n        <mat-select disableOptionCentering placeholder=\"Select\" formControlName=\"genderId\">\n            <mat-option>...</mat-option>\n            <mat-option *ngFor=\"let gender of genders\" [value]=\"gender.id\">\n                {{gender.name}}\n            </mat-option>\n        </mat-select>\n    </mat-form-field>\n    <span class=\"flex-grow-1\"></span>\n    <button mat-raised-button color=\"primary\" [routerLink]=\"['../create']\">CREATE A NEW RELEASE</button>\n</mat-toolbar>\n\n<div class=\"flex-grow-1 overflow-auto display-flex\">\n\n    <table class=\"margin-top-10px margin-right-25px width-100pct\" mat-table [dataSource]=\"releases\" matSort [matSortActive]=\"releasesService.previousSortColumn\"\n        [matSortDirection]=\"releasesService.previousSortDirection\" matSortDisableClear (matSortChange)=\"onSort()\">\n\n        <ng-container matColumnDef=\"name\">\n            <th mat-header-cell *matHeaderCellDef mat-sort-header>\n                RELEASE NAME\n            </th>\n            <td mat-cell *matCellDef=\"let element\" class=\"padding-table-td\"> {{ element.name }} </td>\n        </ng-container>\n\n        <ng-container matColumnDef=\"mainImage\">\n            <th mat-header-cell *matHeaderCellDef></th>\n            <td mat-cell *matCellDef=\"let element\" class=\"display-flex flex-grow-1 height-100pct padding-left-0px width-100pct\">\n                <div class=\"position-relative margin-top-5px\">\n                    <img [src]=\"element.mainImage\" class=\"margin-auto\" alt=\"50\">\n                </div>\n            </td>\n        </ng-container>\n\n        <ng-container matColumnDef=\"sku\">\n            <th mat-header-cell *matHeaderCellDef mat-sort-header>\n                SKU\n            </th>\n            <td mat-cell *matCellDef=\"let element\" class=\"padding-table-td\"> {{ element.sku }} </td>\n        </ng-container>\n\n        <ng-container matColumnDef=\"styleId\">\n            <th mat-header-cell *matHeaderCellDef mat-sort-header>\n                STYLE\n            </th>\n            <td mat-cell *matCellDef=\"let element\" class=\"padding-table-td\"> {{ getStyle(element.styleId) }} </td>\n        </ng-container>\n\n        <ng-container matColumnDef=\"brandId\">\n            <th mat-header-cell *matHeaderCellDef>\n                BRAND\n            </th>\n            <td mat-cell *matCellDef=\"let element\" class=\"padding-table-td\"> {{ getBrand(element.brandId) }} </td>\n        </ng-container>\n\n        <ng-container matColumnDef=\"collectionId\">\n            <th mat-header-cell *matHeaderCellDef mat-sort-header>\n                COLLECTION\n            </th>\n            <td mat-cell *matCellDef=\"let element\" class=\"padding-table-td\"> {{ getCollection(element.collectionId) }} </td>\n        </ng-container>\n\n        <ng-container matColumnDef=\"categoryId\">\n            <th mat-header-cell *matHeaderCellDef mat-sort-header>\n                CATEGORY\n            </th>\n            <td mat-cell *matCellDef=\"let element\" class=\"padding-table-td\"> {{ element.categoryId }} </td>\n        </ng-container>\n\n        <ng-container matColumnDef=\"color\">\n            <th mat-header-cell *matHeaderCellDef mat-sort-header>\n                COLOR\n            </th>\n            <td mat-cell *matCellDef=\"let element\" class=\"padding-table-td\"> {{ element.color }} </td>\n        </ng-container>\n\n        <ng-container matColumnDef=\"releaseDate\">\n            <th mat-header-cell *matHeaderCellDef mat-sort-header>\n                OFFICIAL RELEASE\n            </th>\n            <td mat-cell *matCellDef=\"let element\" class=\"padding-table-td\"> {{ element.releaseDate? (element.releaseDate  | date: 'dd/MM/yyyy'): \"Not scheduled\" }} </td>\n        </ng-container>\n\n        <ng-container matColumnDef=\"createdAt\">\n            <th mat-header-cell *matHeaderCellDef mat-sort-header>\n                CREATION DATE\n            </th>\n            <td mat-cell *matCellDef=\"let element\" class=\"padding-table-td\"> {{ element.createdAt | date: 'MM/dd/yyyy HH:mm:ss': timeZoneOffset.toString() }} </td>\n        </ng-container>\n\n        <!--ng-container matColumnDef=\"HOT\">\n          <th mat-header-cell *matHeaderCellDef mat-sort-header>\n            HOT\n          </th>\n          <td mat-cell *matCellDef=\"let element\"> {{ element.hot? 'Yes':'No' }} </td>\n      </ng-container-->\n\n        <ng-container matColumnDef=\"actions\">\n            <th mat-header-cell *matHeaderCellDef>\n            </th>\n            <td mat-cell *matCellDef=\"let element\" class=\"min-width-80px\">\n                <button mat-icon-button color=\"primary\" [matTooltip]=\"Edit\" [routerLink]=\"['../edit', element.id]\">\n                    <mat-icon>edit</mat-icon>\n                </button>\n                <button mat-icon-button color=\"primary\" [matTooltip]=\"Delete\" [routerLink]=\"['../delete', element.id]\">\n                    <mat-icon>delete</mat-icon>\n                </button>\n            </td>\n        </ng-container>\n\n        <tr mat-header-row *matHeaderRowDef=\"displayedColumns\"></tr>\n        <tr mat-row *matRowDef=\"let row; columns: displayedColumns;\" [ngClass]=\"row.is_active ? '' : 'text-decoration-line-through'\">\n        </tr>\n\n    </table>\n\n</div>\n\n<div class=\"margin-right-25px padding-top-5px padding-bottom-5px flex-shrink-0 display-flex border-top-style-solid border-top-width-2px border-top-color-grey\">\n    <span class=\"flex-grow-1\"></span>\n    <mat-paginator [length]=\"totalLength\" [pageSizeOptions]=\"[5, 10, 20, 50, 100]\" [pageIndex]=\"\" [pageSize]=\"50\" showFirstLastButtons\n        (page)=\"onPage()\">\n    </mat-paginator>\n</div>\n\n<http-request-indicator [urlExpressions]=\"[\n        configService.config.apiConfigs.releases.apiEndpoint + '.*']\">\n</http-request-indicator>"
+module.exports = "<h1>Releases Table</h1>\n\n<mat-toolbar class=\"margin-right-25px margin-bottom-10px width-auto flex-shrink-0 background-color-secondary color-primary mat-elevation-z2\"\n    [formGroup]=\"filter\">\n\n    <mat-icon matPrefix color=\"primary\">search</mat-icon>\n    <mat-form-field>\n        <input matInput formControlName=\"sku\" placeholder=\"SKU\">\n    </mat-form-field>\n\n    <mat-form-field>\n        <mat-label>RELEASE NAME</mat-label>\n        <input matInput formControlName=\"name\" placeholder=\"Name\">\n    </mat-form-field>\n\n    <mat-form-field>\n        <mat-label>BRAND</mat-label>\n        <mat-select disableOptionCentering placeholder=\"Select\" formControlName=\"brandId\">\n            <mat-option>...</mat-option>\n            <mat-option *ngFor=\"let brand of brands\" [value]=\"brand.id\">\n                {{brand.name}}\n            </mat-option>\n        </mat-select>\n    </mat-form-field>\n\n    <mat-form-field>\n        <mat-label>COLLECTION</mat-label>\n        <mat-select disableOptionCentering placeholder=\"Select\" formControlName=\"collectionId\">\n            <mat-option>...</mat-option>\n            <mat-option *ngFor=\"let collection of collections\" [value]=\"collection.id\">\n                {{collection.name}}\n            </mat-option>\n        </mat-select>\n    </mat-form-field>\n\n    <mat-form-field>\n        <mat-label>GENDER</mat-label>\n        <mat-select disableOptionCentering placeholder=\"Select\" formControlName=\"genderId\">\n            <mat-option>...</mat-option>\n            <mat-option *ngFor=\"let gender of genders\" [value]=\"gender.id\">\n                {{gender.name}}\n            </mat-option>\n        </mat-select>\n    </mat-form-field>\n    <span class=\"flex-grow-1\"></span>\n    <button mat-raised-button color=\"primary\" [routerLink]=\"['../create']\">CREATE A NEW RELEASE</button>\n</mat-toolbar>\n\n<div class=\"flex-grow-1 overflow-auto display-flex\">\n\n    <table class=\"margin-top-10px margin-right-25px width-100pct\" mat-table [dataSource]=\"releases\" matSort [matSortActive]=\"releasesService.previousSortColumn\"\n        [matSortDirection]=\"releasesService.previousSortDirection\" matSortDisableClear (matSortChange)=\"onSort()\">\n\n        <ng-container matColumnDef=\"name\">\n            <th mat-header-cell *matHeaderCellDef mat-sort-header>\n                RELEASE NAME\n            </th>\n            <td mat-cell *matCellDef=\"let element\" class=\"padding-table-td\"> {{ element.name }} </td>\n        </ng-container>\n\n        <ng-container matColumnDef=\"mainImage\">\n            <th mat-header-cell *matHeaderCellDef></th>\n            <td mat-cell *matCellDef=\"let element\" class=\"display-flex flex-grow-1 height-100pct padding-left-0px width-100pct\">\n                <div class=\"position-relative margin-top-5px\">\n                    <img [src]=\"element.mainImage\" class=\"margin-auto\" alt=\"50\">\n                </div>\n            </td>\n        </ng-container>\n\n        <ng-container matColumnDef=\"sku\">\n            <th mat-header-cell *matHeaderCellDef mat-sort-header>\n                SKU\n            </th>\n            <td mat-cell *matCellDef=\"let element\" class=\"padding-table-td\"> {{ element.sku }} </td>\n        </ng-container>\n\n        <ng-container matColumnDef=\"styleId\">\n            <th mat-header-cell *matHeaderCellDef mat-sort-header>\n                STYLE\n            </th>\n            <td mat-cell *matCellDef=\"let element\" class=\"padding-table-td\"> {{ getStyle(element.styleId) }} </td>\n        </ng-container>\n\n        <ng-container matColumnDef=\"brandId\">\n            <th mat-header-cell *matHeaderCellDef>\n                BRAND\n            </th>\n            <td mat-cell *matCellDef=\"let element\" class=\"padding-table-td\"> {{ getBrand(element.brandId) }} </td>\n        </ng-container>\n\n        <ng-container matColumnDef=\"collectionId\">\n            <th mat-header-cell *matHeaderCellDef mat-sort-header>\n                COLLECTION\n            </th>\n            <td mat-cell *matCellDef=\"let element\" class=\"padding-table-td\"> {{ getCollection(element.collectionId) }} </td>\n        </ng-container>\n\n        <ng-container matColumnDef=\"categoryId\">\n            <th mat-header-cell *matHeaderCellDef mat-sort-header>\n                CATEGORY\n            </th>\n            <td mat-cell *matCellDef=\"let element\" class=\"padding-table-td\"> {{ element.categoryId }} </td>\n        </ng-container>\n\n        <ng-container matColumnDef=\"color\">\n            <th mat-header-cell *matHeaderCellDef mat-sort-header>\n                COLOR\n            </th>\n            <td mat-cell *matCellDef=\"let element\" class=\"padding-table-td\"> {{ element.color }} </td>\n        </ng-container>\n\n        <ng-container matColumnDef=\"releaseDate\">\n            <th mat-header-cell *matHeaderCellDef mat-sort-header>\n                OFFICIAL RELEASE\n            </th>\n            <td mat-cell *matCellDef=\"let element\" class=\"padding-table-td\"> {{ element.releaseDate? (element.releaseDate | date: 'dd/MM/yyyy'): \"Not scheduled\" }} </td>\n        </ng-container>\n\n        <ng-container matColumnDef=\"createdAt\">\n            <th mat-header-cell *matHeaderCellDef mat-sort-header>\n                CREATION DATE\n            </th>\n            <td mat-cell *matCellDef=\"let element\" class=\"padding-table-td\"> {{ element.createdAt | date: 'MM/dd/yyyy HH:mm:ss': timeZoneOffset.toString() }} </td>\n        </ng-container>\n\n        <!--ng-container matColumnDef=\"HOT\">\n          <th mat-header-cell *matHeaderCellDef mat-sort-header>\n            HOT\n          </th>\n          <td mat-cell *matCellDef=\"let element\"> {{ element.hot? 'Yes':'No' }} </td>\n      </ng-container-->\n\n        <ng-container matColumnDef=\"actions\">\n            <th mat-header-cell *matHeaderCellDef>\n            </th>\n            <td mat-cell *matCellDef=\"let element\" class=\"min-width-80px\">\n                <button mat-icon-button color=\"primary\" type=\"button\" [matTooltip]=\"Edit\" class=\"min-width-80px\" (click)=\"seeReleaseModal(element.id)\">\n                    <mat-icon>remove_red_eye</mat-icon>\n                </button>\n                <button mat-icon-button color=\"primary\" [matTooltip]=\"Edit\" [routerLink]=\"['../edit', element.id]\">\n                    <mat-icon>edit</mat-icon>\n                </button>\n                <button mat-icon-button color=\"primary\" [matTooltip]=\"Delete\" [routerLink]=\"['../delete', element.id]\">\n                    <mat-icon>delete</mat-icon>\n                </button>\n            </td>\n        </ng-container>\n\n        <tr mat-header-row *matHeaderRowDef=\"displayedColumns\"></tr>\n        <tr mat-row *matRowDef=\"let row; columns: displayedColumns;\" [ngClass]=\"row.is_active ? '' : 'text-decoration-line-through'\">\n        </tr>\n\n    </table>\n\n</div>\n\n<div class=\"margin-right-25px padding-top-5px padding-bottom-5px flex-shrink-0 display-flex border-top-style-solid border-top-width-2px border-top-color-grey\">\n    <span class=\"flex-grow-1\"></span>\n    <mat-paginator [length]=\"totalLength\" [pageSizeOptions]=\"[5, 10, 20, 50, 100]\" [pageIndex]=\"\" [pageSize]=\"50\" showFirstLastButtons\n        (page)=\"onPage()\">\n    </mat-paginator>\n</div>\n\n<http-request-indicator [urlExpressions]=\"[\n        configService.config.apiConfigs.releases.apiEndpoint + '.*']\">\n</http-request-indicator>"
 
 /***/ }),
 
@@ -2031,6 +2031,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _error_handling_services_error_handling_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../../../../error-handling/services/error-handling.service */ "./src/app/error-handling/services/error-handling.service.ts");
 /* harmony import */ var _services_releases_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../services/releases.service */ "./src/app/ms-back-office/modules/ms-releases/services/releases.service.ts");
 /* harmony import */ var _models_gender__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../models/gender */ "./src/app/ms-back-office/modules/ms-releases/models/gender.ts");
+/* harmony import */ var _see_release_see_release_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../see-release/see-release.component */ "./src/app/ms-back-office/modules/ms-releases/components/see-release/see-release.component.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -2046,16 +2047,18 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 //
 
 
+
 //
 
 
-//
+
 
 
 var errorKey = 'Error';
 var timeZoneOffset = new Date().getTimezoneOffset();
 var ReleasesTableComponent = /** @class */ (function () {
-    function ReleasesTableComponent(activatedRoute, configService, errorHandlingService, releasesService) {
+    function ReleasesTableComponent(dialog, activatedRoute, configService, errorHandlingService, releasesService) {
+        this.dialog = dialog;
         this.activatedRoute = activatedRoute;
         this.configService = configService;
         this.errorHandlingService = errorHandlingService;
@@ -2082,6 +2085,8 @@ var ReleasesTableComponent = /** @class */ (function () {
         var _this = this;
         this.brands = this.activatedRoute.snapshot.data.brands;
         this.collections = this.activatedRoute.snapshot.data.collections;
+        this.imageList = this.activatedRoute.snapshot.data.releaseAllImages;
+        this.shops = this.activatedRoute.snapshot.data.shops;
         this.styles = this.activatedRoute.snapshot.data.styles;
         this.filter = this.createFilterFormGroup();
         this.filterValueChanges = this.filter.valueChanges.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["debounceTime"])(500)).subscribe(function (change) { return _this.onFilter(); });
@@ -2164,6 +2169,23 @@ var ReleasesTableComponent = /** @class */ (function () {
             return;
         }
     };
+    ReleasesTableComponent.prototype.seeReleaseModal = function (id) {
+        var _this = this;
+        this.releasesService.getRelease(id).subscribe(function (response) {
+            _this.modalRef = _this.dialog.open(_see_release_see_release_component__WEBPACK_IMPORTED_MODULE_9__["SeeReleaseComponent"], {
+                height: '90%',
+                width: '95%',
+                data: {
+                    id: id,
+                    styles: _this.styles,
+                    brands: _this.brands,
+                    collections: _this.collections,
+                    data: response.data,
+                    imageList: _this.imageList
+                }
+            });
+        }, function (error) { return _this.errorHandlingService.handleUiError(errorKey, error); });
+    };
     __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ViewChild"])(_angular_material__WEBPACK_IMPORTED_MODULE_3__["MatPaginator"]),
         __metadata("design:type", _angular_material__WEBPACK_IMPORTED_MODULE_3__["MatPaginator"])
@@ -2178,13 +2200,357 @@ var ReleasesTableComponent = /** @class */ (function () {
             template: __webpack_require__(/*! ./releases-table.component.html */ "./src/app/ms-back-office/modules/ms-releases/components/releases-table/releases-table.component.html"),
             styles: [__webpack_require__(/*! ./releases-table.component.scss */ "./src/app/ms-back-office/modules/ms-releases/components/releases-table/releases-table.component.scss")]
         }),
-        __metadata("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"],
+        __metadata("design:paramtypes", [_angular_material__WEBPACK_IMPORTED_MODULE_3__["MatDialog"],
+            _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"],
             _config_services_config_service__WEBPACK_IMPORTED_MODULE_5__["ConfigService"],
             _error_handling_services_error_handling_service__WEBPACK_IMPORTED_MODULE_6__["ErrorHandlingService"],
             _services_releases_service__WEBPACK_IMPORTED_MODULE_7__["ReleasesService"]])
     ], ReleasesTableComponent);
     return ReleasesTableComponent;
 }());
+
+
+
+/***/ }),
+
+/***/ "./src/app/ms-back-office/modules/ms-releases/components/see-release/see-release.component.html":
+/*!******************************************************************************************************!*\
+  !*** ./src/app/ms-back-office/modules/ms-releases/components/see-release/see-release.component.html ***!
+  \******************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<form class=\"flex-grow-1 min-height-0 display-flex flex-direction-column\" [askBeforeRefresh]=\"formGroup.dirty\" [formGroup]=\"formGroup\"\r\n  novalidate role=\"form\" (ngSubmit)=\"submitClicked()\" autocomplete=\"off\" inputFocus>\r\n\r\n  <div fxLayout=\"row\" class=\"max-width-75pct customized justify-content-space-between flex-grow-0 padding-bottom-25px\">\r\n    <span class=\"flex-grow-1\"></span>\r\n  </div>\r\n\r\n  <div class=\"flex-grow-1 overflow-auto display-flex flex-direction-column\">\r\n\r\n    <div class=\"flex-grow-1 flex-shrink-0 display-flex flex-direction-column\">\r\n\r\n      <div fxFlex fxLayout=\"row\" fxLayout.lt-md=\"column\" fxLayoutGap=\"20px\">\r\n\r\n        <div [fxFlex]=\"50\" fxFlex fxLayout=\"column\" fxLayout.lt-md=\"column\">\r\n\r\n          <div fxLayout=\"row\" fxLayout.lt-md=\"column\">\r\n\r\n            <div [fxFlex]=\"50\" class=\"margin-right-35px\">\r\n\r\n              <mat-form-field class=\"width-100pc\">\r\n\r\n                <mat-label>Release Name</mat-label>\r\n\r\n                <input matInput type=\"text\" formControlName=\"name\" required readonly>\r\n\r\n              </mat-form-field>\r\n\r\n              <mat-form-field class=\"width-100pc\">\r\n\r\n                <mat-label>SKU</mat-label>\r\n\r\n                <input matInput type=\"text\" formControlName=\"sku\" readonly>\r\n\r\n              </mat-form-field>\r\n\r\n              <mat-form-field class=\"width-100pc\">\r\n\r\n                <mat-label>Gender</mat-label>\r\n\r\n                <mat-select disableOptionCentering placeholder=\"Select\" formControlName=\"gender\" [disabled]=\"true\">\r\n\r\n                  <mat-option>...</mat-option>\r\n\r\n                  <mat-option *ngFor=\"let gender of genders\" [value]=\"gender.id\">\r\n\r\n                    {{gender.name}}\r\n\r\n                  </mat-option>\r\n\r\n                </mat-select>\r\n\r\n              </mat-form-field>\r\n\r\n              <mat-form-field class=\"width-100pc\">\r\n\r\n                <mat-label>Collection</mat-label>\r\n\r\n                <mat-select disableOptionCentering placeholder=\"Select\" formControlName=\"collectionId\" [disabled]=\"true\">\r\n\r\n                  <mat-option>...</mat-option>\r\n\r\n                  <mat-option *ngFor=\"let collection of dialogData.collections\" [value]=\"collection.id\">\r\n\r\n                    {{collection.name}}\r\n\r\n                  </mat-option>\r\n\r\n                </mat-select>\r\n\r\n              </mat-form-field>\r\n\r\n              <mat-form-field class=\"width-100pc\">\r\n\r\n                <mat-label>Style</mat-label>\r\n\r\n                <mat-select disableOptionCentering placeholder=\"Select\" formControlName=\"styleId\" required [disabled]=\"true\">\r\n\r\n                  <mat-option (click)=\"selectBrand('')\">...</mat-option>\r\n\r\n                  <mat-option *ngFor=\"let style of dialogData.styles\" [value]=\"style.id\" (click)=\"selectBrand(style.brand)\">\r\n\r\n                    {{style.name}}\r\n\r\n                  </mat-option>\r\n\r\n                </mat-select>\r\n\r\n              </mat-form-field>\r\n\r\n              <div>\r\n\r\n                <div *ngIf=\"formGroup.get('hot').value\" class=\"display-flex\">\r\n\r\n                  <span class=\"padding-top-25px\">Hot</span>\r\n\r\n                </div>\r\n\r\n              </div>\r\n\r\n            </div>\r\n\r\n            <div [fxFlex]=\"50\" class=\"margin-right-25px\">\r\n\r\n              <div [fxFlex]=\"100\" fxLayout=\"row\" fxLayout.lt-md=\"column\">\r\n\r\n                <div [fxFlex]=\"40\">\r\n\r\n                  <mat-form-field class=\"width-100pc\">\r\n\r\n                    <input matInput [matDatepicker]=\"picker\" placeholder=\"Release Date\" formControlName=\"releaseDate\" readonly=\"readonly\" (dateChange)=\"dateChanged($event)\">\r\n\r\n                    <mat-datepicker-toggle matSuffix [for]=\"picker\" [disabled]=\"true\"></mat-datepicker-toggle>\r\n\r\n                    <mat-datepicker #picker></mat-datepicker>\r\n\r\n                  </mat-form-field>\r\n\r\n                </div>\r\n\r\n                <div [fxFlex]=\"60\" class=\"\">\r\n\r\n                  <div *ngIf=\"formGroup.get('notSchedule').value\" class=\"display-flex\">\r\n\r\n                    <span class=\"padding-top-25px\">Not Schedule</span>\r\n\r\n                  </div>\r\n\r\n                </div>\r\n\r\n              </div>\r\n\r\n              <!--div>\r\n\r\n            <mat-checkbox class=\"padding-bottom-15px\" value=\"primary\" matTooltip=\"{{ 'Upcomming' | translate }}\">Upcoming</mat-checkbox>\r\n\r\n          </div-->\r\n\r\n              <mat-form-field class=\"width-100pc\">\r\n\r\n                <mat-label>Colors</mat-label>\r\n\r\n                <mat-select disableOptionCentering placeholder=\"Select\" formControlName=\"color\" multiple [disabled]=\"true\">\r\n\r\n                  <mat-option *ngFor=\"let color of colors\" [value]=\"color.id\">\r\n\r\n                    {{color.name}}\r\n\r\n                  </mat-option>\r\n\r\n                </mat-select>\r\n\r\n              </mat-form-field>\r\n\r\n              <mat-form-field class=\"width-100pc margin-left-16px\">\r\n\r\n                <mat-label>Supplier Color</mat-label>\r\n\r\n                <input matInput type=\"text\" formControlName=\"supplierColor\" readonly>\r\n\r\n              </mat-form-field>\r\n\r\n              <div [fxFlex]=\"100\" class=\"justify-content-space-between\" fxLayout=\"row\" fxLayout.lt-md=\"column\" *ngIf=\"!formGroup.get('customized').value\">\r\n\r\n                <div [fxFlex]=\"50\">\r\n\r\n                  <mat-form-field class=\"width-100pc\">\r\n\r\n                    <mat-label>Price</mat-label>\r\n\r\n                    <input matInput type=\"number\" formControlName=\"price\" required readonly>\r\n\r\n                  </mat-form-field>\r\n\r\n                </div>\r\n\r\n                <div [fxFlex]=\"40\" class=\"margin-left-10px\">\r\n\r\n                  <mat-form-field class=\"width-100pc\">\r\n\r\n                    <mat-select disableOptionCentering placeholder=\"Currency\" formControlName=\"currency\" [disabled]=\"true\">\r\n\r\n                      <mat-option>...</mat-option>\r\n\r\n                      <mat-option *ngFor=\"let currenc of currency\" [value]=\"currenc.id\">\r\n\r\n                        {{currenc.name}}\r\n\r\n                      </mat-option>\r\n\r\n                    </mat-select>\r\n\r\n                  </mat-form-field>\r\n\r\n                </div>\r\n\r\n              </div>\r\n\r\n              <mat-form-field class=\"width-100pc\">\r\n\r\n                <mat-label>Brand</mat-label>\r\n\r\n                <mat-select disableOptionCentering placeholder=\"Select\" matNativeControl [formControl]=\"selectedBrand\" [disabled]=\"true\">\r\n\r\n                  <mat-option (click)=\"selectStyle('')\">...</mat-option>\r\n\r\n                  <mat-option *ngFor=\"let brand of dialogData.brands\" [value]=\"brand.id\" (click)=\"selectStyle(brand.id)\">\r\n\r\n                    {{brand.name}}\r\n\r\n                  </mat-option>\r\n\r\n                </mat-select>\r\n\r\n              </mat-form-field>\r\n\r\n              <!--mat-slide-toggle class=\"padding-top-15px padding-bottom-15px\" formControlName=\"children\">Children</mat-slide-toggle-->\r\n\r\n            </div>\r\n\r\n          </div>\r\n\r\n          <div>\r\n\r\n            <mat-form-field class=\"width-100pc\" appearance=\"fill\">\r\n\r\n              <mat-label>Description</mat-label>\r\n\r\n              <textarea matInput formControlName=\"description\" class=\"min-height-100px\" readonly></textarea>\r\n\r\n            </mat-form-field>\r\n\r\n          </div>\r\n\r\n        </div>\r\n\r\n        <div [fxFlex]=\"50\" class=\"margin-right-25px\">\r\n\r\n          <div>\r\n\r\n            <div *ngIf=\"formGroup.get('customized').value\" class=\"display-flex\">\r\n\r\n              <span class=\"padding-top-25px\">Customized</span>\r\n\r\n            </div>\r\n\r\n          </div>\r\n\r\n          <div [fxFlex]=\"50\" class=\"border max-width-480px margin-bottom-20px\">\r\n\r\n            <div class=\"display-flex justify-content-center\">\r\n\r\n              <h3 class=\"margin-buttom-0px\">Main Image</h3>\r\n\r\n            </div>\r\n\r\n            <images-card class=\"flex-grow-1 padding-10px\" formControlName=\"faces\" name=\"faces\" (deletedFace)=\"onDeleteFace($event)\" [principal]=\"principal\"\r\n              [disabled]=\"true\"></images-card>\r\n\r\n          </div>\r\n\r\n        </div>\r\n\r\n      </div>\r\n      <!--div class=\"align-items-center padding-top-25px padding-bottom-25px\" [fxFlex]=\"100\"\r\n        fxLayout=\"column\" fxLayout.lt-md=\"column\">\r\n\r\n        <button mat-stroked-button type=\"button\" class=\"max-width-480px\" (click)=\"MakeANewOffer()\">Add an offer to this Release</button>\r\n\r\n      </div-->\r\n\r\n      <div class=\"mb-20\" fxFlex fxLayout=\"row\" fxLayout.lt-md=\"column\">\r\n\r\n        <offers-release-table [releaseId]=\"dialogData.id\" [offerId]=\"dialogData.offerId\" [release]=\"dialogData.data\" [collections]=\"dialogData.collections\"\r\n          [customized]=\"formGroup.get('customized').value\" [disabled]=\"true\" [shops]=\"dialogData.shops\"></offers-release-table>\r\n\r\n      </div>\r\n\r\n    </div>\r\n\r\n  </div>\r\n\r\n  <div class=\"margin-right-25px padding-top-25px padding-bottom-25px flex-shrink-0 display-flex border-top-style-solid border-top-width-2px border-top-color-grey\">\r\n\r\n    <button mat-raised-button type=\"button\" (click)=\"close()\">{{ 'Close' | translate }}</button>\r\n\r\n  </div>\r\n\r\n</form>"
+
+/***/ }),
+
+/***/ "./src/app/ms-back-office/modules/ms-releases/components/see-release/see-release.component.scss":
+/*!******************************************************************************************************!*\
+  !*** ./src/app/ms-back-office/modules/ms-releases/components/see-release/see-release.component.scss ***!
+  \******************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = ":host {\n  display: flex;\n  flex-grow: 1;\n  flex-direction: column;\n  height: 100%; }\n\n.mat-dialog-container {\n  padding: 10px; }\n\n.mat-dialog-content {\n  height: 60%;\n  max-height: 82vh;\n  margin-bottom: 10px; }\n\n.mat-dialog-actions {\n  padding: 10px 0; }\n\nmat-card {\n  padding: 0px;\n  align-self: flex-start;\n  height: 200px;\n  width: 150px;\n  margin-left: 2px;\n  margin-right: 15px;\n  margin-bottom: 15px; }\n\nmat-icon {\n  font-size: 24px;\n  width: 24px;\n  height: 24px; }\n\n.max-width-60-pct {\n  max-width: 60% !important; }\n\n.border {\n  border: 1px solid #f1f1f1; }\n\ntd.mat-cell {\n  border: none !important; }\n\nth.mat-header-cell {\n  border: none !important; }\n\n:host {\n  display: flex;\n  flex-direction: column; }\n\n@media screen and (max-width: 959px) {\n  .customized {\n    max-width: 480px !important; } }\n\n.height-34px {\n  height: 34px !important; }\n\n.width-100pc {\n  width: 100%; }\n\nmat-form-field {\n  max-width: 100% !important; }\n\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvbXMtYmFjay1vZmZpY2UvbW9kdWxlcy9tcy1yZWxlYXNlcy9jb21wb25lbnRzL3NlZS1yZWxlYXNlL0U6XFxQUk9HUkFNQUNJT04gSUlJXFxtb3Jlc25lYWtlcnMtYmFja29mZmljZS9zcmNcXGFwcFxcbXMtYmFjay1vZmZpY2VcXG1vZHVsZXNcXG1zLXJlbGVhc2VzXFxjb21wb25lbnRzXFxzZWUtcmVsZWFzZVxcc2VlLXJlbGVhc2UuY29tcG9uZW50LnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFDRSxjQUFhO0VBQ2IsYUFBWTtFQUNaLHVCQUFzQjtFQUN0QixhQUNGLEVBQUM7O0FBRUQ7RUFDRSxjQUFhLEVBQ2Q7O0FBRUQ7RUFDRSxZQUFXO0VBQ1gsaUJBQWdCO0VBQ2hCLG9CQUFtQixFQUNwQjs7QUFFRDtFQUNFLGdCQUFlLEVBQ2hCOztBQUVEO0VBQ0UsYUFBWTtFQUNaLHVCQUFzQjtFQUN0QixjQUFhO0VBQ2IsYUFBWTtFQUNaLGlCQUFnQjtFQUNoQixtQkFBa0I7RUFDbEIsb0JBQW1CLEVBQ3BCOztBQUVEO0VBQ0UsZ0JBQWU7RUFDZixZQUFXO0VBQ1gsYUFBWSxFQUNiOztBQUVEO0VBQ0UsMEJBQXlCLEVBQzFCOztBQUVEO0VBQ0UsMEJBQXlCLEVBQzFCOztBQUVEO0VBQ0Usd0JBQXVCLEVBQ3hCOztBQUNEO0VBQ0Usd0JBQXVCLEVBQ3hCOztBQUVEO0VBQ0UsY0FBYTtFQUNiLHVCQUFzQixFQUN2Qjs7QUFFRDtFQUNFO0lBQ0ksNEJBQTJCLEVBQzlCLEVBQUE7O0FBR0g7RUFDRSx3QkFBdUIsRUFDeEI7O0FBRUQ7RUFDRSxZQUFXLEVBQ1o7O0FBRUQ7RUFDRSwyQkFBMEIsRUFDM0IiLCJmaWxlIjoic3JjL2FwcC9tcy1iYWNrLW9mZmljZS9tb2R1bGVzL21zLXJlbGVhc2VzL2NvbXBvbmVudHMvc2VlLXJlbGVhc2Uvc2VlLXJlbGVhc2UuY29tcG9uZW50LnNjc3MiLCJzb3VyY2VzQ29udGVudCI6WyI6aG9zdCB7XHJcbiAgZGlzcGxheTogZmxleDtcclxuICBmbGV4LWdyb3c6IDE7XHJcbiAgZmxleC1kaXJlY3Rpb246IGNvbHVtbjtcclxuICBoZWlnaHQ6IDEwMCVcclxufVxyXG5cclxuLm1hdC1kaWFsb2ctY29udGFpbmVyIHtcclxuICBwYWRkaW5nOiAxMHB4O1xyXG59XHJcblxyXG4ubWF0LWRpYWxvZy1jb250ZW50IHtcclxuICBoZWlnaHQ6IDYwJTtcclxuICBtYXgtaGVpZ2h0OiA4MnZoO1xyXG4gIG1hcmdpbi1ib3R0b206IDEwcHg7XHJcbn1cclxuXHJcbi5tYXQtZGlhbG9nLWFjdGlvbnMge1xyXG4gIHBhZGRpbmc6IDEwcHggMDtcclxufVxyXG5cclxubWF0LWNhcmQge1xyXG4gIHBhZGRpbmc6IDBweDtcclxuICBhbGlnbi1zZWxmOiBmbGV4LXN0YXJ0O1xyXG4gIGhlaWdodDogMjAwcHg7XHJcbiAgd2lkdGg6IDE1MHB4O1xyXG4gIG1hcmdpbi1sZWZ0OiAycHg7XHJcbiAgbWFyZ2luLXJpZ2h0OiAxNXB4O1xyXG4gIG1hcmdpbi1ib3R0b206IDE1cHg7XHJcbn1cclxuXHJcbm1hdC1pY29uIHtcclxuICBmb250LXNpemU6IDI0cHg7XHJcbiAgd2lkdGg6IDI0cHg7XHJcbiAgaGVpZ2h0OiAyNHB4O1xyXG59XHJcblxyXG4ubWF4LXdpZHRoLTYwLXBjdHtcclxuICBtYXgtd2lkdGg6IDYwJSAhaW1wb3J0YW50O1xyXG59XHJcblxyXG4uYm9yZGVye1xyXG4gIGJvcmRlcjogMXB4IHNvbGlkICNmMWYxZjE7XHJcbn1cclxuXHJcbnRkLm1hdC1jZWxse1xyXG4gIGJvcmRlcjogbm9uZSAhaW1wb3J0YW50O1xyXG59XHJcbnRoLm1hdC1oZWFkZXItY2VsbHtcclxuICBib3JkZXI6IG5vbmUgIWltcG9ydGFudDtcclxufVxyXG5cclxuOmhvc3Qge1xyXG4gIGRpc3BsYXk6IGZsZXg7XHJcbiAgZmxleC1kaXJlY3Rpb246IGNvbHVtbjtcclxufVxyXG5cclxuQG1lZGlhIHNjcmVlbiBhbmQgKG1heC13aWR0aDogOTU5cHgpIHtcclxuICAuY3VzdG9taXplZCB7XHJcbiAgICAgIG1heC13aWR0aDogNDgwcHggIWltcG9ydGFudDtcclxuICB9XHJcbn1cclxuXHJcbi5oZWlnaHQtMzRweCB7XHJcbiAgaGVpZ2h0OiAzNHB4ICFpbXBvcnRhbnQ7XHJcbn1cclxuXHJcbi53aWR0aC0xMDBwYyB7XHJcbiAgd2lkdGg6IDEwMCU7XHJcbn1cclxuXHJcbm1hdC1mb3JtLWZpZWxkIHtcclxuICBtYXgtd2lkdGg6IDEwMCUgIWltcG9ydGFudDtcclxufVxyXG5cclxuIl19 */"
+
+/***/ }),
+
+/***/ "./src/app/ms-back-office/modules/ms-releases/components/see-release/see-release.component.ts":
+/*!****************************************************************************************************!*\
+  !*** ./src/app/ms-back-office/modules/ms-releases/components/see-release/see-release.component.ts ***!
+  \****************************************************************************************************/
+/*! exports provided: SeeReleaseComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SeeReleaseComponent", function() { return SeeReleaseComponent; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm5/forms.js");
+/* harmony import */ var _angular_material__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/material */ "./node_modules/@angular/material/esm5/material.es5.js");
+/* harmony import */ var _ngx_translate_core__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @ngx-translate/core */ "./node_modules/@ngx-translate/core/fesm5/ngx-translate-core.js");
+/* harmony import */ var _services_releases_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../services/releases.service */ "./src/app/ms-back-office/modules/ms-releases/services/releases.service.ts");
+/* harmony import */ var _services_releases_images_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../services/releases-images.service */ "./src/app/ms-back-office/modules/ms-releases/services/releases-images.service.ts");
+/* harmony import */ var _ui_components_base_reactive_form_base_reactive_form_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../../../../ui/components/base-reactive-form/base-reactive-form-component */ "./src/app/ui/components/base-reactive-form/base-reactive-form-component.ts");
+/* harmony import */ var _ui_modules_images_card_directives_images_card_edit_actions_directive__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../../../../ui/modules/images-card/directives/images-card-edit-actions.directive */ "./src/app/ui/modules/images-card/directives/images-card-edit-actions.directive.ts");
+/* harmony import */ var _error_handling_services_error_handling_service__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../../../../error-handling/services/error-handling.service */ "./src/app/error-handling/services/error-handling.service.ts");
+/* harmony import */ var _models_color__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../../models/color */ "./src/app/ms-back-office/modules/ms-releases/models/color.ts");
+/* harmony import */ var _ms_shops_models_currency__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../../../ms-shops/models/currency */ "./src/app/ms-back-office/modules/ms-shops/models/currency.ts");
+/* harmony import */ var _models_gender__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../../models/gender */ "./src/app/ms-back-office/modules/ms-releases/models/gender.ts");
+/* harmony import */ var _ms_offers_components_new_offer_new_offer_component__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ../../../ms-offers/components/new-offer/new-offer.component */ "./src/app/ms-back-office/modules/ms-offers/components/new-offer/new-offer.component.ts");
+/* harmony import */ var _ms_offers_services_offers_service__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ../../../ms-offers/services/offers.service */ "./src/app/ms-back-office/modules/ms-offers/services/offers.service.ts");
+/* harmony import */ var _ms_brands_services_brands_service__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ../../../ms-brands/services/brands.service */ "./src/app/ms-back-office/modules/ms-brands/services/brands.service.ts");
+/* harmony import */ var _ms_style_services_styles_service__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ../../../ms-style/services/styles.service */ "./src/app/ms-back-office/modules/ms-style/services/styles.service.ts");
+var __extends = (undefined && undefined.__extends) || (function () {
+    var extendStatics = Object.setPrototypeOf ||
+        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+var __param = (undefined && undefined.__param) || function (paramIndex, decorator) {
+    return function (target, key) { decorator(target, key, paramIndex); }
+};
+
+
+//
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+var errorKey = 'Error';
+var SeeReleaseComponent = /** @class */ (function (_super) {
+    __extends(SeeReleaseComponent, _super);
+    function SeeReleaseComponent(dialog, brandsService, errorHandlingService, matDialogService, offersService, formBuilder, releasesService, releasesImgesService, stylesService, translateService, dialogRef, dialogData) {
+        var _this = _super.call(this, translateService) || this;
+        _this.dialog = dialog;
+        _this.brandsService = brandsService;
+        _this.errorHandlingService = errorHandlingService;
+        _this.matDialogService = matDialogService;
+        _this.offersService = offersService;
+        _this.formBuilder = formBuilder;
+        _this.releasesService = releasesService;
+        _this.releasesImgesService = releasesImgesService;
+        _this.stylesService = stylesService;
+        _this.dialogRef = dialogRef;
+        _this.dialogData = dialogData;
+        _this.colors = _models_color__WEBPACK_IMPORTED_MODULE_9__["COLORS"];
+        _this.displayedColumns = [
+            'SKU',
+            'COLLECTION',
+            'COLOR',
+            'SHOP',
+            'STATUS',
+            'SHIPING',
+            'UPDATED',
+            'ACTION'
+        ];
+        _this.genders = _models_gender__WEBPACK_IMPORTED_MODULE_11__["GENDERS"];
+        _this.caseProperties = [];
+        _this.faceList = [];
+        _this.imageList = [];
+        _this.overview = false;
+        _this.offers = [];
+        _this.totalLength = 0;
+        _this.selectedBrand = new _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormControl"]();
+        _this.currency = _ms_shops_models_currency__WEBPACK_IMPORTED_MODULE_10__["CURRENCY"];
+        return _this;
+        //setTranslations(this.translateService, TRANSLATIONS);
+    }
+    SeeReleaseComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        this.validationErrorMessages = [
+            {
+                type: 'required',
+                key: 'Required Field',
+                params: null,
+                translation: ''
+            }
+        ];
+        this.imageList.forEach(function (image) {
+            if (image.imgUrl === _this.dialogData.data.mainImage) {
+                _this.principal = image;
+            }
+        });
+        this.createFormGroup();
+        this.releasesService.getRelease(this.dialogData.id).subscribe(function (response) {
+            _this.data = response.data;
+            if (_this.data.mainImage) {
+                _this.imageList.forEach(function (image) {
+                    image.fileName = "";
+                    if (image.imgUrl === _this.data.mainImage) {
+                        image.mainImage = true;
+                    }
+                });
+            }
+            _this.dialogData.data.faces = _this.imageList;
+        }, function (error) { return _this.errorHandlingService.handleUiError(errorKey, error); });
+    };
+    SeeReleaseComponent.prototype.ngAfterViewInit = function () {
+    };
+    SeeReleaseComponent.prototype.createFormGroup = function () {
+        this.notScheduleFlag = this.dialogData.data.releaseDate ? false : true;
+        this.dialogData.data.faces = this.imageList;
+        this.faces = this.formBuilder.control(this.imageList);
+        this.formGroup = this.formBuilder.group({
+            faces: this.faces,
+            name: new _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormControl"](this.dialogData.data.name, [_angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].required]),
+            sku: new _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormControl"](this.dialogData.data.sku),
+            description: new _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormControl"](this.dialogData.data.description),
+            styleId: new _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormControl"](this.dialogData.data.styleId),
+            collectionId: new _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormControl"](this.dialogData.data.collectionId),
+            children: new _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormControl"](this.dialogData.data.children),
+            gender: new _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormControl"](this.dialogData.data.gender),
+            price: new _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormControl"](this.dialogData.data.price),
+            color: new _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormControl"](this.dialogData.data.color ? this.dialogData.data.color.split(',') : this.dialogData.data.color),
+            hot: new _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormControl"](this.dialogData.data.hot),
+            releaseDate: new _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormControl"](this.dialogData.data.releaseDate),
+            supplierColor: new _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormControl"](this.dialogData.data.supplierColor),
+            notSchedule: new _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormControl"](this.notScheduleFlag),
+            customized: new _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormControl"](this.dialogData.data.customized),
+            currency: new _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormControl"](this.dialogData.data.currency),
+        });
+    };
+    SeeReleaseComponent.prototype.onDeleteFace = function (face) {
+        var _this = this;
+        if (face.id) {
+            this.releasesImgesService.deleteReleaseImage(this.data.id, face.id).subscribe(function (response) {
+            }, function (error) { return _this.errorHandlingService.handleUiError(errorKey, error); });
+        }
+    };
+    SeeReleaseComponent.prototype.submitClicked = function () {
+        if (this.formGroup.valid) {
+            var id = this.data.id;
+            this.data = this.formGroup.value;
+            this.data.id = id;
+            this.data.notSchedule = this.data.releaseDate ? false : true;
+            try {
+                this.data.color = this.data.color.join();
+            }
+            catch (_a) { }
+            this.accept.emit(this.data);
+        }
+        else {
+            this.triggerValidation();
+        }
+    };
+    SeeReleaseComponent.prototype.MakeANewOffer = function () {
+        this.modalRef = this.dialog.open(_ms_offers_components_new_offer_new_offer_component__WEBPACK_IMPORTED_MODULE_12__["NewOfferComponent"], {
+            height: '90%',
+            width: '90%',
+            panelClass: 'no-padding-dialog',
+            data: {
+                brands: this.brands,
+                shops: this.shops,
+                collections: this.collections,
+                releaseId: this.releaseId,
+                customized: this.formGroup.get('customized').value,
+            }
+        });
+    };
+    SeeReleaseComponent.prototype.getShop = function (id) {
+        try {
+            return this.shops.find(function (shop) {
+                return shop.id === id;
+            }).name;
+        }
+        catch (err) {
+            return;
+        }
+    };
+    SeeReleaseComponent.prototype.selectStyle = function (brandId) {
+        var _this = this;
+        this.stylesService.getAllStyles().subscribe(function (response) {
+            if (brandId) {
+                _this.styles = response.filter(function (style) {
+                    return style.brand === brandId;
+                });
+            }
+            else {
+                _this.styles = response;
+            }
+        });
+    };
+    SeeReleaseComponent.prototype.selectBrand = function (brandId) {
+        if (brandId) {
+            this.selectedBrand.setValue(brandId);
+        }
+    };
+    SeeReleaseComponent.prototype.notSchedule = function () {
+        this.notScheduleFlag = !this.notScheduleFlag;
+        if (this.notScheduleFlag) {
+            this.formGroup.get('releaseDate').setValue(null);
+        }
+    };
+    SeeReleaseComponent.prototype.dateChanged = function () {
+        if (this.notScheduleFlag) {
+            this.notScheduleFlag = !this.notScheduleFlag;
+            this.formGroup.get('notSchedule').setValue(this.notScheduleFlag);
+        }
+    };
+    SeeReleaseComponent.prototype.close = function () {
+        this.dialogRef.close();
+    };
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])(),
+        __metadata("design:type", Array)
+    ], SeeReleaseComponent.prototype, "collections", void 0);
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])(),
+        __metadata("design:type", Array)
+    ], SeeReleaseComponent.prototype, "caseProperties", void 0);
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])(),
+        __metadata("design:type", Array)
+    ], SeeReleaseComponent.prototype, "faceList", void 0);
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])(),
+        __metadata("design:type", _ui_modules_images_card_directives_images_card_edit_actions_directive__WEBPACK_IMPORTED_MODULE_7__["ImageCardEditActionDirective"])
+    ], SeeReleaseComponent.prototype, "imageCardEditAction", void 0);
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])(),
+        __metadata("design:type", Array)
+    ], SeeReleaseComponent.prototype, "imageList", void 0);
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])(),
+        __metadata("design:type", Object)
+    ], SeeReleaseComponent.prototype, "overview", void 0);
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])(),
+        __metadata("design:type", String)
+    ], SeeReleaseComponent.prototype, "releaseId", void 0);
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])(),
+        __metadata("design:type", String)
+    ], SeeReleaseComponent.prototype, "offerId", void 0);
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])(),
+        __metadata("design:type", Object)
+    ], SeeReleaseComponent.prototype, "uploadingImagesState", void 0);
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])(),
+        __metadata("design:type", Array)
+    ], SeeReleaseComponent.prototype, "brands", void 0);
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])(),
+        __metadata("design:type", Array)
+    ], SeeReleaseComponent.prototype, "styles", void 0);
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])(),
+        __metadata("design:type", Array)
+    ], SeeReleaseComponent.prototype, "shops", void 0);
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ViewChild"])(_angular_material__WEBPACK_IMPORTED_MODULE_2__["MatPaginator"]),
+        __metadata("design:type", _angular_material__WEBPACK_IMPORTED_MODULE_2__["MatPaginator"])
+    ], SeeReleaseComponent.prototype, "paginator", void 0);
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ViewChild"])(_angular_material__WEBPACK_IMPORTED_MODULE_2__["MatSort"]),
+        __metadata("design:type", _angular_material__WEBPACK_IMPORTED_MODULE_2__["MatSort"])
+    ], SeeReleaseComponent.prototype, "sort", void 0);
+    SeeReleaseComponent = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+            selector: 'see-release',
+            template: __webpack_require__(/*! ./see-release.component.html */ "./src/app/ms-back-office/modules/ms-releases/components/see-release/see-release.component.html"),
+            styles: [__webpack_require__(/*! ./see-release.component.scss */ "./src/app/ms-back-office/modules/ms-releases/components/see-release/see-release.component.scss")],
+        }),
+        __param(11, Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Inject"])(_angular_material__WEBPACK_IMPORTED_MODULE_2__["MAT_DIALOG_DATA"])),
+        __metadata("design:paramtypes", [_angular_material__WEBPACK_IMPORTED_MODULE_2__["MatDialog"],
+            _ms_brands_services_brands_service__WEBPACK_IMPORTED_MODULE_14__["BrandsService"],
+            _error_handling_services_error_handling_service__WEBPACK_IMPORTED_MODULE_8__["ErrorHandlingService"],
+            _angular_material__WEBPACK_IMPORTED_MODULE_2__["MatDialog"],
+            _ms_offers_services_offers_service__WEBPACK_IMPORTED_MODULE_13__["OffersService"],
+            _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormBuilder"],
+            _services_releases_service__WEBPACK_IMPORTED_MODULE_4__["ReleasesService"],
+            _services_releases_images_service__WEBPACK_IMPORTED_MODULE_5__["ReleasesImgesService"],
+            _ms_style_services_styles_service__WEBPACK_IMPORTED_MODULE_15__["StylesService"],
+            _ngx_translate_core__WEBPACK_IMPORTED_MODULE_3__["TranslateService"],
+            _angular_material__WEBPACK_IMPORTED_MODULE_2__["MatDialogRef"], Object])
+    ], SeeReleaseComponent);
+    return SeeReleaseComponent;
+}(_ui_components_base_reactive_form_base_reactive_form_component__WEBPACK_IMPORTED_MODULE_6__["BaseReactiveFormComponent"]));
 
 
 
@@ -2394,14 +2760,15 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_releases_collection_table_releases_collection_table_component__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ./components/releases-collection-table/releases-collection-table.component */ "./src/app/ms-back-office/modules/ms-releases/components/releases-collection-table/releases-collection-table.component.ts");
 /* harmony import */ var _ms_releases_routing_module__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ./ms-releases-routing.module */ "./src/app/ms-back-office/modules/ms-releases/ms-releases-routing.module.ts");
 /* harmony import */ var _components_release_form_release_form_component__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ./components/release-form/release-form.component */ "./src/app/ms-back-office/modules/ms-releases/components/release-form/release-form.component.ts");
-/* harmony import */ var _components_new_release_new_release_component__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! ./components/new-release/new-release.component */ "./src/app/ms-back-office/modules/ms-releases/components/new-release/new-release.component.ts");
-/* harmony import */ var _components_new_release_modal_new_release_modal_component__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! ./components/new-release-modal/new-release-modal.component */ "./src/app/ms-back-office/modules/ms-releases/components/new-release-modal/new-release-modal.component.ts");
-/* harmony import */ var _components_edit_release_edit_release_component__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(/*! ./components/edit-release/edit-release.component */ "./src/app/ms-back-office/modules/ms-releases/components/edit-release/edit-release.component.ts");
-/* harmony import */ var _components_edit_release_modal_edit_release_modal_component__WEBPACK_IMPORTED_MODULE_25__ = __webpack_require__(/*! ./components/edit-release-modal/edit-release-modal.component */ "./src/app/ms-back-office/modules/ms-releases/components/edit-release-modal/edit-release-modal.component.ts");
-/* harmony import */ var _components_edit_release_form_edit_release_form_component__WEBPACK_IMPORTED_MODULE_26__ = __webpack_require__(/*! ./components/edit-release-form/edit-release-form.component */ "./src/app/ms-back-office/modules/ms-releases/components/edit-release-form/edit-release-form.component.ts");
-/* harmony import */ var _components_delete_release_delete_release_component__WEBPACK_IMPORTED_MODULE_27__ = __webpack_require__(/*! ./components/delete-release/delete-release.component */ "./src/app/ms-back-office/modules/ms-releases/components/delete-release/delete-release.component.ts");
-/* harmony import */ var _ms_offers_ms_offers_module__WEBPACK_IMPORTED_MODULE_28__ = __webpack_require__(/*! ../ms-offers/ms-offers.module */ "./src/app/ms-back-office/modules/ms-offers/ms-offers.module.ts");
-/* harmony import */ var _ms_offers_components_new_offer_new_offer_component__WEBPACK_IMPORTED_MODULE_29__ = __webpack_require__(/*! ../ms-offers/components/new-offer/new-offer.component */ "./src/app/ms-back-office/modules/ms-offers/components/new-offer/new-offer.component.ts");
+/* harmony import */ var _components_see_release_see_release_component__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! ./components/see-release/see-release.component */ "./src/app/ms-back-office/modules/ms-releases/components/see-release/see-release.component.ts");
+/* harmony import */ var _components_new_release_new_release_component__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! ./components/new-release/new-release.component */ "./src/app/ms-back-office/modules/ms-releases/components/new-release/new-release.component.ts");
+/* harmony import */ var _components_new_release_modal_new_release_modal_component__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(/*! ./components/new-release-modal/new-release-modal.component */ "./src/app/ms-back-office/modules/ms-releases/components/new-release-modal/new-release-modal.component.ts");
+/* harmony import */ var _components_edit_release_edit_release_component__WEBPACK_IMPORTED_MODULE_25__ = __webpack_require__(/*! ./components/edit-release/edit-release.component */ "./src/app/ms-back-office/modules/ms-releases/components/edit-release/edit-release.component.ts");
+/* harmony import */ var _components_edit_release_modal_edit_release_modal_component__WEBPACK_IMPORTED_MODULE_26__ = __webpack_require__(/*! ./components/edit-release-modal/edit-release-modal.component */ "./src/app/ms-back-office/modules/ms-releases/components/edit-release-modal/edit-release-modal.component.ts");
+/* harmony import */ var _components_edit_release_form_edit_release_form_component__WEBPACK_IMPORTED_MODULE_27__ = __webpack_require__(/*! ./components/edit-release-form/edit-release-form.component */ "./src/app/ms-back-office/modules/ms-releases/components/edit-release-form/edit-release-form.component.ts");
+/* harmony import */ var _components_delete_release_delete_release_component__WEBPACK_IMPORTED_MODULE_28__ = __webpack_require__(/*! ./components/delete-release/delete-release.component */ "./src/app/ms-back-office/modules/ms-releases/components/delete-release/delete-release.component.ts");
+/* harmony import */ var _ms_offers_ms_offers_module__WEBPACK_IMPORTED_MODULE_29__ = __webpack_require__(/*! ../ms-offers/ms-offers.module */ "./src/app/ms-back-office/modules/ms-offers/ms-offers.module.ts");
+/* harmony import */ var _ms_offers_components_new_offer_new_offer_component__WEBPACK_IMPORTED_MODULE_30__ = __webpack_require__(/*! ../ms-offers/components/new-offer/new-offer.component */ "./src/app/ms-back-office/modules/ms-offers/components/new-offer/new-offer.component.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -2432,6 +2799,7 @@ var __decorate = (undefined && undefined.__decorate) || function (decorators, ta
 
 
 //
+
 
 
 
@@ -2480,34 +2848,37 @@ var MsReleasesModule = /** @class */ (function () {
                 _ui_modules_error_messages_error_messages_module__WEBPACK_IMPORTED_MODULE_16__["ErrorMessagesModule"],
                 _http_request_indicator_http_request_indicator_module__WEBPACK_IMPORTED_MODULE_14__["HttpRequestIndicatorModule"],
                 _ui_modules_images_card_images_card_module__WEBPACK_IMPORTED_MODULE_17__["ImagesCardModule"],
-                _ms_offers_ms_offers_module__WEBPACK_IMPORTED_MODULE_28__["MsOffersModule"]
+                _ms_offers_ms_offers_module__WEBPACK_IMPORTED_MODULE_29__["MsOffersModule"]
             ],
             declarations: [
-                _components_delete_release_delete_release_component__WEBPACK_IMPORTED_MODULE_27__["DeleteReleaseComponent"],
-                _components_edit_release_edit_release_component__WEBPACK_IMPORTED_MODULE_24__["EditReleaseComponent"],
-                _components_edit_release_form_edit_release_form_component__WEBPACK_IMPORTED_MODULE_26__["EditReleaseFormComponent"],
-                _components_edit_release_modal_edit_release_modal_component__WEBPACK_IMPORTED_MODULE_25__["EditReleaseModalComponent"],
-                _components_new_release_new_release_component__WEBPACK_IMPORTED_MODULE_22__["NewReleaseComponent"],
-                _components_new_release_modal_new_release_modal_component__WEBPACK_IMPORTED_MODULE_23__["NewReleaseModalComponent"],
+                _components_delete_release_delete_release_component__WEBPACK_IMPORTED_MODULE_28__["DeleteReleaseComponent"],
+                _components_edit_release_edit_release_component__WEBPACK_IMPORTED_MODULE_25__["EditReleaseComponent"],
+                _components_edit_release_form_edit_release_form_component__WEBPACK_IMPORTED_MODULE_27__["EditReleaseFormComponent"],
+                _components_edit_release_modal_edit_release_modal_component__WEBPACK_IMPORTED_MODULE_26__["EditReleaseModalComponent"],
+                _components_new_release_new_release_component__WEBPACK_IMPORTED_MODULE_23__["NewReleaseComponent"],
+                _components_new_release_modal_new_release_modal_component__WEBPACK_IMPORTED_MODULE_24__["NewReleaseModalComponent"],
                 _components_release_form_release_form_component__WEBPACK_IMPORTED_MODULE_21__["ReleaseFormComponent"],
                 _components_releases_table_releases_table_component__WEBPACK_IMPORTED_MODULE_18__["ReleasesTableComponent"],
-                _components_releases_collection_table_releases_collection_table_component__WEBPACK_IMPORTED_MODULE_19__["ReleasesCollectionTableComponent"]
+                _components_releases_collection_table_releases_collection_table_component__WEBPACK_IMPORTED_MODULE_19__["ReleasesCollectionTableComponent"],
+                _components_see_release_see_release_component__WEBPACK_IMPORTED_MODULE_22__["SeeReleaseComponent"]
             ],
             exports: [
-                _components_delete_release_delete_release_component__WEBPACK_IMPORTED_MODULE_27__["DeleteReleaseComponent"],
-                _components_edit_release_edit_release_component__WEBPACK_IMPORTED_MODULE_24__["EditReleaseComponent"],
-                _components_edit_release_form_edit_release_form_component__WEBPACK_IMPORTED_MODULE_26__["EditReleaseFormComponent"],
-                _components_edit_release_modal_edit_release_modal_component__WEBPACK_IMPORTED_MODULE_25__["EditReleaseModalComponent"],
-                _components_new_release_new_release_component__WEBPACK_IMPORTED_MODULE_22__["NewReleaseComponent"],
-                _components_new_release_modal_new_release_modal_component__WEBPACK_IMPORTED_MODULE_23__["NewReleaseModalComponent"],
+                _components_delete_release_delete_release_component__WEBPACK_IMPORTED_MODULE_28__["DeleteReleaseComponent"],
+                _components_edit_release_edit_release_component__WEBPACK_IMPORTED_MODULE_25__["EditReleaseComponent"],
+                _components_edit_release_form_edit_release_form_component__WEBPACK_IMPORTED_MODULE_27__["EditReleaseFormComponent"],
+                _components_edit_release_modal_edit_release_modal_component__WEBPACK_IMPORTED_MODULE_26__["EditReleaseModalComponent"],
+                _components_new_release_new_release_component__WEBPACK_IMPORTED_MODULE_23__["NewReleaseComponent"],
+                _components_new_release_modal_new_release_modal_component__WEBPACK_IMPORTED_MODULE_24__["NewReleaseModalComponent"],
                 _components_release_form_release_form_component__WEBPACK_IMPORTED_MODULE_21__["ReleaseFormComponent"],
                 _components_releases_table_releases_table_component__WEBPACK_IMPORTED_MODULE_18__["ReleasesTableComponent"],
-                _components_releases_collection_table_releases_collection_table_component__WEBPACK_IMPORTED_MODULE_19__["ReleasesCollectionTableComponent"]
+                _components_releases_collection_table_releases_collection_table_component__WEBPACK_IMPORTED_MODULE_19__["ReleasesCollectionTableComponent"],
+                _components_see_release_see_release_component__WEBPACK_IMPORTED_MODULE_22__["SeeReleaseComponent"]
             ],
             entryComponents: [
-                _ms_offers_components_new_offer_new_offer_component__WEBPACK_IMPORTED_MODULE_29__["NewOfferComponent"],
-                _components_new_release_modal_new_release_modal_component__WEBPACK_IMPORTED_MODULE_23__["NewReleaseModalComponent"],
-                _components_edit_release_modal_edit_release_modal_component__WEBPACK_IMPORTED_MODULE_25__["EditReleaseModalComponent"]
+                _ms_offers_components_new_offer_new_offer_component__WEBPACK_IMPORTED_MODULE_30__["NewOfferComponent"],
+                _components_new_release_modal_new_release_modal_component__WEBPACK_IMPORTED_MODULE_24__["NewReleaseModalComponent"],
+                _components_edit_release_modal_edit_release_modal_component__WEBPACK_IMPORTED_MODULE_26__["EditReleaseModalComponent"],
+                _components_see_release_see_release_component__WEBPACK_IMPORTED_MODULE_22__["SeeReleaseComponent"]
             ]
         })
     ], MsReleasesModule);

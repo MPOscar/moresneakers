@@ -1,5 +1,739 @@
 (window["webpackJsonp"] = window["webpackJsonp"] || []).push([["ms-blogs-ms-blogs-module"],{
 
+/***/ "./node_modules/primeng/components/common/shared.js":
+/*!**********************************************************!*\
+  !*** ./node_modules/primeng/components/common/shared.js ***!
+  \**********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+var core_1 = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+var common_1 = __webpack_require__(/*! @angular/common */ "./node_modules/@angular/common/fesm5/common.js");
+var core_2 = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+var Header = /** @class */ (function () {
+    function Header() {
+    }
+    Header = __decorate([
+        core_2.Component({
+            selector: 'p-header',
+            template: '<ng-content></ng-content>'
+        })
+    ], Header);
+    return Header;
+}());
+exports.Header = Header;
+var Footer = /** @class */ (function () {
+    function Footer() {
+    }
+    Footer = __decorate([
+        core_2.Component({
+            selector: 'p-footer',
+            template: '<ng-content></ng-content>'
+        })
+    ], Footer);
+    return Footer;
+}());
+exports.Footer = Footer;
+var PrimeTemplate = /** @class */ (function () {
+    function PrimeTemplate(template) {
+        this.template = template;
+    }
+    PrimeTemplate.prototype.getType = function () {
+        return this.name;
+    };
+    __decorate([
+        core_1.Input(),
+        __metadata("design:type", String)
+    ], PrimeTemplate.prototype, "type", void 0);
+    __decorate([
+        core_1.Input('pTemplate'),
+        __metadata("design:type", String)
+    ], PrimeTemplate.prototype, "name", void 0);
+    PrimeTemplate = __decorate([
+        core_1.Directive({
+            selector: '[pTemplate]',
+            host: {}
+        }),
+        __metadata("design:paramtypes", [core_1.TemplateRef])
+    ], PrimeTemplate);
+    return PrimeTemplate;
+}());
+exports.PrimeTemplate = PrimeTemplate;
+/* Deprecated */
+var Column = /** @class */ (function () {
+    function Column() {
+        this.filterType = 'text';
+        this.exportable = true;
+        this.resizable = true;
+        this.sortFunction = new core_1.EventEmitter();
+    }
+    Column.prototype.ngAfterContentInit = function () {
+        var _this = this;
+        this.templates.forEach(function (item) {
+            switch (item.getType()) {
+                case 'header':
+                    _this.headerTemplate = item.template;
+                    break;
+                case 'body':
+                    _this.bodyTemplate = item.template;
+                    break;
+                case 'footer':
+                    _this.footerTemplate = item.template;
+                    break;
+                case 'filter':
+                    _this.filterTemplate = item.template;
+                    break;
+                case 'editor':
+                    _this.editorTemplate = item.template;
+                    break;
+                default:
+                    _this.bodyTemplate = item.template;
+                    break;
+            }
+        });
+    };
+    __decorate([
+        core_1.Input(),
+        __metadata("design:type", String)
+    ], Column.prototype, "field", void 0);
+    __decorate([
+        core_1.Input(),
+        __metadata("design:type", String)
+    ], Column.prototype, "colId", void 0);
+    __decorate([
+        core_1.Input(),
+        __metadata("design:type", String)
+    ], Column.prototype, "sortField", void 0);
+    __decorate([
+        core_1.Input(),
+        __metadata("design:type", String)
+    ], Column.prototype, "filterField", void 0);
+    __decorate([
+        core_1.Input(),
+        __metadata("design:type", String)
+    ], Column.prototype, "header", void 0);
+    __decorate([
+        core_1.Input(),
+        __metadata("design:type", String)
+    ], Column.prototype, "footer", void 0);
+    __decorate([
+        core_1.Input(),
+        __metadata("design:type", Object)
+    ], Column.prototype, "sortable", void 0);
+    __decorate([
+        core_1.Input(),
+        __metadata("design:type", Boolean)
+    ], Column.prototype, "editable", void 0);
+    __decorate([
+        core_1.Input(),
+        __metadata("design:type", Boolean)
+    ], Column.prototype, "filter", void 0);
+    __decorate([
+        core_1.Input(),
+        __metadata("design:type", String)
+    ], Column.prototype, "filterMatchMode", void 0);
+    __decorate([
+        core_1.Input(),
+        __metadata("design:type", String)
+    ], Column.prototype, "filterType", void 0);
+    __decorate([
+        core_1.Input(),
+        __metadata("design:type", Boolean)
+    ], Column.prototype, "excludeGlobalFilter", void 0);
+    __decorate([
+        core_1.Input(),
+        __metadata("design:type", Number)
+    ], Column.prototype, "rowspan", void 0);
+    __decorate([
+        core_1.Input(),
+        __metadata("design:type", Number)
+    ], Column.prototype, "colspan", void 0);
+    __decorate([
+        core_1.Input(),
+        __metadata("design:type", String)
+    ], Column.prototype, "scope", void 0);
+    __decorate([
+        core_1.Input(),
+        __metadata("design:type", Object)
+    ], Column.prototype, "style", void 0);
+    __decorate([
+        core_1.Input(),
+        __metadata("design:type", String)
+    ], Column.prototype, "styleClass", void 0);
+    __decorate([
+        core_1.Input(),
+        __metadata("design:type", Boolean)
+    ], Column.prototype, "exportable", void 0);
+    __decorate([
+        core_1.Input(),
+        __metadata("design:type", Object)
+    ], Column.prototype, "headerStyle", void 0);
+    __decorate([
+        core_1.Input(),
+        __metadata("design:type", String)
+    ], Column.prototype, "headerStyleClass", void 0);
+    __decorate([
+        core_1.Input(),
+        __metadata("design:type", Object)
+    ], Column.prototype, "bodyStyle", void 0);
+    __decorate([
+        core_1.Input(),
+        __metadata("design:type", String)
+    ], Column.prototype, "bodyStyleClass", void 0);
+    __decorate([
+        core_1.Input(),
+        __metadata("design:type", Object)
+    ], Column.prototype, "footerStyle", void 0);
+    __decorate([
+        core_1.Input(),
+        __metadata("design:type", String)
+    ], Column.prototype, "footerStyleClass", void 0);
+    __decorate([
+        core_1.Input(),
+        __metadata("design:type", Boolean)
+    ], Column.prototype, "hidden", void 0);
+    __decorate([
+        core_1.Input(),
+        __metadata("design:type", Boolean)
+    ], Column.prototype, "expander", void 0);
+    __decorate([
+        core_1.Input(),
+        __metadata("design:type", String)
+    ], Column.prototype, "selectionMode", void 0);
+    __decorate([
+        core_1.Input(),
+        __metadata("design:type", String)
+    ], Column.prototype, "filterPlaceholder", void 0);
+    __decorate([
+        core_1.Input(),
+        __metadata("design:type", Number)
+    ], Column.prototype, "filterMaxlength", void 0);
+    __decorate([
+        core_1.Input(),
+        __metadata("design:type", Boolean)
+    ], Column.prototype, "frozen", void 0);
+    __decorate([
+        core_1.Input(),
+        __metadata("design:type", Boolean)
+    ], Column.prototype, "resizable", void 0);
+    __decorate([
+        core_1.Output(),
+        __metadata("design:type", core_1.EventEmitter)
+    ], Column.prototype, "sortFunction", void 0);
+    __decorate([
+        core_1.ContentChildren(PrimeTemplate),
+        __metadata("design:type", core_1.QueryList)
+    ], Column.prototype, "templates", void 0);
+    __decorate([
+        core_1.ContentChild(core_1.TemplateRef),
+        __metadata("design:type", core_1.TemplateRef)
+    ], Column.prototype, "template", void 0);
+    Column = __decorate([
+        core_2.Component({
+            selector: 'p-column',
+            template: ''
+        })
+    ], Column);
+    return Column;
+}());
+exports.Column = Column;
+/* Deprecated */
+var Row = /** @class */ (function () {
+    function Row() {
+    }
+    __decorate([
+        core_1.ContentChildren(Column),
+        __metadata("design:type", core_1.QueryList)
+    ], Row.prototype, "columns", void 0);
+    Row = __decorate([
+        core_2.Component({
+            selector: 'p-row',
+            template: ""
+        })
+    ], Row);
+    return Row;
+}());
+exports.Row = Row;
+/* Deprecated */
+var HeaderColumnGroup = /** @class */ (function () {
+    function HeaderColumnGroup() {
+    }
+    __decorate([
+        core_1.Input(),
+        __metadata("design:type", Boolean)
+    ], HeaderColumnGroup.prototype, "frozen", void 0);
+    __decorate([
+        core_1.ContentChildren(Row),
+        __metadata("design:type", core_1.QueryList)
+    ], HeaderColumnGroup.prototype, "rows", void 0);
+    HeaderColumnGroup = __decorate([
+        core_2.Component({
+            selector: 'p-headerColumnGroup',
+            template: ""
+        })
+    ], HeaderColumnGroup);
+    return HeaderColumnGroup;
+}());
+exports.HeaderColumnGroup = HeaderColumnGroup;
+/* Deprecated */
+var FooterColumnGroup = /** @class */ (function () {
+    function FooterColumnGroup() {
+    }
+    __decorate([
+        core_1.Input(),
+        __metadata("design:type", Boolean)
+    ], FooterColumnGroup.prototype, "frozen", void 0);
+    __decorate([
+        core_1.ContentChildren(Row),
+        __metadata("design:type", core_1.QueryList)
+    ], FooterColumnGroup.prototype, "rows", void 0);
+    FooterColumnGroup = __decorate([
+        core_2.Component({
+            selector: 'p-footerColumnGroup',
+            template: ""
+        })
+    ], FooterColumnGroup);
+    return FooterColumnGroup;
+}());
+exports.FooterColumnGroup = FooterColumnGroup;
+var SharedModule = /** @class */ (function () {
+    function SharedModule() {
+    }
+    SharedModule = __decorate([
+        core_1.NgModule({
+            imports: [common_1.CommonModule],
+            exports: [Header, Footer, Column, PrimeTemplate, Row, HeaderColumnGroup, FooterColumnGroup],
+            declarations: [Header, Footer, Column, PrimeTemplate, Row, HeaderColumnGroup, FooterColumnGroup]
+        })
+    ], SharedModule);
+    return SharedModule;
+}());
+exports.SharedModule = SharedModule;
+//# sourceMappingURL=shared.js.map
+
+/***/ }),
+
+/***/ "./node_modules/primeng/components/dom/domhandler.js":
+/*!***********************************************************!*\
+  !*** ./node_modules/primeng/components/dom/domhandler.js ***!
+  \***********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+var core_1 = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+var DomHandler = /** @class */ (function () {
+    function DomHandler() {
+        this.calculatedScrollbarWidth = null;
+    }
+    DomHandler.prototype.addClass = function (element, className) {
+        if (element.classList)
+            element.classList.add(className);
+        else
+            element.className += ' ' + className;
+    };
+    DomHandler.prototype.addMultipleClasses = function (element, className) {
+        if (element.classList) {
+            var styles = className.split(' ');
+            for (var i = 0; i < styles.length; i++) {
+                element.classList.add(styles[i]);
+            }
+        }
+        else {
+            var styles = className.split(' ');
+            for (var i = 0; i < styles.length; i++) {
+                element.className += ' ' + styles[i];
+            }
+        }
+    };
+    DomHandler.prototype.removeClass = function (element, className) {
+        if (element.classList)
+            element.classList.remove(className);
+        else
+            element.className = element.className.replace(new RegExp('(^|\\b)' + className.split(' ').join('|') + '(\\b|$)', 'gi'), ' ');
+    };
+    DomHandler.prototype.hasClass = function (element, className) {
+        if (element.classList)
+            return element.classList.contains(className);
+        else
+            return new RegExp('(^| )' + className + '( |$)', 'gi').test(element.className);
+    };
+    DomHandler.prototype.siblings = function (element) {
+        return Array.prototype.filter.call(element.parentNode.children, function (child) {
+            return child !== element;
+        });
+    };
+    DomHandler.prototype.find = function (element, selector) {
+        return element.querySelectorAll(selector);
+    };
+    DomHandler.prototype.findSingle = function (element, selector) {
+        return element.querySelector(selector);
+    };
+    DomHandler.prototype.index = function (element) {
+        var children = element.parentNode.childNodes;
+        var num = 0;
+        for (var i = 0; i < children.length; i++) {
+            if (children[i] == element)
+                return num;
+            if (children[i].nodeType == 1)
+                num++;
+        }
+        return -1;
+    };
+    DomHandler.prototype.indexWithinGroup = function (element, attributeName) {
+        var children = element.parentNode.childNodes;
+        var num = 0;
+        for (var i = 0; i < children.length; i++) {
+            if (children[i] == element)
+                return num;
+            if (children[i].attributes && children[i].attributes[attributeName] && children[i].nodeType == 1)
+                num++;
+        }
+        return -1;
+    };
+    DomHandler.prototype.relativePosition = function (element, target) {
+        var elementDimensions = element.offsetParent ? { width: element.offsetWidth, height: element.offsetHeight } : this.getHiddenElementDimensions(element);
+        var targetHeight = target.offsetHeight;
+        var targetWidth = target.offsetWidth;
+        var targetOffset = target.getBoundingClientRect();
+        var windowScrollTop = this.getWindowScrollTop();
+        var viewport = this.getViewport();
+        var top, left;
+        if ((targetOffset.top + targetHeight + elementDimensions.height) > viewport.height) {
+            top = -1 * (elementDimensions.height);
+            if (targetOffset.top + top < 0) {
+                top = 0;
+            }
+        }
+        else {
+            top = targetHeight;
+        }
+        if ((targetOffset.left + elementDimensions.width) > viewport.width)
+            left = targetWidth - elementDimensions.width;
+        else
+            left = 0;
+        element.style.top = top + 'px';
+        element.style.left = left + 'px';
+    };
+    DomHandler.prototype.absolutePosition = function (element, target) {
+        var elementDimensions = element.offsetParent ? { width: element.offsetWidth, height: element.offsetHeight } : this.getHiddenElementDimensions(element);
+        var elementOuterHeight = elementDimensions.height;
+        var elementOuterWidth = elementDimensions.width;
+        var targetOuterHeight = target.offsetHeight;
+        var targetOuterWidth = target.offsetWidth;
+        var targetOffset = target.getBoundingClientRect();
+        var windowScrollTop = this.getWindowScrollTop();
+        var windowScrollLeft = this.getWindowScrollLeft();
+        var viewport = this.getViewport();
+        var top, left;
+        if (targetOffset.top + targetOuterHeight + elementOuterHeight > viewport.height) {
+            top = targetOffset.top + windowScrollTop - elementOuterHeight;
+            if (top < 0) {
+                top = 0 + windowScrollTop;
+            }
+        }
+        else {
+            top = targetOuterHeight + targetOffset.top + windowScrollTop;
+        }
+        if (targetOffset.left + targetOuterWidth + elementOuterWidth > viewport.width)
+            left = targetOffset.left + windowScrollLeft + targetOuterWidth - elementOuterWidth;
+        else
+            left = targetOffset.left + windowScrollLeft;
+        element.style.top = top + 'px';
+        element.style.left = left + 'px';
+    };
+    DomHandler.prototype.getHiddenElementOuterHeight = function (element) {
+        element.style.visibility = 'hidden';
+        element.style.display = 'block';
+        var elementHeight = element.offsetHeight;
+        element.style.display = 'none';
+        element.style.visibility = 'visible';
+        return elementHeight;
+    };
+    DomHandler.prototype.getHiddenElementOuterWidth = function (element) {
+        element.style.visibility = 'hidden';
+        element.style.display = 'block';
+        var elementWidth = element.offsetWidth;
+        element.style.display = 'none';
+        element.style.visibility = 'visible';
+        return elementWidth;
+    };
+    DomHandler.prototype.getHiddenElementDimensions = function (element) {
+        var dimensions = {};
+        element.style.visibility = 'hidden';
+        element.style.display = 'block';
+        dimensions.width = element.offsetWidth;
+        dimensions.height = element.offsetHeight;
+        element.style.display = 'none';
+        element.style.visibility = 'visible';
+        return dimensions;
+    };
+    DomHandler.prototype.scrollInView = function (container, item) {
+        var borderTopValue = getComputedStyle(container).getPropertyValue('borderTopWidth');
+        var borderTop = borderTopValue ? parseFloat(borderTopValue) : 0;
+        var paddingTopValue = getComputedStyle(container).getPropertyValue('paddingTop');
+        var paddingTop = paddingTopValue ? parseFloat(paddingTopValue) : 0;
+        var containerRect = container.getBoundingClientRect();
+        var itemRect = item.getBoundingClientRect();
+        var offset = (itemRect.top + document.body.scrollTop) - (containerRect.top + document.body.scrollTop) - borderTop - paddingTop;
+        var scroll = container.scrollTop;
+        var elementHeight = container.clientHeight;
+        var itemHeight = this.getOuterHeight(item);
+        if (offset < 0) {
+            container.scrollTop = scroll + offset;
+        }
+        else if ((offset + itemHeight) > elementHeight) {
+            container.scrollTop = scroll + offset - elementHeight + itemHeight;
+        }
+    };
+    DomHandler.prototype.fadeIn = function (element, duration) {
+        element.style.opacity = 0;
+        var last = +new Date();
+        var opacity = 0;
+        var tick = function () {
+            opacity = +element.style.opacity.replace(",", ".") + (new Date().getTime() - last) / duration;
+            element.style.opacity = opacity;
+            last = +new Date();
+            if (+opacity < 1) {
+                (window.requestAnimationFrame && requestAnimationFrame(tick)) || setTimeout(tick, 16);
+            }
+        };
+        tick();
+    };
+    DomHandler.prototype.fadeOut = function (element, ms) {
+        var opacity = 1, interval = 50, duration = ms, gap = interval / duration;
+        var fading = setInterval(function () {
+            opacity = opacity - gap;
+            if (opacity <= 0) {
+                opacity = 0;
+                clearInterval(fading);
+            }
+            element.style.opacity = opacity;
+        }, interval);
+    };
+    DomHandler.prototype.getWindowScrollTop = function () {
+        var doc = document.documentElement;
+        return (window.pageYOffset || doc.scrollTop) - (doc.clientTop || 0);
+    };
+    DomHandler.prototype.getWindowScrollLeft = function () {
+        var doc = document.documentElement;
+        return (window.pageXOffset || doc.scrollLeft) - (doc.clientLeft || 0);
+    };
+    DomHandler.prototype.matches = function (element, selector) {
+        var p = Element.prototype;
+        var f = p['matches'] || p.webkitMatchesSelector || p['mozMatchesSelector'] || p.msMatchesSelector || function (s) {
+            return [].indexOf.call(document.querySelectorAll(s), this) !== -1;
+        };
+        return f.call(element, selector);
+    };
+    DomHandler.prototype.getOuterWidth = function (el, margin) {
+        var width = el.offsetWidth;
+        if (margin) {
+            var style = getComputedStyle(el);
+            width += parseFloat(style.marginLeft) + parseFloat(style.marginRight);
+        }
+        return width;
+    };
+    DomHandler.prototype.getHorizontalPadding = function (el) {
+        var style = getComputedStyle(el);
+        return parseFloat(style.paddingLeft) + parseFloat(style.paddingRight);
+    };
+    DomHandler.prototype.getHorizontalMargin = function (el) {
+        var style = getComputedStyle(el);
+        return parseFloat(style.marginLeft) + parseFloat(style.marginRight);
+    };
+    DomHandler.prototype.innerWidth = function (el) {
+        var width = el.offsetWidth;
+        var style = getComputedStyle(el);
+        width += parseFloat(style.paddingLeft) + parseFloat(style.paddingRight);
+        return width;
+    };
+    DomHandler.prototype.width = function (el) {
+        var width = el.offsetWidth;
+        var style = getComputedStyle(el);
+        width -= parseFloat(style.paddingLeft) + parseFloat(style.paddingRight);
+        return width;
+    };
+    DomHandler.prototype.getInnerHeight = function (el) {
+        var height = el.offsetHeight;
+        var style = getComputedStyle(el);
+        height += parseFloat(style.paddingTop) + parseFloat(style.paddingBottom);
+        return height;
+    };
+    DomHandler.prototype.getOuterHeight = function (el, margin) {
+        var height = el.offsetHeight;
+        if (margin) {
+            var style = getComputedStyle(el);
+            height += parseFloat(style.marginTop) + parseFloat(style.marginBottom);
+        }
+        return height;
+    };
+    DomHandler.prototype.getHeight = function (el) {
+        var height = el.offsetHeight;
+        var style = getComputedStyle(el);
+        height -= parseFloat(style.paddingTop) + parseFloat(style.paddingBottom) + parseFloat(style.borderTopWidth) + parseFloat(style.borderBottomWidth);
+        return height;
+    };
+    DomHandler.prototype.getWidth = function (el) {
+        var width = el.offsetWidth;
+        var style = getComputedStyle(el);
+        width -= parseFloat(style.paddingLeft) + parseFloat(style.paddingRight) + parseFloat(style.borderLeftWidth) + parseFloat(style.borderRightWidth);
+        return width;
+    };
+    DomHandler.prototype.getViewport = function () {
+        var win = window, d = document, e = d.documentElement, g = d.getElementsByTagName('body')[0], w = win.innerWidth || e.clientWidth || g.clientWidth, h = win.innerHeight || e.clientHeight || g.clientHeight;
+        return { width: w, height: h };
+    };
+    DomHandler.prototype.getOffset = function (el) {
+        var rect = el.getBoundingClientRect();
+        return {
+            top: rect.top + document.body.scrollTop,
+            left: rect.left + document.body.scrollLeft
+        };
+    };
+    DomHandler.prototype.replaceElementWith = function (element, replacementElement) {
+        var parentNode = element.parentNode;
+        if (!parentNode)
+            throw "Can't replace element";
+        return parentNode.replaceChild(replacementElement, element);
+    };
+    DomHandler.prototype.getUserAgent = function () {
+        return navigator.userAgent;
+    };
+    DomHandler.prototype.isIE = function () {
+        var ua = window.navigator.userAgent;
+        var msie = ua.indexOf('MSIE ');
+        if (msie > 0) {
+            // IE 10 or older => return version number
+            return true;
+        }
+        var trident = ua.indexOf('Trident/');
+        if (trident > 0) {
+            // IE 11 => return version number
+            var rv = ua.indexOf('rv:');
+            return true;
+        }
+        var edge = ua.indexOf('Edge/');
+        if (edge > 0) {
+            // Edge (IE 12+) => return version number
+            return true;
+        }
+        // other browser
+        return false;
+    };
+    DomHandler.prototype.appendChild = function (element, target) {
+        if (this.isElement(target))
+            target.appendChild(element);
+        else if (target.el && target.el.nativeElement)
+            target.el.nativeElement.appendChild(element);
+        else
+            throw 'Cannot append ' + target + ' to ' + element;
+    };
+    DomHandler.prototype.removeChild = function (element, target) {
+        if (this.isElement(target))
+            target.removeChild(element);
+        else if (target.el && target.el.nativeElement)
+            target.el.nativeElement.removeChild(element);
+        else
+            throw 'Cannot remove ' + element + ' from ' + target;
+    };
+    DomHandler.prototype.isElement = function (obj) {
+        return (typeof HTMLElement === "object" ? obj instanceof HTMLElement :
+            obj && typeof obj === "object" && obj !== null && obj.nodeType === 1 && typeof obj.nodeName === "string");
+    };
+    DomHandler.prototype.calculateScrollbarWidth = function () {
+        if (this.calculatedScrollbarWidth !== null)
+            return this.calculatedScrollbarWidth;
+        var scrollDiv = document.createElement("div");
+        scrollDiv.className = "ui-scrollbar-measure";
+        document.body.appendChild(scrollDiv);
+        var scrollbarWidth = scrollDiv.offsetWidth - scrollDiv.clientWidth;
+        document.body.removeChild(scrollDiv);
+        this.calculatedScrollbarWidth = scrollbarWidth;
+        return scrollbarWidth;
+    };
+    DomHandler.prototype.invokeElementMethod = function (element, methodName, args) {
+        element[methodName].apply(element, args);
+    };
+    DomHandler.prototype.clearSelection = function () {
+        if (window.getSelection) {
+            if (window.getSelection().empty) {
+                window.getSelection().empty();
+            }
+            else if (window.getSelection().removeAllRanges && window.getSelection().rangeCount > 0 && window.getSelection().getRangeAt(0).getClientRects().length > 0) {
+                window.getSelection().removeAllRanges();
+            }
+        }
+        else if (document['selection'] && document['selection'].empty) {
+            try {
+                document['selection'].empty();
+            }
+            catch (error) {
+                //ignore IE bug
+            }
+        }
+    };
+    DomHandler.prototype.getBrowser = function () {
+        if (!this.browser) {
+            var matched = this.resolveUserAgent();
+            this.browser = {};
+            if (matched.browser) {
+                this.browser[matched.browser] = true;
+                this.browser['version'] = matched.version;
+            }
+            if (this.browser['chrome']) {
+                this.browser['webkit'] = true;
+            }
+            else if (this.browser['webkit']) {
+                this.browser['safari'] = true;
+            }
+        }
+        return this.browser;
+    };
+    DomHandler.prototype.resolveUserAgent = function () {
+        var ua = navigator.userAgent.toLowerCase();
+        var match = /(chrome)[ \/]([\w.]+)/.exec(ua) ||
+            /(webkit)[ \/]([\w.]+)/.exec(ua) ||
+            /(opera)(?:.*version|)[ \/]([\w.]+)/.exec(ua) ||
+            /(msie) ([\w.]+)/.exec(ua) ||
+            ua.indexOf("compatible") < 0 && /(mozilla)(?:.*? rv:([\w.]+)|)/.exec(ua) ||
+            [];
+        return {
+            browser: match[1] || "",
+            version: match[2] || "0"
+        };
+    };
+    DomHandler.zindex = 1000;
+    DomHandler = __decorate([
+        core_1.Injectable()
+    ], DomHandler);
+    return DomHandler;
+}());
+exports.DomHandler = DomHandler;
+//# sourceMappingURL=domhandler.js.map
+
+/***/ }),
+
 /***/ "./node_modules/primeng/components/editor/editor.js":
 /*!**********************************************************!*\
   !*** ./node_modules/primeng/components/editor/editor.js ***!
@@ -9,17 +743,6 @@
 
 "use strict";
 
-var __assign = (this && this.__assign) || function () {
-    __assign = Object.assign || function(t) {
-        for (var s, i = 1, n = arguments.length; i < n; i++) {
-            s = arguments[i];
-            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
-                t[p] = s[p];
-        }
-        return t;
-    };
-    return __assign.apply(this, arguments);
-};
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -41,8 +764,9 @@ exports.EDITOR_VALUE_ACCESSOR = {
     multi: true
 };
 var Editor = /** @class */ (function () {
-    function Editor(el) {
+    function Editor(el, domHandler) {
         this.el = el;
+        this.domHandler = domHandler;
         this.onTextChange = new core_1.EventEmitter();
         this.onSelectionChange = new core_1.EventEmitter();
         this.onInit = new core_1.EventEmitter();
@@ -51,19 +775,16 @@ var Editor = /** @class */ (function () {
     }
     Editor.prototype.ngAfterViewInit = function () {
         var _this = this;
-        var editorElement = domhandler_1.DomHandler.findSingle(this.el.nativeElement, 'div.ui-editor-content');
-        var toolbarElement = domhandler_1.DomHandler.findSingle(this.el.nativeElement, 'div.ui-editor-toolbar');
-        var defaultModule = { toolbar: toolbarElement };
-        var modules = this.modules ? __assign({}, defaultModule, this.modules) : defaultModule;
+        var editorElement = this.domHandler.findSingle(this.el.nativeElement, 'div.ui-editor-content');
+        var toolbarElement = this.domHandler.findSingle(this.el.nativeElement, 'div.ui-editor-toolbar');
         this.quill = new Quill(editorElement, {
-            modules: modules,
+            modules: {
+                toolbar: toolbarElement
+            },
             placeholder: this.placeholder,
             readOnly: this.readonly,
             theme: 'snow',
-            formats: this.formats,
-            bounds: this.bounds,
-            debug: this.debug,
-            scrollingContainer: this.scrollingContainer
+            formats: this.formats
         });
         if (this.value) {
             this.quill.pasteHTML(this.value);
@@ -159,22 +880,6 @@ var Editor = /** @class */ (function () {
         __metadata("design:type", Array)
     ], Editor.prototype, "formats", void 0);
     __decorate([
-        core_1.Input(),
-        __metadata("design:type", Object)
-    ], Editor.prototype, "modules", void 0);
-    __decorate([
-        core_1.Input(),
-        __metadata("design:type", Element)
-    ], Editor.prototype, "bounds", void 0);
-    __decorate([
-        core_1.Input(),
-        __metadata("design:type", Element)
-    ], Editor.prototype, "scrollingContainer", void 0);
-    __decorate([
-        core_1.Input(),
-        __metadata("design:type", String)
-    ], Editor.prototype, "debug", void 0);
-    __decorate([
         core_1.Output(),
         __metadata("design:type", core_1.EventEmitter)
     ], Editor.prototype, "onInit", void 0);
@@ -187,9 +892,9 @@ var Editor = /** @class */ (function () {
         core_1.Component({
             selector: 'p-editor',
             template: "\n        <div [ngClass]=\"'ui-widget ui-editor-container ui-corner-all'\" [class]=\"styleClass\">\n            <div class=\"ui-editor-toolbar ui-widget-header ui-corner-top\" *ngIf=\"toolbar\">\n                <ng-content select=\"p-header\"></ng-content>\n            </div>\n            <div class=\"ui-editor-toolbar ui-widget-header ui-corner-top\" *ngIf=\"!toolbar\">\n                <span class=\"ql-formats\">\n                    <select class=\"ql-header\">\n                      <option value=\"1\">Heading</option>\n                      <option value=\"2\">Subheading</option>\n                      <option selected>Normal</option>\n                    </select>\n                    <select class=\"ql-font\">\n                      <option selected>Sans Serif</option>\n                      <option value=\"serif\">Serif</option>\n                      <option value=\"monospace\">Monospace</option>\n                    </select>\n                </span>\n                <span class=\"ql-formats\">\n                    <button class=\"ql-bold\" aria-label=\"Bold\"></button>\n                    <button class=\"ql-italic\" aria-label=\"Italic\"></button>\n                    <button class=\"ql-underline\" aria-label=\"Underline\"></button>\n                </span>\n                <span class=\"ql-formats\">\n                    <select class=\"ql-color\"></select>\n                    <select class=\"ql-background\"></select>\n                </span>\n                <span class=\"ql-formats\">\n                    <button class=\"ql-list\" value=\"ordered\" aria-label=\"Ordered List\"></button>\n                    <button class=\"ql-list\" value=\"bullet\" aria-label=\"Unordered List\"></button>\n                    <select class=\"ql-align\">\n                        <option selected></option>\n                        <option value=\"center\"></option>\n                        <option value=\"right\"></option>\n                        <option value=\"justify\"></option>\n                    </select>\n                </span>\n                <span class=\"ql-formats\">\n                    <button class=\"ql-link\" aria-label=\"Insert Link\"></button>\n                    <button class=\"ql-image\" aria-label=\"Insert Image\"></button>\n                    <button class=\"ql-code-block\" aria-label=\"Insert Code Block\"></button>\n                </span>\n                <span class=\"ql-formats\">\n                    <button class=\"ql-clean\" aria-label=\"Remove Styles\"></button>\n                </span>\n            </div>\n            <div class=\"ui-editor-content\" [ngStyle]=\"style\"></div>\n        </div>\n    ",
-            providers: [exports.EDITOR_VALUE_ACCESSOR]
+            providers: [domhandler_1.DomHandler, exports.EDITOR_VALUE_ACCESSOR]
         }),
-        __metadata("design:paramtypes", [core_1.ElementRef])
+        __metadata("design:paramtypes", [core_1.ElementRef, domhandler_1.DomHandler])
     ], Editor);
     return Editor;
 }());
@@ -348,8 +1053,8 @@ var BlogFormComponent = /** @class */ (function (_super) {
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
             selector: 'blog-form',
             template: __webpack_require__(/*! ./blog-form.component.html */ "./src/app/ms-back-office/modules/ms-blogs/components/blog-form/blog-form.component.html"),
-            changeDetection: _angular_core__WEBPACK_IMPORTED_MODULE_0__["ChangeDetectionStrategy"].OnPush,
-            styles: [__webpack_require__(/*! ./blog-form.component.scss */ "./src/app/ms-back-office/modules/ms-blogs/components/blog-form/blog-form.component.scss")]
+            styles: [__webpack_require__(/*! ./blog-form.component.scss */ "./src/app/ms-back-office/modules/ms-blogs/components/blog-form/blog-form.component.scss")],
+            changeDetection: _angular_core__WEBPACK_IMPORTED_MODULE_0__["ChangeDetectionStrategy"].OnPush
         }),
         __metadata("design:paramtypes", [_angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormBuilder"],
             _ngx_translate_core__WEBPACK_IMPORTED_MODULE_2__["TranslateService"]])
@@ -368,7 +1073,7 @@ var BlogFormComponent = /** @class */ (function (_super) {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<h1>Blog Table</h1>\r\n\r\n<mat-toolbar class=\"margin-right-25px margin-bottom-10px width-auto flex-shrink-0 background-color-secondary color-primary mat-elevation-z2\"\r\n  [formGroup]=\"filter\">\r\n\r\n  <mat-icon matPrefix color=\"primary\">search</mat-icon>\r\n  <mat-form-field>\r\n    <input matInput formControlName=\"title\" placeholder=\"TITLE\">\r\n  </mat-form-field>\r\n\r\n  <mat-form-field>\r\n    <input matInput formControlName=\"author\" placeholder=\"AUTHOR\">\r\n  </mat-form-field>\r\n\r\n  <mat-form-field class=\"width-100pc\">\r\n\r\n    <mat-select disableOptionCentering placeholder=\"TYPE\" formControlName=\"type\">\r\n\r\n      <mat-option>...</mat-option>\r\n\r\n      <mat-option *ngFor=\"let type of types\" [value]=\"type.id\">\r\n\r\n        {{type.name}}\r\n\r\n      </mat-option>\r\n\r\n    </mat-select>\r\n\r\n  </mat-form-field>\r\n\r\n  <span class=\"flex-grow-1\"></span>\r\n  <button mat-raised-button color=\"primary\" [routerLink]=\"['../create']\">WRITE A POST</button>\r\n</mat-toolbar>\r\n\r\n<div class=\"flex-grow-1 overflow-auto display-flex\">\r\n\r\n  <table class=\"margin-top-10px margin-right-25px width-100pct\" mat-table [dataSource]=\"blogs\" matSort [matSortActive]=\"blogsService.previousSortColumn\"\r\n    [matSortDirection]=\"blogsService.previousSortDirection\" matSortDisableClear (matSortChange)=\"onSort()\">\r\n\r\n    <ng-container matColumnDef=\"title\">\r\n      <th mat-header-cell *matHeaderCellDef mat-sort-header>\r\n        TITLE\r\n      </th>\r\n      <td mat-cell *matCellDef=\"let element\"> {{ element.title }} </td>\r\n    </ng-container>\r\n\r\n    <ng-container matColumnDef=\"thumbnail\">\r\n      <th mat-header-cell *matHeaderCellDef></th>\r\n      <td mat-cell *matCellDef=\"let element\" class=\"display-flex flex-grow-1 height-100pct padding-left-0px width-100pct\">\r\n        <div class=\"position-relative margin-top-5px\">\r\n          <img [src]=\"element.imgUrl\" class=\"height-90pct width-90pct margin-auto\" alt=\"50\">\r\n        </div>\r\n      </td>\r\n    </ng-container>\r\n\r\n    <ng-container matColumnDef=\"author\">\r\n      <th mat-header-cell *matHeaderCellDef mat-sort-header>\r\n        AUTHOR\r\n      </th>\r\n      <td mat-cell *matCellDef=\"let element\" class=\"padding-table-td\"> {{ element.author }} </td>\r\n    </ng-container>\r\n\r\n    <ng-container matColumnDef=\"type\">\r\n      <th mat-header-cell *matHeaderCellDef mat-sort-header>\r\n        TYPE\r\n      </th>\r\n      <td mat-cell *matCellDef=\"let element\" class=\"padding-table-td\"> {{ element.type }} </td>\r\n    </ng-container>\r\n\r\n    <ng-container matColumnDef=\"brandId\">\r\n      <th mat-header-cell *matHeaderCellDef mat-sort-header>\r\n        BRAND\r\n      </th>\r\n      <td mat-cell *matCellDef=\"let element\" class=\"padding-table-td\"> {{ getBrand(element.brandId) }} </td>\r\n    </ng-container>\r\n\r\n    <ng-container matColumnDef=\"updatedAt\">\r\n      <th mat-header-cell *matHeaderCellDef mat-sort-header>\r\n        DATE\r\n      </th>\r\n      <td mat-cell *matCellDef=\"let element\" class=\"padding-table-td\"> {{ element.updatedAt | date: 'dd/MM/yyyy HH:mm:ss' }} </td>\r\n    </ng-container>\r\n\r\n    <ng-container matColumnDef=\"actions\">\r\n      <th mat-header-cell *matHeaderCellDef>\r\n      </th>\r\n      <td mat-cell *matCellDef=\"let element\" class=\"min-width-80px\">\r\n        <button mat-icon-button color=\"primary\" [matTooltip]=\"Edit\" [routerLink]=\"['../edit', element.id]\">\r\n          <mat-icon>edit</mat-icon>\r\n        </button>\r\n        <button mat-icon-button color=\"primary\" [matTooltip]=\"Delete\" (click)=\"confirmDeleteBlog(element)\">\r\n          <mat-icon>delete</mat-icon>\r\n        </button>\r\n      </td>\r\n    </ng-container>\r\n\r\n    <tr mat-header-row *matHeaderRowDef=\"displayedColumns\"></tr>\r\n    <tr mat-row *matRowDef=\"let row; columns: displayedColumns;\" [ngClass]=\"row.is_active ? '' : 'text-decoration-line-through'\">\r\n    </tr>\r\n\r\n  </table>\r\n\r\n</div>\r\n\r\n<div class=\"margin-right-25px padding-top-5px padding-bottom-5px flex-shrink-0 display-flex border-top-style-solid border-top-width-2px border-top-color-grey\">\r\n  <span class=\"flex-grow-1\"></span>\r\n  <mat-paginator [length]=\"totalLength\" [pageSizeOptions]=\"[5, 10, 20, 50, 100]\" [pageIndex]=\"\" [pageSize]=\"\" showFirstLastButtons\r\n    (page)=\"onPage()\">\r\n  </mat-paginator>\r\n</div>"
+module.exports = "<h1>Blog Table</h1>\r\n\r\n<mat-toolbar class=\"margin-right-25px margin-bottom-10px width-auto flex-shrink-0 background-color-secondary color-primary mat-elevation-z2\"\r\n  [formGroup]=\"filter\">\r\n\r\n  <mat-icon matPrefix color=\"primary\">search</mat-icon>\r\n  <mat-form-field>\r\n    <input matInput formControlName=\"title\" placeholder=\"TITLE\">\r\n  </mat-form-field>\r\n\r\n  <mat-form-field>\r\n    <input matInput formControlName=\"author\" placeholder=\"AUTHOR\">\r\n  </mat-form-field>\r\n\r\n  <mat-form-field class=\"width-100pc\">\r\n\r\n    <mat-select disableOptionCentering placeholder=\"TYPE\" formControlName=\"type\">\r\n\r\n      <mat-option>...</mat-option>\r\n\r\n      <mat-option *ngFor=\"let type of types\" [value]=\"type.id\">\r\n\r\n        {{type.name}}\r\n\r\n      </mat-option>\r\n\r\n    </mat-select>\r\n\r\n  </mat-form-field>\r\n\r\n  <span class=\"flex-grow-1\"></span>\r\n  <button mat-raised-button color=\"primary\" [routerLink]=\"['../create']\">WRITE A POST</button>\r\n</mat-toolbar>\r\n\r\n<div class=\"flex-grow-1 overflow-auto display-flex\">\r\n\r\n  <table class=\"margin-top-10px margin-right-25px width-100pct\" mat-table [dataSource]=\"blogs\" matSort [matSortActive]=\"blogsService.previousSortColumn\"\r\n    [matSortDirection]=\"blogsService.previousSortDirection\" matSortDisableClear (matSortChange)=\"onSort()\">\r\n\r\n    <ng-container matColumnDef=\"title\">\r\n      <th mat-header-cell *matHeaderCellDef mat-sort-header>\r\n        TITLE\r\n      </th>\r\n      <td mat-cell *matCellDef=\"let element\"> {{ element.title }} </td>\r\n    </ng-container>\r\n\r\n    <ng-container matColumnDef=\"thumbnail\">\r\n      <th mat-header-cell *matHeaderCellDef></th>\r\n      <td mat-cell *matCellDef=\"let element\" class=\"display-flex flex-grow-1 height-100pct padding-left-0px width-100pct\">\r\n        <div class=\"position-relative margin-top-5px\">\r\n          <img [src]=\"element.imgUrl\" class=\"height-90pct width-90pct margin-auto\" alt=\"50\">\r\n        </div>\r\n      </td>\r\n    </ng-container>\r\n\r\n    <ng-container matColumnDef=\"author\">\r\n      <th mat-header-cell *matHeaderCellDef mat-sort-header>\r\n        AUTHOR\r\n      </th>\r\n      <td mat-cell *matCellDef=\"let element\" class=\"padding-table-td\"> {{ element.author }} </td>\r\n    </ng-container>\r\n\r\n    <ng-container matColumnDef=\"type\">\r\n      <th mat-header-cell *matHeaderCellDef mat-sort-header>\r\n        TYPE\r\n      </th>\r\n      <td mat-cell *matCellDef=\"let element\" class=\"padding-table-td\"> {{ element.type }} </td>\r\n    </ng-container>\r\n\r\n    <ng-container matColumnDef=\"brandId\">\r\n      <th mat-header-cell *matHeaderCellDef mat-sort-header>\r\n        BRAND\r\n      </th>\r\n      <td mat-cell *matCellDef=\"let element\" class=\"padding-table-td\"> {{ getBrand(element.brandId) }} </td>\r\n    </ng-container>\r\n\r\n    <ng-container matColumnDef=\"updatedAt\">\r\n      <th mat-header-cell *matHeaderCellDef mat-sort-header>\r\n        DATE\r\n      </th>\r\n      <td mat-cell *matCellDef=\"let element\" class=\"padding-table-td\"> {{ element.updatedAt | date: 'dd/MM/yyyy HH:mm:ss' }} </td>\r\n    </ng-container>\r\n\r\n    <ng-container matColumnDef=\"actions\">\r\n      <th mat-header-cell *matHeaderCellDef>\r\n      </th>\r\n      <td mat-cell *matCellDef=\"let element\" class=\"min-width-80px\">\r\n        <button mat-icon-button color=\"primary\" type=\"button\" [matTooltip]=\"Edit\" class=\"min-width-80px\" (click)=\"seeBlogModal(element.id)\">\r\n          <mat-icon>remove_red_eye</mat-icon>\r\n        </button>\r\n        <button mat-icon-button color=\"primary\" [matTooltip]=\"Edit\" [routerLink]=\"['../edit', element.id]\">\r\n          <mat-icon>edit</mat-icon>\r\n        </button>\r\n        <button mat-icon-button color=\"primary\" [matTooltip]=\"Delete\" (click)=\"confirmDeleteBlog(element)\">\r\n          <mat-icon>delete</mat-icon>\r\n        </button>\r\n      </td>\r\n    </ng-container>\r\n\r\n    <tr mat-header-row *matHeaderRowDef=\"displayedColumns\"></tr>\r\n    <tr mat-row *matRowDef=\"let row; columns: displayedColumns;\" [ngClass]=\"row.is_active ? '' : 'text-decoration-line-through'\">\r\n    </tr>\r\n\r\n  </table>\r\n\r\n</div>\r\n\r\n<div class=\"margin-right-25px padding-top-5px padding-bottom-5px flex-shrink-0 display-flex border-top-style-solid border-top-width-2px border-top-color-grey\">\r\n  <span class=\"flex-grow-1\"></span>\r\n  <mat-paginator [length]=\"totalLength\" [pageSizeOptions]=\"[5, 10, 20, 50, 100]\" [pageIndex]=\"\" [pageSize]=\"\" showFirstLastButtons\r\n    (page)=\"onPage()\">\r\n  </mat-paginator>\r\n</div>"
 
 /***/ }),
 
@@ -403,6 +1108,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _error_handling_services_toastr_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../../../../error-handling/services/toastr.service */ "./src/app/error-handling/services/toastr.service.ts");
 /* harmony import */ var _services_blogs_service__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../services/blogs.service */ "./src/app/ms-back-office/modules/ms-blogs/services/blogs.service.ts");
 /* harmony import */ var _models_type__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../../models/type */ "./src/app/ms-back-office/modules/ms-blogs/models/type.ts");
+/* harmony import */ var _see_blog_see_blog_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../see-blog/see-blog.component */ "./src/app/ms-back-office/modules/ms-blogs/components/see-blog/see-blog.component.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -424,6 +1130,7 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 
 
 //
+
 
 
 var titleKey = 'Delete';
@@ -450,6 +1157,7 @@ var BlogsTableComponent = /** @class */ (function () {
         this.blogs = [];
         this.totalLength = 0;
         this.types = _models_type__WEBPACK_IMPORTED_MODULE_9__["TYPE"];
+        this.faceList = [];
     }
     BlogsTableComponent.prototype.ngOnInit = function () {
         var _this = this;
@@ -540,6 +1248,30 @@ var BlogsTableComponent = /** @class */ (function () {
         }, function (error) {
             _this.errorHandlingService.handleUiError(errorKey, error);
         });
+    };
+    BlogsTableComponent.prototype.seeBlogModal = function (id) {
+        var _this = this;
+        this.blogsService.getBlog(id).subscribe(function (response) {
+            _this.data = response.data;
+            if (_this.data.imgUrl) {
+                var face = {
+                    imgUrl: _this.data.imgUrl,
+                };
+                _this.faceList = [face];
+                _this.principal = face;
+            }
+            _this.modalRef = _this.dialog.open(_see_blog_see_blog_component__WEBPACK_IMPORTED_MODULE_10__["SeeBlogComponent"], {
+                height: '90%',
+                width: '95%',
+                data: {
+                    id: id,
+                    faceList: _this.faceList,
+                    principal: _this.principal,
+                    data: response.data,
+                    brands: _this.brands
+                }
+            });
+        }, function (error) { return _this.errorHandlingService.handleUiError(errorKey, error); });
     };
     __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ViewChild"])(_angular_material__WEBPACK_IMPORTED_MODULE_3__["MatPaginator"]),
@@ -1038,6 +1770,170 @@ var NewBlogComponent = /** @class */ (function () {
 
 /***/ }),
 
+/***/ "./src/app/ms-back-office/modules/ms-blogs/components/see-blog/see-blog.component.html":
+/*!*********************************************************************************************!*\
+  !*** ./src/app/ms-back-office/modules/ms-blogs/components/see-blog/see-blog.component.html ***!
+  \*********************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<form class=\"flex-grow-1 min-height-0 display-flex flex-direction-column\" [askBeforeRefresh]=\"formGroup.dirty\" [formGroup]=\"formGroup\"\r\n  novalidate role=\"form\" (ngSubmit)=\"submitClicked()\" autocomplete=\"off\" inputFocus>\r\n\r\n  <div class=\"flex-grow-1 overflow-auto display-flex flex-direction-column\">\r\n\r\n    <div class=\"flex-grow-1 flex-shrink-0 display-flex flex-direction-column\">\r\n\r\n      <mat-radio-group formControlName=\"type\">\r\n\r\n        <div class=\"display-flex padding-bottom-25px\" fxLayout=\"row\">\r\n\r\n          <div class=\"display-flex margin-right-25px\">\r\n\r\n            <mat-radio-button value=\"Article\" class=\"margin-top-10px\" matTooltip=\"{{ 'Article' | translate }}\" [disabled]=\"true\">Create an Article</mat-radio-button>\r\n\r\n          </div>\r\n\r\n          <div class=\"display-flex\">\r\n\r\n            <mat-radio-button value=\"Focus\" class=\"margin-top-10px\" matTooltip=\"{{ 'Focus' | translate }}\" [disabled]=\"true\">Create a Focus</mat-radio-button>\r\n\r\n          </div>\r\n\r\n        </div>\r\n\r\n      </mat-radio-group>\r\n\r\n\r\n      <div class=\"mb-20\" fxFlex fxLayout=\"row\" fxLayout.lt-md=\"column\" fxLayoutGap=\"20px\">\r\n        <div [fxFlex]=\"50\">\r\n\r\n          <div fxLayout=\"row\" fxLayout.lt-md=\"column\" fxLayoutGap=\"20px\" class=\"max-width-480px\">\r\n\r\n\r\n            <div [fxFlex]=\"50\">\r\n\r\n\r\n              <mat-form-field class=\"width-100pc margin-left-16px\">\r\n\r\n                <mat-label>Author</mat-label>\r\n\r\n                <input matInput type=\"text\" formControlName=\"author\" required readonly>\r\n\r\n              </mat-form-field>\r\n\r\n            </div>\r\n\r\n            <div [fxFlex]=\"50\">\r\n\r\n              <mat-form-field class=\"width-100pc\">\r\n\r\n                <mat-label>Brand</mat-label>\r\n                <mat-select disableOptionCentering placeholder=\"Select\" formControlName=\"brandId\" panelOpen=\"true\" required [disabled]=\"true\">\r\n                  <mat-option>...</mat-option>\r\n                  <mat-option *ngFor=\"let brand of dialogData.brands\" [value]=\"brand.id\">\r\n                    {{brand.name}}\r\n                  </mat-option>\r\n                </mat-select>\r\n\r\n              </mat-form-field>\r\n\r\n            </div>\r\n\r\n          </div>\r\n          <mat-form-field class=\"width-100pc margin-left-16px\">\r\n\r\n            <mat-label>Title</mat-label>\r\n\r\n            <input matInput type=\"text\" formControlName=\"title\" required readonly>\r\n\r\n          </mat-form-field>\r\n          <div class=\"padding-top-25px max-width-480px\">\r\n            <div class=\"padding-bottom-25px\">\r\n              <mat-label>Body</mat-label>\r\n            </div>\r\n            <p-editor [style]=\"{'height':'320px'}\" formControlName=\"body\" [readonly]=\"true\"></p-editor>\r\n\r\n          </div>\r\n\r\n        </div>\r\n\r\n        <div [fxFlex]=\"50\" class=\"border max-width-480px\">\r\n\r\n          <div class=\"display-flex justify-content-center\">\r\n            <h3>Image</h3>\r\n          </div>\r\n\r\n          <image-card formControlName=\"faces\" name=\"faces\" class=\"flex-grow-1\" formControlName=\"faces\" [principal]=\"principal\" [disabled]=\"true\"></image-card>\r\n\r\n        </div>\r\n\r\n      </div>\r\n\r\n\r\n    </div>\r\n\r\n  </div>\r\n\r\n  <div class=\"margin-right-25px padding-top-25px padding-bottom-25px flex-shrink-0 display-flex border-top-style-solid border-top-width-2px border-top-color-grey\">\r\n\r\n    <button mat-raised-button type=\"button\" (click)=\"close()\">{{ 'Close' | translate }}</button>\r\n\r\n  </div>\r\n  \r\n</form>"
+
+/***/ }),
+
+/***/ "./src/app/ms-back-office/modules/ms-blogs/components/see-blog/see-blog.component.scss":
+/*!*********************************************************************************************!*\
+  !*** ./src/app/ms-back-office/modules/ms-blogs/components/see-blog/see-blog.component.scss ***!
+  \*********************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = ":host {\n  display: flex;\n  flex-grow: 1;\n  flex-direction: column;\n  height: 100%; }\n\n.mat-dialog-container {\n  padding: 10px; }\n\n.mat-dialog-content {\n  height: 60%;\n  max-height: 82vh;\n  margin-bottom: 10px; }\n\n.mat-dialog-actions {\n  padding: 10px 0; }\n\nmat-card {\n  padding: 0px;\n  align-self: flex-start;\n  height: 200px;\n  width: 150px;\n  margin-left: 2px;\n  margin-right: 15px;\n  margin-bottom: 15px; }\n\nmat-icon {\n  font-size: 24px;\n  width: 24px;\n  height: 24px; }\n\n.max-width-60-pct {\n  max-width: 60% !important; }\n\n.border {\n  border: 1px solid #f1f1f1; }\n\ntd.mat-cell {\n  border: none !important; }\n\nth.mat-header-cell {\n  border: none !important; }\n\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvbXMtYmFjay1vZmZpY2UvbW9kdWxlcy9tcy1ibG9ncy9jb21wb25lbnRzL3NlZS1ibG9nL0U6XFxQUk9HUkFNQUNJT04gSUlJXFxtb3Jlc25lYWtlcnMtYmFja29mZmljZS9zcmNcXGFwcFxcbXMtYmFjay1vZmZpY2VcXG1vZHVsZXNcXG1zLWJsb2dzXFxjb21wb25lbnRzXFxzZWUtYmxvZ1xcc2VlLWJsb2cuY29tcG9uZW50LnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFDSSxjQUFhO0VBQ2IsYUFBWTtFQUNaLHVCQUFzQjtFQUN0QixhQUNGLEVBQUM7O0FBRUQ7RUFDRSxjQUFhLEVBQ2Q7O0FBRUQ7RUFDRSxZQUFXO0VBQ1gsaUJBQWdCO0VBQ2hCLG9CQUFtQixFQUNwQjs7QUFFRDtFQUNFLGdCQUFlLEVBQ2hCOztBQUVEO0VBQ0UsYUFBWTtFQUNaLHVCQUFzQjtFQUN0QixjQUFhO0VBQ2IsYUFBWTtFQUNaLGlCQUFnQjtFQUNoQixtQkFBa0I7RUFDbEIsb0JBQW1CLEVBQ3BCOztBQUVEO0VBQ0UsZ0JBQWU7RUFDZixZQUFXO0VBQ1gsYUFBWSxFQUNiOztBQUVEO0VBQ0UsMEJBQXlCLEVBQzFCOztBQUVEO0VBQ0UsMEJBQXlCLEVBQzFCOztBQUVEO0VBQ0Usd0JBQXVCLEVBQ3hCOztBQUNEO0VBQ0Usd0JBQXVCLEVBQ3hCIiwiZmlsZSI6InNyYy9hcHAvbXMtYmFjay1vZmZpY2UvbW9kdWxlcy9tcy1ibG9ncy9jb21wb25lbnRzL3NlZS1ibG9nL3NlZS1ibG9nLmNvbXBvbmVudC5zY3NzIiwic291cmNlc0NvbnRlbnQiOlsiOmhvc3Qge1xyXG4gICAgZGlzcGxheTogZmxleDtcclxuICAgIGZsZXgtZ3JvdzogMTtcclxuICAgIGZsZXgtZGlyZWN0aW9uOiBjb2x1bW47XHJcbiAgICBoZWlnaHQ6IDEwMCVcclxuICB9XHJcbiAgXHJcbiAgLm1hdC1kaWFsb2ctY29udGFpbmVyIHtcclxuICAgIHBhZGRpbmc6IDEwcHg7XHJcbiAgfVxyXG4gIFxyXG4gIC5tYXQtZGlhbG9nLWNvbnRlbnQge1xyXG4gICAgaGVpZ2h0OiA2MCU7XHJcbiAgICBtYXgtaGVpZ2h0OiA4MnZoO1xyXG4gICAgbWFyZ2luLWJvdHRvbTogMTBweDtcclxuICB9XHJcbiAgXHJcbiAgLm1hdC1kaWFsb2ctYWN0aW9ucyB7XHJcbiAgICBwYWRkaW5nOiAxMHB4IDA7XHJcbiAgfVxyXG4gIFxyXG4gIG1hdC1jYXJkIHtcclxuICAgIHBhZGRpbmc6IDBweDtcclxuICAgIGFsaWduLXNlbGY6IGZsZXgtc3RhcnQ7XHJcbiAgICBoZWlnaHQ6IDIwMHB4O1xyXG4gICAgd2lkdGg6IDE1MHB4O1xyXG4gICAgbWFyZ2luLWxlZnQ6IDJweDtcclxuICAgIG1hcmdpbi1yaWdodDogMTVweDtcclxuICAgIG1hcmdpbi1ib3R0b206IDE1cHg7XHJcbiAgfVxyXG4gIFxyXG4gIG1hdC1pY29uIHtcclxuICAgIGZvbnQtc2l6ZTogMjRweDtcclxuICAgIHdpZHRoOiAyNHB4O1xyXG4gICAgaGVpZ2h0OiAyNHB4O1xyXG4gIH1cclxuICBcclxuICAubWF4LXdpZHRoLTYwLXBjdHtcclxuICAgIG1heC13aWR0aDogNjAlICFpbXBvcnRhbnQ7XHJcbiAgfVxyXG4gIFxyXG4gIC5ib3JkZXJ7XHJcbiAgICBib3JkZXI6IDFweCBzb2xpZCAjZjFmMWYxO1xyXG4gIH1cclxuICBcclxuICB0ZC5tYXQtY2VsbHtcclxuICAgIGJvcmRlcjogbm9uZSAhaW1wb3J0YW50O1xyXG4gIH1cclxuICB0aC5tYXQtaGVhZGVyLWNlbGx7XHJcbiAgICBib3JkZXI6IG5vbmUgIWltcG9ydGFudDtcclxuICB9XHJcbiJdfQ== */"
+
+/***/ }),
+
+/***/ "./src/app/ms-back-office/modules/ms-blogs/components/see-blog/see-blog.component.ts":
+/*!*******************************************************************************************!*\
+  !*** ./src/app/ms-back-office/modules/ms-blogs/components/see-blog/see-blog.component.ts ***!
+  \*******************************************************************************************/
+/*! exports provided: SeeBlogComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SeeBlogComponent", function() { return SeeBlogComponent; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm5/forms.js");
+/* harmony import */ var _angular_material__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/material */ "./node_modules/@angular/material/esm5/material.es5.js");
+/* harmony import */ var _ngx_translate_core__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @ngx-translate/core */ "./node_modules/@ngx-translate/core/fesm5/ngx-translate-core.js");
+/* harmony import */ var _error_handling_services_error_handling_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../../../error-handling/services/error-handling.service */ "./src/app/error-handling/services/error-handling.service.ts");
+/* harmony import */ var _ui_components_base_reactive_form_base_reactive_form_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../../../ui/components/base-reactive-form/base-reactive-form-component */ "./src/app/ui/components/base-reactive-form/base-reactive-form-component.ts");
+/* harmony import */ var _services_blogs_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../services/blogs.service */ "./src/app/ms-back-office/modules/ms-blogs/services/blogs.service.ts");
+/* harmony import */ var _ui_modules_images_card_models_face__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../../../../ui/modules/images-card/models/face */ "./src/app/ui/modules/images-card/models/face.ts");
+var __extends = (undefined && undefined.__extends) || (function () {
+    var extendStatics = Object.setPrototypeOf ||
+        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+var __param = (undefined && undefined.__param) || function (paramIndex, decorator) {
+    return function (target, key) { decorator(target, key, paramIndex); }
+};
+
+
+//
+
+
+//
+
+
+
+
+var errorKey = 'Error';
+var SeeBlogComponent = /** @class */ (function (_super) {
+    __extends(SeeBlogComponent, _super);
+    function SeeBlogComponent(formBuilder, blogsService, errorHandlingService, translateService, dialogRef, dialogData) {
+        var _this = _super.call(this, translateService) || this;
+        _this.formBuilder = formBuilder;
+        _this.blogsService = blogsService;
+        _this.errorHandlingService = errorHandlingService;
+        _this.dialogRef = dialogRef;
+        _this.dialogData = dialogData;
+        _this.faceList = [];
+        return _this;
+        //setTranslations(this.translateService, TRANSLATIONS);
+    }
+    SeeBlogComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        var validationsErrors = [
+            {
+                type: 'required',
+                key: 'Required Field',
+                params: null,
+                translation: ''
+            }
+        ];
+        this.validationErrorMessages = validationsErrors;
+        this.createFormGroup();
+        this.blogsService.getBlog(this.dialogData.id).subscribe(function (response) {
+            _this.data = response.data;
+            if (_this.data.imgUrl) {
+                var face = {
+                    imgUrl: _this.data.imgUrl,
+                };
+                _this.faceList = [face];
+                _this.principal = face;
+            }
+        }, function (error) { return _this.errorHandlingService.handleUiError(errorKey, error); });
+    };
+    SeeBlogComponent.prototype.createFormGroup = function () {
+        this.faces = this.formBuilder.control(this.dialogData.faceList);
+        this.formGroup = new _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormGroup"]({
+            author: new _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormControl"](this.dialogData.data.author),
+            brandId: new _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormControl"](this.dialogData.data.brandId),
+            body: new _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormControl"](this.dialogData.data.body),
+            faces: this.faces,
+            title: new _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormControl"](this.dialogData.data.title),
+            type: new _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormControl"](this.dialogData.data.type),
+        });
+    };
+    SeeBlogComponent.prototype.submitClicked = function () {
+        if (this.formGroup.valid) {
+            this.accept.emit(this.data);
+        }
+        else {
+            this.triggerValidation();
+        }
+    };
+    SeeBlogComponent.prototype.close = function () {
+        this.dialogRef.close();
+    };
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])(),
+        __metadata("design:type", Array)
+    ], SeeBlogComponent.prototype, "faceList", void 0);
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])(),
+        __metadata("design:type", _ui_modules_images_card_models_face__WEBPACK_IMPORTED_MODULE_7__["Face"])
+    ], SeeBlogComponent.prototype, "principal", void 0);
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])(),
+        __metadata("design:type", Array)
+    ], SeeBlogComponent.prototype, "brands", void 0);
+    SeeBlogComponent = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+            selector: 'see-blog',
+            template: __webpack_require__(/*! ./see-blog.component.html */ "./src/app/ms-back-office/modules/ms-blogs/components/see-blog/see-blog.component.html"),
+            styles: [__webpack_require__(/*! ./see-blog.component.scss */ "./src/app/ms-back-office/modules/ms-blogs/components/see-blog/see-blog.component.scss")],
+            changeDetection: _angular_core__WEBPACK_IMPORTED_MODULE_0__["ChangeDetectionStrategy"].OnPush
+        }),
+        __param(5, Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Inject"])(_angular_material__WEBPACK_IMPORTED_MODULE_2__["MAT_DIALOG_DATA"])),
+        __metadata("design:paramtypes", [_angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormBuilder"],
+            _services_blogs_service__WEBPACK_IMPORTED_MODULE_6__["BlogsService"],
+            _error_handling_services_error_handling_service__WEBPACK_IMPORTED_MODULE_4__["ErrorHandlingService"],
+            _ngx_translate_core__WEBPACK_IMPORTED_MODULE_3__["TranslateService"],
+            _angular_material__WEBPACK_IMPORTED_MODULE_2__["MatDialogRef"], Object])
+    ], SeeBlogComponent);
+    return SeeBlogComponent;
+}(_ui_components_base_reactive_form_base_reactive_form_component__WEBPACK_IMPORTED_MODULE_5__["BaseReactiveFormComponent"]));
+
+
+
+/***/ }),
+
 /***/ "./src/app/ms-back-office/modules/ms-blogs/models/type.ts":
 /*!****************************************************************!*\
   !*** ./src/app/ms-back-office/modules/ms-blogs/models/type.ts ***!
@@ -1188,11 +2084,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _ui_modules_image_card_image_card_module__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ../../../ui/modules/image-card/image-card.module */ "./src/app/ui/modules/image-card/image-card.module.ts");
 /* harmony import */ var _ui_modules_ask_before_refresh_ask_before_refresh_module__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ../../../ui/modules/ask-before-refresh/ask-before-refresh.module */ "./src/app/ui/modules/ask-before-refresh/ask-before-refresh.module.ts");
 /* harmony import */ var _components_blog_form_blog_form_component__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./components/blog-form/blog-form.component */ "./src/app/ms-back-office/modules/ms-blogs/components/blog-form/blog-form.component.ts");
-/* harmony import */ var _components_blogs_table_blogs_table_component__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./components/blogs-table/blogs-table.component */ "./src/app/ms-back-office/modules/ms-blogs/components/blogs-table/blogs-table.component.ts");
-/* harmony import */ var _components_delete_blog_delete_blog_component__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ./components/delete-blog/delete-blog.component */ "./src/app/ms-back-office/modules/ms-blogs/components/delete-blog/delete-blog.component.ts");
-/* harmony import */ var _components_edit_blog_edit_blog_component__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ./components/edit-blog/edit-blog.component */ "./src/app/ms-back-office/modules/ms-blogs/components/edit-blog/edit-blog.component.ts");
-/* harmony import */ var _ms_blogs_routing_module__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ./ms-blogs-routing.module */ "./src/app/ms-back-office/modules/ms-blogs/ms-blogs-routing.module.ts");
-/* harmony import */ var _components_new_blog_new_blog_component__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! ./components/new-blog/new-blog.component */ "./src/app/ms-back-office/modules/ms-blogs/components/new-blog/new-blog.component.ts");
+/* harmony import */ var _components_see_blog_see_blog_component__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./components/see-blog/see-blog.component */ "./src/app/ms-back-office/modules/ms-blogs/components/see-blog/see-blog.component.ts");
+/* harmony import */ var _components_blogs_table_blogs_table_component__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ./components/blogs-table/blogs-table.component */ "./src/app/ms-back-office/modules/ms-blogs/components/blogs-table/blogs-table.component.ts");
+/* harmony import */ var _components_delete_blog_delete_blog_component__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ./components/delete-blog/delete-blog.component */ "./src/app/ms-back-office/modules/ms-blogs/components/delete-blog/delete-blog.component.ts");
+/* harmony import */ var _components_edit_blog_edit_blog_component__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ./components/edit-blog/edit-blog.component */ "./src/app/ms-back-office/modules/ms-blogs/components/edit-blog/edit-blog.component.ts");
+/* harmony import */ var _ms_blogs_routing_module__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! ./ms-blogs-routing.module */ "./src/app/ms-back-office/modules/ms-blogs/ms-blogs-routing.module.ts");
+/* harmony import */ var _components_new_blog_new_blog_component__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! ./components/new-blog/new-blog.component */ "./src/app/ms-back-office/modules/ms-blogs/components/new-blog/new-blog.component.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1228,6 +2125,7 @@ var __decorate = (undefined && undefined.__decorate) || function (decorators, ta
 
 
 
+
 var MsBlogsModule = /** @class */ (function () {
     function MsBlogsModule() {
     }
@@ -1242,6 +2140,7 @@ var MsBlogsModule = /** @class */ (function () {
                 _angular_material_bottom_sheet__WEBPACK_IMPORTED_MODULE_4__["MatBottomSheetModule"],
                 _angular_material_button__WEBPACK_IMPORTED_MODULE_5__["MatButtonModule"],
                 _angular_material_card__WEBPACK_IMPORTED_MODULE_12__["MatCardModule"],
+                _angular_material__WEBPACK_IMPORTED_MODULE_6__["MatDialogModule"],
                 _angular_material__WEBPACK_IMPORTED_MODULE_6__["MatFormFieldModule"],
                 _angular_material_icon__WEBPACK_IMPORTED_MODULE_7__["MatIconModule"],
                 _angular_material__WEBPACK_IMPORTED_MODULE_6__["MatInputModule"],
@@ -1253,24 +2152,28 @@ var MsBlogsModule = /** @class */ (function () {
                 _angular_material_toolbar__WEBPACK_IMPORTED_MODULE_10__["MatToolbarModule"],
                 _angular_material_tooltip__WEBPACK_IMPORTED_MODULE_11__["MatTooltipModule"],
                 _ngx_translate_core__WEBPACK_IMPORTED_MODULE_13__["TranslateModule"],
-                _ms_blogs_routing_module__WEBPACK_IMPORTED_MODULE_21__["MsBlogsRoutingModule"],
+                _ms_blogs_routing_module__WEBPACK_IMPORTED_MODULE_22__["MsBlogsRoutingModule"],
                 _ui_modules_ask_before_refresh_ask_before_refresh_module__WEBPACK_IMPORTED_MODULE_16__["AskBeforeRefreshModule"],
                 _ui_modules_image_card_image_card_module__WEBPACK_IMPORTED_MODULE_15__["ImageCardModule"],
                 primeng_editor__WEBPACK_IMPORTED_MODULE_14__["EditorModule"]
             ],
             declarations: [
                 _components_blog_form_blog_form_component__WEBPACK_IMPORTED_MODULE_17__["BlogFormComponent"],
-                _components_blogs_table_blogs_table_component__WEBPACK_IMPORTED_MODULE_18__["BlogsTableComponent"],
-                _components_delete_blog_delete_blog_component__WEBPACK_IMPORTED_MODULE_19__["DeleteBlogComponent"],
-                _components_edit_blog_edit_blog_component__WEBPACK_IMPORTED_MODULE_20__["EditBlogComponent"],
-                _components_new_blog_new_blog_component__WEBPACK_IMPORTED_MODULE_22__["NewBlogComponent"]
+                _components_blogs_table_blogs_table_component__WEBPACK_IMPORTED_MODULE_19__["BlogsTableComponent"],
+                _components_delete_blog_delete_blog_component__WEBPACK_IMPORTED_MODULE_20__["DeleteBlogComponent"],
+                _components_edit_blog_edit_blog_component__WEBPACK_IMPORTED_MODULE_21__["EditBlogComponent"],
+                _components_new_blog_new_blog_component__WEBPACK_IMPORTED_MODULE_23__["NewBlogComponent"],
+                _components_see_blog_see_blog_component__WEBPACK_IMPORTED_MODULE_18__["SeeBlogComponent"]
             ],
             exports: [
                 _components_blog_form_blog_form_component__WEBPACK_IMPORTED_MODULE_17__["BlogFormComponent"],
-                _components_blogs_table_blogs_table_component__WEBPACK_IMPORTED_MODULE_18__["BlogsTableComponent"],
-                _components_delete_blog_delete_blog_component__WEBPACK_IMPORTED_MODULE_19__["DeleteBlogComponent"],
-                _components_edit_blog_edit_blog_component__WEBPACK_IMPORTED_MODULE_20__["EditBlogComponent"],
-                _components_new_blog_new_blog_component__WEBPACK_IMPORTED_MODULE_22__["NewBlogComponent"]
+                _components_blogs_table_blogs_table_component__WEBPACK_IMPORTED_MODULE_19__["BlogsTableComponent"],
+                _components_delete_blog_delete_blog_component__WEBPACK_IMPORTED_MODULE_20__["DeleteBlogComponent"],
+                _components_edit_blog_edit_blog_component__WEBPACK_IMPORTED_MODULE_21__["EditBlogComponent"],
+                _components_new_blog_new_blog_component__WEBPACK_IMPORTED_MODULE_23__["NewBlogComponent"],
+            ],
+            entryComponents: [
+                _components_see_blog_see_blog_component__WEBPACK_IMPORTED_MODULE_18__["SeeBlogComponent"]
             ]
         })
     ], MsBlogsModule);

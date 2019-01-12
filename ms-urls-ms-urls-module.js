@@ -723,8 +723,8 @@ var UrlFormComponent = /** @class */ (function (_super) {
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
             selector: 'url-form',
             template: __webpack_require__(/*! ./url-form.component.html */ "./src/app/ms-back-office/modules/ms-urls/components/url-form/url-form.component.html"),
-            changeDetection: _angular_core__WEBPACK_IMPORTED_MODULE_0__["ChangeDetectionStrategy"].OnPush,
-            styles: [__webpack_require__(/*! ./url-form.component.scss */ "./src/app/ms-back-office/modules/ms-urls/components/url-form/url-form.component.scss")]
+            styles: [__webpack_require__(/*! ./url-form.component.scss */ "./src/app/ms-back-office/modules/ms-urls/components/url-form/url-form.component.scss")],
+            changeDetection: _angular_core__WEBPACK_IMPORTED_MODULE_0__["ChangeDetectionStrategy"].OnPush
         }),
         __metadata("design:paramtypes", [_ngx_translate_core__WEBPACK_IMPORTED_MODULE_2__["TranslateService"]])
     ], UrlFormComponent);

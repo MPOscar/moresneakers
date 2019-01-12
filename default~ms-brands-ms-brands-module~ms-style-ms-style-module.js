@@ -337,8 +337,8 @@ var BrandFormComponent = /** @class */ (function (_super) {
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
             selector: 'brand-form',
             template: __webpack_require__(/*! ./brand-form.component.html */ "./src/app/ms-back-office/modules/ms-brands/components/brand-form/brand-form.component.html"),
-            changeDetection: _angular_core__WEBPACK_IMPORTED_MODULE_0__["ChangeDetectionStrategy"].OnPush,
-            styles: [__webpack_require__(/*! ./brand-form.component.scss */ "./src/app/ms-back-office/modules/ms-brands/components/brand-form/brand-form.component.scss")]
+            styles: [__webpack_require__(/*! ./brand-form.component.scss */ "./src/app/ms-back-office/modules/ms-brands/components/brand-form/brand-form.component.scss")],
+            changeDetection: _angular_core__WEBPACK_IMPORTED_MODULE_0__["ChangeDetectionStrategy"].OnPush
         }),
         __metadata("design:paramtypes", [_angular_material__WEBPACK_IMPORTED_MODULE_5__["MatDialog"],
             _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormBuilder"],
@@ -358,7 +358,7 @@ var BrandFormComponent = /** @class */ (function (_super) {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<h1>Brands Table</h1>\n\n<mat-toolbar class=\"margin-right-25px margin-bottom-10px width-auto flex-shrink-0 background-color-secondary color-primary mat-elevation-z2\"\n  [formGroup]=\"filter\">\n\n  <mat-icon matPrefix color=\"primary\">search</mat-icon>\n  <mat-form-field>\n    <input matInput formControlName=\"name\" placeholder=\"Name\">\n  </mat-form-field>\n\n  <!--mat-form-field>\n    <mat-label>Collection</mat-label>\n    <mat-select disableOptionCentering placeholder=\"Collection\" formControlName=\"collection\">\n        <mat-option *ngFor=\"let collection of collections\" [value]=\"collection.id\">\n          {{collection.name}}\n        </mat-option>\n      </mat-select>\n  </mat-form-field-->\n\n  <span class=\"flex-grow-1\"></span>\n  <button mat-raised-button color=\"primary\" [routerLink]=\"['../create']\">CREATE A BRAND</button>\n</mat-toolbar>\n\n<div class=\"flex-grow-1 overflow-auto display-flex\">\n\n  <table class=\"margin-top-10px margin-right-25px width-100pct\" mat-table [dataSource]=\"brands\" matSort [matSortActive]=\"brandsService.previousSortColumn\"\n    [matSortDirection]=\"brandsService.previousSortDirection\" matSortDisableClear (matSortChange)=\"onSort()\">\n\n    <ng-container matColumnDef=\"name\">\n      <th mat-header-cell *matHeaderCellDef mat-sort-header>\n        NAME\n      </th>\n      <td mat-cell *matCellDef=\"let element\"> {{ element.name }} </td>\n    </ng-container>\n\n    <ng-container matColumnDef=\"thumbnail\">\n      <th mat-header-cell *matHeaderCellDef></th>\n      <td mat-cell *matCellDef=\"let element\" class=\"display-flex flex-grow-1 height-100pct padding-left-0px width-100pct\">\n        <div class=\"position-relative margin-top-5px\">\n          <img [src]=\"element.imgUrl\" class=\"height-90pct width-90pct margin-auto\" alt=\"50\">\n        </div>\n      </td>\n    </ng-container>\n\n    <ng-container matColumnDef=\"collection\">\n      <th mat-header-cell *matHeaderCellDef>\n        COLLECTION\n      </th>\n      <td mat-cell *matCellDef=\"let element\" innerHtml=\"{{ getCollections(element.id) }}\">  </td>\n    </ng-container>\n\n    <ng-container matColumnDef=\"createdAt\">\n      <th mat-header-cell *matHeaderCellDef mat-sort-header>\n        CREATION DATE\n      </th>\n      <td mat-cell *matCellDef=\"let element\"> {{ element.createdAt | date: 'MM/dd/yyyy HH:mm:ss': timeZoneOffset.toString() }} </td>\n    </ng-container>\n\n    <ng-container matColumnDef=\"actions\">\n      <th mat-header-cell *matHeaderCellDef>\n      </th>\n      <td mat-cell *matCellDef=\"let element\" class=\"min-width-80px\">\n        <button mat-icon-button color=\"primary\" [matTooltip]=\"Edit\" [routerLink]=\"['../edit', element.id]\">\n          <mat-icon>edit</mat-icon>\n        </button>\n        <button mat-icon-button color=\"primary\" [matTooltip]=\"Delete\" [routerLink]=\"['../delete', element.id]\">\n          <mat-icon>delete</mat-icon>\n        </button>\n      </td>\n    </ng-container>\n\n    <tr mat-header-row *matHeaderRowDef=\"displayedColumns\"></tr>\n    <tr mat-row *matRowDef=\"let row; columns: displayedColumns;\" [ngClass]=\"row.is_active ? '' : 'text-decoration-line-through'\">\n    </tr>\n\n  </table>\n\n</div>\n\n<div class=\"margin-right-25px padding-top-5px padding-bottom-5px flex-shrink-0 display-flex border-top-style-solid border-top-width-2px border-top-color-grey\">\n  <span class=\"flex-grow-1\"></span>\n  <mat-paginator [length]=\"totalLength\" [pageSizeOptions]=\"[5, 10, 20, 50, 100]\" [pageIndex]=\"\" [pageSize]=\"50\" showFirstLastButtons\n    (page)=\"onPage()\">\n  </mat-paginator>\n</div>"
+module.exports = "<h1>Brands Table</h1>\n\n<mat-toolbar class=\"margin-right-25px margin-bottom-10px width-auto flex-shrink-0 background-color-secondary color-primary mat-elevation-z2\"\n  [formGroup]=\"filter\">\n\n  <mat-icon matPrefix color=\"primary\">search</mat-icon>\n  <mat-form-field>\n    <input matInput formControlName=\"name\" placeholder=\"Name\">\n  </mat-form-field>\n\n  <!--mat-form-field>\n    <mat-label>Collection</mat-label>\n    <mat-select disableOptionCentering placeholder=\"Collection\" formControlName=\"collection\">\n        <mat-option *ngFor=\"let collection of collections\" [value]=\"collection.id\">\n          {{collection.name}}\n        </mat-option>\n      </mat-select>\n  </mat-form-field-->\n\n  <span class=\"flex-grow-1\"></span>\n  <button mat-raised-button color=\"primary\" [routerLink]=\"['../create']\">CREATE A BRAND</button>\n</mat-toolbar>\n\n<div class=\"flex-grow-1 overflow-auto display-flex\">\n\n  <table class=\"margin-top-10px margin-right-25px width-100pct\" mat-table [dataSource]=\"brands\" matSort [matSortActive]=\"brandsService.previousSortColumn\"\n    [matSortDirection]=\"brandsService.previousSortDirection\" matSortDisableClear (matSortChange)=\"onSort()\">\n\n    <ng-container matColumnDef=\"name\">\n      <th mat-header-cell *matHeaderCellDef mat-sort-header>\n        NAME\n      </th>\n      <td mat-cell *matCellDef=\"let element\"> {{ element.name }} </td>\n    </ng-container>\n\n    <ng-container matColumnDef=\"thumbnail\">\n      <th mat-header-cell *matHeaderCellDef></th>\n      <td mat-cell *matCellDef=\"let element\" class=\"display-flex flex-grow-1 height-100pct padding-left-0px width-100pct\">\n        <div class=\"position-relative margin-top-5px\">\n          <img [src]=\"element.imgUrl\" class=\"height-90pct width-90pct margin-auto\" alt=\"50\">\n        </div>\n      </td>\n    </ng-container>\n\n    <ng-container matColumnDef=\"collection\">\n      <th mat-header-cell *matHeaderCellDef>\n        COLLECTION\n      </th>\n      <td mat-cell *matCellDef=\"let element\" innerHtml=\"{{ getCollections(element.id) }}\"> </td>\n    </ng-container>\n\n    <ng-container matColumnDef=\"createdAt\">\n      <th mat-header-cell *matHeaderCellDef mat-sort-header>\n        CREATION DATE\n      </th>\n      <td mat-cell *matCellDef=\"let element\"> {{ element.createdAt | date: 'MM/dd/yyyy HH:mm:ss': timeZoneOffset.toString() }} </td>\n    </ng-container>\n\n    <ng-container matColumnDef=\"actions\">\n      <th mat-header-cell *matHeaderCellDef>\n      </th>\n      <td mat-cell *matCellDef=\"let element\" class=\"min-width-80px\">\n        <button mat-icon-button color=\"primary\" type=\"button\" [matTooltip]=\"Edit\" class=\"min-width-80px\" (click)=\"seeBrandModal(element.id)\">\n          <mat-icon>remove_red_eye</mat-icon>\n        </button>\n        <button mat-icon-button color=\"primary\" [matTooltip]=\"Edit\" [routerLink]=\"['../edit', element.id]\">\n          <mat-icon>edit</mat-icon>\n        </button>\n        <button mat-icon-button color=\"primary\" [matTooltip]=\"Delete\" [routerLink]=\"['../delete', element.id]\">\n          <mat-icon>delete</mat-icon>\n        </button>\n      </td>\n    </ng-container>\n\n    <tr mat-header-row *matHeaderRowDef=\"displayedColumns\"></tr>\n    <tr mat-row *matRowDef=\"let row; columns: displayedColumns;\" [ngClass]=\"row.is_active ? '' : 'text-decoration-line-through'\">\n    </tr>\n\n  </table>\n\n</div>\n\n<div class=\"margin-right-25px padding-top-5px padding-bottom-5px flex-shrink-0 display-flex border-top-style-solid border-top-width-2px border-top-color-grey\">\n  <span class=\"flex-grow-1\"></span>\n  <mat-paginator [length]=\"totalLength\" [pageSizeOptions]=\"[5, 10, 20, 50, 100]\" [pageIndex]=\"\" [pageSize]=\"50\" showFirstLastButtons\n    (page)=\"onPage()\">\n  </mat-paginator>\n</div>"
 
 /***/ }),
 
@@ -390,6 +390,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! rxjs/operators */ "./node_modules/rxjs/_esm5/operators/index.js");
 /* harmony import */ var _error_handling_services_error_handling_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../../../error-handling/services/error-handling.service */ "./src/app/error-handling/services/error-handling.service.ts");
 /* harmony import */ var _services_brands_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../services/brands.service */ "./src/app/ms-back-office/modules/ms-brands/services/brands.service.ts");
+/* harmony import */ var _see_brand_see_brand_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../see-brand/see-brand.component */ "./src/app/ms-back-office/modules/ms-brands/components/see-brand/see-brand.component.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -405,14 +406,15 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 //
 
 
-//
 
-//
+
+
 
 var errorKey = 'Error';
 var timeZoneOffset = new Date().getTimezoneOffset();
 var BrandsTableComponent = /** @class */ (function () {
-    function BrandsTableComponent(activatedRoute, brandsService, errorHandlingService) {
+    function BrandsTableComponent(dialog, activatedRoute, brandsService, errorHandlingService) {
+        this.dialog = dialog;
         this.activatedRoute = activatedRoute;
         this.brandsService = brandsService;
         this.errorHandlingService = errorHandlingService;
@@ -433,6 +435,7 @@ var BrandsTableComponent = /** @class */ (function () {
         this.filterValueChanges = this.filter.valueChanges.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["debounceTime"])(500)).subscribe(function (change) { return _this.onFilter(); });
         this.paginator.pageIndex = 0;
         this.collections = this.activatedRoute.snapshot.data.collections;
+        this.shops = this.activatedRoute.snapshot.data.shops;
         // Begin observing style list changes.
         this.brandsList = this.brandsService.brandsList.subscribe(function (brandsList) {
             _this.totalLength = brandsList.dataCount;
@@ -489,6 +492,30 @@ var BrandsTableComponent = /** @class */ (function () {
         });
         return collectionList;
     };
+    BrandsTableComponent.prototype.seeBrandModal = function (id) {
+        var _this = this;
+        this.brandsService.getBrand(id).subscribe(function (response) {
+            _this.data = response.data;
+            if (_this.data.imgUrl) {
+                var face = {
+                    imgUrl: _this.data.imgUrl,
+                };
+                _this.faceList = [face];
+                _this.principal = face;
+            }
+            _this.modalRef = _this.dialog.open(_see_brand_see_brand_component__WEBPACK_IMPORTED_MODULE_7__["SeeBrandComponent"], {
+                height: '90%',
+                width: '95%',
+                data: {
+                    id: id,
+                    faceList: _this.faceList,
+                    principal: _this.principal,
+                    data: response.data,
+                    shops: _this.shops,
+                }
+            });
+        }, function (error) { return _this.errorHandlingService.handleUiError(errorKey, error); });
+    };
     __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ViewChild"])(_angular_material__WEBPACK_IMPORTED_MODULE_3__["MatPaginator"]),
         __metadata("design:type", _angular_material__WEBPACK_IMPORTED_MODULE_3__["MatPaginator"])
@@ -503,7 +530,8 @@ var BrandsTableComponent = /** @class */ (function () {
             template: __webpack_require__(/*! ./brands-table.component.html */ "./src/app/ms-back-office/modules/ms-brands/components/brands-table/brands-table.component.html"),
             styles: [__webpack_require__(/*! ./brands-table.component.scss */ "./src/app/ms-back-office/modules/ms-brands/components/brands-table/brands-table.component.scss")]
         }),
-        __metadata("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"],
+        __metadata("design:paramtypes", [_angular_material__WEBPACK_IMPORTED_MODULE_3__["MatDialog"],
+            _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"],
             _services_brands_service__WEBPACK_IMPORTED_MODULE_6__["BrandsService"],
             _error_handling_services_error_handling_service__WEBPACK_IMPORTED_MODULE_5__["ErrorHandlingService"]])
     ], BrandsTableComponent);
@@ -665,7 +693,7 @@ var DeleteBrandComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<form class=\"flex-grow-1 min-height-0 display-flex flex-direction-column\" [askBeforeRefresh]=\"formGroup.dirty\" [formGroup]=\"formGroup\"\n  novalidate role=\"form\" (ngSubmit)=\"submitClicked()\" autocomplete=\"off\" inputFocus>\n\n\n\n  <div class=\"flex-grow-1 overflow-auto display-flex flex-direction-column padding-top-25px\">\n\n    <div class=\"flex-grow-1 flex-shrink-0 display-flex flex-direction-column\">\n\n      <mat-tab-group>\n\n        <mat-tab label=\"Brand\">\n\n          <mat-form-field class=\"width-100pc margin-left-16px margin-top-25px\">\n\n            <mat-label>Brand Name</mat-label>\n\n            <input matInput type=\"text\" formControlName=\"name\" required>\n\n          </mat-form-field>\n\n          <div [fxFlex]=\"50\" class=\"border width-480px\">\n\n            <image-card class=\"padding-10px\" formControlName=\"faces\" [principal]=\"principal\"></image-card>\n\n          </div>\n\n          <mat-form-field class=\"width-100pc margin-left-16px\" appearance=\"fill\">\n\n            <mat-label>Description</mat-label>\n\n            <textarea matInput formControlName=\"description\" class=\"min-height-100px\"></textarea>\n\n          </mat-form-field>\n\n\n        </mat-tab>\n\n        <mat-tab label=\"Linked Shops\" class=\"width-50pc\">\n\n          <div class=\"liked-shops padding-top-25px\" [fxFlex]=\"100\" fxLayout=\"row\" fxLayout.lt-md=\"column\">\n\n            <div class=\"margin-top-10px flex-grow-1\" fxLayout=\"row\" class=\"margin-bottom-25px margin-right-25px\">\n              <div fxLayout=\"column\" class=\"flex-grow-1\">\n                <div class=\"flex-grow-1 overflow-auto display-flex flex-direction-column padding-10px\">\n\n                  <!--div class=\"flex-grow-1 flex-shrink-0 display-flex flex-direction-column\"-->\n                  <div class=\"flex-wrap-wrap display-flex flex-grow-1 flex-shrink-1 flex-direction-row card-container justify-content-initial margin-top-10px\">\n                    <mat-card *ngFor=\"let shop of shops\" class=\"display-flex background-color-secondary flex-direction-column flex-shrink-1\">\n                      <div class=\"image-container margin-10px flex-grow-1\" #imageContainer>\n                        <img class=\"img\" imageLoad [srcImage]=\"shop.mainImage? shop.mainImage : ''\" [container]=\"imageContainer\" src=\"\">\n                      </div>\n                      <div class=\"image-card-btns display-flex margin-left-10px margin-right-10px margin-bottom-10px\">\n                        <mat-checkbox [checked]=\"shop.checked\" class=\"margin-top-10px\" matTooltip=\"{{ 'Principal' | translate }}\" (click)=\"linked(shop)\">{{ shop.name }}</mat-checkbox>\n                      </div>\n                    </mat-card>\n                    <!--/div-->\n                  </div>\n\n                </div>\n                <div class=\"justify-content-flex-end margin-right-25px padding-top-10px padding-bottom-10px flex-shrink-0 display-flex border-top-width-2px border-top-color-grey\">\n\n                  <button mat-stroked-button type=\"button\" [disabled]=\"!brandId\" (click)=\"save(true)\">Remove Selection</button>\n\n                  <button mat-raised-button type=\"button\" [disabled]=\"!brandId\" color=\"primary\" class=\"margin-left-10px\" (click)=\"linkShopsModalBrand()\">{{ 'Link New Stores' | translate }}</button>\n\n                </div>\n              </div>\n            </div>\n          </div>\n        </mat-tab>\n\n      </mat-tab-group>\n\n    </div>\n\n  </div>\n\n\n\n  <div class=\"margin-right-25px padding-top-25px padding-bottom-25px flex-shrink-0 display-flex border-top-style-solid border-top-width-2px border-top-color-grey\">\n\n    <button mat-raised-button type=\"submit\" color=\"primary\">{{ 'Save' | translate }}</button>\n\n    <button mat-raised-button type=\"button\" class=\"margin-left-10px\" (click)=\"cancelClicked()\">{{ 'Cancel' | translate }}</button>\n\n  </div>\n</form>"
+module.exports = "<form class=\"flex-grow-1 min-height-0 display-flex flex-direction-column\" [askBeforeRefresh]=\"formGroup.dirty\" [formGroup]=\"formGroup\"\n  novalidate role=\"form\" (ngSubmit)=\"submitClicked()\" autocomplete=\"off\" inputFocus>\n\n\n\n  <div class=\"flex-grow-1 overflow-auto display-flex flex-direction-column padding-top-25px\">\n\n    <div class=\"flex-grow-1 flex-shrink-0 display-flex flex-direction-column\">\n\n      <mat-tab-group>\n\n        <mat-tab label=\"Brand\">\n\n          <mat-form-field class=\"width-100pc margin-left-16px margin-top-25px\">\n\n            <mat-label>Brand Name</mat-label>\n\n            <input matInput type=\"text\" formControlName=\"name\" required>\n\n          </mat-form-field>\n\n          <div [fxFlex]=\"50\" class=\"border width-480px\">\n\n            <image-card class=\"padding-10px\" formControlName=\"faces\" [principal]=\"principal\"></image-card>\n\n          </div>\n\n          <mat-form-field class=\"width-100pc margin-left-16px\" appearance=\"fill\">\n\n            <mat-label>Description</mat-label>\n\n            <textarea matInput formControlName=\"description\" class=\"min-height-100px\"></textarea>\n\n          </mat-form-field>\n\n\n        </mat-tab>\n\n        <mat-tab label=\"Linked Shops\" class=\"width-50pc\">\n\n          <div class=\"liked-shops padding-top-25px\" [fxFlex]=\"100\" fxLayout=\"row\" fxLayout.lt-md=\"column\">\n\n            <div class=\"margin-top-10px flex-grow-1\" fxLayout=\"row\" class=\"margin-bottom-25px margin-right-25px\">\n              <div fxLayout=\"column\" class=\"flex-grow-1\">\n                <div class=\"flex-grow-1 overflow-auto display-flex flex-direction-column padding-10px\">\n\n                  <!--div class=\"flex-grow-1 flex-shrink-0 display-flex flex-direction-column\"-->\n                  <div class=\"flex-wrap-wrap display-flex flex-grow-1 flex-shrink-1 flex-direction-row card-container justify-content-initial margin-top-10px\">\n                    <mat-card *ngFor=\"let shop of shops\" class=\"display-flex background-color-secondary flex-direction-column flex-shrink-1\">\n                      <div class=\"image-container margin-10px flex-grow-1\" #imageContainer>\n                        <img class=\"img\" imageLoad [srcImage]=\"shop.mainImage? shop.mainImage : ''\" [container]=\"imageContainer\" src=\"\">\n                      </div>\n                      <div class=\"image-card-btns display-flex margin-left-10px margin-right-10px margin-bottom-10px\">\n                        <mat-checkbox [checked]=\"shop.checked\" class=\"margin-top-10px\" matTooltip=\"{{ 'Principal' | translate }}\" (click)=\"linked(shop)\">{{ shop.name }}</mat-checkbox>\n                      </div>\n                    </mat-card>\n                    <!--/div-->\n                  </div>\n\n                </div>\n                <div class=\"justify-content-flex-end margin-right-25px padding-top-10px padding-bottom-10px flex-shrink-0 display-flex border-top-width-2px border-top-color-grey\">\n\n                  <button mat-stroked-button type=\"button\" [disabled]=\"!brandId\" (click)=\"linkShopsModalBrand()\">{{ 'Link New Stores' | translate }}</button>\n\n                  <button mat-raised-button type=\"button\" [disabled]=\"!brandId\" color=\"primary\" class=\"margin-left-10px\" (click)=\"linkShopsModalBrand()\">{{ 'Link New Stores' | translate }}</button>\n\n                </div>\n              </div>\n            </div>\n          </div>\n        </mat-tab>\n\n      </mat-tab-group>\n\n    </div>\n\n  </div>\n\n\n\n  <div class=\"margin-right-25px padding-top-25px padding-bottom-25px flex-shrink-0 display-flex border-top-style-solid border-top-width-2px border-top-color-grey\">\n\n    <button mat-raised-button type=\"submit\" color=\"primary\">{{ 'Save' | translate }}</button>\n\n    <button mat-raised-button type=\"button\" class=\"margin-left-10px\" (click)=\"cancelClicked()\">{{ 'Cancel' | translate }}</button>\n\n  </div>\n</form>"
 
 /***/ }),
 
@@ -859,8 +887,8 @@ var EditBrandFormComponent = /** @class */ (function (_super) {
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
             selector: 'edit-brand-form',
             template: __webpack_require__(/*! ./edit-brand-form.component.html */ "./src/app/ms-back-office/modules/ms-brands/components/edit-brand-form/edit-brand-form.component.html"),
-            changeDetection: _angular_core__WEBPACK_IMPORTED_MODULE_0__["ChangeDetectionStrategy"].OnPush,
-            styles: [__webpack_require__(/*! ./edit-brand-form.component.scss */ "./src/app/ms-back-office/modules/ms-brands/components/edit-brand-form/edit-brand-form.component.scss")]
+            styles: [__webpack_require__(/*! ./edit-brand-form.component.scss */ "./src/app/ms-back-office/modules/ms-brands/components/edit-brand-form/edit-brand-form.component.scss")],
+            changeDetection: _angular_core__WEBPACK_IMPORTED_MODULE_0__["ChangeDetectionStrategy"].OnPush
         }),
         __metadata("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"],
             _angular_material__WEBPACK_IMPORTED_MODULE_9__["MatDialog"],
@@ -1224,6 +1252,245 @@ var NewBrandComponent = /** @class */ (function () {
 
 /***/ }),
 
+/***/ "./src/app/ms-back-office/modules/ms-brands/components/see-brand/see-brand.component.html":
+/*!************************************************************************************************!*\
+  !*** ./src/app/ms-back-office/modules/ms-brands/components/see-brand/see-brand.component.html ***!
+  \************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<form class=\"flex-grow-1 min-height-0 display-flex flex-direction-column\" [askBeforeRefresh]=\"formGroup.dirty\" [formGroup]=\"formGroup\"\n  novalidate role=\"form\" (ngSubmit)=\"submitClicked()\" autocomplete=\"off\" inputFocus>\n\n\n\n  <div class=\"flex-grow-1 overflow-auto display-flex flex-direction-column padding-top-25px\">\n\n    <div class=\"flex-grow-1 flex-shrink-0 display-flex flex-direction-column\">\n\n      <mat-tab-group>\n\n        <mat-tab label=\"Brand\">\n\n          <mat-form-field class=\"width-100pc margin-left-16px margin-top-25px\">\n\n            <mat-label>Brand Name</mat-label>\n\n            <input matInput type=\"text\" formControlName=\"name\" required readonly>\n\n          </mat-form-field>\n\n          <div class=\"border width-480px\">\n\n            <image-card class=\"padding-10px\" formControlName=\"faces\" [principal]=\"dialogData.principal\" [disabled]=\"true\"></image-card>\n\n          </div>\n\n          <mat-form-field class=\"width-100pc margin-left-16px padding-top-25px\" appearance=\"fill\">\n\n            <mat-label>Description</mat-label>\n\n            <textarea matInput formControlName=\"description\" class=\"min-height-100px\" readonly></textarea>\n\n          </mat-form-field>\n\n\n        </mat-tab>\n\n        <mat-tab label=\"Linked Shops\" class=\"width-50pc\">\n\n          <div class=\"liked-shops padding-top-25px\" [fxFlex]=\"100\" fxLayout=\"row\" fxLayout.lt-md=\"column\">\n\n            <div class=\"margin-top-10px flex-grow-1\" fxLayout=\"row\" class=\"margin-bottom-25px margin-right-25px\">\n              <div fxLayout=\"column\" class=\"flex-grow-1\">\n                <div class=\"flex-grow-1 overflow-auto display-flex flex-direction-column padding-10px\">\n\n                  <!--div class=\"flex-grow-1 flex-shrink-0 display-flex flex-direction-column\"-->\n                  <div class=\"flex-wrap-wrap display-flex flex-grow-1 flex-shrink-1 flex-direction-row card-container justify-content-initial margin-top-10px\">\n                    <div *ngFor=\"let shop of shops\">\n                      <mat-card *ngIf=\"shop.checked\" class=\"display-flex background-color-secondary flex-direction-column flex-shrink-1\">\n                        <div class=\"image-container margin-10px flex-grow-1\" #imageContainer>\n                          <img class=\"img\" imageLoad [srcImage]=\"shop.mainImage? shop.mainImage : ''\" [container]=\"imageContainer\" src=\"\">\n                        </div>\n                        <div class=\"image-card-btns display-flex margin-left-10px margin-right-10px margin-bottom-10px\">\n                          <mat-checkbox [checked]=\"shop.checked\" class=\"margin-top-10px\" matTooltip=\"{{ 'Principal' | translate }}\" (click)=\"linked(shop)\">{{ shop.name }}</mat-checkbox>\n                        </div>\n                      </mat-card>\n                      <!--/div-->\n                    </div>\n                  </div>\n\n                </div>\n\n              </div>\n            </div>\n          </div>\n        </mat-tab>\n\n      </mat-tab-group>\n\n    </div>\n\n  </div>\n\n  <div class=\"margin-right-25px padding-top-25px padding-bottom-25px flex-shrink-0 display-flex border-top-style-solid border-top-width-2px border-top-color-grey\">\n\n    <button mat-raised-button type=\"button\" (click)=\"close()\">{{ 'Close' | translate }}</button>\n\n  </div>\n\n</form>\n"
+
+/***/ }),
+
+/***/ "./src/app/ms-back-office/modules/ms-brands/components/see-brand/see-brand.component.scss":
+/*!************************************************************************************************!*\
+  !*** ./src/app/ms-back-office/modules/ms-brands/components/see-brand/see-brand.component.scss ***!
+  \************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = ":host {\n  display: flex;\n  flex-grow: 1;\n  flex-direction: column;\n  height: 100%; }\n\n.mat-dialog-container {\n  padding: 10px; }\n\n.mat-dialog-content {\n  height: 60%;\n  max-height: 82vh;\n  margin-bottom: 10px; }\n\n.mat-dialog-actions {\n  padding: 10px 0; }\n\nmat-card {\n  padding: 0px;\n  align-self: flex-start;\n  height: 200px;\n  width: 150px;\n  margin-left: 2px;\n  margin-right: 15px;\n  margin-bottom: 15px; }\n\nmat-icon {\n  font-size: 24px;\n  width: 24px;\n  height: 24px; }\n\n.max-width-60-pct {\n  max-width: 60% !important; }\n\n.border {\n  border: 1px solid #f1f1f1; }\n\ntd.mat-cell {\n  border: none !important; }\n\nth.mat-header-cell {\n  border: none !important; }\n\n:host {\n  display: flex;\n  flex-direction: column;\n  flex-grow: 1; }\n\n.height-34px {\n  height: 34px !important; }\n\n.width-100pc {\n  width: 100%; }\n\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvbXMtYmFjay1vZmZpY2UvbW9kdWxlcy9tcy1icmFuZHMvY29tcG9uZW50cy9zZWUtYnJhbmQvRTpcXFBST0dSQU1BQ0lPTiBJSUlcXG1vcmVzbmVha2Vycy1iYWNrb2ZmaWNlL3NyY1xcYXBwXFxtcy1iYWNrLW9mZmljZVxcbW9kdWxlc1xcbXMtYnJhbmRzXFxjb21wb25lbnRzXFxzZWUtYnJhbmRcXHNlZS1icmFuZC5jb21wb25lbnQuc2NzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUNJLGNBQWE7RUFDYixhQUFZO0VBQ1osdUJBQXNCO0VBQ3RCLGFBQ0YsRUFBQzs7QUFFRDtFQUNFLGNBQWEsRUFDZDs7QUFFRDtFQUNFLFlBQVc7RUFDWCxpQkFBZ0I7RUFDaEIsb0JBQW1CLEVBQ3BCOztBQUVEO0VBQ0UsZ0JBQWUsRUFDaEI7O0FBRUQ7RUFDRSxhQUFZO0VBQ1osdUJBQXNCO0VBQ3RCLGNBQWE7RUFDYixhQUFZO0VBQ1osaUJBQWdCO0VBQ2hCLG1CQUFrQjtFQUNsQixvQkFBbUIsRUFDcEI7O0FBRUQ7RUFDRSxnQkFBZTtFQUNmLFlBQVc7RUFDWCxhQUFZLEVBQ2I7O0FBRUQ7RUFDRSwwQkFBeUIsRUFDMUI7O0FBRUQ7RUFDRSwwQkFBeUIsRUFDMUI7O0FBRUQ7RUFDRSx3QkFBdUIsRUFDeEI7O0FBQ0Q7RUFDRSx3QkFBdUIsRUFDeEI7O0FBRUQ7RUFDRSxjQUFhO0VBQ2IsdUJBQXNCO0VBQ3RCLGFBQVksRUFDZjs7QUFFRDtFQUNJLHdCQUF1QixFQUMxQjs7QUFFRDtFQUNJLFlBQVcsRUFDZCIsImZpbGUiOiJzcmMvYXBwL21zLWJhY2stb2ZmaWNlL21vZHVsZXMvbXMtYnJhbmRzL2NvbXBvbmVudHMvc2VlLWJyYW5kL3NlZS1icmFuZC5jb21wb25lbnQuc2NzcyIsInNvdXJjZXNDb250ZW50IjpbIjpob3N0IHtcclxuICAgIGRpc3BsYXk6IGZsZXg7XHJcbiAgICBmbGV4LWdyb3c6IDE7XHJcbiAgICBmbGV4LWRpcmVjdGlvbjogY29sdW1uO1xyXG4gICAgaGVpZ2h0OiAxMDAlXHJcbiAgfVxyXG4gIFxyXG4gIC5tYXQtZGlhbG9nLWNvbnRhaW5lciB7XHJcbiAgICBwYWRkaW5nOiAxMHB4O1xyXG4gIH1cclxuICBcclxuICAubWF0LWRpYWxvZy1jb250ZW50IHtcclxuICAgIGhlaWdodDogNjAlO1xyXG4gICAgbWF4LWhlaWdodDogODJ2aDtcclxuICAgIG1hcmdpbi1ib3R0b206IDEwcHg7XHJcbiAgfVxyXG4gIFxyXG4gIC5tYXQtZGlhbG9nLWFjdGlvbnMge1xyXG4gICAgcGFkZGluZzogMTBweCAwO1xyXG4gIH1cclxuICBcclxuICBtYXQtY2FyZCB7XHJcbiAgICBwYWRkaW5nOiAwcHg7XHJcbiAgICBhbGlnbi1zZWxmOiBmbGV4LXN0YXJ0O1xyXG4gICAgaGVpZ2h0OiAyMDBweDtcclxuICAgIHdpZHRoOiAxNTBweDtcclxuICAgIG1hcmdpbi1sZWZ0OiAycHg7XHJcbiAgICBtYXJnaW4tcmlnaHQ6IDE1cHg7XHJcbiAgICBtYXJnaW4tYm90dG9tOiAxNXB4O1xyXG4gIH1cclxuICBcclxuICBtYXQtaWNvbiB7XHJcbiAgICBmb250LXNpemU6IDI0cHg7XHJcbiAgICB3aWR0aDogMjRweDtcclxuICAgIGhlaWdodDogMjRweDtcclxuICB9XHJcbiAgXHJcbiAgLm1heC13aWR0aC02MC1wY3R7XHJcbiAgICBtYXgtd2lkdGg6IDYwJSAhaW1wb3J0YW50O1xyXG4gIH1cclxuICBcclxuICAuYm9yZGVye1xyXG4gICAgYm9yZGVyOiAxcHggc29saWQgI2YxZjFmMTtcclxuICB9XHJcbiAgXHJcbiAgdGQubWF0LWNlbGx7XHJcbiAgICBib3JkZXI6IG5vbmUgIWltcG9ydGFudDtcclxuICB9XHJcbiAgdGgubWF0LWhlYWRlci1jZWxse1xyXG4gICAgYm9yZGVyOiBub25lICFpbXBvcnRhbnQ7XHJcbiAgfVxyXG5cclxuICA6aG9zdCB7XHJcbiAgICBkaXNwbGF5OiBmbGV4O1xyXG4gICAgZmxleC1kaXJlY3Rpb246IGNvbHVtbjtcclxuICAgIGZsZXgtZ3JvdzogMTtcclxufVxyXG5cclxuLmhlaWdodC0zNHB4e1xyXG4gICAgaGVpZ2h0OiAzNHB4ICFpbXBvcnRhbnQ7XHJcbn1cclxuXHJcbi53aWR0aC0xMDBwY3tcclxuICAgIHdpZHRoOiAxMDAlO1xyXG59XHJcbiJdfQ== */"
+
+/***/ }),
+
+/***/ "./src/app/ms-back-office/modules/ms-brands/components/see-brand/see-brand.component.ts":
+/*!**********************************************************************************************!*\
+  !*** ./src/app/ms-back-office/modules/ms-brands/components/see-brand/see-brand.component.ts ***!
+  \**********************************************************************************************/
+/*! exports provided: SeeBrandComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SeeBrandComponent", function() { return SeeBrandComponent; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm5/forms.js");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+/* harmony import */ var _ngx_translate_core__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @ngx-translate/core */ "./node_modules/@ngx-translate/core/fesm5/ngx-translate-core.js");
+/* harmony import */ var _angular_material__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/material */ "./node_modules/@angular/material/esm5/material.es5.js");
+/* harmony import */ var _error_handling_services_error_handling_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../../../error-handling/services/error-handling.service */ "./src/app/error-handling/services/error-handling.service.ts");
+/* harmony import */ var _ui_modules_images_card_models_face__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../../../../ui/modules/images-card/models/face */ "./src/app/ui/modules/images-card/models/face.ts");
+/* harmony import */ var _ui_components_base_reactive_form_base_reactive_form_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../../../../ui/components/base-reactive-form/base-reactive-form-component */ "./src/app/ui/components/base-reactive-form/base-reactive-form-component.ts");
+/* harmony import */ var _services_brands_service__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../services/brands.service */ "./src/app/ms-back-office/modules/ms-brands/services/brands.service.ts");
+/* harmony import */ var _ms_shops_components_link_shops_brand_link_shops_brand_modal_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../../../ms-shops/components/link-shops-brand/link-shops-brand-modal.component */ "./src/app/ms-back-office/modules/ms-shops/components/link-shops-brand/link-shops-brand-modal.component.ts");
+/* harmony import */ var _error_handling_services_toastr_service__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../../../../../error-handling/services/toastr.service */ "./src/app/error-handling/services/toastr.service.ts");
+var __extends = (undefined && undefined.__extends) || (function () {
+    var extendStatics = Object.setPrototypeOf ||
+        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+var __param = (undefined && undefined.__param) || function (paramIndex, decorator) {
+    return function (target, key) { decorator(target, key, paramIndex); }
+};
+
+
+
+//
+
+
+//
+
+
+
+
+
+
+var errorKey = 'Error';
+var SeeBrandComponent = /** @class */ (function (_super) {
+    __extends(SeeBrandComponent, _super);
+    function SeeBrandComponent(activatedRoute, dialog, brandsService, errorHandlingService, formBuilder, toastr, translateService, dialogRef, dialogData) {
+        var _this = _super.call(this, translateService) || this;
+        _this.activatedRoute = activatedRoute;
+        _this.dialog = dialog;
+        _this.brandsService = brandsService;
+        _this.errorHandlingService = errorHandlingService;
+        _this.formBuilder = formBuilder;
+        _this.toastr = toastr;
+        _this.dialogRef = dialogRef;
+        _this.dialogData = dialogData;
+        _this.faceList = [];
+        return _this;
+        //setTranslations(this.translateService, TRANSLATIONS);TODO
+    }
+    SeeBrandComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        this.shops = this.activatedRoute.snapshot.data.shops;
+        var validationsErrors = [
+            {
+                type: 'required',
+                key: 'Required Field',
+                params: null,
+                translation: ''
+            }
+        ];
+        this.brandsService.getBrandLinkedShops(this.dialogData.id).subscribe(function (response) {
+            _this.linkedShops = response.data;
+            _this.shops = _this.dialogData.shops;
+            _this.shops.forEach(function (shop) {
+                _this.isLinked(shop.id);
+            });
+        }, function (error) {
+            _this.errorHandlingService.handleUiError(errorKey, error);
+        });
+        this.validationErrorMessages = validationsErrors;
+        this.createFormGroup();
+    };
+    SeeBrandComponent.prototype.createFormGroup = function () {
+        this.faces = this.formBuilder.control(this.dialogData.faceList);
+        this.formGroup = new _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormGroup"]({
+            faces: this.faces,
+            name: new _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormControl"](this.dialogData.data.name, [_angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].required]),
+            description: new _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormControl"](this.dialogData.data.description),
+            imgUrl: new _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormControl"](this.dialogData.data.imgUrl),
+        });
+    };
+    SeeBrandComponent.prototype.submitClicked = function () {
+        if (this.formGroup.valid) {
+            this.accept.emit(this.data);
+        }
+        else {
+            console.log("invalid");
+            this.triggerValidation();
+        }
+    };
+    SeeBrandComponent.prototype.linkShopsModalBrand = function () {
+        this.modalRef = this.dialog.open(_ms_shops_components_link_shops_brand_link_shops_brand_modal_component__WEBPACK_IMPORTED_MODULE_9__["LinkShopsBrandModalComponent"], {
+            height: '90%',
+            width: '90%',
+            data: {
+                brandId: this.brandId,
+                shops: this.shops,
+            }
+        });
+    };
+    SeeBrandComponent.prototype.linked = function (shop) {
+        shop.linked = !shop.linked;
+        if (shop.linked) {
+            this.linkedShops = this.linkedShops.concat([shop.id]);
+        }
+        else {
+            var indexLinked_1 = this.linkedShops.findIndex(function (val) { return val === shop.id; });
+            if (indexLinked_1 > -1) {
+                var linked_1 = [];
+                this.linkedShops.forEach(function (shopId, index) {
+                    if (index != indexLinked_1) {
+                        linked_1 = linked_1.concat([shopId]);
+                    }
+                });
+                this.linkedShops = linked_1;
+            }
+        }
+    };
+    SeeBrandComponent.prototype.isLinked = function (id) {
+        var isLinked = this.linkedShops.findIndex(function (shopId) { return shopId === id; }) > -1;
+        if (isLinked) {
+            var index = this.shops.findIndex(function (shop) { return shop.id === id; });
+            this.shops[index].linked = true;
+            this.shops[index].checked = true;
+        }
+        else {
+            var index = this.shops.findIndex(function (shop) { return shop.id === id; });
+            this.shops[index].linked = false;
+            this.shops[index].checked = false;
+        }
+    };
+    SeeBrandComponent.prototype.changeCollection = function (brandId) {
+        var _this = this;
+        this.brandId = brandId;
+        this.brandsService.getBrandLinkedShops(brandId).subscribe(function (response) {
+            _this.linkedShops = response.data;
+            _this.shops.forEach(function (shop) {
+                _this.isLinked(shop.id);
+            });
+        }, function (error) {
+            _this.errorHandlingService.handleUiError(errorKey, error);
+        });
+    };
+    SeeBrandComponent.prototype.save = function (remove) {
+        var _this = this;
+        if (remove) {
+            this.linkedShops = [];
+        }
+        this.brandsService.postBrandLinkedShops(this.brandId, this.linkedShops).subscribe(function (response) {
+            _this.toastr.success("Saved");
+        }, function (error) {
+            _this.errorHandlingService.handleUiError(errorKey, error);
+        });
+    };
+    SeeBrandComponent.prototype.close = function () {
+        this.dialogRef.close();
+    };
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])(),
+        __metadata("design:type", Array)
+    ], SeeBrandComponent.prototype, "faceList", void 0);
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])(),
+        __metadata("design:type", _ui_modules_images_card_models_face__WEBPACK_IMPORTED_MODULE_6__["Face"])
+    ], SeeBrandComponent.prototype, "principal", void 0);
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])(),
+        __metadata("design:type", String)
+    ], SeeBrandComponent.prototype, "brandId", void 0);
+    SeeBrandComponent = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+            selector: 'see-brand',
+            template: __webpack_require__(/*! ./see-brand.component.html */ "./src/app/ms-back-office/modules/ms-brands/components/see-brand/see-brand.component.html"),
+            styles: [__webpack_require__(/*! ./see-brand.component.scss */ "./src/app/ms-back-office/modules/ms-brands/components/see-brand/see-brand.component.scss")],
+            changeDetection: _angular_core__WEBPACK_IMPORTED_MODULE_0__["ChangeDetectionStrategy"].OnPush
+        }),
+        __param(8, Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Inject"])(_angular_material__WEBPACK_IMPORTED_MODULE_4__["MAT_DIALOG_DATA"])),
+        __metadata("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"],
+            _angular_material__WEBPACK_IMPORTED_MODULE_4__["MatDialog"],
+            _services_brands_service__WEBPACK_IMPORTED_MODULE_8__["BrandsService"],
+            _error_handling_services_error_handling_service__WEBPACK_IMPORTED_MODULE_5__["ErrorHandlingService"],
+            _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormBuilder"],
+            _error_handling_services_toastr_service__WEBPACK_IMPORTED_MODULE_10__["ToastrService"],
+            _ngx_translate_core__WEBPACK_IMPORTED_MODULE_3__["TranslateService"],
+            _angular_material__WEBPACK_IMPORTED_MODULE_4__["MatDialogRef"], Object])
+    ], SeeBrandComponent);
+    return SeeBrandComponent;
+}(_ui_components_base_reactive_form_base_reactive_form_component__WEBPACK_IMPORTED_MODULE_7__["BaseReactiveFormComponent"]));
+
+
+
+/***/ }),
+
 /***/ "./src/app/ms-back-office/modules/ms-brands/models/brand.ts":
 /*!******************************************************************!*\
   !*** ./src/app/ms-back-office/modules/ms-brands/models/brand.ts ***!
@@ -1306,7 +1573,8 @@ var routes = [
         component: _components_brands_table_brands_table_component__WEBPACK_IMPORTED_MODULE_2__["BrandsTableComponent"],
         resolve: {
             config: _config_services_config_resolve_service__WEBPACK_IMPORTED_MODULE_6__["ConfigResolveService"],
-            collections: _ms_collections_services_collections_resolve_service__WEBPACK_IMPORTED_MODULE_8__["CollectionsResolveService"]
+            collections: _ms_collections_services_collections_resolve_service__WEBPACK_IMPORTED_MODULE_8__["CollectionsResolveService"],
+            shops: _ms_shops_services_shops_resolve_service__WEBPACK_IMPORTED_MODULE_11__["ShopsResolveService"]
         }
     },
     {
@@ -1388,12 +1656,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _ms_brands_routing_module__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./ms-brands-routing.module */ "./src/app/ms-back-office/modules/ms-brands/ms-brands-routing.module.ts");
 /* harmony import */ var _components_brand_creator_brand_creator_component__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./components/brand-creator/brand-creator.component */ "./src/app/ms-back-office/modules/ms-brands/components/brand-creator/brand-creator.component.ts");
 /* harmony import */ var _components_brand_form_brand_form_component__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ./components/brand-form/brand-form.component */ "./src/app/ms-back-office/modules/ms-brands/components/brand-form/brand-form.component.ts");
-/* harmony import */ var _components_new_brand_new_brand_component__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ./components/new-brand/new-brand.component */ "./src/app/ms-back-office/modules/ms-brands/components/new-brand/new-brand.component.ts");
-/* harmony import */ var _components_edit_brand_edit_brand_component__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ./components/edit-brand/edit-brand.component */ "./src/app/ms-back-office/modules/ms-brands/components/edit-brand/edit-brand.component.ts");
-/* harmony import */ var _components_edit_brand_form_edit_brand_form_component__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! ./components/edit-brand-form/edit-brand-form.component */ "./src/app/ms-back-office/modules/ms-brands/components/edit-brand-form/edit-brand-form.component.ts");
-/* harmony import */ var _components_delete_brand_delete_brand_component__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! ./components/delete-brand/delete-brand.component */ "./src/app/ms-back-office/modules/ms-brands/components/delete-brand/delete-brand.component.ts");
-/* harmony import */ var _ms_shops_ms_shops_module__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(/*! ../ms-shops/ms-shops.module */ "./src/app/ms-back-office/modules/ms-shops/ms-shops.module.ts");
-/* harmony import */ var _ms_shops_components_link_shops_brand_link_shops_brand_modal_component__WEBPACK_IMPORTED_MODULE_25__ = __webpack_require__(/*! ../ms-shops/components/link-shops-brand/link-shops-brand-modal.component */ "./src/app/ms-back-office/modules/ms-shops/components/link-shops-brand/link-shops-brand-modal.component.ts");
+/* harmony import */ var _components_see_brand_see_brand_component__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ./components/see-brand/see-brand.component */ "./src/app/ms-back-office/modules/ms-brands/components/see-brand/see-brand.component.ts");
+/* harmony import */ var _components_new_brand_new_brand_component__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ./components/new-brand/new-brand.component */ "./src/app/ms-back-office/modules/ms-brands/components/new-brand/new-brand.component.ts");
+/* harmony import */ var _components_edit_brand_edit_brand_component__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! ./components/edit-brand/edit-brand.component */ "./src/app/ms-back-office/modules/ms-brands/components/edit-brand/edit-brand.component.ts");
+/* harmony import */ var _components_edit_brand_form_edit_brand_form_component__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! ./components/edit-brand-form/edit-brand-form.component */ "./src/app/ms-back-office/modules/ms-brands/components/edit-brand-form/edit-brand-form.component.ts");
+/* harmony import */ var _components_delete_brand_delete_brand_component__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(/*! ./components/delete-brand/delete-brand.component */ "./src/app/ms-back-office/modules/ms-brands/components/delete-brand/delete-brand.component.ts");
+/* harmony import */ var _ms_shops_ms_shops_module__WEBPACK_IMPORTED_MODULE_25__ = __webpack_require__(/*! ../ms-shops/ms-shops.module */ "./src/app/ms-back-office/modules/ms-shops/ms-shops.module.ts");
+/* harmony import */ var _ms_shops_components_link_shops_brand_link_shops_brand_modal_component__WEBPACK_IMPORTED_MODULE_26__ = __webpack_require__(/*! ../ms-shops/components/link-shops-brand/link-shops-brand-modal.component */ "./src/app/ms-back-office/modules/ms-shops/components/link-shops-brand/link-shops-brand-modal.component.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1419,6 +1688,7 @@ var __decorate = (undefined && undefined.__decorate) || function (decorators, ta
 
 
 //
+
 
 
 
@@ -1461,20 +1731,22 @@ var MsBrandsModule = /** @class */ (function () {
                 _ms_brands_routing_module__WEBPACK_IMPORTED_MODULE_17__["MsBrandsRoutingModule"],
                 _ui_modules_ask_before_refresh_ask_before_refresh_module__WEBPACK_IMPORTED_MODULE_14__["AskBeforeRefreshModule"],
                 _ui_modules_image_card_image_card_module__WEBPACK_IMPORTED_MODULE_15__["ImageCardModule"],
-                _ms_shops_ms_shops_module__WEBPACK_IMPORTED_MODULE_24__["MsShopsModule"],
+                _ms_shops_ms_shops_module__WEBPACK_IMPORTED_MODULE_25__["MsShopsModule"],
             ],
             declarations: [
                 _components_brands_table_brands_table_component__WEBPACK_IMPORTED_MODULE_16__["BrandsTableComponent"],
                 _components_brand_creator_brand_creator_component__WEBPACK_IMPORTED_MODULE_18__["BrandCreatorComponent"],
                 _components_brand_form_brand_form_component__WEBPACK_IMPORTED_MODULE_19__["BrandFormComponent"],
-                _components_new_brand_new_brand_component__WEBPACK_IMPORTED_MODULE_20__["NewBrandComponent"],
-                _components_edit_brand_edit_brand_component__WEBPACK_IMPORTED_MODULE_21__["EditBrandComponent"],
-                _components_edit_brand_form_edit_brand_form_component__WEBPACK_IMPORTED_MODULE_22__["EditBrandFormComponent"],
-                _components_delete_brand_delete_brand_component__WEBPACK_IMPORTED_MODULE_23__["DeleteBrandComponent"]
+                _components_new_brand_new_brand_component__WEBPACK_IMPORTED_MODULE_21__["NewBrandComponent"],
+                _components_edit_brand_edit_brand_component__WEBPACK_IMPORTED_MODULE_22__["EditBrandComponent"],
+                _components_edit_brand_form_edit_brand_form_component__WEBPACK_IMPORTED_MODULE_23__["EditBrandFormComponent"],
+                _components_delete_brand_delete_brand_component__WEBPACK_IMPORTED_MODULE_24__["DeleteBrandComponent"],
+                _components_see_brand_see_brand_component__WEBPACK_IMPORTED_MODULE_20__["SeeBrandComponent"]
             ],
             entryComponents: [
-                _components_new_brand_new_brand_component__WEBPACK_IMPORTED_MODULE_20__["NewBrandComponent"],
-                _ms_shops_components_link_shops_brand_link_shops_brand_modal_component__WEBPACK_IMPORTED_MODULE_25__["LinkShopsBrandModalComponent"]
+                _components_new_brand_new_brand_component__WEBPACK_IMPORTED_MODULE_21__["NewBrandComponent"],
+                _ms_shops_components_link_shops_brand_link_shops_brand_modal_component__WEBPACK_IMPORTED_MODULE_26__["LinkShopsBrandModalComponent"],
+                _components_see_brand_see_brand_component__WEBPACK_IMPORTED_MODULE_20__["SeeBrandComponent"]
             ]
         })
     ], MsBrandsModule);
