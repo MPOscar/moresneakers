@@ -4711,7 +4711,14 @@ var EditShopFormComponent = /** @class */ (function (_super) {
         return realWorkinHours;
     };
     EditShopFormComponent.prototype.findWorkinHorsInData = function (day) {
-        return this.data.workingHours.find(function (val) { return val.dayOfWeek === day; });
+        if (this.data.workingHours.length > 1) {
+            return this.data.workingHours.find(function (val) { return val.dayOfWeek === day; });
+        }
+        else {
+            return {
+                'dayOfWeek': 1, 'openHour': '00:00', 'closeHour': '00:00'
+            };
+        }
     };
     EditShopFormComponent.prototype.resetTime = function (day, index) {
         var openHour = "openHour" + day;
