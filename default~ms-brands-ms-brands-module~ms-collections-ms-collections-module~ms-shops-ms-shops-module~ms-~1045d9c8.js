@@ -4547,39 +4547,39 @@ var EditShopFormComponent = /** @class */ (function (_super) {
             workingHours: this.formBuilder.array([
                 this.formBuilder.group({
                     dayOfWeekMonday: 1,
-                    openHourMonday: new _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormControl"](this.findWorkinHorsInData(1).openHour),
-                    closeHourMonday: new _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormControl"](this.findWorkinHorsInData(1).closeHour),
+                    openHourMonday: new _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormControl"](),
+                    closeHourMonday: new _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormControl"](),
                     notWorkingMonday: new _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormControl"](),
                 }),
                 this.formBuilder.group({
                     dayOfWeekTuesday: 2,
-                    openHourTuesday: new _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormControl"](this.findWorkinHorsInData(2).openHour),
-                    closeHourTuesday: new _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormControl"](this.findWorkinHorsInData(2).closeHour),
+                    openHourTuesday: new _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormControl"](),
+                    closeHourTuesday: new _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormControl"](),
                 }),
                 this.formBuilder.group({
                     dayOfWeekWednesday: 3,
-                    openHourWednesday: new _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormControl"](this.findWorkinHorsInData(2).openHour),
-                    closeHourWednesday: new _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormControl"](this.findWorkinHorsInData(3).closeHour),
+                    openHourWednesday: new _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormControl"](),
+                    closeHourWednesday: new _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormControl"](),
                 }),
                 this.formBuilder.group({
                     dayOfWeekThursday: 4,
-                    openHourThursday: new _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormControl"](this.findWorkinHorsInData(3).openHour),
-                    closeHourThursday: new _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormControl"](this.findWorkinHorsInData(3).closeHour),
+                    openHourThursday: new _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormControl"](),
+                    closeHourThursday: new _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormControl"](),
                 }),
                 this.formBuilder.group({
                     dayOfWeekFriday: 5,
-                    openHourFriday: new _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormControl"](this.findWorkinHorsInData(4).openHour),
-                    closeHourFriday: new _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormControl"](this.findWorkinHorsInData(4).closeHour),
+                    openHourFriday: new _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormControl"](),
+                    closeHourFriday: new _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormControl"](),
                 }),
                 this.formBuilder.group({
                     dayOfWeekSaturday: 6,
-                    openHourSaturday: new _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormControl"](this.findWorkinHorsInData(5).openHour),
-                    closeHourSaturday: new _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormControl"](this.findWorkinHorsInData(5).closeHour),
+                    openHourSaturday: new _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormControl"](),
+                    closeHourSaturday: new _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormControl"](),
                 }),
                 this.formBuilder.group({
                     dayOfWeekSunday: 7,
-                    openHourSunday: new _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormControl"](this.findWorkinHorsInData(6).openHour),
-                    closeHourSunday: new _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormControl"](this.findWorkinHorsInData(6).closeHour),
+                    openHourSunday: new _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormControl"](),
+                    closeHourSunday: new _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormControl"](),
                 })
             ]),
         });
