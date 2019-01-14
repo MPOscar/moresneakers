@@ -4862,10 +4862,10 @@ var EditShopComponent = /** @class */ (function () {
         this.snackBar = snackBar;
         this.translate = translate;
         this.toastr = toastr;
+        this.faceList = [];
         // Begin Mixin code of the CanDeactivate class
         this.unsavedChanges = false;
         this.cancelBtnKey = 'No';
-        this.faceList = [];
         this.okBtnKey = 'Yes';
         this.saveTitleKey = 'Discard Title';
         this.saveMessageKey = 'Discard Message';

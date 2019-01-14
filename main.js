@@ -2578,6 +2578,7 @@ var ErrorHandlingService = /** @class */ (function () {
             // Displaying the error if it really contains a message
             if (error.message) {
                 if (error.message === 'Invalid unique constraints') {
+                    console.log(url + ".......................");
                     switch (url) {
                         case 'style': {
                             error.message = 'This style already exists';
@@ -2585,6 +2586,10 @@ var ErrorHandlingService = /** @class */ (function () {
                         }
                         case 'blog': {
                             error.message = 'This blog already exists';
+                            break;
+                        }
+                        case 'collection': {
+                            error.message = 'This collection already exists';
                             break;
                         }
                         case 'brand': {
@@ -6209,6 +6214,756 @@ var MainImage = /** @class */ (function () {
 
 /***/ }),
 
+/***/ "./src/app/ui/modules/images-layout-card/components/images-layout-card/images-layout-card.component.css":
+/*!**************************************************************************************************************!*\
+  !*** ./src/app/ui/modules/images-layout-card/components/images-layout-card/images-layout-card.component.css ***!
+  \**************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = ":host { /* Safari */\r\n  display: flex; /* Safari */\r\n  flex-direction: column;\r\n}\r\n\r\n\r\n.mat-card-principal {\r\n  padding: 0px;\r\n  align-self: flex-start;\r\n  height: 150px;\r\n  width: 120px;\r\n  margin-left: 2px;\r\n  margin-right: 15px;\r\n  margin-bottom: 15px;\r\n}\r\n\r\n\r\n.mat-card-images {\r\n  padding: 0px;\r\n  align-self: flex-start;\r\n  height: 100px;\r\n  width: 100px;\r\n  margin-left: 2px;\r\n  margin-right: 15px;\r\n  margin-bottom: 30px;\r\n}\r\n\r\n\r\nmat-icon {\r\n  font-size: 24px;\r\n  width: 24px;\r\n  height: 24px;\r\n}\r\n\r\n\r\n.card-container {\r\n  flex-wrap: wrap;\r\n  margin-top: 25px;\r\n}\r\n\r\n\r\n.image-container{\r\n  display: flex;\r\n  align-items: center;\r\n  justify-content: center;\r\n  height:250px;\r\n}\r\n\r\n\r\n.image-card-btns{\r\n  justify-content: flex-end;\r\n}\r\n\r\n\r\n.img{\r\n  width: 100px;\r\n  height: 100px;\r\n}\r\n\r\n\r\n.align-items-center{\r\n  align-items: center;\r\n}\r\n\r\n\r\n.mat-radio-label {\r\n  height: 40px !important;\r\n}\r\n\r\n\r\n.width-250px{\r\n  width: 250px !important;  \r\n}\r\n\r\n\r\n.align-self-center {\r\n  align-self: center !important;\r\n}\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvdWkvbW9kdWxlcy9pbWFnZXMtbGF5b3V0LWNhcmQvY29tcG9uZW50cy9pbWFnZXMtbGF5b3V0LWNhcmQvaW1hZ2VzLWxheW91dC1jYXJkLmNvbXBvbmVudC5jc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUEsUUFDeUIsWUFBWTtFQUNuQyxjQUFjLENBQ2tCLFlBQVk7RUFDNUMsdUJBQXVCO0NBQ3hCOzs7QUFHRDtFQUNFLGFBQWE7RUFDYix1QkFBdUI7RUFDdkIsY0FBYztFQUNkLGFBQWE7RUFDYixpQkFBaUI7RUFDakIsbUJBQW1CO0VBQ25CLG9CQUFvQjtDQUNyQjs7O0FBRUQ7RUFDRSxhQUFhO0VBQ2IsdUJBQXVCO0VBQ3ZCLGNBQWM7RUFDZCxhQUFhO0VBQ2IsaUJBQWlCO0VBQ2pCLG1CQUFtQjtFQUNuQixvQkFBb0I7Q0FDckI7OztBQUVEO0VBQ0UsZ0JBQWdCO0VBQ2hCLFlBQVk7RUFDWixhQUFhO0NBQ2Q7OztBQUVEO0VBQ0UsZ0JBQWdCO0VBQ2hCLGlCQUFpQjtDQUNsQjs7O0FBRUQ7RUFDRSxjQUFjO0VBQ2Qsb0JBQW9CO0VBQ3BCLHdCQUF3QjtFQUN4QixhQUFhO0NBQ2Q7OztBQUVEO0VBQ0UsMEJBQTBCO0NBQzNCOzs7QUFFRDtFQUNFLGFBQWE7RUFDYixjQUFjO0NBQ2Y7OztBQUVEO0VBQ0Usb0JBQW9CO0NBQ3JCOzs7QUFFRDtFQUNFLHdCQUF3QjtDQUN6Qjs7O0FBRUQ7RUFDRSx3QkFBd0I7Q0FDekI7OztBQUVEO0VBQ0UsOEJBQThCO0NBQy9CIiwiZmlsZSI6InNyYy9hcHAvdWkvbW9kdWxlcy9pbWFnZXMtbGF5b3V0LWNhcmQvY29tcG9uZW50cy9pbWFnZXMtbGF5b3V0LWNhcmQvaW1hZ2VzLWxheW91dC1jYXJkLmNvbXBvbmVudC5jc3MiLCJzb3VyY2VzQ29udGVudCI6WyI6aG9zdCB7XHJcbiAgZGlzcGxheTogLXdlYmtpdC1mbGV4OyAvKiBTYWZhcmkgKi9cclxuICBkaXNwbGF5OiBmbGV4O1xyXG4gIC13ZWJraXQtZmxleC1kaXJlY3Rpb246IGNvbHVtbjsgLyogU2FmYXJpICovXHJcbiAgZmxleC1kaXJlY3Rpb246IGNvbHVtbjtcclxufVxyXG5cclxuXHJcbi5tYXQtY2FyZC1wcmluY2lwYWwge1xyXG4gIHBhZGRpbmc6IDBweDtcclxuICBhbGlnbi1zZWxmOiBmbGV4LXN0YXJ0O1xyXG4gIGhlaWdodDogMTUwcHg7XHJcbiAgd2lkdGg6IDEyMHB4O1xyXG4gIG1hcmdpbi1sZWZ0OiAycHg7XHJcbiAgbWFyZ2luLXJpZ2h0OiAxNXB4O1xyXG4gIG1hcmdpbi1ib3R0b206IDE1cHg7XHJcbn1cclxuXHJcbi5tYXQtY2FyZC1pbWFnZXMge1xyXG4gIHBhZGRpbmc6IDBweDtcclxuICBhbGlnbi1zZWxmOiBmbGV4LXN0YXJ0O1xyXG4gIGhlaWdodDogMTAwcHg7XHJcbiAgd2lkdGg6IDEwMHB4O1xyXG4gIG1hcmdpbi1sZWZ0OiAycHg7XHJcbiAgbWFyZ2luLXJpZ2h0OiAxNXB4O1xyXG4gIG1hcmdpbi1ib3R0b206IDMwcHg7XHJcbn1cclxuXHJcbm1hdC1pY29uIHtcclxuICBmb250LXNpemU6IDI0cHg7XHJcbiAgd2lkdGg6IDI0cHg7XHJcbiAgaGVpZ2h0OiAyNHB4O1xyXG59XHJcblxyXG4uY2FyZC1jb250YWluZXIge1xyXG4gIGZsZXgtd3JhcDogd3JhcDtcclxuICBtYXJnaW4tdG9wOiAyNXB4O1xyXG59XHJcblxyXG4uaW1hZ2UtY29udGFpbmVye1xyXG4gIGRpc3BsYXk6IGZsZXg7XHJcbiAgYWxpZ24taXRlbXM6IGNlbnRlcjtcclxuICBqdXN0aWZ5LWNvbnRlbnQ6IGNlbnRlcjtcclxuICBoZWlnaHQ6MjUwcHg7XHJcbn1cclxuXHJcbi5pbWFnZS1jYXJkLWJ0bnN7XHJcbiAganVzdGlmeS1jb250ZW50OiBmbGV4LWVuZDtcclxufVxyXG5cclxuLmltZ3tcclxuICB3aWR0aDogMTAwcHg7XHJcbiAgaGVpZ2h0OiAxMDBweDtcclxufVxyXG5cclxuLmFsaWduLWl0ZW1zLWNlbnRlcntcclxuICBhbGlnbi1pdGVtczogY2VudGVyO1xyXG59XHJcblxyXG4ubWF0LXJhZGlvLWxhYmVsIHtcclxuICBoZWlnaHQ6IDQwcHggIWltcG9ydGFudDtcclxufVxyXG5cclxuLndpZHRoLTI1MHB4e1xyXG4gIHdpZHRoOiAyNTBweCAhaW1wb3J0YW50OyAgXHJcbn1cclxuXHJcbi5hbGlnbi1zZWxmLWNlbnRlciB7XHJcbiAgYWxpZ24tc2VsZjogY2VudGVyICFpbXBvcnRhbnQ7XHJcbn0iXX0= */"
+
+/***/ }),
+
+/***/ "./src/app/ui/modules/images-layout-card/components/images-layout-card/images-layout-card.component.html":
+/*!***************************************************************************************************************!*\
+  !*** ./src/app/ui/modules/images-layout-card/components/images-layout-card/images-layout-card.component.html ***!
+  \***************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<div class=\"display-flex flex-grow-1 flex-shrink-1 flex-direction-column padding-0px-25px-25px-25px\">\r\n  <!--div class=\"align-self-center display-flex width-250px  flex-shrink-1 flex-direction-row card-container\">\r\n    <mat-card class=\"border-2px-solid-black box-shadow-none flex-grow-1 margin-0 mat-card-principal\" #imageContainer>\r\n      <img class=\"height-100-pc width-100-pc\" *ngIf=\"principal\" imageLoad [srcImage]=\"principal.imgUrl? principal.imgUrl : principal.file\"\r\n        [container]=\"imageContainer\" src=\"\">\r\n    </mat-card>\r\n  </div-->\r\n  <div class=\"display-flex flex-grow-1 flex-shrink-1 flex-direction-row card-container justify-content-initial\">\r\n    <mat-card *ngFor=\"let faceItem of faceItems; index as cardIndex; trackBy:trackByFn\" class=\"display-flex background-color-secondary flex-direction-column flex-shrink-1 mat-card-images\">\r\n      <div class=\"image-container margin-10px flex-grow-1\" #imageContainer>\r\n        <img class=\"img\" imageLoad [srcImage]=\"faceItem.imgUrl? faceItem.imgUrl : faceItem.file\" [container]=\"imageContainer\" src=\"\">\r\n      </div>\r\n      <div class=\"image-card-btns display-flex margin-left-10px margin-right-10px margin-bottom-10px\">\r\n        <mat-radio-button value=\"primary\" class=\"margin-top-10px\" (click)=\"setMainImage(faceItem)\" matTooltip=\"{{ 'Principal' | translate }}\"></mat-radio-button>\r\n        <button type=\"button\" mat-icon-button class=\"margin-left-10px\" (click)=\"deleteFace(cardIndex)\">\r\n          <mat-icon mat-raised-button color=\"accent\" matTooltip=\"{{ 'Delete' | translate }}\">delete</mat-icon>\r\n        </button>\r\n      </div>\r\n    </mat-card>\r\n  </div>\r\n  <div *ngIf=\"!disabled\" class=\"display-flex justify-content-center width-100-pc\"\r\n  drop-files\r\n  [faceItems]=\"faceItems\"\r\n  [ngClass]=\"{'border-dotted': !fileIsOver, 'border-dotted-drop': fileIsOver}\"\r\n  (filesOver)=\"fileOverDropZone($event)\"\r\n  (filesChange)=\"filesChange($event)\"\r\n  >\r\n    <div>\r\n      <div class=\"padding-bottom-10px\">\r\n        <p>Drop Files Here</p>\r\n        <button type=\"button\" class=\"border-none border-radius-5px\" (click)=\"fileInput.click()\" mat-stroked-button>\r\n          {{ 'Select File' | translate }}\r\n          <mat-icon>add</mat-icon>\r\n        </button>\r\n      </div>\r\n      <input #fileInput style=\"display:none\" type=\"file\" name=\"files\" class=\"file-input glyphicon glyphicon-plus\"\r\n        accept=\"image/*\" multiple/>\r\n    </div>\r\n  </div>\r\n</div>\r\n"
+
+/***/ }),
+
+/***/ "./src/app/ui/modules/images-layout-card/components/images-layout-card/images-layout-card.component.ts":
+/*!*************************************************************************************************************!*\
+  !*** ./src/app/ui/modules/images-layout-card/components/images-layout-card/images-layout-card.component.ts ***!
+  \*************************************************************************************************************/
+/*! exports provided: ImagesLayoutCardComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ImagesLayoutCardComponent", function() { return ImagesLayoutCardComponent; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm5/forms.js");
+/* harmony import */ var _ngx_translate_core__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @ngx-translate/core */ "./node_modules/@ngx-translate/core/fesm5/ngx-translate-core.js");
+/* harmony import */ var _error_handling_services_toastr_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../../error-handling/services/toastr.service */ "./src/app/error-handling/services/toastr.service.ts");
+/* harmony import */ var _directives_drop_files_directive__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../directives/drop-files.directive */ "./src/app/ui/modules/images-layout-card/directives/drop-files.directive.ts");
+/* harmony import */ var _models_face__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../models/face */ "./src/app/ui/modules/images-layout-card/models/face.ts");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+//
+
+//import { AnnotationToolModalComponent } from '../annotation-tool-modal/annotation-tool-modal.component';
+
+
+//import { ImageCardEditActionDirective } from '../../directives/images-card-edit-actions.directive';
+//import { setTranslations } from 'ngx-translate';
+//import { TRANSLATIONS } from './i18n/images-card.component.translations';
+var imageSizeErrorMessageKey = 'Image Size Error Message';
+var imageTypeErrorMessageKey = 'Image Type Error Message';
+var ImagesLayoutCardComponent = /** @class */ (function () {
+    function ImagesLayoutCardComponent(translate, toastr) {
+        this.translate = translate;
+        this.toastr = toastr;
+        this.disabled = false;
+        this.imageWidth = 100;
+        this.imageHeight = 100;
+        this._faceItems = [];
+        this.fileIsOver = false;
+        //@Input() imageCardEditAction: ImageCardEditActionDirective;
+        this.deletedFace = new _angular_core__WEBPACK_IMPORTED_MODULE_0__["EventEmitter"]();
+        this.propagateChange = function (_) {
+        };
+        //setTranslations(this.translate, TRANSLATIONS);
+    }
+    ImagesLayoutCardComponent_1 = ImagesLayoutCardComponent;
+    ImagesLayoutCardComponent.prototype.ngOnInit = function () {
+    };
+    Object.defineProperty(ImagesLayoutCardComponent.prototype, "faceItems", {
+        get: function () {
+            return this._faceItems;
+        },
+        set: function (value) {
+            this._faceItems = value;
+            this.propagateChange(this._faceItems);
+        },
+        enumerable: true,
+        configurable: true
+    });
+    ImagesLayoutCardComponent.prototype.writeValue = function (value) {
+        if (value !== undefined && value !== null && value.length > 0) {
+            this._faceItems = value;
+        }
+    };
+    ImagesLayoutCardComponent.prototype.registerOnChange = function (fn) {
+        this.propagateChange = fn;
+    };
+    ImagesLayoutCardComponent.prototype.registerOnTouched = function () {
+    };
+    ImagesLayoutCardComponent.prototype.validateImage = function (image) {
+        var result = true;
+        if (image && image.size > 0 && image.size > 20971520) {
+            result = false;
+            this.toastr.error(imageSizeErrorMessageKey);
+        }
+        else {
+            if (!(image.type === 'image/jpeg' || image.type === 'image/jpg' || image.type === 'image/jp2' || image.type === 'image/tiff' || image.type === 'image/png' || image.type === 'image/pgm' || image.type === 'image/bmp')) {
+                result = false;
+                this.toastr.error(imageTypeErrorMessageKey);
+            }
+        }
+        return result;
+    };
+    /*addImages($event) {
+      if ($event.target.files && $event.target.files.length > 0) {
+        for (const file of $event.target.files) {
+          if (this.validateImage(file)) {
+            const newFace: Face = {
+              file: file,
+              state: State.New,
+              status: Status.Pending,
+              mainImage: false
+            };
+            if (this.faceItems) {
+              this.faceItems = [...this.faceItems, newFace];
+            } else {
+              this.faceItems = [newFace];
+            }
+          }
+        }
+        $event.target.value = '';
+      }
+    }*/
+    ImagesLayoutCardComponent.prototype.checkUploadStatusUploading = function (status) {
+        return status === _models_face__WEBPACK_IMPORTED_MODULE_5__["Status"].Uploading;
+    };
+    ImagesLayoutCardComponent.prototype.checkUploadStatusUploaded = function (status) {
+        return status === undefined || status === _models_face__WEBPACK_IMPORTED_MODULE_5__["Status"].Uploaded;
+    };
+    ImagesLayoutCardComponent.prototype.checkUploadStatusError = function (status) {
+        return status === _models_face__WEBPACK_IMPORTED_MODULE_5__["Status"].Error;
+    };
+    ImagesLayoutCardComponent.prototype.checkUploadStatusPending = function (status) {
+        return status === _models_face__WEBPACK_IMPORTED_MODULE_5__["Status"].Pending;
+    };
+    ImagesLayoutCardComponent.prototype.trackByFn = function (index, data) {
+        if (this.trackByKey) {
+            return data[this.trackByKey] ? data[this.trackByKey] : index;
+        }
+        return index;
+    };
+    ImagesLayoutCardComponent.prototype.deleteFace = function (index) {
+        var deletedItem = this.faceItems.splice(index, 1).pop();
+        if (deletedItem.mainImage) {
+            console.log("esta es la imagen principal");
+            this.principal = null;
+        }
+        this.faceItems = this.faceItems.slice();
+        this.deletedFace.emit(deletedItem);
+    };
+    ImagesLayoutCardComponent.prototype.fileOverDropZone = function (event) {
+        this.fileIsOver = event;
+    };
+    ImagesLayoutCardComponent.prototype.filesChange = function (event) {
+        console.log("here..");
+        this.faceItems = event;
+    };
+    ImagesLayoutCardComponent.prototype.setMainImage = function (faceItem) {
+        this.principal = faceItem;
+        faceItem.mainImage = true;
+        this.faceItems.forEach(function (image) {
+            image.mainImage = false;
+        });
+        faceItem.mainImage = true;
+    };
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])(),
+        __metadata("design:type", String)
+    ], ImagesLayoutCardComponent.prototype, "caseId", void 0);
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])(),
+        __metadata("design:type", Boolean)
+    ], ImagesLayoutCardComponent.prototype, "disabled", void 0);
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])(),
+        __metadata("design:type", String)
+    ], ImagesLayoutCardComponent.prototype, "trackByKey", void 0);
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])(),
+        __metadata("design:type", Object)
+    ], ImagesLayoutCardComponent.prototype, "imageWidth", void 0);
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])(),
+        __metadata("design:type", Object)
+    ], ImagesLayoutCardComponent.prototype, "imageHeight", void 0);
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])(),
+        __metadata("design:type", _models_face__WEBPACK_IMPORTED_MODULE_5__["Face"])
+    ], ImagesLayoutCardComponent.prototype, "principal", void 0);
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ViewChild"])(_directives_drop_files_directive__WEBPACK_IMPORTED_MODULE_4__["DropFilesDirective"]),
+        __metadata("design:type", _directives_drop_files_directive__WEBPACK_IMPORTED_MODULE_4__["DropFilesDirective"])
+    ], ImagesLayoutCardComponent.prototype, "dropFilesDirective", void 0);
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"])(),
+        __metadata("design:type", Object)
+    ], ImagesLayoutCardComponent.prototype, "deletedFace", void 0);
+    ImagesLayoutCardComponent = ImagesLayoutCardComponent_1 = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+            selector: 'images-layout-card',
+            template: __webpack_require__(/*! ./images-layout-card.component.html */ "./src/app/ui/modules/images-layout-card/components/images-layout-card/images-layout-card.component.html"),
+            styles: [__webpack_require__(/*! ./images-layout-card.component.css */ "./src/app/ui/modules/images-layout-card/components/images-layout-card/images-layout-card.component.css")],
+            providers: [
+                { provide: _angular_forms__WEBPACK_IMPORTED_MODULE_1__["NG_VALUE_ACCESSOR"], useExisting: Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["forwardRef"])(function () { return ImagesLayoutCardComponent_1; }), multi: true }
+            ]
+        }),
+        __metadata("design:paramtypes", [_ngx_translate_core__WEBPACK_IMPORTED_MODULE_2__["TranslateService"],
+            _error_handling_services_toastr_service__WEBPACK_IMPORTED_MODULE_3__["ToastrService"]])
+    ], ImagesLayoutCardComponent);
+    return ImagesLayoutCardComponent;
+    var ImagesLayoutCardComponent_1;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/ui/modules/images-layout-card/directives/drop-files.directive.ts":
+/*!**********************************************************************************!*\
+  !*** ./src/app/ui/modules/images-layout-card/directives/drop-files.directive.ts ***!
+  \**********************************************************************************/
+/*! exports provided: DropFilesDirective */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "DropFilesDirective", function() { return DropFilesDirective; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _models_face__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../models/face */ "./src/app/ui/modules/images-layout-card/models/face.ts");
+/* harmony import */ var _error_handling_services_toastr_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../error-handling/services/toastr.service */ "./src/app/error-handling/services/toastr.service.ts");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+var imageSizeErrorMessageKey = 'Image Size Error';
+var imageTypeErrorMessageKey = 'Image Type Error';
+var DropFilesDirective = /** @class */ (function () {
+    function DropFilesDirective(hostElement, toastr) {
+        this.hostElement = hostElement;
+        this.toastr = toastr;
+        this.faceItems = [];
+        this.filesOver = new _angular_core__WEBPACK_IMPORTED_MODULE_0__["EventEmitter"]();
+        this.filesChange = new _angular_core__WEBPACK_IMPORTED_MODULE_0__["EventEmitter"]();
+    }
+    DropFilesDirective.prototype.onDragEnter = function (event) {
+        this.filesOver.emit(true);
+    };
+    DropFilesDirective.prototype.onDragLeave = function (event) {
+        this.filesOver.emit(false);
+    };
+    DropFilesDirective.prototype.onDragOver = function (event) {
+        var transfer = this.getTarnsfer(event);
+        transfer.dropEffect = 'copy';
+        this.preventAndStop(event);
+        this.filesOver.emit(true);
+    };
+    DropFilesDirective.prototype.onDrop = function (event) {
+        this.preventAndStop(event);
+        var transfer = this.getTarnsfer(event);
+        if (!transfer) {
+            return;
+        }
+        console.log("drop");
+        this.addFiles(transfer.files);
+        this.filesOver.emit(false);
+    };
+    DropFilesDirective.prototype.onChangeFileInput = function (event) {
+        console.log("change");
+        this.addFiles(event);
+    };
+    DropFilesDirective.prototype.getTarnsfer = function (event) {
+        return event.dataTransfer ? event.dataTransfer : event.originalEvent.dataTransfer;
+    };
+    DropFilesDirective.prototype.preventAndStop = function (event) {
+        event.preventDefault();
+        event.stopPropagation();
+    };
+    DropFilesDirective.prototype.addFiles = function (fileList) {
+        console.log(fileList);
+        for (var property in Object.getOwnPropertyNames(fileList)) {
+            var tempFile = fileList[property];
+            if (this.fileCanBeLoad(tempFile)) {
+                var newFile = new _models_face__WEBPACK_IMPORTED_MODULE_1__["Face"](tempFile);
+                this.faceItems = this.faceItems.concat([newFile]);
+            }
+        }
+        this.filesChange.emit(this.faceItems);
+        console.log(this.faceItems);
+    };
+    DropFilesDirective.prototype.fileIsInFiles = function (fileName) {
+        for (var i in this.faceItems) {
+            var file = this.faceItems[i];
+            if (file.state === _models_face__WEBPACK_IMPORTED_MODULE_1__["State"].New) {
+                if (file.file.name === fileName) {
+                    console.log("Existe");
+                    return false;
+                }
+            }
+        }
+        return true;
+    };
+    DropFilesDirective.prototype.validateImage = function (image) {
+        var result = true;
+        if (image && image.size > 0 && image.size > 20971520) {
+            result = false;
+            this.toastr.error(imageSizeErrorMessageKey);
+        }
+        else {
+            if (!(image.type === 'image/jpeg' || image.type === 'image/jpg' || image.type === 'image/jp2' || image.type === 'image/tiff' || image.type === 'image/png' || image.type === 'image/pgm' || image.type === 'image/bmp')) {
+                result = false;
+                this.toastr.error(imageTypeErrorMessageKey);
+            }
+        }
+        return result;
+    };
+    DropFilesDirective.prototype.fileCanBeLoad = function (file) {
+        if (this.fileIsInFiles(file.name) && this.validateImage(file)) {
+            return true;
+        }
+        return false;
+    };
+    DropFilesDirective.prototype.addImages = function ($event) {
+        if ($event.target.files && $event.target.files.length > 0) {
+            for (var _i = 0, _a = $event.target.files; _i < _a.length; _i++) {
+                var file = _a[_i];
+                if (this.validateImage(file)) {
+                    console.log("adding.......");
+                    var newFace = {
+                        file: file,
+                        state: _models_face__WEBPACK_IMPORTED_MODULE_1__["State"].New,
+                        status: _models_face__WEBPACK_IMPORTED_MODULE_1__["Status"].Pending,
+                        mainImage: false
+                    };
+                    this.faceItems = this.faceItems.concat([newFace]);
+                }
+            }
+            $event.target.value = '';
+        }
+    };
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])(),
+        __metadata("design:type", Array)
+    ], DropFilesDirective.prototype, "faceItems", void 0);
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"])(),
+        __metadata("design:type", _angular_core__WEBPACK_IMPORTED_MODULE_0__["EventEmitter"])
+    ], DropFilesDirective.prototype, "filesOver", void 0);
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"])(),
+        __metadata("design:type", _angular_core__WEBPACK_IMPORTED_MODULE_0__["EventEmitter"])
+    ], DropFilesDirective.prototype, "filesChange", void 0);
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["HostListener"])('dragenter', ['$event']),
+        __metadata("design:type", Function),
+        __metadata("design:paramtypes", [Object]),
+        __metadata("design:returntype", void 0)
+    ], DropFilesDirective.prototype, "onDragEnter", null);
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["HostListener"])('dragleave', ['$event']),
+        __metadata("design:type", Function),
+        __metadata("design:paramtypes", [Object]),
+        __metadata("design:returntype", void 0)
+    ], DropFilesDirective.prototype, "onDragLeave", null);
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["HostListener"])('dragover', ['$event']),
+        __metadata("design:type", Function),
+        __metadata("design:paramtypes", [Object]),
+        __metadata("design:returntype", void 0)
+    ], DropFilesDirective.prototype, "onDragOver", null);
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["HostListener"])('drop', ['$event']),
+        __metadata("design:type", Function),
+        __metadata("design:paramtypes", [Object]),
+        __metadata("design:returntype", void 0)
+    ], DropFilesDirective.prototype, "onDrop", null);
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["HostListener"])('change', ['$event.target.files']),
+        __metadata("design:type", Function),
+        __metadata("design:paramtypes", [Object]),
+        __metadata("design:returntype", void 0)
+    ], DropFilesDirective.prototype, "onChangeFileInput", null);
+    DropFilesDirective = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Directive"])({
+            selector: '[drop-files]'
+        }),
+        __metadata("design:paramtypes", [_angular_core__WEBPACK_IMPORTED_MODULE_0__["ElementRef"],
+            _error_handling_services_toastr_service__WEBPACK_IMPORTED_MODULE_2__["ToastrService"]])
+    ], DropFilesDirective);
+    return DropFilesDirective;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/ui/modules/images-layout-card/directives/image-load.directive.ts":
+/*!**********************************************************************************!*\
+  !*** ./src/app/ui/modules/images-layout-card/directives/image-load.directive.ts ***!
+  \**********************************************************************************/
+/*! exports provided: ImageLoadDirective */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ImageLoadDirective", function() { return ImageLoadDirective; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _helpers_image_proportions_helper__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../helpers/image-proportions-helper */ "./src/app/ui/modules/images-layout-card/helpers/image-proportions-helper.ts");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+var ImageLoadDirective = /** @class */ (function () {
+    function ImageLoadDirective(hostElement) {
+        this.hostElement = hostElement;
+        this.imageBestFit = { height: null, width: null };
+    }
+    ImageLoadDirective.prototype.ngOnInit = function () {
+        if (this.srcImage === undefined) {
+            throw new Error('Please you need to provide a valid image, file or url');
+        }
+        if (this.container && this.container instanceof _angular_core__WEBPACK_IMPORTED_MODULE_0__["ElementRef"]) {
+            this.container = this.container.nativeElement;
+        }
+    };
+    ImageLoadDirective.prototype.ngOnChanges = function (changes) {
+        this.initializeImage();
+    };
+    Object.defineProperty(ImageLoadDirective.prototype, "loadImage", {
+        get: function () {
+            if (this._loadImage === null || this._loadImage === undefined) {
+                this._loadImage = this.hostElement.nativeElement;
+            }
+            return this._loadImage;
+        },
+        set: function (value) {
+            this._loadImage = value;
+        },
+        enumerable: true,
+        configurable: true
+    });
+    ImageLoadDirective.prototype.ngAfterViewInit = function () {
+        this.initializeImage();
+    };
+    ImageLoadDirective.prototype.initializeImage = function () {
+        var _this = this;
+        this.loadImage.onload = function () {
+            _this.imageAspectRatio = Object(_helpers_image_proportions_helper__WEBPACK_IMPORTED_MODULE_1__["calculateAspectRatio"])(_this.loadImage.naturalHeight, _this.loadImage.naturalWidth);
+            _this.imageBestFit = Object(_helpers_image_proportions_helper__WEBPACK_IMPORTED_MODULE_1__["imageBestFit"])(_this.loadImage, _this.container, _this.imageAspectRatio);
+            _this.hostElement.nativeElement.width = _this.imageBestFit.width;
+            _this.hostElement.nativeElement.height = _this.imageBestFit.height;
+        };
+        // Checking if the thumbnail is provided by a file or by a string in base 64
+        if (typeof this.srcImage === 'string') {
+            this.loadImage.src = this.srcImage;
+        }
+        else {
+            var reader_1 = new FileReader();
+            reader_1.onloadend = function () {
+                _this.loadImage.src = reader_1.result;
+            };
+            reader_1.readAsDataURL(this.srcImage);
+        }
+    };
+    ImageLoadDirective.prototype.imageIsBiggestThanAvailableSpace = function () {
+        if (this.loadImage.naturalHeight > this.container.clientHeight && this.loadImage.naturalWidth > this.container.clientWidth) {
+            return true;
+        }
+        return false;
+    };
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])(),
+        __metadata("design:type", HTMLElement)
+    ], ImageLoadDirective.prototype, "container", void 0);
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])(),
+        __metadata("design:type", Object)
+    ], ImageLoadDirective.prototype, "srcImage", void 0);
+    ImageLoadDirective = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Directive"])({
+            selector: 'img[imageLoad]'
+        }),
+        __metadata("design:paramtypes", [_angular_core__WEBPACK_IMPORTED_MODULE_0__["ElementRef"]])
+    ], ImageLoadDirective);
+    return ImageLoadDirective;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/ui/modules/images-layout-card/directives/images-card-edit-actions.directive.ts":
+/*!************************************************************************************************!*\
+  !*** ./src/app/ui/modules/images-layout-card/directives/images-card-edit-actions.directive.ts ***!
+  \************************************************************************************************/
+/*! exports provided: ImageCardEditActionDirective */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ImageCardEditActionDirective", function() { return ImageCardEditActionDirective; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+
+var ImageCardEditActionDirective = /** @class */ (function () {
+    function ImageCardEditActionDirective() {
+    }
+    ImageCardEditActionDirective = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Directive"])({
+            selector: '[imageCardEditAction]'
+        })
+    ], ImageCardEditActionDirective);
+    return ImageCardEditActionDirective;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/ui/modules/images-layout-card/helpers/image-proportions-helper.ts":
+/*!***********************************************************************************!*\
+  !*** ./src/app/ui/modules/images-layout-card/helpers/image-proportions-helper.ts ***!
+  \***********************************************************************************/
+/*! exports provided: calculateNewHeight, calculateNewWidth, figureIsBiggerThan, calculateAspectRatio, imageBestFit, isAValidSize */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "calculateNewHeight", function() { return calculateNewHeight; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "calculateNewWidth", function() { return calculateNewWidth; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "figureIsBiggerThan", function() { return figureIsBiggerThan; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "calculateAspectRatio", function() { return calculateAspectRatio; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "imageBestFit", function() { return imageBestFit; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "isAValidSize", function() { return isAValidSize; });
+function calculateNewHeight(fixedWidth, aspectRatio) {
+    return Math.ceil(fixedWidth * aspectRatio);
+}
+function calculateNewWidth(fixedHeight, aspectRatio) {
+    return Math.ceil(fixedHeight / aspectRatio);
+}
+function figureIsBiggerThan(targFigureWidth, targFigureHeight, toCompFigureWidth, toCompFigureHeight) {
+    return targFigureHeight > toCompFigureHeight || targFigureWidth > toCompFigureWidth;
+}
+function calculateAspectRatio(height, width) {
+    return (height / width);
+}
+function imageBestFit(image, container, aspectRatio) {
+    var returnValue = { height: null, width: null };
+    var imageAspectRatio = aspectRatio ? aspectRatio : calculateAspectRatio(image.naturalHeight, image.naturalWidth);
+    // Fixing the width and calculating the corresponding height keeping the aspect ratio
+    var heightWithFixedWidth = calculateNewHeight(container.clientWidth, imageAspectRatio);
+    // Fixing the height and calculating the corresponding width keeping the aspect ratio
+    var WidthWithFixedHeight = calculateNewWidth(container.clientHeight, imageAspectRatio);
+    // Checking if with the fixed width and the corresponded height fit in the container
+    if (!figureIsBiggerThan(container.clientWidth, heightWithFixedWidth, container.clientWidth, container.clientHeight)) {
+        returnValue.height = heightWithFixedWidth;
+        returnValue.width = container.clientWidth;
+    }
+    else {
+        returnValue.height = container.clientHeight;
+        returnValue.width = WidthWithFixedHeight;
+    }
+    return returnValue;
+}
+function isAValidSize(size) {
+    return size.width !== undefined && size.width !== null && size.height !== undefined && size.height !== null;
+}
+
+
+/***/ }),
+
+/***/ "./src/app/ui/modules/images-layout-card/images-layout-card.module.ts":
+/*!****************************************************************************!*\
+  !*** ./src/app/ui/modules/images-layout-card/images-layout-card.module.ts ***!
+  \****************************************************************************/
+/*! exports provided: ImagesLayoutCardModule */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ImagesLayoutCardModule", function() { return ImagesLayoutCardModule; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/common */ "./node_modules/@angular/common/fesm5/common.js");
+/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm5/forms.js");
+/* harmony import */ var _angular_flex_layout__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/flex-layout */ "./node_modules/@angular/flex-layout/esm5/flex-layout.es5.js");
+/* harmony import */ var _angular_material_bottom_sheet__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/material/bottom-sheet */ "./node_modules/@angular/material/esm5/bottom-sheet.es5.js");
+/* harmony import */ var _angular_material_button__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/material/button */ "./node_modules/@angular/material/esm5/button.es5.js");
+/* harmony import */ var _angular_material_card__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @angular/material/card */ "./node_modules/@angular/material/esm5/card.es5.js");
+/* harmony import */ var _angular_material__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @angular/material */ "./node_modules/@angular/material/esm5/material.es5.js");
+/* harmony import */ var _angular_material_icon__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @angular/material/icon */ "./node_modules/@angular/material/esm5/icon.es5.js");
+/* harmony import */ var _angular_material_select__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @angular/material/select */ "./node_modules/@angular/material/esm5/select.es5.js");
+/* harmony import */ var _angular_material_sort__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! @angular/material/sort */ "./node_modules/@angular/material/esm5/sort.es5.js");
+/* harmony import */ var _angular_material_toolbar__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! @angular/material/toolbar */ "./node_modules/@angular/material/esm5/toolbar.es5.js");
+/* harmony import */ var _angular_material_tooltip__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! @angular/material/tooltip */ "./node_modules/@angular/material/esm5/tooltip.es5.js");
+/* harmony import */ var _angular_material_radio__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! @angular/material/radio */ "./node_modules/@angular/material/esm5/radio.es5.js");
+/* harmony import */ var _ngx_translate_core__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! @ngx-translate/core */ "./node_modules/@ngx-translate/core/fesm5/ngx-translate-core.js");
+/* harmony import */ var _directives_image_load_directive__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./directives/image-load.directive */ "./src/app/ui/modules/images-layout-card/directives/image-load.directive.ts");
+/* harmony import */ var _directives_drop_files_directive__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./directives/drop-files.directive */ "./src/app/ui/modules/images-layout-card/directives/drop-files.directive.ts");
+/* harmony import */ var _directives_images_card_edit_actions_directive__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./directives/images-card-edit-actions.directive */ "./src/app/ui/modules/images-layout-card/directives/images-card-edit-actions.directive.ts");
+/* harmony import */ var _components_images_layout_card_images_layout_card_component__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./components/images-layout-card/images-layout-card.component */ "./src/app/ui/modules/images-layout-card/components/images-layout-card/images-layout-card.component.ts");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+
+
+
+//
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//
+
+
+
+
+var ImagesLayoutCardModule = /** @class */ (function () {
+    function ImagesLayoutCardModule() {
+    }
+    ImagesLayoutCardModule = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["NgModule"])({
+            imports: [
+                _angular_common__WEBPACK_IMPORTED_MODULE_1__["CommonModule"],
+                _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormsModule"],
+                _angular_forms__WEBPACK_IMPORTED_MODULE_2__["ReactiveFormsModule"],
+                _angular_flex_layout__WEBPACK_IMPORTED_MODULE_3__["FlexLayoutModule"],
+                _angular_material_bottom_sheet__WEBPACK_IMPORTED_MODULE_4__["MatBottomSheetModule"],
+                _angular_material_button__WEBPACK_IMPORTED_MODULE_5__["MatButtonModule"],
+                _angular_material_card__WEBPACK_IMPORTED_MODULE_6__["MatCardModule"],
+                _angular_material__WEBPACK_IMPORTED_MODULE_7__["MatFormFieldModule"],
+                _angular_material_icon__WEBPACK_IMPORTED_MODULE_8__["MatIconModule"],
+                _angular_material__WEBPACK_IMPORTED_MODULE_7__["MatInputModule"],
+                _angular_material__WEBPACK_IMPORTED_MODULE_7__["MatPaginatorModule"],
+                _angular_material_select__WEBPACK_IMPORTED_MODULE_9__["MatSelectModule"],
+                _angular_material_sort__WEBPACK_IMPORTED_MODULE_10__["MatSortModule"],
+                _angular_material_radio__WEBPACK_IMPORTED_MODULE_13__["MatRadioModule"],
+                _angular_material__WEBPACK_IMPORTED_MODULE_7__["MatTableModule"],
+                _angular_material_toolbar__WEBPACK_IMPORTED_MODULE_11__["MatToolbarModule"],
+                _angular_material_tooltip__WEBPACK_IMPORTED_MODULE_12__["MatTooltipModule"],
+                _ngx_translate_core__WEBPACK_IMPORTED_MODULE_14__["TranslateModule"]
+            ],
+            declarations: [
+                _directives_drop_files_directive__WEBPACK_IMPORTED_MODULE_16__["DropFilesDirective"],
+                _directives_images_card_edit_actions_directive__WEBPACK_IMPORTED_MODULE_17__["ImageCardEditActionDirective"],
+                _directives_image_load_directive__WEBPACK_IMPORTED_MODULE_15__["ImageLoadDirective"],
+                _components_images_layout_card_images_layout_card_component__WEBPACK_IMPORTED_MODULE_18__["ImagesLayoutCardComponent"]
+            ],
+            exports: [
+                _directives_drop_files_directive__WEBPACK_IMPORTED_MODULE_16__["DropFilesDirective"],
+                _directives_images_card_edit_actions_directive__WEBPACK_IMPORTED_MODULE_17__["ImageCardEditActionDirective"],
+                _directives_image_load_directive__WEBPACK_IMPORTED_MODULE_15__["ImageLoadDirective"],
+                _components_images_layout_card_images_layout_card_component__WEBPACK_IMPORTED_MODULE_18__["ImagesLayoutCardComponent"]
+            ]
+        })
+    ], ImagesLayoutCardModule);
+    return ImagesLayoutCardModule;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/ui/modules/images-layout-card/models/face.ts":
+/*!**************************************************************!*\
+  !*** ./src/app/ui/modules/images-layout-card/models/face.ts ***!
+  \**************************************************************/
+/*! exports provided: State, Status, Face, MainImage */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "State", function() { return State; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Status", function() { return Status; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Face", function() { return Face; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "MainImage", function() { return MainImage; });
+var State;
+(function (State) {
+    State[State["New"] = 0] = "New";
+    State[State["Edited"] = 1] = "Edited";
+    State[State["Deleted"] = 2] = "Deleted";
+})(State || (State = {}));
+var Status;
+(function (Status) {
+    Status[Status["Pending"] = 0] = "Pending";
+    Status[Status["Uploading"] = 1] = "Uploading";
+    Status[Status["Uploaded"] = 2] = "Uploaded";
+    Status[Status["Error"] = 3] = "Error";
+})(Status || (Status = {}));
+var Face = /** @class */ (function () {
+    function Face(file) {
+        this.file = file;
+        this.fileName = file.name;
+        this.state = State.New;
+        this.status = Status.Pending;
+    }
+    return Face;
+}());
+
+var MainImage = /** @class */ (function () {
+    function MainImage() {
+    }
+    return MainImage;
+}());
+
+
+
+/***/ }),
+
 /***/ "./src/app/ui/modules/logo/components/logo/logo.component.css":
 /*!********************************************************************!*\
   !*** ./src/app/ui/modules/logo/components/logo/logo.component.css ***!
@@ -6707,9 +7462,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _modules_error_messages_error_messages_module__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./modules/error-messages/error-messages.module */ "./src/app/ui/modules/error-messages/error-messages.module.ts");
 /* harmony import */ var _modules_image_card_image_card_module__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./modules/image-card/image-card.module */ "./src/app/ui/modules/image-card/image-card.module.ts");
 /* harmony import */ var _modules_images_card_images_card_module__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./modules/images-card/images-card.module */ "./src/app/ui/modules/images-card/images-card.module.ts");
-/* harmony import */ var _modules_logo_logo_module__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./modules/logo/logo.module */ "./src/app/ui/modules/logo/logo.module.ts");
-/* harmony import */ var _modules_session_expire_dialog_session_expire_dialog_module__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./modules/session-expire-dialog/session-expire-dialog.module */ "./src/app/ui/modules/session-expire-dialog/session-expire-dialog.module.ts");
-/* harmony import */ var _modules_spinner_indicator_200_spinner_indicator_200_module__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./modules/spinner-indicator-200/spinner-indicator-200.module */ "./src/app/ui/modules/spinner-indicator-200/spinner-indicator-200.module.ts");
+/* harmony import */ var _modules_images_layout_card_images_layout_card_module__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./modules/images-layout-card/images-layout-card.module */ "./src/app/ui/modules/images-layout-card/images-layout-card.module.ts");
+/* harmony import */ var _modules_logo_logo_module__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./modules/logo/logo.module */ "./src/app/ui/modules/logo/logo.module.ts");
+/* harmony import */ var _modules_session_expire_dialog_session_expire_dialog_module__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./modules/session-expire-dialog/session-expire-dialog.module */ "./src/app/ui/modules/session-expire-dialog/session-expire-dialog.module.ts");
+/* harmony import */ var _modules_spinner_indicator_200_spinner_indicator_200_module__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./modules/spinner-indicator-200/spinner-indicator-200.module */ "./src/app/ui/modules/spinner-indicator-200/spinner-indicator-200.module.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -6724,6 +7480,7 @@ var __decorate = (undefined && undefined.__decorate) || function (decorators, ta
 
 
 //
+
 
 
 
@@ -6756,9 +7513,10 @@ var UiModule = /** @class */ (function () {
                 _modules_error_messages_error_messages_module__WEBPACK_IMPORTED_MODULE_12__["ErrorMessagesModule"],
                 _modules_images_card_images_card_module__WEBPACK_IMPORTED_MODULE_14__["ImagesCardModule"],
                 _modules_image_card_image_card_module__WEBPACK_IMPORTED_MODULE_13__["ImageCardModule"],
-                _modules_logo_logo_module__WEBPACK_IMPORTED_MODULE_15__["LogoModule"],
-                _modules_session_expire_dialog_session_expire_dialog_module__WEBPACK_IMPORTED_MODULE_16__["SessionExpireDialogModule"],
-                _modules_spinner_indicator_200_spinner_indicator_200_module__WEBPACK_IMPORTED_MODULE_17__["SpinnerIndicator200Module"]
+                _modules_images_layout_card_images_layout_card_module__WEBPACK_IMPORTED_MODULE_15__["ImagesLayoutCardModule"],
+                _modules_logo_logo_module__WEBPACK_IMPORTED_MODULE_16__["LogoModule"],
+                _modules_session_expire_dialog_session_expire_dialog_module__WEBPACK_IMPORTED_MODULE_17__["SessionExpireDialogModule"],
+                _modules_spinner_indicator_200_spinner_indicator_200_module__WEBPACK_IMPORTED_MODULE_18__["SpinnerIndicator200Module"]
             ],
             declarations: []
         })
