@@ -869,6 +869,8 @@ var StyleFormComponent = /** @class */ (function (_super) {
             height: '90%',
             width: '90%',
             data: {
+                brands: this.brands,
+                categories: this.categories,
                 styleId: this.styleId,
                 shops: this.shops,
             }

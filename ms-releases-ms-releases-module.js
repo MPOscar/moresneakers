@@ -78,6 +78,9 @@ var StylesService = /** @class */ (function () {
     StylesService.prototype.deleteStyle = function (id) {
         return this.http.delete(this.apiEndpoint + id + '/');
     };
+    StylesService.prototype.getPopularStyle = function (brandId) {
+        return this.http.get(this.apiEndpoint + 'popular/?brandId=' + brandId);
+    };
     StylesService.prototype.formatQueryParams = function (filter, sortColumn, sortDirection, pageIndex, pageSize) {
         var queryParams = '';
         if (sortColumn) {
