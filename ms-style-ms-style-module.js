@@ -286,6 +286,152 @@ var EditStyleComponent = /** @class */ (function () {
 
 /***/ }),
 
+/***/ "./src/app/ms-back-office/modules/ms-style/components/new-parent/new-parent.component.html":
+/*!*************************************************************************************************!*\
+  !*** ./src/app/ms-back-office/modules/ms-style/components/new-parent/new-parent.component.html ***!
+  \*************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<h1>ADD PARENT</h1>\n<style-parent-form class=\"flex-grow-1\"\n    [brands]=\"dialogData.brands\"\n    [categories]=\"dialogData.categories\"\n    [styles]=\"dialogData.styles\"\n    [data]=\"data\"        \n    (accept)=\"submit($event)\"\n    (cancel)=\"cancel()\"\n    [validationErrors]=\"validationErrors\"\n    (dataChange)=\"dataChanged()\">\n</style-parent-form>"
+
+/***/ }),
+
+/***/ "./src/app/ms-back-office/modules/ms-style/components/new-parent/new-parent.component.scss":
+/*!*************************************************************************************************!*\
+  !*** ./src/app/ms-back-office/modules/ms-style/components/new-parent/new-parent.component.scss ***!
+  \*************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = ":host {\n  display: flex;\n  flex-direction: column;\n  flex-grow: 1; }\n\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvbXMtYmFjay1vZmZpY2UvbW9kdWxlcy9tcy1zdHlsZS9jb21wb25lbnRzL25ldy1wYXJlbnQvRTpcXFBST0dSQU1BQ0lPTiBJSUlcXG1vcmVzbmVha2Vycy1iYWNrb2ZmaWNlL3NyY1xcYXBwXFxtcy1iYWNrLW9mZmljZVxcbW9kdWxlc1xcbXMtc3R5bGVcXGNvbXBvbmVudHNcXG5ldy1wYXJlbnRcXG5ldy1wYXJlbnQuY29tcG9uZW50LnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFDSSxjQUFhO0VBQ2IsdUJBQXNCO0VBQ3RCLGFBQVksRUFDZiIsImZpbGUiOiJzcmMvYXBwL21zLWJhY2stb2ZmaWNlL21vZHVsZXMvbXMtc3R5bGUvY29tcG9uZW50cy9uZXctcGFyZW50L25ldy1wYXJlbnQuY29tcG9uZW50LnNjc3MiLCJzb3VyY2VzQ29udGVudCI6WyI6aG9zdCB7XHJcbiAgICBkaXNwbGF5OiBmbGV4O1xyXG4gICAgZmxleC1kaXJlY3Rpb246IGNvbHVtbjtcclxuICAgIGZsZXgtZ3JvdzogMTtcclxufSJdfQ== */"
+
+/***/ }),
+
+/***/ "./src/app/ms-back-office/modules/ms-style/components/new-parent/new-parent.component.ts":
+/*!***********************************************************************************************!*\
+  !*** ./src/app/ms-back-office/modules/ms-style/components/new-parent/new-parent.component.ts ***!
+  \***********************************************************************************************/
+/*! exports provided: NewParentModalComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "NewParentModalComponent", function() { return NewParentModalComponent; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+/* harmony import */ var _angular_material__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/material */ "./node_modules/@angular/material/esm5/material.es5.js");
+/* harmony import */ var _ngx_translate_core__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @ngx-translate/core */ "./node_modules/@ngx-translate/core/fesm5/ngx-translate-core.js");
+/* harmony import */ var _ui_helpers_component_can_deactivate__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../../../ui/helpers/component-can-deactivate */ "./src/app/ui/helpers/component-can-deactivate.ts");
+/* harmony import */ var _ui_helpers_mixin_decorator__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../../../ui/helpers/mixin-decorator */ "./src/app/ui/helpers/mixin-decorator.ts");
+/* harmony import */ var _error_handling_services_error_handling_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../../../../error-handling/services/error-handling.service */ "./src/app/error-handling/services/error-handling.service.ts");
+/* harmony import */ var _error_handling_services_toastr_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../../../../error-handling/services/toastr.service */ "./src/app/error-handling/services/toastr.service.ts");
+/* harmony import */ var _services_styles_service__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../services/styles.service */ "./src/app/ms-back-office/modules/ms-style/services/styles.service.ts");
+/* harmony import */ var _ms_brands_models_brand__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../../../ms-brands/models/brand */ "./src/app/ms-back-office/modules/ms-brands/models/brand.ts");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+var __param = (undefined && undefined.__param) || function (paramIndex, decorator) {
+    return function (target, key) { decorator(target, key, paramIndex); }
+};
+
+
+//
+
+
+//
+
+
+
+
+
+
+var errorKey = 'Error';
+var savedUserMessageKey = 'Saved';
+var NewParentModalComponent = /** @class */ (function () {
+    //@Input() brands: Array<Brand>;TODO
+    //@Output() close = new EventEmitter();TODO
+    function NewParentModalComponent(activatedRoute, dialogRef, dialog, errorHandlingService, router, stylesService, toastr, translate, dialogData) {
+        this.activatedRoute = activatedRoute;
+        this.dialogRef = dialogRef;
+        this.dialog = dialog;
+        this.errorHandlingService = errorHandlingService;
+        this.router = router;
+        this.stylesService = stylesService;
+        this.toastr = toastr;
+        this.translate = translate;
+        this.dialogData = dialogData;
+        this.data = {
+            name: "",
+            description: "",
+            brand: "",
+            category: "",
+        };
+        // Begin Mixin code of the CanDeactivate class
+        this.unsavedChanges = false;
+        this.cancelBtnKey = 'No';
+        this.okBtnKey = 'Yes';
+        this.saveTitleKey = 'Discard Title';
+        this.saveMessageKey = 'Discard Message';
+    }
+    NewParentModalComponent.prototype.ngOnInit = function () {
+        this.brands = this.activatedRoute.snapshot.data.brands;
+        this.categories = this.activatedRoute.snapshot.data.categories;
+        this.styles = this.activatedRoute.snapshot.data.styles;
+    };
+    NewParentModalComponent.prototype.submit = function (data) {
+        this.createStyle(data);
+    };
+    NewParentModalComponent.prototype.cancel = function () {
+        //this.close.emit();TODO
+        this.close();
+    };
+    NewParentModalComponent.prototype.close = function () {
+        this.dialogRef.close();
+    };
+    NewParentModalComponent.prototype.createStyle = function (data) {
+        var _this = this;
+        data.isParent = true;
+        this.stylesService.postStyle(data).subscribe(function (response) {
+            _this.unsavedChanges = false;
+            _this.close();
+            _this.toastr.success(savedUserMessageKey);
+        }, function (error) {
+            _this.errorHandlingService.handleUiError(errorKey, error, 'style');
+            _this.validationErrors = error.formErrors;
+        });
+    };
+    NewParentModalComponent = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+            selector: 'new-parent',
+            template: __webpack_require__(/*! ./new-parent.component.html */ "./src/app/ms-back-office/modules/ms-style/components/new-parent/new-parent.component.html"),
+            styles: [__webpack_require__(/*! ./new-parent.component.scss */ "./src/app/ms-back-office/modules/ms-style/components/new-parent/new-parent.component.scss")]
+        }),
+        Object(_ui_helpers_mixin_decorator__WEBPACK_IMPORTED_MODULE_5__["Mixin"])([_ui_helpers_component_can_deactivate__WEBPACK_IMPORTED_MODULE_4__["CanDeactivateMixin"]]),
+        __param(8, Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Inject"])(_angular_material__WEBPACK_IMPORTED_MODULE_2__["MAT_DIALOG_DATA"])),
+        __metadata("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_1__["ActivatedRoute"],
+            _angular_material__WEBPACK_IMPORTED_MODULE_2__["MatDialogRef"],
+            _angular_material__WEBPACK_IMPORTED_MODULE_2__["MatDialog"],
+            _error_handling_services_error_handling_service__WEBPACK_IMPORTED_MODULE_6__["ErrorHandlingService"],
+            _angular_router__WEBPACK_IMPORTED_MODULE_1__["Router"],
+            _services_styles_service__WEBPACK_IMPORTED_MODULE_8__["StylesService"],
+            _error_handling_services_toastr_service__WEBPACK_IMPORTED_MODULE_7__["ToastrService"],
+            _ngx_translate_core__WEBPACK_IMPORTED_MODULE_3__["TranslateService"],
+            _ms_brands_models_brand__WEBPACK_IMPORTED_MODULE_9__["Brand"]])
+    ], NewParentModalComponent);
+    return NewParentModalComponent;
+}());
+
+
+
+/***/ }),
+
 /***/ "./src/app/ms-back-office/modules/ms-style/components/new-style/new-style.component.html":
 /*!***********************************************************************************************!*\
   !*** ./src/app/ms-back-office/modules/ms-style/components/new-style/new-style.component.html ***!
@@ -392,8 +538,12 @@ var NewStyleComponent = /** @class */ (function () {
         var _this = this;
         this.stylesService.postStyle(data).subscribe(function (response) {
             _this.unsavedChanges = false;
-            //this.close.emit();TODO
-            _this.close();
+            if (!data.createRelease) {
+                _this.close();
+            }
+            else {
+                _this.router.navigate(['../../releases/create'], { relativeTo: _this.activatedRoute, queryParams: { styleId: response.data.id } });
+            }
             _this.toastr.success(savedUserMessageKey);
         }, function (error) {
             _this.errorHandlingService.handleUiError(errorKey, error, 'style');
@@ -590,7 +740,7 @@ var SeeStyleComponent = /** @class */ (function (_super) {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<form class=\"flex-grow-1 min-height-0 display-flex flex-direction-column\" [askBeforeRefresh]=\"formGroup.dirty\" [formGroup]=\"formGroup\"\n  novalidate role=\"form\" (ngSubmit)=\"submitClicked()\" autocomplete=\"off\" inputFocus>\n\n  <div class=\"flex-grow-1 overflow-auto display-flex flex-direction-column\">\n\n    <div class=\"flex-grow-1 flex-shrink-0 display-flex flex-direction-column\">\n\n      <div class=\"margin-right-25px max-width-1000px\" [fxFlex]=\"50\" fxLayout=\"column\" fxLayout.lt-md=\"column\">\n\n        <div class=\"margin-right-25px\" [fxFlex]=\"80\" fxLayout.lt-md=\"column\">\n\n          <mat-form-field class=\"margin-left-16px width-100pct customized\"  appearance=\"fill\">\n\n            <mat-label>Description</mat-label>\n\n            <textarea matInput formControlName=\"description\" class=\"min-height-100px\"></textarea>\n\n          </mat-form-field>\n\n        </div>\n\n        <div class=\"margin-right-25px\" [fxFlex]=\"100\" fxLayout=\"row\" fxLayout.lt-md=\"column\">\n\n          <div [fxFlex]=\"50\" fxLayout=\"column\" class=\"margin-right-25px\">\n\n            <mat-form-field class=\"margin-left-16px max-width-480px\">\n\n              <mat-label>Style Name</mat-label>\n\n              <input matInput type=\"text\" formControlName=\"name\" required>\n\n            </mat-form-field>\n\n            <mat-form-field class=\"padding-top-5px max-width-480px\">\n              <mat-label>Category</mat-label>\n              <mat-select disableOptionCentering placeholder=\"Select\" formControlName=\"category\" required>\n                <mat-option>...</mat-option>\n                <mat-option *ngFor=\"let category of categories\" [value]=\"category.id\">\n                  {{category.name}}\n                </mat-option>\n              </mat-select>\n            </mat-form-field>\n\n            <mat-form-field class=\"max-width-480px\">\n              <mat-label>Slect Parent</mat-label>\n              <mat-select disableOptionCentering placeholder=\"Select\" formControlName=\"parent\">\n                <mat-option>...</mat-option>\n                <mat-option *ngFor=\"let style of styles\" [value]=\"style.id\">\n                  {{style.name}}\n                </mat-option>\n              </mat-select>\n            </mat-form-field>\n\n          </div>\n\n          <div class=\"margin-top-10px\" [fxFlex]=\"50\" fxLayout=\"column\">\n\n            <button class=\"margin-bottom-25px max-width-480px\" mat-stroked-button type=\"button\" (click)=\"showModalAddNewBrand()\">Add a new Brand</button>\n\n            <mat-form-field class=\"width-100pc max-width-480px\">\n\n              <mat-label>SELECT BRAND</mat-label>\n\n              <mat-select disableOptionCentering placeholder=\"Select\" formControlName=\"brand\" panelOpen=\"true\" required>\n\n                <mat-option (click)=\"selectParent('')\">...</mat-option>\n\n                <mat-option *ngFor=\"let brand of brands\" [value]=\"brand.id\" (click)=\"selectParent(brand.id)\">\n                  {{brand.name}}\n                </mat-option>\n\n              </mat-select>\n\n            </mat-form-field>\n\n            <div>\n\n              <mat-slide-toggle class=\"padding-top-15px padding-bottom-15px\" formControlName=\"isParent\">Is Parent</mat-slide-toggle>\n            \n            </div>\n\n          </div>\n\n          <!--div class=\"margin-top-10px\" [fxFlex]=\"30\" fxLayout=\"column\">\n          <button class=\"margin-bottom-25px max-width-480px\" mat-stroked-button type=\"button\">Add a new Parent</button>\n\n          <mat-form-field class=\"width-100pc\">\n\n            <mat-label>SELECT PARENT</mat-label>\n            <mat-select disableOptionCentering placeholder=\"Select\" formControlName=\"parent\">\n              <mat-option *ngFor=\"let style of styles\" [value]=\"style.id\">\n                {{style.name}}\n              </mat-option>\n            </mat-select>\n          </mat-form-field>\n        </div-->\n        </div>\n\n\n\n      </div>\n\n      <div *ngIf=\"styleId\" class=\"display-flex padding-bottom-10px justify-content-center\">\n        <button mat-stroked-button type=\"button\" class=\"max-width-480px\" (click)=\"showModalStoresSelling()\">See Stores Selling this Style</button>\n        <button mat-stroked-button type=\"button\" class=\"margin-left-25px max-width-480px\" [routerLink]=\"['../../../releases/create']\"\n          [queryParams]=\"{styleId: styleId, returnUrl: location.path()}\">Create a Release</button>\n      </div>\n\n    </div>\n\n  </div>\n\n\n\n  <div class=\"margin-right-25px padding-top-25px padding-bottom-25px flex-shrink-0 display-flex border-top-style-solid border-top-width-2px border-top-color-grey\">\n\n    <button mat-raised-button type=\"submit\" color=\"primary\">{{'Save' | translate}}</button>\n\n    <button mat-raised-button type=\"button\" class=\"margin-left-10px\" (click)=\"cancelClicked()\">{{'Cancel' | translate}}</button>\n\n\n\n  </div>\n\n</form>"
+module.exports = "<form class=\"flex-grow-1 min-height-0 display-flex flex-direction-column\" [askBeforeRefresh]=\"formGroup.dirty\" [formGroup]=\"formGroup\"\n  novalidate role=\"form\" autocomplete=\"off\" inputFocus>\n\n  <div class=\"flex-grow-1 overflow-auto display-flex flex-direction-column\">\n\n    <div class=\"flex-grow-1 flex-shrink-0 display-flex flex-direction-column\">\n\n      <div class=\"margin-right-25px\" [fxFlex]=\"50\" fxLayout=\"column\" fxLayout.lt-md=\"column\">\n\n        <div class=\"margin-right-25px\" [fxFlex]=\"80\" fxLayout.lt-md=\"column\">\n\n          <mat-form-field class=\"margin-left-16px width-100pct customized\" appearance=\"fill\">\n\n            <mat-label>Description</mat-label>\n\n            <textarea matInput formControlName=\"description\" class=\"min-height-100px\"></textarea>\n\n          </mat-form-field>\n\n        </div>\n\n        <div class=\"margin-right-25px\" [fxFlex]=\"100\" fxLayout=\"row\" fxLayout.lt-md=\"column\">\n\n          <div [fxFlex]=\"50\" fxLayout=\"column\" class=\"margin-right-25px\">\n\n            <mat-form-field class=\"margin-left-16px max-width-480px\">\n\n              <mat-label>Style Name</mat-label>\n\n              <input matInput type=\"text\" formControlName=\"name\" required>\n\n            </mat-form-field>\n\n            <mat-form-field class=\"padding-top-5px max-width-480px\">\n              <mat-label>Category</mat-label>\n              <mat-select disableOptionCentering placeholder=\"Select\" formControlName=\"category\" required>\n                <mat-option>...</mat-option>\n                <mat-option *ngFor=\"let category of categories\" [value]=\"category.id\">\n                  {{category.name}}\n                </mat-option>\n              </mat-select>\n            </mat-form-field>\n\n            <!--mat-form-field class=\"max-width-480px\">\n              <mat-label>Slect Parent</mat-label>\n              <mat-select disableOptionCentering placeholder=\"Select\" formControlName=\"parent\">\n                <mat-option>...</mat-option>\n                <mat-option *ngFor=\"let style of styles\" [value]=\"style.id\">\n                  {{style.name}}\n                </mat-option>\n              </mat-select>\n            </mat-form-field-->\n\n          </div>\n\n          <div class=\"margin-top-10px margin-right-25px\" [fxFlex]=\"50\" fxLayout=\"column\">\n\n            <button class=\"margin-bottom-25px max-width-480px\" mat-stroked-button type=\"button\" (click)=\"showModalAddNewBrand()\">Add a new Brand</button>\n\n            <mat-form-field class=\"width-100pc max-width-480px\">\n\n              <mat-label>SELECT BRAND</mat-label>\n\n              <mat-select disableOptionCentering placeholder=\"Select\" formControlName=\"brand\" panelOpen=\"true\" required>\n\n                <mat-option (click)=\"selectParent('')\">...</mat-option>\n\n                <mat-option *ngFor=\"let brand of brands\" [value]=\"brand.id\" (click)=\"selectParent(brand.id)\">\n                  {{brand.name}}\n                </mat-option>\n\n              </mat-select>\n\n            </mat-form-field>\n\n            <div>\n\n              <mat-slide-toggle class=\"padding-top-15px padding-bottom-15px\" formControlName=\"isParent\">Is Parent</mat-slide-toggle>\n\n            </div>\n\n          </div>\n\n          <div class=\"margin-top-10px\" [fxFlex]=\"30\" fxLayout=\"column\">\n            <button class=\"margin-bottom-25px max-width-480px\" mat-stroked-button type=\"button\" (click)=\"showModalAddNewParent()\">Add a new Parent</button>\n\n            <mat-form-field class=\"width-100pc\">\n\n              <mat-label>SELECT PARENT</mat-label>\n              <mat-select disableOptionCentering placeholder=\"Select\" formControlName=\"parent\">\n                <mat-option *ngFor=\"let style of styles\" [value]=\"style.id\">\n                  {{style.name}}\n                </mat-option>\n              </mat-select>\n            </mat-form-field>\n          </div>\n        </div>\n\n\n\n      </div>\n\n      <div *ngIf=\"styleId\" class=\"display-flex padding-bottom-10px justify-content-center\">\n        <button mat-stroked-button type=\"button\" class=\"max-width-480px\" (click)=\"showModalStoresSelling()\">See Stores Selling this Style</button>\n        <button mat-stroked-button type=\"button\" class=\"margin-left-25px max-width-480px\" [routerLink]=\"['../../../releases/create']\"\n          [queryParams]=\"{styleId: styleId, returnUrl: location.path()}\">Create a Release</button>\n      </div>\n\n    </div>\n\n  </div>\n\n\n\n  <div class=\"margin-right-25px padding-top-25px padding-bottom-25px flex-shrink-0 display-flex border-top-style-solid border-top-width-2px border-top-color-grey\">\n\n    <button mat-raised-button (click)=\"submitClicked()\" color=\"primary\">{{'Accept' | translate}}</button>\n\n    <button mat-raised-button type=\"button\" class=\"margin-left-10px\" (click)=\"cancelClicked()\">{{'Cancel' | translate}}</button>\n\n    <span class=\"display-flex flex-grow-1\"></span>\n\n    <button mat-stroked-button type=\"buttom\" (click)=\"submitClickedCreateRelease()\" class=\"margin-left-25px max-width-480px\">Create a Release</button>\n\n  </div>\n\n</form>"
 
 /***/ }),
 
@@ -622,9 +772,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _ui_components_base_reactive_form_base_reactive_form_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../../../ui/components/base-reactive-form/base-reactive-form-component */ "./src/app/ui/components/base-reactive-form/base-reactive-form-component.ts");
 /* harmony import */ var _ms_brands_services_brands_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../ms-brands/services/brands.service */ "./src/app/ms-back-office/modules/ms-brands/services/brands.service.ts");
 /* harmony import */ var _services_styles_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../services/styles.service */ "./src/app/ms-back-office/modules/ms-style/services/styles.service.ts");
-/* harmony import */ var _ms_brands_components_new_brand_new_brand_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../../ms-brands/components/new-brand/new-brand.component */ "./src/app/ms-back-office/modules/ms-brands/components/new-brand/new-brand.component.ts");
-/* harmony import */ var _ms_shops_components_shops_selling_style_modal_shops_selling_style_modal_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../../ms-shops/components/shops-selling-style-modal/shops-selling-style-modal.component */ "./src/app/ms-back-office/modules/ms-shops/components/shops-selling-style-modal/shops-selling-style-modal.component.ts");
-/* harmony import */ var _angular_material__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @angular/material */ "./node_modules/@angular/material/esm5/material.es5.js");
+/* harmony import */ var _new_parent_new_parent_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../new-parent/new-parent.component */ "./src/app/ms-back-office/modules/ms-style/components/new-parent/new-parent.component.ts");
+/* harmony import */ var _ms_brands_components_new_brand_new_brand_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../../ms-brands/components/new-brand/new-brand.component */ "./src/app/ms-back-office/modules/ms-brands/components/new-brand/new-brand.component.ts");
+/* harmony import */ var _ms_shops_components_shops_selling_style_modal_shops_selling_style_modal_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../../../ms-shops/components/shops-selling-style-modal/shops-selling-style-modal.component */ "./src/app/ms-back-office/modules/ms-shops/components/shops-selling-style-modal/shops-selling-style-modal.component.ts");
+/* harmony import */ var _angular_material__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! @angular/material */ "./node_modules/@angular/material/esm5/material.es5.js");
 var __extends = (undefined && undefined.__extends) || (function () {
     var extendStatics = Object.setPrototypeOf ||
         ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
@@ -656,6 +807,7 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 
 
 
+
 var StyleFormComponent = /** @class */ (function (_super) {
     __extends(StyleFormComponent, _super);
     function StyleFormComponent(dialog, location, brandsService, stylesService, translateService) {
@@ -664,6 +816,7 @@ var StyleFormComponent = /** @class */ (function (_super) {
         _this.location = location;
         _this.brandsService = brandsService;
         _this.stylesService = stylesService;
+        _this.createRelease = false;
         return _this;
         //setTranslations(this.translateService, TRANSLATIONS);
     }
@@ -695,6 +848,16 @@ var StyleFormComponent = /** @class */ (function (_super) {
     };
     StyleFormComponent.prototype.submitClicked = function () {
         if (this.formGroup.valid) {
+            this.data.createRelease = false;
+            this.accept.emit(this.data);
+        }
+        else {
+            this.triggerValidation();
+        }
+    };
+    StyleFormComponent.prototype.submitClickedCreateRelease = function () {
+        if (this.formGroup.valid) {
+            this.data.createRelease = true;
             this.accept.emit(this.data);
         }
         else {
@@ -702,7 +865,7 @@ var StyleFormComponent = /** @class */ (function (_super) {
         }
     };
     StyleFormComponent.prototype.showModalStoresSelling = function () {
-        this.modalRef = this.dialog.open(_ms_shops_components_shops_selling_style_modal_shops_selling_style_modal_component__WEBPACK_IMPORTED_MODULE_8__["ShopsSellingStyleModalComponent"], {
+        this.modalRef = this.dialog.open(_ms_shops_components_shops_selling_style_modal_shops_selling_style_modal_component__WEBPACK_IMPORTED_MODULE_9__["ShopsSellingStyleModalComponent"], {
             height: '90%',
             width: '90%',
             data: {
@@ -713,14 +876,35 @@ var StyleFormComponent = /** @class */ (function (_super) {
     };
     StyleFormComponent.prototype.showModalAddNewBrand = function () {
         var _this = this;
-        this.modalRef = this.dialog.open(_ms_brands_components_new_brand_new_brand_component__WEBPACK_IMPORTED_MODULE_7__["NewBrandComponent"], {
+        this.modalRef = this.dialog.open(_ms_brands_components_new_brand_new_brand_component__WEBPACK_IMPORTED_MODULE_8__["NewBrandComponent"], {
             height: '90%',
             width: '90%',
             data: { face: this.shop }
         });
         this.modalRef.afterClosed().subscribe(function () {
-            _this.brandsService.getAllBrands().subscribe(function (response) {
-                _this.brands = response;
+            _this.stylesService.getAllStyles().subscribe(function (response) {
+                _this.styles = response;
+                _this.styles = _this.styles.filter(function (style) {
+                    return style.isParent;
+                });
+            });
+        });
+    };
+    StyleFormComponent.prototype.showModalAddNewParent = function () {
+        var _this = this;
+        this.modalRef = this.dialog.open(_new_parent_new_parent_component__WEBPACK_IMPORTED_MODULE_7__["NewParentModalComponent"], {
+            data: {
+                brands: this.brands,
+                categories: this.categories,
+                face: this.shop,
+                styles: this.styles,
+            }
+        });
+        this.modalRef.afterClosed().subscribe(function () {
+            _this.stylesService.getAllStyles().subscribe(function (response) {
+                _this.styles = response.filter(function (style) {
+                    return style.isParent;
+                });
             });
         });
     };
@@ -777,13 +961,228 @@ var StyleFormComponent = /** @class */ (function (_super) {
             styles: [__webpack_require__(/*! ./style-form.component.scss */ "./src/app/ms-back-office/modules/ms-style/components/style-form/style-form.component.scss")],
             changeDetection: _angular_core__WEBPACK_IMPORTED_MODULE_0__["ChangeDetectionStrategy"].OnPush
         }),
-        __metadata("design:paramtypes", [_angular_material__WEBPACK_IMPORTED_MODULE_9__["MatDialog"],
+        __metadata("design:paramtypes", [_angular_material__WEBPACK_IMPORTED_MODULE_10__["MatDialog"],
             _angular_common__WEBPACK_IMPORTED_MODULE_2__["Location"],
             _ms_brands_services_brands_service__WEBPACK_IMPORTED_MODULE_5__["BrandsService"],
             _services_styles_service__WEBPACK_IMPORTED_MODULE_6__["StylesService"],
             _ngx_translate_core__WEBPACK_IMPORTED_MODULE_3__["TranslateService"]])
     ], StyleFormComponent);
     return StyleFormComponent;
+}(_ui_components_base_reactive_form_base_reactive_form_component__WEBPACK_IMPORTED_MODULE_4__["BaseReactiveFormComponent"]));
+
+
+
+/***/ }),
+
+/***/ "./src/app/ms-back-office/modules/ms-style/components/style-parent-form/style-parent-form.component.html":
+/*!***************************************************************************************************************!*\
+  !*** ./src/app/ms-back-office/modules/ms-style/components/style-parent-form/style-parent-form.component.html ***!
+  \***************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<form class=\"flex-grow-1 min-height-0 display-flex flex-direction-column\" [askBeforeRefresh]=\"formGroup.dirty\" [formGroup]=\"formGroup\"\n  novalidate role=\"form\" (ngSubmit)=\"submitClicked()\" autocomplete=\"off\" inputFocus>\n\n  <div class=\"flex-grow-1 overflow-auto display-flex flex-direction-column\">\n\n    <div class=\"flex-grow-1 flex-shrink-0 display-flex flex-direction-column\">\n\n      <div class=\"margin-right-25px\" [fxFlex]=\"50\" fxLayout=\"column\" fxLayout.lt-md=\"column\">\n\n        <div class=\"margin-right-25px\" [fxFlex]=\"80\" fxLayout.lt-md=\"column\">\n\n          <mat-form-field class=\"margin-left-16px width-100pct customized\"  appearance=\"fill\">\n\n            <mat-label>Description</mat-label>\n\n            <textarea matInput formControlName=\"description\" class=\"min-height-100px\"></textarea>\n\n          </mat-form-field>\n\n        </div>\n\n        <div class=\"margin-right-25px\" [fxFlex]=\"100\" fxLayout=\"row\" fxLayout.lt-md=\"column\">\n\n          <div [fxFlex]=\"50\" fxLayout=\"column\" class=\"margin-right-25px\">\n\n            <mat-form-field class=\"margin-left-16px max-width-480px\">\n\n              <mat-label>Style Name</mat-label>\n\n              <input matInput type=\"text\" formControlName=\"name\" required>\n\n            </mat-form-field>\n\n            <mat-form-field class=\"padding-top-5px max-width-480px\">\n              <mat-label>Category</mat-label>\n              <mat-select disableOptionCentering placeholder=\"Select\" formControlName=\"category\" required>\n                <mat-option>...</mat-option>\n                <mat-option *ngFor=\"let category of categories\" [value]=\"category.id\">\n                  {{category.name}}\n                </mat-option>\n              </mat-select>\n            </mat-form-field>\n\n            <!--mat-form-field class=\"max-width-480px\">\n              <mat-label>Slect Parent</mat-label>\n              <mat-select disableOptionCentering placeholder=\"Select\" formControlName=\"parent\">\n                <mat-option>...</mat-option>\n                <mat-option *ngFor=\"let style of styles\" [value]=\"style.id\">\n                  {{style.name}}\n                </mat-option>\n              </mat-select>\n            </mat-form-field-->\n\n          </div>\n\n          <div class=\"\" [fxFlex]=\"50\" fxLayout=\"column\">\n\n            <mat-form-field class=\"width-100pc max-width-480px\">\n\n              <mat-label>SELECT BRAND</mat-label>\n\n              <mat-select disableOptionCentering placeholder=\"Select\" formControlName=\"brand\" panelOpen=\"true\" required>\n\n                <mat-option (click)=\"selectParent('')\">...</mat-option>\n\n                <mat-option *ngFor=\"let brand of brands\" [value]=\"brand.id\" (click)=\"selectParent(brand.id)\">\n                  {{brand.name}}\n                </mat-option>\n\n              </mat-select>\n\n            </mat-form-field>\n\n            <div>\n\n              <mat-slide-toggle [disabled]=\"true\" class=\"padding-top-15px padding-bottom-15px\" formControlName=\"isParent\">Is Parent</mat-slide-toggle>\n            \n            </div>\n\n          </div>\n\n          <!--div class=\"margin-top-10px\" [fxFlex]=\"30\" fxLayout=\"column\">\n          <button class=\"margin-bottom-25px max-width-480px\" mat-stroked-button type=\"button\">Add a new Parent</button>\n\n          <mat-form-field class=\"width-100pc\">\n\n            <mat-label>SELECT PARENT</mat-label>\n            <mat-select disableOptionCentering placeholder=\"Select\" formControlName=\"parent\">\n              <mat-option *ngFor=\"let style of styles\" [value]=\"style.id\">\n                {{style.name}}\n              </mat-option>\n            </mat-select>\n          </mat-form-field>\n        </div-->\n        </div>\n\n\n\n      </div>\n\n      <div *ngIf=\"styleId\" class=\"display-flex padding-bottom-10px justify-content-center\">\n        <button mat-stroked-button type=\"button\" class=\"max-width-480px\" (click)=\"showModalStoresSelling()\">See Stores Selling this Style</button>\n        <button mat-stroked-button type=\"button\" class=\"margin-left-25px max-width-480px\" [routerLink]=\"['../../../releases/create']\"\n          [queryParams]=\"{styleId: styleId, returnUrl: location.path()}\">Create a Release</button>\n      </div>\n\n    </div>\n\n  </div>\n\n\n\n  <div class=\"margin-right-25px padding-top-10px padding-bottom-10px flex-shrink-0 display-flex border-top-style-solid border-top-width-2px border-top-color-grey\">\n\n    <button mat-raised-button type=\"submit\" color=\"primary\">{{'Accept' | translate}}</button>\n\n    <button mat-raised-button type=\"button\" class=\"margin-left-10px\" (click)=\"cancelClicked()\">{{'Cancel' | translate}}</button>\n\n  </div>\n\n</form>"
+
+/***/ }),
+
+/***/ "./src/app/ms-back-office/modules/ms-style/components/style-parent-form/style-parent-form.component.scss":
+/*!***************************************************************************************************************!*\
+  !*** ./src/app/ms-back-office/modules/ms-style/components/style-parent-form/style-parent-form.component.scss ***!
+  \***************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = ":host {\n  display: flex;\n  flex-direction: column;\n  flex-grow: 1 !important; }\n\n.height-34px {\n  height: 34px !important; }\n\n.width-100pc {\n  width: 100%; }\n\n.max-width-480px {\n  max-width: 480px !important; }\n\n.margin-bottom-10px {\n  margin-bottom: 10px !important; }\n\ntextarea {\n  height: 43px; }\n\nmat-form-field {\n  max-width: 100% !important; }\n\n.max-width-1000px {\n  max-width: 1000px !important; }\n\n@media screen and (max-width: 959px) {\n  .customized {\n    max-width: 480px !important; } }\n\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvbXMtYmFjay1vZmZpY2UvbW9kdWxlcy9tcy1zdHlsZS9jb21wb25lbnRzL3N0eWxlLXBhcmVudC1mb3JtL0U6XFxQUk9HUkFNQUNJT04gSUlJXFxtb3Jlc25lYWtlcnMtYmFja29mZmljZS9zcmNcXGFwcFxcbXMtYmFjay1vZmZpY2VcXG1vZHVsZXNcXG1zLXN0eWxlXFxjb21wb25lbnRzXFxzdHlsZS1wYXJlbnQtZm9ybVxcc3R5bGUtcGFyZW50LWZvcm0uY29tcG9uZW50LnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFDSSxjQUFhO0VBQ2IsdUJBQXNCO0VBQ3RCLHdCQUF1QixFQUMxQjs7QUFFRDtFQUNJLHdCQUF1QixFQUMxQjs7QUFFRDtFQUNJLFlBQVcsRUFDZDs7QUFFRDtFQUNJLDRCQUEyQixFQUM5Qjs7QUFFRDtFQUNJLCtCQUE4QixFQUNqQzs7QUFFRDtFQUNJLGFBQVksRUFDZjs7QUFHRDtFQUNJLDJCQUEwQixFQUM3Qjs7QUFFRDtFQUNJLDZCQUE0QixFQUMvQjs7QUFFRDtFQUNJO0lBQ0ksNEJBQTJCLEVBQzlCLEVBQUEiLCJmaWxlIjoic3JjL2FwcC9tcy1iYWNrLW9mZmljZS9tb2R1bGVzL21zLXN0eWxlL2NvbXBvbmVudHMvc3R5bGUtcGFyZW50LWZvcm0vc3R5bGUtcGFyZW50LWZvcm0uY29tcG9uZW50LnNjc3MiLCJzb3VyY2VzQ29udGVudCI6WyI6aG9zdCB7XHJcbiAgICBkaXNwbGF5OiBmbGV4O1xyXG4gICAgZmxleC1kaXJlY3Rpb246IGNvbHVtbjtcclxuICAgIGZsZXgtZ3JvdzogMSAhaW1wb3J0YW50O1xyXG59XHJcblxyXG4uaGVpZ2h0LTM0cHh7XHJcbiAgICBoZWlnaHQ6IDM0cHggIWltcG9ydGFudDtcclxufVxyXG5cclxuLndpZHRoLTEwMHBje1xyXG4gICAgd2lkdGg6IDEwMCU7XHJcbn1cclxuXHJcbi5tYXgtd2lkdGgtNDgwcHh7XHJcbiAgICBtYXgtd2lkdGg6IDQ4MHB4ICFpbXBvcnRhbnQ7XHJcbn1cclxuXHJcbi5tYXJnaW4tYm90dG9tLTEwcHh7XHJcbiAgICBtYXJnaW4tYm90dG9tOiAxMHB4ICFpbXBvcnRhbnQ7XHJcbn1cclxuXHJcbnRleHRhcmVhe1xyXG4gICAgaGVpZ2h0OiA0M3B4O1xyXG59XHJcblxyXG5cclxubWF0LWZvcm0tZmllbGQge1xyXG4gICAgbWF4LXdpZHRoOiAxMDAlICFpbXBvcnRhbnQ7XHJcbn1cclxuXHJcbi5tYXgtd2lkdGgtMTAwMHB4e1xyXG4gICAgbWF4LXdpZHRoOiAxMDAwcHggIWltcG9ydGFudDtcclxufVxyXG5cclxuQG1lZGlhIHNjcmVlbiBhbmQgKG1heC13aWR0aDogOTU5cHgpIHtcclxuICAgIC5jdXN0b21pemVkIHtcclxuICAgICAgICBtYXgtd2lkdGg6IDQ4MHB4ICFpbXBvcnRhbnQ7XHJcbiAgICB9XHJcbiAgfSJdfQ== */"
+
+/***/ }),
+
+/***/ "./src/app/ms-back-office/modules/ms-style/components/style-parent-form/style-parent-form.component.ts":
+/*!*************************************************************************************************************!*\
+  !*** ./src/app/ms-back-office/modules/ms-style/components/style-parent-form/style-parent-form.component.ts ***!
+  \*************************************************************************************************************/
+/*! exports provided: StyleParentFormComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "StyleParentFormComponent", function() { return StyleParentFormComponent; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm5/forms.js");
+/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common */ "./node_modules/@angular/common/fesm5/common.js");
+/* harmony import */ var _ngx_translate_core__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @ngx-translate/core */ "./node_modules/@ngx-translate/core/fesm5/ngx-translate-core.js");
+/* harmony import */ var _ui_components_base_reactive_form_base_reactive_form_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../../../ui/components/base-reactive-form/base-reactive-form-component */ "./src/app/ui/components/base-reactive-form/base-reactive-form-component.ts");
+/* harmony import */ var _ms_brands_services_brands_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../ms-brands/services/brands.service */ "./src/app/ms-back-office/modules/ms-brands/services/brands.service.ts");
+/* harmony import */ var _services_styles_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../services/styles.service */ "./src/app/ms-back-office/modules/ms-style/services/styles.service.ts");
+/* harmony import */ var _ms_brands_components_new_brand_new_brand_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../../ms-brands/components/new-brand/new-brand.component */ "./src/app/ms-back-office/modules/ms-brands/components/new-brand/new-brand.component.ts");
+/* harmony import */ var _ms_shops_components_shops_selling_style_modal_shops_selling_style_modal_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../../ms-shops/components/shops-selling-style-modal/shops-selling-style-modal.component */ "./src/app/ms-back-office/modules/ms-shops/components/shops-selling-style-modal/shops-selling-style-modal.component.ts");
+/* harmony import */ var _angular_material__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @angular/material */ "./node_modules/@angular/material/esm5/material.es5.js");
+var __extends = (undefined && undefined.__extends) || (function () {
+    var extendStatics = Object.setPrototypeOf ||
+        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+//
+
+//
+
+
+
+
+
+
+var StyleParentFormComponent = /** @class */ (function (_super) {
+    __extends(StyleParentFormComponent, _super);
+    function StyleParentFormComponent(dialog, location, brandsService, stylesService, translateService) {
+        var _this = _super.call(this, translateService) || this;
+        _this.dialog = dialog;
+        _this.location = location;
+        _this.brandsService = brandsService;
+        _this.stylesService = stylesService;
+        _this.isParent = false;
+        _this.createRelease = false;
+        return _this;
+        //setTranslations(this.translateService, TRANSLATIONS);
+    }
+    StyleParentFormComponent.prototype.ngOnInit = function () {
+        this.styles = this.styles.filter(function (style) {
+            return style.isParent;
+        });
+        var validationsErrors = [
+            {
+                type: 'required',
+                key: 'Required Field',
+                params: null,
+                translation: ''
+            }
+        ];
+        this.validationErrorMessages = validationsErrors;
+        this.createFormGroup();
+        this.allStyles = this.styles;
+    };
+    StyleParentFormComponent.prototype.createFormGroup = function () {
+        this.formGroup = new _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormGroup"]({
+            name: new _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormControl"](this.data.name, [_angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].required]),
+            description: new _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormControl"](this.data.description),
+            brand: new _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormControl"](this.data.brand, [_angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].required]),
+            //parent: new FormControl(this.data.parent),
+            category: new _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormControl"](this.data.category, [_angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].required]),
+            isParent: new _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormControl"](true)
+        });
+    };
+    StyleParentFormComponent.prototype.submitClicked = function () {
+        console.log(this.createRelease);
+        if (this.formGroup.valid) {
+            this.accept.emit(this.data);
+        }
+        else {
+            console.log("invalid");
+            this.triggerValidation();
+        }
+    };
+    StyleParentFormComponent.prototype.showModalStoresSelling = function () {
+        this.modalRef = this.dialog.open(_ms_shops_components_shops_selling_style_modal_shops_selling_style_modal_component__WEBPACK_IMPORTED_MODULE_8__["ShopsSellingStyleModalComponent"], {
+            height: '90%',
+            width: '90%',
+            data: {
+                styleId: this.styleId,
+                shops: this.shops,
+            }
+        });
+    };
+    StyleParentFormComponent.prototype.showModalAddNewBrand = function () {
+        var _this = this;
+        this.modalRef = this.dialog.open(_ms_brands_components_new_brand_new_brand_component__WEBPACK_IMPORTED_MODULE_7__["NewBrandComponent"], {
+            height: '90%',
+            width: '90%',
+            data: { face: this.shop }
+        });
+        this.modalRef.afterClosed().subscribe(function () {
+            _this.brandsService.getAllBrands().subscribe(function (response) {
+                _this.brands = response;
+            });
+        });
+    };
+    StyleParentFormComponent.prototype.selectParent = function (brandId) {
+        var _this = this;
+        this.stylesService.getAllStyles().subscribe(function (response) {
+            if (brandId) {
+                _this.styles = response.filter(function (style) {
+                    return (style.brand === brandId) && style.isParent;
+                });
+            }
+            else {
+                _this.styles = response;
+            }
+        });
+    };
+    StyleParentFormComponent.prototype.selectBrand = function (brandId) {
+        var _this = this;
+        this.brandsService.getAllBrands().subscribe(function (response) {
+            if (brandId) {
+                _this.brands = response.filter(function (brand) {
+                    return brand.id === brandId;
+                });
+            }
+            else {
+                _this.brands = response;
+            }
+        });
+    };
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])(),
+        __metadata("design:type", Array)
+    ], StyleParentFormComponent.prototype, "brands", void 0);
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])(),
+        __metadata("design:type", Array)
+    ], StyleParentFormComponent.prototype, "categories", void 0);
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])(),
+        __metadata("design:type", Boolean)
+    ], StyleParentFormComponent.prototype, "isParent", void 0);
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])(),
+        __metadata("design:type", Array)
+    ], StyleParentFormComponent.prototype, "styles", void 0);
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])(),
+        __metadata("design:type", String)
+    ], StyleParentFormComponent.prototype, "styleId", void 0);
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])(),
+        __metadata("design:type", Array)
+    ], StyleParentFormComponent.prototype, "shops", void 0);
+    StyleParentFormComponent = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+            selector: 'style-parent-form',
+            template: __webpack_require__(/*! ./style-parent-form.component.html */ "./src/app/ms-back-office/modules/ms-style/components/style-parent-form/style-parent-form.component.html"),
+            styles: [__webpack_require__(/*! ./style-parent-form.component.scss */ "./src/app/ms-back-office/modules/ms-style/components/style-parent-form/style-parent-form.component.scss")],
+            changeDetection: _angular_core__WEBPACK_IMPORTED_MODULE_0__["ChangeDetectionStrategy"].OnPush
+        }),
+        __metadata("design:paramtypes", [_angular_material__WEBPACK_IMPORTED_MODULE_9__["MatDialog"],
+            _angular_common__WEBPACK_IMPORTED_MODULE_2__["Location"],
+            _ms_brands_services_brands_service__WEBPACK_IMPORTED_MODULE_5__["BrandsService"],
+            _services_styles_service__WEBPACK_IMPORTED_MODULE_6__["StylesService"],
+            _ngx_translate_core__WEBPACK_IMPORTED_MODULE_3__["TranslateService"]])
+    ], StyleParentFormComponent);
+    return StyleParentFormComponent;
 }(_ui_components_base_reactive_form_base_reactive_form_component__WEBPACK_IMPORTED_MODULE_4__["BaseReactiveFormComponent"]));
 
 
@@ -1135,14 +1534,16 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_styles_table_styles_table_component__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./components/styles-table/styles-table.component */ "./src/app/ms-back-office/modules/ms-style/components/styles-table/styles-table.component.ts");
 /* harmony import */ var _ms_style_routing_module__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./ms-style-routing.module */ "./src/app/ms-back-office/modules/ms-style/ms-style-routing.module.ts");
 /* harmony import */ var _components_style_form_style_form_component__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./components/style-form/style-form.component */ "./src/app/ms-back-office/modules/ms-style/components/style-form/style-form.component.ts");
-/* harmony import */ var _components_see_style_see_style_component__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./components/see-style/see-style.component */ "./src/app/ms-back-office/modules/ms-style/components/see-style/see-style.component.ts");
-/* harmony import */ var _components_new_style_new_style_component__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ./components/new-style/new-style.component */ "./src/app/ms-back-office/modules/ms-style/components/new-style/new-style.component.ts");
-/* harmony import */ var _components_edit_style_edit_style_component__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ./components/edit-style/edit-style.component */ "./src/app/ms-back-office/modules/ms-style/components/edit-style/edit-style.component.ts");
-/* harmony import */ var _components_delete_style_delete_style_component__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ./components/delete-style/delete-style.component */ "./src/app/ms-back-office/modules/ms-style/components/delete-style/delete-style.component.ts");
-/* harmony import */ var _ms_brands_components_new_brand_new_brand_component__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! ../ms-brands/components/new-brand/new-brand.component */ "./src/app/ms-back-office/modules/ms-brands/components/new-brand/new-brand.component.ts");
-/* harmony import */ var _ms_brands_ms_brands_module__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! ../ms-brands/ms-brands.module */ "./src/app/ms-back-office/modules/ms-brands/ms-brands.module.ts");
-/* harmony import */ var _ms_shops_ms_shops_module__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(/*! ../ms-shops/ms-shops.module */ "./src/app/ms-back-office/modules/ms-shops/ms-shops.module.ts");
-/* harmony import */ var _ms_shops_components_shops_selling_style_modal_shops_selling_style_modal_component__WEBPACK_IMPORTED_MODULE_25__ = __webpack_require__(/*! ../ms-shops/components/shops-selling-style-modal/shops-selling-style-modal.component */ "./src/app/ms-back-office/modules/ms-shops/components/shops-selling-style-modal/shops-selling-style-modal.component.ts");
+/* harmony import */ var _components_style_parent_form_style_parent_form_component__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./components/style-parent-form/style-parent-form.component */ "./src/app/ms-back-office/modules/ms-style/components/style-parent-form/style-parent-form.component.ts");
+/* harmony import */ var _components_see_style_see_style_component__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ./components/see-style/see-style.component */ "./src/app/ms-back-office/modules/ms-style/components/see-style/see-style.component.ts");
+/* harmony import */ var _components_new_style_new_style_component__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ./components/new-style/new-style.component */ "./src/app/ms-back-office/modules/ms-style/components/new-style/new-style.component.ts");
+/* harmony import */ var _components_new_parent_new_parent_component__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ./components/new-parent/new-parent.component */ "./src/app/ms-back-office/modules/ms-style/components/new-parent/new-parent.component.ts");
+/* harmony import */ var _components_edit_style_edit_style_component__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! ./components/edit-style/edit-style.component */ "./src/app/ms-back-office/modules/ms-style/components/edit-style/edit-style.component.ts");
+/* harmony import */ var _components_delete_style_delete_style_component__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! ./components/delete-style/delete-style.component */ "./src/app/ms-back-office/modules/ms-style/components/delete-style/delete-style.component.ts");
+/* harmony import */ var _ms_brands_components_new_brand_new_brand_component__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(/*! ../ms-brands/components/new-brand/new-brand.component */ "./src/app/ms-back-office/modules/ms-brands/components/new-brand/new-brand.component.ts");
+/* harmony import */ var _ms_brands_ms_brands_module__WEBPACK_IMPORTED_MODULE_25__ = __webpack_require__(/*! ../ms-brands/ms-brands.module */ "./src/app/ms-back-office/modules/ms-brands/ms-brands.module.ts");
+/* harmony import */ var _ms_shops_ms_shops_module__WEBPACK_IMPORTED_MODULE_26__ = __webpack_require__(/*! ../ms-shops/ms-shops.module */ "./src/app/ms-back-office/modules/ms-shops/ms-shops.module.ts");
+/* harmony import */ var _ms_shops_components_shops_selling_style_modal_shops_selling_style_modal_component__WEBPACK_IMPORTED_MODULE_27__ = __webpack_require__(/*! ../ms-shops/components/shops-selling-style-modal/shops-selling-style-modal.component */ "./src/app/ms-back-office/modules/ms-shops/components/shops-selling-style-modal/shops-selling-style-modal.component.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1168,6 +1569,8 @@ var __decorate = (undefined && undefined.__decorate) || function (decorators, ta
 
 
 //
+
+
 
 
 
@@ -1209,21 +1612,24 @@ var MsStyleModule = /** @class */ (function () {
                 _ngx_translate_core__WEBPACK_IMPORTED_MODULE_13__["TranslateModule"],
                 _ms_style_routing_module__WEBPACK_IMPORTED_MODULE_16__["MsStyleRoutingModule"],
                 _ui_modules_ask_before_refresh_ask_before_refresh_module__WEBPACK_IMPORTED_MODULE_14__["AskBeforeRefreshModule"],
-                _ms_brands_ms_brands_module__WEBPACK_IMPORTED_MODULE_23__["MsBrandsModule"],
-                _ms_shops_ms_shops_module__WEBPACK_IMPORTED_MODULE_24__["MsShopsModule"],
+                _ms_brands_ms_brands_module__WEBPACK_IMPORTED_MODULE_25__["MsBrandsModule"],
+                _ms_shops_ms_shops_module__WEBPACK_IMPORTED_MODULE_26__["MsShopsModule"],
             ],
             declarations: [
                 _components_styles_table_styles_table_component__WEBPACK_IMPORTED_MODULE_15__["StyleTableComponent"],
                 _components_style_form_style_form_component__WEBPACK_IMPORTED_MODULE_17__["StyleFormComponent"],
-                _components_new_style_new_style_component__WEBPACK_IMPORTED_MODULE_19__["NewStyleComponent"],
-                _components_edit_style_edit_style_component__WEBPACK_IMPORTED_MODULE_20__["EditStyleComponent"],
-                _components_delete_style_delete_style_component__WEBPACK_IMPORTED_MODULE_21__["DeleteStyleComponent"],
-                _components_see_style_see_style_component__WEBPACK_IMPORTED_MODULE_18__["SeeStyleComponent"]
+                _components_style_parent_form_style_parent_form_component__WEBPACK_IMPORTED_MODULE_18__["StyleParentFormComponent"],
+                _components_new_style_new_style_component__WEBPACK_IMPORTED_MODULE_20__["NewStyleComponent"],
+                _components_edit_style_edit_style_component__WEBPACK_IMPORTED_MODULE_22__["EditStyleComponent"],
+                _components_delete_style_delete_style_component__WEBPACK_IMPORTED_MODULE_23__["DeleteStyleComponent"],
+                _components_new_parent_new_parent_component__WEBPACK_IMPORTED_MODULE_21__["NewParentModalComponent"],
+                _components_see_style_see_style_component__WEBPACK_IMPORTED_MODULE_19__["SeeStyleComponent"],
             ],
             entryComponents: [
-                _ms_shops_components_shops_selling_style_modal_shops_selling_style_modal_component__WEBPACK_IMPORTED_MODULE_25__["ShopsSellingStyleModalComponent"],
-                _ms_brands_components_new_brand_new_brand_component__WEBPACK_IMPORTED_MODULE_22__["NewBrandComponent"],
-                _components_see_style_see_style_component__WEBPACK_IMPORTED_MODULE_18__["SeeStyleComponent"]
+                _ms_shops_components_shops_selling_style_modal_shops_selling_style_modal_component__WEBPACK_IMPORTED_MODULE_27__["ShopsSellingStyleModalComponent"],
+                _ms_brands_components_new_brand_new_brand_component__WEBPACK_IMPORTED_MODULE_24__["NewBrandComponent"],
+                _components_new_parent_new_parent_component__WEBPACK_IMPORTED_MODULE_21__["NewParentModalComponent"],
+                _components_see_style_see_style_component__WEBPACK_IMPORTED_MODULE_19__["SeeStyleComponent"]
             ]
         })
     ], MsStyleModule);

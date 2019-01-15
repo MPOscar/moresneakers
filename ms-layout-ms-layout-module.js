@@ -352,7 +352,7 @@ var DeleteLayoutComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<slider-form *ngIf=\"data\"\n    [data]=\"data\"\n    [filters]=\"filters\"\n    (accept)=\"submit($event)\"\n    [validationErrors]=\"validationErrors\"\n    (cancel)=\"cancel()\"\n    (dataChange)=\"dataChanged()\">\n</slider-form>"
+module.exports = "<slider-form\n    [data]=\"data\"\n    [filters]=\"filters\"\n    (accept)=\"submit($event)\"\n    [validationErrors]=\"validationErrors\"\n    (cancel)=\"cancel()\"\n    (dataChange)=\"dataChanged()\">\n</slider-form>"
 
 /***/ }),
 

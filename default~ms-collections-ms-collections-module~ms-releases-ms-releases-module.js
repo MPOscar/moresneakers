@@ -1240,7 +1240,7 @@ var NewReleaseModalComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "\n<release-form class=\"flex-grow-1\"\n    [brands]=\"brands\"\n    [categories]=\"categories\"\n    [collections]=\"collections\"\n    [styles]=\"styles\"\n    [styleId]=\"styleId\"\n    [data]=\"data\"        \n    (accept)=\"submit($event)\"\n    (cancel)=\"cancel()\"\n    [validationErrors]=\"validationErrors\"\n    (dataChange)=\"dataChanged()\">\n</release-form>"
+module.exports = "\n<release-form class=\"flex-grow-1\"\n    [brands]=\"brands\"\n    [categories]=\"categories\"\n    [collections]=\"collections\"\n    [styles]=\"styles\"\n    [styleId]=\"styleId\"\n    [data]=\"data\"        \n    (accept)=\"submit($event)\"\n    (cancel)=\"cancel()\"\n    [validationErrors]=\"validationErrors\"\n    (dataChange)=\"dataChanged()\">\n</release-form>\n"
 
 /***/ }),
 
@@ -1321,6 +1321,7 @@ var NewReleaseComponent = /** @class */ (function () {
             name: "",
             description: "",
             sku: "",
+            styleId: "styleId",
             hot: false,
             customized: false,
         };
@@ -1336,8 +1337,9 @@ var NewReleaseComponent = /** @class */ (function () {
         this.categories = this.activatedRoute.snapshot.data.categories;
         this.collections = this.activatedRoute.snapshot.data.collections;
         this.styles = this.activatedRoute.snapshot.data.styles;
-        this.styleId = this.activatedRoute.snapshot.queryParams.styleId;
+        //this.styleId = this.activatedRoute.snapshot.queryParams.styleId;
         this.returnUrl = this.activatedRoute.snapshot.queryParams['returnUrl'];
+        this.styleId = this.activatedRoute.snapshot.queryParams['styleId'];
     };
     NewReleaseComponent.prototype.submit = function (data) {
         this.createRelease(data);
