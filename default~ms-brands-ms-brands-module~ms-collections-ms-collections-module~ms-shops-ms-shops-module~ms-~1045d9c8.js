@@ -5671,6 +5671,222 @@ var LinkShopsSubShopsModalComponent = /** @class */ (function () {
 
 /***/ }),
 
+/***/ "./src/app/ms-back-office/modules/ms-shops/components/new-shop-modal/new-shop-modal.component.html":
+/*!*********************************************************************************************************!*\
+  !*** ./src/app/ms-back-office/modules/ms-shops/components/new-shop-modal/new-shop-modal.component.html ***!
+  \*********************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<h1>SHOP CREATOR</h1>\n\n<shop-form class=\"flex-grow-1\"\n    [data]=\"data\"        \n    [brands]=\"brands\"\n    [categories]=\"categories\"\n    [shops]=\"shops\"\n    (accept)=\"submit($event)\"\n    (cancel)=\"cancel()\"\n    [validationErrors]=\"validationErrors\"\n    (dataChange)=\"dataChanged()\">\n</shop-form>"
+
+/***/ }),
+
+/***/ "./src/app/ms-back-office/modules/ms-shops/components/new-shop-modal/new-shop-modal.component.scss":
+/*!*********************************************************************************************************!*\
+  !*** ./src/app/ms-back-office/modules/ms-shops/components/new-shop-modal/new-shop-modal.component.scss ***!
+  \*********************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = ":host {\n  display: flex;\n  flex-direction: column;\n  flex-grow: 1; }\n\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvbXMtYmFjay1vZmZpY2UvbW9kdWxlcy9tcy1zaG9wcy9jb21wb25lbnRzL25ldy1zaG9wLW1vZGFsL0U6XFxQUk9HUkFNQUNJT04gSUlJXFxtb3Jlc25lYWtlcnMtYmFja29mZmljZS9zcmNcXGFwcFxcbXMtYmFjay1vZmZpY2VcXG1vZHVsZXNcXG1zLXNob3BzXFxjb21wb25lbnRzXFxuZXctc2hvcC1tb2RhbFxcbmV3LXNob3AtbW9kYWwuY29tcG9uZW50LnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFDSSxjQUFhO0VBQ2IsdUJBQXNCO0VBQ3RCLGFBQVksRUFDZiIsImZpbGUiOiJzcmMvYXBwL21zLWJhY2stb2ZmaWNlL21vZHVsZXMvbXMtc2hvcHMvY29tcG9uZW50cy9uZXctc2hvcC1tb2RhbC9uZXctc2hvcC1tb2RhbC5jb21wb25lbnQuc2NzcyIsInNvdXJjZXNDb250ZW50IjpbIjpob3N0IHtcclxuICAgIGRpc3BsYXk6IGZsZXg7XHJcbiAgICBmbGV4LWRpcmVjdGlvbjogY29sdW1uO1xyXG4gICAgZmxleC1ncm93OiAxO1xyXG59Il19 */"
+
+/***/ }),
+
+/***/ "./src/app/ms-back-office/modules/ms-shops/components/new-shop-modal/new-shop-modal.component.ts":
+/*!*******************************************************************************************************!*\
+  !*** ./src/app/ms-back-office/modules/ms-shops/components/new-shop-modal/new-shop-modal.component.ts ***!
+  \*******************************************************************************************************/
+/*! exports provided: NewShopModalComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "NewShopModalComponent", function() { return NewShopModalComponent; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+/* harmony import */ var _angular_material__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/material */ "./node_modules/@angular/material/esm5/material.es5.js");
+/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! rxjs */ "./node_modules/rxjs/_esm5/index.js");
+/* harmony import */ var _ngx_translate_core__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @ngx-translate/core */ "./node_modules/@ngx-translate/core/fesm5/ngx-translate-core.js");
+/* harmony import */ var _ui_helpers_component_can_deactivate__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../../../ui/helpers/component-can-deactivate */ "./src/app/ui/helpers/component-can-deactivate.ts");
+/* harmony import */ var _ui_helpers_mixin_decorator__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../../../../ui/helpers/mixin-decorator */ "./src/app/ui/helpers/mixin-decorator.ts");
+/* harmony import */ var _error_handling_services_error_handling_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../../../../error-handling/services/error-handling.service */ "./src/app/error-handling/services/error-handling.service.ts");
+/* harmony import */ var _error_handling_services_toastr_service__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../../../../error-handling/services/toastr.service */ "./src/app/error-handling/services/toastr.service.ts");
+/* harmony import */ var _models_shops__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../../models/shops */ "./src/app/ms-back-office/modules/ms-shops/models/shops.ts");
+/* harmony import */ var _services_shops_service__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../../services/shops.service */ "./src/app/ms-back-office/modules/ms-shops/services/shops.service.ts");
+/* harmony import */ var _services_shops_images_service__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../../services/shops-images.service */ "./src/app/ms-back-office/modules/ms-shops/services/shops-images.service.ts");
+/* harmony import */ var _ui_modules_images_card_services_images_service__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ../../../../../ui/modules/images-card/services/images.service */ "./src/app/ui/modules/images-card/services/images.service.ts");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+var __param = (undefined && undefined.__param) || function (paramIndex, decorator) {
+    return function (target, key) { decorator(target, key, paramIndex); }
+};
+
+
+//
+
+
+
+//
+
+
+
+
+
+
+
+
+var errorKey = 'Error';
+var savedUserMessageKey = 'Saved User Message';
+var NewShopModalComponent = /** @class */ (function () {
+    function NewShopModalComponent(activatedRoute, dialog, dialogRef, shopsService, shopsImgesService, errorHandlingService, imagesService, router, translate, toastr, dialogData) {
+        this.activatedRoute = activatedRoute;
+        this.dialog = dialog;
+        this.dialogRef = dialogRef;
+        this.shopsService = shopsService;
+        this.shopsImgesService = shopsImgesService;
+        this.errorHandlingService = errorHandlingService;
+        this.imagesService = imagesService;
+        this.router = router;
+        this.translate = translate;
+        this.toastr = toastr;
+        this.dialogData = dialogData;
+        this.data = {
+            name: ""
+        };
+        // Begin Mixin code of the CanDeactivate class
+        this.unsavedChanges = false;
+        this.cancelBtnKey = 'No';
+        this.okBtnKey = 'Yes';
+        this.saveTitleKey = 'Discard Title';
+        this.saveMessageKey = 'Discard Message';
+    }
+    NewShopModalComponent.prototype.ngOnInit = function () {
+        this.brands = this.activatedRoute.snapshot.data.brands;
+        this.categories = this.activatedRoute.snapshot.data.categories;
+        this.collections = this.activatedRoute.snapshot.data.collections;
+        this.shops = this.activatedRoute.snapshot.data.shops;
+    };
+    NewShopModalComponent.prototype.submit = function (data) {
+        this.createShop(data);
+    };
+    NewShopModalComponent.prototype.cancel = function () {
+        this.dialogRef.close();
+    };
+    NewShopModalComponent.prototype.close = function () {
+        this.router.navigate(this.activatedRoute.snapshot.data.closeRouteCommand, { relativeTo: this.activatedRoute });
+    };
+    /*createShop(data: Shop) {
+      this.shopsService.postShop(data).subscribe(response => {
+        this.unsavedChanges = false;
+        //this.close.emit();TODO
+        this.close();
+        this.toastr.success(savedUserMessageKey);
+      },
+        (error: HandledError) => {
+          this.errorHandlingService.handleUiError(errorKey, error);
+          this.validationErrors = error.formErrors;
+        });
+    }*/
+    NewShopModalComponent.prototype.createShop = function (shopData) {
+        var _this = this;
+        console.log("create...........");
+        this.shopsService.postShop(shopData).subscribe(function (response) {
+            _this.shopId = response.data.id;
+            shopData.images = [];
+            var imagesObservables = new Array();
+            for (var position in shopData.faces) {
+                var face = shopData.faces[position];
+                if (face.mainImage === true) {
+                    _this.imagesService.postImage(face.file).subscribe(function (response) {
+                        //let image = new ReleaseImage;
+                        //image.imgUrl = response.data.url;
+                        //releaseData.images = [...releaseData.images, image];
+                        console.log("main image........................................");
+                        //console.log()
+                        var mainImage = {
+                            mainImage: response.data.url
+                        };
+                        _this.shopsImgesService.patchShopMainImage(_this.shopId, mainImage).subscribe(function (response) {
+                            console.log("new principal");
+                        }, function (error) {
+                            _this.errorHandlingService.handleUiError(errorKey, error);
+                            _this.validationErrors = error.formErrors;
+                        });
+                    }, function (error) {
+                        _this.errorHandlingService.handleUiError(errorKey, error);
+                        _this.validationErrors = error.formErrors;
+                    });
+                }
+                else {
+                    var subscription$ = _this.imagesService.postImage(face.file);
+                    imagesObservables.push(subscription$);
+                }
+            }
+            if (imagesObservables.length > 0) {
+                Object(rxjs__WEBPACK_IMPORTED_MODULE_3__["forkJoin"])(imagesObservables).subscribe(function (responses) {
+                    for (var item in responses) {
+                        //const image = responses[item].data.url;
+                        var image = new _models_shops__WEBPACK_IMPORTED_MODULE_9__["ShopImage"];
+                        image.imgUrl = responses[item].data.url;
+                        shopData.images = shopData.images.concat([image]);
+                    }
+                    //this.shopsService.postRelease(releaseData).subscribe(response => {
+                    //send images realeases 
+                    _this.shopsImgesService.postShopImageAll(response.data.id, shopData.images).subscribe(function (response) {
+                    }, function (error) {
+                        _this.errorHandlingService.handleUiError(errorKey, error);
+                        _this.validationErrors = error.formErrors;
+                    });
+                    _this.unsavedChanges = false;
+                    _this.close();
+                    _this.toastr.success((savedUserMessageKey));
+                }, function (error) {
+                    _this.errorHandlingService.handleUiError(errorKey, error);
+                    _this.validationErrors = error.formErrors;
+                });
+            }
+            else {
+                _this.close();
+            }
+        }, function (error) {
+            _this.errorHandlingService.handleUiError(errorKey, error, 'shop');
+            _this.validationErrors = error.formErrors;
+        });
+    };
+    NewShopModalComponent = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+            selector: 'new-shop-modal',
+            template: __webpack_require__(/*! ./new-shop-modal.component.html */ "./src/app/ms-back-office/modules/ms-shops/components/new-shop-modal/new-shop-modal.component.html"),
+            styles: [__webpack_require__(/*! ./new-shop-modal.component.scss */ "./src/app/ms-back-office/modules/ms-shops/components/new-shop-modal/new-shop-modal.component.scss")]
+        }),
+        Object(_ui_helpers_mixin_decorator__WEBPACK_IMPORTED_MODULE_6__["Mixin"])([_ui_helpers_component_can_deactivate__WEBPACK_IMPORTED_MODULE_5__["CanDeactivateMixin"]]),
+        __param(10, Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Inject"])(_angular_material__WEBPACK_IMPORTED_MODULE_2__["MAT_DIALOG_DATA"])),
+        __metadata("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_1__["ActivatedRoute"],
+            _angular_material__WEBPACK_IMPORTED_MODULE_2__["MatDialog"],
+            _angular_material__WEBPACK_IMPORTED_MODULE_2__["MatDialogRef"],
+            _services_shops_service__WEBPACK_IMPORTED_MODULE_10__["ShopsService"],
+            _services_shops_images_service__WEBPACK_IMPORTED_MODULE_11__["ShopsImgesService"],
+            _error_handling_services_error_handling_service__WEBPACK_IMPORTED_MODULE_7__["ErrorHandlingService"],
+            _ui_modules_images_card_services_images_service__WEBPACK_IMPORTED_MODULE_12__["ImagesService"],
+            _angular_router__WEBPACK_IMPORTED_MODULE_1__["Router"],
+            _ngx_translate_core__WEBPACK_IMPORTED_MODULE_4__["TranslateService"],
+            _error_handling_services_toastr_service__WEBPACK_IMPORTED_MODULE_8__["ToastrService"], Object])
+    ], NewShopModalComponent);
+    return NewShopModalComponent;
+}());
+
+
+
+/***/ }),
+
 /***/ "./src/app/ms-back-office/modules/ms-shops/components/new-shop/new-shop.component.html":
 /*!*********************************************************************************************!*\
   !*** ./src/app/ms-back-office/modules/ms-shops/components/new-shop/new-shop.component.html ***!
@@ -6989,17 +7205,18 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_shops_table_shops_table_component__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ./components/shops-table/shops-table.component */ "./src/app/ms-back-office/modules/ms-shops/components/shops-table/shops-table.component.ts");
 /* harmony import */ var _components_shop_form_shop_form_component__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ./components/shop-form/shop-form.component */ "./src/app/ms-back-office/modules/ms-shops/components/shop-form/shop-form.component.ts");
 /* harmony import */ var _components_new_shop_new_shop_component__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! ./components/new-shop/new-shop.component */ "./src/app/ms-back-office/modules/ms-shops/components/new-shop/new-shop.component.ts");
-/* harmony import */ var _components_edit_shop_edit_shop_component__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! ./components/edit-shop/edit-shop.component */ "./src/app/ms-back-office/modules/ms-shops/components/edit-shop/edit-shop.component.ts");
-/* harmony import */ var _components_edit_shop_form_edit_shop_form_component__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(/*! ./components/edit-shop-form/edit-shop-form.component */ "./src/app/ms-back-office/modules/ms-shops/components/edit-shop-form/edit-shop-form.component.ts");
-/* harmony import */ var _components_delete_shop_delete_shop_component__WEBPACK_IMPORTED_MODULE_25__ = __webpack_require__(/*! ./components/delete-shop/delete-shop.component */ "./src/app/ms-back-office/modules/ms-shops/components/delete-shop/delete-shop.component.ts");
-/* harmony import */ var _components_show_subshops_show_subshops_component__WEBPACK_IMPORTED_MODULE_26__ = __webpack_require__(/*! ./components/show-subshops/show-subshops.component */ "./src/app/ms-back-office/modules/ms-shops/components/show-subshops/show-subshops.component.ts");
-/* harmony import */ var _components_shops_selling_style_modal_shops_selling_style_modal_component__WEBPACK_IMPORTED_MODULE_27__ = __webpack_require__(/*! ./components/shops-selling-style-modal/shops-selling-style-modal.component */ "./src/app/ms-back-office/modules/ms-shops/components/shops-selling-style-modal/shops-selling-style-modal.component.ts");
-/* harmony import */ var _components_link_shops_brand_link_shops_brand_modal_component__WEBPACK_IMPORTED_MODULE_28__ = __webpack_require__(/*! ./components/link-shops-brand/link-shops-brand-modal.component */ "./src/app/ms-back-office/modules/ms-shops/components/link-shops-brand/link-shops-brand-modal.component.ts");
-/* harmony import */ var _components_link_shops_collection_link_shops_collection_modal_component__WEBPACK_IMPORTED_MODULE_29__ = __webpack_require__(/*! ./components/link-shops-collection/link-shops-collection-modal.component */ "./src/app/ms-back-office/modules/ms-shops/components/link-shops-collection/link-shops-collection-modal.component.ts");
-/* harmony import */ var _components_link_shops_subshops_link_shops_subshops_modal_component__WEBPACK_IMPORTED_MODULE_30__ = __webpack_require__(/*! ./components/link-shops-subshops/link-shops-subshops-modal.component */ "./src/app/ms-back-office/modules/ms-shops/components/link-shops-subshops/link-shops-subshops-modal.component.ts");
-/* harmony import */ var _ui_modules_images_card_images_card_module__WEBPACK_IMPORTED_MODULE_31__ = __webpack_require__(/*! ../../../ui/modules/images-card/images-card.module */ "./src/app/ui/modules/images-card/images-card.module.ts");
-/* harmony import */ var _ms_deals_ms_deals_module__WEBPACK_IMPORTED_MODULE_32__ = __webpack_require__(/*! ../ms-deals/ms-deals.module */ "./src/app/ms-back-office/modules/ms-deals/ms-deals.module.ts");
-/* harmony import */ var _ms_offers_ms_offers_module__WEBPACK_IMPORTED_MODULE_33__ = __webpack_require__(/*! ../ms-offers/ms-offers.module */ "./src/app/ms-back-office/modules/ms-offers/ms-offers.module.ts");
+/* harmony import */ var _components_new_shop_modal_new_shop_modal_component__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! ./components/new-shop-modal/new-shop-modal.component */ "./src/app/ms-back-office/modules/ms-shops/components/new-shop-modal/new-shop-modal.component.ts");
+/* harmony import */ var _components_edit_shop_edit_shop_component__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(/*! ./components/edit-shop/edit-shop.component */ "./src/app/ms-back-office/modules/ms-shops/components/edit-shop/edit-shop.component.ts");
+/* harmony import */ var _components_edit_shop_form_edit_shop_form_component__WEBPACK_IMPORTED_MODULE_25__ = __webpack_require__(/*! ./components/edit-shop-form/edit-shop-form.component */ "./src/app/ms-back-office/modules/ms-shops/components/edit-shop-form/edit-shop-form.component.ts");
+/* harmony import */ var _components_delete_shop_delete_shop_component__WEBPACK_IMPORTED_MODULE_26__ = __webpack_require__(/*! ./components/delete-shop/delete-shop.component */ "./src/app/ms-back-office/modules/ms-shops/components/delete-shop/delete-shop.component.ts");
+/* harmony import */ var _components_show_subshops_show_subshops_component__WEBPACK_IMPORTED_MODULE_27__ = __webpack_require__(/*! ./components/show-subshops/show-subshops.component */ "./src/app/ms-back-office/modules/ms-shops/components/show-subshops/show-subshops.component.ts");
+/* harmony import */ var _components_shops_selling_style_modal_shops_selling_style_modal_component__WEBPACK_IMPORTED_MODULE_28__ = __webpack_require__(/*! ./components/shops-selling-style-modal/shops-selling-style-modal.component */ "./src/app/ms-back-office/modules/ms-shops/components/shops-selling-style-modal/shops-selling-style-modal.component.ts");
+/* harmony import */ var _components_link_shops_brand_link_shops_brand_modal_component__WEBPACK_IMPORTED_MODULE_29__ = __webpack_require__(/*! ./components/link-shops-brand/link-shops-brand-modal.component */ "./src/app/ms-back-office/modules/ms-shops/components/link-shops-brand/link-shops-brand-modal.component.ts");
+/* harmony import */ var _components_link_shops_collection_link_shops_collection_modal_component__WEBPACK_IMPORTED_MODULE_30__ = __webpack_require__(/*! ./components/link-shops-collection/link-shops-collection-modal.component */ "./src/app/ms-back-office/modules/ms-shops/components/link-shops-collection/link-shops-collection-modal.component.ts");
+/* harmony import */ var _components_link_shops_subshops_link_shops_subshops_modal_component__WEBPACK_IMPORTED_MODULE_31__ = __webpack_require__(/*! ./components/link-shops-subshops/link-shops-subshops-modal.component */ "./src/app/ms-back-office/modules/ms-shops/components/link-shops-subshops/link-shops-subshops-modal.component.ts");
+/* harmony import */ var _ui_modules_images_card_images_card_module__WEBPACK_IMPORTED_MODULE_32__ = __webpack_require__(/*! ../../../ui/modules/images-card/images-card.module */ "./src/app/ui/modules/images-card/images-card.module.ts");
+/* harmony import */ var _ms_deals_ms_deals_module__WEBPACK_IMPORTED_MODULE_33__ = __webpack_require__(/*! ../ms-deals/ms-deals.module */ "./src/app/ms-back-office/modules/ms-deals/ms-deals.module.ts");
+/* harmony import */ var _ms_offers_ms_offers_module__WEBPACK_IMPORTED_MODULE_34__ = __webpack_require__(/*! ../ms-offers/ms-offers.module */ "./src/app/ms-back-office/modules/ms-offers/ms-offers.module.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -7027,6 +7244,7 @@ var __decorate = (undefined && undefined.__decorate) || function (decorators, ta
 
 
 //
+
 
 
 
@@ -7078,12 +7296,12 @@ var MsShopsModule = /** @class */ (function () {
                 _angular_material_tooltip__WEBPACK_IMPORTED_MODULE_12__["MatTooltipModule"],
                 _ngx_translate_core__WEBPACK_IMPORTED_MODULE_15__["TranslateModule"],
                 _ms_shops_routing_module__WEBPACK_IMPORTED_MODULE_19__["MsShopsRoutingModule"],
-                _ui_modules_images_card_images_card_module__WEBPACK_IMPORTED_MODULE_31__["ImagesCardModule"],
+                _ui_modules_images_card_images_card_module__WEBPACK_IMPORTED_MODULE_32__["ImagesCardModule"],
                 _ui_modules_ask_before_refresh_ask_before_refresh_module__WEBPACK_IMPORTED_MODULE_17__["AskBeforeRefreshModule"],
                 _http_request_indicator_http_request_indicator_module__WEBPACK_IMPORTED_MODULE_16__["HttpRequestIndicatorModule"],
                 _ui_modules_spinner_indicator_200_spinner_indicator_200_module__WEBPACK_IMPORTED_MODULE_18__["SpinnerIndicator200Module"],
-                _ms_deals_ms_deals_module__WEBPACK_IMPORTED_MODULE_32__["MsDealsModule"],
-                _ms_offers_ms_offers_module__WEBPACK_IMPORTED_MODULE_33__["MsOffersModule"],
+                _ms_deals_ms_deals_module__WEBPACK_IMPORTED_MODULE_33__["MsDealsModule"],
+                _ms_offers_ms_offers_module__WEBPACK_IMPORTED_MODULE_34__["MsOffersModule"],
                 _agm_core__WEBPACK_IMPORTED_MODULE_14__["AgmCoreModule"].forRoot({
                     apiKey: 'AIzaSyCNe-jwQrcGsXiegBXbSZJhNnVA13n0Q4I'
                 })
@@ -7092,33 +7310,36 @@ var MsShopsModule = /** @class */ (function () {
                 _components_shops_table_shops_table_component__WEBPACK_IMPORTED_MODULE_20__["ShopsTableComponent"],
                 _components_shop_form_shop_form_component__WEBPACK_IMPORTED_MODULE_21__["ShopFormComponent"],
                 _components_new_shop_new_shop_component__WEBPACK_IMPORTED_MODULE_22__["NewShopComponent"],
-                _components_edit_shop_edit_shop_component__WEBPACK_IMPORTED_MODULE_23__["EditShopComponent"],
-                _components_edit_shop_form_edit_shop_form_component__WEBPACK_IMPORTED_MODULE_24__["EditShopFormComponent"],
-                _components_delete_shop_delete_shop_component__WEBPACK_IMPORTED_MODULE_25__["DeleteShopComponent"],
-                _components_link_shops_brand_link_shops_brand_modal_component__WEBPACK_IMPORTED_MODULE_28__["LinkShopsBrandModalComponent"],
-                _components_link_shops_collection_link_shops_collection_modal_component__WEBPACK_IMPORTED_MODULE_29__["LinkShopsCollentionModalComponent"],
-                _components_link_shops_subshops_link_shops_subshops_modal_component__WEBPACK_IMPORTED_MODULE_30__["LinkShopsSubShopsModalComponent"],
-                _components_shops_selling_style_modal_shops_selling_style_modal_component__WEBPACK_IMPORTED_MODULE_27__["ShopsSellingStyleModalComponent"],
-                _components_show_subshops_show_subshops_component__WEBPACK_IMPORTED_MODULE_26__["ShowSubshopslComponent"]
+                _components_new_shop_modal_new_shop_modal_component__WEBPACK_IMPORTED_MODULE_23__["NewShopModalComponent"],
+                _components_edit_shop_edit_shop_component__WEBPACK_IMPORTED_MODULE_24__["EditShopComponent"],
+                _components_edit_shop_form_edit_shop_form_component__WEBPACK_IMPORTED_MODULE_25__["EditShopFormComponent"],
+                _components_delete_shop_delete_shop_component__WEBPACK_IMPORTED_MODULE_26__["DeleteShopComponent"],
+                _components_link_shops_brand_link_shops_brand_modal_component__WEBPACK_IMPORTED_MODULE_29__["LinkShopsBrandModalComponent"],
+                _components_link_shops_collection_link_shops_collection_modal_component__WEBPACK_IMPORTED_MODULE_30__["LinkShopsCollentionModalComponent"],
+                _components_link_shops_subshops_link_shops_subshops_modal_component__WEBPACK_IMPORTED_MODULE_31__["LinkShopsSubShopsModalComponent"],
+                _components_shops_selling_style_modal_shops_selling_style_modal_component__WEBPACK_IMPORTED_MODULE_28__["ShopsSellingStyleModalComponent"],
+                _components_show_subshops_show_subshops_component__WEBPACK_IMPORTED_MODULE_27__["ShowSubshopslComponent"]
             ],
             exports: [
                 _components_shops_table_shops_table_component__WEBPACK_IMPORTED_MODULE_20__["ShopsTableComponent"],
                 _components_shop_form_shop_form_component__WEBPACK_IMPORTED_MODULE_21__["ShopFormComponent"],
                 _components_new_shop_new_shop_component__WEBPACK_IMPORTED_MODULE_22__["NewShopComponent"],
-                _components_edit_shop_edit_shop_component__WEBPACK_IMPORTED_MODULE_23__["EditShopComponent"],
-                _components_edit_shop_form_edit_shop_form_component__WEBPACK_IMPORTED_MODULE_24__["EditShopFormComponent"],
-                _components_delete_shop_delete_shop_component__WEBPACK_IMPORTED_MODULE_25__["DeleteShopComponent"],
-                _components_link_shops_brand_link_shops_brand_modal_component__WEBPACK_IMPORTED_MODULE_28__["LinkShopsBrandModalComponent"],
-                _components_link_shops_collection_link_shops_collection_modal_component__WEBPACK_IMPORTED_MODULE_29__["LinkShopsCollentionModalComponent"],
-                _components_link_shops_subshops_link_shops_subshops_modal_component__WEBPACK_IMPORTED_MODULE_30__["LinkShopsSubShopsModalComponent"],
-                _components_shops_selling_style_modal_shops_selling_style_modal_component__WEBPACK_IMPORTED_MODULE_27__["ShopsSellingStyleModalComponent"],
-                _components_show_subshops_show_subshops_component__WEBPACK_IMPORTED_MODULE_26__["ShowSubshopslComponent"]
+                _components_new_shop_modal_new_shop_modal_component__WEBPACK_IMPORTED_MODULE_23__["NewShopModalComponent"],
+                _components_edit_shop_edit_shop_component__WEBPACK_IMPORTED_MODULE_24__["EditShopComponent"],
+                _components_edit_shop_form_edit_shop_form_component__WEBPACK_IMPORTED_MODULE_25__["EditShopFormComponent"],
+                _components_delete_shop_delete_shop_component__WEBPACK_IMPORTED_MODULE_26__["DeleteShopComponent"],
+                _components_link_shops_brand_link_shops_brand_modal_component__WEBPACK_IMPORTED_MODULE_29__["LinkShopsBrandModalComponent"],
+                _components_link_shops_collection_link_shops_collection_modal_component__WEBPACK_IMPORTED_MODULE_30__["LinkShopsCollentionModalComponent"],
+                _components_link_shops_subshops_link_shops_subshops_modal_component__WEBPACK_IMPORTED_MODULE_31__["LinkShopsSubShopsModalComponent"],
+                _components_shops_selling_style_modal_shops_selling_style_modal_component__WEBPACK_IMPORTED_MODULE_28__["ShopsSellingStyleModalComponent"],
+                _components_show_subshops_show_subshops_component__WEBPACK_IMPORTED_MODULE_27__["ShowSubshopslComponent"]
             ],
             entryComponents: [
-                _components_link_shops_brand_link_shops_brand_modal_component__WEBPACK_IMPORTED_MODULE_28__["LinkShopsBrandModalComponent"],
-                _components_link_shops_collection_link_shops_collection_modal_component__WEBPACK_IMPORTED_MODULE_29__["LinkShopsCollentionModalComponent"],
-                _components_link_shops_subshops_link_shops_subshops_modal_component__WEBPACK_IMPORTED_MODULE_30__["LinkShopsSubShopsModalComponent"],
-                _components_shops_selling_style_modal_shops_selling_style_modal_component__WEBPACK_IMPORTED_MODULE_27__["ShopsSellingStyleModalComponent"],
+                _components_link_shops_brand_link_shops_brand_modal_component__WEBPACK_IMPORTED_MODULE_29__["LinkShopsBrandModalComponent"],
+                _components_link_shops_collection_link_shops_collection_modal_component__WEBPACK_IMPORTED_MODULE_30__["LinkShopsCollentionModalComponent"],
+                _components_link_shops_subshops_link_shops_subshops_modal_component__WEBPACK_IMPORTED_MODULE_31__["LinkShopsSubShopsModalComponent"],
+                _components_new_shop_modal_new_shop_modal_component__WEBPACK_IMPORTED_MODULE_23__["NewShopModalComponent"],
+                _components_shops_selling_style_modal_shops_selling_style_modal_component__WEBPACK_IMPORTED_MODULE_28__["ShopsSellingStyleModalComponent"],
             ]
         })
     ], MsShopsModule);

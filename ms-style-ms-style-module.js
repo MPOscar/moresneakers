@@ -878,15 +878,11 @@ var StyleFormComponent = /** @class */ (function (_super) {
         var _this = this;
         this.modalRef = this.dialog.open(_ms_brands_components_new_brand_new_brand_component__WEBPACK_IMPORTED_MODULE_8__["NewBrandComponent"], {
             height: '90%',
-            width: '90%',
             data: { face: this.shop }
         });
         this.modalRef.afterClosed().subscribe(function () {
-            _this.stylesService.getAllStyles().subscribe(function (response) {
-                _this.styles = response;
-                _this.styles = _this.styles.filter(function (style) {
-                    return style.isParent;
-                });
+            _this.brandsService.getAllBrands().subscribe(function (response) {
+                _this.brands = response;
             });
         });
     };
