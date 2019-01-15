@@ -284,7 +284,7 @@ var DeleteLayoutComponent = /** @class */ (function () {
     };
     DeleteLayoutComponent.prototype.getCollection = function () {
         var _this = this;
-        this.urlsService.getUrl(this.urlId).subscribe(function (response) {
+        this.urlsService.getUrl('', this.urlId, '').subscribe(function (response) {
             _this.data = response.data;
             _this.confirmDeleteUrl();
         }, function (error) { return _this.errorHandlingService.handleUiError(errorKey, error); });
@@ -339,6 +339,150 @@ var DeleteLayoutComponent = /** @class */ (function () {
             _error_handling_services_toastr_service__WEBPACK_IMPORTED_MODULE_6__["ToastrService"]])
     ], DeleteLayoutComponent);
     return DeleteLayoutComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/ms-back-office/modules/ms-layout/components/edit-slider/edit-slider.component.html":
+/*!****************************************************************************************************!*\
+  !*** ./src/app/ms-back-office/modules/ms-layout/components/edit-slider/edit-slider.component.html ***!
+  \****************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<slider-form *ngIf=\"data\"\n    [data]=\"data\"\n    [filters]=\"filters\"\n    (accept)=\"submit($event)\"\n    [validationErrors]=\"validationErrors\"\n    (cancel)=\"cancel()\"\n    (dataChange)=\"dataChanged()\">\n</slider-form>"
+
+/***/ }),
+
+/***/ "./src/app/ms-back-office/modules/ms-layout/components/edit-slider/edit-slider.component.scss":
+/*!****************************************************************************************************!*\
+  !*** ./src/app/ms-back-office/modules/ms-layout/components/edit-slider/edit-slider.component.scss ***!
+  \****************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = ":host {\n  display: flex;\n  flex-grow: 1;\n  flex-direction: column;\n  height: 100%; }\n\n.mat-dialog-container {\n  padding: 10px; }\n\n.mat-dialog-content {\n  height: 60%;\n  max-height: 82vh;\n  margin-bottom: 10px; }\n\n.mat-dialog-actions {\n  padding: 10px 0; }\n\nmat-card {\n  padding: 0px;\n  align-self: flex-start;\n  height: 200px;\n  width: 150px;\n  margin-left: 2px;\n  margin-right: 15px;\n  margin-bottom: 15px; }\n\nmat-icon {\n  font-size: 24px;\n  width: 24px;\n  height: 24px; }\n\n.max-width-60-pct {\n  max-width: 60% !important; }\n\n.border {\n  border: 1px solid #f1f1f1; }\n\ntd.mat-cell {\n  border: none !important; }\n\nth.mat-header-cell {\n  border: none !important; }\n\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvbXMtYmFjay1vZmZpY2UvbW9kdWxlcy9tcy1sYXlvdXQvY29tcG9uZW50cy9lZGl0LXNsaWRlci9FOlxcUFJPR1JBTUFDSU9OIElJSVxcbW9yZXNuZWFrZXJzLWJhY2tvZmZpY2Uvc3JjXFxhcHBcXG1zLWJhY2stb2ZmaWNlXFxtb2R1bGVzXFxtcy1sYXlvdXRcXGNvbXBvbmVudHNcXGVkaXQtc2xpZGVyXFxlZGl0LXNsaWRlci5jb21wb25lbnQuc2NzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUNJLGNBQWE7RUFDYixhQUFZO0VBQ1osdUJBQXNCO0VBQ3RCLGFBQ0YsRUFBQzs7QUFFRDtFQUNFLGNBQWEsRUFDZDs7QUFFRDtFQUNFLFlBQVc7RUFDWCxpQkFBZ0I7RUFDaEIsb0JBQW1CLEVBQ3BCOztBQUVEO0VBQ0UsZ0JBQWUsRUFDaEI7O0FBRUQ7RUFDRSxhQUFZO0VBQ1osdUJBQXNCO0VBQ3RCLGNBQWE7RUFDYixhQUFZO0VBQ1osaUJBQWdCO0VBQ2hCLG1CQUFrQjtFQUNsQixvQkFBbUIsRUFDcEI7O0FBRUQ7RUFDRSxnQkFBZTtFQUNmLFlBQVc7RUFDWCxhQUFZLEVBQ2I7O0FBRUQ7RUFDRSwwQkFBeUIsRUFDMUI7O0FBRUQ7RUFDRSwwQkFBeUIsRUFDMUI7O0FBRUQ7RUFDRSx3QkFBdUIsRUFDeEI7O0FBQ0Q7RUFDRSx3QkFBdUIsRUFDeEIiLCJmaWxlIjoic3JjL2FwcC9tcy1iYWNrLW9mZmljZS9tb2R1bGVzL21zLWxheW91dC9jb21wb25lbnRzL2VkaXQtc2xpZGVyL2VkaXQtc2xpZGVyLmNvbXBvbmVudC5zY3NzIiwic291cmNlc0NvbnRlbnQiOlsiOmhvc3Qge1xyXG4gICAgZGlzcGxheTogZmxleDtcclxuICAgIGZsZXgtZ3JvdzogMTtcclxuICAgIGZsZXgtZGlyZWN0aW9uOiBjb2x1bW47XHJcbiAgICBoZWlnaHQ6IDEwMCVcclxuICB9XHJcbiAgXHJcbiAgLm1hdC1kaWFsb2ctY29udGFpbmVyIHtcclxuICAgIHBhZGRpbmc6IDEwcHg7XHJcbiAgfVxyXG4gIFxyXG4gIC5tYXQtZGlhbG9nLWNvbnRlbnQge1xyXG4gICAgaGVpZ2h0OiA2MCU7XHJcbiAgICBtYXgtaGVpZ2h0OiA4MnZoO1xyXG4gICAgbWFyZ2luLWJvdHRvbTogMTBweDtcclxuICB9XHJcbiAgXHJcbiAgLm1hdC1kaWFsb2ctYWN0aW9ucyB7XHJcbiAgICBwYWRkaW5nOiAxMHB4IDA7XHJcbiAgfVxyXG4gIFxyXG4gIG1hdC1jYXJkIHtcclxuICAgIHBhZGRpbmc6IDBweDtcclxuICAgIGFsaWduLXNlbGY6IGZsZXgtc3RhcnQ7XHJcbiAgICBoZWlnaHQ6IDIwMHB4O1xyXG4gICAgd2lkdGg6IDE1MHB4O1xyXG4gICAgbWFyZ2luLWxlZnQ6IDJweDtcclxuICAgIG1hcmdpbi1yaWdodDogMTVweDtcclxuICAgIG1hcmdpbi1ib3R0b206IDE1cHg7XHJcbiAgfVxyXG4gIFxyXG4gIG1hdC1pY29uIHtcclxuICAgIGZvbnQtc2l6ZTogMjRweDtcclxuICAgIHdpZHRoOiAyNHB4O1xyXG4gICAgaGVpZ2h0OiAyNHB4O1xyXG4gIH1cclxuICBcclxuICAubWF4LXdpZHRoLTYwLXBjdHtcclxuICAgIG1heC13aWR0aDogNjAlICFpbXBvcnRhbnQ7XHJcbiAgfVxyXG4gIFxyXG4gIC5ib3JkZXJ7XHJcbiAgICBib3JkZXI6IDFweCBzb2xpZCAjZjFmMWYxO1xyXG4gIH1cclxuICBcclxuICB0ZC5tYXQtY2VsbHtcclxuICAgIGJvcmRlcjogbm9uZSAhaW1wb3J0YW50O1xyXG4gIH1cclxuICB0aC5tYXQtaGVhZGVyLWNlbGx7XHJcbiAgICBib3JkZXI6IG5vbmUgIWltcG9ydGFudDtcclxuICB9XHJcbiJdfQ== */"
+
+/***/ }),
+
+/***/ "./src/app/ms-back-office/modules/ms-layout/components/edit-slider/edit-slider.component.ts":
+/*!**************************************************************************************************!*\
+  !*** ./src/app/ms-back-office/modules/ms-layout/components/edit-slider/edit-slider.component.ts ***!
+  \**************************************************************************************************/
+/*! exports provided: EditSliderlComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "EditSliderlComponent", function() { return EditSliderlComponent; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+/* harmony import */ var _angular_material__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/material */ "./node_modules/@angular/material/esm5/material.es5.js");
+/* harmony import */ var _ngx_translate_core__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @ngx-translate/core */ "./node_modules/@ngx-translate/core/fesm5/ngx-translate-core.js");
+/* harmony import */ var _ui_helpers_component_can_deactivate__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../../../ui/helpers/component-can-deactivate */ "./src/app/ui/helpers/component-can-deactivate.ts");
+/* harmony import */ var _ui_helpers_mixin_decorator__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../../../ui/helpers/mixin-decorator */ "./src/app/ui/helpers/mixin-decorator.ts");
+/* harmony import */ var _error_handling_services_error_handling_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../../../../error-handling/services/error-handling.service */ "./src/app/error-handling/services/error-handling.service.ts");
+/* harmony import */ var _error_handling_services_toastr_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../../../../error-handling/services/toastr.service */ "./src/app/error-handling/services/toastr.service.ts");
+/* harmony import */ var _services_layout_service__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../services/layout.service */ "./src/app/ms-back-office/modules/ms-layout/services/layout.service.ts");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+//
+
+
+
+
+
+//import { setTranslations } from '@c/ngx-translate';
+var errorKey = 'Error';
+var updatedMessageKey = 'Updated';
+var EditSliderlComponent = /** @class */ (function () {
+    function EditSliderlComponent(activatedRoute, dialog, layoutService, errorHandlingService, router, snackBar, translate, toastr) {
+        this.activatedRoute = activatedRoute;
+        this.dialog = dialog;
+        this.layoutService = layoutService;
+        this.errorHandlingService = errorHandlingService;
+        this.router = router;
+        this.snackBar = snackBar;
+        this.translate = translate;
+        this.toastr = toastr;
+        // Begin Mixin code of the CanDeactivate class
+        this.unsavedChanges = false;
+        this.cancelBtnKey = 'No';
+        this.okBtnKey = 'Yes';
+        this.saveTitleKey = 'Discard Title';
+        this.saveMessageKey = 'Discard Message';
+        //setTranslations(this.translate, TRANSLATIONS);
+    }
+    EditSliderlComponent.prototype.ngOnInit = function () {
+    };
+    EditSliderlComponent.prototype.ngAfterViewInit = function () {
+        this.getUrl();
+    };
+    EditSliderlComponent.prototype.getUrl = function () {
+        var _this = this;
+        this.layoutService.getUrl(this.pageId, 'slider', '').subscribe(function (response) {
+            _this.data = response.data;
+        }, function (error) { return _this.errorHandlingService.handleUiError(errorKey, error); });
+    };
+    EditSliderlComponent.prototype.submit = function (data) {
+        delete data.updatedAt;
+        delete data.createdAt;
+        this.updateStyle(data);
+    };
+    EditSliderlComponent.prototype.cancel = function () {
+        this.close();
+    };
+    EditSliderlComponent.prototype.close = function () {
+    };
+    EditSliderlComponent.prototype.updateStyle = function (data) {
+        var _this = this;
+        this.layoutService.putUrl(this.pageId, 'slider', data).subscribe(function (response) {
+            _this.unsavedChanges = false;
+            _this.close();
+            _this.toastr.success(updatedMessageKey);
+        }, function (error) {
+            _this.errorHandlingService.handleUiError(errorKey, error);
+            _this.validationErrors = error.formErrors;
+        });
+    };
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])(),
+        __metadata("design:type", Object)
+    ], EditSliderlComponent.prototype, "filters", void 0);
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])(),
+        __metadata("design:type", String)
+    ], EditSliderlComponent.prototype, "pageId", void 0);
+    EditSliderlComponent = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+            selector: 'edit-slider',
+            template: __webpack_require__(/*! ./edit-slider.component.html */ "./src/app/ms-back-office/modules/ms-layout/components/edit-slider/edit-slider.component.html"),
+            styles: [__webpack_require__(/*! ./edit-slider.component.scss */ "./src/app/ms-back-office/modules/ms-layout/components/edit-slider/edit-slider.component.scss")]
+        }),
+        Object(_ui_helpers_mixin_decorator__WEBPACK_IMPORTED_MODULE_5__["Mixin"])([_ui_helpers_component_can_deactivate__WEBPACK_IMPORTED_MODULE_4__["CanDeactivateMixin"]]),
+        __metadata("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_1__["ActivatedRoute"],
+            _angular_material__WEBPACK_IMPORTED_MODULE_2__["MatDialog"],
+            _services_layout_service__WEBPACK_IMPORTED_MODULE_8__["LayoutService"],
+            _error_handling_services_error_handling_service__WEBPACK_IMPORTED_MODULE_6__["ErrorHandlingService"],
+            _angular_router__WEBPACK_IMPORTED_MODULE_1__["Router"],
+            _angular_material__WEBPACK_IMPORTED_MODULE_2__["MatSnackBar"],
+            _ngx_translate_core__WEBPACK_IMPORTED_MODULE_3__["TranslateService"],
+            _error_handling_services_toastr_service__WEBPACK_IMPORTED_MODULE_7__["ToastrService"]])
+    ], EditSliderlComponent);
+    return EditSliderlComponent;
 }());
 
 
@@ -412,11 +556,11 @@ var __param = (undefined && undefined.__param) || function (paramIndex, decorato
 var errorKey = 'Error';
 var updatedMessageKey = 'Updated';
 var EditUrlComponent = /** @class */ (function () {
-    function EditUrlComponent(activatedRoute, dialog, dialogRef, urlsService, errorHandlingService, router, snackBar, translate, toastr, dialogData) {
+    function EditUrlComponent(activatedRoute, dialog, dialogRef, layoutService, errorHandlingService, router, snackBar, translate, toastr, dialogData) {
         this.activatedRoute = activatedRoute;
         this.dialog = dialog;
         this.dialogRef = dialogRef;
-        this.urlsService = urlsService;
+        this.layoutService = layoutService;
         this.errorHandlingService = errorHandlingService;
         this.router = router;
         this.snackBar = snackBar;
@@ -439,7 +583,7 @@ var EditUrlComponent = /** @class */ (function () {
     };
     EditUrlComponent.prototype.getUrl = function () {
         var _this = this;
-        this.urlsService.getUrl(this.urlId).subscribe(function (response) {
+        this.layoutService.getUrl('', this.urlId, this.filter).subscribe(function (response) {
             _this.data = response.data;
         }, function (error) { return _this.errorHandlingService.handleUiError(errorKey, error); });
     };
@@ -456,7 +600,7 @@ var EditUrlComponent = /** @class */ (function () {
     };
     EditUrlComponent.prototype.updateStyle = function (data) {
         var _this = this;
-        this.urlsService.putUrl(data).subscribe(function (response) {
+        this.layoutService.putUrl('', '', data).subscribe(function (response) {
             _this.unsavedChanges = false;
             _this.close();
             _this.toastr.success(updatedMessageKey);
@@ -706,7 +850,7 @@ var LayoutSliderTopnavComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<!--h1>Select the page you want to configure</h1-->\n<layout-slider-topnav></layout-slider-topnav>\n<div class=\"flex-grow-1 overflow-auto display-flex flex-direction-column\">\n\n    <div class=\"flex-grow-1 flex-shrink-0 display-flex flex-direction-column\">\n\n        <mat-tab-group class=\"padding-top-25px\">\n            <mat-tab label=\"Slider\">\n                <slider-form  [filters]=\"filters\"></slider-form>\n            </mat-tab>\n            <mat-tab label=\"Header\">\n                <div class=\"mb-20 margin-top-25px\" fxFlex fxLayout=\"row\" fxLayout.lt-md=\"column\" fxLayoutGap=\"20px\">\n\n                    <div [fxFlex]=\"100\" fxFlex fxLayout=\"column\" fxLayout.lt-md=\"column\">\n\n                        <div fxLayout=\"row\" fxLayout.lt-md=\"column\">\n\n                            <div [fxFlex]=\"40\" fxLayout=\"column\" class=\"margin-right-25px\">\n\n                                <mat-form-field class=\"margin-left-16px max-width-480px\">\n\n                                    <mat-label>URL</mat-label>\n\n                                    <input matInput type=\"text\">\n\n                                </mat-form-field>\n\n                                <mat-form-field class=\"margin-left-16px max-width-480px\">\n\n                                    <mat-label>Numbers of Items</mat-label>\n\n                                    <input matInput type=\"text\">\n\n                                </mat-form-field>\n                            </div>\n                            <div [fxFlex]=\"60\" class=\"margin-right-25px\">\n\n                                <mat-form-field class=\"width-100pc margin-left-16px\">\n\n                                    <mat-label>URL</mat-label>\n\n                                    <input matInput type=\"text\">\n\n                                </mat-form-field>\n\n                                <mat-form-field class=\"width-100pc margin-left-16px\">\n\n                                    <mat-label>Traking list base URL</mat-label>\n\n                                    <input matInput type=\"text\">\n\n                                </mat-form-field>\n                            </div>\n                        </div>\n                    </div>\n                </div>\n            </mat-tab>\n            <mat-tab label=\"Hottest\">\n                <div class=\"mb-20 margin-top-25px\" fxFlex fxLayout=\"row\" fxLayout.lt-md=\"column\" fxLayoutGap=\"20px\">\n\n                    <div [fxFlex]=\"100\" fxFlex fxLayout=\"column\" fxLayout.lt-md=\"column\">\n\n                        <div fxLayout=\"row\" fxLayout.lt-md=\"column\">\n\n                            <div [fxFlex]=\"40\" fxLayout=\"column\" class=\"margin-right-25px\">\n\n                                <mat-form-field class=\"margin-left-16px max-width-480px\">\n\n                                    <mat-label>URL</mat-label>\n\n                                    <input matInput type=\"text\">\n\n                                </mat-form-field>\n\n                                <mat-form-field class=\"margin-left-16px max-width-480px\">\n\n                                    <mat-label>Numbers of Items</mat-label>\n\n                                    <input matInput type=\"text\">\n\n                                </mat-form-field>\n                            </div>\n                            <div [fxFlex]=\"60\" class=\"margin-right-25px\">\n\n                                <mat-form-field class=\"width-100pc margin-left-16px\">\n\n                                    <mat-label>URL</mat-label>\n\n                                    <input matInput type=\"text\">\n\n                                </mat-form-field>\n\n                                <mat-form-field class=\"width-100pc margin-left-16px\">\n\n                                    <mat-label>Traking list base URL</mat-label>\n\n                                    <input matInput type=\"text\">\n\n                                </mat-form-field>\n                            </div>\n                        </div>\n                    </div>\n                </div>\n            </mat-tab>\n            <mat-tab label=\"Heading\">\n                <div class=\"mb-20 margin-top-25px\" fxFlex fxLayout=\"row\" fxLayout.lt-md=\"column\" fxLayoutGap=\"20px\">\n\n                    <div [fxFlex]=\"100\" fxFlex fxLayout=\"column\" fxLayout.lt-md=\"column\">\n\n                        <div fxLayout=\"row\" fxLayout.lt-md=\"column\">\n\n                            <div [fxFlex]=\"40\" fxLayout=\"column\" class=\"margin-right-25px\">\n\n                                <mat-form-field class=\"margin-left-16px max-width-480px\">\n\n                                    <mat-label>URL</mat-label>\n\n                                    <input matInput type=\"text\">\n\n                                </mat-form-field>\n\n                                <mat-form-field class=\"margin-left-16px max-width-480px\">\n\n                                    <mat-label>Numbers of Items</mat-label>\n\n                                    <input matInput type=\"text\">\n\n                                </mat-form-field>\n                            </div>\n                            <div [fxFlex]=\"60\" class=\"margin-right-25px\">\n\n                                <mat-form-field class=\"width-100pc margin-left-16px\">\n\n                                    <mat-label>URL</mat-label>\n\n                                    <input matInput type=\"text\">\n\n                                </mat-form-field>\n\n                                <mat-form-field class=\"width-100pc margin-left-16px\">\n\n                                    <mat-label>Traking list base URL</mat-label>\n\n                                    <input matInput type=\"text\">\n\n                                </mat-form-field>\n                            </div>\n                        </div>\n                    </div>\n                </div>\n            </mat-tab>\n        </mat-tab-group>\n\n    </div>\n\n</div>\n"
+module.exports = "<!--h1>Select the page you want to configure</h1-->\n<layout-slider-topnav></layout-slider-topnav>\n<div class=\"flex-grow-1 overflow-auto display-flex flex-direction-column\">\n\n    <div class=\"flex-grow-1 flex-shrink-0 display-flex flex-direction-column\">\n\n        <mat-tab-group class=\"padding-top-25px\">\n            <mat-tab label=\"Slider\">\n                <edit-slider  [filters]=\"filters\" [pageId]=\"pageId\"></edit-slider>\n            </mat-tab>\n            <mat-tab label=\"Header\">\n                <div class=\"mb-20 margin-top-25px\" fxFlex fxLayout=\"row\" fxLayout.lt-md=\"column\" fxLayoutGap=\"20px\">\n\n                    <div [fxFlex]=\"100\" fxFlex fxLayout=\"column\" fxLayout.lt-md=\"column\">\n\n                        <div fxLayout=\"row\" fxLayout.lt-md=\"column\">\n\n                            <div [fxFlex]=\"40\" fxLayout=\"column\" class=\"margin-right-25px\">\n\n                                <mat-form-field class=\"margin-left-16px max-width-480px\">\n\n                                    <mat-label>URL</mat-label>\n\n                                    <input matInput type=\"text\">\n\n                                </mat-form-field>\n\n                                <mat-form-field class=\"margin-left-16px max-width-480px\">\n\n                                    <mat-label>Numbers of Items</mat-label>\n\n                                    <input matInput type=\"text\">\n\n                                </mat-form-field>\n                            </div>\n                            <div [fxFlex]=\"60\" class=\"margin-right-25px\">\n\n                                <mat-form-field class=\"width-100pc margin-left-16px\">\n\n                                    <mat-label>URL</mat-label>\n\n                                    <input matInput type=\"text\">\n\n                                </mat-form-field>\n\n                                <mat-form-field class=\"width-100pc margin-left-16px\">\n\n                                    <mat-label>Traking list base URL</mat-label>\n\n                                    <input matInput type=\"text\">\n\n                                </mat-form-field>\n                            </div>\n                        </div>\n                    </div>\n                </div>\n            </mat-tab>\n            <mat-tab label=\"Hottest\">\n                <div class=\"mb-20 margin-top-25px\" fxFlex fxLayout=\"row\" fxLayout.lt-md=\"column\" fxLayoutGap=\"20px\">\n\n                    <div [fxFlex]=\"100\" fxFlex fxLayout=\"column\" fxLayout.lt-md=\"column\">\n\n                        <div fxLayout=\"row\" fxLayout.lt-md=\"column\">\n\n                            <div [fxFlex]=\"40\" fxLayout=\"column\" class=\"margin-right-25px\">\n\n                                <mat-form-field class=\"margin-left-16px max-width-480px\">\n\n                                    <mat-label>URL</mat-label>\n\n                                    <input matInput type=\"text\">\n\n                                </mat-form-field>\n\n                                <mat-form-field class=\"margin-left-16px max-width-480px\">\n\n                                    <mat-label>Numbers of Items</mat-label>\n\n                                    <input matInput type=\"text\">\n\n                                </mat-form-field>\n                            </div>\n                            <div [fxFlex]=\"60\" class=\"margin-right-25px\">\n\n                                <mat-form-field class=\"width-100pc margin-left-16px\">\n\n                                    <mat-label>URL</mat-label>\n\n                                    <input matInput type=\"text\">\n\n                                </mat-form-field>\n\n                                <mat-form-field class=\"width-100pc margin-left-16px\">\n\n                                    <mat-label>Traking list base URL</mat-label>\n\n                                    <input matInput type=\"text\">\n\n                                </mat-form-field>\n                            </div>\n                        </div>\n                    </div>\n                </div>\n            </mat-tab>\n            <mat-tab label=\"Heading\">\n                <div class=\"mb-20 margin-top-25px\" fxFlex fxLayout=\"row\" fxLayout.lt-md=\"column\" fxLayoutGap=\"20px\">\n\n                    <div [fxFlex]=\"100\" fxFlex fxLayout=\"column\" fxLayout.lt-md=\"column\">\n\n                        <div fxLayout=\"row\" fxLayout.lt-md=\"column\">\n\n                            <div [fxFlex]=\"40\" fxLayout=\"column\" class=\"margin-right-25px\">\n\n                                <mat-form-field class=\"margin-left-16px max-width-480px\">\n\n                                    <mat-label>URL</mat-label>\n\n                                    <input matInput type=\"text\">\n\n                                </mat-form-field>\n\n                                <mat-form-field class=\"margin-left-16px max-width-480px\">\n\n                                    <mat-label>Numbers of Items</mat-label>\n\n                                    <input matInput type=\"text\">\n\n                                </mat-form-field>\n                            </div>\n                            <div [fxFlex]=\"60\" class=\"margin-right-25px\">\n\n                                <mat-form-field class=\"width-100pc margin-left-16px\">\n\n                                    <mat-label>URL</mat-label>\n\n                                    <input matInput type=\"text\">\n\n                                </mat-form-field>\n\n                                <mat-form-field class=\"width-100pc margin-left-16px\">\n\n                                    <mat-label>Traking list base URL</mat-label>\n\n                                    <input matInput type=\"text\">\n\n                                </mat-form-field>\n                            </div>\n                        </div>\n                    </div>\n                </div>\n            </mat-tab>\n        </mat-tab-group>\n\n    </div>\n\n</div>\n"
 
 /***/ }),
 
@@ -771,6 +915,7 @@ var LayoutComponent = /** @class */ (function () {
         ];
         this.totalLength = 0;
         this.urls = [];
+        this.pageId = 'brands';
     }
     LayoutComponent.prototype.ngOnInit = function () {
         this.brands = this.activatedRoute.snapshot.data.brands;
@@ -1011,9 +1156,10 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 
 var SliderFormComponent = /** @class */ (function (_super) {
     __extends(SliderFormComponent, _super);
-    function SliderFormComponent(dialog, translateService) {
+    function SliderFormComponent(dialog, formBuilder, translateService) {
         var _this = _super.call(this, translateService) || this;
         _this.dialog = dialog;
+        _this.formBuilder = formBuilder;
         _this.translateService = translateService;
         _this.displayedColumns = [
             'URL',
@@ -1036,7 +1182,10 @@ var SliderFormComponent = /** @class */ (function (_super) {
         this.createFormGroup();
     };
     SliderFormComponent.prototype.createFormGroup = function () {
-        this.formGroup = new _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormGroup"]({});
+        this.faces = this.formBuilder.control('' /*this.faceList*/);
+        this.formGroup = new _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormGroup"]({
+            faces: this.faces,
+        });
     };
     SliderFormComponent.prototype.submitClicked = function () {
         if (this.formGroup.valid) {
@@ -1070,6 +1219,7 @@ var SliderFormComponent = /** @class */ (function (_super) {
             changeDetection: _angular_core__WEBPACK_IMPORTED_MODULE_0__["ChangeDetectionStrategy"].OnPush
         }),
         __metadata("design:paramtypes", [_angular_material__WEBPACK_IMPORTED_MODULE_2__["MatDialog"],
+            _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormBuilder"],
             _ngx_translate_core__WEBPACK_IMPORTED_MODULE_3__["TranslateService"]])
     ], SliderFormComponent);
     return SliderFormComponent;
@@ -1265,9 +1415,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_layout_layout_component__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./components/layout/layout.component */ "./src/app/ms-back-office/modules/ms-layout/components/layout/layout.component.ts");
 /* harmony import */ var _components_delete_layout_delete_layout_component__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ./components/delete-layout/delete-layout.component */ "./src/app/ms-back-office/modules/ms-layout/components/delete-layout/delete-layout.component.ts");
 /* harmony import */ var _components_edit_url_edit_url_component__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ./components/edit-url/edit-url.component */ "./src/app/ms-back-office/modules/ms-layout/components/edit-url/edit-url.component.ts");
-/* harmony import */ var _ms_layout_routing_module__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ./ms-layout-routing.module */ "./src/app/ms-back-office/modules/ms-layout/ms-layout-routing.module.ts");
-/* harmony import */ var _components_new_filter_new_filter_component__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! ./components/new-filter/new-filter.component */ "./src/app/ms-back-office/modules/ms-layout/components/new-filter/new-filter.component.ts");
-/* harmony import */ var _components_layout_topnav_layout_slider_topnav_component__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! ./components/layout-topnav/layout-slider-topnav.component */ "./src/app/ms-back-office/modules/ms-layout/components/layout-topnav/layout-slider-topnav.component.ts");
+/* harmony import */ var _components_edit_slider_edit_slider_component__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ./components/edit-slider/edit-slider.component */ "./src/app/ms-back-office/modules/ms-layout/components/edit-slider/edit-slider.component.ts");
+/* harmony import */ var _ms_layout_routing_module__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! ./ms-layout-routing.module */ "./src/app/ms-back-office/modules/ms-layout/ms-layout-routing.module.ts");
+/* harmony import */ var _components_new_filter_new_filter_component__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! ./components/new-filter/new-filter.component */ "./src/app/ms-back-office/modules/ms-layout/components/new-filter/new-filter.component.ts");
+/* harmony import */ var _components_layout_topnav_layout_slider_topnav_component__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(/*! ./components/layout-topnav/layout-slider-topnav.component */ "./src/app/ms-back-office/modules/ms-layout/components/layout-topnav/layout-slider-topnav.component.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1304,6 +1455,7 @@ var __decorate = (undefined && undefined.__decorate) || function (decorators, ta
 
 
 
+
 var MsLayoutModule = /** @class */ (function () {
     function MsLayoutModule() {
     }
@@ -1331,32 +1483,34 @@ var MsLayoutModule = /** @class */ (function () {
                 _angular_material_toolbar__WEBPACK_IMPORTED_MODULE_10__["MatToolbarModule"],
                 _angular_material_tooltip__WEBPACK_IMPORTED_MODULE_11__["MatTooltipModule"],
                 _ngx_translate_core__WEBPACK_IMPORTED_MODULE_13__["TranslateModule"],
-                _ms_layout_routing_module__WEBPACK_IMPORTED_MODULE_21__["MsLayoutRoutingModule"],
+                _ms_layout_routing_module__WEBPACK_IMPORTED_MODULE_22__["MsLayoutRoutingModule"],
                 _ui_modules_ask_before_refresh_ask_before_refresh_module__WEBPACK_IMPORTED_MODULE_14__["AskBeforeRefreshModule"],
                 _ui_modules_images_layout_card_images_layout_card_module__WEBPACK_IMPORTED_MODULE_15__["ImagesLayoutCardModule"],
                 _angular_material__WEBPACK_IMPORTED_MODULE_6__["MatRadioModule"]
             ],
             declarations: [
                 _components_delete_layout_delete_layout_component__WEBPACK_IMPORTED_MODULE_19__["DeleteLayoutComponent"],
+                _components_edit_slider_edit_slider_component__WEBPACK_IMPORTED_MODULE_21__["EditSliderlComponent"],
                 _components_edit_url_edit_url_component__WEBPACK_IMPORTED_MODULE_20__["EditUrlComponent"],
                 _components_filter_form_filter_form_component__WEBPACK_IMPORTED_MODULE_16__["FilterFormComponent"],
-                _components_new_filter_new_filter_component__WEBPACK_IMPORTED_MODULE_22__["NewFilterComponent"],
+                _components_new_filter_new_filter_component__WEBPACK_IMPORTED_MODULE_23__["NewFilterComponent"],
                 _components_layout_layout_component__WEBPACK_IMPORTED_MODULE_18__["LayoutComponent"],
-                _components_layout_topnav_layout_slider_topnav_component__WEBPACK_IMPORTED_MODULE_23__["LayoutSliderTopnavComponent"],
+                _components_layout_topnav_layout_slider_topnav_component__WEBPACK_IMPORTED_MODULE_24__["LayoutSliderTopnavComponent"],
                 _components_slider_form_slider_form_component__WEBPACK_IMPORTED_MODULE_17__["SliderFormComponent"]
             ],
             exports: [
                 _components_delete_layout_delete_layout_component__WEBPACK_IMPORTED_MODULE_19__["DeleteLayoutComponent"],
+                _components_edit_slider_edit_slider_component__WEBPACK_IMPORTED_MODULE_21__["EditSliderlComponent"],
                 _components_edit_url_edit_url_component__WEBPACK_IMPORTED_MODULE_20__["EditUrlComponent"],
                 _components_filter_form_filter_form_component__WEBPACK_IMPORTED_MODULE_16__["FilterFormComponent"],
-                _components_new_filter_new_filter_component__WEBPACK_IMPORTED_MODULE_22__["NewFilterComponent"],
+                _components_new_filter_new_filter_component__WEBPACK_IMPORTED_MODULE_23__["NewFilterComponent"],
                 _components_layout_layout_component__WEBPACK_IMPORTED_MODULE_18__["LayoutComponent"],
-                _components_layout_topnav_layout_slider_topnav_component__WEBPACK_IMPORTED_MODULE_23__["LayoutSliderTopnavComponent"],
+                _components_layout_topnav_layout_slider_topnav_component__WEBPACK_IMPORTED_MODULE_24__["LayoutSliderTopnavComponent"],
                 _components_slider_form_slider_form_component__WEBPACK_IMPORTED_MODULE_17__["SliderFormComponent"]
             ],
             entryComponents: [
                 _components_edit_url_edit_url_component__WEBPACK_IMPORTED_MODULE_20__["EditUrlComponent"],
-                _components_new_filter_new_filter_component__WEBPACK_IMPORTED_MODULE_22__["NewFilterComponent"],
+                _components_new_filter_new_filter_component__WEBPACK_IMPORTED_MODULE_23__["NewFilterComponent"],
             ]
         })
     ], MsLayoutModule);
@@ -1434,11 +1588,12 @@ var LayoutService = /** @class */ (function () {
     LayoutService.prototype.postUrl = function (data) {
         return this.http.post(this.apiEndpoint, JSON.stringify(data));
     };
-    LayoutService.prototype.getUrl = function (id) {
-        return this.http.get(this.apiEndpoint + id + '/');
+    LayoutService.prototype.getUrl = function (pageId, part, filter) {
+        var queryParams = this.formatQueryParams(filter);
+        return this.http.get(this.apiEndpoint + pageId + '/' + part + '/');
     };
-    LayoutService.prototype.putUrl = function (data) {
-        return this.http.put(this.apiEndpoint + data.id + '/', JSON.stringify(data));
+    LayoutService.prototype.putUrl = function (pageId, part, data) {
+        return this.http.put(this.apiEndpoint + pageId + '/' + part + '/' + data.id + '/', JSON.stringify(data));
     };
     LayoutService.prototype.deleteUrl = function (id) {
         return this.http.delete(this.apiEndpoint + id + '/');
