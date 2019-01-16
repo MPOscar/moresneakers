@@ -4275,7 +4275,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
 /* harmony import */ var _angular_material__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/material */ "./node_modules/@angular/material/esm5/material.es5.js");
 /* harmony import */ var _ngx_translate_core__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @ngx-translate/core */ "./node_modules/@ngx-translate/core/fesm5/ngx-translate-core.js");
-/* harmony import */ var _ui_modules_confirm_dialog_components_confirm_dialog_confirm_dialog_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../../../ui/modules/confirm-dialog/components/confirm-dialog/confirm-dialog.component */ "./src/app/ui/modules/confirm-dialog/components/confirm-dialog/confirm-dialog.component.ts");
+/* harmony import */ var _ui_modules_confirm_dialog_message_components_confirm_dialog_message_confirm_dialog_message_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../../../ui/modules/confirm-dialog-message/components/confirm-dialog-message/confirm-dialog-message.component */ "./src/app/ui/modules/confirm-dialog-message/components/confirm-dialog-message/confirm-dialog-message.component.ts");
 /* harmony import */ var _error_handling_services_error_handling_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../../../error-handling/services/error-handling.service */ "./src/app/error-handling/services/error-handling.service.ts");
 /* harmony import */ var _error_handling_services_toastr_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../../../../error-handling/services/toastr.service */ "./src/app/error-handling/services/toastr.service.ts");
 /* harmony import */ var _services_shops_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../services/shops.service */ "./src/app/ms-back-office/modules/ms-shops/services/shops.service.ts");
@@ -4332,7 +4332,7 @@ var DeleteShopComponent = /** @class */ (function () {
     };
     DeleteShopComponent.prototype.confirmDeleteShop = function () {
         var _this = this;
-        this.modalRef = this.dialog.open(_ui_modules_confirm_dialog_components_confirm_dialog_confirm_dialog_component__WEBPACK_IMPORTED_MODULE_4__["ConfirmDialogComponent"], {
+        this.modalRef = this.dialog.open(_ui_modules_confirm_dialog_message_components_confirm_dialog_message_confirm_dialog_message_component__WEBPACK_IMPORTED_MODULE_4__["ConfirmDialogMessageComponent"], {
             data: {
                 titleKey: titleKey,
                 okBtnKey: deleteBtnKey,
