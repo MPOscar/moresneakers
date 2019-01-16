@@ -6583,14 +6583,21 @@ var ShopsSellingStyleModalComponent = /** @class */ (function () {
         this.modalRef.afterClosed().subscribe(function () {
             _this.shopsService.getAllShops().subscribe(function (response) {
                 _this.dialogData.shops = response;
-                _this.stylesService.getStyleLinkedShops(_this.dialogData.styleId).subscribe(function (response) {
-                    _this.linkedShops = response.data;
+                if (_this.dialogData.styleId) {
+                    _this.stylesService.getStyleLinkedShops(_this.dialogData.styleId).subscribe(function (response) {
+                        _this.linkedShops = response.data;
+                        _this.dialogData.shops.forEach(function (shop) {
+                            _this.isLinked(shop.id);
+                        });
+                    }, function (error) {
+                        _this.errorHandlingService.handleUiError(errorKey, error);
+                    });
+                }
+                else if (_this.dialogData.linkedShops) {
                     _this.dialogData.shops.forEach(function (shop) {
                         _this.isLinked(shop.id);
                     });
-                }, function (error) {
-                    _this.errorHandlingService.handleUiError(errorKey, error);
-                });
+                }
             });
         });
     };
