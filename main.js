@@ -3022,6 +3022,7 @@ var HttpRequestIndicatorsService = /** @class */ (function () {
         this.indicators.splice(this.indicators.map(function (indicator) { return indicator.uid; }).indexOf(uid), 1);
     };
     HttpRequestIndicatorsService.prototype.findIndicators = function (url) {
+        console.log('find........' + url);
         var indicators = [];
         for (var i = 0; i < this.indicators.length; i++) {
             var indicator = this.indicators[i];

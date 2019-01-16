@@ -6418,7 +6418,7 @@ module.exports = ":host {\r\n  display: flex;\r\n  flex-grow: 1;\r\n  flex-direc
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"\" [fxFlex]=\"100\" fxLayout=\"column\">\r\n  <div class=\"flex-grow-1 overflow-auto display-flex flex-direction-column\">\r\n\r\n    <div class=\"flex-grow-1 flex-shrink-0 display-flex flex-direction-column\">\r\n\r\n      <div class=\"\" [fxFlex]=\"100\" fxLayout=\"row\">\r\n\r\n        <div class=\"flex-wrap-wrap display-flex flex-grow-1 flex-shrink-1 flex-direction-row card-container justify-content-initial margin-top-10px\">\r\n          <mat-card *ngFor=\"let shop of dialogData.shops\" class=\"display-flex background-color-secondary flex-direction-column flex-shrink-1\">\r\n            <div class=\"image-container margin-10px flex-grow-1\" #imageContainer>\r\n              <img class=\"img\" imageLoad [srcImage]=\"shop.mainImage? shop.mainImage : ''\" [container]=\"imageContainer\" src=\"\">\r\n            </div>\r\n            <div class=\"image-card-btns display-flex margin-left-10px margin-right-10px margin-bottom-10px\">\r\n              <mat-checkbox [checked]=\"shop.checked\" class=\"margin-top-10px\" matTooltip=\"{{ 'Principal' | translate }}\" (click)=\"linked(shop)\">{{ shop.name }}</mat-checkbox>\r\n            </div>\r\n          </mat-card>\r\n          <!--/div-->\r\n        </div>\r\n\r\n        <!--div [fxFlex]=\"40\">\r\n          <h3>Stores Selling</h3>\r\n          <div fxLayout=\"column\" class=\"border flex-grow-1 overflow-auto display-flex \">\r\n\r\n            <table class=\"width-100pct\" mat-table [dataSource]=\"links\" matSort matSortDisableClear (matSortChange)=\"onSort()\">\r\n\r\n              <ng-container matColumnDef=\"checkbox\">\r\n                <th mat-header-cell *matHeaderCellDef mat-sort-header>\r\n                  <td mat-cell *matCellDef=\"let element\">\r\n                    <mat-checkbox value=\"primary\" class=\"margin-top-10px\" matTooltip=\"{{ 'Principal' | translate }}\"></mat-checkbox>\r\n                  </td>\r\n              </ng-container>\r\n\r\n              <ng-container matColumnDef=\"text\">\r\n                <th mat-header-cell *matHeaderCellDef mat-sort-header>\r\n                  Text\r\n                  <td mat-cell *matCellDef=\"let element\"> {{ element.text }} </td>\r\n              </ng-container>\r\n\r\n              <ng-container matColumnDef=\"url\">\r\n                <th mat-header-cell *matHeaderCellDef mat-sort-header>\r\n                  Url\r\n                </th>\r\n                <td mat-cell *matCellDef=\"let element\"> {{ element.url }} </td>\r\n              </ng-container>\r\n\r\n              <ng-container matColumnDef=\"actions\">\r\n                <th mat-header-cell *matHeaderCellDef mat-sort-header>\r\n                </th>\r\n                <td mat-cell *matCellDef=\"let element\">\r\n                  <button mat-icon-button color=\"primary\" [matTooltip]=\"Edit\" [routerLink]=\"['../edit', element.id]\">\r\n                    <mat-icon>edit</mat-icon>\r\n                  </button>\r\n                  <button mat-icon-button color=\"primary\" [matTooltip]=\"Edit\" [routerLink]=\"['../delete', element.id]\">\r\n                    <mat-icon>delete</mat-icon>\r\n                  </button>\r\n                </td>\r\n              </ng-container>\r\n\r\n              <tr mat-header-row *matHeaderRowDef=\"displayedColumns\"></tr>\r\n              <tr mat-row *matRowDef=\"let row; columns: displayedColumns;\" [ngClass]=\"row.is_active ? '' : 'text-decoration-line-through'\">\r\n              </tr>\r\n\r\n            </table>\r\n\r\n            <div class=\"margin-left-25px margin-right-25px padding-top-25px padding-bottom-25px flex-shrink-0 display-flex border-top-style-solid border-top-width-2px border-top-color-grey\">\r\n\r\n              <mat-checkbox class=\"margin-top-10px margin-right-25px\" value=\"primary\" matTooltip=\"{{ 'Principal' | translate }}\">Check All</mat-checkbox>\r\n\r\n              <button mat-icon-button color=\"primary\" [matTooltip]=\"Edit\">\r\n                <mat-icon>edit</mat-icon>\r\n              </button>\r\n\r\n              <button mat-icon-button color=\"primary\" [matTooltip]=\"Delete\">\r\n                <mat-icon>delete</mat-icon>\r\n              </button>\r\n\r\n              <button mat-icon-button color=\"primary\" [matTooltip]=\"Delete\">\r\n                <mat-icon>delete</mat-icon>\r\n              </button>\r\n\r\n            </div>\r\n          </div>\r\n        </div-->\r\n      </div>\r\n    </div>\r\n  </div>\r\n\r\n  <div class=\"margin-right-25px padding-top-25px flex-shrink-0 display-flex border-top-style-solid border-top-width-2px border-top-color-grey\">\r\n\r\n    <button mat-raised-button type=\"button\" color=\"primary\" (click)=\"save()\">{{ 'Save Changes' | translate }}</button>\r\n\r\n    <button mat-raised-button type=\"button\" class=\"margin-left-10px\" (click)=\"onNoClick()\">{{ 'Close' | translate }}</button>\r\n\r\n    <span class=\"display-flex flex-grow-1\"></span>\r\n    \r\n    <button mat-raised-button type=\"button\" class=\"margin-left-10px\" (click)=\"showAddShopModal()\">{{ 'Add Shop' | translate }}</button>\r\n    \r\n  </div>\r\n\r\n</div>\r\n"
+module.exports = "<div class=\"\" [fxFlex]=\"100\" fxLayout=\"column\">\r\n  <div class=\"flex-grow-1 overflow-auto display-flex flex-direction-column\">\r\n\r\n    <div class=\"flex-grow-1 flex-shrink-0 display-flex flex-direction-column\">\r\n\r\n      <div class=\"\" [fxFlex]=\"100\" fxLayout=\"row\">\r\n\r\n        <div class=\"flex-wrap-wrap display-flex flex-grow-1 flex-shrink-1 flex-direction-row card-container justify-content-initial margin-top-10px\">\r\n          <mat-card *ngFor=\"let shop of dialogData.shops\" class=\"display-flex background-color-secondary flex-direction-column flex-shrink-1\">\r\n            <div class=\"image-container margin-10px flex-grow-1\" #imageContainer>\r\n              <img class=\"img\" imageLoad [srcImage]=\"shop.mainImage? shop.mainImage : ''\" [container]=\"imageContainer\" src=\"\">\r\n            </div>\r\n            <div class=\"image-card-btns display-flex margin-left-10px margin-right-10px margin-bottom-10px\">\r\n              <mat-checkbox [checked]=\"shop.checked\" class=\"margin-top-10px\" matTooltip=\"{{ 'Link' | translate }}\" (click)=\"linked(shop)\">{{ shop.name }}</mat-checkbox>\r\n            </div>\r\n          </mat-card>\r\n          <!--/div-->\r\n        </div>\r\n\r\n        <!--div [fxFlex]=\"40\">\r\n          <h3>Stores Selling</h3>\r\n          <div fxLayout=\"column\" class=\"border flex-grow-1 overflow-auto display-flex \">\r\n\r\n            <table class=\"width-100pct\" mat-table [dataSource]=\"links\" matSort matSortDisableClear (matSortChange)=\"onSort()\">\r\n\r\n              <ng-container matColumnDef=\"checkbox\">\r\n                <th mat-header-cell *matHeaderCellDef mat-sort-header>\r\n                  <td mat-cell *matCellDef=\"let element\">\r\n                    <mat-checkbox value=\"primary\" class=\"margin-top-10px\" matTooltip=\"{{ 'Principal' | translate }}\"></mat-checkbox>\r\n                  </td>\r\n              </ng-container>\r\n\r\n              <ng-container matColumnDef=\"text\">\r\n                <th mat-header-cell *matHeaderCellDef mat-sort-header>\r\n                  Text\r\n                  <td mat-cell *matCellDef=\"let element\"> {{ element.text }} </td>\r\n              </ng-container>\r\n\r\n              <ng-container matColumnDef=\"url\">\r\n                <th mat-header-cell *matHeaderCellDef mat-sort-header>\r\n                  Url\r\n                </th>\r\n                <td mat-cell *matCellDef=\"let element\"> {{ element.url }} </td>\r\n              </ng-container>\r\n\r\n              <ng-container matColumnDef=\"actions\">\r\n                <th mat-header-cell *matHeaderCellDef mat-sort-header>\r\n                </th>\r\n                <td mat-cell *matCellDef=\"let element\">\r\n                  <button mat-icon-button color=\"primary\" [matTooltip]=\"Edit\" [routerLink]=\"['../edit', element.id]\">\r\n                    <mat-icon>edit</mat-icon>\r\n                  </button>\r\n                  <button mat-icon-button color=\"primary\" [matTooltip]=\"Edit\" [routerLink]=\"['../delete', element.id]\">\r\n                    <mat-icon>delete</mat-icon>\r\n                  </button>\r\n                </td>\r\n              </ng-container>\r\n\r\n              <tr mat-header-row *matHeaderRowDef=\"displayedColumns\"></tr>\r\n              <tr mat-row *matRowDef=\"let row; columns: displayedColumns;\" [ngClass]=\"row.is_active ? '' : 'text-decoration-line-through'\">\r\n              </tr>\r\n\r\n            </table>\r\n\r\n            <div class=\"margin-left-25px margin-right-25px padding-top-25px padding-bottom-25px flex-shrink-0 display-flex border-top-style-solid border-top-width-2px border-top-color-grey\">\r\n\r\n              <mat-checkbox class=\"margin-top-10px margin-right-25px\" value=\"primary\" matTooltip=\"{{ 'Principal' | translate }}\">Check All</mat-checkbox>\r\n\r\n              <button mat-icon-button color=\"primary\" [matTooltip]=\"Edit\">\r\n                <mat-icon>edit</mat-icon>\r\n              </button>\r\n\r\n              <button mat-icon-button color=\"primary\" [matTooltip]=\"Delete\">\r\n                <mat-icon>delete</mat-icon>\r\n              </button>\r\n\r\n              <button mat-icon-button color=\"primary\" [matTooltip]=\"Delete\">\r\n                <mat-icon>delete</mat-icon>\r\n              </button>\r\n\r\n            </div>\r\n          </div>\r\n        </div-->\r\n      </div>\r\n    </div>\r\n  </div>\r\n\r\n  <div class=\"margin-right-25px padding-top-25px flex-shrink-0 display-flex border-top-style-solid border-top-width-2px border-top-color-grey\">\r\n\r\n    <button mat-raised-button type=\"button\" color=\"primary\" (click)=\"save()\">{{ 'Save Changes' | translate }}</button>\r\n\r\n    <button mat-raised-button type=\"button\" class=\"margin-left-10px\" (click)=\"onNoClick()\">{{ 'Close' | translate }}</button>\r\n\r\n    <span class=\"display-flex flex-grow-1\"></span>\r\n    \r\n    <button mat-raised-button type=\"button\" class=\"margin-left-10px\" (click)=\"showAddShopModal()\">{{ 'Add Shop' | translate }}</button>\r\n    \r\n  </div>\r\n\r\n</div>\r\n"
 
 /***/ }),
 
@@ -6490,6 +6490,7 @@ var ShopsSellingStyleModalComponent = /** @class */ (function () {
         this.imageSrc = null;
         this.linkedShops = [];
         this.oldLinkedShops = [];
+        this.sendLinkedShops = new _angular_core__WEBPACK_IMPORTED_MODULE_0__["EventEmitter"]();
         //setTranslations(this.translateService, TRANSLATIONS);
         breakpointObserver.observe([
             _angular_cdk_layout__WEBPACK_IMPORTED_MODULE_3__["Breakpoints"].Medium,
@@ -6503,14 +6504,22 @@ var ShopsSellingStyleModalComponent = /** @class */ (function () {
     }
     ShopsSellingStyleModalComponent.prototype.ngOnInit = function () {
         var _this = this;
-        this.stylesService.getStyleLinkedShops(this.dialogData.styleId).subscribe(function (response) {
-            _this.linkedShops = response.data;
-            _this.dialogData.shops.forEach(function (shop) {
+        if (this.dialogData.styleId) {
+            this.stylesService.getStyleLinkedShops(this.dialogData.styleId).subscribe(function (response) {
+                _this.linkedShops = response.data;
+                _this.dialogData.shops.forEach(function (shop) {
+                    _this.isLinked(shop.id);
+                });
+            }, function (error) {
+                _this.errorHandlingService.handleUiError(errorKey, error);
+            });
+        }
+        else if (this.dialogData.linkedShops) {
+            this.linkedShops = this.dialogData.linkedShops;
+            this.dialogData.shops.forEach(function (shop) {
                 _this.isLinked(shop.id);
             });
-        }, function (error) {
-            _this.errorHandlingService.handleUiError(errorKey, error);
-        });
+        }
     };
     ShopsSellingStyleModalComponent.prototype.ngAfterViewInit = function () {
     };
@@ -6548,12 +6557,17 @@ var ShopsSellingStyleModalComponent = /** @class */ (function () {
     };
     ShopsSellingStyleModalComponent.prototype.save = function () {
         var _this = this;
-        this.stylesService.postStyleLinkedShops(this.dialogData.styleId, this.linkedShops).subscribe(function (response) {
-            _this.close();
-            _this.toastr.success("Saved");
-        }, function (error) {
-            _this.errorHandlingService.handleUiError(errorKey, error);
-        });
+        if (this.dialogData.styleId) {
+            this.stylesService.postStyleLinkedShops(this.dialogData.styleId, this.linkedShops).subscribe(function (response) {
+                _this.close();
+                _this.toastr.success("Saved");
+            }, function (error) {
+                _this.errorHandlingService.handleUiError(errorKey, error);
+            });
+        }
+        else {
+            this.dialogRef.close(this.linkedShops);
+        }
     };
     ShopsSellingStyleModalComponent.prototype.showAddShopModal = function () {
         var _this = this;
@@ -6593,6 +6607,10 @@ var ShopsSellingStyleModalComponent = /** @class */ (function () {
             this.dialogData.shops[index].checked = false;
         }
     };
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"])(),
+        __metadata("design:type", _angular_core__WEBPACK_IMPORTED_MODULE_0__["EventEmitter"])
+    ], ShopsSellingStyleModalComponent.prototype, "sendLinkedShops", void 0);
     ShopsSellingStyleModalComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
             selector: 'shops-selling-style-modal',
@@ -6735,7 +6753,6 @@ var ShopsTableComponent = /** @class */ (function () {
     };
     ShopsTableComponent.prototype.loadPage = function () {
         var _this = this;
-        console.log(this.filter.value);
         this.shopsService.getShops(Object.assign({}, this.filter.value), this.sort.active, this.sort.direction, this.paginator.pageIndex, this.paginator.pageSize).subscribe(function (response) {
             _this.shopsService.shopsList.next(response);
         }, function (err) {
@@ -7218,38 +7235,40 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/common */ "./node_modules/@angular/common/fesm5/common.js");
 /* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm5/forms.js");
-/* harmony import */ var amazing_time_picker__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! amazing-time-picker */ "./node_modules/amazing-time-picker/amazing-time-picker.es5.js");
-/* harmony import */ var _angular_flex_layout__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/flex-layout */ "./node_modules/@angular/flex-layout/esm5/flex-layout.es5.js");
-/* harmony import */ var _angular_material_bottom_sheet__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/material/bottom-sheet */ "./node_modules/@angular/material/esm5/bottom-sheet.es5.js");
-/* harmony import */ var _angular_material_button__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @angular/material/button */ "./node_modules/@angular/material/esm5/button.es5.js");
-/* harmony import */ var _angular_material__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @angular/material */ "./node_modules/@angular/material/esm5/material.es5.js");
-/* harmony import */ var _angular_material_icon__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @angular/material/icon */ "./node_modules/@angular/material/esm5/icon.es5.js");
-/* harmony import */ var _angular_material_select__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @angular/material/select */ "./node_modules/@angular/material/esm5/select.es5.js");
-/* harmony import */ var _angular_material_sort__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! @angular/material/sort */ "./node_modules/@angular/material/esm5/sort.es5.js");
-/* harmony import */ var _angular_material_toolbar__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! @angular/material/toolbar */ "./node_modules/@angular/material/esm5/toolbar.es5.js");
-/* harmony import */ var _angular_material_tooltip__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! @angular/material/tooltip */ "./node_modules/@angular/material/esm5/tooltip.es5.js");
-/* harmony import */ var _angular_material_card__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! @angular/material/card */ "./node_modules/@angular/material/esm5/card.es5.js");
-/* harmony import */ var _agm_core__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! @agm/core */ "./node_modules/@agm/core/index.js");
-/* harmony import */ var _ngx_translate_core__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! @ngx-translate/core */ "./node_modules/@ngx-translate/core/fesm5/ngx-translate-core.js");
-/* harmony import */ var _http_request_indicator_http_request_indicator_module__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ../../../http-request-indicator/http-request-indicator.module */ "./src/app/http-request-indicator/http-request-indicator.module.ts");
-/* harmony import */ var _ui_modules_ask_before_refresh_ask_before_refresh_module__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ../../../ui/modules/ask-before-refresh/ask-before-refresh.module */ "./src/app/ui/modules/ask-before-refresh/ask-before-refresh.module.ts");
-/* harmony import */ var _ui_modules_spinner_indicator_200_spinner_indicator_200_module__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ../../../ui/modules/spinner-indicator-200/spinner-indicator-200.module */ "./src/app/ui/modules/spinner-indicator-200/spinner-indicator-200.module.ts");
-/* harmony import */ var _ms_shops_routing_module__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ./ms-shops-routing.module */ "./src/app/ms-back-office/modules/ms-shops/ms-shops-routing.module.ts");
-/* harmony import */ var _components_shops_table_shops_table_component__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ./components/shops-table/shops-table.component */ "./src/app/ms-back-office/modules/ms-shops/components/shops-table/shops-table.component.ts");
-/* harmony import */ var _components_shop_form_shop_form_component__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ./components/shop-form/shop-form.component */ "./src/app/ms-back-office/modules/ms-shops/components/shop-form/shop-form.component.ts");
-/* harmony import */ var _components_new_shop_new_shop_component__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! ./components/new-shop/new-shop.component */ "./src/app/ms-back-office/modules/ms-shops/components/new-shop/new-shop.component.ts");
-/* harmony import */ var _components_new_shop_modal_new_shop_modal_component__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! ./components/new-shop-modal/new-shop-modal.component */ "./src/app/ms-back-office/modules/ms-shops/components/new-shop-modal/new-shop-modal.component.ts");
-/* harmony import */ var _components_edit_shop_edit_shop_component__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(/*! ./components/edit-shop/edit-shop.component */ "./src/app/ms-back-office/modules/ms-shops/components/edit-shop/edit-shop.component.ts");
-/* harmony import */ var _components_edit_shop_form_edit_shop_form_component__WEBPACK_IMPORTED_MODULE_25__ = __webpack_require__(/*! ./components/edit-shop-form/edit-shop-form.component */ "./src/app/ms-back-office/modules/ms-shops/components/edit-shop-form/edit-shop-form.component.ts");
-/* harmony import */ var _components_delete_shop_delete_shop_component__WEBPACK_IMPORTED_MODULE_26__ = __webpack_require__(/*! ./components/delete-shop/delete-shop.component */ "./src/app/ms-back-office/modules/ms-shops/components/delete-shop/delete-shop.component.ts");
-/* harmony import */ var _components_show_subshops_show_subshops_component__WEBPACK_IMPORTED_MODULE_27__ = __webpack_require__(/*! ./components/show-subshops/show-subshops.component */ "./src/app/ms-back-office/modules/ms-shops/components/show-subshops/show-subshops.component.ts");
-/* harmony import */ var _components_shops_selling_style_modal_shops_selling_style_modal_component__WEBPACK_IMPORTED_MODULE_28__ = __webpack_require__(/*! ./components/shops-selling-style-modal/shops-selling-style-modal.component */ "./src/app/ms-back-office/modules/ms-shops/components/shops-selling-style-modal/shops-selling-style-modal.component.ts");
-/* harmony import */ var _components_link_shops_brand_link_shops_brand_modal_component__WEBPACK_IMPORTED_MODULE_29__ = __webpack_require__(/*! ./components/link-shops-brand/link-shops-brand-modal.component */ "./src/app/ms-back-office/modules/ms-shops/components/link-shops-brand/link-shops-brand-modal.component.ts");
-/* harmony import */ var _components_link_shops_collection_link_shops_collection_modal_component__WEBPACK_IMPORTED_MODULE_30__ = __webpack_require__(/*! ./components/link-shops-collection/link-shops-collection-modal.component */ "./src/app/ms-back-office/modules/ms-shops/components/link-shops-collection/link-shops-collection-modal.component.ts");
-/* harmony import */ var _components_link_shops_subshops_link_shops_subshops_modal_component__WEBPACK_IMPORTED_MODULE_31__ = __webpack_require__(/*! ./components/link-shops-subshops/link-shops-subshops-modal.component */ "./src/app/ms-back-office/modules/ms-shops/components/link-shops-subshops/link-shops-subshops-modal.component.ts");
-/* harmony import */ var _ui_modules_images_card_images_card_module__WEBPACK_IMPORTED_MODULE_32__ = __webpack_require__(/*! ../../../ui/modules/images-card/images-card.module */ "./src/app/ui/modules/images-card/images-card.module.ts");
-/* harmony import */ var _ms_deals_ms_deals_module__WEBPACK_IMPORTED_MODULE_33__ = __webpack_require__(/*! ../ms-deals/ms-deals.module */ "./src/app/ms-back-office/modules/ms-deals/ms-deals.module.ts");
-/* harmony import */ var _ms_offers_ms_offers_module__WEBPACK_IMPORTED_MODULE_34__ = __webpack_require__(/*! ../ms-offers/ms-offers.module */ "./src/app/ms-back-office/modules/ms-offers/ms-offers.module.ts");
+/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm5/http.js");
+/* harmony import */ var amazing_time_picker__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! amazing-time-picker */ "./node_modules/amazing-time-picker/amazing-time-picker.es5.js");
+/* harmony import */ var _angular_flex_layout__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/flex-layout */ "./node_modules/@angular/flex-layout/esm5/flex-layout.es5.js");
+/* harmony import */ var _angular_material_bottom_sheet__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @angular/material/bottom-sheet */ "./node_modules/@angular/material/esm5/bottom-sheet.es5.js");
+/* harmony import */ var _angular_material_button__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @angular/material/button */ "./node_modules/@angular/material/esm5/button.es5.js");
+/* harmony import */ var _angular_material__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @angular/material */ "./node_modules/@angular/material/esm5/material.es5.js");
+/* harmony import */ var _angular_material_icon__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @angular/material/icon */ "./node_modules/@angular/material/esm5/icon.es5.js");
+/* harmony import */ var _angular_material_select__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! @angular/material/select */ "./node_modules/@angular/material/esm5/select.es5.js");
+/* harmony import */ var _angular_material_sort__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! @angular/material/sort */ "./node_modules/@angular/material/esm5/sort.es5.js");
+/* harmony import */ var _angular_material_toolbar__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! @angular/material/toolbar */ "./node_modules/@angular/material/esm5/toolbar.es5.js");
+/* harmony import */ var _angular_material_tooltip__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! @angular/material/tooltip */ "./node_modules/@angular/material/esm5/tooltip.es5.js");
+/* harmony import */ var _angular_material_card__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! @angular/material/card */ "./node_modules/@angular/material/esm5/card.es5.js");
+/* harmony import */ var _agm_core__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! @agm/core */ "./node_modules/@agm/core/index.js");
+/* harmony import */ var _ngx_translate_core__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! @ngx-translate/core */ "./node_modules/@ngx-translate/core/fesm5/ngx-translate-core.js");
+/* harmony import */ var _http_request_indicator_http_request_indicator_module__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ../../../http-request-indicator/http-request-indicator.module */ "./src/app/http-request-indicator/http-request-indicator.module.ts");
+/* harmony import */ var _http_request_indicator_services_indicated_interceptor_service__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ../../../http-request-indicator/services/indicated-interceptor.service */ "./src/app/http-request-indicator/services/indicated-interceptor.service.ts");
+/* harmony import */ var _ui_modules_ask_before_refresh_ask_before_refresh_module__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ../../../ui/modules/ask-before-refresh/ask-before-refresh.module */ "./src/app/ui/modules/ask-before-refresh/ask-before-refresh.module.ts");
+/* harmony import */ var _ui_modules_spinner_indicator_200_spinner_indicator_200_module__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ../../../ui/modules/spinner-indicator-200/spinner-indicator-200.module */ "./src/app/ui/modules/spinner-indicator-200/spinner-indicator-200.module.ts");
+/* harmony import */ var _ms_shops_routing_module__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ./ms-shops-routing.module */ "./src/app/ms-back-office/modules/ms-shops/ms-shops-routing.module.ts");
+/* harmony import */ var _components_shops_table_shops_table_component__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! ./components/shops-table/shops-table.component */ "./src/app/ms-back-office/modules/ms-shops/components/shops-table/shops-table.component.ts");
+/* harmony import */ var _components_shop_form_shop_form_component__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! ./components/shop-form/shop-form.component */ "./src/app/ms-back-office/modules/ms-shops/components/shop-form/shop-form.component.ts");
+/* harmony import */ var _components_new_shop_new_shop_component__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(/*! ./components/new-shop/new-shop.component */ "./src/app/ms-back-office/modules/ms-shops/components/new-shop/new-shop.component.ts");
+/* harmony import */ var _components_new_shop_modal_new_shop_modal_component__WEBPACK_IMPORTED_MODULE_25__ = __webpack_require__(/*! ./components/new-shop-modal/new-shop-modal.component */ "./src/app/ms-back-office/modules/ms-shops/components/new-shop-modal/new-shop-modal.component.ts");
+/* harmony import */ var _components_edit_shop_edit_shop_component__WEBPACK_IMPORTED_MODULE_26__ = __webpack_require__(/*! ./components/edit-shop/edit-shop.component */ "./src/app/ms-back-office/modules/ms-shops/components/edit-shop/edit-shop.component.ts");
+/* harmony import */ var _components_edit_shop_form_edit_shop_form_component__WEBPACK_IMPORTED_MODULE_27__ = __webpack_require__(/*! ./components/edit-shop-form/edit-shop-form.component */ "./src/app/ms-back-office/modules/ms-shops/components/edit-shop-form/edit-shop-form.component.ts");
+/* harmony import */ var _components_delete_shop_delete_shop_component__WEBPACK_IMPORTED_MODULE_28__ = __webpack_require__(/*! ./components/delete-shop/delete-shop.component */ "./src/app/ms-back-office/modules/ms-shops/components/delete-shop/delete-shop.component.ts");
+/* harmony import */ var _components_show_subshops_show_subshops_component__WEBPACK_IMPORTED_MODULE_29__ = __webpack_require__(/*! ./components/show-subshops/show-subshops.component */ "./src/app/ms-back-office/modules/ms-shops/components/show-subshops/show-subshops.component.ts");
+/* harmony import */ var _components_shops_selling_style_modal_shops_selling_style_modal_component__WEBPACK_IMPORTED_MODULE_30__ = __webpack_require__(/*! ./components/shops-selling-style-modal/shops-selling-style-modal.component */ "./src/app/ms-back-office/modules/ms-shops/components/shops-selling-style-modal/shops-selling-style-modal.component.ts");
+/* harmony import */ var _components_link_shops_brand_link_shops_brand_modal_component__WEBPACK_IMPORTED_MODULE_31__ = __webpack_require__(/*! ./components/link-shops-brand/link-shops-brand-modal.component */ "./src/app/ms-back-office/modules/ms-shops/components/link-shops-brand/link-shops-brand-modal.component.ts");
+/* harmony import */ var _components_link_shops_collection_link_shops_collection_modal_component__WEBPACK_IMPORTED_MODULE_32__ = __webpack_require__(/*! ./components/link-shops-collection/link-shops-collection-modal.component */ "./src/app/ms-back-office/modules/ms-shops/components/link-shops-collection/link-shops-collection-modal.component.ts");
+/* harmony import */ var _components_link_shops_subshops_link_shops_subshops_modal_component__WEBPACK_IMPORTED_MODULE_33__ = __webpack_require__(/*! ./components/link-shops-subshops/link-shops-subshops-modal.component */ "./src/app/ms-back-office/modules/ms-shops/components/link-shops-subshops/link-shops-subshops-modal.component.ts");
+/* harmony import */ var _ui_modules_images_card_images_card_module__WEBPACK_IMPORTED_MODULE_34__ = __webpack_require__(/*! ../../../ui/modules/images-card/images-card.module */ "./src/app/ui/modules/images-card/images-card.module.ts");
+/* harmony import */ var _ms_deals_ms_deals_module__WEBPACK_IMPORTED_MODULE_35__ = __webpack_require__(/*! ../ms-deals/ms-deals.module */ "./src/app/ms-back-office/modules/ms-deals/ms-deals.module.ts");
+/* harmony import */ var _ms_offers_ms_offers_module__WEBPACK_IMPORTED_MODULE_36__ = __webpack_require__(/*! ../ms-offers/ms-offers.module */ "./src/app/ms-back-office/modules/ms-offers/ms-offers.module.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -7259,24 +7278,26 @@ var __decorate = (undefined && undefined.__decorate) || function (decorators, ta
 
 
 
-//
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 //
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//
+
 
 
 
@@ -7305,75 +7326,76 @@ var MsShopsModule = /** @class */ (function () {
                 _angular_common__WEBPACK_IMPORTED_MODULE_1__["CommonModule"],
                 _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormsModule"],
                 _angular_forms__WEBPACK_IMPORTED_MODULE_2__["ReactiveFormsModule"],
-                amazing_time_picker__WEBPACK_IMPORTED_MODULE_3__["AmazingTimePickerModule"],
-                _angular_flex_layout__WEBPACK_IMPORTED_MODULE_4__["FlexLayoutModule"],
-                _angular_material__WEBPACK_IMPORTED_MODULE_7__["MatAutocompleteModule"],
-                _angular_material_bottom_sheet__WEBPACK_IMPORTED_MODULE_5__["MatBottomSheetModule"],
-                _angular_material_button__WEBPACK_IMPORTED_MODULE_6__["MatButtonModule"],
-                _angular_material_card__WEBPACK_IMPORTED_MODULE_13__["MatCardModule"],
-                _angular_material__WEBPACK_IMPORTED_MODULE_7__["MatCheckboxModule"],
-                _angular_material__WEBPACK_IMPORTED_MODULE_7__["MatDatepickerModule"],
-                _angular_material__WEBPACK_IMPORTED_MODULE_7__["MatDialogModule"],
-                _angular_material__WEBPACK_IMPORTED_MODULE_7__["MatFormFieldModule"],
-                _angular_material_icon__WEBPACK_IMPORTED_MODULE_8__["MatIconModule"],
-                _angular_material__WEBPACK_IMPORTED_MODULE_7__["MatInputModule"],
-                _angular_material__WEBPACK_IMPORTED_MODULE_7__["MatNativeDateModule"],
-                _angular_material__WEBPACK_IMPORTED_MODULE_7__["MatPaginatorModule"],
-                _angular_material__WEBPACK_IMPORTED_MODULE_7__["MatRadioModule"],
-                _angular_material_select__WEBPACK_IMPORTED_MODULE_9__["MatSelectModule"],
-                _angular_material__WEBPACK_IMPORTED_MODULE_7__["MatSlideToggleModule"],
-                _angular_material_sort__WEBPACK_IMPORTED_MODULE_10__["MatSortModule"],
-                _angular_material__WEBPACK_IMPORTED_MODULE_7__["MatTableModule"],
-                _angular_material__WEBPACK_IMPORTED_MODULE_7__["MatTabsModule"],
-                _angular_material_toolbar__WEBPACK_IMPORTED_MODULE_11__["MatToolbarModule"],
-                _angular_material_tooltip__WEBPACK_IMPORTED_MODULE_12__["MatTooltipModule"],
-                _ngx_translate_core__WEBPACK_IMPORTED_MODULE_15__["TranslateModule"],
-                _ms_shops_routing_module__WEBPACK_IMPORTED_MODULE_19__["MsShopsRoutingModule"],
-                _ui_modules_images_card_images_card_module__WEBPACK_IMPORTED_MODULE_32__["ImagesCardModule"],
-                _ui_modules_ask_before_refresh_ask_before_refresh_module__WEBPACK_IMPORTED_MODULE_17__["AskBeforeRefreshModule"],
-                _http_request_indicator_http_request_indicator_module__WEBPACK_IMPORTED_MODULE_16__["HttpRequestIndicatorModule"],
-                _ui_modules_spinner_indicator_200_spinner_indicator_200_module__WEBPACK_IMPORTED_MODULE_18__["SpinnerIndicator200Module"],
-                _ms_deals_ms_deals_module__WEBPACK_IMPORTED_MODULE_33__["MsDealsModule"],
-                _ms_offers_ms_offers_module__WEBPACK_IMPORTED_MODULE_34__["MsOffersModule"],
-                _agm_core__WEBPACK_IMPORTED_MODULE_14__["AgmCoreModule"].forRoot({
+                amazing_time_picker__WEBPACK_IMPORTED_MODULE_4__["AmazingTimePickerModule"],
+                _angular_flex_layout__WEBPACK_IMPORTED_MODULE_5__["FlexLayoutModule"],
+                _angular_material__WEBPACK_IMPORTED_MODULE_8__["MatAutocompleteModule"],
+                _angular_material_bottom_sheet__WEBPACK_IMPORTED_MODULE_6__["MatBottomSheetModule"],
+                _angular_material_button__WEBPACK_IMPORTED_MODULE_7__["MatButtonModule"],
+                _angular_material_card__WEBPACK_IMPORTED_MODULE_14__["MatCardModule"],
+                _angular_material__WEBPACK_IMPORTED_MODULE_8__["MatCheckboxModule"],
+                _angular_material__WEBPACK_IMPORTED_MODULE_8__["MatDatepickerModule"],
+                _angular_material__WEBPACK_IMPORTED_MODULE_8__["MatDialogModule"],
+                _angular_material__WEBPACK_IMPORTED_MODULE_8__["MatFormFieldModule"],
+                _angular_material_icon__WEBPACK_IMPORTED_MODULE_9__["MatIconModule"],
+                _angular_material__WEBPACK_IMPORTED_MODULE_8__["MatInputModule"],
+                _angular_material__WEBPACK_IMPORTED_MODULE_8__["MatNativeDateModule"],
+                _angular_material__WEBPACK_IMPORTED_MODULE_8__["MatPaginatorModule"],
+                _angular_material__WEBPACK_IMPORTED_MODULE_8__["MatRadioModule"],
+                _angular_material_select__WEBPACK_IMPORTED_MODULE_10__["MatSelectModule"],
+                _angular_material__WEBPACK_IMPORTED_MODULE_8__["MatSlideToggleModule"],
+                _angular_material_sort__WEBPACK_IMPORTED_MODULE_11__["MatSortModule"],
+                _angular_material__WEBPACK_IMPORTED_MODULE_8__["MatTableModule"],
+                _angular_material__WEBPACK_IMPORTED_MODULE_8__["MatTabsModule"],
+                _angular_material_toolbar__WEBPACK_IMPORTED_MODULE_12__["MatToolbarModule"],
+                _angular_material_tooltip__WEBPACK_IMPORTED_MODULE_13__["MatTooltipModule"],
+                _ngx_translate_core__WEBPACK_IMPORTED_MODULE_16__["TranslateModule"],
+                _ms_shops_routing_module__WEBPACK_IMPORTED_MODULE_21__["MsShopsRoutingModule"],
+                _ui_modules_images_card_images_card_module__WEBPACK_IMPORTED_MODULE_34__["ImagesCardModule"],
+                _ui_modules_ask_before_refresh_ask_before_refresh_module__WEBPACK_IMPORTED_MODULE_19__["AskBeforeRefreshModule"],
+                _http_request_indicator_http_request_indicator_module__WEBPACK_IMPORTED_MODULE_17__["HttpRequestIndicatorModule"].forRoot(),
+                _ui_modules_spinner_indicator_200_spinner_indicator_200_module__WEBPACK_IMPORTED_MODULE_20__["SpinnerIndicator200Module"],
+                _ms_deals_ms_deals_module__WEBPACK_IMPORTED_MODULE_35__["MsDealsModule"],
+                _ms_offers_ms_offers_module__WEBPACK_IMPORTED_MODULE_36__["MsOffersModule"],
+                _agm_core__WEBPACK_IMPORTED_MODULE_15__["AgmCoreModule"].forRoot({
                     apiKey: 'AIzaSyCNe-jwQrcGsXiegBXbSZJhNnVA13n0Q4I'
                 })
             ],
             declarations: [
-                _components_shops_table_shops_table_component__WEBPACK_IMPORTED_MODULE_20__["ShopsTableComponent"],
-                _components_shop_form_shop_form_component__WEBPACK_IMPORTED_MODULE_21__["ShopFormComponent"],
-                _components_new_shop_new_shop_component__WEBPACK_IMPORTED_MODULE_22__["NewShopComponent"],
-                _components_new_shop_modal_new_shop_modal_component__WEBPACK_IMPORTED_MODULE_23__["NewShopModalComponent"],
-                _components_edit_shop_edit_shop_component__WEBPACK_IMPORTED_MODULE_24__["EditShopComponent"],
-                _components_edit_shop_form_edit_shop_form_component__WEBPACK_IMPORTED_MODULE_25__["EditShopFormComponent"],
-                _components_delete_shop_delete_shop_component__WEBPACK_IMPORTED_MODULE_26__["DeleteShopComponent"],
-                _components_link_shops_brand_link_shops_brand_modal_component__WEBPACK_IMPORTED_MODULE_29__["LinkShopsBrandModalComponent"],
-                _components_link_shops_collection_link_shops_collection_modal_component__WEBPACK_IMPORTED_MODULE_30__["LinkShopsCollentionModalComponent"],
-                _components_link_shops_subshops_link_shops_subshops_modal_component__WEBPACK_IMPORTED_MODULE_31__["LinkShopsSubShopsModalComponent"],
-                _components_shops_selling_style_modal_shops_selling_style_modal_component__WEBPACK_IMPORTED_MODULE_28__["ShopsSellingStyleModalComponent"],
-                _components_show_subshops_show_subshops_component__WEBPACK_IMPORTED_MODULE_27__["ShowSubshopslComponent"]
+                _components_shops_table_shops_table_component__WEBPACK_IMPORTED_MODULE_22__["ShopsTableComponent"],
+                _components_shop_form_shop_form_component__WEBPACK_IMPORTED_MODULE_23__["ShopFormComponent"],
+                _components_new_shop_new_shop_component__WEBPACK_IMPORTED_MODULE_24__["NewShopComponent"],
+                _components_new_shop_modal_new_shop_modal_component__WEBPACK_IMPORTED_MODULE_25__["NewShopModalComponent"],
+                _components_edit_shop_edit_shop_component__WEBPACK_IMPORTED_MODULE_26__["EditShopComponent"],
+                _components_edit_shop_form_edit_shop_form_component__WEBPACK_IMPORTED_MODULE_27__["EditShopFormComponent"],
+                _components_delete_shop_delete_shop_component__WEBPACK_IMPORTED_MODULE_28__["DeleteShopComponent"],
+                _components_link_shops_brand_link_shops_brand_modal_component__WEBPACK_IMPORTED_MODULE_31__["LinkShopsBrandModalComponent"],
+                _components_link_shops_collection_link_shops_collection_modal_component__WEBPACK_IMPORTED_MODULE_32__["LinkShopsCollentionModalComponent"],
+                _components_link_shops_subshops_link_shops_subshops_modal_component__WEBPACK_IMPORTED_MODULE_33__["LinkShopsSubShopsModalComponent"],
+                _components_shops_selling_style_modal_shops_selling_style_modal_component__WEBPACK_IMPORTED_MODULE_30__["ShopsSellingStyleModalComponent"],
+                _components_show_subshops_show_subshops_component__WEBPACK_IMPORTED_MODULE_29__["ShowSubshopslComponent"]
             ],
             exports: [
-                _components_shops_table_shops_table_component__WEBPACK_IMPORTED_MODULE_20__["ShopsTableComponent"],
-                _components_shop_form_shop_form_component__WEBPACK_IMPORTED_MODULE_21__["ShopFormComponent"],
-                _components_new_shop_new_shop_component__WEBPACK_IMPORTED_MODULE_22__["NewShopComponent"],
-                _components_new_shop_modal_new_shop_modal_component__WEBPACK_IMPORTED_MODULE_23__["NewShopModalComponent"],
-                _components_edit_shop_edit_shop_component__WEBPACK_IMPORTED_MODULE_24__["EditShopComponent"],
-                _components_edit_shop_form_edit_shop_form_component__WEBPACK_IMPORTED_MODULE_25__["EditShopFormComponent"],
-                _components_delete_shop_delete_shop_component__WEBPACK_IMPORTED_MODULE_26__["DeleteShopComponent"],
-                _components_link_shops_brand_link_shops_brand_modal_component__WEBPACK_IMPORTED_MODULE_29__["LinkShopsBrandModalComponent"],
-                _components_link_shops_collection_link_shops_collection_modal_component__WEBPACK_IMPORTED_MODULE_30__["LinkShopsCollentionModalComponent"],
-                _components_link_shops_subshops_link_shops_subshops_modal_component__WEBPACK_IMPORTED_MODULE_31__["LinkShopsSubShopsModalComponent"],
-                _components_shops_selling_style_modal_shops_selling_style_modal_component__WEBPACK_IMPORTED_MODULE_28__["ShopsSellingStyleModalComponent"],
-                _components_show_subshops_show_subshops_component__WEBPACK_IMPORTED_MODULE_27__["ShowSubshopslComponent"]
+                _components_shops_table_shops_table_component__WEBPACK_IMPORTED_MODULE_22__["ShopsTableComponent"],
+                _components_shop_form_shop_form_component__WEBPACK_IMPORTED_MODULE_23__["ShopFormComponent"],
+                _components_new_shop_new_shop_component__WEBPACK_IMPORTED_MODULE_24__["NewShopComponent"],
+                _components_new_shop_modal_new_shop_modal_component__WEBPACK_IMPORTED_MODULE_25__["NewShopModalComponent"],
+                _components_edit_shop_edit_shop_component__WEBPACK_IMPORTED_MODULE_26__["EditShopComponent"],
+                _components_edit_shop_form_edit_shop_form_component__WEBPACK_IMPORTED_MODULE_27__["EditShopFormComponent"],
+                _components_delete_shop_delete_shop_component__WEBPACK_IMPORTED_MODULE_28__["DeleteShopComponent"],
+                _components_link_shops_brand_link_shops_brand_modal_component__WEBPACK_IMPORTED_MODULE_31__["LinkShopsBrandModalComponent"],
+                _components_link_shops_collection_link_shops_collection_modal_component__WEBPACK_IMPORTED_MODULE_32__["LinkShopsCollentionModalComponent"],
+                _components_link_shops_subshops_link_shops_subshops_modal_component__WEBPACK_IMPORTED_MODULE_33__["LinkShopsSubShopsModalComponent"],
+                _components_shops_selling_style_modal_shops_selling_style_modal_component__WEBPACK_IMPORTED_MODULE_30__["ShopsSellingStyleModalComponent"],
+                _components_show_subshops_show_subshops_component__WEBPACK_IMPORTED_MODULE_29__["ShowSubshopslComponent"]
             ],
             entryComponents: [
-                _components_link_shops_brand_link_shops_brand_modal_component__WEBPACK_IMPORTED_MODULE_29__["LinkShopsBrandModalComponent"],
-                _components_link_shops_collection_link_shops_collection_modal_component__WEBPACK_IMPORTED_MODULE_30__["LinkShopsCollentionModalComponent"],
-                _components_link_shops_subshops_link_shops_subshops_modal_component__WEBPACK_IMPORTED_MODULE_31__["LinkShopsSubShopsModalComponent"],
-                _components_new_shop_modal_new_shop_modal_component__WEBPACK_IMPORTED_MODULE_23__["NewShopModalComponent"],
-                _components_shops_selling_style_modal_shops_selling_style_modal_component__WEBPACK_IMPORTED_MODULE_28__["ShopsSellingStyleModalComponent"],
-            ]
+                _components_link_shops_brand_link_shops_brand_modal_component__WEBPACK_IMPORTED_MODULE_31__["LinkShopsBrandModalComponent"],
+                _components_link_shops_collection_link_shops_collection_modal_component__WEBPACK_IMPORTED_MODULE_32__["LinkShopsCollentionModalComponent"],
+                _components_link_shops_subshops_link_shops_subshops_modal_component__WEBPACK_IMPORTED_MODULE_33__["LinkShopsSubShopsModalComponent"],
+                _components_new_shop_modal_new_shop_modal_component__WEBPACK_IMPORTED_MODULE_25__["NewShopModalComponent"],
+                _components_shops_selling_style_modal_shops_selling_style_modal_component__WEBPACK_IMPORTED_MODULE_30__["ShopsSellingStyleModalComponent"],
+            ],
+            providers: [{ provide: _angular_common_http__WEBPACK_IMPORTED_MODULE_3__["HTTP_INTERCEPTORS"], useClass: _http_request_indicator_services_indicated_interceptor_service__WEBPACK_IMPORTED_MODULE_18__["IndicatedInterceptor"], multi: true },]
         })
     ], MsShopsModule);
     return MsShopsModule;
