@@ -4483,7 +4483,7 @@ var EditShopFormComponent = /** @class */ (function (_super) {
         _this.countries = _models_country__WEBPACK_IMPORTED_MODULE_7__["COUNTRIES"];
         _this.regions = _models_regions__WEBPACK_IMPORTED_MODULE_9__["REGIONS"];
         _this.rank = _models_rank__WEBPACK_IMPORTED_MODULE_8__["RANK"];
-        _this.timeZoneOffset = timeZoneOffset;
+        _this.timeZoneOffset = 60;
         _this.shippingCountries = _models_shippingCountries__WEBPACK_IMPORTED_MODULE_14__["SHIPPINGCOUNTRIES"];
         _this.faceList = [];
         return _this;
@@ -6649,7 +6649,7 @@ var ShopsSellingStyleModalComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<h1>Shops Table</h1>\r\n\r\n<mat-toolbar class=\"margin-right-25px margin-bottom-10px width-auto flex-shrink-0 background-color-secondary color-primary mat-elevation-z2\"\r\n  [formGroup]=\"filter\">\r\n\r\n  <mat-icon matPrefix color=\"primary\">search</mat-icon>\r\n  <mat-form-field>\r\n    <input matInput formControlName=\"name\" placeholder=\"NAME\">\r\n  </mat-form-field>\r\n\r\n  <mat-form-field>\r\n    <mat-label>STATUS</mat-label>\r\n    <mat-select disableOptionCentering formControlName=\"status\">\r\n      <mat-option>...</mat-option>\r\n      <mat-option *ngFor=\"let state of status\" [value]=\"state.value\">\r\n        {{state.status}}\r\n      </mat-option>\r\n    </mat-select>\r\n  </mat-form-field>\r\n\r\n  <mat-form-field>\r\n    <mat-label>COUNTRY</mat-label>\r\n    <mat-select disableOptionCentering formControlName=\"country\">\r\n      <mat-option>...</mat-option>\r\n      <mat-option [value]=\"null\">name</mat-option>\r\n    </mat-select>\r\n  </mat-form-field>\r\n\r\n  <mat-form-field>\r\n    <mat-label>TYPE</mat-label>\r\n    <mat-select disableOptionCentering formControlName=\"isParent\">\r\n      <mat-option>...</mat-option>\r\n      <mat-option [value]=\"1\">Parent Shops</mat-option>\r\n      <mat-option [value]=\"0\">Sub Shops</mat-option>\r\n    </mat-select>\r\n  </mat-form-field>\r\n\r\n  <span class=\"flex-grow-1\"></span>\r\n  <button mat-raised-button color=\"primary\" [routerLink]=\"['../create']\">CREATE A NEW SHOP</button>\r\n</mat-toolbar>\r\n\r\n<div class=\"flex-grow-1 overflow-auto display-flex\">\r\n\r\n  <table class=\"margin-top-10px margin-right-25px width-100pct\" mat-table [dataSource]=\"shops\" matSort [matSortActive]=\"shopsService.previousSortColumn\"\r\n    [matSortDirection]=\"shopsService.previousSortDirection\" matSortDisableClear (matSortChange)=\"onSort()\">\r\n\r\n    <!--ng-container matColumnDef=\"ID\">\r\n      <th mat-header-cell *matHeaderCellDef mat-sort-header>\r\n        ID\r\n      </th>\r\n      <td mat-cell *matCellDef=\"let element\"> {{ element.id }} </td>\r\n    </ng-container-->\r\n\r\n    <ng-container matColumnDef=\"name\">\r\n      <th mat-header-cell *matHeaderCellDef mat-sort-header>\r\n        SHOP NAME\r\n      </th>\r\n      <td mat-cell *matCellDef=\"let element\" class=\"padding-table-td\">\r\n        <div class=\"display-flex align-items-center\">         \r\n          <span>\r\n            {{ element.name }}\r\n          </span>\r\n          <mat-icon *ngIf=\"element.isParent\" class=\"sidenav-icon\">store</mat-icon>\r\n        </div>\r\n      </td>\r\n    </ng-container>\r\n\r\n    <ng-container matColumnDef=\"thumbnail\">\r\n      <th mat-header-cell *matHeaderCellDef></th>\r\n      <td mat-cell *matCellDef=\"let element\" class=\"display-flex flex-grow-1 height-100pct padding-left-0px width-100pct\">\r\n        <div class=\"position-relative margin-top-5px\">\r\n          <img [src]=\"element.mainImage\" class=\"height-90pct width-90pct margin-auto\" alt=\"50\">\r\n        </div>\r\n      </td>\r\n    </ng-container>\r\n\r\n    <ng-container matColumnDef=\"active\">\r\n      <th mat-header-cell *matHeaderCellDef mat-sort-header>\r\n        STATUS\r\n      </th>\r\n      <td mat-cell *matCellDef=\"let element\" class=\"padding-table-td\">\r\n        <div>\r\n          {{ element.active?'Active':'Inactive' }}\r\n          <mat-slide-toggle class=\"margin-bottom-25px margin-top-25px margin-left-5px\" [checked]=\"element.active\" (click)=\"changeStatus(element)\"></mat-slide-toggle>\r\n        </div>\r\n      </td>\r\n    </ng-container>\r\n\r\n    <ng-container matColumnDef=\"country\">\r\n      <th mat-header-cell *matHeaderCellDef mat-sort-header>\r\n        COUNTRY\r\n      </th>\r\n      <td mat-cell *matCellDef=\"let element\" class=\"padding-table-td\"> {{ element.country }} </td>\r\n    </ng-container>\r\n\r\n    <ng-container matColumnDef=\"currency\">\r\n      <th mat-header-cell *matHeaderCellDef mat-sort-header>\r\n        CURRENCY\r\n      </th>\r\n      <td mat-cell *matCellDef=\"let element\" class=\"padding-table-td\"> {{ element.currency }} </td>\r\n    </ng-container>\r\n\r\n    <ng-container matColumnDef=\"updatedAt\">\r\n      <th mat-header-cell *matHeaderCellDef mat-sort-header>\r\n        LATEST UPDATE\r\n      </th>\r\n      <td mat-cell *matCellDef=\"let element\" class=\"padding-table-td\"> {{ element.updatedAt | date: 'MM/dd/yyyy HH:mm:ss': timeZoneOffset.toString() }} </td>\r\n    </ng-container>\r\n\r\n    <ng-container matColumnDef=\"rank\">\r\n      <th mat-header-cell *matHeaderCellDef mat-sort-header>\r\n        RANK\r\n      </th>\r\n      <td mat-cell *matCellDef=\"let element\" class=\"padding-table-td\"> {{ element.rank }} </td>\r\n    </ng-container>\r\n\r\n    <ng-container matColumnDef=\"shipingDetails\">\r\n      <th mat-header-cell *matHeaderCellDef mat-sort-header>\r\n        SHIPPING DETAILS\r\n      </th>\r\n      <td mat-cell *matCellDef=\"let element\" class=\"padding-table-td\"> {{ element.shippingDetails }} </td>\r\n    </ng-container>\r\n\r\n    <ng-container matColumnDef=\"action\">\r\n      <th mat-header-cell *matHeaderCellDef mat-sort-header>\r\n      </th>\r\n      <td mat-cell *matCellDef=\"let element\" class=\"min-width-80px\">\r\n        <button mat-icon-button color=\"primary\" [matTooltip]=\"Edit\" [routerLink]=\"['../edit', element.id]\">\r\n          <mat-icon>edit</mat-icon>\r\n        </button>\r\n        <button mat-icon-button color=\"primary\" [matTooltip]=\"Edit\" [routerLink]=\"['../delete', element.id]\">\r\n          <mat-icon>delete</mat-icon>\r\n        </button>\r\n      </td>\r\n    </ng-container>\r\n\r\n    <tr mat-header-row *matHeaderRowDef=\"displayedColumns\"></tr>\r\n    <tr mat-row *matRowDef=\"let row; columns: displayedColumns;\" [ngClass]=\"row.is_active ? '' : 'text-decoration-line-through'\">\r\n    </tr>\r\n\r\n  </table>\r\n\r\n</div>\r\n\r\n<div class=\"margin-right-25px padding-top-5px padding-bottom-5px flex-shrink-0 display-flex border-top-style-solid border-top-width-2px border-top-color-grey\">\r\n  <span class=\"flex-grow-1\"></span>\r\n  <mat-paginator [length]=\"totalLength\" [pageSizeOptions]=\"[5, 10, 20, 50, 100]\" [pageIndex]=\"\" [pageSize]=\"50\" showFirstLastButtons\r\n    (page)=\"onPage()\">\r\n  </mat-paginator>\r\n</div>\r\n\r\n<http-request-indicator [urlExpressions]=\"[\r\n        configService.config.apiConfigs.shops.apiEndpoint + '.*']\">\r\n</http-request-indicator>\r\n"
+module.exports = "<h1>Shops Table</h1>\r\n\r\n<mat-toolbar class=\"margin-right-25px margin-bottom-10px width-auto flex-shrink-0 background-color-secondary color-primary mat-elevation-z2\"\r\n  [formGroup]=\"filter\">\r\n\r\n  <mat-icon matPrefix color=\"primary\">search</mat-icon>\r\n  <mat-form-field>\r\n    <input matInput formControlName=\"name\" placeholder=\"NAME\">\r\n  </mat-form-field>\r\n\r\n  <mat-form-field>\r\n    <mat-label>STATUS</mat-label>\r\n    <mat-select disableOptionCentering formControlName=\"status\">\r\n      <mat-option>...</mat-option>\r\n      <mat-option *ngFor=\"let state of status\" [value]=\"state.value\">\r\n        {{state.status}}\r\n      </mat-option>\r\n    </mat-select>\r\n  </mat-form-field>\r\n\r\n  <mat-form-field>\r\n    <mat-label>COUNTRY</mat-label>\r\n    <mat-select disableOptionCentering formControlName=\"country\">\r\n      <mat-option>...</mat-option>\r\n      <mat-option [value]=\"null\">name</mat-option>\r\n    </mat-select>\r\n  </mat-form-field>\r\n\r\n  <mat-form-field>\r\n    <mat-label>TYPE</mat-label>\r\n    <mat-select disableOptionCentering formControlName=\"isParent\">\r\n      <mat-option>...</mat-option>\r\n      <mat-option [value]=\"1\">Parent Shops</mat-option>\r\n      <mat-option [value]=\"0\">Sub Shops</mat-option>\r\n    </mat-select>\r\n  </mat-form-field>\r\n\r\n  <span class=\"flex-grow-1\"></span>\r\n  <button mat-raised-button color=\"primary\" [routerLink]=\"['../create']\">CREATE A NEW SHOP</button>\r\n</mat-toolbar>\r\n\r\n<div class=\"flex-grow-1 overflow-auto display-flex\">\r\n\r\n  <table class=\"margin-top-10px margin-right-25px width-100pct\" mat-table [dataSource]=\"shops\" matSort [matSortActive]=\"shopsService.previousSortColumn\"\r\n    [matSortDirection]=\"shopsService.previousSortDirection\" matSortDisableClear (matSortChange)=\"onSort()\">\r\n\r\n    <!--ng-container matColumnDef=\"ID\">\r\n      <th mat-header-cell *matHeaderCellDef mat-sort-header>\r\n        ID\r\n      </th>\r\n      <td mat-cell *matCellDef=\"let element\"> {{ element.id }} </td>\r\n    </ng-container-->\r\n\r\n    <ng-container matColumnDef=\"name\">\r\n      <th mat-header-cell *matHeaderCellDef mat-sort-header>\r\n        SHOP NAME\r\n      </th>\r\n      <td mat-cell *matCellDef=\"let element\" class=\"padding-table-td\">\r\n        <div class=\"display-flex align-items-center\">         \r\n          <span>\r\n            {{ element.name }}\r\n          </span>\r\n          <mat-icon *ngIf=\"element.isParent\" class=\"sidenav-icon\">store</mat-icon>\r\n        </div>\r\n      </td>\r\n    </ng-container>\r\n\r\n    <ng-container matColumnDef=\"thumbnail\">\r\n      <th mat-header-cell *matHeaderCellDef></th>\r\n      <td mat-cell *matCellDef=\"let element\" class=\"display-flex flex-grow-1 height-100pct padding-left-0px width-100pct\">\r\n        <div class=\"position-relative margin-top-5px\">\r\n          <img [src]=\"element.mainImage\" class=\"height-90pct width-90pct margin-auto\" alt=\"50\">\r\n        </div>\r\n      </td>\r\n    </ng-container>\r\n\r\n    <ng-container matColumnDef=\"active\">\r\n      <th mat-header-cell *matHeaderCellDef mat-sort-header>\r\n        STATUS\r\n      </th>\r\n      <td mat-cell *matCellDef=\"let element\" class=\"padding-table-td\">\r\n        <div>\r\n          {{ element.active?'Active':'Inactive' }}\r\n          <mat-slide-toggle class=\"margin-bottom-25px margin-top-25px margin-left-5px\" [checked]=\"element.active\" (click)=\"changeStatus(element)\"></mat-slide-toggle>\r\n        </div>\r\n      </td>\r\n    </ng-container>\r\n\r\n    <ng-container matColumnDef=\"country\">\r\n      <th mat-header-cell *matHeaderCellDef mat-sort-header>\r\n        COUNTRY\r\n      </th>\r\n      <td mat-cell *matCellDef=\"let element\" class=\"padding-table-td\"> {{ element.country }} </td>\r\n    </ng-container>\r\n\r\n    <ng-container matColumnDef=\"currency\">\r\n      <th mat-header-cell *matHeaderCellDef mat-sort-header>\r\n        CURRENCY\r\n      </th>\r\n      <td mat-cell *matCellDef=\"let element\" class=\"padding-table-td\"> {{ element.currency }} </td>\r\n    </ng-container>\r\n\r\n    <ng-container matColumnDef=\"updatedAt\">\r\n      <th mat-header-cell *matHeaderCellDef mat-sort-header>\r\n        LATEST UPDATE\r\n      </th>\r\n      <td mat-cell *matCellDef=\"let element\" class=\"padding-table-td\"> {{ element.updatedAt | date: 'MM/dd/yyyy HH:mm:ss': timeZoneOffset.toString() }} </td>\r\n    </ng-container>\r\n\r\n    <ng-container matColumnDef=\"rank\">\r\n      <th mat-header-cell *matHeaderCellDef mat-sort-header>\r\n        RANK\r\n      </th>\r\n      <td mat-cell *matCellDef=\"let element\" class=\"padding-table-td\"> {{ element.rank }} </td>\r\n    </ng-container>\r\n\r\n    <ng-container matColumnDef=\"shipingDetails\">\r\n      <th mat-header-cell *matHeaderCellDef mat-sort-header>\r\n        SHIPPING DETAILS\r\n      </th>\r\n      <td mat-cell *matCellDef=\"let element\" class=\"padding-table-td\"> {{ element.shippingDetails }} </td>\r\n    </ng-container>\r\n\r\n    <ng-container matColumnDef=\"action\">\r\n      <th mat-header-cell *matHeaderCellDef mat-sort-header>\r\n      </th>\r\n      <td mat-cell *matCellDef=\"let element\" class=\"min-width-80px\">\r\n        <button mat-icon-button color=\"primary\" [matTooltip]=\"Edit\" [routerLink]=\"['../edit', element.id]\">\r\n          <mat-icon>edit</mat-icon>\r\n        </button>\r\n        <button mat-icon-button color=\"primary\" [matTooltip]=\"Edit\" [routerLink]=\"['../delete', element.id]\">\r\n          <mat-icon>delete</mat-icon>\r\n        </button>\r\n      </td>\r\n    </ng-container>\r\n\r\n    <tr mat-header-row *matHeaderRowDef=\"displayedColumns\"></tr>\r\n    <tr mat-row *matRowDef=\"let row; columns: displayedColumns;\" [ngClass]=\"row.is_active ? '' : 'text-decoration-line-through'\">\r\n    </tr>\r\n\r\n  </table>\r\n\r\n</div>\r\n\r\n<div class=\"margin-right-25px flex-shrink-0 display-flex border-top-style-solid border-top-width-2px border-top-color-grey\">\r\n  <span class=\"flex-grow-1\"></span>\r\n  <mat-paginator [length]=\"totalLength\" [pageSizeOptions]=\"[5, 10, 20, 50, 100]\" [pageIndex]=\"\" [pageSize]=\"50\" showFirstLastButtons\r\n    (page)=\"onPage()\">\r\n  </mat-paginator>\r\n</div>\r\n\r\n<http-request-indicator [urlExpressions]=\"[\r\n        configService.config.apiConfigs.shops.apiEndpoint + '.*']\">\r\n</http-request-indicator>\r\n"
 
 /***/ }),
 
@@ -6723,7 +6723,7 @@ var ShopsTableComponent = /** @class */ (function () {
         this.status = _models_status__WEBPACK_IMPORTED_MODULE_7__["STATUS"];
         this.totalLength = 0;
         this.shops = [];
-        this.timeZoneOffset = timeZoneOffset;
+        this.timeZoneOffset = 60;
     }
     ShopsTableComponent.prototype.ngOnInit = function () {
         var _this = this;
@@ -7257,7 +7257,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _agm_core__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! @agm/core */ "./node_modules/@agm/core/index.js");
 /* harmony import */ var _ngx_translate_core__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! @ngx-translate/core */ "./node_modules/@ngx-translate/core/fesm5/ngx-translate-core.js");
 /* harmony import */ var _http_request_indicator_http_request_indicator_module__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ../../../http-request-indicator/http-request-indicator.module */ "./src/app/http-request-indicator/http-request-indicator.module.ts");
-/* harmony import */ var _http_request_indicator_services_indicated_interceptor_service__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ../../../http-request-indicator/services/indicated-interceptor.service */ "./src/app/http-request-indicator/services/indicated-interceptor.service.ts");
+/* harmony import */ var _services_loading_interceptor_service__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./services/loading-interceptor.service */ "./src/app/ms-back-office/modules/ms-shops/services/loading-interceptor.service.ts");
 /* harmony import */ var _ui_modules_ask_before_refresh_ask_before_refresh_module__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ../../../ui/modules/ask-before-refresh/ask-before-refresh.module */ "./src/app/ui/modules/ask-before-refresh/ask-before-refresh.module.ts");
 /* harmony import */ var _ui_modules_spinner_indicator_200_spinner_indicator_200_module__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ../../../ui/modules/spinner-indicator-200/spinner-indicator-200.module */ "./src/app/ui/modules/spinner-indicator-200/spinner-indicator-200.module.ts");
 /* harmony import */ var _ms_shops_routing_module__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ./ms-shops-routing.module */ "./src/app/ms-back-office/modules/ms-shops/ms-shops-routing.module.ts");
@@ -7402,10 +7402,72 @@ var MsShopsModule = /** @class */ (function () {
                 _components_new_shop_modal_new_shop_modal_component__WEBPACK_IMPORTED_MODULE_25__["NewShopModalComponent"],
                 _components_shops_selling_style_modal_shops_selling_style_modal_component__WEBPACK_IMPORTED_MODULE_30__["ShopsSellingStyleModalComponent"],
             ],
-            providers: [{ provide: _angular_common_http__WEBPACK_IMPORTED_MODULE_3__["HTTP_INTERCEPTORS"], useClass: _http_request_indicator_services_indicated_interceptor_service__WEBPACK_IMPORTED_MODULE_18__["IndicatedInterceptor"], multi: true },]
+            providers: [{ provide: _angular_common_http__WEBPACK_IMPORTED_MODULE_3__["HTTP_INTERCEPTORS"], useClass: _services_loading_interceptor_service__WEBPACK_IMPORTED_MODULE_18__["LoadingInterceptor"], multi: true },]
         })
     ], MsShopsModule);
     return MsShopsModule;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/ms-back-office/modules/ms-shops/services/loading-interceptor.service.ts":
+/*!*****************************************************************************************!*\
+  !*** ./src/app/ms-back-office/modules/ms-shops/services/loading-interceptor.service.ts ***!
+  \*****************************************************************************************/
+/*! exports provided: LoadingInterceptor */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "LoadingInterceptor", function() { return LoadingInterceptor; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm5/http.js");
+/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! rxjs/operators */ "./node_modules/rxjs/_esm5/operators/index.js");
+/* harmony import */ var _http_request_indicator_services_http_request_indicators_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../http-request-indicator/services/http-request-indicators.service */ "./src/app/http-request-indicator/services/http-request-indicators.service.ts");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+var LoadingInterceptor = /** @class */ (function () {
+    //constructor(private loadingService: LoadingService) { }
+    function LoadingInterceptor(httpRequestIndicatorsService) {
+        this.httpRequestIndicatorsService = httpRequestIndicatorsService;
+        this.totalRequests = 0;
+    }
+    LoadingInterceptor.prototype.intercept = function (request, next) {
+        var _this = this;
+        this.totalRequests++;
+        this.httpRequestIndicatorsService.setLoading(true);
+        return next.handle(request).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_2__["tap"])(function (res) {
+            if (res instanceof _angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HttpResponse"]) {
+                _this.decreaseRequests();
+            }
+        }, function (error) { }, function () {
+            _this.decreaseRequests();
+        }));
+    };
+    LoadingInterceptor.prototype.decreaseRequests = function () {
+        this.totalRequests--;
+        if (this.totalRequests === 0) {
+            this.httpRequestIndicatorsService.setLoading(false);
+        }
+    };
+    LoadingInterceptor = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"])(),
+        __metadata("design:paramtypes", [_http_request_indicator_services_http_request_indicators_service__WEBPACK_IMPORTED_MODULE_3__["HttpRequestIndicatorsService"]])
+    ], LoadingInterceptor);
+    return LoadingInterceptor;
 }());
 
 

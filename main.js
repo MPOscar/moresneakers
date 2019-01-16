@@ -342,11 +342,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _http_request_indicator_components_loading_loading_component__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./http-request-indicator/components/loading/loading.component */ "./src/app/http-request-indicator/components/loading/loading.component.ts");
 /* harmony import */ var _ui_ui_module__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./ui/ui.module */ "./src/app/ui/ui.module.ts");
 /* harmony import */ var _ui_modules_confirm_dialog_components_confirm_dialog_confirm_dialog_component__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./ui/modules/confirm-dialog/components/confirm-dialog/confirm-dialog.component */ "./src/app/ui/modules/confirm-dialog/components/confirm-dialog/confirm-dialog.component.ts");
-/* harmony import */ var _validation_validation_module__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./validation/validation.module */ "./src/app/validation/validation.module.ts");
-/* harmony import */ var _ngrx_ngrx_module__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./ngrx/ngrx.module */ "./src/app/ngrx/ngrx.module.ts");
-/* harmony import */ var _error_handling_modules_custom_snackbar_components_custom_snackbar_custom_snackbar_component__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./error-handling/modules/custom-snackbar/components/custom-snackbar/custom-snackbar.component */ "./src/app/error-handling/modules/custom-snackbar/components/custom-snackbar/custom-snackbar.component.ts");
-/* harmony import */ var _app_routing_module__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./app-routing.module */ "./src/app/app-routing.module.ts");
-/* harmony import */ var _app_component__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ./app.component */ "./src/app/app.component.ts");
+/* harmony import */ var _ui_modules_confirm_dialog_message_components_confirm_dialog_message_confirm_dialog_message_component__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./ui/modules/confirm-dialog-message/components/confirm-dialog-message/confirm-dialog-message.component */ "./src/app/ui/modules/confirm-dialog-message/components/confirm-dialog-message/confirm-dialog-message.component.ts");
+/* harmony import */ var _validation_validation_module__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./validation/validation.module */ "./src/app/validation/validation.module.ts");
+/* harmony import */ var _ngrx_ngrx_module__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./ngrx/ngrx.module */ "./src/app/ngrx/ngrx.module.ts");
+/* harmony import */ var _error_handling_modules_custom_snackbar_components_custom_snackbar_custom_snackbar_component__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./error-handling/modules/custom-snackbar/components/custom-snackbar/custom-snackbar.component */ "./src/app/error-handling/modules/custom-snackbar/components/custom-snackbar/custom-snackbar.component.ts");
+/* harmony import */ var _app_routing_module__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ./app-routing.module */ "./src/app/app-routing.module.ts");
+/* harmony import */ var _app_component__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ./app.component */ "./src/app/app.component.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -374,6 +375,7 @@ var __decorate = (undefined && undefined.__decorate) || function (decorators, ta
 
 
 
+
 // AoT requires an exported function for factories
 var createTranslateLoader = function (http) {
     // for development
@@ -389,10 +391,10 @@ var AppModule = /** @class */ (function () {
     }
     AppModule = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_2__["NgModule"])({
-            declarations: [_app_component__WEBPACK_IMPORTED_MODULE_19__["AppComponent"]],
+            declarations: [_app_component__WEBPACK_IMPORTED_MODULE_20__["AppComponent"]],
             imports: [
                 _angular_platform_browser__WEBPACK_IMPORTED_MODULE_3__["BrowserModule"],
-                _app_routing_module__WEBPACK_IMPORTED_MODULE_18__["AppRoutingModule"],
+                _app_routing_module__WEBPACK_IMPORTED_MODULE_19__["AppRoutingModule"],
                 _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_4__["BrowserAnimationsModule"],
                 _angular_cdk_layout__WEBPACK_IMPORTED_MODULE_0__["LayoutModule"],
                 _angular_cdk_overlay__WEBPACK_IMPORTED_MODULE_1__["OverlayModule"],
@@ -410,16 +412,17 @@ var AppModule = /** @class */ (function () {
                 _error_handling_error_handling_module__WEBPACK_IMPORTED_MODULE_10__["ErrorHandlingModule"],
                 _http_request_indicator_http_request_indicator_module__WEBPACK_IMPORTED_MODULE_11__["HttpRequestIndicatorModule"],
                 _ui_ui_module__WEBPACK_IMPORTED_MODULE_13__["UiModule"],
-                _validation_validation_module__WEBPACK_IMPORTED_MODULE_15__["ValidationModule"],
-                _ngrx_ngrx_module__WEBPACK_IMPORTED_MODULE_16__["NgrxModule"],
+                _validation_validation_module__WEBPACK_IMPORTED_MODULE_16__["ValidationModule"],
+                _ngrx_ngrx_module__WEBPACK_IMPORTED_MODULE_17__["NgrxModule"],
             ],
             providers: [],
             entryComponents: [
                 _ui_modules_confirm_dialog_components_confirm_dialog_confirm_dialog_component__WEBPACK_IMPORTED_MODULE_14__["ConfirmDialogComponent"],
-                _error_handling_modules_custom_snackbar_components_custom_snackbar_custom_snackbar_component__WEBPACK_IMPORTED_MODULE_17__["CustomSnackbarComponent"],
+                _ui_modules_confirm_dialog_message_components_confirm_dialog_message_confirm_dialog_message_component__WEBPACK_IMPORTED_MODULE_15__["ConfirmDialogMessageComponent"],
+                _error_handling_modules_custom_snackbar_components_custom_snackbar_custom_snackbar_component__WEBPACK_IMPORTED_MODULE_18__["CustomSnackbarComponent"],
                 _http_request_indicator_components_loading_loading_component__WEBPACK_IMPORTED_MODULE_12__["LoadingComponent"]
             ],
-            bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_19__["AppComponent"]]
+            bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_20__["AppComponent"]]
         })
     ], AppModule);
     return AppModule;
@@ -3037,6 +3040,9 @@ var HttpRequestIndicatorsService = /** @class */ (function () {
         }
         return indicators;
     };
+    HttpRequestIndicatorsService.prototype.setLoading = function (flag) {
+        console.log("aqui interceptando.........");
+    };
     HttpRequestIndicatorsService = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"])({
             providedIn: 'root'
@@ -3080,9 +3086,12 @@ var IndicatedInterceptor = /** @class */ (function () {
         this.httpRequestIndicatorsService = httpRequestIndicatorsService;
     }
     IndicatedInterceptor.prototype.intercept = function (req, next) {
+        var _this = this;
         var indicators = this.httpRequestIndicatorsService.findIndicators(req.url.toString());
         indicators.forEach(function (indicator) { return indicator.show.next(true); });
-        return next.handle(req).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_2__["tap"])(function (event) { }, function (error) { }, function () {
+        return next.handle(req).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_2__["tap"])(function (event) {
+            _this.httpRequestIndicatorsService.setLoading(true);
+        }, function (error) { }, function () {
             indicators.forEach(function (indicator) { return indicator.show.next(false); });
         }));
     };
@@ -4362,6 +4371,157 @@ var CapsLockDirective = /** @class */ (function () {
         })
     ], CapsLockDirective);
     return CapsLockDirective;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/ui/modules/confirm-dialog-message/components/confirm-dialog-message/confirm-dialog-message.component.css":
+/*!**************************************************************************************************************************!*\
+  !*** ./src/app/ui/modules/confirm-dialog-message/components/confirm-dialog-message/confirm-dialog-message.component.css ***!
+  \**************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = ":host .panel .panel-body {\r\n    word-wrap: break-word;\r\n}\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvdWkvbW9kdWxlcy9jb25maXJtLWRpYWxvZy1tZXNzYWdlL2NvbXBvbmVudHMvY29uZmlybS1kaWFsb2ctbWVzc2FnZS9jb25maXJtLWRpYWxvZy1tZXNzYWdlLmNvbXBvbmVudC5jc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7SUFDSSxzQkFBc0I7Q0FDekIiLCJmaWxlIjoic3JjL2FwcC91aS9tb2R1bGVzL2NvbmZpcm0tZGlhbG9nLW1lc3NhZ2UvY29tcG9uZW50cy9jb25maXJtLWRpYWxvZy1tZXNzYWdlL2NvbmZpcm0tZGlhbG9nLW1lc3NhZ2UuY29tcG9uZW50LmNzcyIsInNvdXJjZXNDb250ZW50IjpbIjpob3N0IC5wYW5lbCAucGFuZWwtYm9keSB7XHJcbiAgICB3b3JkLXdyYXA6IGJyZWFrLXdvcmQ7XHJcbn0iXX0= */"
+
+/***/ }),
+
+/***/ "./src/app/ui/modules/confirm-dialog-message/components/confirm-dialog-message/confirm-dialog-message.component.html":
+/*!***************************************************************************************************************************!*\
+  !*** ./src/app/ui/modules/confirm-dialog-message/components/confirm-dialog-message/confirm-dialog-message.component.html ***!
+  \***************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<h1 mat-dialog-title>{{((data && data.titleKey) ? data.titleKey : titleKey) | translate}}</h1>\r\n<div mat-dialog-content [ngStyle]=\"data.contentStyle ? data.contentStyle : null\" innerHtml=\"{{((data && data.messageKey) ? data.messageKey : messageKey) | translate:((data && data.messageParam) ? data.messageParam : messageParam)}}\"></div>\r\n\r\n<mat-form-field class=\"width-100pc margin-left-16px\">\r\n\r\n  <mat-label>YES</mat-label>\r\n\r\n  <input matInput type=\"text\" matNativeControl [formControl]=\"confirmDelete\">\r\n\r\n</mat-form-field>\r\n\r\n<div mat-dialog-actions>\r\n  <button mat-raised-button [color]=\"data.okBtnColor ? data.okBtnColor : 'warn'\" (click)=\"accept()\">{{((data && data.okBtnKey) ? data.okBtnKey : okBtnKey) | translate }}</button>\r\n  <button mat-raised-button (click)=\"cancel()\">{{ ((data && data.cancelBtnKey) ? data.cancelBtnKey : cancelBtnKey) | translate}}</button>\r\n</div>"
+
+/***/ }),
+
+/***/ "./src/app/ui/modules/confirm-dialog-message/components/confirm-dialog-message/confirm-dialog-message.component.ts":
+/*!*************************************************************************************************************************!*\
+  !*** ./src/app/ui/modules/confirm-dialog-message/components/confirm-dialog-message/confirm-dialog-message.component.ts ***!
+  \*************************************************************************************************************************/
+/*! exports provided: ConfirmDialogMessageComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ConfirmDialogMessageComponent", function() { return ConfirmDialogMessageComponent; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _ngx_translate_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @ngx-translate/core */ "./node_modules/@ngx-translate/core/fesm5/ngx-translate-core.js");
+/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm5/forms.js");
+/* harmony import */ var _angular_material__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/material */ "./node_modules/@angular/material/esm5/material.es5.js");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+var __param = (undefined && undefined.__param) || function (paramIndex, decorator) {
+    return function (target, key) { decorator(target, key, paramIndex); }
+};
+
+
+
+
+var ConfirmDialogMessageComponent = /** @class */ (function () {
+    function ConfirmDialogMessageComponent(translate, dialogRef, data) {
+        this.translate = translate;
+        this.dialogRef = dialogRef;
+        this.data = data;
+        this.titleKey = 'Title';
+        this.messageKey = 'Message';
+        this.messageParam = {};
+        this.okBtnKey = 'Accept';
+        this.cancelBtnKey = 'Cancel';
+        this.confirmDelete = new _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormControl"]();
+        //setTranslations(this.translate, TRANSLATIONS);
+    }
+    ConfirmDialogMessageComponent.prototype.accept = function () {
+        if (this.confirmDelete.value === "YES") {
+            this.dialogRef.close(true);
+        }
+    };
+    ConfirmDialogMessageComponent.prototype.cancel = function () {
+        this.dialogRef.close(false);
+    };
+    ConfirmDialogMessageComponent = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+            selector: 'confirm-dialog-message',
+            template: __webpack_require__(/*! ./confirm-dialog-message.component.html */ "./src/app/ui/modules/confirm-dialog-message/components/confirm-dialog-message/confirm-dialog-message.component.html"),
+            styles: [__webpack_require__(/*! ./confirm-dialog-message.component.css */ "./src/app/ui/modules/confirm-dialog-message/components/confirm-dialog-message/confirm-dialog-message.component.css")]
+        }),
+        __param(2, Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Inject"])(_angular_material__WEBPACK_IMPORTED_MODULE_3__["MAT_DIALOG_DATA"])),
+        __metadata("design:paramtypes", [_ngx_translate_core__WEBPACK_IMPORTED_MODULE_1__["TranslateService"], _angular_material__WEBPACK_IMPORTED_MODULE_3__["MatDialogRef"], Object])
+    ], ConfirmDialogMessageComponent);
+    return ConfirmDialogMessageComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/ui/modules/confirm-dialog-message/confirm-dialog-message.module.ts":
+/*!************************************************************************************!*\
+  !*** ./src/app/ui/modules/confirm-dialog-message/confirm-dialog-message.module.ts ***!
+  \************************************************************************************/
+/*! exports provided: ConfirmDialogMessageModule */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ConfirmDialogMessageModule", function() { return ConfirmDialogMessageModule; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/common */ "./node_modules/@angular/common/fesm5/common.js");
+/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm5/forms.js");
+/* harmony import */ var _angular_material__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/material */ "./node_modules/@angular/material/esm5/material.es5.js");
+/* harmony import */ var _ngx_translate_core__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @ngx-translate/core */ "./node_modules/@ngx-translate/core/fesm5/ngx-translate-core.js");
+/* harmony import */ var _components_confirm_dialog_message_confirm_dialog_message_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./components/confirm-dialog-message/confirm-dialog-message.component */ "./src/app/ui/modules/confirm-dialog-message/components/confirm-dialog-message/confirm-dialog-message.component.ts");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+
+
+
+//
+
+
+
+//
+
+
+var ConfirmDialogMessageModule = /** @class */ (function () {
+    function ConfirmDialogMessageModule() {
+    }
+    ConfirmDialogMessageModule = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["NgModule"])({
+            imports: [
+                _angular_common__WEBPACK_IMPORTED_MODULE_1__["CommonModule"],
+                _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormsModule"],
+                _angular_forms__WEBPACK_IMPORTED_MODULE_2__["ReactiveFormsModule"],
+                _angular_material__WEBPACK_IMPORTED_MODULE_3__["MatButtonModule"],
+                _angular_material__WEBPACK_IMPORTED_MODULE_3__["MatDialogModule"],
+                _angular_material__WEBPACK_IMPORTED_MODULE_3__["MatFormFieldModule"],
+                _angular_material__WEBPACK_IMPORTED_MODULE_3__["MatInputModule"],
+                _ngx_translate_core__WEBPACK_IMPORTED_MODULE_4__["TranslateModule"].forChild(),
+            ],
+            declarations: [
+                _components_confirm_dialog_message_confirm_dialog_message_component__WEBPACK_IMPORTED_MODULE_5__["ConfirmDialogMessageComponent"]
+            ],
+            exports: [
+                _components_confirm_dialog_message_confirm_dialog_message_component__WEBPACK_IMPORTED_MODULE_5__["ConfirmDialogMessageComponent"]
+            ]
+        })
+    ], ConfirmDialogMessageModule);
+    return ConfirmDialogMessageModule;
 }());
 
 
@@ -7460,13 +7620,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _modules_capitalize_word_capitalize_word_module__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./modules/capitalize-word/capitalize-word.module */ "./src/app/ui/modules/capitalize-word/capitalize-word.module.ts");
 /* harmony import */ var _modules_caps_lock_caps_lock_module__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./modules/caps-lock/caps-lock.module */ "./src/app/ui/modules/caps-lock/caps-lock.module.ts");
 /* harmony import */ var _modules_confirm_dialog_confirm_dialog_module__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./modules/confirm-dialog/confirm-dialog.module */ "./src/app/ui/modules/confirm-dialog/confirm-dialog.module.ts");
-/* harmony import */ var _modules_error_messages_error_messages_module__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./modules/error-messages/error-messages.module */ "./src/app/ui/modules/error-messages/error-messages.module.ts");
-/* harmony import */ var _modules_image_card_image_card_module__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./modules/image-card/image-card.module */ "./src/app/ui/modules/image-card/image-card.module.ts");
-/* harmony import */ var _modules_images_card_images_card_module__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./modules/images-card/images-card.module */ "./src/app/ui/modules/images-card/images-card.module.ts");
-/* harmony import */ var _modules_images_layout_card_images_layout_card_module__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./modules/images-layout-card/images-layout-card.module */ "./src/app/ui/modules/images-layout-card/images-layout-card.module.ts");
-/* harmony import */ var _modules_logo_logo_module__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./modules/logo/logo.module */ "./src/app/ui/modules/logo/logo.module.ts");
-/* harmony import */ var _modules_session_expire_dialog_session_expire_dialog_module__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./modules/session-expire-dialog/session-expire-dialog.module */ "./src/app/ui/modules/session-expire-dialog/session-expire-dialog.module.ts");
-/* harmony import */ var _modules_spinner_indicator_200_spinner_indicator_200_module__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./modules/spinner-indicator-200/spinner-indicator-200.module */ "./src/app/ui/modules/spinner-indicator-200/spinner-indicator-200.module.ts");
+/* harmony import */ var _modules_confirm_dialog_message_confirm_dialog_message_module__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./modules/confirm-dialog-message/confirm-dialog-message.module */ "./src/app/ui/modules/confirm-dialog-message/confirm-dialog-message.module.ts");
+/* harmony import */ var _modules_error_messages_error_messages_module__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./modules/error-messages/error-messages.module */ "./src/app/ui/modules/error-messages/error-messages.module.ts");
+/* harmony import */ var _modules_image_card_image_card_module__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./modules/image-card/image-card.module */ "./src/app/ui/modules/image-card/image-card.module.ts");
+/* harmony import */ var _modules_images_card_images_card_module__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./modules/images-card/images-card.module */ "./src/app/ui/modules/images-card/images-card.module.ts");
+/* harmony import */ var _modules_images_layout_card_images_layout_card_module__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./modules/images-layout-card/images-layout-card.module */ "./src/app/ui/modules/images-layout-card/images-layout-card.module.ts");
+/* harmony import */ var _modules_logo_logo_module__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./modules/logo/logo.module */ "./src/app/ui/modules/logo/logo.module.ts");
+/* harmony import */ var _modules_session_expire_dialog_session_expire_dialog_module__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./modules/session-expire-dialog/session-expire-dialog.module */ "./src/app/ui/modules/session-expire-dialog/session-expire-dialog.module.ts");
+/* harmony import */ var _modules_spinner_indicator_200_spinner_indicator_200_module__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ./modules/spinner-indicator-200/spinner-indicator-200.module */ "./src/app/ui/modules/spinner-indicator-200/spinner-indicator-200.module.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -7481,6 +7642,7 @@ var __decorate = (undefined && undefined.__decorate) || function (decorators, ta
 
 
 //
+
 
 
 
@@ -7511,13 +7673,14 @@ var UiModule = /** @class */ (function () {
                 _modules_capitalize_word_capitalize_word_module__WEBPACK_IMPORTED_MODULE_9__["CapitalizeWordModule"],
                 _modules_caps_lock_caps_lock_module__WEBPACK_IMPORTED_MODULE_10__["CapsLockModule"],
                 _modules_confirm_dialog_confirm_dialog_module__WEBPACK_IMPORTED_MODULE_11__["ConfirmDialogModule"],
-                _modules_error_messages_error_messages_module__WEBPACK_IMPORTED_MODULE_12__["ErrorMessagesModule"],
-                _modules_images_card_images_card_module__WEBPACK_IMPORTED_MODULE_14__["ImagesCardModule"],
-                _modules_image_card_image_card_module__WEBPACK_IMPORTED_MODULE_13__["ImageCardModule"],
-                _modules_images_layout_card_images_layout_card_module__WEBPACK_IMPORTED_MODULE_15__["ImagesLayoutCardModule"],
-                _modules_logo_logo_module__WEBPACK_IMPORTED_MODULE_16__["LogoModule"],
-                _modules_session_expire_dialog_session_expire_dialog_module__WEBPACK_IMPORTED_MODULE_17__["SessionExpireDialogModule"],
-                _modules_spinner_indicator_200_spinner_indicator_200_module__WEBPACK_IMPORTED_MODULE_18__["SpinnerIndicator200Module"]
+                _modules_error_messages_error_messages_module__WEBPACK_IMPORTED_MODULE_13__["ErrorMessagesModule"],
+                _modules_images_card_images_card_module__WEBPACK_IMPORTED_MODULE_15__["ImagesCardModule"],
+                _modules_image_card_image_card_module__WEBPACK_IMPORTED_MODULE_14__["ImageCardModule"],
+                _modules_images_layout_card_images_layout_card_module__WEBPACK_IMPORTED_MODULE_16__["ImagesLayoutCardModule"],
+                _modules_logo_logo_module__WEBPACK_IMPORTED_MODULE_17__["LogoModule"],
+                _modules_session_expire_dialog_session_expire_dialog_module__WEBPACK_IMPORTED_MODULE_18__["SessionExpireDialogModule"],
+                _modules_spinner_indicator_200_spinner_indicator_200_module__WEBPACK_IMPORTED_MODULE_19__["SpinnerIndicator200Module"],
+                _modules_confirm_dialog_message_confirm_dialog_message_module__WEBPACK_IMPORTED_MODULE_12__["ConfirmDialogMessageModule"]
             ],
             declarations: []
         })
