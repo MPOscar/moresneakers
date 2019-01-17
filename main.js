@@ -1770,8 +1770,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _ngx_translate_core__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @ngx-translate/core */ "./node_modules/@ngx-translate/core/fesm5/ngx-translate-core.js");
 /* harmony import */ var _interceptors_http_headers_interceptor_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./interceptors/http-headers-interceptor.service */ "./src/app/error-handling/interceptors/http-headers-interceptor.service.ts");
 /* harmony import */ var _interceptors_error_handling_interceptor_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./interceptors/error-handling-interceptor.service */ "./src/app/error-handling/interceptors/error-handling-interceptor.service.ts");
-/* harmony import */ var _services_toastr_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./services/toastr.service */ "./src/app/error-handling/services/toastr.service.ts");
-/* harmony import */ var _modules_custom_snackbar_custom_snackbar_module__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./modules/custom-snackbar/custom-snackbar.module */ "./src/app/error-handling/modules/custom-snackbar/custom-snackbar.module.ts");
+/* harmony import */ var _interceptors_http_loading_interceptor_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./interceptors/http-loading-interceptor.service */ "./src/app/error-handling/interceptors/http-loading-interceptor.service.ts");
+/* harmony import */ var _services_toastr_service__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./services/toastr.service */ "./src/app/error-handling/services/toastr.service.ts");
+/* harmony import */ var _modules_custom_snackbar_custom_snackbar_module__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./modules/custom-snackbar/custom-snackbar.module */ "./src/app/error-handling/modules/custom-snackbar/custom-snackbar.module.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1790,6 +1791,7 @@ var __decorate = (undefined && undefined.__decorate) || function (decorators, ta
 
 
 
+
 var ErrorHandlingModule = /** @class */ (function () {
     function ErrorHandlingModule() {
     }
@@ -1800,11 +1802,12 @@ var ErrorHandlingModule = /** @class */ (function () {
                 _angular_material_snack_bar__WEBPACK_IMPORTED_MODULE_3__["MatSnackBarModule"],
                 _ngx_translate_core__WEBPACK_IMPORTED_MODULE_4__["TranslateModule"].forChild(),
                 //NgxTranslateModule,TODO
-                _modules_custom_snackbar_custom_snackbar_module__WEBPACK_IMPORTED_MODULE_8__["CustomSnackbarModule"],
+                _modules_custom_snackbar_custom_snackbar_module__WEBPACK_IMPORTED_MODULE_9__["CustomSnackbarModule"],
             ],
             providers: [{ provide: _angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HTTP_INTERCEPTORS"], useClass: _interceptors_http_headers_interceptor_service__WEBPACK_IMPORTED_MODULE_5__["HttpHeadersInterceptorService"], multi: true },
                 { provide: _angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HTTP_INTERCEPTORS"], useClass: _interceptors_error_handling_interceptor_service__WEBPACK_IMPORTED_MODULE_6__["ErrorHandlingInterceptorService"], multi: true },
-                _services_toastr_service__WEBPACK_IMPORTED_MODULE_7__["ToastrService"]],
+                { provide: _angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HTTP_INTERCEPTORS"], useClass: _interceptors_http_loading_interceptor_service__WEBPACK_IMPORTED_MODULE_7__["HttpLoadingInterceptorService"], multi: true },
+                _services_toastr_service__WEBPACK_IMPORTED_MODULE_8__["ToastrService"]],
             declarations: [],
             exports: []
         })
@@ -1965,6 +1968,125 @@ var HttpHeadersInterceptorService = /** @class */ (function () {
         __metadata("design:paramtypes", [_angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HttpClient"], _services_error_handling_service__WEBPACK_IMPORTED_MODULE_2__["ErrorHandlingService"]])
     ], HttpHeadersInterceptorService);
     return HttpHeadersInterceptorService;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/error-handling/interceptors/http-loading-interceptor.service.ts":
+/*!*********************************************************************************!*\
+  !*** ./src/app/error-handling/interceptors/http-loading-interceptor.service.ts ***!
+  \*********************************************************************************/
+/*! exports provided: HttpLoadingInterceptorService */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "HttpLoadingInterceptorService", function() { return HttpLoadingInterceptorService; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm5/http.js");
+/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! rxjs/operators */ "./node_modules/rxjs/_esm5/operators/index.js");
+/* harmony import */ var _services_error_handling_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../services/error-handling.service */ "./src/app/error-handling/services/error-handling.service.ts");
+/* harmony import */ var _http_request_indicator_services_loading_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../http-request-indicator/services/loading.service */ "./src/app/http-request-indicator/services/loading.service.ts");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+//
+
+//
+
+
+var HttpLoadingInterceptorService = /** @class */ (function () {
+    function HttpLoadingInterceptorService(httpClient, errorHandlingService, loadingService) {
+        this.httpClient = httpClient;
+        this.errorHandlingService = errorHandlingService;
+        this.loadingService = loadingService;
+        this._currentLanguage = '';
+        this.totalRequests = 0;
+    }
+    Object.defineProperty(HttpLoadingInterceptorService.prototype, "userToken", {
+        get: function () {
+            return localStorage.getItem('userToken');
+        },
+        set: function (value) {
+            localStorage.setItem('userToken', value);
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(HttpLoadingInterceptorService.prototype, "currentLanguage", {
+        get: function () {
+            return this._currentLanguage;
+        },
+        set: function (value) {
+            this._currentLanguage = value;
+        },
+        enumerable: true,
+        configurable: true
+    });
+    HttpLoadingInterceptorService.prototype.getHeaders = function () {
+        var requestOptions = new _angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HttpHeaders"]({
+            'Accept-Language': this.currentLanguage ? this.currentLanguage : '',
+            'Content-Type': 'application/json',
+            'Authorization': this.userToken ? 'Bearer ' + this.userToken : '',
+        });
+        return requestOptions;
+    };
+    HttpLoadingInterceptorService.prototype.getRequestOptionArgs = function (request) {
+        if (request.headers.keys().length === 0) {
+            var headers = this.getHeaders();
+            var req = request.clone({
+                setHeaders: {
+                    'Accept-Language': headers.get('Accept-Language'),
+                    'Content-Type': headers.get('Content-Type'),
+                    'Authorization': headers.get('Authorization'),
+                }
+            });
+            return req;
+        }
+        else {
+            return request;
+        }
+    };
+    HttpLoadingInterceptorService.prototype.intercept = function (request, next) {
+        var _this = this;
+        //request = this.getRequestOptionArgs(request);
+        this.totalRequests++;
+        this.loadingService.loading$.next(true);
+        return next.handle(request).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_2__["tap"])(function (res) {
+            if (res instanceof _angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HttpResponse"]) {
+                _this.decreaseRequests();
+            }
+        }, function (error) {
+            _this.loadingService.loading$.next(false);
+        }, function () {
+            _this.loadingService.loading$.next(false);
+        }));
+    };
+    HttpLoadingInterceptorService.prototype.decreaseRequests = function () {
+        this.totalRequests--;
+        if (this.totalRequests === 0) {
+            this.loadingService.loading$.next(false);
+        }
+    };
+    HttpLoadingInterceptorService = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"])({
+            providedIn: 'root'
+        }),
+        __metadata("design:paramtypes", [_angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HttpClient"],
+            _services_error_handling_service__WEBPACK_IMPORTED_MODULE_3__["ErrorHandlingService"],
+            _http_request_indicator_services_loading_service__WEBPACK_IMPORTED_MODULE_4__["LoadingService"]])
+    ], HttpLoadingInterceptorService);
+    return HttpLoadingInterceptorService;
 }());
 
 
@@ -2921,7 +3043,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm5/http.js");
 /* harmony import */ var _components_http_request_indicator_http_request_indicator_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./components/http-request-indicator/http-request-indicator.component */ "./src/app/http-request-indicator/components/http-request-indicator/http-request-indicator.component.ts");
 /* harmony import */ var _services_indicated_interceptor_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./services/indicated-interceptor.service */ "./src/app/http-request-indicator/services/indicated-interceptor.service.ts");
-/* harmony import */ var _components_loading_loading_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./components/loading/loading.component */ "./src/app/http-request-indicator/components/loading/loading.component.ts");
+/* harmony import */ var _services_loading_interceptor_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./services/loading-interceptor.service */ "./src/app/http-request-indicator/services/loading-interceptor.service.ts");
+/* harmony import */ var _components_loading_loading_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./components/loading/loading.component */ "./src/app/http-request-indicator/components/loading/loading.component.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -2935,6 +3058,7 @@ var __decorate = (undefined && undefined.__decorate) || function (decorators, ta
 
 
 
+
 var HttpRequestIndicatorModule = /** @class */ (function () {
     function HttpRequestIndicatorModule() {
     }
@@ -2943,7 +3067,8 @@ var HttpRequestIndicatorModule = /** @class */ (function () {
         return {
             ngModule: HttpRequestIndicatorModule_1,
             providers: [
-                { provide: _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HTTP_INTERCEPTORS"], useClass: _services_indicated_interceptor_service__WEBPACK_IMPORTED_MODULE_4__["IndicatedInterceptor"], multi: true }
+                { provide: _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HTTP_INTERCEPTORS"], useClass: _services_indicated_interceptor_service__WEBPACK_IMPORTED_MODULE_4__["IndicatedInterceptor"], multi: true },
+                { provide: _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HTTP_INTERCEPTORS"], useClass: _services_loading_interceptor_service__WEBPACK_IMPORTED_MODULE_5__["LoadingInterceptor"], multi: true }
             ]
         };
     };
@@ -2952,8 +3077,8 @@ var HttpRequestIndicatorModule = /** @class */ (function () {
             imports: [
                 _angular_common__WEBPACK_IMPORTED_MODULE_1__["CommonModule"]
             ],
-            declarations: [_components_http_request_indicator_http_request_indicator_component__WEBPACK_IMPORTED_MODULE_3__["HttpRequestIndicatorComponent"], _components_loading_loading_component__WEBPACK_IMPORTED_MODULE_5__["LoadingComponent"]],
-            exports: [_components_http_request_indicator_http_request_indicator_component__WEBPACK_IMPORTED_MODULE_3__["HttpRequestIndicatorComponent"], _components_loading_loading_component__WEBPACK_IMPORTED_MODULE_5__["LoadingComponent"]]
+            declarations: [_components_http_request_indicator_http_request_indicator_component__WEBPACK_IMPORTED_MODULE_3__["HttpRequestIndicatorComponent"], _components_loading_loading_component__WEBPACK_IMPORTED_MODULE_6__["LoadingComponent"]],
+            exports: [_components_http_request_indicator_http_request_indicator_component__WEBPACK_IMPORTED_MODULE_3__["HttpRequestIndicatorComponent"], _components_loading_loading_component__WEBPACK_IMPORTED_MODULE_6__["LoadingComponent"]]
         })
     ], HttpRequestIndicatorModule);
     return HttpRequestIndicatorModule;
@@ -3106,6 +3231,68 @@ var IndicatedInterceptor = /** @class */ (function () {
 
 /***/ }),
 
+/***/ "./src/app/http-request-indicator/services/loading-interceptor.service.ts":
+/*!********************************************************************************!*\
+  !*** ./src/app/http-request-indicator/services/loading-interceptor.service.ts ***!
+  \********************************************************************************/
+/*! exports provided: LoadingInterceptor */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "LoadingInterceptor", function() { return LoadingInterceptor; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm5/http.js");
+/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! rxjs/operators */ "./node_modules/rxjs/_esm5/operators/index.js");
+/* harmony import */ var _http_request_indicators_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./http-request-indicators.service */ "./src/app/http-request-indicator/services/http-request-indicators.service.ts");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+var LoadingInterceptor = /** @class */ (function () {
+    //constructor(private loadingService: LoadingService) { }
+    function LoadingInterceptor(httpRequestIndicatorsService) {
+        this.httpRequestIndicatorsService = httpRequestIndicatorsService;
+        this.totalRequests = 0;
+    }
+    LoadingInterceptor.prototype.intercept = function (request, next) {
+        var _this = this;
+        this.totalRequests++;
+        this.httpRequestIndicatorsService.setLoading(true);
+        return next.handle(request).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_2__["tap"])(function (res) {
+            if (res instanceof _angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HttpResponse"]) {
+                _this.decreaseRequests();
+            }
+        }, function (error) { }, function () {
+            _this.decreaseRequests();
+        }));
+    };
+    LoadingInterceptor.prototype.decreaseRequests = function () {
+        this.totalRequests--;
+        if (this.totalRequests === 0) {
+            //this.loadingService.setLoading(false);
+        }
+    };
+    LoadingInterceptor = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"])(),
+        __metadata("design:paramtypes", [_http_request_indicators_service__WEBPACK_IMPORTED_MODULE_3__["HttpRequestIndicatorsService"]])
+    ], LoadingInterceptor);
+    return LoadingInterceptor;
+}());
+
+
+
+/***/ }),
+
 /***/ "./src/app/http-request-indicator/services/loading.service.ts":
 /*!********************************************************************!*\
   !*** ./src/app/http-request-indicator/services/loading.service.ts ***!
@@ -3149,6 +3336,7 @@ var LoadingService = /** @class */ (function () {
         this.overlay = overlay;
         this.counter = 0;
         this.loading$ = new rxjs__WEBPACK_IMPORTED_MODULE_4__["Subject"]();
+        console.log("constructor.......");
         this.loading$.subscribe(function (loading) {
             if (loading) {
                 _this.counter++;

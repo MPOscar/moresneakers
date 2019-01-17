@@ -5172,7 +5172,6 @@ var LinkShopsBrandModalComponent = /** @class */ (function () {
         this.brandsService.getBrandLinkedShops(this.dialogData.brandId).subscribe(function (response) {
             _this.linkedShops = response.data;
             _this.dialogData.shops.forEach(function (shop) {
-                console.log(JSON.stringify(_this.linkedShops));
                 _this.isLinked(shop.id);
             });
         }, function (error) {

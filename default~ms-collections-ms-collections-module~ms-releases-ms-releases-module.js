@@ -1824,7 +1824,6 @@ var ReleasesCollectionTableComponent = /** @class */ (function () {
     ReleasesCollectionTableComponent.prototype.ngOnInit = function () {
         var _this = this;
         this.loadPage();
-        console.log("aqui............................");
         //this.brands = this.activatedRoute.snapshot.data.brands;
         //this.collections = this.activatedRoute.snapshot.data.collections;
         //this.styles = this.activatedRoute.snapshot.data.styles;
