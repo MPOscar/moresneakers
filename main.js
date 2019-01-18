@@ -10,7 +10,10 @@
 var map = {
 	"../home/home.module": [
 		"./src/app/ms-back-office/modules/home/home.module.ts",
-		"default~home-home-module~ms-tasks-ms-tasks-module~ms-users-ms-users-module",
+		"default~home-home-module~ms-brands-ms-brands-module~ms-collections-ms-collections-module~ms-deals-ms~191f35a2",
+		"default~home-home-module~ms-brands-ms-brands-module~ms-collections-ms-collections-module~ms-deals-ms~79478f8e",
+		"default~home-home-module~ms-brands-ms-brands-module~ms-collections-ms-collections-module~ms-offers-m~ef437733",
+		"default~home-home-module~ms-collections-ms-collections-module~ms-releases-ms-releases-module",
 		"default~dashboard-dashboard-module~home-home-module",
 		"default~home-home-module~ms-tasks-ms-tasks-module",
 		"home-home-module"
@@ -21,8 +24,9 @@ var map = {
 	],
 	"../ms-brands/ms-brands.module": [
 		"./src/app/ms-back-office/modules/ms-brands/ms-brands.module.ts",
-		"default~ms-brands-ms-brands-module~ms-collections-ms-collections-module~ms-deals-ms-deals-module~ms-~a8d003f4",
-		"default~ms-brands-ms-brands-module~ms-collections-ms-collections-module~ms-offers-ms-offers-module~m~94c757c6",
+		"default~home-home-module~ms-brands-ms-brands-module~ms-collections-ms-collections-module~ms-deals-ms~191f35a2",
+		"default~home-home-module~ms-brands-ms-brands-module~ms-collections-ms-collections-module~ms-deals-ms~79478f8e",
+		"default~home-home-module~ms-brands-ms-brands-module~ms-collections-ms-collections-module~ms-offers-m~ef437733",
 		"default~ms-brands-ms-brands-module~ms-collections-ms-collections-module~ms-deals-ms-deals-module~ms-~4095e54f",
 		"default~ms-brands-ms-brands-module~ms-collections-ms-collections-module~ms-shops-ms-shops-module~ms-~1045d9c8",
 		"default~ms-brands-ms-brands-module~ms-style-ms-style-module"
@@ -33,45 +37,52 @@ var map = {
 	],
 	"../ms-collections/ms-collections.module": [
 		"./src/app/ms-back-office/modules/ms-collections/ms-collections.module.ts",
-		"default~ms-brands-ms-brands-module~ms-collections-ms-collections-module~ms-deals-ms-deals-module~ms-~a8d003f4",
-		"default~ms-brands-ms-brands-module~ms-collections-ms-collections-module~ms-offers-ms-offers-module~m~94c757c6",
+		"default~home-home-module~ms-brands-ms-brands-module~ms-collections-ms-collections-module~ms-deals-ms~191f35a2",
+		"default~home-home-module~ms-brands-ms-brands-module~ms-collections-ms-collections-module~ms-deals-ms~79478f8e",
+		"default~home-home-module~ms-brands-ms-brands-module~ms-collections-ms-collections-module~ms-offers-m~ef437733",
 		"default~ms-brands-ms-brands-module~ms-collections-ms-collections-module~ms-deals-ms-deals-module~ms-~4095e54f",
 		"default~ms-brands-ms-brands-module~ms-collections-ms-collections-module~ms-shops-ms-shops-module~ms-~1045d9c8",
-		"default~ms-collections-ms-collections-module~ms-releases-ms-releases-module",
+		"default~home-home-module~ms-collections-ms-collections-module~ms-releases-ms-releases-module",
 		"ms-collections-ms-collections-module"
 	],
 	"../ms-deals/ms-deals.module": [
 		"./src/app/ms-back-office/modules/ms-deals/ms-deals.module.ts",
-		"default~ms-brands-ms-brands-module~ms-collections-ms-collections-module~ms-deals-ms-deals-module~ms-~a8d003f4",
+		"default~home-home-module~ms-brands-ms-brands-module~ms-collections-ms-collections-module~ms-deals-ms~191f35a2",
+		"default~home-home-module~ms-brands-ms-brands-module~ms-collections-ms-collections-module~ms-deals-ms~79478f8e",
 		"default~ms-brands-ms-brands-module~ms-collections-ms-collections-module~ms-deals-ms-deals-module~ms-~4095e54f"
 	],
 	"../ms-layout/ms-layout.module": [
 		"./src/app/ms-back-office/modules/ms-layout/ms-layout.module.ts",
+		"default~home-home-module~ms-brands-ms-brands-module~ms-collections-ms-collections-module~ms-deals-ms~191f35a2",
 		"ms-layout-ms-layout-module"
 	],
 	"../ms-offers/ms-offers.module": [
 		"./src/app/ms-back-office/modules/ms-offers/ms-offers.module.ts",
-		"default~ms-brands-ms-brands-module~ms-collections-ms-collections-module~ms-deals-ms-deals-module~ms-~a8d003f4",
-		"default~ms-brands-ms-brands-module~ms-collections-ms-collections-module~ms-offers-ms-offers-module~m~94c757c6"
+		"default~home-home-module~ms-brands-ms-brands-module~ms-collections-ms-collections-module~ms-deals-ms~191f35a2",
+		"default~home-home-module~ms-brands-ms-brands-module~ms-collections-ms-collections-module~ms-deals-ms~79478f8e",
+		"default~home-home-module~ms-brands-ms-brands-module~ms-collections-ms-collections-module~ms-offers-m~ef437733"
 	],
 	"../ms-releases/ms-releases.module": [
 		"./src/app/ms-back-office/modules/ms-releases/ms-releases.module.ts",
-		"default~ms-brands-ms-brands-module~ms-collections-ms-collections-module~ms-deals-ms-deals-module~ms-~a8d003f4",
-		"default~ms-brands-ms-brands-module~ms-collections-ms-collections-module~ms-offers-ms-offers-module~m~94c757c6",
-		"default~ms-collections-ms-collections-module~ms-releases-ms-releases-module",
+		"default~home-home-module~ms-brands-ms-brands-module~ms-collections-ms-collections-module~ms-deals-ms~191f35a2",
+		"default~home-home-module~ms-brands-ms-brands-module~ms-collections-ms-collections-module~ms-deals-ms~79478f8e",
+		"default~home-home-module~ms-brands-ms-brands-module~ms-collections-ms-collections-module~ms-offers-m~ef437733",
+		"default~home-home-module~ms-collections-ms-collections-module~ms-releases-ms-releases-module",
 		"ms-releases-ms-releases-module"
 	],
 	"../ms-shops/ms-shops.module": [
 		"./src/app/ms-back-office/modules/ms-shops/ms-shops.module.ts",
-		"default~ms-brands-ms-brands-module~ms-collections-ms-collections-module~ms-deals-ms-deals-module~ms-~a8d003f4",
-		"default~ms-brands-ms-brands-module~ms-collections-ms-collections-module~ms-offers-ms-offers-module~m~94c757c6",
+		"default~home-home-module~ms-brands-ms-brands-module~ms-collections-ms-collections-module~ms-deals-ms~191f35a2",
+		"default~home-home-module~ms-brands-ms-brands-module~ms-collections-ms-collections-module~ms-deals-ms~79478f8e",
+		"default~home-home-module~ms-brands-ms-brands-module~ms-collections-ms-collections-module~ms-offers-m~ef437733",
 		"default~ms-brands-ms-brands-module~ms-collections-ms-collections-module~ms-deals-ms-deals-module~ms-~4095e54f",
 		"default~ms-brands-ms-brands-module~ms-collections-ms-collections-module~ms-shops-ms-shops-module~ms-~1045d9c8"
 	],
 	"../ms-style/ms-style.module": [
 		"./src/app/ms-back-office/modules/ms-style/ms-style.module.ts",
-		"default~ms-brands-ms-brands-module~ms-collections-ms-collections-module~ms-deals-ms-deals-module~ms-~a8d003f4",
-		"default~ms-brands-ms-brands-module~ms-collections-ms-collections-module~ms-offers-ms-offers-module~m~94c757c6",
+		"default~home-home-module~ms-brands-ms-brands-module~ms-collections-ms-collections-module~ms-deals-ms~191f35a2",
+		"default~home-home-module~ms-brands-ms-brands-module~ms-collections-ms-collections-module~ms-deals-ms~79478f8e",
+		"default~home-home-module~ms-brands-ms-brands-module~ms-collections-ms-collections-module~ms-offers-m~ef437733",
 		"default~ms-brands-ms-brands-module~ms-collections-ms-collections-module~ms-deals-ms-deals-module~ms-~4095e54f",
 		"default~ms-brands-ms-brands-module~ms-collections-ms-collections-module~ms-shops-ms-shops-module~ms-~1045d9c8",
 		"default~ms-brands-ms-brands-module~ms-style-ms-style-module",
@@ -79,8 +90,8 @@ var map = {
 	],
 	"../ms-tasks/ms-tasks.module": [
 		"./src/app/ms-back-office/modules/ms-tasks/ms-tasks.module.ts",
-		"default~home-home-module~ms-tasks-ms-tasks-module~ms-users-ms-users-module",
-		"default~home-home-module~ms-tasks-ms-tasks-module"
+		"default~home-home-module~ms-tasks-ms-tasks-module",
+		"ms-tasks-ms-tasks-module"
 	],
 	"../ms-urls/ms-urls.module": [
 		"./src/app/ms-back-office/modules/ms-urls/ms-urls.module.ts",
@@ -88,7 +99,6 @@ var map = {
 	],
 	"../ms-users/ms-users.module": [
 		"./src/app/ms-back-office/modules/ms-users/ms-users.module.ts",
-		"default~home-home-module~ms-tasks-ms-tasks-module~ms-users-ms-users-module",
 		"ms-users-ms-users-module"
 	],
 	"./blank-page/blank-page.module": [

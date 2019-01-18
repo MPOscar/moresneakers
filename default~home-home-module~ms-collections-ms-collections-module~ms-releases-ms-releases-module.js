@@ -1,4 +1,4 @@
-(window["webpackJsonp"] = window["webpackJsonp"] || []).push([["default~ms-collections-ms-collections-module~ms-releases-ms-releases-module"],{
+(window["webpackJsonp"] = window["webpackJsonp"] || []).push([["default~home-home-module~ms-collections-ms-collections-module~ms-releases-ms-releases-module"],{
 
 /***/ "./src/app/ms-back-office/modules/ms-releases/components/delete-release/delete-release.component.html":
 /*!************************************************************************************************************!*\
@@ -1996,6 +1996,224 @@ var ReleasesCollectionTableComponent = /** @class */ (function () {
 
 /***/ }),
 
+/***/ "./src/app/ms-back-office/modules/ms-releases/components/releases-out-of-date/releases-out-of-date.component.html":
+/*!************************************************************************************************************************!*\
+  !*** ./src/app/ms-back-office/modules/ms-releases/components/releases-out-of-date/releases-out-of-date.component.html ***!
+  \************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<h3>Releases Out of Date</h3>\n\n<!--mat-toolbar class=\"margin-right-25px margin-bottom-10px width-auto flex-shrink-0 background-color-secondary color-primary mat-elevation-z2\"\n    [formGroup]=\"filter\">\n\n    <mat-icon matPrefix color=\"primary\">search</mat-icon>\n    <mat-form-field>\n        <input matInput formControlName=\"sku\" placeholder=\"SKU\">\n    </mat-form-field>\n\n    <mat-form-field>\n        <mat-label>RELEASE NAME</mat-label>\n        <input matInput formControlName=\"name\" placeholder=\"Name\">\n    </mat-form-field>\n\n    <mat-form-field>\n        <mat-label>BRAND</mat-label>\n        <mat-select disableOptionCentering placeholder=\"Select\" formControlName=\"brandId\">\n            <mat-option>...</mat-option>\n            <mat-option *ngFor=\"let brand of brands\" [value]=\"brand.id\">\n                {{brand.name}}\n            </mat-option>\n        </mat-select>\n    </mat-form-field>\n\n    <mat-form-field>\n        <mat-label>COLLECTION</mat-label>\n        <mat-select disableOptionCentering placeholder=\"Select\" formControlName=\"collectionId\">\n            <mat-option>...</mat-option>\n            <mat-option *ngFor=\"let collection of collections\" [value]=\"collection.id\">\n                {{collection.name}}\n            </mat-option>\n        </mat-select>\n    </mat-form-field>\n\n    <mat-form-field>\n        <mat-label>GENDER</mat-label>\n        <mat-select disableOptionCentering placeholder=\"Select\" formControlName=\"genderId\">\n            <mat-option>...</mat-option>\n            <mat-option *ngFor=\"let gender of genders\" [value]=\"gender.id\">\n                {{gender.name}}\n            </mat-option>\n        </mat-select>\n    </mat-form-field>\n    <span class=\"flex-grow-1\"></span>\n    <button mat-raised-button color=\"primary\" [routerLink]=\"['../create']\">CREATE A NEW RELEASE</button>\n</mat-toolbar-->\n\n<div class=\"flex-grow-1 overflow-auto display-flex\">\n\n    <table class=\"margin-top-10px margin-right-25px width-100pct\" mat-table [dataSource]=\"releases\" matSort [matSortActive]=\"releasesService.previousSortColumn\"\n        [matSortDirection]=\"releasesService.previousSortDirection\" matSortDisableClear (matSortChange)=\"onSort()\">\n\n        <ng-container matColumnDef=\"name\">\n            <th mat-header-cell *matHeaderCellDef mat-sort-header>\n                RELEASE NAME\n            </th>\n            <td mat-cell *matCellDef=\"let element\" class=\"padding-table-td\"> {{ element.name }} </td>\n        </ng-container>\n\n        <ng-container matColumnDef=\"mainImage\">\n            <th mat-header-cell *matHeaderCellDef></th>\n            <td mat-cell *matCellDef=\"let element\" class=\"display-flex flex-grow-1 height-100pct padding-left-0px width-100pct\">\n                <div class=\"position-relative margin-top-5px\">\n                    <img [src]=\"element.mainImage\" class=\"margin-auto\" alt=\"50\">\n                </div>\n            </td>\n        </ng-container>\n\n        <ng-container matColumnDef=\"sku\">\n            <th mat-header-cell *matHeaderCellDef mat-sort-header>\n                SKU\n            </th>\n            <td mat-cell *matCellDef=\"let element\" class=\"padding-table-td\"> {{ element.sku }} </td>\n        </ng-container>\n\n        <ng-container matColumnDef=\"styleId\">\n            <th mat-header-cell *matHeaderCellDef mat-sort-header>\n                STYLE\n            </th>\n            <td mat-cell *matCellDef=\"let element\" class=\"padding-table-td\"> {{ getStyle(element.styleId) }} </td>\n        </ng-container>\n\n        <ng-container matColumnDef=\"brandId\">\n            <th mat-header-cell *matHeaderCellDef>\n                BRAND\n            </th>\n            <td mat-cell *matCellDef=\"let element\" class=\"padding-table-td\"> {{ getBrand(element.brandId) }} </td>\n        </ng-container>\n\n        <ng-container matColumnDef=\"collectionId\">\n            <th mat-header-cell *matHeaderCellDef mat-sort-header>\n                COLLECTION\n            </th>\n            <td mat-cell *matCellDef=\"let element\" class=\"padding-table-td\"> {{ getCollection(element.collectionId) }} </td>\n        </ng-container>\n\n        <ng-container matColumnDef=\"categoryId\">\n            <th mat-header-cell *matHeaderCellDef>\n                CATEGORY\n            </th>\n            <td mat-cell *matCellDef=\"let element\" class=\"padding-table-td\"> {{ element.categoryId }} </td>\n        </ng-container>\n\n        <ng-container matColumnDef=\"color\">\n            <th mat-header-cell *matHeaderCellDef mat-sort-header>\n                COLOR\n            </th>\n            <td mat-cell *matCellDef=\"let element\" class=\"padding-table-td\"> {{ element.color }} </td>\n        </ng-container>\n\n        <ng-container matColumnDef=\"releaseDate\">\n            <th mat-header-cell *matHeaderCellDef mat-sort-header>\n                OFFICIAL RELEASE\n            </th>\n            <td mat-cell *matCellDef=\"let element\" class=\"padding-table-td\"> {{ element.releaseDate? (element.releaseDate | date: 'dd/MM/yyyy'): \"Not scheduled\" }} </td>\n        </ng-container>\n\n        <ng-container matColumnDef=\"createdAt\">\n            <th mat-header-cell *matHeaderCellDef mat-sort-header>\n                CREATION DATE\n            </th>\n            <td mat-cell *matCellDef=\"let element\" class=\"padding-table-td\"> {{ element.createdAt | date: 'MM/dd/yyyy HH:mm:ss': timeZoneOffset.toString() }} </td>\n        </ng-container>\n\n        <!--ng-container matColumnDef=\"HOT\">\n          <th mat-header-cell *matHeaderCellDef mat-sort-header>\n            HOT\n          </th>\n          <td mat-cell *matCellDef=\"let element\"> {{ element.hot? 'Yes':'No' }} </td>\n      </ng-container-->\n\n        <ng-container matColumnDef=\"actions\">\n            <th mat-header-cell *matHeaderCellDef>\n            </th>\n            <td mat-cell *matCellDef=\"let element\" class=\"min-width-80px\">\n                <button mat-icon-button color=\"primary\" type=\"button\" [matTooltip]=\"Edit\" class=\"min-width-80px\" (click)=\"seeReleaseModal(element.id)\">\n                    <mat-icon>remove_red_eye</mat-icon>\n                </button>\n                <button mat-icon-button color=\"primary\" [matTooltip]=\"Edit\" [routerLink]=\"['../edit', element.id]\">\n                    <mat-icon>edit</mat-icon>\n                </button>\n                <button mat-icon-button color=\"primary\" [matTooltip]=\"Delete\" [routerLink]=\"['../delete', element.id]\">\n                    <mat-icon>delete</mat-icon>\n                </button>\n            </td>\n        </ng-container>\n\n        <tr mat-header-row *matHeaderRowDef=\"displayedColumns\"></tr>\n        <tr mat-row *matRowDef=\"let row; columns: displayedColumns;\" [ngClass]=\"row.is_active ? '' : 'text-decoration-line-through'\">\n        </tr>\n\n    </table>\n\n</div>\n\n<div class=\"margin-right-25px flex-shrink-0 display-flex\">\n    <span class=\"flex-grow-1\"></span>\n    <mat-paginator [length]=\"totalLength\" [pageSizeOptions]=\"[5, 10, 20, 50, 100]\" [pageIndex]=\"\" [pageSize]=\"5\" showFirstLastButtons\n        (page)=\"onPage()\">\n    </mat-paginator>\n</div>\n\n<http-request-indicator [urlExpressions]=\"[\n        configService.config.apiConfigs.releases.apiEndpoint + '.*']\">\n</http-request-indicator>"
+
+/***/ }),
+
+/***/ "./src/app/ms-back-office/modules/ms-releases/components/releases-out-of-date/releases-out-of-date.component.scss":
+/*!************************************************************************************************************************!*\
+  !*** ./src/app/ms-back-office/modules/ms-releases/components/releases-out-of-date/releases-out-of-date.component.scss ***!
+  \************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = ":host {\n  display: flex;\n  flex-direction: column;\n  flex-grow: 1; }\n\ntable {\n  width: 100%; }\n\n.mat-form-field {\n  font-size: 14px;\n  padding-right: 5px;\n  width: 100px !important; }\n\ntd,\nth {\n  width: 25%; }\n\n.padding-bottom-10 {\n  padding-bottom: 10px; }\n\n.width-90pct {\n  width: 90% !important; }\n\n.width-100pct {\n  width: 100% !important; }\n\n.height-90pct {\n  height: 90% !important; }\n\n.height-100pct {\n  height: 100% !important; }\n\n.padding-left-0px {\n  padding-left: 0px !important; }\n\nimg {\n  height: 60px !important;\n  width: 100px !important; }\n\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvbXMtYmFjay1vZmZpY2UvbW9kdWxlcy9tcy1yZWxlYXNlcy9jb21wb25lbnRzL3JlbGVhc2VzLW91dC1vZi1kYXRlL0U6XFxQUk9HUkFNQUNJT04gSUlJXFxtb3Jlc25lYWtlcnMtYmFja29mZmljZS9zcmNcXGFwcFxcbXMtYmFjay1vZmZpY2VcXG1vZHVsZXNcXG1zLXJlbGVhc2VzXFxjb21wb25lbnRzXFxyZWxlYXNlcy1vdXQtb2YtZGF0ZVxccmVsZWFzZXMtb3V0LW9mLWRhdGUuY29tcG9uZW50LnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFDSSxjQUFhO0VBQ2IsdUJBQXNCO0VBQ3RCLGFBQVksRUFDZjs7QUFFRDtFQUNJLFlBQVcsRUFDZDs7QUFFRDtFQUNJLGdCQUFlO0VBQ2YsbUJBQWtCO0VBQ2xCLHdCQUF1QixFQUMxQjs7QUFFRDs7RUFFSSxXQUFVLEVBQ2I7O0FBRUQ7RUFDSSxxQkFDSixFQUFDOztBQUVEO0VBQ0ksc0JBQXFCLEVBQ3hCOztBQUVEO0VBQ0ksdUJBQXNCLEVBQ3pCOztBQUVEO0VBQ0ksdUJBQXNCLEVBQ3pCOztBQUVEO0VBQ0ksd0JBQXVCLEVBQzFCOztBQUVEO0VBQ0ksNkJBQ0osRUFBQzs7QUFFRDtFQUNJLHdCQUF1QjtFQUN2Qix3QkFBdUIsRUFDMUIiLCJmaWxlIjoic3JjL2FwcC9tcy1iYWNrLW9mZmljZS9tb2R1bGVzL21zLXJlbGVhc2VzL2NvbXBvbmVudHMvcmVsZWFzZXMtb3V0LW9mLWRhdGUvcmVsZWFzZXMtb3V0LW9mLWRhdGUuY29tcG9uZW50LnNjc3MiLCJzb3VyY2VzQ29udGVudCI6WyI6aG9zdCB7XHJcbiAgICBkaXNwbGF5OiBmbGV4O1xyXG4gICAgZmxleC1kaXJlY3Rpb246IGNvbHVtbjtcclxuICAgIGZsZXgtZ3JvdzogMTtcclxufVxyXG5cclxudGFibGUge1xyXG4gICAgd2lkdGg6IDEwMCU7XHJcbn1cclxuXHJcbi5tYXQtZm9ybS1maWVsZCB7XHJcbiAgICBmb250LXNpemU6IDE0cHg7XHJcbiAgICBwYWRkaW5nLXJpZ2h0OiA1cHg7XHJcbiAgICB3aWR0aDogMTAwcHggIWltcG9ydGFudDtcclxufVxyXG5cclxudGQsXHJcbnRoIHtcclxuICAgIHdpZHRoOiAyNSU7XHJcbn1cclxuXHJcbi5wYWRkaW5nLWJvdHRvbS0xMHtcclxuICAgIHBhZGRpbmctYm90dG9tOiAxMHB4XHJcbn1cclxuXHJcbi53aWR0aC05MHBjdHtcclxuICAgIHdpZHRoOiA5MCUgIWltcG9ydGFudDtcclxufVxyXG5cclxuLndpZHRoLTEwMHBjdHtcclxuICAgIHdpZHRoOiAxMDAlICFpbXBvcnRhbnQ7XHJcbn1cclxuXHJcbi5oZWlnaHQtOTBwY3R7XHJcbiAgICBoZWlnaHQ6IDkwJSAhaW1wb3J0YW50O1xyXG59XHJcblxyXG4uaGVpZ2h0LTEwMHBjdHtcclxuICAgIGhlaWdodDogMTAwJSAhaW1wb3J0YW50O1xyXG59XHJcblxyXG4ucGFkZGluZy1sZWZ0LTBweHtcclxuICAgIHBhZGRpbmctbGVmdDogMHB4ICFpbXBvcnRhbnRcclxufVxyXG5cclxuaW1ne1xyXG4gICAgaGVpZ2h0OiA2MHB4ICFpbXBvcnRhbnQ7XHJcbiAgICB3aWR0aDogMTAwcHggIWltcG9ydGFudDtcclxufVxyXG4iXX0= */"
+
+/***/ }),
+
+/***/ "./src/app/ms-back-office/modules/ms-releases/components/releases-out-of-date/releases-out-of-date.component.ts":
+/*!**********************************************************************************************************************!*\
+  !*** ./src/app/ms-back-office/modules/ms-releases/components/releases-out-of-date/releases-out-of-date.component.ts ***!
+  \**********************************************************************************************************************/
+/*! exports provided: ReleasesOutOfDateComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ReleasesOutOfDateComponent", function() { return ReleasesOutOfDateComponent; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm5/forms.js");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+/* harmony import */ var _angular_material__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/material */ "./node_modules/@angular/material/esm5/material.es5.js");
+/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! rxjs/operators */ "./node_modules/rxjs/_esm5/operators/index.js");
+/* harmony import */ var _config_services_config_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../../../config/services/config.service */ "./src/app/config/services/config.service.ts");
+/* harmony import */ var _error_handling_services_error_handling_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../../../../error-handling/services/error-handling.service */ "./src/app/error-handling/services/error-handling.service.ts");
+/* harmony import */ var _services_releases_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../services/releases.service */ "./src/app/ms-back-office/modules/ms-releases/services/releases.service.ts");
+/* harmony import */ var _models_gender__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../models/gender */ "./src/app/ms-back-office/modules/ms-releases/models/gender.ts");
+/* harmony import */ var _see_release_see_release_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../see-release/see-release.component */ "./src/app/ms-back-office/modules/ms-releases/components/see-release/see-release.component.ts");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+//
+
+
+
+//
+
+
+
+
+
+var errorKey = 'Error';
+var timeZoneOffset = new Date().getTimezoneOffset();
+var ReleasesOutOfDateComponent = /** @class */ (function () {
+    function ReleasesOutOfDateComponent(dialog, activatedRoute, configService, errorHandlingService, releasesService) {
+        this.dialog = dialog;
+        this.activatedRoute = activatedRoute;
+        this.configService = configService;
+        this.errorHandlingService = errorHandlingService;
+        this.releasesService = releasesService;
+        this.displayedColumns = [
+            'name',
+            //'mainImage',
+            //'sku',
+            //'styleId',
+            //'brandId',
+            //'collectionId',
+            //'categoryId',
+            //'color',
+            'releaseDate',
+        ];
+        this.genders = _models_gender__WEBPACK_IMPORTED_MODULE_8__["GENDERS"];
+        this.totalLength = 0;
+        this.releases = [];
+        this.timeZoneOffset = 60;
+    }
+    ReleasesOutOfDateComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        this.brands = this.activatedRoute.snapshot.data.brands;
+        this.collections = this.activatedRoute.snapshot.data.collections;
+        this.imageList = this.activatedRoute.snapshot.data.releaseAllImages;
+        this.shops = this.activatedRoute.snapshot.data.shops;
+        this.styles = this.activatedRoute.snapshot.data.styles;
+        this.filter = this.createFilterFormGroup();
+        this.filterValueChanges = this.filter.valueChanges.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["debounceTime"])(500)).subscribe(function (change) { return _this.onFilter(); });
+        this.paginator.pageIndex = 0;
+        // Begin observing style list changes.
+        this.releasesList = this.releasesService.releasesList.subscribe(function (stylesList) {
+            _this.totalLength = stylesList.dataCount;
+            _this.releases = stylesList.data;
+            if (_this.releases.length === 0 && _this.totalLength > 0 && _this.releasesService.previousPageSize > 0) {
+                _this.releasesService.previousPageIndex =
+                    Math.ceil(_this.totalLength / _this.releasesService.previousPageSize) - 1;
+                _this.releasesService.reloadReleases().subscribe(function (response) {
+                    _this.releasesService.releasesList.next(response);
+                }, function (error) { return _this.errorHandlingService.handleUiError(errorKey, error); });
+            }
+        });
+    };
+    ReleasesOutOfDateComponent.prototype.ngAfterViewInit = function () {
+        this.loadPage();
+    };
+    ReleasesOutOfDateComponent.prototype.ngOnDestroy = function () {
+        this.releasesList.unsubscribe();
+        this.filterValueChanges.unsubscribe();
+    };
+    ReleasesOutOfDateComponent.prototype.createFilterFormGroup = function () {
+        var group = {};
+        group['outdated'] = new _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormControl"](true);
+        return new _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormGroup"](group);
+    };
+    ReleasesOutOfDateComponent.prototype.loadPage = function () {
+        var _this = this;
+        this.releasesService.getReleases(Object.assign({}, this.filter.value), this.sort.active, this.sort.direction, this.paginator.pageIndex, this.paginator.pageSize).subscribe(function (response) {
+            _this.releasesService.releasesList.next(response);
+        }, function (err) {
+            _this.errorHandlingService.handleUiError(errorKey, err);
+        });
+    };
+    ReleasesOutOfDateComponent.prototype.onFilter = function () {
+        this.paginator.pageIndex = 0;
+        this.loadPage();
+    };
+    ReleasesOutOfDateComponent.prototype.onSort = function () {
+        this.paginator.pageIndex = 0;
+        this.loadPage();
+    };
+    ReleasesOutOfDateComponent.prototype.onPage = function () {
+        this.loadPage();
+    };
+    ReleasesOutOfDateComponent.prototype.getBrand = function (id) {
+        try {
+            return this.brands.find(function (brand) {
+                return brand.id === id;
+            }).name;
+        }
+        catch (err) {
+            return;
+        }
+    };
+    ReleasesOutOfDateComponent.prototype.getCollection = function (id) {
+        try {
+            return this.collections.find(function (collection) {
+                return collection.id === id;
+            }).name;
+        }
+        catch (err) {
+            return;
+        }
+    };
+    ReleasesOutOfDateComponent.prototype.getStyle = function (id) {
+        try {
+            return this.styles.find(function (style) {
+                return style.id === id;
+            }).name;
+        }
+        catch (err) {
+            return;
+        }
+    };
+    ReleasesOutOfDateComponent.prototype.seeReleaseModal = function (id) {
+        var _this = this;
+        this.releasesService.getRelease(id).subscribe(function (response) {
+            _this.modalRef = _this.dialog.open(_see_release_see_release_component__WEBPACK_IMPORTED_MODULE_9__["SeeReleaseComponent"], {
+                height: '90%',
+                width: '95%',
+                data: {
+                    id: id,
+                    styles: _this.styles,
+                    brands: _this.brands,
+                    collections: _this.collections,
+                    data: response.data,
+                    imageList: _this.imageList,
+                    shops: _this.shops
+                }
+            });
+        }, function (error) { return _this.errorHandlingService.handleUiError(errorKey, error); });
+    };
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ViewChild"])(_angular_material__WEBPACK_IMPORTED_MODULE_3__["MatPaginator"]),
+        __metadata("design:type", _angular_material__WEBPACK_IMPORTED_MODULE_3__["MatPaginator"])
+    ], ReleasesOutOfDateComponent.prototype, "paginator", void 0);
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ViewChild"])(_angular_material__WEBPACK_IMPORTED_MODULE_3__["MatSort"]),
+        __metadata("design:type", _angular_material__WEBPACK_IMPORTED_MODULE_3__["MatSort"])
+    ], ReleasesOutOfDateComponent.prototype, "sort", void 0);
+    ReleasesOutOfDateComponent = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+            selector: 'releases-out-of-date',
+            template: __webpack_require__(/*! ./releases-out-of-date.component.html */ "./src/app/ms-back-office/modules/ms-releases/components/releases-out-of-date/releases-out-of-date.component.html"),
+            styles: [__webpack_require__(/*! ./releases-out-of-date.component.scss */ "./src/app/ms-back-office/modules/ms-releases/components/releases-out-of-date/releases-out-of-date.component.scss")]
+        }),
+        __metadata("design:paramtypes", [_angular_material__WEBPACK_IMPORTED_MODULE_3__["MatDialog"],
+            _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"],
+            _config_services_config_service__WEBPACK_IMPORTED_MODULE_5__["ConfigService"],
+            _error_handling_services_error_handling_service__WEBPACK_IMPORTED_MODULE_6__["ErrorHandlingService"],
+            _services_releases_service__WEBPACK_IMPORTED_MODULE_7__["ReleasesService"]])
+    ], ReleasesOutOfDateComponent);
+    return ReleasesOutOfDateComponent;
+}());
+
+
+
+/***/ }),
+
 /***/ "./src/app/ms-back-office/modules/ms-releases/components/releases-table/releases-table.component.html":
 /*!************************************************************************************************************!*\
   !*** ./src/app/ms-back-office/modules/ms-releases/components/releases-table/releases-table.component.html ***!
@@ -2768,17 +2986,18 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _ui_modules_images_card_images_card_module__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ../../../ui/modules/images-card/images-card.module */ "./src/app/ui/modules/images-card/images-card.module.ts");
 /* harmony import */ var _components_releases_table_releases_table_component__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./components/releases-table/releases-table.component */ "./src/app/ms-back-office/modules/ms-releases/components/releases-table/releases-table.component.ts");
 /* harmony import */ var _components_releases_collection_table_releases_collection_table_component__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ./components/releases-collection-table/releases-collection-table.component */ "./src/app/ms-back-office/modules/ms-releases/components/releases-collection-table/releases-collection-table.component.ts");
-/* harmony import */ var _ms_releases_routing_module__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ./ms-releases-routing.module */ "./src/app/ms-back-office/modules/ms-releases/ms-releases-routing.module.ts");
-/* harmony import */ var _components_release_form_release_form_component__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ./components/release-form/release-form.component */ "./src/app/ms-back-office/modules/ms-releases/components/release-form/release-form.component.ts");
-/* harmony import */ var _components_see_release_see_release_component__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! ./components/see-release/see-release.component */ "./src/app/ms-back-office/modules/ms-releases/components/see-release/see-release.component.ts");
-/* harmony import */ var _components_new_release_new_release_component__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! ./components/new-release/new-release.component */ "./src/app/ms-back-office/modules/ms-releases/components/new-release/new-release.component.ts");
-/* harmony import */ var _components_new_release_modal_new_release_modal_component__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(/*! ./components/new-release-modal/new-release-modal.component */ "./src/app/ms-back-office/modules/ms-releases/components/new-release-modal/new-release-modal.component.ts");
-/* harmony import */ var _components_edit_release_edit_release_component__WEBPACK_IMPORTED_MODULE_25__ = __webpack_require__(/*! ./components/edit-release/edit-release.component */ "./src/app/ms-back-office/modules/ms-releases/components/edit-release/edit-release.component.ts");
-/* harmony import */ var _components_edit_release_modal_edit_release_modal_component__WEBPACK_IMPORTED_MODULE_26__ = __webpack_require__(/*! ./components/edit-release-modal/edit-release-modal.component */ "./src/app/ms-back-office/modules/ms-releases/components/edit-release-modal/edit-release-modal.component.ts");
-/* harmony import */ var _components_edit_release_form_edit_release_form_component__WEBPACK_IMPORTED_MODULE_27__ = __webpack_require__(/*! ./components/edit-release-form/edit-release-form.component */ "./src/app/ms-back-office/modules/ms-releases/components/edit-release-form/edit-release-form.component.ts");
-/* harmony import */ var _components_delete_release_delete_release_component__WEBPACK_IMPORTED_MODULE_28__ = __webpack_require__(/*! ./components/delete-release/delete-release.component */ "./src/app/ms-back-office/modules/ms-releases/components/delete-release/delete-release.component.ts");
-/* harmony import */ var _ms_offers_ms_offers_module__WEBPACK_IMPORTED_MODULE_29__ = __webpack_require__(/*! ../ms-offers/ms-offers.module */ "./src/app/ms-back-office/modules/ms-offers/ms-offers.module.ts");
-/* harmony import */ var _ms_offers_components_new_offer_new_offer_component__WEBPACK_IMPORTED_MODULE_30__ = __webpack_require__(/*! ../ms-offers/components/new-offer/new-offer.component */ "./src/app/ms-back-office/modules/ms-offers/components/new-offer/new-offer.component.ts");
+/* harmony import */ var _components_releases_out_of_date_releases_out_of_date_component__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ./components/releases-out-of-date/releases-out-of-date.component */ "./src/app/ms-back-office/modules/ms-releases/components/releases-out-of-date/releases-out-of-date.component.ts");
+/* harmony import */ var _ms_releases_routing_module__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ./ms-releases-routing.module */ "./src/app/ms-back-office/modules/ms-releases/ms-releases-routing.module.ts");
+/* harmony import */ var _components_release_form_release_form_component__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! ./components/release-form/release-form.component */ "./src/app/ms-back-office/modules/ms-releases/components/release-form/release-form.component.ts");
+/* harmony import */ var _components_see_release_see_release_component__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! ./components/see-release/see-release.component */ "./src/app/ms-back-office/modules/ms-releases/components/see-release/see-release.component.ts");
+/* harmony import */ var _components_new_release_new_release_component__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(/*! ./components/new-release/new-release.component */ "./src/app/ms-back-office/modules/ms-releases/components/new-release/new-release.component.ts");
+/* harmony import */ var _components_new_release_modal_new_release_modal_component__WEBPACK_IMPORTED_MODULE_25__ = __webpack_require__(/*! ./components/new-release-modal/new-release-modal.component */ "./src/app/ms-back-office/modules/ms-releases/components/new-release-modal/new-release-modal.component.ts");
+/* harmony import */ var _components_edit_release_edit_release_component__WEBPACK_IMPORTED_MODULE_26__ = __webpack_require__(/*! ./components/edit-release/edit-release.component */ "./src/app/ms-back-office/modules/ms-releases/components/edit-release/edit-release.component.ts");
+/* harmony import */ var _components_edit_release_modal_edit_release_modal_component__WEBPACK_IMPORTED_MODULE_27__ = __webpack_require__(/*! ./components/edit-release-modal/edit-release-modal.component */ "./src/app/ms-back-office/modules/ms-releases/components/edit-release-modal/edit-release-modal.component.ts");
+/* harmony import */ var _components_edit_release_form_edit_release_form_component__WEBPACK_IMPORTED_MODULE_28__ = __webpack_require__(/*! ./components/edit-release-form/edit-release-form.component */ "./src/app/ms-back-office/modules/ms-releases/components/edit-release-form/edit-release-form.component.ts");
+/* harmony import */ var _components_delete_release_delete_release_component__WEBPACK_IMPORTED_MODULE_29__ = __webpack_require__(/*! ./components/delete-release/delete-release.component */ "./src/app/ms-back-office/modules/ms-releases/components/delete-release/delete-release.component.ts");
+/* harmony import */ var _ms_offers_ms_offers_module__WEBPACK_IMPORTED_MODULE_30__ = __webpack_require__(/*! ../ms-offers/ms-offers.module */ "./src/app/ms-back-office/modules/ms-offers/ms-offers.module.ts");
+/* harmony import */ var _ms_offers_components_new_offer_new_offer_component__WEBPACK_IMPORTED_MODULE_31__ = __webpack_require__(/*! ../ms-offers/components/new-offer/new-offer.component */ "./src/app/ms-back-office/modules/ms-offers/components/new-offer/new-offer.component.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -2822,6 +3041,7 @@ var __decorate = (undefined && undefined.__decorate) || function (decorators, ta
 
 
 
+
 var MsReleasesModule = /** @class */ (function () {
     function MsReleasesModule() {
     }
@@ -2852,43 +3072,45 @@ var MsReleasesModule = /** @class */ (function () {
                 _angular_material_toolbar__WEBPACK_IMPORTED_MODULE_10__["MatToolbarModule"],
                 _angular_material_tooltip__WEBPACK_IMPORTED_MODULE_11__["MatTooltipModule"],
                 _ngx_translate_core__WEBPACK_IMPORTED_MODULE_13__["TranslateModule"],
-                _ms_releases_routing_module__WEBPACK_IMPORTED_MODULE_20__["MsReleasesRoutingModule"],
+                _ms_releases_routing_module__WEBPACK_IMPORTED_MODULE_21__["MsReleasesRoutingModule"],
                 //
                 _ui_modules_ask_before_refresh_ask_before_refresh_module__WEBPACK_IMPORTED_MODULE_15__["AskBeforeRefreshModule"],
                 _ui_modules_error_messages_error_messages_module__WEBPACK_IMPORTED_MODULE_16__["ErrorMessagesModule"],
                 _http_request_indicator_http_request_indicator_module__WEBPACK_IMPORTED_MODULE_14__["HttpRequestIndicatorModule"],
                 _ui_modules_images_card_images_card_module__WEBPACK_IMPORTED_MODULE_17__["ImagesCardModule"],
-                _ms_offers_ms_offers_module__WEBPACK_IMPORTED_MODULE_29__["MsOffersModule"]
+                _ms_offers_ms_offers_module__WEBPACK_IMPORTED_MODULE_30__["MsOffersModule"]
             ],
             declarations: [
-                _components_delete_release_delete_release_component__WEBPACK_IMPORTED_MODULE_28__["DeleteReleaseComponent"],
-                _components_edit_release_edit_release_component__WEBPACK_IMPORTED_MODULE_25__["EditReleaseComponent"],
-                _components_edit_release_form_edit_release_form_component__WEBPACK_IMPORTED_MODULE_27__["EditReleaseFormComponent"],
-                _components_edit_release_modal_edit_release_modal_component__WEBPACK_IMPORTED_MODULE_26__["EditReleaseModalComponent"],
-                _components_new_release_new_release_component__WEBPACK_IMPORTED_MODULE_23__["NewReleaseComponent"],
-                _components_new_release_modal_new_release_modal_component__WEBPACK_IMPORTED_MODULE_24__["NewReleaseModalComponent"],
-                _components_release_form_release_form_component__WEBPACK_IMPORTED_MODULE_21__["ReleaseFormComponent"],
+                _components_delete_release_delete_release_component__WEBPACK_IMPORTED_MODULE_29__["DeleteReleaseComponent"],
+                _components_edit_release_edit_release_component__WEBPACK_IMPORTED_MODULE_26__["EditReleaseComponent"],
+                _components_edit_release_form_edit_release_form_component__WEBPACK_IMPORTED_MODULE_28__["EditReleaseFormComponent"],
+                _components_edit_release_modal_edit_release_modal_component__WEBPACK_IMPORTED_MODULE_27__["EditReleaseModalComponent"],
+                _components_new_release_new_release_component__WEBPACK_IMPORTED_MODULE_24__["NewReleaseComponent"],
+                _components_new_release_modal_new_release_modal_component__WEBPACK_IMPORTED_MODULE_25__["NewReleaseModalComponent"],
+                _components_release_form_release_form_component__WEBPACK_IMPORTED_MODULE_22__["ReleaseFormComponent"],
                 _components_releases_table_releases_table_component__WEBPACK_IMPORTED_MODULE_18__["ReleasesTableComponent"],
                 _components_releases_collection_table_releases_collection_table_component__WEBPACK_IMPORTED_MODULE_19__["ReleasesCollectionTableComponent"],
-                _components_see_release_see_release_component__WEBPACK_IMPORTED_MODULE_22__["SeeReleaseComponent"]
+                _components_releases_out_of_date_releases_out_of_date_component__WEBPACK_IMPORTED_MODULE_20__["ReleasesOutOfDateComponent"],
+                _components_see_release_see_release_component__WEBPACK_IMPORTED_MODULE_23__["SeeReleaseComponent"]
             ],
             exports: [
-                _components_delete_release_delete_release_component__WEBPACK_IMPORTED_MODULE_28__["DeleteReleaseComponent"],
-                _components_edit_release_edit_release_component__WEBPACK_IMPORTED_MODULE_25__["EditReleaseComponent"],
-                _components_edit_release_form_edit_release_form_component__WEBPACK_IMPORTED_MODULE_27__["EditReleaseFormComponent"],
-                _components_edit_release_modal_edit_release_modal_component__WEBPACK_IMPORTED_MODULE_26__["EditReleaseModalComponent"],
-                _components_new_release_new_release_component__WEBPACK_IMPORTED_MODULE_23__["NewReleaseComponent"],
-                _components_new_release_modal_new_release_modal_component__WEBPACK_IMPORTED_MODULE_24__["NewReleaseModalComponent"],
-                _components_release_form_release_form_component__WEBPACK_IMPORTED_MODULE_21__["ReleaseFormComponent"],
+                _components_delete_release_delete_release_component__WEBPACK_IMPORTED_MODULE_29__["DeleteReleaseComponent"],
+                _components_edit_release_edit_release_component__WEBPACK_IMPORTED_MODULE_26__["EditReleaseComponent"],
+                _components_edit_release_form_edit_release_form_component__WEBPACK_IMPORTED_MODULE_28__["EditReleaseFormComponent"],
+                _components_edit_release_modal_edit_release_modal_component__WEBPACK_IMPORTED_MODULE_27__["EditReleaseModalComponent"],
+                _components_new_release_new_release_component__WEBPACK_IMPORTED_MODULE_24__["NewReleaseComponent"],
+                _components_new_release_modal_new_release_modal_component__WEBPACK_IMPORTED_MODULE_25__["NewReleaseModalComponent"],
+                _components_release_form_release_form_component__WEBPACK_IMPORTED_MODULE_22__["ReleaseFormComponent"],
                 _components_releases_table_releases_table_component__WEBPACK_IMPORTED_MODULE_18__["ReleasesTableComponent"],
                 _components_releases_collection_table_releases_collection_table_component__WEBPACK_IMPORTED_MODULE_19__["ReleasesCollectionTableComponent"],
-                _components_see_release_see_release_component__WEBPACK_IMPORTED_MODULE_22__["SeeReleaseComponent"]
+                _components_releases_out_of_date_releases_out_of_date_component__WEBPACK_IMPORTED_MODULE_20__["ReleasesOutOfDateComponent"],
+                _components_see_release_see_release_component__WEBPACK_IMPORTED_MODULE_23__["SeeReleaseComponent"]
             ],
             entryComponents: [
-                _ms_offers_components_new_offer_new_offer_component__WEBPACK_IMPORTED_MODULE_30__["NewOfferComponent"],
-                _components_new_release_modal_new_release_modal_component__WEBPACK_IMPORTED_MODULE_24__["NewReleaseModalComponent"],
-                _components_edit_release_modal_edit_release_modal_component__WEBPACK_IMPORTED_MODULE_26__["EditReleaseModalComponent"],
-                _components_see_release_see_release_component__WEBPACK_IMPORTED_MODULE_22__["SeeReleaseComponent"]
+                _ms_offers_components_new_offer_new_offer_component__WEBPACK_IMPORTED_MODULE_31__["NewOfferComponent"],
+                _components_new_release_modal_new_release_modal_component__WEBPACK_IMPORTED_MODULE_25__["NewReleaseModalComponent"],
+                _components_edit_release_modal_edit_release_modal_component__WEBPACK_IMPORTED_MODULE_27__["EditReleaseModalComponent"],
+                _components_see_release_see_release_component__WEBPACK_IMPORTED_MODULE_23__["SeeReleaseComponent"]
             ]
         })
     ], MsReleasesModule);
@@ -3169,4 +3391,4 @@ var StylesResolveService = /** @class */ (function () {
 /***/ })
 
 }]);
-//# sourceMappingURL=default~ms-collections-ms-collections-module~ms-releases-ms-releases-module.js.map
+//# sourceMappingURL=default~home-home-module~ms-collections-ms-collections-module~ms-releases-ms-releases-module.js.map

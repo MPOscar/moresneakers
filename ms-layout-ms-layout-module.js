@@ -352,7 +352,7 @@ var DeleteLayoutComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<slider-form\n    [data]=\"data\"\n    [filters]=\"filters\"\n    (accept)=\"submit($event)\"\n    [validationErrors]=\"validationErrors\"\n    (cancel)=\"cancel()\"\n    (dataChange)=\"dataChanged()\">\n</slider-form>"
+module.exports = "<slider-form\n    [data]=\"data\"\n    [brands]=\"brands\"\n    [categories]=\"categories\"\n    [collections]=\"collections\"\n    [shops]=\"shops\"\n    [styles]=\"styles\"\n    [filters]=\"filters\"\n    (accept)=\"submit($event)\"\n    [validationErrors]=\"validationErrors\"\n    (cancel)=\"cancel()\"\n    (dataChange)=\"dataChanged()\">\n</slider-form>\n"
 
 /***/ }),
 
@@ -438,9 +438,10 @@ var EditSliderlComponent = /** @class */ (function () {
         }, function (error) { return _this.errorHandlingService.handleUiError(errorKey, error); });
     };
     EditSliderlComponent.prototype.submit = function (data) {
-        delete data.updatedAt;
-        delete data.createdAt;
-        this.updateStyle(data);
+        //console.log(JSON.stringify(data));
+        //delete data.updatedAt;
+        //delete data.createdAt;
+        //this.updateStyle(data);
     };
     EditSliderlComponent.prototype.cancel = function () {
         this.close();
@@ -466,6 +467,30 @@ var EditSliderlComponent = /** @class */ (function () {
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])(),
         __metadata("design:type", String)
     ], EditSliderlComponent.prototype, "pageId", void 0);
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])(),
+        __metadata("design:type", Array)
+    ], EditSliderlComponent.prototype, "brands", void 0);
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])(),
+        __metadata("design:type", Array)
+    ], EditSliderlComponent.prototype, "categories", void 0);
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])(),
+        __metadata("design:type", Array)
+    ], EditSliderlComponent.prototype, "collections", void 0);
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])(),
+        __metadata("design:type", Array)
+    ], EditSliderlComponent.prototype, "releases", void 0);
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])(),
+        __metadata("design:type", Array)
+    ], EditSliderlComponent.prototype, "shops", void 0);
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])(),
+        __metadata("design:type", Array)
+    ], EditSliderlComponent.prototype, "styles", void 0);
     EditSliderlComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
             selector: 'edit-slider',
@@ -641,7 +666,7 @@ var EditUrlComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<form class=\"flex-grow-1 min-height-0 display-flex flex-direction-column\" [askBeforeRefresh]=\"formGroup.dirty\" [formGroup]=\"formGroup\"\n  novalidate role=\"form\" (ngSubmit)=\"submitClicked()\" autocomplete=\"off\" inputFocus>\n\n  <div class=\"flex-grow-1 overflow-auto display-flex flex-direction-column\">\n\n    <div class=\"flex-grow-1 flex-shrink-0 display-flex flex-direction-column\">\n\n      <div class=\"mb-20\" fxFlex fxLayout=\"row\" fxLayout.lt-md=\"column\" fxLayoutGap=\"20px\">\n        <div [fxFlex]=\"50\">\n\n          <mat-form-field class=\"width-100pc\">\n\n            <mat-select disableOptionCentering placeholder=\"Select\">\n\n              <mat-option *ngFor=\"let filter of filters\" [value]=\"filter.id\">\n\n                {{filter.name}}\n\n              </mat-option>\n\n            </mat-select>\n\n          </mat-form-field>\n\n        </div>\n\n      </div>\n\n    </div>\n\n  </div>\n\n  <div class=\"margin-right-25px padding-top-10px padding-bottom-10px flex-shrink-0 display-flex border-top-style-solid border-top-width-2px border-top-color-grey\">\n\n    <button mat-raised-button type=\"submit\" color=\"primary\">{{ 'Save' | translate }}</button>\n\n    <button mat-raised-button type=\"button\" class=\"margin-left-10px\" (click)=\"cancelClicked()\">{{ 'Cancel' | translate }}</button>\n\n  </div>\n</form>"
+module.exports = "<form class=\"flex-grow-1 min-height-0 display-flex flex-direction-column\" [askBeforeRefresh]=\"formGroup.dirty\" [formGroup]=\"formGroup\"\n  novalidate role=\"form\" (ngSubmit)=\"submitClicked()\" autocomplete=\"off\" inputFocus>\n\n  <div class=\"flex-grow-1 overflow-auto display-flex flex-direction-column\">\n\n    <div class=\"flex-grow-1 flex-shrink-0 display-flex flex-direction-column\">\n\n      <div class=\"mb-25 flex-wrap-wrap display-flex flex-grow-1 flex-shrink-1 flex-direction-row card-container justify-content-initial\"\n        fxFlex fxLayout=\"row\" fxLayout.lt-md=\"column\" fxLayoutGap=\"25px\">\n\n        <div [fxFlex]=\"20\">\n\n          <div class=\"image-card-btns display-flex margin-right-10px margin-bottom-10px\">\n            <mat-checkbox [checked]=\"\" class=\"margin-top-10px\" matTooltip=\"{{ 'BRAND' | translate }}\" (click)=\"addFilter('brand')\">BRAND</mat-checkbox>\n          </div>\n\n          <mat-form-field class=\"width-100pc\">\n\n            <mat-select disableOptionCentering placeholder=\"Select\" formControlName=\"brand\">\n\n              <mat-option *ngFor=\"let brand of brands\" [value]=\"brand.id\" (click)=\"updateFilterValue('brand', brand.name)\">\n\n                {{brand.name}}\n\n              </mat-option>\n\n            </mat-select>\n\n          </mat-form-field>\n\n        </div>\n\n        <div [fxFlex]=\"20\">\n\n          <div class=\"image-card-btns display-flex margin-right-10px margin-bottom-10px\">\n            <mat-checkbox [checked]=\"\" class=\"margin-top-10px\" matTooltip=\"{{ 'CATEGORY' | translate }}\" (click)=\"addFilter('category')\">CATEGORY</mat-checkbox>\n          </div>\n\n          <mat-form-field class=\"width-100pc\">\n\n            <mat-select disableOptionCentering placeholder=\"Select\" formControlName=\"category\">\n\n              <mat-option *ngFor=\"let category of categories\" [value]=\"category.id\" (click)=\"updateFilterValue('category', category.name)\">\n\n                {{category.name}}\n\n              </mat-option>\n\n            </mat-select>\n\n          </mat-form-field>\n\n        </div>\n\n        <div [fxFlex]=\"20\">\n\n          <div class=\"image-card-btns display-flex margin-right-10px margin-bottom-10px\">\n            <mat-checkbox [checked]=\"\" class=\"margin-top-10px\" matTooltip=\"{{ 'COLLECTION' | translate }}\" (click)=\"addFilter('collection')\">COLLECTION</mat-checkbox>\n          </div>\n\n          <mat-form-field class=\"width-100pc\">\n\n            <mat-select disableOptionCentering placeholder=\"Select\" formControlName=\"collection\">\n\n              <mat-option *ngFor=\"let collection of collections\" [value]=\"collection.id\" (click)=\"updateFilterValue('collection', collection.name)\">\n\n                {{collection.name}}\n\n              </mat-option>\n\n            </mat-select>\n\n          </mat-form-field>\n\n        </div>\n\n        <div [fxFlex]=\"20\">\n\n          <div class=\"image-card-btns display-flex margin-right-10px margin-bottom-10px\">\n            <mat-checkbox [checked]=\"\" class=\"margin-top-10px\" matTooltip=\"{{ 'COLOR' | translate }}\" (click)=\"addFilter('color')\">COLOR</mat-checkbox>\n          </div>\n\n          <mat-form-field class=\"width-100pc\">\n\n            <mat-select disableOptionCentering placeholder=\"Select\" formControlName=\"color\">\n\n              <mat-option *ngFor=\"let color of colors\" [value]=\"color.id\" (click)=\"updateFilterValue('color', color.name)\">\n\n                {{color.name}}\n\n              </mat-option>\n\n            </mat-select>\n\n          </mat-form-field>\n\n        </div>\n\n        <div [fxFlex]=\"20\">\n\n          <div class=\"image-card-btns display-flex margin-right-10px margin-bottom-10px\">\n            <mat-checkbox [checked]=\"\" class=\"margin-top-10px\" matTooltip=\"{{ 'GENDER' | translate }}\" (click)=\"addFilter('gender')\">GENDER</mat-checkbox>\n          </div>\n\n          <mat-form-field class=\"width-100pc\">\n\n            <mat-select disableOptionCentering placeholder=\"Select\" formControlName=\"gender\">\n\n              <mat-option *ngFor=\"let gender of genders\" [value]=\"gender.id\" (click)=\"updateFilterValue('gender', gender.name)\">\n\n                {{gender.name}}\n\n              </mat-option>\n\n            </mat-select>\n\n          </mat-form-field>\n\n        </div>\n\n        <div [fxFlex]=\"20\">\n\n          <div class=\"image-card-btns display-flex margin-right-10px margin-bottom-10px\">\n            <mat-checkbox [checked]=\"\" class=\"margin-top-10px\" matTooltip=\"{{ 'PRICE' | translate }}\" (click)=\"addFilter('maxPrice')\">PRICE</mat-checkbox>\n          </div>\n\n          <mat-form-field class=\"width-100pc\">\n\n            <mat-select disableOptionCentering placeholder=\"Select\" formControlName=\"maxPrice\">\n\n              <mat-option *ngFor=\"let filter of filters\" [value]=\"filter.id\"  (click)=\"updateFilterValue('maxPrice', filter.name)\">\n\n                {{filter.name}}\n\n              </mat-option>\n\n            </mat-select>\n\n          </mat-form-field>\n\n        </div>\n\n        <div [fxFlex]=\"20\">\n\n          <div class=\"image-card-btns display-flex margin-right-10px margin-bottom-10px\">\n            <mat-checkbox [checked]=\"\" class=\"margin-top-10px\" matTooltip=\"{{ 'SHOP' | translate }}\" (click)=\"addFilter('shop')\">SHOP</mat-checkbox>\n          </div>\n\n          <mat-form-field class=\"width-100pc\">\n\n            <mat-select disableOptionCentering placeholder=\"Select\" formControlName=\"shop\">\n\n              <mat-option *ngFor=\"let shop of shops\" [value]=\"shop.id\" (click)=\"updateFilterValue('shop', shop.name)\">\n\n                {{shop.name}}\n\n              </mat-option>\n\n            </mat-select>\n\n          </mat-form-field>\n\n        </div>\n\n        <div [fxFlex]=\"20\">\n\n          <div class=\"image-card-btns display-flex margin-right-10px margin-bottom-10px\">\n            <mat-checkbox [checked]=\"\" class=\"margin-top-10px\" matTooltip=\"{{ 'SHIPPING' | translate }}\" (click)=\"addFilter('shipping')\">SHIPPING</mat-checkbox>\n          </div>\n\n          <mat-form-field class=\"width-100pc\">\n\n            <mat-select disableOptionCentering placeholder=\"Select\" formControlName=\"shipping\">\n\n              <mat-option *ngFor=\"let filter of filters\" [value]=\"filter.id\" (click)=\"updateFilterValue('shipping', filter.name)\">\n\n                {{filter.name}}\n\n              </mat-option>\n\n            </mat-select>\n\n          </mat-form-field>\n\n        </div>\n\n        <div [fxFlex]=\"20\">\n\n          <div class=\"image-card-btns display-flex margin-right-10px margin-bottom-10px\">\n            <mat-checkbox [checked]=\"\" class=\"margin-top-10px\" matTooltip=\"{{ 'SKU' | translate }}\" (click)=\"addFilter('sku')\">SKU</mat-checkbox>\n          </div>\n\n          <mat-form-field class=\"width-100pc\">\n\n            <mat-select disableOptionCentering placeholder=\"Select\" formControlName=\"sku\">\n\n              <mat-option *ngFor=\"let filter of filters\" [value]=\"filter.id\" (click)=\"updateFilterValue('sku', filter.name)\">\n\n                {{filter.name}}\n\n              </mat-option>\n\n            </mat-select>\n\n          </mat-form-field>\n\n        </div>\n\n        <div [fxFlex]=\"20\">\n\n          <div class=\"image-card-btns display-flex margin-right-10px margin-bottom-10px\">\n            <mat-checkbox [checked]=\"\" class=\"margin-top-10px\" matTooltip=\"{{ 'STATUS' | translate }}\" (click)=\"addFilter('status')\">STATUS</mat-checkbox>\n          </div>\n\n          <mat-form-field class=\"width-100pc\">\n\n            <mat-select disableOptionCentering placeholder=\"Select\" formControlName=\"status\">\n\n              <mat-option *ngFor=\"let filter of filters\" [value]=\"filter.id\" (click)=\"updateFilterValue('status', filter.name)\">\n\n                {{filter.name}}\n\n              </mat-option>\n\n            </mat-select>\n\n          </mat-form-field>\n\n        </div>\n\n        <div [fxFlex]=\"20\">\n\n          <div class=\"image-card-btns display-flex margin-right-10px margin-bottom-10px\">\n            <mat-checkbox [checked]=\"\" class=\"margin-top-10px\" matTooltip=\"{{ 'STYLE' | translate }}\" (click)=\"addFilter('style')\">STYLE</mat-checkbox>\n          </div>\n\n          <mat-form-field class=\"width-100pc\">\n\n            <mat-select disableOptionCentering placeholder=\"Select\" formControlName=\"style\">\n\n              <mat-option *ngFor=\"let style of styles\" [value]=\"style.id\" (click)=\"updateFilterValue('style', style.name)\">\n\n                {{style.name}}\n\n              </mat-option>\n\n            </mat-select>\n\n          </mat-form-field>\n\n        </div>\n\n      </div>\n\n    </div>\n\n  </div>\n\n  <div class=\"margin-right-25px padding-top-10px padding-bottom-10px flex-shrink-0 display-flex border-top-style-solid border-top-width-2px border-top-color-grey\">\n\n    <button mat-raised-button type=\"submit\" color=\"primary\">{{ 'Save' | translate }}</button>\n\n    <button mat-raised-button type=\"button\" class=\"margin-left-10px\" (click)=\"cancelClicked()\">{{ 'Cancel' | translate }}</button>\n\n  </div>\n\n</form>\n"
 
 /***/ }),
 
@@ -652,7 +677,7 @@ module.exports = "<form class=\"flex-grow-1 min-height-0 display-flex flex-direc
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ":host {\n  display: flex;\n  flex-direction: column;\n  flex-grow: 1; }\n\n.height-34px {\n  height: 34px !important; }\n\n.width-100pc {\n  width: 100%; }\n\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvbXMtYmFjay1vZmZpY2UvbW9kdWxlcy9tcy1sYXlvdXQvY29tcG9uZW50cy9maWx0ZXItZm9ybS9FOlxcUFJPR1JBTUFDSU9OIElJSVxcbW9yZXNuZWFrZXJzLWJhY2tvZmZpY2Uvc3JjXFxhcHBcXG1zLWJhY2stb2ZmaWNlXFxtb2R1bGVzXFxtcy1sYXlvdXRcXGNvbXBvbmVudHNcXGZpbHRlci1mb3JtXFxmaWx0ZXItZm9ybS5jb21wb25lbnQuc2NzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUNJLGNBQWE7RUFDYix1QkFBc0I7RUFDdEIsYUFBWSxFQUNmOztBQUVEO0VBQ0ksd0JBQXVCLEVBQzFCOztBQUVEO0VBQ0ksWUFBVyxFQUNkIiwiZmlsZSI6InNyYy9hcHAvbXMtYmFjay1vZmZpY2UvbW9kdWxlcy9tcy1sYXlvdXQvY29tcG9uZW50cy9maWx0ZXItZm9ybS9maWx0ZXItZm9ybS5jb21wb25lbnQuc2NzcyIsInNvdXJjZXNDb250ZW50IjpbIjpob3N0IHtcclxuICAgIGRpc3BsYXk6IGZsZXg7XHJcbiAgICBmbGV4LWRpcmVjdGlvbjogY29sdW1uO1xyXG4gICAgZmxleC1ncm93OiAxO1xyXG59XHJcblxyXG4uaGVpZ2h0LTM0cHh7XHJcbiAgICBoZWlnaHQ6IDM0cHggIWltcG9ydGFudDtcclxufVxyXG5cclxuLndpZHRoLTEwMHBje1xyXG4gICAgd2lkdGg6IDEwMCU7XHJcbn1cclxuXHJcbiJdfQ== */"
+module.exports = ":host {\n  display: flex;\n  flex-grow: 1;\n  flex-direction: column;\n  height: 100%; }\n\n.mat-dialog-container {\n  padding: 10px; }\n\n.mat-dialog-content {\n  height: 60%;\n  max-height: 82vh;\n  margin-bottom: 10px; }\n\n.mat-dialog-actions {\n  padding: 10px 0; }\n\nmat-card {\n  padding: 0px;\n  align-self: flex-start;\n  height: 200px;\n  width: 100% !important;\n  margin-left: 2px;\n  margin-right: 15px;\n  margin-bottom: 15px; }\n\nimg {\n  height: 130px !important;\n  width: 100% !important; }\n\nmat-icon {\n  font-size: 24px;\n  width: 24px;\n  height: 24px; }\n\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvbXMtYmFjay1vZmZpY2UvbW9kdWxlcy9tcy1sYXlvdXQvY29tcG9uZW50cy9maWx0ZXItZm9ybS9FOlxcUFJPR1JBTUFDSU9OIElJSVxcbW9yZXNuZWFrZXJzLWJhY2tvZmZpY2Uvc3JjXFxhcHBcXG1zLWJhY2stb2ZmaWNlXFxtb2R1bGVzXFxtcy1sYXlvdXRcXGNvbXBvbmVudHNcXGZpbHRlci1mb3JtXFxmaWx0ZXItZm9ybS5jb21wb25lbnQuc2NzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUNJLGNBQWE7RUFDYixhQUFZO0VBQ1osdUJBQXNCO0VBQ3RCLGFBQ0YsRUFBQzs7QUFFRDtFQUNFLGNBQWEsRUFDZDs7QUFFRDtFQUNFLFlBQVc7RUFDWCxpQkFBZ0I7RUFDaEIsb0JBQW1CLEVBQ3BCOztBQUVEO0VBQ0UsZ0JBQWUsRUFDaEI7O0FBRUQ7RUFDRSxhQUFZO0VBQ1osdUJBQXNCO0VBQ3RCLGNBQWE7RUFDYix1QkFBc0I7RUFDdEIsaUJBQWdCO0VBQ2hCLG1CQUFrQjtFQUNsQixvQkFBbUIsRUFDcEI7O0FBRUQ7RUFDRSx5QkFBd0I7RUFDeEIsdUJBQXFCLEVBQ3RCOztBQUVEO0VBQ0UsZ0JBQWU7RUFDZixZQUFXO0VBQ1gsYUFBWSxFQUNiIiwiZmlsZSI6InNyYy9hcHAvbXMtYmFjay1vZmZpY2UvbW9kdWxlcy9tcy1sYXlvdXQvY29tcG9uZW50cy9maWx0ZXItZm9ybS9maWx0ZXItZm9ybS5jb21wb25lbnQuc2NzcyIsInNvdXJjZXNDb250ZW50IjpbIjpob3N0IHtcclxuICAgIGRpc3BsYXk6IGZsZXg7XHJcbiAgICBmbGV4LWdyb3c6IDE7XHJcbiAgICBmbGV4LWRpcmVjdGlvbjogY29sdW1uO1xyXG4gICAgaGVpZ2h0OiAxMDAlXHJcbiAgfVxyXG4gIFxyXG4gIC5tYXQtZGlhbG9nLWNvbnRhaW5lciB7XHJcbiAgICBwYWRkaW5nOiAxMHB4O1xyXG4gIH1cclxuICBcclxuICAubWF0LWRpYWxvZy1jb250ZW50IHtcclxuICAgIGhlaWdodDogNjAlO1xyXG4gICAgbWF4LWhlaWdodDogODJ2aDtcclxuICAgIG1hcmdpbi1ib3R0b206IDEwcHg7XHJcbiAgfVxyXG4gIFxyXG4gIC5tYXQtZGlhbG9nLWFjdGlvbnMge1xyXG4gICAgcGFkZGluZzogMTBweCAwO1xyXG4gIH1cclxuICBcclxuICBtYXQtY2FyZCB7XHJcbiAgICBwYWRkaW5nOiAwcHg7XHJcbiAgICBhbGlnbi1zZWxmOiBmbGV4LXN0YXJ0O1xyXG4gICAgaGVpZ2h0OiAyMDBweDtcclxuICAgIHdpZHRoOiAxMDAlICFpbXBvcnRhbnQ7XHJcbiAgICBtYXJnaW4tbGVmdDogMnB4O1xyXG4gICAgbWFyZ2luLXJpZ2h0OiAxNXB4O1xyXG4gICAgbWFyZ2luLWJvdHRvbTogMTVweDtcclxuICB9XHJcbiAgXHJcbiAgaW1ne1xyXG4gICAgaGVpZ2h0OiAxMzBweCAhaW1wb3J0YW50O1xyXG4gICAgd2lkdGg6IDEwMCUhaW1wb3J0YW50O1xyXG4gIH1cclxuICBcclxuICBtYXQtaWNvbiB7XHJcbiAgICBmb250LXNpemU6IDI0cHg7XHJcbiAgICB3aWR0aDogMjRweDtcclxuICAgIGhlaWdodDogMjRweDtcclxuICB9XHJcblxyXG4iXX0= */"
 
 /***/ }),
 
@@ -669,7 +694,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm5/forms.js");
 /* harmony import */ var _ngx_translate_core__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @ngx-translate/core */ "./node_modules/@ngx-translate/core/fesm5/ngx-translate-core.js");
-/* harmony import */ var _ui_components_base_reactive_form_base_reactive_form_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../../ui/components/base-reactive-form/base-reactive-form-component */ "./src/app/ui/components/base-reactive-form/base-reactive-form-component.ts");
+/* harmony import */ var _ms_releases_models_color__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../ms-releases/models/color */ "./src/app/ms-back-office/modules/ms-releases/models/color.ts");
+/* harmony import */ var _ms_releases_models_gender__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../ms-releases/models/gender */ "./src/app/ms-back-office/modules/ms-releases/models/gender.ts");
+/* harmony import */ var _models_filters__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../models/filters */ "./src/app/ms-back-office/modules/ms-layout/models/filters.ts");
+/* harmony import */ var _ui_components_base_reactive_form_base_reactive_form_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../../../../ui/components/base-reactive-form/base-reactive-form-component */ "./src/app/ui/components/base-reactive-form/base-reactive-form-component.ts");
 var __extends = (undefined && undefined.__extends) || (function () {
     var extendStatics = Object.setPrototypeOf ||
         ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
@@ -693,12 +721,19 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 
 //
 
+
+
+
 //
 
 var FilterFormComponent = /** @class */ (function (_super) {
     __extends(FilterFormComponent, _super);
     function FilterFormComponent(translateService) {
-        return _super.call(this, translateService) || this;
+        var _this = _super.call(this, translateService) || this;
+        _this.genders = _ms_releases_models_gender__WEBPACK_IMPORTED_MODULE_4__["GENDERS"];
+        _this.colors = _ms_releases_models_color__WEBPACK_IMPORTED_MODULE_3__["COLORS"];
+        _this.filtersArray = [];
+        return _this;
         //setTranslations(this.translateService, TRANSLATIONS);
     }
     FilterFormComponent.prototype.ngOnInit = function () {
@@ -715,22 +750,91 @@ var FilterFormComponent = /** @class */ (function (_super) {
     };
     FilterFormComponent.prototype.createFormGroup = function () {
         this.formGroup = new _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormGroup"]({
-            url: new _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormControl"](this.data.url, [_angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].required]),
-            vanityUrl: new _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormControl"](this.data.vanityUrl, [_angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].required])
+            style: new _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormControl"]({ value: '', disabled: true }),
+            sku: new _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormControl"]({ value: '', disabled: true }),
+            brand: new _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormControl"]({ value: '', disabled: true }),
+            collection: new _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormControl"]({ value: '', disabled: true }),
+            category: new _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormControl"]({ value: '', disabled: true }),
+            gender: new _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormControl"]({ value: '', disabled: true }),
+            color: new _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormControl"]({ value: '', disabled: true }),
+            shop: new _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormControl"]({ value: '', disabled: true }),
+            shipping: new _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormControl"]({ value: '', disabled: true }),
+            status: new _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormControl"]({ value: '', disabled: true }),
+            maxPrice: new _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormControl"]({ value: '', disabled: true }),
+            minPrice: new _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormControl"]({ value: '', disabled: true }),
         });
     };
     FilterFormComponent.prototype.submitClicked = function () {
         if (this.formGroup.valid) {
-            this.accept.emit(this.data);
+            this.accept.emit(this.filtersArray);
         }
         else {
             this.triggerValidation();
+        }
+    };
+    FilterFormComponent.prototype.addFilter = function (filter) {
+        if (this.filtersArray.find(function (item) { return item.filter === filter; })) {
+            this.filtersArray = this.filtersArray.filter(function (item) {
+                return item.filter !== filter;
+            });
+            this.formGroup.get(filter).setValue('');
+            this.formGroup.get(filter).disable();
+        }
+        else {
+            this.formGroup.get(filter).enable();
+        }
+    };
+    FilterFormComponent.prototype.updateFilterValue = function (filter, name) {
+        if (!this.filtersArray.find(function (item) { return item.filter === filter; })) {
+            var filterItem = new _models_filters__WEBPACK_IMPORTED_MODULE_5__["FilterItem"]();
+            filterItem = {
+                filter: filter,
+                name: name,
+                value: this.formGroup.get(filter).value,
+            };
+            this.filtersArray = this.filtersArray.concat([filterItem]);
+        }
+        else {
+            try {
+                this.filtersArray.find(function (item) {
+                    return item.filter === filter;
+                }).value = this.formGroup.get(filter).value;
+                this.filtersArray.find(function (item) {
+                    return item.filter === filter;
+                }).name = name;
+            }
+            catch (err) {
+            }
         }
     };
     __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])(),
         __metadata("design:type", Object)
     ], FilterFormComponent.prototype, "filters", void 0);
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])(),
+        __metadata("design:type", Array)
+    ], FilterFormComponent.prototype, "brands", void 0);
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])(),
+        __metadata("design:type", Array)
+    ], FilterFormComponent.prototype, "categories", void 0);
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])(),
+        __metadata("design:type", Array)
+    ], FilterFormComponent.prototype, "collections", void 0);
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])(),
+        __metadata("design:type", Array)
+    ], FilterFormComponent.prototype, "releases", void 0);
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])(),
+        __metadata("design:type", Array)
+    ], FilterFormComponent.prototype, "shops", void 0);
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])(),
+        __metadata("design:type", Array)
+    ], FilterFormComponent.prototype, "styles", void 0);
     FilterFormComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
             selector: 'filter-form',
@@ -741,7 +845,7 @@ var FilterFormComponent = /** @class */ (function (_super) {
         __metadata("design:paramtypes", [_ngx_translate_core__WEBPACK_IMPORTED_MODULE_2__["TranslateService"]])
     ], FilterFormComponent);
     return FilterFormComponent;
-}(_ui_components_base_reactive_form_base_reactive_form_component__WEBPACK_IMPORTED_MODULE_3__["BaseReactiveFormComponent"]));
+}(_ui_components_base_reactive_form_base_reactive_form_component__WEBPACK_IMPORTED_MODULE_6__["BaseReactiveFormComponent"]));
 
 
 
@@ -850,7 +954,7 @@ var LayoutSliderTopnavComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<!--h1>Select the page you want to configure</h1-->\n<layout-slider-topnav></layout-slider-topnav>\n<div class=\"flex-grow-1 overflow-auto display-flex flex-direction-column\">\n\n    <div class=\"flex-grow-1 flex-shrink-0 display-flex flex-direction-column\">\n\n        <mat-tab-group class=\"padding-top-25px\">\n            <mat-tab label=\"Slider\">\n                <edit-slider  [filters]=\"filters\" [pageId]=\"pageId\"></edit-slider>\n            </mat-tab>\n            <mat-tab label=\"Header\">\n                <div class=\"mb-20 margin-top-25px\" fxFlex fxLayout=\"row\" fxLayout.lt-md=\"column\" fxLayoutGap=\"20px\">\n\n                    <div [fxFlex]=\"100\" fxFlex fxLayout=\"column\" fxLayout.lt-md=\"column\">\n\n                        <div fxLayout=\"row\" fxLayout.lt-md=\"column\">\n\n                            <div [fxFlex]=\"40\" fxLayout=\"column\" class=\"margin-right-25px\">\n\n                                <mat-form-field class=\"margin-left-16px max-width-480px\">\n\n                                    <mat-label>URL</mat-label>\n\n                                    <input matInput type=\"text\">\n\n                                </mat-form-field>\n\n                                <mat-form-field class=\"margin-left-16px max-width-480px\">\n\n                                    <mat-label>Numbers of Items</mat-label>\n\n                                    <input matInput type=\"text\">\n\n                                </mat-form-field>\n                            </div>\n                            <div [fxFlex]=\"60\" class=\"margin-right-25px\">\n\n                                <mat-form-field class=\"width-100pc margin-left-16px\">\n\n                                    <mat-label>URL</mat-label>\n\n                                    <input matInput type=\"text\">\n\n                                </mat-form-field>\n\n                                <mat-form-field class=\"width-100pc margin-left-16px\">\n\n                                    <mat-label>Traking list base URL</mat-label>\n\n                                    <input matInput type=\"text\">\n\n                                </mat-form-field>\n                            </div>\n                        </div>\n                    </div>\n                </div>\n            </mat-tab>\n            <mat-tab label=\"Hottest\">\n                <div class=\"mb-20 margin-top-25px\" fxFlex fxLayout=\"row\" fxLayout.lt-md=\"column\" fxLayoutGap=\"20px\">\n\n                    <div [fxFlex]=\"100\" fxFlex fxLayout=\"column\" fxLayout.lt-md=\"column\">\n\n                        <div fxLayout=\"row\" fxLayout.lt-md=\"column\">\n\n                            <div [fxFlex]=\"40\" fxLayout=\"column\" class=\"margin-right-25px\">\n\n                                <mat-form-field class=\"margin-left-16px max-width-480px\">\n\n                                    <mat-label>URL</mat-label>\n\n                                    <input matInput type=\"text\">\n\n                                </mat-form-field>\n\n                                <mat-form-field class=\"margin-left-16px max-width-480px\">\n\n                                    <mat-label>Numbers of Items</mat-label>\n\n                                    <input matInput type=\"text\">\n\n                                </mat-form-field>\n                            </div>\n                            <div [fxFlex]=\"60\" class=\"margin-right-25px\">\n\n                                <mat-form-field class=\"width-100pc margin-left-16px\">\n\n                                    <mat-label>URL</mat-label>\n\n                                    <input matInput type=\"text\">\n\n                                </mat-form-field>\n\n                                <mat-form-field class=\"width-100pc margin-left-16px\">\n\n                                    <mat-label>Traking list base URL</mat-label>\n\n                                    <input matInput type=\"text\">\n\n                                </mat-form-field>\n                            </div>\n                        </div>\n                    </div>\n                </div>\n            </mat-tab>\n            <mat-tab label=\"Heading\">\n                <div class=\"mb-20 margin-top-25px\" fxFlex fxLayout=\"row\" fxLayout.lt-md=\"column\" fxLayoutGap=\"20px\">\n\n                    <div [fxFlex]=\"100\" fxFlex fxLayout=\"column\" fxLayout.lt-md=\"column\">\n\n                        <div fxLayout=\"row\" fxLayout.lt-md=\"column\">\n\n                            <div [fxFlex]=\"40\" fxLayout=\"column\" class=\"margin-right-25px\">\n\n                                <mat-form-field class=\"margin-left-16px max-width-480px\">\n\n                                    <mat-label>URL</mat-label>\n\n                                    <input matInput type=\"text\">\n\n                                </mat-form-field>\n\n                                <mat-form-field class=\"margin-left-16px max-width-480px\">\n\n                                    <mat-label>Numbers of Items</mat-label>\n\n                                    <input matInput type=\"text\">\n\n                                </mat-form-field>\n                            </div>\n                            <div [fxFlex]=\"60\" class=\"margin-right-25px\">\n\n                                <mat-form-field class=\"width-100pc margin-left-16px\">\n\n                                    <mat-label>URL</mat-label>\n\n                                    <input matInput type=\"text\">\n\n                                </mat-form-field>\n\n                                <mat-form-field class=\"width-100pc margin-left-16px\">\n\n                                    <mat-label>Traking list base URL</mat-label>\n\n                                    <input matInput type=\"text\">\n\n                                </mat-form-field>\n                            </div>\n                        </div>\n                    </div>\n                </div>\n            </mat-tab>\n        </mat-tab-group>\n\n    </div>\n\n</div>\n"
+module.exports = "<!--h1>Select the page you want to configure</h1-->\n<layout-slider-topnav></layout-slider-topnav>\n<div class=\"flex-grow-1 overflow-auto display-flex flex-direction-column\">\n\n    <div class=\"flex-grow-1 flex-shrink-0 display-flex flex-direction-column\">\n\n        <mat-tab-group class=\"padding-top-25px\">\n            <mat-tab label=\"Slider\">\n                <edit-slider  [filters]=\"filters\" [pageId]=\"pageId\" [brands]=\"brands\" [categories]=\"categories\" [collections]=\"collections\" [shops]=\"shops\" [styles]=\"styles\"></edit-slider>\n            </mat-tab>\n            <mat-tab label=\"Header\">\n                <div class=\"mb-20 margin-top-25px\" fxFlex fxLayout=\"row\" fxLayout.lt-md=\"column\" fxLayoutGap=\"20px\">\n\n                    <div [fxFlex]=\"100\" fxFlex fxLayout=\"column\" fxLayout.lt-md=\"column\">\n\n                        <div fxLayout=\"row\" fxLayout.lt-md=\"column\">\n\n                            <div [fxFlex]=\"40\" fxLayout=\"column\" class=\"margin-right-25px\">\n\n                                <mat-form-field class=\"margin-left-16px max-width-480px\">\n\n                                    <mat-label>URL</mat-label>\n\n                                    <input matInput type=\"text\">\n\n                                </mat-form-field>\n\n                                <mat-form-field class=\"margin-left-16px max-width-480px\">\n\n                                    <mat-label>Numbers of Items</mat-label>\n\n                                    <input matInput type=\"text\">\n\n                                </mat-form-field>\n                            </div>\n                            <div [fxFlex]=\"60\" class=\"margin-right-25px\">\n\n                                <mat-form-field class=\"width-100pc margin-left-16px\">\n\n                                    <mat-label>URL</mat-label>\n\n                                    <input matInput type=\"text\">\n\n                                </mat-form-field>\n\n                                <mat-form-field class=\"width-100pc margin-left-16px\">\n\n                                    <mat-label>Traking list base URL</mat-label>\n\n                                    <input matInput type=\"text\">\n\n                                </mat-form-field>\n                            </div>\n                        </div>\n                    </div>\n                </div>\n            </mat-tab>\n            <mat-tab label=\"Hottest\">\n                <div class=\"mb-20 margin-top-25px\" fxFlex fxLayout=\"row\" fxLayout.lt-md=\"column\" fxLayoutGap=\"20px\">\n\n                    <div [fxFlex]=\"100\" fxFlex fxLayout=\"column\" fxLayout.lt-md=\"column\">\n\n                        <div fxLayout=\"row\" fxLayout.lt-md=\"column\">\n\n                            <div [fxFlex]=\"40\" fxLayout=\"column\" class=\"margin-right-25px\">\n\n                                <mat-form-field class=\"margin-left-16px max-width-480px\">\n\n                                    <mat-label>URL</mat-label>\n\n                                    <input matInput type=\"text\">\n\n                                </mat-form-field>\n\n                                <mat-form-field class=\"margin-left-16px max-width-480px\">\n\n                                    <mat-label>Numbers of Items</mat-label>\n\n                                    <input matInput type=\"text\">\n\n                                </mat-form-field>\n                            </div>\n                            <div [fxFlex]=\"60\" class=\"margin-right-25px\">\n\n                                <mat-form-field class=\"width-100pc margin-left-16px\">\n\n                                    <mat-label>URL</mat-label>\n\n                                    <input matInput type=\"text\">\n\n                                </mat-form-field>\n\n                                <mat-form-field class=\"width-100pc margin-left-16px\">\n\n                                    <mat-label>Traking list base URL</mat-label>\n\n                                    <input matInput type=\"text\">\n\n                                </mat-form-field>\n                            </div>\n                        </div>\n                    </div>\n                </div>\n            </mat-tab>\n            <mat-tab label=\"Heading\">\n                <div class=\"mb-20 margin-top-25px\" fxFlex fxLayout=\"row\" fxLayout.lt-md=\"column\" fxLayoutGap=\"20px\">\n\n                    <div [fxFlex]=\"100\" fxFlex fxLayout=\"column\" fxLayout.lt-md=\"column\">\n\n                        <div fxLayout=\"row\" fxLayout.lt-md=\"column\">\n\n                            <div [fxFlex]=\"40\" fxLayout=\"column\" class=\"margin-right-25px\">\n\n                                <mat-form-field class=\"margin-left-16px max-width-480px\">\n\n                                    <mat-label>URL</mat-label>\n\n                                    <input matInput type=\"text\">\n\n                                </mat-form-field>\n\n                                <mat-form-field class=\"margin-left-16px max-width-480px\">\n\n                                    <mat-label>Numbers of Items</mat-label>\n\n                                    <input matInput type=\"text\">\n\n                                </mat-form-field>\n                            </div>\n                            <div [fxFlex]=\"60\" class=\"margin-right-25px\">\n\n                                <mat-form-field class=\"width-100pc margin-left-16px\">\n\n                                    <mat-label>URL</mat-label>\n\n                                    <input matInput type=\"text\">\n\n                                </mat-form-field>\n\n                                <mat-form-field class=\"width-100pc margin-left-16px\">\n\n                                    <mat-label>Traking list base URL</mat-label>\n\n                                    <input matInput type=\"text\">\n\n                                </mat-form-field>\n\n                            </div>\n\n                        </div>\n\n                    </div>\n\n                </div>\n\n            </mat-tab>\n\n        </mat-tab-group>\n\n    </div>\n\n</div>\n"
 
 /***/ }),
 
@@ -919,6 +1023,7 @@ var LayoutComponent = /** @class */ (function () {
     }
     LayoutComponent.prototype.ngOnInit = function () {
         this.brands = this.activatedRoute.snapshot.data.brands;
+        this.categories = this.activatedRoute.snapshot.data.categories;
         this.collections = this.activatedRoute.snapshot.data.collections;
         this.shops = this.activatedRoute.snapshot.data.shops;
         this.styles = this.activatedRoute.snapshot.data.styles;
@@ -960,7 +1065,7 @@ var LayoutComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<h1>ADD FILTER</h1>\n<filter-form class=\"flex-grow-1\"\n    [data]=\"data\"     \n    [filters]=\"dialogData.filters\"\n    (accept)=\"submit($event)\"\n    (cancel)=\"cancel()\"\n    [validationErrors]=\"validationErrors\"\n    (dataChange)=\"dataChanged()\">\n</filter-form>"
+module.exports = "<h1>ADD FILTER</h1>\n<filter-form class=\"flex-grow-1\"\n    [data]=\"data\"    \n    [brands]=\"dialogData.brands\" \n    [categories]=\"dialogData.categories\"\n    [collections]=\"dialogData.collections\"\n    [shops]=\"dialogData.shops\"\n    [styles]=\"dialogData.styles\"\n    [filters]=\"dialogData.filters\"\n    (accept)=\"submit($event)\"\n    (cancel)=\"cancel()\"\n    [validationErrors]=\"validationErrors\"\n    (dataChange)=\"dataChanged()\">\n</filter-form>"
 
 /***/ }),
 
@@ -1023,7 +1128,6 @@ var __param = (undefined && undefined.__param) || function (paramIndex, decorato
 var errorKey = 'Error';
 var savedMessageKey = 'Saved';
 var NewFilterComponent = /** @class */ (function () {
-    //@Output() close = new EventEmitter();TODO
     function NewFilterComponent(dialogRef, activatedRoute, UrlsService, errorHandlingService, router, translate, toastr, dialog, dialogData) {
         this.dialogRef = dialogRef;
         this.activatedRoute = activatedRoute;
@@ -1043,9 +1147,11 @@ var NewFilterComponent = /** @class */ (function () {
         this.okBtnKey = 'Yes';
         this.saveTitleKey = 'Discard Title';
         this.saveMessageKey = 'Discard Message';
+        this.filtersArray = new _angular_core__WEBPACK_IMPORTED_MODULE_0__["EventEmitter"]();
     }
     NewFilterComponent.prototype.submit = function (data) {
-        this.createFilter(data);
+        this.filtersArray = data;
+        this.dialogRef.close(this.filtersArray);
     };
     NewFilterComponent.prototype.cancel = function () {
         this.close();
@@ -1053,17 +1159,10 @@ var NewFilterComponent = /** @class */ (function () {
     NewFilterComponent.prototype.close = function () {
         this.dialogRef.close();
     };
-    NewFilterComponent.prototype.createFilter = function (data) {
-        var _this = this;
-        this.UrlsService.postUrl(data).subscribe(function (response) {
-            _this.unsavedChanges = false;
-            _this.close();
-            _this.toastr.success(savedMessageKey);
-        }, function (error) {
-            _this.errorHandlingService.handleUiError(errorKey, error, 'url');
-            _this.validationErrors = error.formErrors;
-        });
-    };
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"])(),
+        __metadata("design:type", _angular_core__WEBPACK_IMPORTED_MODULE_0__["EventEmitter"])
+    ], NewFilterComponent.prototype, "filtersArray", void 0);
     NewFilterComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
             selector: 'new-filter',
@@ -1096,7 +1195,7 @@ var NewFilterComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<form class=\"flex-grow-1 min-height-0 display-flex flex-direction-column\" [askBeforeRefresh]=\"formGroup.dirty\" [formGroup]=\"formGroup\"\n    novalidate role=\"form\" (ngSubmit)=\"submitClicked()\" autocomplete=\"off\" inputFocus>\n\n    <div class=\"flex-grow-1 overflow-auto display-flex flex-direction-column\">\n\n        <div class=\"flex-grow-1 flex-shrink-0 display-flex flex-direction-column\">\n\n            <div class=\"mb-20 margin-top-25px\" fxFlex fxLayout=\"row\" fxLayout.lt-md=\"column\" fxLayoutGap=\"20px\">\n\n                <div [fxFlex]=\"100\" fxFlex fxLayout=\"column\" fxLayout.lt-md=\"column\">\n\n                    <div fxLayout=\"row\" fxLayout.lt-md=\"column\">\n\n                        <div [fxFlex]=\"40\" fxLayout=\"column\" class=\"margin-right-25px\">\n\n                            <mat-form-field class=\"margin-left-16px max-width-480px\">\n\n                                <mat-label>URL</mat-label>\n\n                                <input matInput type=\"text\">\n\n                            </mat-form-field>\n\n                            <mat-form-field class=\"margin-left-16px max-width-480px\">\n\n                                <mat-label>Numbers of Items</mat-label>\n\n                                <input matInput type=\"text\">\n\n                            </mat-form-field>\n\n                            <div>\n                                <h3>Filters</h3>\n                            </div>\n\n                            <!--div class=\"flex-grow-1 overflow-auto display-flex\">\n\n                                <table class=\"margin-top-10px margin-right-25px width-100pct\" mat-table [dataSource]=\"urls\">\n\n                                    <ng-container matColumnDef=\"URL\">\n                                        <th mat-header-cell *matHeaderCellDef mat-sort-header>\n                                            URL\n                                        </th>\n                                        <td mat-cell *matCellDef=\"let element\"> {{ element.url }} </td>\n                                    </ng-container>\n\n                                    <ng-container matColumnDef=\"VANITY URL\">\n                                        <th mat-header-cell *matHeaderCellDef mat-sort-header>\n                                            VANITY URL\n                                        </th>\n                                        <td mat-cell *matCellDef=\"let element\" class=\"padding-table-td\"> {{ element.vanityUrl }} </td>\n                                    </ng-container>\n\n                                    <ng-container matColumnDef=\"ACTIONS\">\n                                        <th mat-header-cell *matHeaderCellDef mat-sort-header>\n                                        </th>\n                                        <td mat-cell *matCellDef=\"let element\" class=\"min-width-80px\">\n                                            <button mat-icon-button color=\"primary\" [matTooltip]=\"Edit\" (click)=\"editUrlModalBrand(element.id)\">\n                                                <mat-icon>edit</mat-icon>\n                                            </button>\n                                            <button mat-icon-button color=\"primary\" [matTooltip]=\"Delete\" [routerLink]=\"['../delete', element.id]\">\n                                                <mat-icon>delete</mat-icon>\n                                            </button>\n                                        </td>\n                                    </ng-container>\n\n                                    <tr mat-header-row *matHeaderRowDef=\"displayedColumns\"></tr>\n                                    <tr mat-row *matRowDef=\"let row; columns: displayedColumns;\" [ngClass]=\"row.is_active ? '' : 'text-decoration-line-through'\">\n                                    </tr>\n\n                                </table>\n\n                            </div-->\n\n                            <!--div class=\"margin-right-25px flex-shrink-0 display-flex border-top-style-solid border-top-width-2px border-top-color-grey\">\n                                <span class=\"flex-grow-1\"></span>\n                                <mat-paginator [length]=\"totalLength\" [pageSizeOptions]=\"[5, 10, 20, 50, 100]\" [pageIndex]=\"\" [pageSize]=\"\" showFirstLastButtons\n                                    (page)=\"onPage()\">\n                                </mat-paginator>\n                            </div-->\n\n                            <button mat-raised-button type=\"buttom\" color=\"primary\" (click)=\"addFilterModalBrand()\">{{ 'Add Filter' | translate }}</button>\n\n                        </div>\n                        <div [fxFlex]=\"60\" class=\"margin-right-25px\">\n\n                            <mat-radio-group>\n\n                                <div class=\"display-flex padding-bottom-25px\" fxLayout=\"row\">\n\n                                    <div class=\"display-flex margin-right-25px\">\n\n                                        <mat-radio-button value=\"Article\" class=\"margin-top-10px\" matTooltip=\"{{ 'Filter' | translate }}\">Filter</mat-radio-button>\n\n                                    </div>\n\n                                    <div class=\"display-flex\">\n\n                                        <mat-radio-button value=\"Focus\" class=\"margin-top-10px\" matTooltip=\"{{ 'Manual' | translate }}\">Manual</mat-radio-button>\n\n                                    </div>\n\n                                </div>\n\n                            </mat-radio-group>\n\n                            <div [fxFlex]=\"50\" class=\"border margin-right-25px max-width-480px\">\n\n                                <images-layout-card name=\"faces\" class=\"flex-grow-1\"></images-layout-card>\n\n                            </div>\n\n                        </div>\n                    </div>\n                </div>\n            </div>\n\n        </div>\n\n    </div>\n\n    <div class=\"margin-right-25px padding-top-10px padding-bottom-10px flex-shrink-0 display-flex border-top-style-solid border-top-width-2px border-top-color-grey\">\n\n        <button mat-raised-button type=\"submit\" color=\"primary\">{{ 'Acept' | translate }}</button>\n\n    </div>\n</form>"
+module.exports = "<form class=\"flex-grow-1 min-height-0 display-flex flex-direction-column\" [askBeforeRefresh]=\"formGroup.dirty\" [formGroup]=\"formGroup\"\n    novalidate role=\"form\" (ngSubmit)=\"submitClicked()\" autocomplete=\"off\" inputFocus>\n\n    <div class=\"flex-grow-1 overflow-auto display-flex flex-direction-column\">\n\n        <div class=\"flex-grow-1 flex-shrink-0 display-flex flex-direction-column\">\n\n            <div class=\"mb-20 margin-top-25px\" fxFlex fxLayout=\"row\" fxLayout.lt-md=\"column\" fxLayoutGap=\"20px\">\n\n                <div [fxFlex]=\"100\" fxFlex fxLayout=\"column\" fxLayout.lt-md=\"column\">\n\n                    <div fxLayout=\"row\" fxLayout.lt-md=\"column\">\n\n                        <div [fxFlex]=\"40\" fxLayout=\"column\" class=\"margin-right-25px\">\n\n                            <mat-form-field class=\"margin-left-16px max-width-480px\">\n\n                                <mat-label>URL</mat-label>\n\n                                <input matInput type=\"text\">\n\n                            </mat-form-field>\n\n                            <mat-form-field class=\"margin-left-16px max-width-480px\">\n\n                                <mat-label>Numbers of Items</mat-label>\n\n                                <input matInput type=\"text\">\n\n                            </mat-form-field>\n\n                            <div>\n\n                                <h3>Filters</h3>\n                                \n                            </div>\n\n                            <!--div class=\"flex-grow-1 overflow-auto display-flex\">\n\n                                <table class=\"margin-top-10px margin-right-25px width-100pct\" mat-table [dataSource]=\"urls\">\n\n                                    <ng-container matColumnDef=\"URL\">\n                                        <th mat-header-cell *matHeaderCellDef mat-sort-header>\n                                            URL\n                                        </th>\n                                        <td mat-cell *matCellDef=\"let element\"> {{ element.url }} </td>\n                                    </ng-container>\n\n                                    <ng-container matColumnDef=\"VANITY URL\">\n                                        <th mat-header-cell *matHeaderCellDef mat-sort-header>\n                                            VANITY URL\n                                        </th>\n                                        <td mat-cell *matCellDef=\"let element\" class=\"padding-table-td\"> {{ element.vanityUrl }} </td>\n                                    </ng-container>\n\n                                    <ng-container matColumnDef=\"ACTIONS\">\n                                        <th mat-header-cell *matHeaderCellDef mat-sort-header>\n                                        </th>\n                                        <td mat-cell *matCellDef=\"let element\" class=\"min-width-80px\">\n                                            <button mat-icon-button color=\"primary\" [matTooltip]=\"Edit\" (click)=\"editUrlModalBrand(element.id)\">\n                                                <mat-icon>edit</mat-icon>\n                                            </button>\n                                            <button mat-icon-button color=\"primary\" [matTooltip]=\"Delete\" [routerLink]=\"['../delete', element.id]\">\n                                                <mat-icon>delete</mat-icon>\n                                            </button>\n                                        </td>\n                                    </ng-container>\n\n                                    <tr mat-header-row *matHeaderRowDef=\"displayedColumns\"></tr>\n                                    <tr mat-row *matRowDef=\"let row; columns: displayedColumns;\" [ngClass]=\"row.is_active ? '' : 'text-decoration-line-through'\">\n                                    </tr>\n\n                                </table>\n\n                            </div-->\n\n                            <!--div class=\"margin-right-25px flex-shrink-0 display-flex border-top-style-solid border-top-width-2px border-top-color-grey\">\n                                <span class=\"flex-grow-1\"></span>\n                                <mat-paginator [length]=\"totalLength\" [pageSizeOptions]=\"[5, 10, 20, 50, 100]\" [pageIndex]=\"\" [pageSize]=\"\" showFirstLastButtons\n                                    (page)=\"onPage()\">\n                                </mat-paginator>\n                            </div-->\n\n                            <button mat-raised-button type=\"buttom\" color=\"primary\" (click)=\"addFilterModalBrand()\">{{ 'Add Filter' | translate }}</button>\n\n                        </div>\n\n                        <div [fxFlex]=\"60\" class=\"margin-right-25px\">\n\n                            <mat-radio-group>\n\n                                <div class=\"display-flex padding-bottom-25px\" fxLayout=\"row\">\n\n                                    <div class=\"display-flex margin-right-25px\">\n\n                                        <mat-radio-button value=\"Filter\" class=\"margin-top-10px\" matTooltip=\"{{ 'Filter' | translate }}\">Filter</mat-radio-button>\n\n                                    </div>\n\n                                    <div class=\"display-flex\">\n\n                                        <mat-radio-button value=\"Manual\" class=\"margin-top-10px\" matTooltip=\"{{ 'Manual' | translate }}\">Manual</mat-radio-button>\n\n                                    </div>\n\n                                </div>\n\n                            </mat-radio-group>\n\n                            <div [fxFlex]=\"50\" class=\"border margin-right-25px max-width-480px\">\n\n                                <images-layout-card name=\"faces\" class=\"flex-grow-1\"></images-layout-card>\n\n                            </div>\n\n                        </div>\n\n                    </div>\n\n                </div>\n\n            </div>\n\n        </div>\n\n    </div>\n\n    <div class=\"margin-right-25px padding-top-10px padding-bottom-10px flex-shrink-0 display-flex border-top-style-solid border-top-width-2px border-top-color-grey\">\n\n        <button mat-raised-button type=\"submit\" color=\"primary\">{{ 'Acept' | translate }}</button>\n\n    </div>\n</form>\n{{filtersArray | json}}"
 
 /***/ }),
 
@@ -1151,7 +1250,6 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 //
 
 
-//
 
 
 var SliderFormComponent = /** @class */ (function (_super) {
@@ -1196,21 +1294,50 @@ var SliderFormComponent = /** @class */ (function (_super) {
         }
     };
     SliderFormComponent.prototype.addFilterModalBrand = function () {
+        var _this = this;
         this.modalRef = this.dialog.open(_new_filter_new_filter_component__WEBPACK_IMPORTED_MODULE_5__["NewFilterComponent"], {
-            height: '50%',
-            width: '50%',
+            height: '80%',
             data: {
-                filters: this.filters
+                filters: this.filters,
+                brands: this.brands,
+                categories: this.categories,
+                collections: this.collections,
+                shops: this.shops,
+                styles: this.styles,
             }
         });
-        /*this.modalRef.afterClosed().subscribe(() => {
-            this.loadPage();
-        });*/
+        this.modalRef.afterClosed().subscribe(function (result) {
+            _this.filtersArray = result;
+        });
     };
     __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])(),
         __metadata("design:type", Object)
     ], SliderFormComponent.prototype, "filters", void 0);
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])(),
+        __metadata("design:type", Array)
+    ], SliderFormComponent.prototype, "brands", void 0);
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])(),
+        __metadata("design:type", Array)
+    ], SliderFormComponent.prototype, "categories", void 0);
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])(),
+        __metadata("design:type", Array)
+    ], SliderFormComponent.prototype, "collections", void 0);
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])(),
+        __metadata("design:type", Array)
+    ], SliderFormComponent.prototype, "releases", void 0);
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])(),
+        __metadata("design:type", Array)
+    ], SliderFormComponent.prototype, "shops", void 0);
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])(),
+        __metadata("design:type", Array)
+    ], SliderFormComponent.prototype, "styles", void 0);
     SliderFormComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
             selector: 'slider-form',
@@ -1233,13 +1360,14 @@ var SliderFormComponent = /** @class */ (function (_super) {
 /*!********************************************************************!*\
   !*** ./src/app/ms-back-office/modules/ms-layout/models/filters.ts ***!
   \********************************************************************/
-/*! exports provided: Filter, RELEASES */
+/*! exports provided: Filter, RELEASES, FilterItem */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Filter", function() { return Filter; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RELEASES", function() { return RELEASES; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "FilterItem", function() { return FilterItem; });
 var Filter = /** @class */ (function () {
     function Filter() {
     }
@@ -1252,6 +1380,12 @@ var RELEASES = [
     { id: 'gender', name: 'Gender' },
     { id: 'sku', name: 'SKU' },
 ];
+var FilterItem = /** @class */ (function () {
+    function FilterItem() {
+    }
+    return FilterItem;
+}());
+
 
 
 /***/ }),
@@ -1305,10 +1439,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _config_services_config_resolve_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../config/services/config-resolve.service */ "./src/app/config/services/config-resolve.service.ts");
 /* harmony import */ var _routing_services_id_resolve_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../routing/services/id-resolve.service */ "./src/app/routing/services/id-resolve.service.ts");
 /* harmony import */ var _ms_brands_services_brands_resolve_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../ms-brands/services/brands-resolve.service */ "./src/app/ms-back-office/modules/ms-brands/services/brands-resolve.service.ts");
-/* harmony import */ var _ms_urls_services_urls_resolve_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../ms-urls/services/urls-resolve.service */ "./src/app/ms-back-office/modules/ms-urls/services/urls-resolve.service.ts");
-/* harmony import */ var _components_delete_layout_delete_layout_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./components/delete-layout/delete-layout.component */ "./src/app/ms-back-office/modules/ms-layout/components/delete-layout/delete-layout.component.ts");
-/* harmony import */ var _components_edit_url_edit_url_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./components/edit-url/edit-url.component */ "./src/app/ms-back-office/modules/ms-layout/components/edit-url/edit-url.component.ts");
-/* harmony import */ var _components_layout_layout_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./components/layout/layout.component */ "./src/app/ms-back-office/modules/ms-layout/components/layout/layout.component.ts");
+/* harmony import */ var _ms_categories_services_categories_resolve_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../ms-categories/services/categories-resolve.service */ "./src/app/ms-back-office/modules/ms-categories/services/categories-resolve.service.ts");
+/* harmony import */ var _ms_collections_services_collections_resolve_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../ms-collections/services/collections-resolve.service */ "./src/app/ms-back-office/modules/ms-collections/services/collections-resolve.service.ts");
+/* harmony import */ var _ms_shops_services_shops_resolve_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../ms-shops/services/shops-resolve.service */ "./src/app/ms-back-office/modules/ms-shops/services/shops-resolve.service.ts");
+/* harmony import */ var _ms_style_services_styles_resolve_service__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../ms-style/services/styles-resolve.service */ "./src/app/ms-back-office/modules/ms-style/services/styles-resolve.service.ts");
+/* harmony import */ var _ms_urls_services_urls_resolve_service__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../ms-urls/services/urls-resolve.service */ "./src/app/ms-back-office/modules/ms-urls/services/urls-resolve.service.ts");
+/* harmony import */ var _components_delete_layout_delete_layout_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./components/delete-layout/delete-layout.component */ "./src/app/ms-back-office/modules/ms-layout/components/delete-layout/delete-layout.component.ts");
+/* harmony import */ var _components_edit_url_edit_url_component__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./components/edit-url/edit-url.component */ "./src/app/ms-back-office/modules/ms-layout/components/edit-url/edit-url.component.ts");
+/* harmony import */ var _components_layout_layout_component__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./components/layout/layout.component */ "./src/app/ms-back-office/modules/ms-layout/components/layout/layout.component.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1323,6 +1461,10 @@ var __decorate = (undefined && undefined.__decorate) || function (decorators, ta
 //
 
 
+
+
+
+
 //
 
 
@@ -1331,24 +1473,29 @@ var __decorate = (undefined && undefined.__decorate) || function (decorators, ta
 var routes = [
     {
         path: '',
-        component: _components_layout_layout_component__WEBPACK_IMPORTED_MODULE_8__["LayoutComponent"],
+        component: _components_layout_layout_component__WEBPACK_IMPORTED_MODULE_12__["LayoutComponent"],
         resolve: {
-            config: _config_services_config_resolve_service__WEBPACK_IMPORTED_MODULE_2__["ConfigResolveService"]
+            brands: _ms_brands_services_brands_resolve_service__WEBPACK_IMPORTED_MODULE_4__["BrandsResolveService"],
+            categories: _ms_categories_services_categories_resolve_service__WEBPACK_IMPORTED_MODULE_5__["CategoriesResolveService"],
+            config: _config_services_config_resolve_service__WEBPACK_IMPORTED_MODULE_2__["ConfigResolveService"],
+            collections: _ms_collections_services_collections_resolve_service__WEBPACK_IMPORTED_MODULE_6__["CollectionsResolveService"],
+            shops: _ms_shops_services_shops_resolve_service__WEBPACK_IMPORTED_MODULE_7__["ShopsResolveService"],
+            styles: _ms_style_services_styles_resolve_service__WEBPACK_IMPORTED_MODULE_8__["StylesResolveService"],
         }
     },
     {
         path: 'create',
-        component: _components_layout_layout_component__WEBPACK_IMPORTED_MODULE_8__["LayoutComponent"],
+        component: _components_layout_layout_component__WEBPACK_IMPORTED_MODULE_12__["LayoutComponent"],
         resolve: {
             brands: _ms_brands_services_brands_resolve_service__WEBPACK_IMPORTED_MODULE_4__["BrandsResolveService"],
             config: _config_services_config_resolve_service__WEBPACK_IMPORTED_MODULE_2__["ConfigResolveService"],
-            urls: _ms_urls_services_urls_resolve_service__WEBPACK_IMPORTED_MODULE_5__["UrlsResolveService"]
+            urls: _ms_urls_services_urls_resolve_service__WEBPACK_IMPORTED_MODULE_9__["UrlsResolveService"]
         },
         data: { closeRouteCommand: ['../'] }
     },
     {
         path: 'edit/:id',
-        component: _components_edit_url_edit_url_component__WEBPACK_IMPORTED_MODULE_7__["EditUrlComponent"],
+        component: _components_edit_url_edit_url_component__WEBPACK_IMPORTED_MODULE_11__["EditUrlComponent"],
         //canActivate: [AuthGuardService],
         resolve: {
             brands: _ms_brands_services_brands_resolve_service__WEBPACK_IMPORTED_MODULE_4__["BrandsResolveService"],
@@ -1359,7 +1506,7 @@ var routes = [
     },
     {
         path: 'delete/:id',
-        component: _components_delete_layout_delete_layout_component__WEBPACK_IMPORTED_MODULE_6__["DeleteLayoutComponent"],
+        component: _components_delete_layout_delete_layout_component__WEBPACK_IMPORTED_MODULE_10__["DeleteLayoutComponent"],
         //canActivate: [AuthGuardService],
         resolve: {
             config: _config_services_config_resolve_service__WEBPACK_IMPORTED_MODULE_2__["ConfigResolveService"],
@@ -1470,6 +1617,7 @@ var MsLayoutModule = /** @class */ (function () {
                 _angular_material_bottom_sheet__WEBPACK_IMPORTED_MODULE_4__["MatBottomSheetModule"],
                 _angular_material_button__WEBPACK_IMPORTED_MODULE_5__["MatButtonModule"],
                 _angular_material_card__WEBPACK_IMPORTED_MODULE_12__["MatCardModule"],
+                _angular_material__WEBPACK_IMPORTED_MODULE_6__["MatCheckboxModule"],
                 _angular_material__WEBPACK_IMPORTED_MODULE_6__["MatDialogModule"],
                 _angular_material__WEBPACK_IMPORTED_MODULE_6__["MatFormFieldModule"],
                 _angular_material_icon__WEBPACK_IMPORTED_MODULE_7__["MatIconModule"],
@@ -1643,6 +1791,271 @@ var LayoutService = /** @class */ (function () {
             _error_handling_services_error_handling_http_service__WEBPACK_IMPORTED_MODULE_1__["ErrorHandlingHttpService"]])
     ], LayoutService);
     return LayoutService;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/ms-back-office/modules/ms-releases/models/color.ts":
+/*!********************************************************************!*\
+  !*** ./src/app/ms-back-office/modules/ms-releases/models/color.ts ***!
+  \********************************************************************/
+/*! exports provided: Color, COLORS */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Color", function() { return Color; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "COLORS", function() { return COLORS; });
+var Color = /** @class */ (function () {
+    function Color() {
+    }
+    return Color;
+}());
+
+;
+var COLORS = [
+    { id: 'black', name: 'black', color: '' },
+    { id: 'blue', name: 'blue', color: '' },
+    { id: 'green', name: 'green', color: '' },
+    { id: 'orange', name: 'orange', color: '' },
+    { id: 'red', name: 'red', color: '' },
+    { id: 'violet', name: 'violet', color: '' },
+    { id: 'white', name: 'white', color: '' },
+    { id: 'yellow', name: 'yellow', color: '' }
+];
+
+
+/***/ }),
+
+/***/ "./src/app/ms-back-office/modules/ms-releases/models/gender.ts":
+/*!*********************************************************************!*\
+  !*** ./src/app/ms-back-office/modules/ms-releases/models/gender.ts ***!
+  \*********************************************************************/
+/*! exports provided: Gender, GENDERS */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Gender", function() { return Gender; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "GENDERS", function() { return GENDERS; });
+var Gender = /** @class */ (function () {
+    function Gender() {
+    }
+    return Gender;
+}());
+
+;
+var GENDERS = [
+    { id: 'm', name: 'Male' },
+    { id: 'f', name: 'Female' },
+    { id: 'c', name: 'Children' }
+];
+
+
+/***/ }),
+
+/***/ "./src/app/ms-back-office/modules/ms-style/services/styles-resolve.service.ts":
+/*!************************************************************************************!*\
+  !*** ./src/app/ms-back-office/modules/ms-style/services/styles-resolve.service.ts ***!
+  \************************************************************************************/
+/*! exports provided: StylesResolveService */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "StylesResolveService", function() { return StylesResolveService; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! rxjs/operators */ "./node_modules/rxjs/_esm5/operators/index.js");
+/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! rxjs */ "./node_modules/rxjs/_esm5/index.js");
+/* harmony import */ var _ngx_translate_core__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @ngx-translate/core */ "./node_modules/@ngx-translate/core/fesm5/ngx-translate-core.js");
+/* harmony import */ var _error_handling_services_error_handling_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../../error-handling/services/error-handling.service */ "./src/app/error-handling/services/error-handling.service.ts");
+/* harmony import */ var _styles_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./styles.service */ "./src/app/ms-back-office/modules/ms-style/services/styles.service.ts");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+//
+
+
+
+//
+
+
+//import { setTranslationsstyles.service
+var errorKey = 'Error';
+var StylesResolveService = /** @class */ (function () {
+    function StylesResolveService(stylesService, translate, errorHandlingService) {
+        this.stylesService = stylesService;
+        this.translate = translate;
+        this.errorHandlingService = errorHandlingService;
+        //setTranslations(this.translate, TRANSLATIONS);
+    }
+    StylesResolveService.prototype.resolve = function (route) {
+        var _this = this;
+        return this.stylesService.getAllStyles().pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_1__["map"])(function (brands) { return brands; }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_1__["catchError"])(function (err) {
+            _this.errorHandlingService.handleUiError(errorKey, err);
+            return Object(rxjs__WEBPACK_IMPORTED_MODULE_2__["of"])(null);
+        }));
+    };
+    StylesResolveService = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"])({
+            providedIn: 'root'
+        }),
+        __metadata("design:paramtypes", [_styles_service__WEBPACK_IMPORTED_MODULE_5__["StylesService"],
+            _ngx_translate_core__WEBPACK_IMPORTED_MODULE_3__["TranslateService"],
+            _error_handling_services_error_handling_service__WEBPACK_IMPORTED_MODULE_4__["ErrorHandlingService"]])
+    ], StylesResolveService);
+    return StylesResolveService;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/ms-back-office/modules/ms-style/services/styles.service.ts":
+/*!****************************************************************************!*\
+  !*** ./src/app/ms-back-office/modules/ms-style/services/styles.service.ts ***!
+  \****************************************************************************/
+/*! exports provided: ASCENDING, StylesService */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ASCENDING", function() { return ASCENDING; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "StylesService", function() { return StylesService; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! rxjs */ "./node_modules/rxjs/_esm5/index.js");
+/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! rxjs/operators */ "./node_modules/rxjs/_esm5/operators/index.js");
+/* harmony import */ var _config_services_config_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../config/services/config.service */ "./src/app/config/services/config.service.ts");
+/* harmony import */ var _error_handling_services_error_handling_http_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../../error-handling/services/error-handling-http.service */ "./src/app/error-handling/services/error-handling-http.service.ts");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+//
+
+
+//
+
+
+//import { User, UsersListResponse, UsersListItem } from '../models/user';
+var ASCENDING = 'asc';
+var StylesService = /** @class */ (function () {
+    function StylesService(configService, http) {
+        this.configService = configService;
+        this.http = http;
+        //selectedStyles = new BehaviorSubject<Array<UsersListItem>>([]);TODO
+        this.previousFilter = {};
+        this.previousSortColumn = 'updatedAt';
+        this.previousSortDirection = 'desc';
+        this.previousPageIndex = 0;
+        this.previousPageSize = 10;
+        this.stylesList = new rxjs__WEBPACK_IMPORTED_MODULE_1__["BehaviorSubject"]({ dataCount: 0, data: [] });
+        this.apiEndpoint = this.configService.config.apiConfigs.styles.apiEndpoint;
+    }
+    StylesService.prototype.getStyles = function (filter, sortColumn, sortDirection, pageIndex, pageSize) {
+        this.previousFilter = filter;
+        this.previousSortColumn = sortColumn;
+        this.previousSortDirection = sortDirection;
+        this.previousPageIndex = pageIndex;
+        this.previousPageSize = pageSize;
+        var queryParams = this.formatQueryParams(filter, sortColumn, sortDirection, pageIndex, pageSize);
+        return this.http.get(this.apiEndpoint + queryParams);
+    };
+    StylesService.prototype.reloadStyles = function () {
+        console.log("reload");
+        return this.getStyles(this.previousFilter, this.previousSortColumn, this.previousSortDirection, this.previousPageIndex, this.previousPageSize);
+    };
+    StylesService.prototype.postStyle = function (data) {
+        return this.http.post(this.apiEndpoint, JSON.stringify(data));
+    };
+    StylesService.prototype.postStyleLinkedShops = function (id, data) {
+        return this.http.post(this.apiEndpoint + id + '/shops/', JSON.stringify(data));
+    };
+    StylesService.prototype.getStyleLinkedShops = function (id) {
+        return this.http.get(this.apiEndpoint + id + '/shops/');
+    };
+    StylesService.prototype.getStyle = function (id) {
+        return this.http.get(this.apiEndpoint + id + '/');
+    };
+    StylesService.prototype.putStyle = function (data) {
+        return this.http.put(this.apiEndpoint + data.id + '/', JSON.stringify(data));
+    };
+    StylesService.prototype.deleteStyle = function (id) {
+        return this.http.delete(this.apiEndpoint + id + '/');
+    };
+    StylesService.prototype.getPopularStyle = function (brandId) {
+        return this.http.get(this.apiEndpoint + 'popular/?brandId=' + brandId);
+    };
+    StylesService.prototype.formatQueryParams = function (filter, sortColumn, sortDirection, pageIndex, pageSize) {
+        var queryParams = '';
+        if (sortColumn) {
+            var ordering = '';
+            if (sortDirection === 'desc') {
+                ordering = '-';
+            }
+            ordering += sortColumn;
+            queryParams += queryParams.length > 0 ? '&' : '?';
+            queryParams += "ordering=" + ordering;
+        }
+        if (pageIndex !== undefined) {
+            queryParams += queryParams.length > 0 ? '&' : '?';
+            queryParams += "offset=" + pageIndex * pageSize;
+        }
+        if (pageSize !== undefined) {
+            queryParams += queryParams.length > 0 ? '&' : '?';
+            queryParams += "limit=" + pageSize;
+        }
+        if (filter.sku && filter.sku.length > 0) {
+            queryParams += queryParams.length > 0 ? '&' : '?';
+            queryParams += "sku=" + filter.sku;
+        }
+        if (filter.name && filter.name.length > 0) {
+            queryParams += queryParams.length > 0 ? '&' : '?';
+            queryParams += "name=" + filter.name;
+        }
+        if (filter.brand && filter.brand.length > 0) {
+            queryParams += queryParams.length > 0 ? '&' : '?';
+            queryParams += "brand=" + filter.brand;
+        }
+        if (filter.collection && filter.collection.length > 0) {
+            queryParams += queryParams.length > 0 ? '&' : '?';
+            queryParams += "collection=" + filter.collection;
+        }
+        if (filter.category && filter.category.length > 0) {
+            queryParams += queryParams.length > 0 ? '&' : '?';
+            queryParams += "category=" + filter.category;
+        }
+        return queryParams;
+    };
+    StylesService.prototype.getAllStyles = function () {
+        return this.http.get(this.apiEndpoint)
+            .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_2__["map"])(function (response) {
+            return response.data;
+        }));
+    };
+    StylesService = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"])({
+            providedIn: 'root'
+        }),
+        __metadata("design:paramtypes", [_config_services_config_service__WEBPACK_IMPORTED_MODULE_3__["ConfigService"],
+            _error_handling_services_error_handling_http_service__WEBPACK_IMPORTED_MODULE_4__["ErrorHandlingHttpService"]])
+    ], StylesService);
+    return StylesService;
 }());
 
 
@@ -1834,44 +2247,6 @@ var UrlsService = /** @class */ (function () {
             _error_handling_services_error_handling_http_service__WEBPACK_IMPORTED_MODULE_1__["ErrorHandlingHttpService"]])
     ], UrlsService);
     return UrlsService;
-}());
-
-
-
-/***/ }),
-
-/***/ "./src/app/routing/services/id-resolve.service.ts":
-/*!********************************************************!*\
-  !*** ./src/app/routing/services/id-resolve.service.ts ***!
-  \********************************************************/
-/*! exports provided: IdResolveService */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "IdResolveService", function() { return IdResolveService; });
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
-/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! rxjs */ "./node_modules/rxjs/_esm5/index.js");
-var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-
-
-var IdResolveService = /** @class */ (function () {
-    function IdResolveService() {
-    }
-    IdResolveService.prototype.resolve = function (route) {
-        return Object(rxjs__WEBPACK_IMPORTED_MODULE_1__["of"])(route.paramMap.get('id'));
-    };
-    IdResolveService = __decorate([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"])({
-            providedIn: 'root'
-        })
-    ], IdResolveService);
-    return IdResolveService;
 }());
 
 
