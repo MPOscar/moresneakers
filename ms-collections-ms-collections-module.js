@@ -396,8 +396,8 @@ var CollectionFormComponent = /** @class */ (function (_super) {
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
             selector: 'collection-form',
             template: __webpack_require__(/*! ./collection-form.component.html */ "./src/app/ms-back-office/modules/ms-collections/components/collection-form/collection-form.component.html"),
-            styles: [__webpack_require__(/*! ./collection-form.component.scss */ "./src/app/ms-back-office/modules/ms-collections/components/collection-form/collection-form.component.scss")],
-            changeDetection: _angular_core__WEBPACK_IMPORTED_MODULE_0__["ChangeDetectionStrategy"].OnPush
+            changeDetection: _angular_core__WEBPACK_IMPORTED_MODULE_0__["ChangeDetectionStrategy"].OnPush,
+            styles: [__webpack_require__(/*! ./collection-form.component.scss */ "./src/app/ms-back-office/modules/ms-collections/components/collection-form/collection-form.component.scss")]
         }),
         __metadata("design:paramtypes", [_angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormBuilder"],
             _ngx_translate_core__WEBPACK_IMPORTED_MODULE_2__["TranslateService"]])
@@ -987,8 +987,8 @@ var EditCollectionFormComponent = /** @class */ (function (_super) {
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
             selector: 'edit-collection-form',
             template: __webpack_require__(/*! ./edit-collection-form.component.html */ "./src/app/ms-back-office/modules/ms-collections/components/edit-collection-form/edit-collection-form.component.html"),
-            styles: [__webpack_require__(/*! ./edit-collection-form.component.scss */ "./src/app/ms-back-office/modules/ms-collections/components/edit-collection-form/edit-collection-form.component.scss")],
-            changeDetection: _angular_core__WEBPACK_IMPORTED_MODULE_0__["ChangeDetectionStrategy"].OnPush
+            changeDetection: _angular_core__WEBPACK_IMPORTED_MODULE_0__["ChangeDetectionStrategy"].OnPush,
+            styles: [__webpack_require__(/*! ./edit-collection-form.component.scss */ "./src/app/ms-back-office/modules/ms-collections/components/edit-collection-form/edit-collection-form.component.scss")]
         }),
         __metadata("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"],
             _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormBuilder"],
@@ -1597,8 +1597,8 @@ var SeeCollectionComponent = /** @class */ (function (_super) {
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
             selector: 'see-collection',
             template: __webpack_require__(/*! ./see-collection.component.html */ "./src/app/ms-back-office/modules/ms-collections/components/see-collection/see-collection.component.html"),
-            styles: [__webpack_require__(/*! ./see-collection.component.scss */ "./src/app/ms-back-office/modules/ms-collections/components/see-collection/see-collection.component.scss")],
-            changeDetection: _angular_core__WEBPACK_IMPORTED_MODULE_0__["ChangeDetectionStrategy"].OnPush
+            changeDetection: _angular_core__WEBPACK_IMPORTED_MODULE_0__["ChangeDetectionStrategy"].OnPush,
+            styles: [__webpack_require__(/*! ./see-collection.component.scss */ "./src/app/ms-back-office/modules/ms-collections/components/see-collection/see-collection.component.scss")]
         }),
         __param(8, Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Inject"])(_angular_material__WEBPACK_IMPORTED_MODULE_3__["MAT_DIALOG_DATA"])),
         __metadata("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"],

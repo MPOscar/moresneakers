@@ -1,5 +1,879 @@
 (window["webpackJsonp"] = window["webpackJsonp"] || []).push([["ms-style-ms-style-module"],{
 
+/***/ "./node_modules/primeng/components/common/treedragdropservice.js":
+/*!***********************************************************************!*\
+  !*** ./node_modules/primeng/components/common/treedragdropservice.js ***!
+  \***********************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+var core_1 = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+var rxjs_1 = __webpack_require__(/*! rxjs */ "./node_modules/rxjs/_esm5/index.js");
+var TreeDragDropService = /** @class */ (function () {
+    function TreeDragDropService() {
+        this.dragStartSource = new rxjs_1.Subject();
+        this.dragStopSource = new rxjs_1.Subject();
+        this.dragStart$ = this.dragStartSource.asObservable();
+        this.dragStop$ = this.dragStopSource.asObservable();
+    }
+    TreeDragDropService.prototype.startDrag = function (event) {
+        this.dragStartSource.next(event);
+    };
+    TreeDragDropService.prototype.stopDrag = function (event) {
+        this.dragStopSource.next(event);
+    };
+    TreeDragDropService = __decorate([
+        core_1.Injectable()
+    ], TreeDragDropService);
+    return TreeDragDropService;
+}());
+exports.TreeDragDropService = TreeDragDropService;
+//# sourceMappingURL=treedragdropservice.js.map
+
+/***/ }),
+
+/***/ "./node_modules/primeng/components/tree/tree.js":
+/*!******************************************************!*\
+  !*** ./node_modules/primeng/components/tree/tree.js ***!
+  \******************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+var __param = (this && this.__param) || function (paramIndex, decorator) {
+    return function (target, key) { decorator(target, key, paramIndex); }
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+var core_1 = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+var core_2 = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+var common_1 = __webpack_require__(/*! @angular/common */ "./node_modules/@angular/common/fesm5/common.js");
+var shared_1 = __webpack_require__(/*! ../common/shared */ "./node_modules/primeng/components/common/shared.js");
+var shared_2 = __webpack_require__(/*! ../common/shared */ "./node_modules/primeng/components/common/shared.js");
+var treedragdropservice_1 = __webpack_require__(/*! ../common/treedragdropservice */ "./node_modules/primeng/components/common/treedragdropservice.js");
+var domhandler_1 = __webpack_require__(/*! ../dom/domhandler */ "./node_modules/primeng/components/dom/domhandler.js");
+var UITreeNode = /** @class */ (function () {
+    function UITreeNode(tree, domHandler) {
+        this.tree = tree;
+        this.domHandler = domHandler;
+    }
+    UITreeNode_1 = UITreeNode;
+    UITreeNode.prototype.ngOnInit = function () {
+        this.node.parent = this.parentNode;
+    };
+    UITreeNode.prototype.getIcon = function () {
+        var icon;
+        if (this.node.icon)
+            icon = this.node.icon;
+        else
+            icon = this.node.expanded && this.node.children && this.node.children.length ? this.node.expandedIcon : this.node.collapsedIcon;
+        return UITreeNode_1.ICON_CLASS + ' ' + icon;
+    };
+    UITreeNode.prototype.isLeaf = function () {
+        return this.node.leaf == false ? false : !(this.node.children && this.node.children.length);
+    };
+    UITreeNode.prototype.toggle = function (event) {
+        if (this.node.expanded)
+            this.collapse(event);
+        else
+            this.expand(event);
+    };
+    UITreeNode.prototype.expand = function (event) {
+        this.node.expanded = true;
+        this.tree.onNodeExpand.emit({ originalEvent: event, node: this.node });
+    };
+    UITreeNode.prototype.collapse = function (event) {
+        this.node.expanded = false;
+        this.tree.onNodeCollapse.emit({ originalEvent: event, node: this.node });
+    };
+    UITreeNode.prototype.onNodeClick = function (event) {
+        this.tree.onNodeClick(event, this.node);
+    };
+    UITreeNode.prototype.onNodeTouchEnd = function () {
+        this.tree.onNodeTouchEnd();
+    };
+    UITreeNode.prototype.onNodeRightClick = function (event) {
+        this.tree.onNodeRightClick(event, this.node);
+    };
+    UITreeNode.prototype.isSelected = function () {
+        return this.tree.isSelected(this.node);
+    };
+    UITreeNode.prototype.onDropPoint = function (event, position) {
+        event.preventDefault();
+        var dragNode = this.tree.dragNode;
+        var dragNodeIndex = this.tree.dragNodeIndex;
+        var dragNodeScope = this.tree.dragNodeScope;
+        var isValidDropPointIndex = this.tree.dragNodeTree === this.tree ? (position === 1 || dragNodeIndex !== this.index - 1) : true;
+        if (this.tree.allowDrop(dragNode, this.node, dragNodeScope) && isValidDropPointIndex) {
+            var newNodeList = this.node.parent ? this.node.parent.children : this.tree.value;
+            this.tree.dragNodeSubNodes.splice(dragNodeIndex, 1);
+            var dropIndex = this.index;
+            if (position < 0) {
+                dropIndex = (this.tree.dragNodeSubNodes === newNodeList) ? ((this.tree.dragNodeIndex > this.index) ? this.index : this.index - 1) : this.index;
+                newNodeList.splice(dropIndex, 0, dragNode);
+            }
+            else {
+                dropIndex = newNodeList.length;
+                newNodeList.push(dragNode);
+            }
+            this.tree.dragDropService.stopDrag({
+                node: dragNode,
+                subNodes: this.node.parent ? this.node.parent.children : this.tree.value,
+                index: dragNodeIndex
+            });
+            this.tree.onNodeDrop.emit({
+                originalEvent: event,
+                dragNode: dragNode,
+                dropNode: this.node,
+                dropIndex: dropIndex
+            });
+        }
+        this.draghoverPrev = false;
+        this.draghoverNext = false;
+    };
+    UITreeNode.prototype.onDropPointDragOver = function (event) {
+        event.dataTransfer.dropEffect = 'move';
+        event.preventDefault();
+    };
+    UITreeNode.prototype.onDropPointDragEnter = function (event, position) {
+        if (this.tree.allowDrop(this.tree.dragNode, this.node, this.tree.dragNodeScope)) {
+            if (position < 0)
+                this.draghoverPrev = true;
+            else
+                this.draghoverNext = true;
+        }
+    };
+    UITreeNode.prototype.onDropPointDragLeave = function (event) {
+        this.draghoverPrev = false;
+        this.draghoverNext = false;
+    };
+    UITreeNode.prototype.onDragStart = function (event) {
+        if (this.tree.draggableNodes && this.node.draggable !== false) {
+            event.dataTransfer.setData("text", "data");
+            this.tree.dragDropService.startDrag({
+                tree: this,
+                node: this.node,
+                subNodes: this.node.parent ? this.node.parent.children : this.tree.value,
+                index: this.index,
+                scope: this.tree.draggableScope
+            });
+        }
+        else {
+            event.preventDefault();
+        }
+    };
+    UITreeNode.prototype.onDragStop = function (event) {
+        this.tree.dragDropService.stopDrag({
+            node: this.node,
+            subNodes: this.node.parent ? this.node.parent.children : this.tree.value,
+            index: this.index
+        });
+    };
+    UITreeNode.prototype.onDropNodeDragOver = function (event) {
+        event.dataTransfer.dropEffect = 'move';
+        if (this.tree.droppableNodes) {
+            event.preventDefault();
+            event.stopPropagation();
+        }
+    };
+    UITreeNode.prototype.onDropNode = function (event) {
+        if (this.tree.droppableNodes && this.node.droppable !== false) {
+            event.preventDefault();
+            event.stopPropagation();
+            var dragNode = this.tree.dragNode;
+            if (this.tree.allowDrop(dragNode, this.node, this.tree.dragNodeScope)) {
+                var dragNodeIndex = this.tree.dragNodeIndex;
+                this.tree.dragNodeSubNodes.splice(dragNodeIndex, 1);
+                if (this.node.children)
+                    this.node.children.push(dragNode);
+                else
+                    this.node.children = [dragNode];
+                this.tree.dragDropService.stopDrag({
+                    node: dragNode,
+                    subNodes: this.node.parent ? this.node.parent.children : this.tree.value,
+                    index: this.tree.dragNodeIndex
+                });
+                this.tree.onNodeDrop.emit({
+                    originalEvent: event,
+                    dragNode: dragNode,
+                    dropNode: this.node,
+                    index: this.index
+                });
+            }
+        }
+        this.draghoverNode = false;
+    };
+    UITreeNode.prototype.onDropNodeDragEnter = function (event) {
+        if (this.tree.droppableNodes && this.node.droppable !== false && this.tree.allowDrop(this.tree.dragNode, this.node, this.tree.dragNodeScope)) {
+            this.draghoverNode = true;
+        }
+    };
+    UITreeNode.prototype.onDropNodeDragLeave = function (event) {
+        if (this.tree.droppableNodes) {
+            var rect = event.currentTarget.getBoundingClientRect();
+            if (event.x > rect.left + rect.width || event.x < rect.left || event.y >= Math.floor(rect.top + rect.height) || event.y < rect.top) {
+                this.draghoverNode = false;
+            }
+        }
+    };
+    UITreeNode.prototype.onKeyDown = function (event) {
+        var nodeElement = event.target.parentElement.parentElement;
+        switch (event.which) {
+            //down arrow
+            case 40:
+                var listElement = nodeElement.children[0].children[1];
+                if (listElement) {
+                    this.focusNode(listElement.children[0]);
+                }
+                else {
+                    var nextNodeElement = nodeElement.nextElementSibling;
+                    if (nextNodeElement) {
+                        this.focusNode(nextNodeElement);
+                    }
+                    else {
+                        var nextSiblingAncestor = this.findNextSiblingOfAncestor(nodeElement);
+                        if (nextSiblingAncestor) {
+                            this.focusNode(nextSiblingAncestor);
+                        }
+                    }
+                }
+                event.preventDefault();
+                break;
+            //up arrow
+            case 38:
+                if (nodeElement.previousElementSibling) {
+                    this.focusNode(this.findLastVisibleDescendant(nodeElement.previousElementSibling));
+                }
+                else {
+                    var parentNodeElement = this.getParentNodeElement(nodeElement);
+                    if (parentNodeElement) {
+                        this.focusNode(parentNodeElement);
+                    }
+                }
+                event.preventDefault();
+                break;
+            //right arrow
+            case 39:
+                if (!this.node.expanded) {
+                    this.expand(event);
+                }
+                event.preventDefault();
+                break;
+            //left arrow
+            case 37:
+                if (this.node.expanded) {
+                    this.collapse(event);
+                }
+                event.preventDefault();
+                break;
+            case 13:
+                this.tree.onNodeClick(event, this.node);
+                event.preventDefault();
+                break;
+            default:
+                //no op
+                break;
+        }
+    };
+    UITreeNode.prototype.findNextSiblingOfAncestor = function (nodeElement) {
+        var parentNodeElement = this.getParentNodeElement(nodeElement);
+        if (parentNodeElement) {
+            if (parentNodeElement.nextElementSibling)
+                return parentNodeElement.nextElementSibling;
+            else
+                return this.findNextSiblingOfAncestor(parentNodeElement);
+        }
+        else {
+            return null;
+        }
+    };
+    UITreeNode.prototype.findLastVisibleDescendant = function (nodeElement) {
+        var childrenListElement = nodeElement.children[0].children[1];
+        if (childrenListElement) {
+            var lastChildElement = childrenListElement.children[childrenListElement.children.length - 1];
+            return this.findLastVisibleDescendant(lastChildElement);
+        }
+        else {
+            return nodeElement;
+        }
+    };
+    UITreeNode.prototype.getParentNodeElement = function (nodeElement) {
+        var parentNodeElement = nodeElement.parentElement.parentElement.parentElement;
+        return parentNodeElement.tagName === 'P-TREENODE' ? parentNodeElement : null;
+    };
+    UITreeNode.prototype.focusNode = function (element) {
+        element.children[0].children[0].focus();
+    };
+    UITreeNode.ICON_CLASS = 'ui-treenode-icon ';
+    __decorate([
+        core_1.Input(),
+        __metadata("design:type", Object)
+    ], UITreeNode.prototype, "node", void 0);
+    __decorate([
+        core_1.Input(),
+        __metadata("design:type", Object)
+    ], UITreeNode.prototype, "parentNode", void 0);
+    __decorate([
+        core_1.Input(),
+        __metadata("design:type", Boolean)
+    ], UITreeNode.prototype, "root", void 0);
+    __decorate([
+        core_1.Input(),
+        __metadata("design:type", Number)
+    ], UITreeNode.prototype, "index", void 0);
+    __decorate([
+        core_1.Input(),
+        __metadata("design:type", Boolean)
+    ], UITreeNode.prototype, "firstChild", void 0);
+    __decorate([
+        core_1.Input(),
+        __metadata("design:type", Boolean)
+    ], UITreeNode.prototype, "lastChild", void 0);
+    UITreeNode = UITreeNode_1 = __decorate([
+        core_1.Component({
+            selector: 'p-treeNode',
+            template: "\n        <ng-template [ngIf]=\"node\">\n            <li *ngIf=\"tree.droppableNodes\" class=\"ui-treenode-droppoint\" [ngClass]=\"{'ui-treenode-droppoint-active ui-state-highlight':draghoverPrev}\"\n            (drop)=\"onDropPoint($event,-1)\" (dragover)=\"onDropPointDragOver($event)\" (dragenter)=\"onDropPointDragEnter($event,-1)\" (dragleave)=\"onDropPointDragLeave($event)\"></li>\n            <li *ngIf=\"!tree.horizontal\" [ngClass]=\"['ui-treenode',node.styleClass||'', isLeaf() ? 'ui-treenode-leaf': '']\">\n                <div class=\"ui-treenode-content\" role=\"treeitem\" (click)=\"onNodeClick($event)\" (contextmenu)=\"onNodeRightClick($event)\" (touchend)=\"onNodeTouchEnd()\"\n                    (drop)=\"onDropNode($event)\" (dragover)=\"onDropNodeDragOver($event)\" (dragenter)=\"onDropNodeDragEnter($event)\" (dragleave)=\"onDropNodeDragLeave($event)\"\n                    [draggable]=\"tree.draggableNodes\" (dragstart)=\"onDragStart($event)\" (dragend)=\"onDragStop($event)\" tabIndex=\"0\"\n                    [ngClass]=\"{'ui-treenode-selectable':tree.selectionMode && node.selectable !== false,'ui-treenode-dragover':draghoverNode, 'ui-treenode-content-selected':isSelected()}\" \n                    (keydown)=\"onKeyDown($event)\" [attr.aria-posinset]=\"this.index + 1\" [attr.aria-expanded]=\"this.node.expanded\" [attr.aria-selected]=\"isSelected()\">\n                    <span class=\"ui-tree-toggler pi pi-fw\" [ngClass]=\"{'pi-caret-right':!node.expanded,'pi-caret-down':node.expanded}\"\n                            (click)=\"toggle($event)\"></span\n                    ><div class=\"ui-chkbox\" *ngIf=\"tree.selectionMode == 'checkbox' && node.selectable !== false\"><div class=\"ui-chkbox-box ui-widget ui-corner-all ui-state-default\">\n                        <span class=\"ui-chkbox-icon ui-clickable pi\"\n                            [ngClass]=\"{'pi-check':isSelected(),'pi-minus':node.partialSelected}\"></span></div></div\n                    ><span [class]=\"getIcon()\" *ngIf=\"node.icon||node.expandedIcon||node.collapsedIcon\"></span\n                    ><span class=\"ui-treenode-label ui-corner-all\"\n                        [ngClass]=\"{'ui-state-highlight':isSelected()}\">\n                            <span *ngIf=\"!tree.getTemplateForNode(node)\">{{node.label}}</span>\n                            <span *ngIf=\"tree.getTemplateForNode(node)\">\n                                <ng-container *ngTemplateOutlet=\"tree.getTemplateForNode(node); context: {$implicit: node}\"></ng-container>\n                            </span>\n                    </span>\n                </div>\n                <ul class=\"ui-treenode-children\" style=\"display: none;\" *ngIf=\"node.children && node.expanded\" [style.display]=\"node.expanded ? 'block' : 'none'\" role=\"group\">\n                    <p-treeNode *ngFor=\"let childNode of node.children;let firstChild=first;let lastChild=last; let index=index; trackBy: tree.nodeTrackBy\" [node]=\"childNode\" [parentNode]=\"node\"\n                        [firstChild]=\"firstChild\" [lastChild]=\"lastChild\" [index]=\"index\"></p-treeNode>\n                </ul>\n            </li>\n            <li *ngIf=\"tree.droppableNodes&&lastChild\" class=\"ui-treenode-droppoint\" [ngClass]=\"{'ui-treenode-droppoint-active ui-state-highlight':draghoverNext}\"\n            (drop)=\"onDropPoint($event,1)\" (dragover)=\"onDropPointDragOver($event)\" (dragenter)=\"onDropPointDragEnter($event,1)\" (dragleave)=\"onDropPointDragLeave($event)\"></li>\n            <table *ngIf=\"tree.horizontal\" [class]=\"node.styleClass\">\n                <tbody>\n                    <tr>\n                        <td class=\"ui-treenode-connector\" *ngIf=\"!root\">\n                            <table class=\"ui-treenode-connector-table\">\n                                <tbody>\n                                    <tr>\n                                        <td [ngClass]=\"{'ui-treenode-connector-line':!firstChild}\"></td>\n                                    </tr>\n                                    <tr>\n                                        <td [ngClass]=\"{'ui-treenode-connector-line':!lastChild}\"></td>\n                                    </tr>\n                                </tbody>\n                            </table>\n                        </td>\n                        <td class=\"ui-treenode\" [ngClass]=\"{'ui-treenode-collapsed':!node.expanded}\">\n                            <div class=\"ui-treenode-content ui-state-default ui-corner-all\"\n                                [ngClass]=\"{'ui-treenode-selectable':tree.selectionMode,'ui-state-highlight':isSelected()}\" (click)=\"onNodeClick($event)\" (contextmenu)=\"onNodeRightClick($event)\"\n                                (touchend)=\"onNodeTouchEnd()\">\n                                <span class=\"ui-tree-toggler pi pi-fw\" [ngClass]=\"{'pi-plus':!node.expanded,'pi-minus':node.expanded}\" *ngIf=\"!isLeaf()\"\n                                        (click)=\"toggle($event)\"></span\n                                ><span [class]=\"getIcon()\" *ngIf=\"node.icon||node.expandedIcon||node.collapsedIcon\"></span\n                                ><span class=\"ui-treenode-label ui-corner-all\">\n                                        <span *ngIf=\"!tree.getTemplateForNode(node)\">{{node.label}}</span>\n                                        <span *ngIf=\"tree.getTemplateForNode(node)\">\n                                        <ng-container *ngTemplateOutlet=\"tree.getTemplateForNode(node); context: {$implicit: node}\"></ng-container>\n                                        </span>\n                                </span>\n                            </div>\n                        </td>\n                        <td class=\"ui-treenode-children-container\" *ngIf=\"node.children && node.expanded\" [style.display]=\"node.expanded ? 'table-cell' : 'none'\">\n                            <div class=\"ui-treenode-children\">\n                                <p-treeNode *ngFor=\"let childNode of node.children;let firstChild=first;let lastChild=last; trackBy: tree.nodeTrackBy\" [node]=\"childNode\"\n                                        [firstChild]=\"firstChild\" [lastChild]=\"lastChild\"></p-treeNode>\n                            </div>\n                        </td>\n                    </tr>\n                </tbody>\n            </table>\n        </ng-template>\n    ",
+            providers: [domhandler_1.DomHandler]
+        }),
+        __param(0, core_1.Inject(core_1.forwardRef(function () { return Tree; }))),
+        __metadata("design:paramtypes", [Tree, domhandler_1.DomHandler])
+    ], UITreeNode);
+    return UITreeNode;
+    var UITreeNode_1;
+}());
+exports.UITreeNode = UITreeNode;
+var Tree = /** @class */ (function () {
+    function Tree(el, dragDropService) {
+        this.el = el;
+        this.dragDropService = dragDropService;
+        this.selectionChange = new core_1.EventEmitter();
+        this.onNodeSelect = new core_1.EventEmitter();
+        this.onNodeUnselect = new core_1.EventEmitter();
+        this.onNodeExpand = new core_1.EventEmitter();
+        this.onNodeCollapse = new core_1.EventEmitter();
+        this.onNodeContextMenuSelect = new core_1.EventEmitter();
+        this.onNodeDrop = new core_1.EventEmitter();
+        this.layout = 'vertical';
+        this.metaKeySelection = true;
+        this.propagateSelectionUp = true;
+        this.propagateSelectionDown = true;
+        this.loadingIcon = 'pi pi-spinner';
+        this.emptyMessage = 'No records found';
+        this.nodeTrackBy = function (index, item) { return item; };
+    }
+    Tree.prototype.ngOnInit = function () {
+        var _this = this;
+        if (this.droppableNodes) {
+            this.dragStartSubscription = this.dragDropService.dragStart$.subscribe(function (event) {
+                _this.dragNodeTree = event.tree;
+                _this.dragNode = event.node;
+                _this.dragNodeSubNodes = event.subNodes;
+                _this.dragNodeIndex = event.index;
+                _this.dragNodeScope = event.scope;
+            });
+            this.dragStopSubscription = this.dragDropService.dragStop$.subscribe(function (event) {
+                _this.dragNodeTree = null;
+                _this.dragNode = null;
+                _this.dragNodeSubNodes = null;
+                _this.dragNodeIndex = null;
+                _this.dragNodeScope = null;
+                _this.dragHover = false;
+            });
+        }
+    };
+    Object.defineProperty(Tree.prototype, "horizontal", {
+        get: function () {
+            return this.layout == 'horizontal';
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Tree.prototype.ngAfterContentInit = function () {
+        var _this = this;
+        if (this.templates.length) {
+            this.templateMap = {};
+        }
+        this.templates.forEach(function (item) {
+            _this.templateMap[item.name] = item.template;
+        });
+    };
+    Tree.prototype.onNodeClick = function (event, node) {
+        var eventTarget = event.target;
+        if (eventTarget.className && eventTarget.className.indexOf('ui-tree-toggler') === 0) {
+            return;
+        }
+        else if (this.selectionMode) {
+            if (node.selectable === false) {
+                return;
+            }
+            var index_1 = this.findIndexInSelection(node);
+            var selected = (index_1 >= 0);
+            if (this.isCheckboxSelectionMode()) {
+                if (selected) {
+                    if (this.propagateSelectionDown)
+                        this.propagateDown(node, false);
+                    else
+                        this.selection = this.selection.filter(function (val, i) { return i != index_1; });
+                    if (this.propagateSelectionUp && node.parent) {
+                        this.propagateUp(node.parent, false);
+                    }
+                    this.selectionChange.emit(this.selection);
+                    this.onNodeUnselect.emit({ originalEvent: event, node: node });
+                }
+                else {
+                    if (this.propagateSelectionDown)
+                        this.propagateDown(node, true);
+                    else
+                        this.selection = (this.selection || []).concat([node]);
+                    if (this.propagateSelectionUp && node.parent) {
+                        this.propagateUp(node.parent, true);
+                    }
+                    this.selectionChange.emit(this.selection);
+                    this.onNodeSelect.emit({ originalEvent: event, node: node });
+                }
+            }
+            else {
+                var metaSelection = this.nodeTouched ? false : this.metaKeySelection;
+                if (metaSelection) {
+                    var metaKey = (event.metaKey || event.ctrlKey);
+                    if (selected && metaKey) {
+                        if (this.isSingleSelectionMode()) {
+                            this.selectionChange.emit(null);
+                        }
+                        else {
+                            this.selection = this.selection.filter(function (val, i) { return i != index_1; });
+                            this.selectionChange.emit(this.selection);
+                        }
+                        this.onNodeUnselect.emit({ originalEvent: event, node: node });
+                    }
+                    else {
+                        if (this.isSingleSelectionMode()) {
+                            this.selectionChange.emit(node);
+                        }
+                        else if (this.isMultipleSelectionMode()) {
+                            this.selection = (!metaKey) ? [] : this.selection || [];
+                            this.selection = this.selection.concat([node]);
+                            this.selectionChange.emit(this.selection);
+                        }
+                        this.onNodeSelect.emit({ originalEvent: event, node: node });
+                    }
+                }
+                else {
+                    if (this.isSingleSelectionMode()) {
+                        if (selected) {
+                            this.selection = null;
+                            this.onNodeUnselect.emit({ originalEvent: event, node: node });
+                        }
+                        else {
+                            this.selection = node;
+                            this.onNodeSelect.emit({ originalEvent: event, node: node });
+                        }
+                    }
+                    else {
+                        if (selected) {
+                            this.selection = this.selection.filter(function (val, i) { return i != index_1; });
+                            this.onNodeUnselect.emit({ originalEvent: event, node: node });
+                        }
+                        else {
+                            this.selection = (this.selection || []).concat([node]);
+                            this.onNodeSelect.emit({ originalEvent: event, node: node });
+                        }
+                    }
+                    this.selectionChange.emit(this.selection);
+                }
+            }
+        }
+        this.nodeTouched = false;
+    };
+    Tree.prototype.onNodeTouchEnd = function () {
+        this.nodeTouched = true;
+    };
+    Tree.prototype.onNodeRightClick = function (event, node) {
+        if (this.contextMenu) {
+            var eventTarget = event.target;
+            if (eventTarget.className && eventTarget.className.indexOf('ui-tree-toggler') === 0) {
+                return;
+            }
+            else {
+                var index = this.findIndexInSelection(node);
+                var selected = (index >= 0);
+                if (!selected) {
+                    if (this.isSingleSelectionMode())
+                        this.selectionChange.emit(node);
+                    else
+                        this.selectionChange.emit([node]);
+                }
+                this.contextMenu.show(event);
+                this.onNodeContextMenuSelect.emit({ originalEvent: event, node: node });
+            }
+        }
+    };
+    Tree.prototype.findIndexInSelection = function (node) {
+        var index = -1;
+        if (this.selectionMode && this.selection) {
+            if (this.isSingleSelectionMode()) {
+                index = (this.selection == node) ? 0 : -1;
+            }
+            else {
+                for (var i = 0; i < this.selection.length; i++) {
+                    if (this.selection[i] == node) {
+                        index = i;
+                        break;
+                    }
+                }
+            }
+        }
+        return index;
+    };
+    Tree.prototype.propagateUp = function (node, select) {
+        if (node.children && node.children.length) {
+            var selectedCount = 0;
+            var childPartialSelected = false;
+            for (var _i = 0, _a = node.children; _i < _a.length; _i++) {
+                var child = _a[_i];
+                if (this.isSelected(child)) {
+                    selectedCount++;
+                }
+                else if (child.partialSelected) {
+                    childPartialSelected = true;
+                }
+            }
+            if (select && selectedCount == node.children.length) {
+                this.selection = (this.selection || []).concat([node]);
+                node.partialSelected = false;
+            }
+            else {
+                if (!select) {
+                    var index_2 = this.findIndexInSelection(node);
+                    if (index_2 >= 0) {
+                        this.selection = this.selection.filter(function (val, i) { return i != index_2; });
+                    }
+                }
+                if (childPartialSelected || selectedCount > 0 && selectedCount != node.children.length)
+                    node.partialSelected = true;
+                else
+                    node.partialSelected = false;
+            }
+        }
+        var parent = node.parent;
+        if (parent) {
+            this.propagateUp(parent, select);
+        }
+    };
+    Tree.prototype.propagateDown = function (node, select) {
+        var index = this.findIndexInSelection(node);
+        if (select && index == -1) {
+            this.selection = (this.selection || []).concat([node]);
+        }
+        else if (!select && index > -1) {
+            this.selection = this.selection.filter(function (val, i) { return i != index; });
+        }
+        node.partialSelected = false;
+        if (node.children && node.children.length) {
+            for (var _i = 0, _a = node.children; _i < _a.length; _i++) {
+                var child = _a[_i];
+                this.propagateDown(child, select);
+            }
+        }
+    };
+    Tree.prototype.isSelected = function (node) {
+        return this.findIndexInSelection(node) != -1;
+    };
+    Tree.prototype.isSingleSelectionMode = function () {
+        return this.selectionMode && this.selectionMode == 'single';
+    };
+    Tree.prototype.isMultipleSelectionMode = function () {
+        return this.selectionMode && this.selectionMode == 'multiple';
+    };
+    Tree.prototype.isCheckboxSelectionMode = function () {
+        return this.selectionMode && this.selectionMode == 'checkbox';
+    };
+    Tree.prototype.getTemplateForNode = function (node) {
+        if (this.templateMap)
+            return node.type ? this.templateMap[node.type] : this.templateMap['default'];
+        else
+            return null;
+    };
+    Tree.prototype.onDragOver = function (event) {
+        if (this.droppableNodes && (!this.value || this.value.length === 0)) {
+            event.dataTransfer.dropEffect = 'move';
+            event.preventDefault();
+        }
+    };
+    Tree.prototype.onDrop = function (event) {
+        if (this.droppableNodes && (!this.value || this.value.length === 0)) {
+            event.preventDefault();
+            var dragNode = this.dragNode;
+            if (this.allowDrop(dragNode, null, this.dragNodeScope)) {
+                var dragNodeIndex = this.dragNodeIndex;
+                this.dragNodeSubNodes.splice(dragNodeIndex, 1);
+                this.value = this.value || [];
+                this.value.push(dragNode);
+                this.dragDropService.stopDrag({
+                    node: dragNode
+                });
+            }
+        }
+    };
+    Tree.prototype.onDragEnter = function (event) {
+        if (this.droppableNodes && this.allowDrop(this.dragNode, null, this.dragNodeScope)) {
+            this.dragHover = true;
+        }
+    };
+    Tree.prototype.onDragLeave = function (event) {
+        if (this.droppableNodes) {
+            var rect = event.currentTarget.getBoundingClientRect();
+            if (event.x > rect.left + rect.width || event.x < rect.left || event.y > rect.top + rect.height || event.y < rect.top) {
+                this.dragHover = false;
+            }
+        }
+    };
+    Tree.prototype.allowDrop = function (dragNode, dropNode, dragNodeScope) {
+        if (!dragNode) {
+            //prevent random html elements to be dragged
+            return false;
+        }
+        else if (this.isValidDragScope(dragNodeScope)) {
+            var allow = true;
+            if (dropNode) {
+                if (dragNode === dropNode) {
+                    allow = false;
+                }
+                else {
+                    var parent_1 = dropNode.parent;
+                    while (parent_1 != null) {
+                        if (parent_1 === dragNode) {
+                            allow = false;
+                            break;
+                        }
+                        parent_1 = parent_1.parent;
+                    }
+                }
+            }
+            return allow;
+        }
+        else {
+            return false;
+        }
+    };
+    Tree.prototype.isValidDragScope = function (dragScope) {
+        var dropScope = this.droppableScope;
+        if (dropScope) {
+            if (typeof dropScope === 'string') {
+                if (typeof dragScope === 'string')
+                    return dropScope === dragScope;
+                else if (dragScope instanceof Array)
+                    return dragScope.indexOf(dropScope) != -1;
+            }
+            else if (dropScope instanceof Array) {
+                if (typeof dragScope === 'string') {
+                    return dropScope.indexOf(dragScope) != -1;
+                }
+                else if (dragScope instanceof Array) {
+                    for (var _i = 0, dropScope_1 = dropScope; _i < dropScope_1.length; _i++) {
+                        var s = dropScope_1[_i];
+                        for (var _a = 0, dragScope_1 = dragScope; _a < dragScope_1.length; _a++) {
+                            var ds = dragScope_1[_a];
+                            if (s === ds) {
+                                return true;
+                            }
+                        }
+                    }
+                }
+            }
+            return false;
+        }
+        else {
+            return true;
+        }
+    };
+    Tree.prototype.getBlockableElement = function () {
+        return this.el.nativeElement.children[0];
+    };
+    Tree.prototype.ngOnDestroy = function () {
+        if (this.dragStartSubscription) {
+            this.dragStartSubscription.unsubscribe();
+        }
+        if (this.dragStopSubscription) {
+            this.dragStopSubscription.unsubscribe();
+        }
+    };
+    __decorate([
+        core_1.Input(),
+        __metadata("design:type", Array)
+    ], Tree.prototype, "value", void 0);
+    __decorate([
+        core_1.Input(),
+        __metadata("design:type", String)
+    ], Tree.prototype, "selectionMode", void 0);
+    __decorate([
+        core_1.Input(),
+        __metadata("design:type", Object)
+    ], Tree.prototype, "selection", void 0);
+    __decorate([
+        core_1.Output(),
+        __metadata("design:type", core_1.EventEmitter)
+    ], Tree.prototype, "selectionChange", void 0);
+    __decorate([
+        core_1.Output(),
+        __metadata("design:type", core_1.EventEmitter)
+    ], Tree.prototype, "onNodeSelect", void 0);
+    __decorate([
+        core_1.Output(),
+        __metadata("design:type", core_1.EventEmitter)
+    ], Tree.prototype, "onNodeUnselect", void 0);
+    __decorate([
+        core_1.Output(),
+        __metadata("design:type", core_1.EventEmitter)
+    ], Tree.prototype, "onNodeExpand", void 0);
+    __decorate([
+        core_1.Output(),
+        __metadata("design:type", core_1.EventEmitter)
+    ], Tree.prototype, "onNodeCollapse", void 0);
+    __decorate([
+        core_1.Output(),
+        __metadata("design:type", core_1.EventEmitter)
+    ], Tree.prototype, "onNodeContextMenuSelect", void 0);
+    __decorate([
+        core_1.Output(),
+        __metadata("design:type", core_1.EventEmitter)
+    ], Tree.prototype, "onNodeDrop", void 0);
+    __decorate([
+        core_1.Input(),
+        __metadata("design:type", Object)
+    ], Tree.prototype, "style", void 0);
+    __decorate([
+        core_1.Input(),
+        __metadata("design:type", String)
+    ], Tree.prototype, "styleClass", void 0);
+    __decorate([
+        core_1.Input(),
+        __metadata("design:type", Object)
+    ], Tree.prototype, "contextMenu", void 0);
+    __decorate([
+        core_1.Input(),
+        __metadata("design:type", String)
+    ], Tree.prototype, "layout", void 0);
+    __decorate([
+        core_1.Input(),
+        __metadata("design:type", Object)
+    ], Tree.prototype, "draggableScope", void 0);
+    __decorate([
+        core_1.Input(),
+        __metadata("design:type", Object)
+    ], Tree.prototype, "droppableScope", void 0);
+    __decorate([
+        core_1.Input(),
+        __metadata("design:type", Boolean)
+    ], Tree.prototype, "draggableNodes", void 0);
+    __decorate([
+        core_1.Input(),
+        __metadata("design:type", Boolean)
+    ], Tree.prototype, "droppableNodes", void 0);
+    __decorate([
+        core_1.Input(),
+        __metadata("design:type", Boolean)
+    ], Tree.prototype, "metaKeySelection", void 0);
+    __decorate([
+        core_1.Input(),
+        __metadata("design:type", Boolean)
+    ], Tree.prototype, "propagateSelectionUp", void 0);
+    __decorate([
+        core_1.Input(),
+        __metadata("design:type", Boolean)
+    ], Tree.prototype, "propagateSelectionDown", void 0);
+    __decorate([
+        core_1.Input(),
+        __metadata("design:type", Boolean)
+    ], Tree.prototype, "loading", void 0);
+    __decorate([
+        core_1.Input(),
+        __metadata("design:type", String)
+    ], Tree.prototype, "loadingIcon", void 0);
+    __decorate([
+        core_1.Input(),
+        __metadata("design:type", String)
+    ], Tree.prototype, "emptyMessage", void 0);
+    __decorate([
+        core_1.Input(),
+        __metadata("design:type", String)
+    ], Tree.prototype, "ariaLabel", void 0);
+    __decorate([
+        core_1.Input(),
+        __metadata("design:type", String)
+    ], Tree.prototype, "ariaLabelledBy", void 0);
+    __decorate([
+        core_1.Input(),
+        __metadata("design:type", Function)
+    ], Tree.prototype, "nodeTrackBy", void 0);
+    __decorate([
+        core_1.ContentChildren(shared_2.PrimeTemplate),
+        __metadata("design:type", core_1.QueryList)
+    ], Tree.prototype, "templates", void 0);
+    Tree = __decorate([
+        core_1.Component({
+            selector: 'p-tree',
+            template: "\n        <div [ngClass]=\"{'ui-tree ui-widget ui-widget-content ui-corner-all':true,'ui-tree-selectable':selectionMode,'ui-treenode-dragover':dragHover,'ui-tree-loading': loading}\" [ngStyle]=\"style\" [class]=\"styleClass\" *ngIf=\"!horizontal\"\n            (drop)=\"onDrop($event)\" (dragover)=\"onDragOver($event)\" (dragenter)=\"onDragEnter($event)\" (dragleave)=\"onDragLeave($event)\">\n            <div class=\"ui-tree-loading-mask ui-widget-overlay\" *ngIf=\"loading\"></div>\n            <div class=\"ui-tree-loading-content\" *ngIf=\"loading\">\n                <i [class]=\"'ui-tree-loading-icon pi-spin ' + loadingIcon\"></i>\n            </div>\n            <ul class=\"ui-tree-container\" *ngIf=\"value\" role=\"tree\" [attr.aria-label]=\"ariaLabel\" [attr.aria-labelledby]=\"ariaLabelledBy\">\n                <p-treeNode *ngFor=\"let node of value;let firstChild=first;let lastChild=last; let index=index; trackBy: nodeTrackBy\" [node]=\"node\"\n                [firstChild]=\"firstChild\" [lastChild]=\"lastChild\" [index]=\"index\"></p-treeNode>\n            </ul>\n            <div class=\"ui-tree-empty-message\" *ngIf=\"!loading && !value\">{{emptyMessage}}</div>\n        </div>\n        <div [ngClass]=\"{'ui-tree ui-tree-horizontal ui-widget ui-widget-content ui-corner-all':true,'ui-tree-selectable':selectionMode}\"  [ngStyle]=\"style\" [class]=\"styleClass\" *ngIf=\"horizontal\">\n            <div class=\"ui-tree-loading ui-widget-overlay\" *ngIf=\"loading\"></div>\n            <div class=\"ui-tree-loading-content\" *ngIf=\"loading\">\n                <i [class]=\"'ui-tree-loading-icon pi-spin ' + loadingIcon\"></i>\n            </div>\n            <table *ngIf=\"value&&value[0]\">\n                <p-treeNode [node]=\"value[0]\" [root]=\"true\"></p-treeNode>\n            </table>\n            <div class=\"ui-tree-empty-message\" *ngIf=\"!loading && !value\">{{emptyMessage}}</div>\n        </div>\n    "
+        }),
+        __param(1, core_2.Optional()),
+        __metadata("design:paramtypes", [core_1.ElementRef, treedragdropservice_1.TreeDragDropService])
+    ], Tree);
+    return Tree;
+}());
+exports.Tree = Tree;
+var TreeModule = /** @class */ (function () {
+    function TreeModule() {
+    }
+    TreeModule = __decorate([
+        core_1.NgModule({
+            imports: [common_1.CommonModule],
+            exports: [Tree, shared_1.SharedModule],
+            declarations: [Tree, UITreeNode]
+        })
+    ], TreeModule);
+    return TreeModule;
+}());
+exports.TreeModule = TreeModule;
+//# sourceMappingURL=tree.js.map
+
+/***/ }),
+
+/***/ "./node_modules/primeng/tree.js":
+/*!**************************************!*\
+  !*** ./node_modules/primeng/tree.js ***!
+  \**************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/* Shorthand */
+
+function __export(m) {
+    for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
+}
+Object.defineProperty(exports, "__esModule", { value: true });
+__export(__webpack_require__(/*! ./components/tree/tree */ "./node_modules/primeng/components/tree/tree.js"));
+
+/***/ }),
+
 /***/ "./src/app/ms-back-office/modules/ms-style/components/delete-style/delete-style.component.html":
 /*!*****************************************************************************************************!*\
   !*** ./src/app/ms-back-office/modules/ms-style/components/delete-style/delete-style.component.html ***!
@@ -718,8 +1592,8 @@ var SeeStyleComponent = /** @class */ (function (_super) {
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
             selector: 'see-style',
             template: __webpack_require__(/*! ./see-style.component.html */ "./src/app/ms-back-office/modules/ms-style/components/see-style/see-style.component.html"),
-            styles: [__webpack_require__(/*! ./see-style.component.scss */ "./src/app/ms-back-office/modules/ms-style/components/see-style/see-style.component.scss")],
-            changeDetection: _angular_core__WEBPACK_IMPORTED_MODULE_0__["ChangeDetectionStrategy"].OnPush
+            changeDetection: _angular_core__WEBPACK_IMPORTED_MODULE_0__["ChangeDetectionStrategy"].OnPush,
+            styles: [__webpack_require__(/*! ./see-style.component.scss */ "./src/app/ms-back-office/modules/ms-style/components/see-style/see-style.component.scss")]
         }),
         __param(7, Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Inject"])(_angular_material__WEBPACK_IMPORTED_MODULE_3__["MAT_DIALOG_DATA"])),
         __metadata("design:paramtypes", [_angular_material__WEBPACK_IMPORTED_MODULE_3__["MatDialog"],
@@ -744,7 +1618,7 @@ var SeeStyleComponent = /** @class */ (function (_super) {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<form class=\"flex-grow-1 min-height-0 display-flex flex-direction-column\" [askBeforeRefresh]=\"formGroup.dirty\" [formGroup]=\"formGroup\"\n  novalidate role=\"form\" autocomplete=\"off\" inputFocus>\n\n  <div class=\"flex-grow-1 overflow-auto display-flex flex-direction-column\">\n\n    <div class=\"flex-grow-1 flex-shrink-0 display-flex flex-direction-column\">\n\n      <div class=\"margin-right-25px\" [fxFlex]=\"50\" fxLayout=\"column\" fxLayout.lt-md=\"column\">\n\n        <div class=\"margin-right-25px\" [fxFlex]=\"80\" fxLayout.lt-md=\"column\">\n\n          <mat-form-field class=\"margin-left-16px width-100pct customized\" appearance=\"fill\">\n\n            <mat-label>Description</mat-label>\n\n            <textarea matInput formControlName=\"description\" class=\"min-height-100px\"></textarea>\n\n          </mat-form-field>\n\n        </div>\n\n        <div class=\"margin-right-25px\" [fxFlex]=\"100\" fxLayout=\"row\" fxLayout.lt-md=\"column\">\n\n          <div [fxFlex]=\"50\" fxLayout=\"column\" class=\"margin-right-25px\">\n\n            <mat-form-field class=\"margin-left-16px max-width-480px\">\n\n              <mat-label>Style Name</mat-label>\n\n              <input matInput type=\"text\" formControlName=\"name\" required>\n\n            </mat-form-field>\n\n            <mat-form-field class=\"padding-top-5px max-width-480px\">\n              <mat-label>Category</mat-label>\n              <mat-select disableOptionCentering placeholder=\"Select\" formControlName=\"category\" required>\n                <mat-option>...</mat-option>\n                <mat-option *ngFor=\"let category of categories\" [value]=\"category.id\">\n                  {{category.name}}\n                </mat-option>\n              </mat-select>\n            </mat-form-field>\n\n            <!--mat-form-field class=\"max-width-480px\">\n              <mat-label>Slect Parent</mat-label>\n              <mat-select disableOptionCentering placeholder=\"Select\" formControlName=\"parent\">\n                <mat-option>...</mat-option>\n                <mat-option *ngFor=\"let style of styles\" [value]=\"style.id\">\n                  {{style.name}}\n                </mat-option>\n              </mat-select>\n            </mat-form-field-->\n\n          </div>\n\n          <div class=\"margin-top-10px margin-right-25px\" [fxFlex]=\"50\" fxLayout=\"column\">\n\n            <button class=\"margin-bottom-25px max-width-480px\" mat-stroked-button type=\"button\" (click)=\"showModalAddNewBrand()\">Add a new Brand</button>\n\n            <mat-form-field class=\"width-100pc max-width-480px\">\n\n              <mat-label>SELECT BRAND</mat-label>\n\n              <mat-select disableOptionCentering placeholder=\"Select\" formControlName=\"brand\" panelOpen=\"true\" required>\n\n                <mat-option (click)=\"selectParent('')\">...</mat-option>\n\n                <mat-option *ngFor=\"let brand of brands\" [value]=\"brand.id\" (click)=\"selectParent(brand.id)\">\n                  {{brand.name}}\n                </mat-option>\n\n              </mat-select>\n\n            </mat-form-field>\n\n            <div>\n\n              <mat-slide-toggle class=\"padding-top-15px padding-bottom-15px\" formControlName=\"isParent\">Is Parent</mat-slide-toggle>\n\n            </div>\n\n          </div>\n\n          <div class=\"margin-top-10px\" [fxFlex]=\"30\" fxLayout=\"column\">\n            <button class=\"margin-bottom-25px max-width-480px\" mat-stroked-button type=\"button\" (click)=\"showModalAddNewParent()\">Add a new Parent</button>\n\n            <mat-form-field class=\"width-100pc max-width-480px\">\n\n              <mat-label>SELECT PARENT</mat-label>\n              <mat-select disableOptionCentering placeholder=\"Select\" formControlName=\"parent\">\n                <mat-option *ngFor=\"let style of styles\" [value]=\"style.id\">\n                  {{style.name}}\n                </mat-option>\n              </mat-select>\n            </mat-form-field>\n          </div>\n        </div>\n\n\n\n      </div>\n\n      <div class=\"display-flex padding-bottom-10px padding-top-25px justify-content-center\">\n        <button mat-stroked-button type=\"button\" class=\"max-width-480px\" (click)=\"showModalStoresSelling()\">See Stores Selling this Style</button>\n        <button *ngIf=\"styleId\" mat-stroked-button type=\"button\" class=\"margin-left-25px max-width-480px\" [routerLink]=\"['../../../releases/create']\"\n          [queryParams]=\"{styleId: styleId, returnUrl: location.path()}\">Create a Release</button>\n      </div>\n\n    </div>\n\n  </div>\n\n\n\n  <div class=\"margin-right-25px padding-top-25px padding-bottom-25px flex-shrink-0 display-flex border-top-style-solid border-top-width-2px border-top-color-grey\">\n\n    <button mat-raised-button (click)=\"submitClicked()\" color=\"primary\">{{'Accept' | translate}}</button>\n\n    <button mat-raised-button type=\"button\" class=\"margin-left-10px\" (click)=\"cancelClicked()\">{{'Cancel' | translate}}</button>\n\n    <span class=\"display-flex flex-grow-1\"></span>\n\n    <button mat-stroked-button type=\"buttom\" (click)=\"submitClickedCreateRelease()\" class=\"margin-left-25px max-width-480px\">Create a Release</button>\n\n  </div>\n\n</form>"
+module.exports = "<form class=\"flex-grow-1 min-height-0 display-flex flex-direction-column\" [askBeforeRefresh]=\"formGroup.dirty\" [formGroup]=\"formGroup\"\n  novalidate role=\"form\" autocomplete=\"off\" inputFocus>\n\n  <div class=\"flex-grow-1 overflow-auto display-flex flex-direction-column\">\n\n    <div class=\"flex-grow-1 flex-shrink-0 display-flex flex-direction-column\">\n\n      <div class=\"margin-right-25px\" [fxFlex]=\"50\" fxLayout=\"column\" fxLayout.lt-md=\"column\">\n\n        <div class=\"margin-right-25px\" [fxFlex]=\"80\" fxLayout.lt-md=\"column\">\n\n          <mat-form-field class=\"margin-left-16px width-100pct customized\" appearance=\"fill\">\n\n            <mat-label>Description</mat-label>\n\n            <textarea matInput formControlName=\"description\" class=\"min-height-100px\"></textarea>\n\n          </mat-form-field>\n\n        </div>\n\n        <div class=\"margin-right-25px\" [fxFlex]=\"100\" fxLayout=\"row\" fxLayout.lt-md=\"column\">\n\n          <div [fxFlex]=\"50\" fxLayout=\"column\" class=\"margin-right-25px\">\n\n            <mat-form-field class=\"margin-left-16px max-width-480px\">\n\n              <mat-label>Style Name</mat-label>\n\n              <input matInput type=\"text\" formControlName=\"name\" required>\n\n            </mat-form-field>\n\n            <mat-form-field class=\"padding-top-5px max-width-480px\">\n              <mat-label>Category</mat-label>\n              <mat-select disableOptionCentering placeholder=\"Select\" formControlName=\"category\" required>\n                <mat-option>...</mat-option>\n                <mat-option *ngFor=\"let category of categories\" [value]=\"category.id\">\n                  {{category.name}}\n                </mat-option>\n              </mat-select>\n            </mat-form-field>\n\n            <div>\n              <!--styles-parent [styleId]=\"styleId\"></styles-parent-->\n              <p-tree [value]=\"files\" selectionMode=\"single\" [(selection)]=\"selectedFile\" (onNodeSelect)=\"nodeSelect($event)\" (onNodeUnselect)=\"nodeUnselect($event)\"></p-tree>\n            </div>\n            <!--mat-form-field class=\"max-width-480px\">\n              <mat-label>Slect Parent</mat-label>\n              <mat-select disableOptionCentering placeholder=\"Select\" formControlName=\"parent\">\n                <mat-option>...</mat-option>\n                <mat-option *ngFor=\"let style of styles\" [value]=\"style.id\">\n                  {{style.name}}\n                </mat-option>\n              </mat-select>\n            </mat-form-field-->\n\n          </div>\n\n          <div class=\"margin-top-10px margin-right-25px\" [fxFlex]=\"50\" fxLayout=\"column\">\n\n            <button class=\"margin-bottom-25px max-width-480px\" mat-stroked-button type=\"button\" (click)=\"showModalAddNewBrand()\">Add a new Brand</button>\n\n            <mat-form-field class=\"width-100pc max-width-480px\">\n\n              <mat-label>SELECT BRAND</mat-label>\n\n              <mat-select disableOptionCentering placeholder=\"Select\" formControlName=\"brand\" panelOpen=\"true\" required>\n\n                <mat-option (click)=\"selectParent('')\">...</mat-option>\n\n                <mat-option *ngFor=\"let brand of brands\" [value]=\"brand.id\" (click)=\"selectParent(brand.id)\">\n                  {{brand.name}}\n                </mat-option>\n\n              </mat-select>\n\n            </mat-form-field>\n\n            <div>\n              <!--mat-slide-toggle class=\"padding-top-15px padding-bottom-15px\" formControlName=\"isParent\">Is Parent</mat-slide-toggle-->\n            </div>\n\n          </div>\n\n          <div class=\"margin-top-10px\" [fxFlex]=\"30\" fxLayout=\"column\">\n            <button class=\"margin-bottom-25px max-width-480px\" mat-stroked-button type=\"button\" (click)=\"showModalAddNewParent()\">Add a new Parent</button>\n\n            <mat-form-field class=\"width-100pc max-width-480px\">\n\n              <mat-label>SELECT PARENT</mat-label>\n              <mat-select disableOptionCentering placeholder=\"Select\" formControlName=\"parent\">\n                <mat-option *ngFor=\"let style of styles\" [value]=\"style.id\">\n                  {{style.name}}\n                </mat-option>\n              </mat-select>\n            </mat-form-field>\n          </div>\n        </div>\n\n\n\n      </div>\n\n      <div class=\"display-flex padding-bottom-10px padding-top-25px justify-content-center\">\n        <button mat-stroked-button type=\"button\" class=\"max-width-480px\" (click)=\"showModalStoresSelling()\">See Stores Selling this Style</button>\n        <button *ngIf=\"styleId\" mat-stroked-button type=\"button\" class=\"margin-left-25px max-width-480px\" [routerLink]=\"['../../../releases/create']\"\n          [queryParams]=\"{styleId: styleId, returnUrl: location.path()}\">Create a Release</button>\n      </div>\n\n    </div>\n\n  </div>\n\n\n\n  <div class=\"margin-right-25px padding-top-25px padding-bottom-25px flex-shrink-0 display-flex border-top-style-solid border-top-width-2px border-top-color-grey\">\n\n    <button mat-raised-button (click)=\"submitClicked()\" color=\"primary\">{{'Accept' | translate}}</button>\n\n    <button mat-raised-button type=\"button\" class=\"margin-left-10px\" (click)=\"cancelClicked()\">{{'Cancel' | translate}}</button>\n\n    <span class=\"display-flex flex-grow-1\"></span>\n\n    <button mat-stroked-button type=\"buttom\" (click)=\"submitClickedCreateRelease()\" class=\"margin-left-25px max-width-480px\">Create a Release</button>\n\n  </div>\n\n</form>"
 
 /***/ }),
 
@@ -803,7 +1677,6 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 
 
 
-//
 
 //
 
@@ -829,9 +1702,42 @@ var StyleFormComponent = /** @class */ (function (_super) {
         //setTranslations(this.translateService, TRANSLATIONS);
     }
     StyleFormComponent.prototype.ngOnInit = function () {
-        this.styles = this.styles.filter(function (style) {
-            return style.isParent;
+        this.styles.forEach(function (element) {
+            var file;
+            file['label'] = element.name;
+            file['collapsedIcon'] = 'fa-folder';
+            file['expandedIcon'] = 'fa-folder-open';
+            //this.filesStyles['children'] = element.name;
         });
+        this.files = [
+            {
+                label: 'Folder 1',
+                collapsedIcon: 'fa-folder',
+                expandedIcon: 'fa-folder-open',
+                children: [
+                    {
+                        label: 'Folder 2',
+                        collapsedIcon: 'fa-folder',
+                        expandedIcon: 'fa-folder-open',
+                        children: [
+                            {
+                                label: 'File 2',
+                                icon: 'fa-file-o'
+                            }
+                        ]
+                    },
+                    {
+                        label: 'Folder 2',
+                        collapsedIcon: 'fa-folder',
+                        expandedIcon: 'fa-folder-open'
+                    },
+                    {
+                        label: 'File 1',
+                        icon: 'fa-file-o'
+                    }
+                ]
+            }
+        ];
         var validationsErrors = [
             {
                 type: 'required',
@@ -918,9 +1824,7 @@ var StyleFormComponent = /** @class */ (function (_super) {
         });
         this.modalRef.afterClosed().subscribe(function () {
             _this.stylesService.getAllStyles().subscribe(function (response) {
-                _this.styles = response.filter(function (style) {
-                    return style.isParent;
-                });
+                _this.styles = response;
             });
         });
     };
@@ -974,8 +1878,8 @@ var StyleFormComponent = /** @class */ (function (_super) {
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
             selector: 'style-form',
             template: __webpack_require__(/*! ./style-form.component.html */ "./src/app/ms-back-office/modules/ms-style/components/style-form/style-form.component.html"),
-            styles: [__webpack_require__(/*! ./style-form.component.scss */ "./src/app/ms-back-office/modules/ms-style/components/style-form/style-form.component.scss")],
-            changeDetection: _angular_core__WEBPACK_IMPORTED_MODULE_0__["ChangeDetectionStrategy"].OnPush
+            changeDetection: _angular_core__WEBPACK_IMPORTED_MODULE_0__["ChangeDetectionStrategy"].OnPush,
+            styles: [__webpack_require__(/*! ./style-form.component.scss */ "./src/app/ms-back-office/modules/ms-style/components/style-form/style-form.component.scss")]
         }),
         __metadata("design:paramtypes", [_angular_material__WEBPACK_IMPORTED_MODULE_11__["MatDialog"],
             _angular_common__WEBPACK_IMPORTED_MODULE_2__["Location"],
@@ -1190,8 +2094,8 @@ var StyleParentFormComponent = /** @class */ (function (_super) {
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
             selector: 'style-parent-form',
             template: __webpack_require__(/*! ./style-parent-form.component.html */ "./src/app/ms-back-office/modules/ms-style/components/style-parent-form/style-parent-form.component.html"),
-            styles: [__webpack_require__(/*! ./style-parent-form.component.scss */ "./src/app/ms-back-office/modules/ms-style/components/style-parent-form/style-parent-form.component.scss")],
-            changeDetection: _angular_core__WEBPACK_IMPORTED_MODULE_0__["ChangeDetectionStrategy"].OnPush
+            changeDetection: _angular_core__WEBPACK_IMPORTED_MODULE_0__["ChangeDetectionStrategy"].OnPush,
+            styles: [__webpack_require__(/*! ./style-parent-form.component.scss */ "./src/app/ms-back-office/modules/ms-style/components/style-parent-form/style-parent-form.component.scss")]
         }),
         __metadata("design:paramtypes", [_angular_material__WEBPACK_IMPORTED_MODULE_9__["MatDialog"],
             _angular_common__WEBPACK_IMPORTED_MODULE_2__["Location"],
@@ -1201,6 +2105,348 @@ var StyleParentFormComponent = /** @class */ (function (_super) {
     ], StyleParentFormComponent);
     return StyleParentFormComponent;
 }(_ui_components_base_reactive_form_base_reactive_form_component__WEBPACK_IMPORTED_MODULE_4__["BaseReactiveFormComponent"]));
+
+
+
+/***/ }),
+
+/***/ "./src/app/ms-back-office/modules/ms-style/components/styles-parent/styles-parent.component.css":
+/*!******************************************************************************************************!*\
+  !*** ./src/app/ms-back-office/modules/ms-style/components/styles-parent/styles-parent.component.css ***!
+  \******************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = ".example-panel-red.mat-select-panel {\r\n  background: rgba(255, 0, 0, 0.5);\r\n}\r\n\r\n.example-panel-green.mat-select-panel {\r\n  /*background: rgba(0, 255, 0, 0.5);*/\r\n  background-color:transparent;\r\n  box-shadow: none !important;\r\n  align-items: flex-end;\r\n}\r\n\r\n.example-panel-blue.mat-select-panel {\r\n  background: rgba(0, 0, 255, 0.5);\r\n}\r\n\r\n.possition-absolute-bottom{\r\n    position: absolute;\r\n    left: 300px;\r\n    bottom: 0;\r\n}\r\n\r\n.mat-menu-item{\r\n  height: 58px !important;\r\n  padding: 0px !important;\r\n}\r\n\r\n.margin-top-10px{\r\n  margin-top: 10px;\r\n}\r\n\r\n.mat-menu-panel{\r\n  background-color:transparent !important;\r\n  box-shadow: none !important;\r\n  min-width: 0px !important;\r\n  padding-bottom: 64px !important;\r\n}\r\n\r\n.margin-right-10px{\r\n  margin-right: 10px;\r\n}\r\n\r\n.mat-fab{\r\n  box-shadow: none !important;\r\n}\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvbXMtYmFjay1vZmZpY2UvbW9kdWxlcy9tcy1zdHlsZS9jb21wb25lbnRzL3N0eWxlcy1wYXJlbnQvc3R5bGVzLXBhcmVudC5jb21wb25lbnQuY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0VBQ0UsaUNBQWlDO0NBQ2xDOztBQUVEO0VBQ0UscUNBQXFDO0VBQ3JDLDZCQUE2QjtFQUM3Qiw0QkFBNEI7RUFDNUIsc0JBQXNCO0NBQ3ZCOztBQUVEO0VBQ0UsaUNBQWlDO0NBQ2xDOztBQUVEO0lBQ0ksbUJBQW1CO0lBQ25CLFlBQVk7SUFDWixVQUFVO0NBQ2I7O0FBRUQ7RUFDRSx3QkFBd0I7RUFDeEIsd0JBQXdCO0NBQ3pCOztBQUVEO0VBQ0UsaUJBQWlCO0NBQ2xCOztBQUVEO0VBQ0Usd0NBQXdDO0VBQ3hDLDRCQUE0QjtFQUM1QiwwQkFBMEI7RUFDMUIsZ0NBQWdDO0NBQ2pDOztBQUVEO0VBQ0UsbUJBQW1CO0NBQ3BCOztBQUVEO0VBQ0UsNEJBQTRCO0NBQzdCIiwiZmlsZSI6InNyYy9hcHAvbXMtYmFjay1vZmZpY2UvbW9kdWxlcy9tcy1zdHlsZS9jb21wb25lbnRzL3N0eWxlcy1wYXJlbnQvc3R5bGVzLXBhcmVudC5jb21wb25lbnQuY3NzIiwic291cmNlc0NvbnRlbnQiOlsiLmV4YW1wbGUtcGFuZWwtcmVkLm1hdC1zZWxlY3QtcGFuZWwge1xyXG4gIGJhY2tncm91bmQ6IHJnYmEoMjU1LCAwLCAwLCAwLjUpO1xyXG59XHJcblxyXG4uZXhhbXBsZS1wYW5lbC1ncmVlbi5tYXQtc2VsZWN0LXBhbmVsIHtcclxuICAvKmJhY2tncm91bmQ6IHJnYmEoMCwgMjU1LCAwLCAwLjUpOyovXHJcbiAgYmFja2dyb3VuZC1jb2xvcjp0cmFuc3BhcmVudDtcclxuICBib3gtc2hhZG93OiBub25lICFpbXBvcnRhbnQ7XHJcbiAgYWxpZ24taXRlbXM6IGZsZXgtZW5kO1xyXG59XHJcblxyXG4uZXhhbXBsZS1wYW5lbC1ibHVlLm1hdC1zZWxlY3QtcGFuZWwge1xyXG4gIGJhY2tncm91bmQ6IHJnYmEoMCwgMCwgMjU1LCAwLjUpO1xyXG59XHJcblxyXG4ucG9zc2l0aW9uLWFic29sdXRlLWJvdHRvbXtcclxuICAgIHBvc2l0aW9uOiBhYnNvbHV0ZTtcclxuICAgIGxlZnQ6IDMwMHB4O1xyXG4gICAgYm90dG9tOiAwO1xyXG59XHJcblxyXG4ubWF0LW1lbnUtaXRlbXtcclxuICBoZWlnaHQ6IDU4cHggIWltcG9ydGFudDtcclxuICBwYWRkaW5nOiAwcHggIWltcG9ydGFudDtcclxufVxyXG5cclxuLm1hcmdpbi10b3AtMTBweHtcclxuICBtYXJnaW4tdG9wOiAxMHB4O1xyXG59XHJcblxyXG4ubWF0LW1lbnUtcGFuZWx7XHJcbiAgYmFja2dyb3VuZC1jb2xvcjp0cmFuc3BhcmVudCAhaW1wb3J0YW50O1xyXG4gIGJveC1zaGFkb3c6IG5vbmUgIWltcG9ydGFudDtcclxuICBtaW4td2lkdGg6IDBweCAhaW1wb3J0YW50O1xyXG4gIHBhZGRpbmctYm90dG9tOiA2NHB4ICFpbXBvcnRhbnQ7XHJcbn1cclxuXHJcbi5tYXJnaW4tcmlnaHQtMTBweHtcclxuICBtYXJnaW4tcmlnaHQ6IDEwcHg7XHJcbn1cclxuXHJcbi5tYXQtZmFie1xyXG4gIGJveC1zaGFkb3c6IG5vbmUgIWltcG9ydGFudDtcclxufSJdfQ== */"
+
+/***/ }),
+
+/***/ "./src/app/ms-back-office/modules/ms-style/components/styles-parent/styles-parent.component.html":
+/*!*******************************************************************************************************!*\
+  !*** ./src/app/ms-back-office/modules/ms-style/components/styles-parent/styles-parent.component.html ***!
+  \*******************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<mat-tree [dataSource]=\"dataSource\" [treeControl]=\"treeControl\">\n  <mat-tree-node *matTreeNodeDef=\"let node\" matTreeNodeToggle matTreeNodePadding>\n    <button mat-icon-button disabled></button>\n    <mat-checkbox class=\"checklist-leaf-node\"\n                  [checked]=\"checklistSelection.isSelected(node)\"\n                  (change)=\"todoLeafItemSelectionToggle(node)\">{{node.item}}</mat-checkbox>\n  </mat-tree-node>\n\n  <mat-tree-node *matTreeNodeDef=\"let node; when: hasNoContent\" matTreeNodePadding>\n    <button mat-icon-button disabled></button>\n    <mat-form-field>\n      <input matInput #itemValue placeholder=\"New item...\">\n    </mat-form-field>\n    <button mat-button (click)=\"saveNode(node, itemValue.value)\">Save</button>\n  </mat-tree-node>\n\n  <mat-tree-node *matTreeNodeDef=\"let node; when: hasChild\" matTreeNodePadding>\n    <button mat-icon-button matTreeNodeToggle\n            [attr.aria-label]=\"'toggle ' + node.filename\">\n      <mat-icon class=\"mat-icon-rtl-mirror\">\n        {{treeControl.isExpanded(node) ? 'expand_more' : 'chevron_right'}}\n      </mat-icon>\n    </button>\n    <mat-checkbox [checked]=\"descendantsAllSelected(node)\"\n                  [indeterminate]=\"descendantsPartiallySelected(node)\"\n                  (change)=\"todoItemSelectionToggle(node)\">{{node.item}}</mat-checkbox>\n    <button mat-icon-button (click)=\"addNewItem(node)\"><mat-icon>add</mat-icon></button>\n  </mat-tree-node>\n</mat-tree>\n"
+
+/***/ }),
+
+/***/ "./src/app/ms-back-office/modules/ms-style/components/styles-parent/styles-parent.component.ts":
+/*!*****************************************************************************************************!*\
+  !*** ./src/app/ms-back-office/modules/ms-style/components/styles-parent/styles-parent.component.ts ***!
+  \*****************************************************************************************************/
+/*! exports provided: TodoItemNode, TodoItemFlatNode, ChecklistDatabase, TreeChecklistExample */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "TodoItemNode", function() { return TodoItemNode; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "TodoItemFlatNode", function() { return TodoItemFlatNode; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ChecklistDatabase", function() { return ChecklistDatabase; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "TreeChecklistExample", function() { return TreeChecklistExample; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _angular_cdk_collections__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/cdk/collections */ "./node_modules/@angular/cdk/esm5/collections.es5.js");
+/* harmony import */ var _angular_cdk_tree__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/cdk/tree */ "./node_modules/@angular/cdk/esm5/tree.es5.js");
+/* harmony import */ var _angular_material_tree__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/material/tree */ "./node_modules/@angular/material/esm5/tree.es5.js");
+/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! rxjs */ "./node_modules/rxjs/_esm5/index.js");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+
+
+/**
+ * Node for to-do item
+ */
+var TodoItemNode = /** @class */ (function () {
+    function TodoItemNode() {
+    }
+    return TodoItemNode;
+}());
+
+/** Flat to-do item node with expandable and level information */
+var TodoItemFlatNode = /** @class */ (function () {
+    function TodoItemFlatNode() {
+    }
+    return TodoItemFlatNode;
+}());
+
+/**
+ * The Json object for to-do list data.
+ */
+var TREE_DATA = {
+    Groceries: {
+        'Almond Meal flour': null,
+        'Organic eggs': null,
+        'Protein Powder': null,
+        Fruits: {
+            Apple: null,
+            Berries: ['Blueberry', 'Raspberry'],
+            Orange: null
+        }
+    },
+    Reminders: [
+        'Cook dinner',
+        'Read the Material Design spec',
+        'Upgrade Application to Angular'
+    ]
+};
+var TREE_DATA_MORE = {
+    Groceries: {
+        'Almonda Meal flour': null,
+        'Organice eggs': null,
+        'Proteinn Powder': null,
+        Fruits: {
+            Apple: null,
+            Berries: ['Blueberrrrrry', 'Raspberrrrrrrry'],
+            Orange: null
+        }
+    },
+    Reminders: [
+        'Cook dinner',
+        'Read the Material Design spec',
+        'Upgrade Applicccccccation to Angular'
+    ]
+};
+/**
+ * Checklist database, it can build a tree structured Json object.
+ * Each node in Json object represents a to-do item or a category.
+ * If a node is a category, it has children items and new items can be added under the category.
+ */
+var ChecklistDatabase = /** @class */ (function () {
+    function ChecklistDatabase() {
+        this.dataChange = new rxjs__WEBPACK_IMPORTED_MODULE_4__["BehaviorSubject"]([]);
+        this.initialize(TREE_DATA);
+    }
+    Object.defineProperty(ChecklistDatabase.prototype, "data", {
+        get: function () { return this.dataChange.value; },
+        enumerable: true,
+        configurable: true
+    });
+    ChecklistDatabase.prototype.initialize = function (tree_data) {
+        // Build the tree nodes from Json object. The result is a list of `TodoItemNode` with nested
+        //     file node as children.
+        var data = this.buildFileTree(tree_data, 0);
+        // Notify the change.
+        this.dataChange.next(data);
+    };
+    /**
+     * Build the file structure tree. The `value` is the Json object, or a sub-tree of a Json object.
+     * The return value is the list of `TodoItemNode`.
+     */
+    ChecklistDatabase.prototype.buildFileTree = function (obj, level) {
+        var _this = this;
+        return Object.keys(obj).reduce(function (accumulator, key) {
+            var value = obj[key];
+            var node = new TodoItemNode();
+            node.item = key;
+            if (value != null) {
+                if (typeof value === 'object') {
+                    node.children = _this.buildFileTree(value, level + 1);
+                }
+                else {
+                    node.item = value;
+                }
+            }
+            return accumulator.concat(node);
+        }, []);
+    };
+    /** Add an item to to-do list */
+    ChecklistDatabase.prototype.insertItem = function (parent, name) {
+        if (parent.children) {
+            parent.children.push({ item: name });
+            this.dataChange.next(this.data);
+        }
+    };
+    ChecklistDatabase.prototype.updateItem = function (node, name) {
+        node.item = name;
+        this.dataChange.next(this.data);
+    };
+    ChecklistDatabase = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"])(),
+        __metadata("design:paramtypes", [])
+    ], ChecklistDatabase);
+    return ChecklistDatabase;
+}());
+
+/**
+ * @title Tree with checkboxes
+ */
+var TreeChecklistExample = /** @class */ (function () {
+    function TreeChecklistExample(database) {
+        var _this = this;
+        this.database = database;
+        /** Map from flat node to nested node. This helps us finding the nested node to be modified */
+        this.flatNodeMap = new Map();
+        /** Map from nested node to flattened node. This helps us to keep the same object for selection */
+        this.nestedNodeMap = new Map();
+        /** A selected parent node to be inserted */
+        this.selectedParent = null;
+        /** The new item's name */
+        this.newItemName = '';
+        /** The selection for checklist */
+        this.checklistSelection = new _angular_cdk_collections__WEBPACK_IMPORTED_MODULE_1__["SelectionModel"](true /* multiple */);
+        this.getLevel = function (node) { return node.level; };
+        this.isExpandable = function (node) { return node.expandable; };
+        this.getChildren = function (node) { return node.children; };
+        this.hasChild = function (_, _nodeData) { return _nodeData.expandable; };
+        this.hasNoContent = function (_, _nodeData) { return _nodeData.item === ''; };
+        /**
+         * Transformer to convert nested node to flat node. Record the nodes in maps for later use.
+         */
+        this.transformer = function (node, level) {
+            var existingNode = _this.nestedNodeMap.get(node);
+            var flatNode = existingNode && existingNode.item === node.item
+                ? existingNode
+                : new TodoItemFlatNode();
+            flatNode.item = node.item;
+            flatNode.level = level;
+            flatNode.expandable = !!node.children;
+            _this.flatNodeMap.set(flatNode, node);
+            _this.nestedNodeMap.set(node, flatNode);
+            return flatNode;
+        };
+        this.treeFlattener = new _angular_material_tree__WEBPACK_IMPORTED_MODULE_3__["MatTreeFlattener"](this.transformer, this.getLevel, this.isExpandable, this.getChildren);
+        this.treeControl = new _angular_cdk_tree__WEBPACK_IMPORTED_MODULE_2__["FlatTreeControl"](this.getLevel, this.isExpandable);
+        this.dataSource = new _angular_material_tree__WEBPACK_IMPORTED_MODULE_3__["MatTreeFlatDataSource"](this.treeControl, this.treeFlattener);
+        database.dataChange.subscribe(function (data) {
+            console.log(JSON.stringify(data));
+            _this.dataSource.data = data;
+        });
+    }
+    /** Whether all the descendants of the node are selected. */
+    TreeChecklistExample.prototype.descendantsAllSelected = function (node) {
+        var _this = this;
+        var descendants = this.treeControl.getDescendants(node);
+        var descAllSelected = descendants.every(function (child) {
+            return _this.checklistSelection.isSelected(child);
+        });
+        return descAllSelected;
+    };
+    /** Whether part of the descendants are selected */
+    TreeChecklistExample.prototype.descendantsPartiallySelected = function (node) {
+        var _this = this;
+        var descendants = this.treeControl.getDescendants(node);
+        var result = descendants.some(function (child) { return _this.checklistSelection.isSelected(child); });
+        return result && !this.descendantsAllSelected(node);
+    };
+    /** Toggle the to-do item selection. Select/deselect all the descendants node */
+    TreeChecklistExample.prototype.todoItemSelectionToggle = function (node) {
+        var _this = this;
+        this.checklistSelection.toggle(node);
+        var descendants = this.treeControl.getDescendants(node);
+        this.checklistSelection.isSelected(node)
+            ? (_a = this.checklistSelection).select.apply(_a, descendants) : (_b = this.checklistSelection).deselect.apply(_b, descendants);
+        // Force update for the parent
+        descendants.every(function (child) {
+            return _this.checklistSelection.isSelected(child);
+        });
+        this.checkAllParentsSelection(node);
+        var _a, _b;
+    };
+    /** Toggle a leaf to-do item selection. Check all the parents to see if they changed */
+    TreeChecklistExample.prototype.todoLeafItemSelectionToggle = function (node) {
+        this.checklistSelection.toggle(node);
+        this.checkAllParentsSelection(node);
+    };
+    /* Checks all the parents when a leaf node is selected/unselected */
+    TreeChecklistExample.prototype.checkAllParentsSelection = function (node) {
+        var parent = this.getParentNode(node);
+        while (parent) {
+            this.checkRootNodeSelection(parent);
+            parent = this.getParentNode(parent);
+        }
+    };
+    /** Check root node checked state and change it accordingly */
+    TreeChecklistExample.prototype.checkRootNodeSelection = function (node) {
+        var _this = this;
+        var nodeSelected = this.checklistSelection.isSelected(node);
+        var descendants = this.treeControl.getDescendants(node);
+        var descAllSelected = descendants.every(function (child) {
+            return _this.checklistSelection.isSelected(child);
+        });
+        if (nodeSelected && !descAllSelected) {
+            this.checklistSelection.deselect(node);
+        }
+        else if (!nodeSelected && descAllSelected) {
+            this.checklistSelection.select(node);
+        }
+    };
+    /* Get the parent node of a node */
+    TreeChecklistExample.prototype.getParentNode = function (node) {
+        var currentLevel = this.getLevel(node);
+        if (currentLevel < 1) {
+            return null;
+        }
+        var startIndex = this.treeControl.dataNodes.indexOf(node) - 1;
+        for (var i = startIndex; i >= 0; i--) {
+            var currentNode = this.treeControl.dataNodes[i];
+            if (this.getLevel(currentNode) < currentLevel) {
+                return currentNode;
+            }
+        }
+        return null;
+    };
+    /** Select the category so we can insert the new item. */
+    TreeChecklistExample.prototype.addNewItem = function (node) {
+        var parentNode = this.flatNodeMap.get(node);
+        this.database.insertItem(parentNode, '');
+        this.treeControl.expand(node);
+    };
+    /** Save the node to database */
+    TreeChecklistExample.prototype.saveNode = function (node, itemValue) {
+        var nestedNode = this.flatNodeMap.get(node);
+        this.database.updateItem(nestedNode, itemValue);
+    };
+    TreeChecklistExample.prototype.ngOnInit = function () {
+        this.dataSource.data = this.buildFileTree(TREE_DATA_MORE, 0);
+    };
+    /**
+   * Build the file structure tree. The `value` is the Json object, or a sub-tree of a Json object.
+   * The return value is the list of `TodoItemNode`.
+   */
+    TreeChecklistExample.prototype.buildFileTree = function (obj, level) {
+        var _this = this;
+        return Object.keys(obj).reduce(function (accumulator, key) {
+            var value = obj[key];
+            var node = new TodoItemNode();
+            node.item = key;
+            if (value != null) {
+                if (typeof value === 'object') {
+                    node.children = _this.buildFileTree(value, level + 1);
+                }
+                else {
+                    node.item = value;
+                }
+            }
+            return accumulator.concat(node);
+        }, []);
+    };
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])(),
+        __metadata("design:type", String)
+    ], TreeChecklistExample.prototype, "styleId", void 0);
+    TreeChecklistExample = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+            selector: 'styles-parent',
+            template: __webpack_require__(/*! ./styles-parent.component.html */ "./src/app/ms-back-office/modules/ms-style/components/styles-parent/styles-parent.component.html"),
+            providers: [ChecklistDatabase],
+            styles: [__webpack_require__(/*! ./styles-parent.component.css */ "./src/app/ms-back-office/modules/ms-style/components/styles-parent/styles-parent.component.css")]
+        }),
+        __metadata("design:paramtypes", [ChecklistDatabase])
+    ], TreeChecklistExample);
+    return TreeChecklistExample;
+}());
 
 
 
@@ -1546,22 +2792,26 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_material_sort__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @angular/material/sort */ "./node_modules/@angular/material/esm5/sort.es5.js");
 /* harmony import */ var _angular_material_toolbar__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! @angular/material/toolbar */ "./node_modules/@angular/material/esm5/toolbar.es5.js");
 /* harmony import */ var _angular_material_tooltip__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! @angular/material/tooltip */ "./node_modules/@angular/material/esm5/tooltip.es5.js");
-/* harmony import */ var _angular_material_card__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! @angular/material/card */ "./node_modules/@angular/material/esm5/card.es5.js");
-/* harmony import */ var _ngx_translate_core__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! @ngx-translate/core */ "./node_modules/@ngx-translate/core/fesm5/ngx-translate-core.js");
-/* harmony import */ var _ui_modules_ask_before_refresh_ask_before_refresh_module__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ../../../ui/modules/ask-before-refresh/ask-before-refresh.module */ "./src/app/ui/modules/ask-before-refresh/ask-before-refresh.module.ts");
-/* harmony import */ var _components_styles_table_styles_table_component__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./components/styles-table/styles-table.component */ "./src/app/ms-back-office/modules/ms-style/components/styles-table/styles-table.component.ts");
-/* harmony import */ var _ms_style_routing_module__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./ms-style-routing.module */ "./src/app/ms-back-office/modules/ms-style/ms-style-routing.module.ts");
-/* harmony import */ var _components_style_form_style_form_component__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./components/style-form/style-form.component */ "./src/app/ms-back-office/modules/ms-style/components/style-form/style-form.component.ts");
-/* harmony import */ var _components_style_parent_form_style_parent_form_component__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./components/style-parent-form/style-parent-form.component */ "./src/app/ms-back-office/modules/ms-style/components/style-parent-form/style-parent-form.component.ts");
-/* harmony import */ var _components_see_style_see_style_component__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ./components/see-style/see-style.component */ "./src/app/ms-back-office/modules/ms-style/components/see-style/see-style.component.ts");
-/* harmony import */ var _components_new_style_new_style_component__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ./components/new-style/new-style.component */ "./src/app/ms-back-office/modules/ms-style/components/new-style/new-style.component.ts");
-/* harmony import */ var _components_new_parent_new_parent_component__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ./components/new-parent/new-parent.component */ "./src/app/ms-back-office/modules/ms-style/components/new-parent/new-parent.component.ts");
-/* harmony import */ var _components_edit_style_edit_style_component__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! ./components/edit-style/edit-style.component */ "./src/app/ms-back-office/modules/ms-style/components/edit-style/edit-style.component.ts");
-/* harmony import */ var _components_delete_style_delete_style_component__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! ./components/delete-style/delete-style.component */ "./src/app/ms-back-office/modules/ms-style/components/delete-style/delete-style.component.ts");
-/* harmony import */ var _ms_brands_components_new_brand_new_brand_component__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(/*! ../ms-brands/components/new-brand/new-brand.component */ "./src/app/ms-back-office/modules/ms-brands/components/new-brand/new-brand.component.ts");
-/* harmony import */ var _ms_brands_ms_brands_module__WEBPACK_IMPORTED_MODULE_25__ = __webpack_require__(/*! ../ms-brands/ms-brands.module */ "./src/app/ms-back-office/modules/ms-brands/ms-brands.module.ts");
-/* harmony import */ var _ms_shops_ms_shops_module__WEBPACK_IMPORTED_MODULE_26__ = __webpack_require__(/*! ../ms-shops/ms-shops.module */ "./src/app/ms-back-office/modules/ms-shops/ms-shops.module.ts");
-/* harmony import */ var _ms_shops_components_shops_selling_style_modal_shops_selling_style_modal_component__WEBPACK_IMPORTED_MODULE_27__ = __webpack_require__(/*! ../ms-shops/components/shops-selling-style-modal/shops-selling-style-modal.component */ "./src/app/ms-back-office/modules/ms-shops/components/shops-selling-style-modal/shops-selling-style-modal.component.ts");
+/* harmony import */ var _angular_material_tree__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! @angular/material/tree */ "./node_modules/@angular/material/esm5/tree.es5.js");
+/* harmony import */ var _angular_material_card__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! @angular/material/card */ "./node_modules/@angular/material/esm5/card.es5.js");
+/* harmony import */ var primeng_tree__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! primeng/tree */ "./node_modules/primeng/tree.js");
+/* harmony import */ var primeng_tree__WEBPACK_IMPORTED_MODULE_14___default = /*#__PURE__*/__webpack_require__.n(primeng_tree__WEBPACK_IMPORTED_MODULE_14__);
+/* harmony import */ var _ngx_translate_core__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! @ngx-translate/core */ "./node_modules/@ngx-translate/core/fesm5/ngx-translate-core.js");
+/* harmony import */ var _ui_modules_ask_before_refresh_ask_before_refresh_module__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ../../../ui/modules/ask-before-refresh/ask-before-refresh.module */ "./src/app/ui/modules/ask-before-refresh/ask-before-refresh.module.ts");
+/* harmony import */ var _components_styles_table_styles_table_component__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./components/styles-table/styles-table.component */ "./src/app/ms-back-office/modules/ms-style/components/styles-table/styles-table.component.ts");
+/* harmony import */ var _ms_style_routing_module__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./ms-style-routing.module */ "./src/app/ms-back-office/modules/ms-style/ms-style-routing.module.ts");
+/* harmony import */ var _components_style_form_style_form_component__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ./components/style-form/style-form.component */ "./src/app/ms-back-office/modules/ms-style/components/style-form/style-form.component.ts");
+/* harmony import */ var _components_style_parent_form_style_parent_form_component__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ./components/style-parent-form/style-parent-form.component */ "./src/app/ms-back-office/modules/ms-style/components/style-parent-form/style-parent-form.component.ts");
+/* harmony import */ var _components_styles_parent_styles_parent_component__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ./components/styles-parent/styles-parent.component */ "./src/app/ms-back-office/modules/ms-style/components/styles-parent/styles-parent.component.ts");
+/* harmony import */ var _components_see_style_see_style_component__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! ./components/see-style/see-style.component */ "./src/app/ms-back-office/modules/ms-style/components/see-style/see-style.component.ts");
+/* harmony import */ var _components_new_style_new_style_component__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! ./components/new-style/new-style.component */ "./src/app/ms-back-office/modules/ms-style/components/new-style/new-style.component.ts");
+/* harmony import */ var _components_new_parent_new_parent_component__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(/*! ./components/new-parent/new-parent.component */ "./src/app/ms-back-office/modules/ms-style/components/new-parent/new-parent.component.ts");
+/* harmony import */ var _components_edit_style_edit_style_component__WEBPACK_IMPORTED_MODULE_25__ = __webpack_require__(/*! ./components/edit-style/edit-style.component */ "./src/app/ms-back-office/modules/ms-style/components/edit-style/edit-style.component.ts");
+/* harmony import */ var _components_delete_style_delete_style_component__WEBPACK_IMPORTED_MODULE_26__ = __webpack_require__(/*! ./components/delete-style/delete-style.component */ "./src/app/ms-back-office/modules/ms-style/components/delete-style/delete-style.component.ts");
+/* harmony import */ var _ms_brands_components_new_brand_new_brand_component__WEBPACK_IMPORTED_MODULE_27__ = __webpack_require__(/*! ../ms-brands/components/new-brand/new-brand.component */ "./src/app/ms-back-office/modules/ms-brands/components/new-brand/new-brand.component.ts");
+/* harmony import */ var _ms_brands_ms_brands_module__WEBPACK_IMPORTED_MODULE_28__ = __webpack_require__(/*! ../ms-brands/ms-brands.module */ "./src/app/ms-back-office/modules/ms-brands/ms-brands.module.ts");
+/* harmony import */ var _ms_shops_ms_shops_module__WEBPACK_IMPORTED_MODULE_29__ = __webpack_require__(/*! ../ms-shops/ms-shops.module */ "./src/app/ms-back-office/modules/ms-shops/ms-shops.module.ts");
+/* harmony import */ var _ms_shops_components_shops_selling_style_modal_shops_selling_style_modal_component__WEBPACK_IMPORTED_MODULE_30__ = __webpack_require__(/*! ../ms-shops/components/shops-selling-style-modal/shops-selling-style-modal.component */ "./src/app/ms-back-office/modules/ms-shops/components/shops-selling-style-modal/shops-selling-style-modal.component.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1586,7 +2836,10 @@ var __decorate = (undefined && undefined.__decorate) || function (decorators, ta
 
 
 
+
+
 //
+
 
 
 
@@ -1614,7 +2867,7 @@ var MsStyleModule = /** @class */ (function () {
                 _angular_material__WEBPACK_IMPORTED_MODULE_6__["MatAutocompleteModule"],
                 _angular_material_bottom_sheet__WEBPACK_IMPORTED_MODULE_4__["MatBottomSheetModule"],
                 _angular_material_button__WEBPACK_IMPORTED_MODULE_5__["MatButtonModule"],
-                _angular_material_card__WEBPACK_IMPORTED_MODULE_12__["MatCardModule"],
+                _angular_material_card__WEBPACK_IMPORTED_MODULE_13__["MatCardModule"],
                 _angular_material__WEBPACK_IMPORTED_MODULE_6__["MatCheckboxModule"],
                 _angular_material__WEBPACK_IMPORTED_MODULE_6__["MatDialogModule"],
                 _angular_material__WEBPACK_IMPORTED_MODULE_6__["MatFormFieldModule"],
@@ -1626,28 +2879,31 @@ var MsStyleModule = /** @class */ (function () {
                 _angular_material__WEBPACK_IMPORTED_MODULE_6__["MatTableModule"],
                 _angular_material_toolbar__WEBPACK_IMPORTED_MODULE_10__["MatToolbarModule"],
                 _angular_material_tooltip__WEBPACK_IMPORTED_MODULE_11__["MatTooltipModule"],
+                _angular_material_tree__WEBPACK_IMPORTED_MODULE_12__["MatTreeModule"],
                 _angular_material__WEBPACK_IMPORTED_MODULE_6__["MatSlideToggleModule"],
-                _ngx_translate_core__WEBPACK_IMPORTED_MODULE_13__["TranslateModule"],
-                _ms_style_routing_module__WEBPACK_IMPORTED_MODULE_16__["MsStyleRoutingModule"],
-                _ui_modules_ask_before_refresh_ask_before_refresh_module__WEBPACK_IMPORTED_MODULE_14__["AskBeforeRefreshModule"],
-                _ms_brands_ms_brands_module__WEBPACK_IMPORTED_MODULE_25__["MsBrandsModule"],
-                _ms_shops_ms_shops_module__WEBPACK_IMPORTED_MODULE_26__["MsShopsModule"],
+                _ngx_translate_core__WEBPACK_IMPORTED_MODULE_15__["TranslateModule"],
+                primeng_tree__WEBPACK_IMPORTED_MODULE_14__["TreeModule"],
+                _ms_style_routing_module__WEBPACK_IMPORTED_MODULE_18__["MsStyleRoutingModule"],
+                _ui_modules_ask_before_refresh_ask_before_refresh_module__WEBPACK_IMPORTED_MODULE_16__["AskBeforeRefreshModule"],
+                _ms_brands_ms_brands_module__WEBPACK_IMPORTED_MODULE_28__["MsBrandsModule"],
+                _ms_shops_ms_shops_module__WEBPACK_IMPORTED_MODULE_29__["MsShopsModule"],
             ],
             declarations: [
-                _components_styles_table_styles_table_component__WEBPACK_IMPORTED_MODULE_15__["StyleTableComponent"],
-                _components_style_form_style_form_component__WEBPACK_IMPORTED_MODULE_17__["StyleFormComponent"],
-                _components_style_parent_form_style_parent_form_component__WEBPACK_IMPORTED_MODULE_18__["StyleParentFormComponent"],
-                _components_new_style_new_style_component__WEBPACK_IMPORTED_MODULE_20__["NewStyleComponent"],
-                _components_edit_style_edit_style_component__WEBPACK_IMPORTED_MODULE_22__["EditStyleComponent"],
-                _components_delete_style_delete_style_component__WEBPACK_IMPORTED_MODULE_23__["DeleteStyleComponent"],
-                _components_new_parent_new_parent_component__WEBPACK_IMPORTED_MODULE_21__["NewParentModalComponent"],
-                _components_see_style_see_style_component__WEBPACK_IMPORTED_MODULE_19__["SeeStyleComponent"],
+                _components_styles_table_styles_table_component__WEBPACK_IMPORTED_MODULE_17__["StyleTableComponent"],
+                _components_style_form_style_form_component__WEBPACK_IMPORTED_MODULE_19__["StyleFormComponent"],
+                _components_style_parent_form_style_parent_form_component__WEBPACK_IMPORTED_MODULE_20__["StyleParentFormComponent"],
+                _components_new_style_new_style_component__WEBPACK_IMPORTED_MODULE_23__["NewStyleComponent"],
+                _components_edit_style_edit_style_component__WEBPACK_IMPORTED_MODULE_25__["EditStyleComponent"],
+                _components_delete_style_delete_style_component__WEBPACK_IMPORTED_MODULE_26__["DeleteStyleComponent"],
+                _components_new_parent_new_parent_component__WEBPACK_IMPORTED_MODULE_24__["NewParentModalComponent"],
+                _components_see_style_see_style_component__WEBPACK_IMPORTED_MODULE_22__["SeeStyleComponent"],
+                _components_styles_parent_styles_parent_component__WEBPACK_IMPORTED_MODULE_21__["TreeChecklistExample"]
             ],
             entryComponents: [
-                _ms_shops_components_shops_selling_style_modal_shops_selling_style_modal_component__WEBPACK_IMPORTED_MODULE_27__["ShopsSellingStyleModalComponent"],
-                _ms_brands_components_new_brand_new_brand_component__WEBPACK_IMPORTED_MODULE_24__["NewBrandComponent"],
-                _components_new_parent_new_parent_component__WEBPACK_IMPORTED_MODULE_21__["NewParentModalComponent"],
-                _components_see_style_see_style_component__WEBPACK_IMPORTED_MODULE_19__["SeeStyleComponent"]
+                _ms_shops_components_shops_selling_style_modal_shops_selling_style_modal_component__WEBPACK_IMPORTED_MODULE_30__["ShopsSellingStyleModalComponent"],
+                _ms_brands_components_new_brand_new_brand_component__WEBPACK_IMPORTED_MODULE_27__["NewBrandComponent"],
+                _components_new_parent_new_parent_component__WEBPACK_IMPORTED_MODULE_24__["NewParentModalComponent"],
+                _components_see_style_see_style_component__WEBPACK_IMPORTED_MODULE_22__["SeeStyleComponent"]
             ]
         })
     ], MsStyleModule);

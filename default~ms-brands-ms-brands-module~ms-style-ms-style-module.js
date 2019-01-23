@@ -337,8 +337,8 @@ var BrandFormComponent = /** @class */ (function (_super) {
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
             selector: 'brand-form',
             template: __webpack_require__(/*! ./brand-form.component.html */ "./src/app/ms-back-office/modules/ms-brands/components/brand-form/brand-form.component.html"),
-            styles: [__webpack_require__(/*! ./brand-form.component.scss */ "./src/app/ms-back-office/modules/ms-brands/components/brand-form/brand-form.component.scss")],
-            changeDetection: _angular_core__WEBPACK_IMPORTED_MODULE_0__["ChangeDetectionStrategy"].OnPush
+            changeDetection: _angular_core__WEBPACK_IMPORTED_MODULE_0__["ChangeDetectionStrategy"].OnPush,
+            styles: [__webpack_require__(/*! ./brand-form.component.scss */ "./src/app/ms-back-office/modules/ms-brands/components/brand-form/brand-form.component.scss")]
         }),
         __metadata("design:paramtypes", [_angular_material__WEBPACK_IMPORTED_MODULE_5__["MatDialog"],
             _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormBuilder"],
@@ -937,8 +937,8 @@ var EditBrandFormComponent = /** @class */ (function (_super) {
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
             selector: 'edit-brand-form',
             template: __webpack_require__(/*! ./edit-brand-form.component.html */ "./src/app/ms-back-office/modules/ms-brands/components/edit-brand-form/edit-brand-form.component.html"),
-            styles: [__webpack_require__(/*! ./edit-brand-form.component.scss */ "./src/app/ms-back-office/modules/ms-brands/components/edit-brand-form/edit-brand-form.component.scss")],
-            changeDetection: _angular_core__WEBPACK_IMPORTED_MODULE_0__["ChangeDetectionStrategy"].OnPush
+            changeDetection: _angular_core__WEBPACK_IMPORTED_MODULE_0__["ChangeDetectionStrategy"].OnPush,
+            styles: [__webpack_require__(/*! ./edit-brand-form.component.scss */ "./src/app/ms-back-office/modules/ms-brands/components/edit-brand-form/edit-brand-form.component.scss")]
         }),
         __metadata("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"],
             _angular_material__WEBPACK_IMPORTED_MODULE_9__["MatDialog"],
@@ -1521,8 +1521,8 @@ var SeeBrandComponent = /** @class */ (function (_super) {
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
             selector: 'see-brand',
             template: __webpack_require__(/*! ./see-brand.component.html */ "./src/app/ms-back-office/modules/ms-brands/components/see-brand/see-brand.component.html"),
-            styles: [__webpack_require__(/*! ./see-brand.component.scss */ "./src/app/ms-back-office/modules/ms-brands/components/see-brand/see-brand.component.scss")],
-            changeDetection: _angular_core__WEBPACK_IMPORTED_MODULE_0__["ChangeDetectionStrategy"].OnPush
+            changeDetection: _angular_core__WEBPACK_IMPORTED_MODULE_0__["ChangeDetectionStrategy"].OnPush,
+            styles: [__webpack_require__(/*! ./see-brand.component.scss */ "./src/app/ms-back-office/modules/ms-brands/components/see-brand/see-brand.component.scss")]
         }),
         __param(8, Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Inject"])(_angular_material__WEBPACK_IMPORTED_MODULE_4__["MAT_DIALOG_DATA"])),
         __metadata("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"],

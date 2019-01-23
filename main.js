@@ -20,6 +20,7 @@ var map = {
 	],
 	"../ms-blogs/ms-blogs.module": [
 		"./src/app/ms-back-office/modules/ms-blogs/ms-blogs.module.ts",
+		"default~ms-blogs-ms-blogs-module~ms-style-ms-style-module",
 		"ms-blogs-ms-blogs-module"
 	],
 	"../ms-brands/ms-brands.module": [
@@ -86,6 +87,7 @@ var map = {
 		"default~ms-brands-ms-brands-module~ms-collections-ms-collections-module~ms-deals-ms-deals-module~ms-~4095e54f",
 		"default~ms-brands-ms-brands-module~ms-collections-ms-collections-module~ms-shops-ms-shops-module~ms-~1045d9c8",
 		"default~ms-brands-ms-brands-module~ms-style-ms-style-module",
+		"default~ms-blogs-ms-blogs-module~ms-style-ms-style-module",
 		"ms-style-ms-style-module"
 	],
 	"../ms-tasks/ms-tasks.module": [
@@ -735,8 +737,8 @@ var ChangePasswordFormComponent = /** @class */ (function (_super) {
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
             selector: 'change-password-form',
             template: __webpack_require__(/*! ./change-password-form.component.html */ "./src/app/authentication/components/change-password-form/change-password-form.component.html"),
-            styles: [__webpack_require__(/*! ./change-password-form.component.css */ "./src/app/authentication/components/change-password-form/change-password-form.component.css")],
-            changeDetection: _angular_core__WEBPACK_IMPORTED_MODULE_0__["ChangeDetectionStrategy"].OnPush
+            changeDetection: _angular_core__WEBPACK_IMPORTED_MODULE_0__["ChangeDetectionStrategy"].OnPush,
+            styles: [__webpack_require__(/*! ./change-password-form.component.css */ "./src/app/authentication/components/change-password-form/change-password-form.component.css")]
         }),
         __metadata("design:paramtypes", [_ngx_translate_core__WEBPACK_IMPORTED_MODULE_8__["TranslateService"]])
     ], ChangePasswordFormComponent);
@@ -2968,8 +2970,8 @@ var HttpRequestIndicatorComponent = /** @class */ (function () {
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
             selector: 'http-request-indicator',
             template: __webpack_require__(/*! ./http-request-indicator.component.html */ "./src/app/http-request-indicator/components/http-request-indicator/http-request-indicator.component.html"),
-            styles: [__webpack_require__(/*! ./http-request-indicator.component.css */ "./src/app/http-request-indicator/components/http-request-indicator/http-request-indicator.component.css")],
-            changeDetection: _angular_core__WEBPACK_IMPORTED_MODULE_0__["ChangeDetectionStrategy"].OnPush
+            changeDetection: _angular_core__WEBPACK_IMPORTED_MODULE_0__["ChangeDetectionStrategy"].OnPush,
+            styles: [__webpack_require__(/*! ./http-request-indicator.component.css */ "./src/app/http-request-indicator/components/http-request-indicator/http-request-indicator.component.css")]
         }),
         __metadata("design:paramtypes", [_services_http_request_indicators_service__WEBPACK_IMPORTED_MODULE_2__["HttpRequestIndicatorsService"],
             _services_loading_service__WEBPACK_IMPORTED_MODULE_3__["LoadingService"]])
@@ -5000,7 +5002,7 @@ var ErrorMessagesComponent = /** @class */ (function () {
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
             selector: 'error-messages',
             template: __webpack_require__(/*! ./error-messages.component.html */ "./src/app/ui/modules/error-messages/components/error-messages/error-messages.component.html"),
-            styles: [__webpack_require__(/*! ./error-messages.component.css */ "./src/app/ui/modules/error-messages/components/error-messages/error-messages.component.css")],
+            styles: [__webpack_require__(/*! ./error-messages.component.css */ "./src/app/ui/modules/error-messages/components/error-messages/error-messages.component.css")]
         }),
         __metadata("design:paramtypes", [_angular_forms__WEBPACK_IMPORTED_MODULE_1__["ControlContainer"],
             _capitalize_word_pipes_capitalize_word_pipe__WEBPACK_IMPORTED_MODULE_3__["CapitalizeWordPipe"]])
@@ -5276,10 +5278,10 @@ var ImageCardComponent = /** @class */ (function () {
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
             selector: 'image-card',
             template: __webpack_require__(/*! ./image-card.component.html */ "./src/app/ui/modules/image-card/components/image-card/image-card.component.html"),
-            styles: [__webpack_require__(/*! ./image-card.component.css */ "./src/app/ui/modules/image-card/components/image-card/image-card.component.css")],
             providers: [
                 { provide: _angular_forms__WEBPACK_IMPORTED_MODULE_1__["NG_VALUE_ACCESSOR"], useExisting: Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["forwardRef"])(function () { return ImageCardComponent_1; }), multi: true }
-            ]
+            ],
+            styles: [__webpack_require__(/*! ./image-card.component.css */ "./src/app/ui/modules/image-card/components/image-card/image-card.component.css")]
         }),
         __metadata("design:paramtypes", [_ngx_translate_core__WEBPACK_IMPORTED_MODULE_2__["TranslateService"],
             _error_handling_services_toastr_service__WEBPACK_IMPORTED_MODULE_3__["ToastrService"]])
@@ -6034,10 +6036,10 @@ var ImagesCardComponent = /** @class */ (function () {
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
             selector: 'images-card',
             template: __webpack_require__(/*! ./images-card.component.html */ "./src/app/ui/modules/images-card/components/images-card/images-card.component.html"),
-            styles: [__webpack_require__(/*! ./images-card.component.css */ "./src/app/ui/modules/images-card/components/images-card/images-card.component.css")],
             providers: [
                 { provide: _angular_forms__WEBPACK_IMPORTED_MODULE_1__["NG_VALUE_ACCESSOR"], useExisting: Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["forwardRef"])(function () { return ImagesCardComponent_1; }), multi: true }
-            ]
+            ],
+            styles: [__webpack_require__(/*! ./images-card.component.css */ "./src/app/ui/modules/images-card/components/images-card/images-card.component.css")]
         }),
         __metadata("design:paramtypes", [_ngx_translate_core__WEBPACK_IMPORTED_MODULE_2__["TranslateService"],
             _error_handling_services_toastr_service__WEBPACK_IMPORTED_MODULE_3__["ToastrService"]])
@@ -6591,7 +6593,7 @@ module.exports = ":host { /* Safari */\r\n  display: flex; /* Safari */\r\n  fle
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"display-flex flex-grow-1 flex-shrink-1 flex-direction-column padding-0px-25px-25px-25px\">\r\n  <!--div class=\"align-self-center display-flex width-250px  flex-shrink-1 flex-direction-row card-container\">\r\n    <mat-card class=\"border-2px-solid-black box-shadow-none flex-grow-1 margin-0 mat-card-principal\" #imageContainer>\r\n      <img class=\"height-100-pc width-100-pc\" *ngIf=\"principal\" imageLoad [srcImage]=\"principal.imgUrl? principal.imgUrl : principal.file\"\r\n        [container]=\"imageContainer\" src=\"\">\r\n    </mat-card>\r\n  </div-->\r\n  <div class=\"display-flex flex-grow-1 flex-shrink-1 flex-direction-row card-container justify-content-initial\">\r\n    <mat-card *ngFor=\"let faceItem of faceItems; index as cardIndex; trackBy:trackByFn\" class=\"display-flex background-color-secondary flex-direction-column flex-shrink-1 mat-card-images\">\r\n      <div class=\"image-container margin-10px flex-grow-1\" #imageContainer>\r\n        <img class=\"img\" imageLoad [srcImage]=\"faceItem.imgUrl? faceItem.imgUrl : faceItem.file\" [container]=\"imageContainer\" src=\"\">\r\n      </div>\r\n      <div class=\"image-card-btns display-flex margin-left-10px margin-right-10px margin-bottom-10px\">\r\n        <mat-radio-button value=\"primary\" class=\"margin-top-10px\" (click)=\"setMainImage(faceItem)\" matTooltip=\"{{ 'Principal' | translate }}\"></mat-radio-button>\r\n        <button type=\"button\" mat-icon-button class=\"margin-left-10px\" (click)=\"deleteFace(cardIndex)\">\r\n          <mat-icon mat-raised-button color=\"accent\" matTooltip=\"{{ 'Delete' | translate }}\">delete</mat-icon>\r\n        </button>\r\n      </div>\r\n    </mat-card>\r\n  </div>\r\n  <div *ngIf=\"!disabled\" class=\"display-flex justify-content-center width-100-pc\"\r\n  drop-files\r\n  [faceItems]=\"faceItems\"\r\n  [ngClass]=\"{'border-dotted': !fileIsOver, 'border-dotted-drop': fileIsOver}\"\r\n  (filesOver)=\"fileOverDropZone($event)\"\r\n  (filesChange)=\"filesChange($event)\"\r\n  >\r\n    <div>\r\n      <div class=\"padding-bottom-10px\">\r\n        <p>Drop Files Here</p>\r\n        <button type=\"button\" class=\"border-none border-radius-5px\" (click)=\"fileInput.click()\" mat-stroked-button>\r\n          {{ 'Select File' | translate }}\r\n          <mat-icon>add</mat-icon>\r\n        </button>\r\n      </div>\r\n      <input #fileInput style=\"display:none\" type=\"file\" name=\"files\" class=\"file-input glyphicon glyphicon-plus\"\r\n        accept=\"image/*\" multiple/>\r\n    </div>\r\n  </div>\r\n</div>\r\n"
+module.exports = "<div class=\"display-flex flex-grow-1 flex-shrink-1 flex-direction-column padding-0px-25px-25px-25px\">\r\n  <!--div class=\"align-self-center display-flex width-250px  flex-shrink-1 flex-direction-row card-container\">\r\n    <mat-card class=\"border-2px-solid-black box-shadow-none flex-grow-1 margin-0 mat-card-principal\" #imageContainer>\r\n      <img class=\"height-100-pc width-100-pc\" *ngIf=\"principal\" imageLoad [srcImage]=\"principal.imgUrl? principal.imgUrl : principal.file\"\r\n        [container]=\"imageContainer\" src=\"\">\r\n    </mat-card>\r\n  </div-->\r\n  <div class=\"display-flex flex-grow-1 flex-shrink-1 flex-direction-row card-container justify-content-initial\">\r\n    <mat-card *ngFor=\"let faceItem of faceItems; index as cardIndex; trackBy:trackByFn\" class=\"display-flex background-color-secondary flex-direction-column flex-shrink-1 mat-card-images\">\r\n      <div class=\"image-container margin-10px flex-grow-1\" #imageContainer>\r\n        <img class=\"img\" imageLoad [srcImage]=\"faceItem.url? faceItem.url : faceItem.file\" [container]=\"imageContainer\" src=\"\">\r\n      </div>\r\n      <div class=\"image-card-btns display-flex margin-left-10px margin-right-10px margin-bottom-10px\">\r\n        <mat-radio-button value=\"primary\" class=\"margin-top-10px\" (click)=\"setMainImage(faceItem)\" matTooltip=\"{{ 'Principal' | translate }}\"></mat-radio-button>\r\n        <button type=\"button\" mat-icon-button class=\"margin-left-10px\" (click)=\"deleteFace(cardIndex)\">\r\n          <mat-icon mat-raised-button color=\"accent\" matTooltip=\"{{ 'Delete' | translate }}\">delete</mat-icon>\r\n        </button>\r\n      </div>\r\n    </mat-card>\r\n  </div>\r\n  <div *ngIf=\"!disabled\" class=\"display-flex justify-content-center width-100-pc\"\r\n  drop-files\r\n  [faceItems]=\"faceItems\"\r\n  [ngClass]=\"{'border-dotted': !fileIsOver, 'border-dotted-drop': fileIsOver}\"\r\n  (filesOver)=\"fileOverDropZone($event)\"\r\n  (filesChange)=\"filesChange($event)\"\r\n  >\r\n    <div>\r\n      <div class=\"padding-bottom-10px\">\r\n        <p>Drop Files Here</p>\r\n        <button type=\"button\" class=\"border-none border-radius-5px\" (click)=\"fileInput.click()\" mat-stroked-button>\r\n          {{ 'Select File' | translate }}\r\n          <mat-icon>add</mat-icon>\r\n        </button>\r\n      </div>\r\n      <input #fileInput style=\"display:none\" type=\"file\" name=\"files\" class=\"file-input glyphicon glyphicon-plus\"\r\n        accept=\"image/*\" multiple/>\r\n    </div>\r\n  </div>\r\n</div>\r\n"
 
 /***/ }),
 
@@ -6784,10 +6786,10 @@ var ImagesLayoutCardComponent = /** @class */ (function () {
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
             selector: 'images-layout-card',
             template: __webpack_require__(/*! ./images-layout-card.component.html */ "./src/app/ui/modules/images-layout-card/components/images-layout-card/images-layout-card.component.html"),
-            styles: [__webpack_require__(/*! ./images-layout-card.component.css */ "./src/app/ui/modules/images-layout-card/components/images-layout-card/images-layout-card.component.css")],
             providers: [
                 { provide: _angular_forms__WEBPACK_IMPORTED_MODULE_1__["NG_VALUE_ACCESSOR"], useExisting: Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["forwardRef"])(function () { return ImagesLayoutCardComponent_1; }), multi: true }
-            ]
+            ],
+            styles: [__webpack_require__(/*! ./images-layout-card.component.css */ "./src/app/ui/modules/images-layout-card/components/images-layout-card/images-layout-card.component.css")]
         }),
         __metadata("design:paramtypes", [_ngx_translate_core__WEBPACK_IMPORTED_MODULE_2__["TranslateService"],
             _error_handling_services_toastr_service__WEBPACK_IMPORTED_MODULE_3__["ToastrService"]])

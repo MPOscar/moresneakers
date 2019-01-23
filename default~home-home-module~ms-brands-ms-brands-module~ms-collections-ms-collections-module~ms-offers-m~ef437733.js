@@ -776,7 +776,7 @@ var LinkOffersCollentionModalComponent = /** @class */ (function () {
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
             selector: 'link-offers-collection-modal',
             template: __webpack_require__(/*! ./link-offers-collection-modal.component.html */ "./src/app/ms-back-office/modules/ms-offers/components/link-offers-collection/link-offers-collection-modal.component.html"),
-            styles: [__webpack_require__(/*! ./link-offers-collection-modal.component.css */ "./src/app/ms-back-office/modules/ms-offers/components/link-offers-collection/link-offers-collection-modal.component.css")],
+            styles: [__webpack_require__(/*! ./link-offers-collection-modal.component.css */ "./src/app/ms-back-office/modules/ms-offers/components/link-offers-collection/link-offers-collection-modal.component.css")]
         }),
         __param(8, Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Inject"])(_angular_material__WEBPACK_IMPORTED_MODULE_3__["MAT_DIALOG_DATA"])),
         __metadata("design:paramtypes", [_angular_core__WEBPACK_IMPORTED_MODULE_0__["ElementRef"],
@@ -1096,8 +1096,8 @@ var OfferFormComponent = /** @class */ (function (_super) {
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
             selector: 'offer-form',
             template: __webpack_require__(/*! ./offer-form.component.html */ "./src/app/ms-back-office/modules/ms-offers/components/offer-form/offer-form.component.html"),
-            styles: [__webpack_require__(/*! ./offer-form.component.scss */ "./src/app/ms-back-office/modules/ms-offers/components/offer-form/offer-form.component.scss")],
-            changeDetection: _angular_core__WEBPACK_IMPORTED_MODULE_0__["ChangeDetectionStrategy"].OnPush
+            changeDetection: _angular_core__WEBPACK_IMPORTED_MODULE_0__["ChangeDetectionStrategy"].OnPush,
+            styles: [__webpack_require__(/*! ./offer-form.component.scss */ "./src/app/ms-back-office/modules/ms-offers/components/offer-form/offer-form.component.scss")]
         }),
         __metadata("design:paramtypes", [_angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormBuilder"],
             _ngx_translate_core__WEBPACK_IMPORTED_MODULE_2__["TranslateService"]])
@@ -2693,8 +2693,8 @@ var SeeOfferComponent = /** @class */ (function (_super) {
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
             selector: 'see-offer',
             template: __webpack_require__(/*! ./see-offer.component.html */ "./src/app/ms-back-office/modules/ms-offers/components/see-offer/see-offer.component.html"),
-            styles: [__webpack_require__(/*! ./see-offer.component.scss */ "./src/app/ms-back-office/modules/ms-offers/components/see-offer/see-offer.component.scss")],
-            changeDetection: _angular_core__WEBPACK_IMPORTED_MODULE_0__["ChangeDetectionStrategy"].OnPush
+            changeDetection: _angular_core__WEBPACK_IMPORTED_MODULE_0__["ChangeDetectionStrategy"].OnPush,
+            styles: [__webpack_require__(/*! ./see-offer.component.scss */ "./src/app/ms-back-office/modules/ms-offers/components/see-offer/see-offer.component.scss")]
         }),
         __param(5, Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Inject"])(_angular_material__WEBPACK_IMPORTED_MODULE_2__["MAT_DIALOG_DATA"])),
         __metadata("design:paramtypes", [_angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormBuilder"],

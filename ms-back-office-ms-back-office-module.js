@@ -476,7 +476,7 @@ var routes = [
                 loadChildren: '../ms-tasks/ms-tasks.module#MsTasksModule'
             },
             {
-                path: 'layout',
+                path: 'layouts',
                 loadChildren: '../ms-layout/ms-layout.module#MsLayoutModule'
             }
         ]

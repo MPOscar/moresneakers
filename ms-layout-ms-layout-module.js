@@ -283,11 +283,12 @@ var DeleteLayoutComponent = /** @class */ (function () {
         this.urlId = this.activatedRoute.snapshot.data.urlId;
     };
     DeleteLayoutComponent.prototype.getCollection = function () {
-        var _this = this;
-        this.urlsService.getUrl('', this.urlId, '').subscribe(function (response) {
-            _this.data = response.data;
-            _this.confirmDeleteUrl();
-        }, function (error) { return _this.errorHandlingService.handleUiError(errorKey, error); });
+        /*this.urlsService.getUrl('', this.urlId, '').subscribe(response => {
+          this.data = response.data;
+          this.confirmDeleteUrl();
+        },
+          (error: HandledError) => this.errorHandlingService.handleUiError(errorKey, error)
+        )*/
     };
     DeleteLayoutComponent.prototype.close = function () {
         this.router.navigate(this.activatedRoute.snapshot.data.closeRouteCommand, { relativeTo: this.activatedRoute });
@@ -345,6 +346,179 @@ var DeleteLayoutComponent = /** @class */ (function () {
 
 /***/ }),
 
+/***/ "./src/app/ms-back-office/modules/ms-layout/components/edit-heading/edit-heading.component.html":
+/*!******************************************************************************************************!*\
+  !*** ./src/app/ms-back-office/modules/ms-layout/components/edit-heading/edit-heading.component.html ***!
+  \******************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<heading-form\n    [data]=\"data\"\n    [brands]=\"brands\"\n    [categories]=\"categories\"\n    [collections]=\"collections\"\n    [shops]=\"shops\"\n    [styles]=\"styles\"\n    [filters]=\"data.filters\"\n    (accept)=\"submit($event)\"\n    [validationErrors]=\"validationErrors\"\n    (cancel)=\"cancel()\"\n    (dataChange)=\"dataChanged()\">\n</heading-form>\n"
+
+/***/ }),
+
+/***/ "./src/app/ms-back-office/modules/ms-layout/components/edit-heading/edit-heading.component.scss":
+/*!******************************************************************************************************!*\
+  !*** ./src/app/ms-back-office/modules/ms-layout/components/edit-heading/edit-heading.component.scss ***!
+  \******************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = ":host {\n  display: flex;\n  flex-grow: 1;\n  flex-direction: column;\n  height: 100%; }\n\n.mat-dialog-container {\n  padding: 10px; }\n\n.mat-dialog-content {\n  height: 60%;\n  max-height: 82vh;\n  margin-bottom: 10px; }\n\n.mat-dialog-actions {\n  padding: 10px 0; }\n\nmat-card {\n  padding: 0px;\n  align-self: flex-start;\n  height: 200px;\n  width: 150px;\n  margin-left: 2px;\n  margin-right: 15px;\n  margin-bottom: 15px; }\n\nmat-icon {\n  font-size: 24px;\n  width: 24px;\n  height: 24px; }\n\n.max-width-60-pct {\n  max-width: 60% !important; }\n\n.border {\n  border: 1px solid #f1f1f1; }\n\ntd.mat-cell {\n  border: none !important; }\n\nth.mat-header-cell {\n  border: none !important; }\n\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvbXMtYmFjay1vZmZpY2UvbW9kdWxlcy9tcy1sYXlvdXQvY29tcG9uZW50cy9lZGl0LWhlYWRpbmcvRTpcXFBST0dSQU1BQ0lPTiBJSUlcXG1vcmVzbmVha2Vycy1iYWNrb2ZmaWNlL3NyY1xcYXBwXFxtcy1iYWNrLW9mZmljZVxcbW9kdWxlc1xcbXMtbGF5b3V0XFxjb21wb25lbnRzXFxlZGl0LWhlYWRpbmdcXGVkaXQtaGVhZGluZy5jb21wb25lbnQuc2NzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUNJLGNBQWE7RUFDYixhQUFZO0VBQ1osdUJBQXNCO0VBQ3RCLGFBQ0YsRUFBQzs7QUFFRDtFQUNFLGNBQWEsRUFDZDs7QUFFRDtFQUNFLFlBQVc7RUFDWCxpQkFBZ0I7RUFDaEIsb0JBQW1CLEVBQ3BCOztBQUVEO0VBQ0UsZ0JBQWUsRUFDaEI7O0FBRUQ7RUFDRSxhQUFZO0VBQ1osdUJBQXNCO0VBQ3RCLGNBQWE7RUFDYixhQUFZO0VBQ1osaUJBQWdCO0VBQ2hCLG1CQUFrQjtFQUNsQixvQkFBbUIsRUFDcEI7O0FBRUQ7RUFDRSxnQkFBZTtFQUNmLFlBQVc7RUFDWCxhQUFZLEVBQ2I7O0FBRUQ7RUFDRSwwQkFBeUIsRUFDMUI7O0FBRUQ7RUFDRSwwQkFBeUIsRUFDMUI7O0FBRUQ7RUFDRSx3QkFBdUIsRUFDeEI7O0FBQ0Q7RUFDRSx3QkFBdUIsRUFDeEIiLCJmaWxlIjoic3JjL2FwcC9tcy1iYWNrLW9mZmljZS9tb2R1bGVzL21zLWxheW91dC9jb21wb25lbnRzL2VkaXQtaGVhZGluZy9lZGl0LWhlYWRpbmcuY29tcG9uZW50LnNjc3MiLCJzb3VyY2VzQ29udGVudCI6WyI6aG9zdCB7XHJcbiAgICBkaXNwbGF5OiBmbGV4O1xyXG4gICAgZmxleC1ncm93OiAxO1xyXG4gICAgZmxleC1kaXJlY3Rpb246IGNvbHVtbjtcclxuICAgIGhlaWdodDogMTAwJVxyXG4gIH1cclxuICBcclxuICAubWF0LWRpYWxvZy1jb250YWluZXIge1xyXG4gICAgcGFkZGluZzogMTBweDtcclxuICB9XHJcbiAgXHJcbiAgLm1hdC1kaWFsb2ctY29udGVudCB7XHJcbiAgICBoZWlnaHQ6IDYwJTtcclxuICAgIG1heC1oZWlnaHQ6IDgydmg7XHJcbiAgICBtYXJnaW4tYm90dG9tOiAxMHB4O1xyXG4gIH1cclxuICBcclxuICAubWF0LWRpYWxvZy1hY3Rpb25zIHtcclxuICAgIHBhZGRpbmc6IDEwcHggMDtcclxuICB9XHJcbiAgXHJcbiAgbWF0LWNhcmQge1xyXG4gICAgcGFkZGluZzogMHB4O1xyXG4gICAgYWxpZ24tc2VsZjogZmxleC1zdGFydDtcclxuICAgIGhlaWdodDogMjAwcHg7XHJcbiAgICB3aWR0aDogMTUwcHg7XHJcbiAgICBtYXJnaW4tbGVmdDogMnB4O1xyXG4gICAgbWFyZ2luLXJpZ2h0OiAxNXB4O1xyXG4gICAgbWFyZ2luLWJvdHRvbTogMTVweDtcclxuICB9XHJcbiAgXHJcbiAgbWF0LWljb24ge1xyXG4gICAgZm9udC1zaXplOiAyNHB4O1xyXG4gICAgd2lkdGg6IDI0cHg7XHJcbiAgICBoZWlnaHQ6IDI0cHg7XHJcbiAgfVxyXG4gIFxyXG4gIC5tYXgtd2lkdGgtNjAtcGN0e1xyXG4gICAgbWF4LXdpZHRoOiA2MCUgIWltcG9ydGFudDtcclxuICB9XHJcbiAgXHJcbiAgLmJvcmRlcntcclxuICAgIGJvcmRlcjogMXB4IHNvbGlkICNmMWYxZjE7XHJcbiAgfVxyXG4gIFxyXG4gIHRkLm1hdC1jZWxse1xyXG4gICAgYm9yZGVyOiBub25lICFpbXBvcnRhbnQ7XHJcbiAgfVxyXG4gIHRoLm1hdC1oZWFkZXItY2VsbHtcclxuICAgIGJvcmRlcjogbm9uZSAhaW1wb3J0YW50O1xyXG4gIH1cclxuIl19 */"
+
+/***/ }),
+
+/***/ "./src/app/ms-back-office/modules/ms-layout/components/edit-heading/edit-heading.component.ts":
+/*!****************************************************************************************************!*\
+  !*** ./src/app/ms-back-office/modules/ms-layout/components/edit-heading/edit-heading.component.ts ***!
+  \****************************************************************************************************/
+/*! exports provided: EditHeadinglComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "EditHeadinglComponent", function() { return EditHeadinglComponent; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+/* harmony import */ var _angular_material__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/material */ "./node_modules/@angular/material/esm5/material.es5.js");
+/* harmony import */ var _ngx_translate_core__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @ngx-translate/core */ "./node_modules/@ngx-translate/core/fesm5/ngx-translate-core.js");
+/* harmony import */ var _ui_modules_images_card_services_images_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../../../ui/modules/images-card/services/images.service */ "./src/app/ui/modules/images-card/services/images.service.ts");
+/* harmony import */ var _ui_helpers_component_can_deactivate__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../../../ui/helpers/component-can-deactivate */ "./src/app/ui/helpers/component-can-deactivate.ts");
+/* harmony import */ var _ui_helpers_mixin_decorator__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../../../../ui/helpers/mixin-decorator */ "./src/app/ui/helpers/mixin-decorator.ts");
+/* harmony import */ var _error_handling_services_error_handling_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../../../../error-handling/services/error-handling.service */ "./src/app/error-handling/services/error-handling.service.ts");
+/* harmony import */ var _error_handling_services_toastr_service__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../../../../error-handling/services/toastr.service */ "./src/app/error-handling/services/toastr.service.ts");
+/* harmony import */ var _models_layout__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../../models/layout */ "./src/app/ms-back-office/modules/ms-layout/models/layout.ts");
+/* harmony import */ var _services_layout_service__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../../services/layout.service */ "./src/app/ms-back-office/modules/ms-layout/services/layout.service.ts");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+
+
+
+
+
+
+
+//import { setTranslations } from '@c/ngx-translate';
+var errorKey = 'Error';
+var updatedMessageKey = 'Updated';
+var EditHeadinglComponent = /** @class */ (function () {
+    function EditHeadinglComponent(activatedRoute, dialog, imagesService, layoutService, errorHandlingService, router, snackBar, translate, toastr) {
+        this.activatedRoute = activatedRoute;
+        this.dialog = dialog;
+        this.imagesService = imagesService;
+        this.layoutService = layoutService;
+        this.errorHandlingService = errorHandlingService;
+        this.router = router;
+        this.snackBar = snackBar;
+        this.translate = translate;
+        this.toastr = toastr;
+        this.data = new _models_layout__WEBPACK_IMPORTED_MODULE_9__["LayoutHeading"]();
+        // Begin Mixin code of the CanDeactivate class
+        this.unsavedChanges = false;
+        this.cancelBtnKey = 'No';
+        this.okBtnKey = 'Yes';
+        this.saveTitleKey = 'Discard Title';
+        this.saveMessageKey = 'Discard Message';
+        //setTranslations(this.translate, TRANSLATIONS);
+    }
+    EditHeadinglComponent.prototype.ngOnInit = function () {
+    };
+    EditHeadinglComponent.prototype.ngAfterViewInit = function () {
+        this.getUrl();
+    };
+    EditHeadinglComponent.prototype.getUrl = function () {
+        var _this = this;
+        this.layoutService.getLayout(this.pageId, 'heading').subscribe(function (response) {
+            _this.data = response.data;
+        }, function (error) { return _this.errorHandlingService.handleUiError(errorKey, error); });
+    };
+    EditHeadinglComponent.prototype.submit = function (data) {
+        console.log(JSON.stringify(data));
+        this.updateHeading(data);
+    };
+    EditHeadinglComponent.prototype.cancel = function () {
+        this.close();
+    };
+    EditHeadinglComponent.prototype.close = function () {
+    };
+    EditHeadinglComponent.prototype.updateHeading = function (data) {
+        var _this = this;
+        this.layoutService.putUrl(this.pageId, 'heading', data).subscribe(function (response) {
+            _this.unsavedChanges = false;
+            _this.close();
+            _this.toastr.success(updatedMessageKey);
+        }, function (error) {
+            _this.errorHandlingService.handleUiError(errorKey, error);
+            _this.validationErrors = error.formErrors;
+        });
+    };
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])(),
+        __metadata("design:type", Object)
+    ], EditHeadinglComponent.prototype, "filters", void 0);
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])(),
+        __metadata("design:type", String)
+    ], EditHeadinglComponent.prototype, "pageId", void 0);
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])(),
+        __metadata("design:type", Array)
+    ], EditHeadinglComponent.prototype, "brands", void 0);
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])(),
+        __metadata("design:type", Array)
+    ], EditHeadinglComponent.prototype, "categories", void 0);
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])(),
+        __metadata("design:type", Array)
+    ], EditHeadinglComponent.prototype, "collections", void 0);
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])(),
+        __metadata("design:type", Array)
+    ], EditHeadinglComponent.prototype, "releases", void 0);
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])(),
+        __metadata("design:type", Array)
+    ], EditHeadinglComponent.prototype, "shops", void 0);
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])(),
+        __metadata("design:type", Array)
+    ], EditHeadinglComponent.prototype, "styles", void 0);
+    EditHeadinglComponent = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+            selector: 'edit-heading',
+            template: __webpack_require__(/*! ./edit-heading.component.html */ "./src/app/ms-back-office/modules/ms-layout/components/edit-heading/edit-heading.component.html"),
+            styles: [__webpack_require__(/*! ./edit-heading.component.scss */ "./src/app/ms-back-office/modules/ms-layout/components/edit-heading/edit-heading.component.scss")]
+        }),
+        Object(_ui_helpers_mixin_decorator__WEBPACK_IMPORTED_MODULE_6__["Mixin"])([_ui_helpers_component_can_deactivate__WEBPACK_IMPORTED_MODULE_5__["CanDeactivateMixin"]]),
+        __metadata("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_1__["ActivatedRoute"],
+            _angular_material__WEBPACK_IMPORTED_MODULE_2__["MatDialog"],
+            _ui_modules_images_card_services_images_service__WEBPACK_IMPORTED_MODULE_4__["ImagesService"],
+            _services_layout_service__WEBPACK_IMPORTED_MODULE_10__["LayoutService"],
+            _error_handling_services_error_handling_service__WEBPACK_IMPORTED_MODULE_7__["ErrorHandlingService"],
+            _angular_router__WEBPACK_IMPORTED_MODULE_1__["Router"],
+            _angular_material__WEBPACK_IMPORTED_MODULE_2__["MatSnackBar"],
+            _ngx_translate_core__WEBPACK_IMPORTED_MODULE_3__["TranslateService"],
+            _error_handling_services_toastr_service__WEBPACK_IMPORTED_MODULE_8__["ToastrService"]])
+    ], EditHeadinglComponent);
+    return EditHeadinglComponent;
+}());
+
+
+
+/***/ }),
+
 /***/ "./src/app/ms-back-office/modules/ms-layout/components/edit-slider/edit-slider.component.html":
 /*!****************************************************************************************************!*\
   !*** ./src/app/ms-back-office/modules/ms-layout/components/edit-slider/edit-slider.component.html ***!
@@ -352,7 +526,7 @@ var DeleteLayoutComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<slider-form\n    [data]=\"data\"\n    [brands]=\"brands\"\n    [categories]=\"categories\"\n    [collections]=\"collections\"\n    [shops]=\"shops\"\n    [styles]=\"styles\"\n    [filters]=\"filters\"\n    (accept)=\"submit($event)\"\n    [validationErrors]=\"validationErrors\"\n    (cancel)=\"cancel()\"\n    (dataChange)=\"dataChanged()\">\n</slider-form>\n"
+module.exports = "<slider-form\n    [data]=\"data\"\n    [brands]=\"brands\"\n    [categories]=\"categories\"\n    [collections]=\"collections\"\n    [shops]=\"shops\"\n    [styles]=\"styles\"\n    [filters]=\"data.filters\"\n    [pageId]=\"pageId\"\n    (accept)=\"submit($event)\"\n    [validationErrors]=\"validationErrors\"\n    (cancel)=\"cancel()\"\n    (dataChange)=\"dataChanged()\">\n</slider-form>\n"
 
 /***/ }),
 
@@ -379,13 +553,17 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "EditSliderlComponent", function() { return EditSliderlComponent; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
-/* harmony import */ var _angular_material__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/material */ "./node_modules/@angular/material/esm5/material.es5.js");
-/* harmony import */ var _ngx_translate_core__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @ngx-translate/core */ "./node_modules/@ngx-translate/core/fesm5/ngx-translate-core.js");
-/* harmony import */ var _ui_helpers_component_can_deactivate__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../../../ui/helpers/component-can-deactivate */ "./src/app/ui/helpers/component-can-deactivate.ts");
-/* harmony import */ var _ui_helpers_mixin_decorator__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../../../ui/helpers/mixin-decorator */ "./src/app/ui/helpers/mixin-decorator.ts");
-/* harmony import */ var _error_handling_services_error_handling_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../../../../error-handling/services/error-handling.service */ "./src/app/error-handling/services/error-handling.service.ts");
-/* harmony import */ var _error_handling_services_toastr_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../../../../error-handling/services/toastr.service */ "./src/app/error-handling/services/toastr.service.ts");
-/* harmony import */ var _services_layout_service__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../services/layout.service */ "./src/app/ms-back-office/modules/ms-layout/services/layout.service.ts");
+/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! rxjs */ "./node_modules/rxjs/_esm5/index.js");
+/* harmony import */ var _angular_material__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/material */ "./node_modules/@angular/material/esm5/material.es5.js");
+/* harmony import */ var _ngx_translate_core__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @ngx-translate/core */ "./node_modules/@ngx-translate/core/fesm5/ngx-translate-core.js");
+/* harmony import */ var _ui_modules_images_card_models_face__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../../../ui/modules/images-card/models/face */ "./src/app/ui/modules/images-card/models/face.ts");
+/* harmony import */ var _ui_modules_images_card_services_images_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../../../../ui/modules/images-card/services/images.service */ "./src/app/ui/modules/images-card/services/images.service.ts");
+/* harmony import */ var _ui_helpers_component_can_deactivate__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../../../../ui/helpers/component-can-deactivate */ "./src/app/ui/helpers/component-can-deactivate.ts");
+/* harmony import */ var _ui_helpers_mixin_decorator__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../../../../ui/helpers/mixin-decorator */ "./src/app/ui/helpers/mixin-decorator.ts");
+/* harmony import */ var _error_handling_services_error_handling_service__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../../../../../error-handling/services/error-handling.service */ "./src/app/error-handling/services/error-handling.service.ts");
+/* harmony import */ var _error_handling_services_toastr_service__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../../../../../error-handling/services/toastr.service */ "./src/app/error-handling/services/toastr.service.ts");
+/* harmony import */ var _models_layout__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../../models/layout */ "./src/app/ms-back-office/modules/ms-layout/models/layout.ts");
+/* harmony import */ var _services_layout_service__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ../../services/layout.service */ "./src/app/ms-back-office/modules/ms-layout/services/layout.service.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -397,9 +575,14 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 };
 
 
+//
+
 
 
 //
+
+
+
 
 
 
@@ -409,15 +592,17 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 var errorKey = 'Error';
 var updatedMessageKey = 'Updated';
 var EditSliderlComponent = /** @class */ (function () {
-    function EditSliderlComponent(activatedRoute, dialog, layoutService, errorHandlingService, router, snackBar, translate, toastr) {
+    function EditSliderlComponent(activatedRoute, dialog, imagesService, layoutService, errorHandlingService, router, snackBar, translate, toastr) {
         this.activatedRoute = activatedRoute;
         this.dialog = dialog;
+        this.imagesService = imagesService;
         this.layoutService = layoutService;
         this.errorHandlingService = errorHandlingService;
         this.router = router;
         this.snackBar = snackBar;
         this.translate = translate;
         this.toastr = toastr;
+        this.data = new _models_layout__WEBPACK_IMPORTED_MODULE_11__["LayoutSlider"]();
         // Begin Mixin code of the CanDeactivate class
         this.unsavedChanges = false;
         this.cancelBtnKey = 'No';
@@ -429,26 +614,29 @@ var EditSliderlComponent = /** @class */ (function () {
     EditSliderlComponent.prototype.ngOnInit = function () {
     };
     EditSliderlComponent.prototype.ngAfterViewInit = function () {
-        this.getUrl();
+        //this.getUrl();
     };
-    EditSliderlComponent.prototype.getUrl = function () {
+    EditSliderlComponent.prototype.getLayoutSliders = function (filters) {
         var _this = this;
-        this.layoutService.getUrl(this.pageId, 'slider', '').subscribe(function (response) {
-            _this.data = response.data;
+        this.layoutService.getLayoutFilterSliders(this.pageId, 'slider', filters).subscribe(function (response) {
+            //this.data = response.data;
+            _this.data = {
+                url: 'string',
+                filters: [],
+            };
         }, function (error) { return _this.errorHandlingService.handleUiError(errorKey, error); });
     };
     EditSliderlComponent.prototype.submit = function (data) {
-        //console.log(JSON.stringify(data));
-        //delete data.updatedAt;
-        //delete data.createdAt;
-        //this.updateStyle(data);
+        console.log(JSON.stringify(data));
+        data.filter = this.getFilterArray(data.filters);
+        this.editCase(data);
     };
     EditSliderlComponent.prototype.cancel = function () {
         this.close();
     };
     EditSliderlComponent.prototype.close = function () {
     };
-    EditSliderlComponent.prototype.updateStyle = function (data) {
+    EditSliderlComponent.prototype.updateSlider = function (data) {
         var _this = this;
         this.layoutService.putUrl(this.pageId, 'slider', data).subscribe(function (response) {
             _this.unsavedChanges = false;
@@ -458,6 +646,71 @@ var EditSliderlComponent = /** @class */ (function () {
             _this.errorHandlingService.handleUiError(errorKey, error);
             _this.validationErrors = error.formErrors;
         });
+    };
+    EditSliderlComponent.prototype.editCase = function (releaseData) {
+        var _this = this;
+        var mainImageFlag = false;
+        if (releaseData !== undefined && releaseData !== null) {
+            // Saving the images of the case before saving the case
+            releaseData.images = [];
+            var imagesObservables = new Array();
+            var addedFaces = new Array();
+            // Uploading the images to command and control server
+            for (var position in releaseData.faces) {
+                var face = releaseData.faces[position];
+                if (face.state === _ui_modules_images_card_models_face__WEBPACK_IMPORTED_MODULE_5__["State"].New) {
+                    face.status = _ui_modules_images_card_models_face__WEBPACK_IMPORTED_MODULE_5__["Status"].Uploading;
+                    var subscription$ = this.imagesService.postImage(face.file);
+                    imagesObservables.push(subscription$);
+                    addedFaces.push(face);
+                }
+                else if (face.mainImage === true) {
+                    mainImageFlag = true;
+                    var mainImage = {
+                        mainImage: face.imgUrl
+                    };
+                }
+            }
+            if (imagesObservables.length > 0) {
+                Object(rxjs__WEBPACK_IMPORTED_MODULE_2__["forkJoin"])(imagesObservables).subscribe(function (responses) {
+                    for (var item in responses) {
+                        var image = {
+                            url: '',
+                            display: 'small',
+                        };
+                        image.url = responses[item].data.url;
+                        releaseData.images = releaseData.images.concat([image]);
+                    }
+                    _this.layoutService.putUrl(_this.pageId, 'slider', releaseData).subscribe(function (response) {
+                        _this.unsavedChanges = false;
+                        _this.close();
+                        _this.toastr.success(updatedMessageKey);
+                    }, function (error) {
+                        _this.errorHandlingService.handleUiError(errorKey, error);
+                        _this.validationErrors = error.formErrors;
+                    });
+                }, function (error) {
+                    _this.errorHandlingService.handleUiError(errorKey, error);
+                    _this.validationErrors = error.formErrors;
+                });
+            }
+            else {
+                if (!mainImageFlag) {
+                    // releaseData.mainImage = "";
+                }
+            }
+        }
+    };
+    EditSliderlComponent.prototype.getFilterArray = function (filters) {
+        var queryParams = {};
+        if (filters) {
+            filters.forEach(function (item) {
+                var filter = item.filter;
+                queryParams[filter] = item.value;
+            });
+            console.log(JSON.stringify(queryParams));
+            return queryParams;
+        }
     };
     __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])(),
@@ -497,15 +750,16 @@ var EditSliderlComponent = /** @class */ (function () {
             template: __webpack_require__(/*! ./edit-slider.component.html */ "./src/app/ms-back-office/modules/ms-layout/components/edit-slider/edit-slider.component.html"),
             styles: [__webpack_require__(/*! ./edit-slider.component.scss */ "./src/app/ms-back-office/modules/ms-layout/components/edit-slider/edit-slider.component.scss")]
         }),
-        Object(_ui_helpers_mixin_decorator__WEBPACK_IMPORTED_MODULE_5__["Mixin"])([_ui_helpers_component_can_deactivate__WEBPACK_IMPORTED_MODULE_4__["CanDeactivateMixin"]]),
+        Object(_ui_helpers_mixin_decorator__WEBPACK_IMPORTED_MODULE_8__["Mixin"])([_ui_helpers_component_can_deactivate__WEBPACK_IMPORTED_MODULE_7__["CanDeactivateMixin"]]),
         __metadata("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_1__["ActivatedRoute"],
-            _angular_material__WEBPACK_IMPORTED_MODULE_2__["MatDialog"],
-            _services_layout_service__WEBPACK_IMPORTED_MODULE_8__["LayoutService"],
-            _error_handling_services_error_handling_service__WEBPACK_IMPORTED_MODULE_6__["ErrorHandlingService"],
+            _angular_material__WEBPACK_IMPORTED_MODULE_3__["MatDialog"],
+            _ui_modules_images_card_services_images_service__WEBPACK_IMPORTED_MODULE_6__["ImagesService"],
+            _services_layout_service__WEBPACK_IMPORTED_MODULE_12__["LayoutService"],
+            _error_handling_services_error_handling_service__WEBPACK_IMPORTED_MODULE_9__["ErrorHandlingService"],
             _angular_router__WEBPACK_IMPORTED_MODULE_1__["Router"],
-            _angular_material__WEBPACK_IMPORTED_MODULE_2__["MatSnackBar"],
-            _ngx_translate_core__WEBPACK_IMPORTED_MODULE_3__["TranslateService"],
-            _error_handling_services_toastr_service__WEBPACK_IMPORTED_MODULE_7__["ToastrService"]])
+            _angular_material__WEBPACK_IMPORTED_MODULE_3__["MatSnackBar"],
+            _ngx_translate_core__WEBPACK_IMPORTED_MODULE_4__["TranslateService"],
+            _error_handling_services_toastr_service__WEBPACK_IMPORTED_MODULE_10__["ToastrService"]])
     ], EditSliderlComponent);
     return EditSliderlComponent;
 }());
@@ -607,10 +861,11 @@ var EditUrlComponent = /** @class */ (function () {
         this.getUrl();
     };
     EditUrlComponent.prototype.getUrl = function () {
-        var _this = this;
-        this.layoutService.getUrl('', this.urlId, this.filter).subscribe(function (response) {
-            _this.data = response.data;
-        }, function (error) { return _this.errorHandlingService.handleUiError(errorKey, error); });
+        /*this.layoutService.getLayoutFilterSliders('', this.urlId, this.filter).subscribe(response => {
+          this.data = response.data;
+        },
+          (error: HandledError) => this.errorHandlingService.handleUiError(errorKey, error)
+        )*/
     };
     EditUrlComponent.prototype.submit = function (data) {
         delete data.updatedAt;
@@ -666,7 +921,7 @@ var EditUrlComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<form class=\"flex-grow-1 min-height-0 display-flex flex-direction-column\" [askBeforeRefresh]=\"formGroup.dirty\" [formGroup]=\"formGroup\"\n  novalidate role=\"form\" (ngSubmit)=\"submitClicked()\" autocomplete=\"off\" inputFocus>\n\n  <div class=\"flex-grow-1 overflow-auto display-flex flex-direction-column\">\n\n    <div class=\"flex-grow-1 flex-shrink-0 display-flex flex-direction-column\">\n\n      <div class=\"mb-25 flex-wrap-wrap display-flex flex-grow-1 flex-shrink-1 flex-direction-row card-container justify-content-initial\"\n        fxFlex fxLayout=\"row\" fxLayout.lt-md=\"column\" fxLayoutGap=\"25px\">\n\n        <div [fxFlex]=\"20\">\n\n          <div class=\"image-card-btns display-flex margin-right-10px margin-bottom-10px\">\n            <mat-checkbox [checked]=\"\" class=\"margin-top-10px\" matTooltip=\"{{ 'BRAND' | translate }}\" (click)=\"addFilter('brand')\">BRAND</mat-checkbox>\n          </div>\n\n          <mat-form-field class=\"width-100pc\">\n\n            <mat-select disableOptionCentering placeholder=\"Select\" formControlName=\"brand\">\n\n              <mat-option *ngFor=\"let brand of brands\" [value]=\"brand.id\" (click)=\"updateFilterValue('brand', brand.name)\">\n\n                {{brand.name}}\n\n              </mat-option>\n\n            </mat-select>\n\n          </mat-form-field>\n\n        </div>\n\n        <div [fxFlex]=\"20\">\n\n          <div class=\"image-card-btns display-flex margin-right-10px margin-bottom-10px\">\n            <mat-checkbox [checked]=\"\" class=\"margin-top-10px\" matTooltip=\"{{ 'CATEGORY' | translate }}\" (click)=\"addFilter('category')\">CATEGORY</mat-checkbox>\n          </div>\n\n          <mat-form-field class=\"width-100pc\">\n\n            <mat-select disableOptionCentering placeholder=\"Select\" formControlName=\"category\">\n\n              <mat-option *ngFor=\"let category of categories\" [value]=\"category.id\" (click)=\"updateFilterValue('category', category.name)\">\n\n                {{category.name}}\n\n              </mat-option>\n\n            </mat-select>\n\n          </mat-form-field>\n\n        </div>\n\n        <div [fxFlex]=\"20\">\n\n          <div class=\"image-card-btns display-flex margin-right-10px margin-bottom-10px\">\n            <mat-checkbox [checked]=\"\" class=\"margin-top-10px\" matTooltip=\"{{ 'COLLECTION' | translate }}\" (click)=\"addFilter('collection')\">COLLECTION</mat-checkbox>\n          </div>\n\n          <mat-form-field class=\"width-100pc\">\n\n            <mat-select disableOptionCentering placeholder=\"Select\" formControlName=\"collection\">\n\n              <mat-option *ngFor=\"let collection of collections\" [value]=\"collection.id\" (click)=\"updateFilterValue('collection', collection.name)\">\n\n                {{collection.name}}\n\n              </mat-option>\n\n            </mat-select>\n\n          </mat-form-field>\n\n        </div>\n\n        <div [fxFlex]=\"20\">\n\n          <div class=\"image-card-btns display-flex margin-right-10px margin-bottom-10px\">\n            <mat-checkbox [checked]=\"\" class=\"margin-top-10px\" matTooltip=\"{{ 'COLOR' | translate }}\" (click)=\"addFilter('color')\">COLOR</mat-checkbox>\n          </div>\n\n          <mat-form-field class=\"width-100pc\">\n\n            <mat-select disableOptionCentering placeholder=\"Select\" formControlName=\"color\">\n\n              <mat-option *ngFor=\"let color of colors\" [value]=\"color.id\" (click)=\"updateFilterValue('color', color.name)\">\n\n                {{color.name}}\n\n              </mat-option>\n\n            </mat-select>\n\n          </mat-form-field>\n\n        </div>\n\n        <div [fxFlex]=\"20\">\n\n          <div class=\"image-card-btns display-flex margin-right-10px margin-bottom-10px\">\n            <mat-checkbox [checked]=\"\" class=\"margin-top-10px\" matTooltip=\"{{ 'GENDER' | translate }}\" (click)=\"addFilter('gender')\">GENDER</mat-checkbox>\n          </div>\n\n          <mat-form-field class=\"width-100pc\">\n\n            <mat-select disableOptionCentering placeholder=\"Select\" formControlName=\"gender\">\n\n              <mat-option *ngFor=\"let gender of genders\" [value]=\"gender.id\" (click)=\"updateFilterValue('gender', gender.name)\">\n\n                {{gender.name}}\n\n              </mat-option>\n\n            </mat-select>\n\n          </mat-form-field>\n\n        </div>\n\n        <div [fxFlex]=\"20\">\n\n          <div class=\"image-card-btns display-flex margin-right-10px margin-bottom-10px\">\n            <mat-checkbox [checked]=\"\" class=\"margin-top-10px\" matTooltip=\"{{ 'PRICE' | translate }}\" (click)=\"addFilter('maxPrice')\">PRICE</mat-checkbox>\n          </div>\n\n          <mat-form-field class=\"width-100pc\">\n\n            <mat-select disableOptionCentering placeholder=\"Select\" formControlName=\"maxPrice\">\n\n              <mat-option *ngFor=\"let filter of filters\" [value]=\"filter.id\"  (click)=\"updateFilterValue('maxPrice', filter.name)\">\n\n                {{filter.name}}\n\n              </mat-option>\n\n            </mat-select>\n\n          </mat-form-field>\n\n        </div>\n\n        <div [fxFlex]=\"20\">\n\n          <div class=\"image-card-btns display-flex margin-right-10px margin-bottom-10px\">\n            <mat-checkbox [checked]=\"\" class=\"margin-top-10px\" matTooltip=\"{{ 'SHOP' | translate }}\" (click)=\"addFilter('shop')\">SHOP</mat-checkbox>\n          </div>\n\n          <mat-form-field class=\"width-100pc\">\n\n            <mat-select disableOptionCentering placeholder=\"Select\" formControlName=\"shop\">\n\n              <mat-option *ngFor=\"let shop of shops\" [value]=\"shop.id\" (click)=\"updateFilterValue('shop', shop.name)\">\n\n                {{shop.name}}\n\n              </mat-option>\n\n            </mat-select>\n\n          </mat-form-field>\n\n        </div>\n\n        <div [fxFlex]=\"20\">\n\n          <div class=\"image-card-btns display-flex margin-right-10px margin-bottom-10px\">\n            <mat-checkbox [checked]=\"\" class=\"margin-top-10px\" matTooltip=\"{{ 'SHIPPING' | translate }}\" (click)=\"addFilter('shipping')\">SHIPPING</mat-checkbox>\n          </div>\n\n          <mat-form-field class=\"width-100pc\">\n\n            <mat-select disableOptionCentering placeholder=\"Select\" formControlName=\"shipping\">\n\n              <mat-option *ngFor=\"let filter of filters\" [value]=\"filter.id\" (click)=\"updateFilterValue('shipping', filter.name)\">\n\n                {{filter.name}}\n\n              </mat-option>\n\n            </mat-select>\n\n          </mat-form-field>\n\n        </div>\n\n        <div [fxFlex]=\"20\">\n\n          <div class=\"image-card-btns display-flex margin-right-10px margin-bottom-10px\">\n            <mat-checkbox [checked]=\"\" class=\"margin-top-10px\" matTooltip=\"{{ 'SKU' | translate }}\" (click)=\"addFilter('sku')\">SKU</mat-checkbox>\n          </div>\n\n          <mat-form-field class=\"width-100pc\">\n\n            <mat-select disableOptionCentering placeholder=\"Select\" formControlName=\"sku\">\n\n              <mat-option *ngFor=\"let filter of filters\" [value]=\"filter.id\" (click)=\"updateFilterValue('sku', filter.name)\">\n\n                {{filter.name}}\n\n              </mat-option>\n\n            </mat-select>\n\n          </mat-form-field>\n\n        </div>\n\n        <div [fxFlex]=\"20\">\n\n          <div class=\"image-card-btns display-flex margin-right-10px margin-bottom-10px\">\n            <mat-checkbox [checked]=\"\" class=\"margin-top-10px\" matTooltip=\"{{ 'STATUS' | translate }}\" (click)=\"addFilter('status')\">STATUS</mat-checkbox>\n          </div>\n\n          <mat-form-field class=\"width-100pc\">\n\n            <mat-select disableOptionCentering placeholder=\"Select\" formControlName=\"status\">\n\n              <mat-option *ngFor=\"let filter of filters\" [value]=\"filter.id\" (click)=\"updateFilterValue('status', filter.name)\">\n\n                {{filter.name}}\n\n              </mat-option>\n\n            </mat-select>\n\n          </mat-form-field>\n\n        </div>\n\n        <div [fxFlex]=\"20\">\n\n          <div class=\"image-card-btns display-flex margin-right-10px margin-bottom-10px\">\n            <mat-checkbox [checked]=\"\" class=\"margin-top-10px\" matTooltip=\"{{ 'STYLE' | translate }}\" (click)=\"addFilter('style')\">STYLE</mat-checkbox>\n          </div>\n\n          <mat-form-field class=\"width-100pc\">\n\n            <mat-select disableOptionCentering placeholder=\"Select\" formControlName=\"style\">\n\n              <mat-option *ngFor=\"let style of styles\" [value]=\"style.id\" (click)=\"updateFilterValue('style', style.name)\">\n\n                {{style.name}}\n\n              </mat-option>\n\n            </mat-select>\n\n          </mat-form-field>\n\n        </div>\n\n      </div>\n\n    </div>\n\n  </div>\n\n  <div class=\"margin-right-25px padding-top-10px padding-bottom-10px flex-shrink-0 display-flex border-top-style-solid border-top-width-2px border-top-color-grey\">\n\n    <button mat-raised-button type=\"submit\" color=\"primary\">{{ 'Save' | translate }}</button>\n\n    <button mat-raised-button type=\"button\" class=\"margin-left-10px\" (click)=\"cancelClicked()\">{{ 'Cancel' | translate }}</button>\n\n  </div>\n\n</form>\n"
+module.exports = "<form class=\"flex-grow-1 min-height-0 display-flex flex-direction-column\" [askBeforeRefresh]=\"formGroup.dirty\" [formGroup]=\"formGroup\"\n  novalidate role=\"form\" (ngSubmit)=\"submitClicked()\" autocomplete=\"off\" inputFocus>\n\n  <div class=\"flex-grow-1 overflow-auto display-flex flex-direction-column\">\n\n    <div class=\"flex-grow-1 flex-shrink-0 display-flex flex-direction-column\">\n\n      <div class=\"mb-25 flex-wrap-wrap display-flex flex-grow-1 flex-shrink-1 flex-direction-row card-container justify-content-initial\"\n        fxFlex fxLayout=\"row\" fxLayout.lt-md=\"column\" fxLayoutGap=\"25px\">\n\n        <div [fxFlex]=\"20\">\n\n          <div class=\"image-card-btns display-flex margin-right-10px margin-bottom-10px\">\n            <mat-checkbox [checked]=\"!getFilterActive('brand')\" class=\"margin-top-10px\" matTooltip=\"{{ 'BRAND' | translate }}\" (click)=\"addFilter('brand')\">BRAND</mat-checkbox>\n          </div>\n\n          <mat-form-field class=\"width-100pc\">\n\n            <mat-select disableOptionCentering placeholder=\"Select\" formControlName=\"brand\">\n\n              <mat-option *ngFor=\"let brand of brands\" [value]=\"brand.id\" (click)=\"updateFilterValue('brand', brand.name)\">\n\n                {{brand.name}}\n\n              </mat-option>\n\n            </mat-select>\n\n          </mat-form-field>\n\n        </div>\n\n        <div [fxFlex]=\"20\">\n\n          <div class=\"image-card-btns display-flex margin-right-10px margin-bottom-10px\">\n            <mat-checkbox [checked]=\"!getFilterActive('categories')\" class=\"margin-top-10px\" matTooltip=\"{{ 'CATEGORY' | translate }}\" (click)=\"addFilter('category')\">CATEGORY</mat-checkbox>\n          </div>\n\n          <mat-form-field class=\"width-100pc\">\n\n            <mat-select disableOptionCentering placeholder=\"Select\" formControlName=\"category\">\n\n              <mat-option *ngFor=\"let category of categories\" [value]=\"category.id\" (click)=\"updateFilterValue('category', category.name)\">\n\n                {{category.name}}\n\n              </mat-option>\n\n            </mat-select>\n\n          </mat-form-field>\n\n        </div>\n\n        <div [fxFlex]=\"20\">\n\n          <div class=\"image-card-btns display-flex margin-right-10px margin-bottom-10px\">\n            <mat-checkbox [checked]=\"!getFilterActive('collection')\" class=\"margin-top-10px\" matTooltip=\"{{ 'COLLECTION' | translate }}\" (click)=\"addFilter('collection')\">COLLECTION</mat-checkbox>\n          </div>\n\n          <mat-form-field class=\"width-100pc\">\n\n            <mat-select disableOptionCentering placeholder=\"Select\" formControlName=\"collection\">\n\n              <mat-option *ngFor=\"let collection of collections\" [value]=\"collection.id\" (click)=\"updateFilterValue('collection', collection.name)\">\n\n                {{collection.name}}\n\n              </mat-option>\n\n            </mat-select>\n\n          </mat-form-field>\n\n        </div>\n\n        <div [fxFlex]=\"20\">\n\n          <div class=\"image-card-btns display-flex margin-right-10px margin-bottom-10px\">\n            <mat-checkbox [checked]=\"!getFilterActive('color')\" class=\"margin-top-10px\" matTooltip=\"{{ 'COLOR' | translate }}\" (click)=\"addFilter('color')\">COLOR</mat-checkbox>\n          </div>\n\n          <mat-form-field class=\"width-100pc\">\n\n            <mat-select disableOptionCentering placeholder=\"Select\" formControlName=\"color\">\n\n              <mat-option *ngFor=\"let color of colors\" [value]=\"color.id\" (click)=\"updateFilterValue('color', color.name)\">\n\n                {{color.name}}\n\n              </mat-option>\n\n            </mat-select>\n\n          </mat-form-field>\n\n        </div>\n\n        <div [fxFlex]=\"20\">\n\n          <div class=\"image-card-btns display-flex margin-right-10px margin-bottom-10px\">\n            <mat-checkbox [checked]=\"!getFilterActive('gender')\" class=\"margin-top-10px\" matTooltip=\"{{ 'GENDER' | translate }}\" (click)=\"addFilter('gender')\">GENDER</mat-checkbox>\n          </div>\n\n          <mat-form-field class=\"width-100pc\">\n\n            <mat-select disableOptionCentering placeholder=\"Select\" formControlName=\"gender\">\n\n              <mat-option *ngFor=\"let gender of genders\" [value]=\"gender.id\" (click)=\"updateFilterValue('gender', gender.name)\">\n\n                {{gender.name}}\n\n              </mat-option>\n\n            </mat-select>\n\n          </mat-form-field>\n\n        </div>\n\n        <div [fxFlex]=\"20\">\n\n          <div class=\"image-card-btns display-flex margin-right-10px margin-bottom-10px\">\n            <mat-checkbox [checked]=\"!getFilterActive('filter')\" class=\"margin-top-10px\" matTooltip=\"{{ 'PRICE' | translate }}\" (click)=\"addFilter('maxPrice')\">PRICE</mat-checkbox>\n          </div>\n\n          <mat-form-field class=\"width-100pc\">\n\n            <mat-select disableOptionCentering placeholder=\"Select\" formControlName=\"maxPrice\">\n\n              <mat-option *ngFor=\"let filter of filters\" [value]=\"filter.id\"  (click)=\"updateFilterValue('maxPrice', filter.name)\">\n\n                {{filter.name}}\n\n              </mat-option>\n\n            </mat-select>\n\n          </mat-form-field>\n\n        </div>\n\n        <div [fxFlex]=\"20\">\n\n          <div class=\"image-card-btns display-flex margin-right-10px margin-bottom-10px\">\n            <mat-checkbox [checked]=\"!getFilterActive('shop')\" class=\"margin-top-10px\" matTooltip=\"{{ 'SHOP' | translate }}\" (click)=\"addFilter('shop')\">SHOP</mat-checkbox>\n          </div>\n\n          <mat-form-field class=\"width-100pc\">\n\n            <mat-select disableOptionCentering placeholder=\"Select\" formControlName=\"shop\">\n\n              <mat-option *ngFor=\"let shop of shops\" [value]=\"shop.id\" (click)=\"updateFilterValue('shop', shop.name)\">\n\n                {{shop.name}}\n\n              </mat-option>\n\n            </mat-select>\n\n          </mat-form-field>\n\n        </div>\n\n        <div [fxFlex]=\"20\">\n\n          <div class=\"image-card-btns display-flex margin-right-10px margin-bottom-10px\">\n            <mat-checkbox [checked]=\"!getFilterActive('filter')\" class=\"margin-top-10px\" matTooltip=\"{{ 'SHIPPING' | translate }}\" (click)=\"addFilter('shipping')\">SHIPPING</mat-checkbox>\n          </div>\n\n          <mat-form-field class=\"width-100pc\">\n\n            <mat-select disableOptionCentering placeholder=\"Select\" formControlName=\"shipping\">\n\n              <mat-option *ngFor=\"let filter of filters\" [value]=\"filter.id\" (click)=\"updateFilterValue('shipping', filter.name)\">\n\n                {{filter.name}}\n\n              </mat-option>\n\n            </mat-select>\n\n          </mat-form-field>\n\n        </div>\n\n        <div [fxFlex]=\"20\">\n\n          <div class=\"image-card-btns display-flex margin-right-10px margin-bottom-10px\">\n            <mat-checkbox [checked]=\"!getFilterActive('filter')\" class=\"margin-top-10px\" matTooltip=\"{{ 'SKU' | translate }}\" (click)=\"addFilter('sku')\">SKU</mat-checkbox>\n          </div>\n\n          <mat-form-field class=\"width-100pc\">\n\n            <mat-select disableOptionCentering placeholder=\"Select\" formControlName=\"sku\">\n\n              <mat-option *ngFor=\"let filter of filters\" [value]=\"filter.id\" (click)=\"updateFilterValue('sku', filter.name)\">\n\n                {{filter.name}}\n\n              </mat-option>\n\n            </mat-select>\n\n          </mat-form-field>\n\n        </div>\n\n        <div [fxFlex]=\"20\">\n\n          <div class=\"image-card-btns display-flex margin-right-10px margin-bottom-10px\">\n            <mat-checkbox [checked]=\"!getFilterActive('filter')\" class=\"margin-top-10px\" matTooltip=\"{{ 'STATUS' | translate }}\" (click)=\"addFilter('status')\">STATUS</mat-checkbox>\n          </div>\n\n          <mat-form-field class=\"width-100pc\">\n\n            <mat-select disableOptionCentering placeholder=\"Select\" formControlName=\"status\">\n\n              <mat-option *ngFor=\"let filter of filters\" [value]=\"filter.id\" (click)=\"updateFilterValue('status', filter.name)\">\n\n                {{filter.name}}\n\n              </mat-option>\n\n            </mat-select>\n\n          </mat-form-field>\n\n        </div>\n\n        <div [fxFlex]=\"20\">\n\n          <div class=\"image-card-btns display-flex margin-right-10px margin-bottom-10px\">\n            <mat-checkbox [checked]=\"!getFilterActive('style')\" class=\"margin-top-10px\" matTooltip=\"{{ 'STYLE' | translate }}\" (click)=\"addFilter('style')\">STYLE</mat-checkbox>\n          </div>\n\n          <mat-form-field class=\"width-100pc\">\n\n            <mat-select disableOptionCentering placeholder=\"Select\" formControlName=\"style\">\n\n              <mat-option *ngFor=\"let style of styles\" [value]=\"style.id\" (click)=\"updateFilterValue('style', style.name)\">\n\n                {{style.name}}\n\n              </mat-option>\n\n            </mat-select>\n\n          </mat-form-field>\n\n        </div>\n\n      </div>\n\n    </div>\n\n  </div>\n\n  <div class=\"margin-right-25px padding-top-10px padding-bottom-10px flex-shrink-0 display-flex border-top-style-solid border-top-width-2px border-top-color-grey\">\n\n    <button mat-raised-button type=\"submit\" color=\"primary\">{{ 'Save' | translate }}</button>\n\n    <button mat-raised-button type=\"button\" class=\"margin-left-10px\" (click)=\"cancelClicked()\">{{ 'Cancel' | translate }}</button>\n\n  </div>\n\n</form>\n\n{{filters | json}}\n"
 
 /***/ }),
 
@@ -750,31 +1005,35 @@ var FilterFormComponent = /** @class */ (function (_super) {
     };
     FilterFormComponent.prototype.createFormGroup = function () {
         this.formGroup = new _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormGroup"]({
-            style: new _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormControl"]({ value: '', disabled: true }),
-            sku: new _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormControl"]({ value: '', disabled: true }),
-            brand: new _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormControl"]({ value: '', disabled: true }),
-            collection: new _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormControl"]({ value: '', disabled: true }),
-            category: new _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormControl"]({ value: '', disabled: true }),
-            gender: new _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormControl"]({ value: '', disabled: true }),
-            color: new _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormControl"]({ value: '', disabled: true }),
-            shop: new _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormControl"]({ value: '', disabled: true }),
-            shipping: new _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormControl"]({ value: '', disabled: true }),
-            status: new _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormControl"]({ value: '', disabled: true }),
-            maxPrice: new _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormControl"]({ value: '', disabled: true }),
-            minPrice: new _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormControl"]({ value: '', disabled: true }),
+            style: new _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormControl"]({ value: this.getFilterValue('style'), disabled: this.getFilterActive('style') }),
+            sku: new _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormControl"]({ value: this.getFilterValue('sku'), disabled: this.getFilterActive('sku') }),
+            brand: new _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormControl"]({ value: this.getFilterValue('brand'), disabled: this.getFilterActive('brand') }),
+            collection: new _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormControl"]({ value: this.getFilterValue('collection'), disabled: this.getFilterActive('collection') }),
+            category: new _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormControl"]({ value: this.getFilterValue('category'), disabled: this.getFilterActive('category') }),
+            gender: new _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormControl"]({ value: this.getFilterValue('gender'), disabled: this.getFilterActive('gender') }),
+            color: new _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormControl"]({ value: this.getFilterValue('color'), disabled: this.getFilterActive('color') }),
+            shop: new _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormControl"]({ value: this.getFilterValue('shop'), disabled: this.getFilterActive('shop') }),
+            shipping: new _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormControl"]({ value: this.getFilterValue('shipping'), disabled: this.getFilterActive('shipping') }),
+            status: new _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormControl"]({ value: this.getFilterValue('status'), disabled: this.getFilterActive('status') }),
+            maxPrice: new _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormControl"]({ value: this.getFilterValue('maxPrice'), disabled: this.getFilterActive('maxPrice') }),
+            minPrice: new _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormControl"]({ value: this.getFilterValue('minPrice'), disabled: this.getFilterActive('minPrice') }),
         });
     };
     FilterFormComponent.prototype.submitClicked = function () {
         if (this.formGroup.valid) {
-            this.accept.emit(this.filtersArray);
+            this.accept.emit(this.filters);
         }
         else {
             this.triggerValidation();
         }
     };
     FilterFormComponent.prototype.addFilter = function (filter) {
-        if (this.filtersArray.find(function (item) { return item.filter === filter; })) {
-            this.filtersArray = this.filtersArray.filter(function (item) {
+        if (!this.filters) {
+            this.formGroup.get(filter).enable();
+            return;
+        }
+        if (this.filters.find(function (item) { return item.filter === filter; })) {
+            this.filters = this.filters.filter(function (item) {
                 return item.filter !== filter;
             });
             this.formGroup.get(filter).setValue('');
@@ -785,27 +1044,48 @@ var FilterFormComponent = /** @class */ (function (_super) {
         }
     };
     FilterFormComponent.prototype.updateFilterValue = function (filter, name) {
-        if (!this.filtersArray.find(function (item) { return item.filter === filter; })) {
+        if (!this.filters) {
+            this.filters = [];
+        }
+        if (!this.filters.find(function (item) { return item.filter === filter; })) {
             var filterItem = new _models_filters__WEBPACK_IMPORTED_MODULE_5__["FilterItem"]();
             filterItem = {
                 filter: filter,
                 name: name,
                 value: this.formGroup.get(filter).value,
             };
-            this.filtersArray = this.filtersArray.concat([filterItem]);
+            this.filters = this.filters.concat([filterItem]);
         }
         else {
             try {
-                this.filtersArray.find(function (item) {
+                this.filters.find(function (item) {
                     return item.filter === filter;
                 }).value = this.formGroup.get(filter).value;
-                this.filtersArray.find(function (item) {
+                this.filters.find(function (item) {
                     return item.filter === filter;
                 }).name = name;
             }
             catch (err) {
             }
         }
+    };
+    FilterFormComponent.prototype.getFilterValue = function (filter) {
+        if (this.filters) {
+            if (this.filters.find(function (item) { return item.filter === filter; })) {
+                return this.filters.find(function (item) { return item.filter === filter; }).value;
+            }
+            ;
+        }
+        return '';
+    };
+    FilterFormComponent.prototype.getFilterActive = function (filter) {
+        if (this.filters) {
+            if (this.filters.find(function (item) { return item.filter === filter; })) {
+                return false;
+            }
+            ;
+        }
+        return true;
     };
     __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])(),
@@ -839,13 +1119,165 @@ var FilterFormComponent = /** @class */ (function (_super) {
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
             selector: 'filter-form',
             template: __webpack_require__(/*! ./filter-form.component.html */ "./src/app/ms-back-office/modules/ms-layout/components/filter-form/filter-form.component.html"),
-            styles: [__webpack_require__(/*! ./filter-form.component.scss */ "./src/app/ms-back-office/modules/ms-layout/components/filter-form/filter-form.component.scss")],
-            changeDetection: _angular_core__WEBPACK_IMPORTED_MODULE_0__["ChangeDetectionStrategy"].OnPush
+            changeDetection: _angular_core__WEBPACK_IMPORTED_MODULE_0__["ChangeDetectionStrategy"].OnPush,
+            styles: [__webpack_require__(/*! ./filter-form.component.scss */ "./src/app/ms-back-office/modules/ms-layout/components/filter-form/filter-form.component.scss")]
         }),
         __metadata("design:paramtypes", [_ngx_translate_core__WEBPACK_IMPORTED_MODULE_2__["TranslateService"]])
     ], FilterFormComponent);
     return FilterFormComponent;
 }(_ui_components_base_reactive_form_base_reactive_form_component__WEBPACK_IMPORTED_MODULE_6__["BaseReactiveFormComponent"]));
+
+
+
+/***/ }),
+
+/***/ "./src/app/ms-back-office/modules/ms-layout/components/heading-form/heading-form.component.html":
+/*!******************************************************************************************************!*\
+  !*** ./src/app/ms-back-office/modules/ms-layout/components/heading-form/heading-form.component.html ***!
+  \******************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<form class=\"flex-grow-1 min-height-0 display-flex flex-direction-column\" [askBeforeRefresh]=\"formGroup.dirty\" [formGroup]=\"formGroup\"\n    novalidate role=\"form\" (ngSubmit)=\"submitClicked()\" autocomplete=\"off\" inputFocus>\n\n    <div class=\"flex-grow-1 overflow-auto display-flex flex-direction-column\">\n\n        <div class=\"flex-grow-1 flex-shrink-0 display-flex flex-direction-column\">\n\n            <div class=\"mb-20 margin-top-25px\" fxFlex fxLayout=\"row\" fxLayout.lt-md=\"column\" fxLayoutGap=\"20px\">\n\n                <div [fxFlex]=\"100\" fxFlex fxLayout=\"column\" fxLayout.lt-md=\"column\">\n\n                    <div fxLayout=\"row\" fxLayout.lt-md=\"column\">\n\n                        <div [fxFlex]=\"40\" fxLayout=\"column\" class=\"margin-right-25px\">\n\n                            <mat-form-field class=\"margin-left-16px max-width-480px\">\n\n                                <mat-label>Title</mat-label>\n\n                                <input matInput type=\"text\" formControlName=\"title\">\n\n                            </mat-form-field>\n\n                            <mat-form-field class=\"margin-left-16px max-width-480px\">\n\n                                <mat-label>Keywords</mat-label>\n\n                                <input matInput type=\"text\" formControlName=\"keyWords\">\n\n                            </mat-form-field>\n\n                        </div>\n\n                        <div [fxFlex]=\"60\" class=\"margin-right-25px\">\n\n                            <mat-form-field class=\"margin-left-16px width-100pct customized\" appearance=\"fill\">\n\n                                <mat-label>Description</mat-label>\n                    \n                                <textarea matInput formControlName=\"description\" class=\"min-height-100px\"></textarea>\n                    \n                              </mat-form-field>\n                              \n                        </div>\n\n                    </div>\n\n                </div>\n\n            </div>\n\n        </div>\n\n    </div>\n\n    <div class=\"margin-right-25px padding-top-10px padding-bottom-10px flex-shrink-0 display-flex border-top-style-solid border-top-width-2px border-top-color-grey\">\n\n        <button mat-raised-button type=\"submit\" color=\"primary\">{{ 'Acept' | translate }}</button>\n\n    </div>\n</form>\n{{data | json}}"
+
+/***/ }),
+
+/***/ "./src/app/ms-back-office/modules/ms-layout/components/heading-form/heading-form.component.scss":
+/*!******************************************************************************************************!*\
+  !*** ./src/app/ms-back-office/modules/ms-layout/components/heading-form/heading-form.component.scss ***!
+  \******************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = ":host {\n  display: flex;\n  flex-direction: column;\n  flex-grow: 1; }\n\n.height-34px {\n  height: 34px !important; }\n\n.width-100pc {\n  width: 100%; }\n\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvbXMtYmFjay1vZmZpY2UvbW9kdWxlcy9tcy1sYXlvdXQvY29tcG9uZW50cy9oZWFkaW5nLWZvcm0vRTpcXFBST0dSQU1BQ0lPTiBJSUlcXG1vcmVzbmVha2Vycy1iYWNrb2ZmaWNlL3NyY1xcYXBwXFxtcy1iYWNrLW9mZmljZVxcbW9kdWxlc1xcbXMtbGF5b3V0XFxjb21wb25lbnRzXFxoZWFkaW5nLWZvcm1cXGhlYWRpbmctZm9ybS5jb21wb25lbnQuc2NzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUNJLGNBQWE7RUFDYix1QkFBc0I7RUFDdEIsYUFBWSxFQUNmOztBQUVEO0VBQ0ksd0JBQXVCLEVBQzFCOztBQUVEO0VBQ0ksWUFBVyxFQUNkIiwiZmlsZSI6InNyYy9hcHAvbXMtYmFjay1vZmZpY2UvbW9kdWxlcy9tcy1sYXlvdXQvY29tcG9uZW50cy9oZWFkaW5nLWZvcm0vaGVhZGluZy1mb3JtLmNvbXBvbmVudC5zY3NzIiwic291cmNlc0NvbnRlbnQiOlsiOmhvc3Qge1xyXG4gICAgZGlzcGxheTogZmxleDtcclxuICAgIGZsZXgtZGlyZWN0aW9uOiBjb2x1bW47XHJcbiAgICBmbGV4LWdyb3c6IDE7XHJcbn1cclxuXHJcbi5oZWlnaHQtMzRweHtcclxuICAgIGhlaWdodDogMzRweCAhaW1wb3J0YW50O1xyXG59XHJcblxyXG4ud2lkdGgtMTAwcGN7XHJcbiAgICB3aWR0aDogMTAwJTtcclxufVxyXG5cclxuIl19 */"
+
+/***/ }),
+
+/***/ "./src/app/ms-back-office/modules/ms-layout/components/heading-form/heading-form.component.ts":
+/*!****************************************************************************************************!*\
+  !*** ./src/app/ms-back-office/modules/ms-layout/components/heading-form/heading-form.component.ts ***!
+  \****************************************************************************************************/
+/*! exports provided: HeadingFormComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "HeadingFormComponent", function() { return HeadingFormComponent; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm5/forms.js");
+/* harmony import */ var _angular_material__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/material */ "./node_modules/@angular/material/esm5/material.es5.js");
+/* harmony import */ var _ngx_translate_core__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @ngx-translate/core */ "./node_modules/@ngx-translate/core/fesm5/ngx-translate-core.js");
+/* harmony import */ var _ui_components_base_reactive_form_base_reactive_form_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../../../ui/components/base-reactive-form/base-reactive-form-component */ "./src/app/ui/components/base-reactive-form/base-reactive-form-component.ts");
+var __extends = (undefined && undefined.__extends) || (function () {
+    var extendStatics = Object.setPrototypeOf ||
+        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+//
+
+
+
+var HeadingFormComponent = /** @class */ (function (_super) {
+    __extends(HeadingFormComponent, _super);
+    function HeadingFormComponent(dialog, formBuilder, translateService) {
+        var _this = _super.call(this, translateService) || this;
+        _this.dialog = dialog;
+        _this.formBuilder = formBuilder;
+        _this.translateService = translateService;
+        _this.displayedColumns = [
+            'URL',
+            'VANITY URL',
+            'ACTIONS'
+        ];
+        return _this;
+        //setTranslations(this.translateService, TRANSLATIONS);
+    }
+    HeadingFormComponent.prototype.ngOnInit = function () {
+        var validationsErrors = [
+            {
+                type: 'required',
+                key: 'Required Field',
+                params: null,
+                translation: ''
+            }
+        ];
+        this.validationErrorMessages = validationsErrors;
+        this.createFormGroup();
+    };
+    HeadingFormComponent.prototype.createFormGroup = function () {
+        this.faces = this.formBuilder.control('' /*this.faceList*/);
+        this.formGroup = new _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormGroup"]({
+            //faces: this.faces,
+            title: new _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormControl"](this.data.title),
+            keyWords: new _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormControl"](this.data.keyWords),
+            description: new _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormControl"](this.data.description),
+        });
+    };
+    HeadingFormComponent.prototype.submitClicked = function () {
+        if (this.formGroup.valid) {
+            this.accept.emit(this.data);
+        }
+        else {
+            this.triggerValidation();
+        }
+    };
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])(),
+        __metadata("design:type", Object)
+    ], HeadingFormComponent.prototype, "filters", void 0);
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])(),
+        __metadata("design:type", Array)
+    ], HeadingFormComponent.prototype, "brands", void 0);
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])(),
+        __metadata("design:type", Array)
+    ], HeadingFormComponent.prototype, "categories", void 0);
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])(),
+        __metadata("design:type", Array)
+    ], HeadingFormComponent.prototype, "collections", void 0);
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])(),
+        __metadata("design:type", Array)
+    ], HeadingFormComponent.prototype, "releases", void 0);
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])(),
+        __metadata("design:type", Array)
+    ], HeadingFormComponent.prototype, "shops", void 0);
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])(),
+        __metadata("design:type", Array)
+    ], HeadingFormComponent.prototype, "styles", void 0);
+    HeadingFormComponent = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+            selector: 'heading-form',
+            template: __webpack_require__(/*! ./heading-form.component.html */ "./src/app/ms-back-office/modules/ms-layout/components/heading-form/heading-form.component.html"),
+            changeDetection: _angular_core__WEBPACK_IMPORTED_MODULE_0__["ChangeDetectionStrategy"].OnPush,
+            styles: [__webpack_require__(/*! ./heading-form.component.scss */ "./src/app/ms-back-office/modules/ms-layout/components/heading-form/heading-form.component.scss")]
+        }),
+        __metadata("design:paramtypes", [_angular_material__WEBPACK_IMPORTED_MODULE_2__["MatDialog"],
+            _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormBuilder"],
+            _ngx_translate_core__WEBPACK_IMPORTED_MODULE_3__["TranslateService"]])
+    ], HeadingFormComponent);
+    return HeadingFormComponent;
+}(_ui_components_base_reactive_form_base_reactive_form_component__WEBPACK_IMPORTED_MODULE_4__["BaseReactiveFormComponent"]));
 
 
 
@@ -954,7 +1386,7 @@ var LayoutSliderTopnavComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<!--h1>Select the page you want to configure</h1-->\n<layout-slider-topnav></layout-slider-topnav>\n<div class=\"flex-grow-1 overflow-auto display-flex flex-direction-column\">\n\n    <div class=\"flex-grow-1 flex-shrink-0 display-flex flex-direction-column\">\n\n        <mat-tab-group class=\"padding-top-25px\">\n            <mat-tab label=\"Slider\">\n                <edit-slider  [filters]=\"filters\" [pageId]=\"pageId\" [brands]=\"brands\" [categories]=\"categories\" [collections]=\"collections\" [shops]=\"shops\" [styles]=\"styles\"></edit-slider>\n            </mat-tab>\n            <mat-tab label=\"Header\">\n                <div class=\"mb-20 margin-top-25px\" fxFlex fxLayout=\"row\" fxLayout.lt-md=\"column\" fxLayoutGap=\"20px\">\n\n                    <div [fxFlex]=\"100\" fxFlex fxLayout=\"column\" fxLayout.lt-md=\"column\">\n\n                        <div fxLayout=\"row\" fxLayout.lt-md=\"column\">\n\n                            <div [fxFlex]=\"40\" fxLayout=\"column\" class=\"margin-right-25px\">\n\n                                <mat-form-field class=\"margin-left-16px max-width-480px\">\n\n                                    <mat-label>URL</mat-label>\n\n                                    <input matInput type=\"text\">\n\n                                </mat-form-field>\n\n                                <mat-form-field class=\"margin-left-16px max-width-480px\">\n\n                                    <mat-label>Numbers of Items</mat-label>\n\n                                    <input matInput type=\"text\">\n\n                                </mat-form-field>\n                            </div>\n                            <div [fxFlex]=\"60\" class=\"margin-right-25px\">\n\n                                <mat-form-field class=\"width-100pc margin-left-16px\">\n\n                                    <mat-label>URL</mat-label>\n\n                                    <input matInput type=\"text\">\n\n                                </mat-form-field>\n\n                                <mat-form-field class=\"width-100pc margin-left-16px\">\n\n                                    <mat-label>Traking list base URL</mat-label>\n\n                                    <input matInput type=\"text\">\n\n                                </mat-form-field>\n                            </div>\n                        </div>\n                    </div>\n                </div>\n            </mat-tab>\n            <mat-tab label=\"Hottest\">\n                <div class=\"mb-20 margin-top-25px\" fxFlex fxLayout=\"row\" fxLayout.lt-md=\"column\" fxLayoutGap=\"20px\">\n\n                    <div [fxFlex]=\"100\" fxFlex fxLayout=\"column\" fxLayout.lt-md=\"column\">\n\n                        <div fxLayout=\"row\" fxLayout.lt-md=\"column\">\n\n                            <div [fxFlex]=\"40\" fxLayout=\"column\" class=\"margin-right-25px\">\n\n                                <mat-form-field class=\"margin-left-16px max-width-480px\">\n\n                                    <mat-label>URL</mat-label>\n\n                                    <input matInput type=\"text\">\n\n                                </mat-form-field>\n\n                                <mat-form-field class=\"margin-left-16px max-width-480px\">\n\n                                    <mat-label>Numbers of Items</mat-label>\n\n                                    <input matInput type=\"text\">\n\n                                </mat-form-field>\n                            </div>\n                            <div [fxFlex]=\"60\" class=\"margin-right-25px\">\n\n                                <mat-form-field class=\"width-100pc margin-left-16px\">\n\n                                    <mat-label>URL</mat-label>\n\n                                    <input matInput type=\"text\">\n\n                                </mat-form-field>\n\n                                <mat-form-field class=\"width-100pc margin-left-16px\">\n\n                                    <mat-label>Traking list base URL</mat-label>\n\n                                    <input matInput type=\"text\">\n\n                                </mat-form-field>\n                            </div>\n                        </div>\n                    </div>\n                </div>\n            </mat-tab>\n            <mat-tab label=\"Heading\">\n                <div class=\"mb-20 margin-top-25px\" fxFlex fxLayout=\"row\" fxLayout.lt-md=\"column\" fxLayoutGap=\"20px\">\n\n                    <div [fxFlex]=\"100\" fxFlex fxLayout=\"column\" fxLayout.lt-md=\"column\">\n\n                        <div fxLayout=\"row\" fxLayout.lt-md=\"column\">\n\n                            <div [fxFlex]=\"40\" fxLayout=\"column\" class=\"margin-right-25px\">\n\n                                <mat-form-field class=\"margin-left-16px max-width-480px\">\n\n                                    <mat-label>URL</mat-label>\n\n                                    <input matInput type=\"text\">\n\n                                </mat-form-field>\n\n                                <mat-form-field class=\"margin-left-16px max-width-480px\">\n\n                                    <mat-label>Numbers of Items</mat-label>\n\n                                    <input matInput type=\"text\">\n\n                                </mat-form-field>\n                            </div>\n                            <div [fxFlex]=\"60\" class=\"margin-right-25px\">\n\n                                <mat-form-field class=\"width-100pc margin-left-16px\">\n\n                                    <mat-label>URL</mat-label>\n\n                                    <input matInput type=\"text\">\n\n                                </mat-form-field>\n\n                                <mat-form-field class=\"width-100pc margin-left-16px\">\n\n                                    <mat-label>Traking list base URL</mat-label>\n\n                                    <input matInput type=\"text\">\n\n                                </mat-form-field>\n\n                            </div>\n\n                        </div>\n\n                    </div>\n\n                </div>\n\n            </mat-tab>\n\n        </mat-tab-group>\n\n    </div>\n\n</div>\n"
+module.exports = "<!--h1>Select the page you want to configure</h1-->\n<layout-slider-topnav></layout-slider-topnav>\n<div class=\"flex-grow-1 overflow-auto display-flex flex-direction-column\">\n\n    <div class=\"flex-grow-1 flex-shrink-0 display-flex flex-direction-column\">\n\n        <mat-tab-group class=\"padding-top-25px display-flex flex-grow-1\">\n            <mat-tab label=\"Slider\">\n                <edit-slider  [filters]=\"filters\" [pageId]=\"pageId\" [brands]=\"brands\" [categories]=\"categories\" [collections]=\"collections\" [shops]=\"shops\" [styles]=\"styles\"></edit-slider>\n            </mat-tab>\n            <mat-tab label=\"Header\">\n                <div class=\"mb-20 margin-top-25px\" fxFlex fxLayout=\"row\" fxLayout.lt-md=\"column\" fxLayoutGap=\"20px\">\n\n                    <div [fxFlex]=\"100\" fxFlex fxLayout=\"column\" fxLayout.lt-md=\"column\">\n\n                        <div fxLayout=\"row\" fxLayout.lt-md=\"column\">\n\n                            <div [fxFlex]=\"40\" fxLayout=\"column\" class=\"margin-right-25px\">\n\n                                <mat-form-field class=\"margin-left-16px max-width-480px\">\n\n                                    <mat-label>URL</mat-label>\n\n                                    <input matInput type=\"text\">\n\n                                </mat-form-field>\n\n                                <mat-form-field class=\"margin-left-16px max-width-480px\">\n\n                                    <mat-label>Numbers of Items</mat-label>\n\n                                    <input matInput type=\"text\">\n\n                                </mat-form-field>\n                            </div>\n                            <div [fxFlex]=\"60\" class=\"margin-right-25px\">\n\n                                <mat-form-field class=\"width-100pc margin-left-16px\">\n\n                                    <mat-label>URL</mat-label>\n\n                                    <input matInput type=\"text\">\n\n                                </mat-form-field>\n\n                                <mat-form-field class=\"width-100pc margin-left-16px\">\n\n                                    <mat-label>Traking list base URL</mat-label>\n\n                                    <input matInput type=\"text\">\n\n                                </mat-form-field>\n                            </div>\n                        </div>\n                    </div>\n                </div>\n            </mat-tab>\n            <mat-tab label=\"Hottest\">\n                <div class=\"mb-20 margin-top-25px\" fxFlex fxLayout=\"row\" fxLayout.lt-md=\"column\" fxLayoutGap=\"20px\">\n\n                    <div [fxFlex]=\"100\" fxFlex fxLayout=\"column\" fxLayout.lt-md=\"column\">\n\n                        <div fxLayout=\"row\" fxLayout.lt-md=\"column\">\n\n                            <div [fxFlex]=\"40\" fxLayout=\"column\" class=\"margin-right-25px\">\n\n                                <mat-form-field class=\"margin-left-16px max-width-480px\">\n\n                                    <mat-label>URL</mat-label>\n\n                                    <input matInput type=\"text\">\n\n                                </mat-form-field>\n\n                                <mat-form-field class=\"margin-left-16px max-width-480px\">\n\n                                    <mat-label>Numbers of Items</mat-label>\n\n                                    <input matInput type=\"text\">\n\n                                </mat-form-field>\n                            </div>\n                            <div [fxFlex]=\"60\" class=\"margin-right-25px\">\n\n                                <mat-form-field class=\"width-100pc margin-left-16px\">\n\n                                    <mat-label>URL</mat-label>\n\n                                    <input matInput type=\"text\">\n\n                                </mat-form-field>\n\n                                <mat-form-field class=\"width-100pc margin-left-16px\">\n\n                                    <mat-label>Traking list base URL</mat-label>\n\n                                    <input matInput type=\"text\">\n\n                                </mat-form-field>\n                            </div>\n                        </div>\n                    </div>\n                </div>\n            </mat-tab>\n            <mat-tab label=\"Heading\">\n                <edit-heading  [filters]=\"filters\" [pageId]=\"pageId\" [brands]=\"brands\" [categories]=\"categories\" [collections]=\"collections\" [shops]=\"shops\" [styles]=\"styles\"></edit-heading>\n            </mat-tab>\n\n        </mat-tab-group>\n\n    </div>\n\n</div>\n"
 
 /***/ }),
 
@@ -984,7 +1416,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_material__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/material */ "./node_modules/@angular/material/esm5/material.es5.js");
 /* harmony import */ var _error_handling_services_error_handling_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../../error-handling/services/error-handling.service */ "./src/app/error-handling/services/error-handling.service.ts");
 /* harmony import */ var _services_layout_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../services/layout.service */ "./src/app/ms-back-office/modules/ms-layout/services/layout.service.ts");
-/* harmony import */ var _models_filters__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../models/filters */ "./src/app/ms-back-office/modules/ms-layout/models/filters.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1003,7 +1434,6 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 
 //
 
-
 var errorKey = 'Error';
 var LayoutComponent = /** @class */ (function () {
     function LayoutComponent(activatedRoute, dialog, urlsService, errorHandlingService) {
@@ -1011,7 +1441,6 @@ var LayoutComponent = /** @class */ (function () {
         this.dialog = dialog;
         this.urlsService = urlsService;
         this.errorHandlingService = errorHandlingService;
-        this.filters = _models_filters__WEBPACK_IMPORTED_MODULE_5__["RELEASES"];
         this.displayedColumns = [
             'URL',
             'VANITY URL',
@@ -1098,8 +1527,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _ui_helpers_mixin_decorator__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../../../ui/helpers/mixin-decorator */ "./src/app/ui/helpers/mixin-decorator.ts");
 /* harmony import */ var _error_handling_services_error_handling_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../../../../error-handling/services/error-handling.service */ "./src/app/error-handling/services/error-handling.service.ts");
 /* harmony import */ var _error_handling_services_toastr_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../../../../error-handling/services/toastr.service */ "./src/app/error-handling/services/toastr.service.ts");
-/* harmony import */ var _models_layout__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../models/layout */ "./src/app/ms-back-office/modules/ms-layout/models/layout.ts");
-/* harmony import */ var _services_layout_service__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../../services/layout.service */ "./src/app/ms-back-office/modules/ms-layout/services/layout.service.ts");
+/* harmony import */ var _services_layout_service__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../services/layout.service */ "./src/app/ms-back-office/modules/ms-layout/services/layout.service.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1118,7 +1546,6 @@ var __param = (undefined && undefined.__param) || function (paramIndex, decorato
 
 
 //
-
 
 
 
@@ -1157,7 +1584,7 @@ var NewFilterComponent = /** @class */ (function () {
         this.close();
     };
     NewFilterComponent.prototype.close = function () {
-        this.dialogRef.close();
+        this.dialogRef.close(this.dialogData.filters);
     };
     __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"])(),
@@ -1173,13 +1600,12 @@ var NewFilterComponent = /** @class */ (function () {
         __param(8, Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Inject"])(_angular_material__WEBPACK_IMPORTED_MODULE_2__["MAT_DIALOG_DATA"])),
         __metadata("design:paramtypes", [_angular_material__WEBPACK_IMPORTED_MODULE_2__["MatDialogRef"],
             _angular_router__WEBPACK_IMPORTED_MODULE_1__["ActivatedRoute"],
-            _services_layout_service__WEBPACK_IMPORTED_MODULE_9__["LayoutService"],
+            _services_layout_service__WEBPACK_IMPORTED_MODULE_8__["LayoutService"],
             _error_handling_services_error_handling_service__WEBPACK_IMPORTED_MODULE_6__["ErrorHandlingService"],
             _angular_router__WEBPACK_IMPORTED_MODULE_1__["Router"],
             _ngx_translate_core__WEBPACK_IMPORTED_MODULE_3__["TranslateService"],
             _error_handling_services_toastr_service__WEBPACK_IMPORTED_MODULE_7__["ToastrService"],
-            _angular_material__WEBPACK_IMPORTED_MODULE_2__["MatDialog"],
-            _models_layout__WEBPACK_IMPORTED_MODULE_8__["Url"]])
+            _angular_material__WEBPACK_IMPORTED_MODULE_2__["MatDialog"], Object])
     ], NewFilterComponent);
     return NewFilterComponent;
 }());
@@ -1195,7 +1621,7 @@ var NewFilterComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<form class=\"flex-grow-1 min-height-0 display-flex flex-direction-column\" [askBeforeRefresh]=\"formGroup.dirty\" [formGroup]=\"formGroup\"\n    novalidate role=\"form\" (ngSubmit)=\"submitClicked()\" autocomplete=\"off\" inputFocus>\n\n    <div class=\"flex-grow-1 overflow-auto display-flex flex-direction-column\">\n\n        <div class=\"flex-grow-1 flex-shrink-0 display-flex flex-direction-column\">\n\n            <div class=\"mb-20 margin-top-25px\" fxFlex fxLayout=\"row\" fxLayout.lt-md=\"column\" fxLayoutGap=\"20px\">\n\n                <div [fxFlex]=\"100\" fxFlex fxLayout=\"column\" fxLayout.lt-md=\"column\">\n\n                    <div fxLayout=\"row\" fxLayout.lt-md=\"column\">\n\n                        <div [fxFlex]=\"40\" fxLayout=\"column\" class=\"margin-right-25px\">\n\n                            <mat-form-field class=\"margin-left-16px max-width-480px\">\n\n                                <mat-label>URL</mat-label>\n\n                                <input matInput type=\"text\">\n\n                            </mat-form-field>\n\n                            <mat-form-field class=\"margin-left-16px max-width-480px\">\n\n                                <mat-label>Numbers of Items</mat-label>\n\n                                <input matInput type=\"text\">\n\n                            </mat-form-field>\n\n                            <div>\n\n                                <h3>Filters</h3>\n                                \n                            </div>\n\n                            <!--div class=\"flex-grow-1 overflow-auto display-flex\">\n\n                                <table class=\"margin-top-10px margin-right-25px width-100pct\" mat-table [dataSource]=\"urls\">\n\n                                    <ng-container matColumnDef=\"URL\">\n                                        <th mat-header-cell *matHeaderCellDef mat-sort-header>\n                                            URL\n                                        </th>\n                                        <td mat-cell *matCellDef=\"let element\"> {{ element.url }} </td>\n                                    </ng-container>\n\n                                    <ng-container matColumnDef=\"VANITY URL\">\n                                        <th mat-header-cell *matHeaderCellDef mat-sort-header>\n                                            VANITY URL\n                                        </th>\n                                        <td mat-cell *matCellDef=\"let element\" class=\"padding-table-td\"> {{ element.vanityUrl }} </td>\n                                    </ng-container>\n\n                                    <ng-container matColumnDef=\"ACTIONS\">\n                                        <th mat-header-cell *matHeaderCellDef mat-sort-header>\n                                        </th>\n                                        <td mat-cell *matCellDef=\"let element\" class=\"min-width-80px\">\n                                            <button mat-icon-button color=\"primary\" [matTooltip]=\"Edit\" (click)=\"editUrlModalBrand(element.id)\">\n                                                <mat-icon>edit</mat-icon>\n                                            </button>\n                                            <button mat-icon-button color=\"primary\" [matTooltip]=\"Delete\" [routerLink]=\"['../delete', element.id]\">\n                                                <mat-icon>delete</mat-icon>\n                                            </button>\n                                        </td>\n                                    </ng-container>\n\n                                    <tr mat-header-row *matHeaderRowDef=\"displayedColumns\"></tr>\n                                    <tr mat-row *matRowDef=\"let row; columns: displayedColumns;\" [ngClass]=\"row.is_active ? '' : 'text-decoration-line-through'\">\n                                    </tr>\n\n                                </table>\n\n                            </div-->\n\n                            <!--div class=\"margin-right-25px flex-shrink-0 display-flex border-top-style-solid border-top-width-2px border-top-color-grey\">\n                                <span class=\"flex-grow-1\"></span>\n                                <mat-paginator [length]=\"totalLength\" [pageSizeOptions]=\"[5, 10, 20, 50, 100]\" [pageIndex]=\"\" [pageSize]=\"\" showFirstLastButtons\n                                    (page)=\"onPage()\">\n                                </mat-paginator>\n                            </div-->\n\n                            <button mat-raised-button type=\"buttom\" color=\"primary\" (click)=\"addFilterModalBrand()\">{{ 'Add Filter' | translate }}</button>\n\n                        </div>\n\n                        <div [fxFlex]=\"60\" class=\"margin-right-25px\">\n\n                            <mat-radio-group>\n\n                                <div class=\"display-flex padding-bottom-25px\" fxLayout=\"row\">\n\n                                    <div class=\"display-flex margin-right-25px\">\n\n                                        <mat-radio-button value=\"Filter\" class=\"margin-top-10px\" matTooltip=\"{{ 'Filter' | translate }}\">Filter</mat-radio-button>\n\n                                    </div>\n\n                                    <div class=\"display-flex\">\n\n                                        <mat-radio-button value=\"Manual\" class=\"margin-top-10px\" matTooltip=\"{{ 'Manual' | translate }}\">Manual</mat-radio-button>\n\n                                    </div>\n\n                                </div>\n\n                            </mat-radio-group>\n\n                            <div [fxFlex]=\"50\" class=\"border margin-right-25px max-width-480px\">\n\n                                <images-layout-card name=\"faces\" class=\"flex-grow-1\"></images-layout-card>\n\n                            </div>\n\n                        </div>\n\n                    </div>\n\n                </div>\n\n            </div>\n\n        </div>\n\n    </div>\n\n    <div class=\"margin-right-25px padding-top-10px padding-bottom-10px flex-shrink-0 display-flex border-top-style-solid border-top-width-2px border-top-color-grey\">\n\n        <button mat-raised-button type=\"submit\" color=\"primary\">{{ 'Acept' | translate }}</button>\n\n    </div>\n</form>\n{{filtersArray | json}}"
+module.exports = "<form class=\"flex-grow-1 min-height-0 display-flex flex-direction-column\" [askBeforeRefresh]=\"formGroup.dirty\" [formGroup]=\"formGroup\"\n    novalidate role=\"form\" (ngSubmit)=\"submitClicked()\" autocomplete=\"off\" inputFocus>\n\n    <div class=\"flex-grow-1 overflow-auto display-flex flex-direction-column\">\n\n        <div class=\"flex-grow-1 flex-shrink-0 display-flex flex-direction-column\">\n\n            <div class=\"mb-20 margin-top-25px\" fxFlex fxLayout=\"row\" fxLayout.lt-md=\"column\" fxLayoutGap=\"20px\">\n\n                <div [fxFlex]=\"100\" fxFlex fxLayout=\"column\" fxLayout.lt-md=\"column\">\n\n                    <div fxLayout=\"row\" fxLayout.lt-md=\"column\">\n\n                        <div [fxFlex]=\"40\" fxLayout=\"column\" class=\"margin-right-25px\">\n\n                            <mat-form-field class=\"margin-left-16px max-width-480px\">\n\n                                <mat-label>URL</mat-label>\n\n                                <input matInput type=\"text\" formControlName=\"url\">\n\n                            </mat-form-field>\n\n                            <mat-form-field class=\"margin-left-16px max-width-480px\">\n\n                                <mat-label>Numbers of Items</mat-label>\n\n                                <input matInput type=\"text\" formControlName=\"numberOfItem\">\n\n                            </mat-form-field>\n\n                            <div>\n\n                                <h3>Filters</h3>\n                                \n                            </div>\n\n                            <!--div class=\"flex-grow-1 overflow-auto display-flex\">\n\n                                <table class=\"margin-top-10px margin-right-25px width-100pct\" mat-table [dataSource]=\"urls\">\n\n                                    <ng-container matColumnDef=\"URL\">\n                                        <th mat-header-cell *matHeaderCellDef mat-sort-header>\n                                            URL\n                                        </th>\n                                        <td mat-cell *matCellDef=\"let element\"> {{ element.url }} </td>\n                                    </ng-container>\n\n                                    <ng-container matColumnDef=\"VANITY URL\">\n                                        <th mat-header-cell *matHeaderCellDef mat-sort-header>\n                                            VANITY URL\n                                        </th>\n                                        <td mat-cell *matCellDef=\"let element\" class=\"padding-table-td\"> {{ element.vanityUrl }} </td>\n                                    </ng-container>\n\n                                    <ng-container matColumnDef=\"ACTIONS\">\n                                        <th mat-header-cell *matHeaderCellDef mat-sort-header>\n                                        </th>\n                                        <td mat-cell *matCellDef=\"let element\" class=\"min-width-80px\">\n                                            <button mat-icon-button color=\"primary\" [matTooltip]=\"Edit\" (click)=\"editUrlModalBrand(element.id)\">\n                                                <mat-icon>edit</mat-icon>\n                                            </button>\n                                            <button mat-icon-button color=\"primary\" [matTooltip]=\"Delete\" [routerLink]=\"['../delete', element.id]\">\n                                                <mat-icon>delete</mat-icon>\n                                            </button>\n                                        </td>\n                                    </ng-container>\n\n                                    <tr mat-header-row *matHeaderRowDef=\"displayedColumns\"></tr>\n                                    <tr mat-row *matRowDef=\"let row; columns: displayedColumns;\" [ngClass]=\"row.is_active ? '' : 'text-decoration-line-through'\">\n                                    </tr>\n\n                                </table>\n\n                            </div-->\n\n                            <!--div class=\"margin-right-25px flex-shrink-0 display-flex border-top-style-solid border-top-width-2px border-top-color-grey\">\n                                <span class=\"flex-grow-1\"></span>\n                                <mat-paginator [length]=\"totalLength\" [pageSizeOptions]=\"[5, 10, 20, 50, 100]\" [pageIndex]=\"\" [pageSize]=\"\" showFirstLastButtons\n                                    (page)=\"onPage()\">\n                                </mat-paginator>\n                            </div-->\n\n                            <button mat-raised-button type=\"button\" color=\"primary\" (click)=\"addFilterModalBrand()\">{{ 'Add Filter' | translate }}</button>\n\n                        </div>\n\n                        <div [fxFlex]=\"60\" class=\"margin-right-25px\">\n\n                            <mat-radio-group>\n\n                                <div class=\"display-flex padding-bottom-25px\" fxLayout=\"row\">\n\n                                    <div class=\"display-flex margin-right-25px\">\n\n                                        <mat-radio-button value=\"Filter\" class=\"margin-top-10px\" matTooltip=\"{{ 'Filter' | translate }}\">Filter</mat-radio-button>\n\n                                    </div>\n\n                                    <div class=\"display-flex\">\n\n                                        <mat-radio-button value=\"Manual\" class=\"margin-top-10px\" matTooltip=\"{{ 'Manual' | translate }}\">Manual</mat-radio-button>\n\n                                    </div>\n\n                                </div>\n\n                            </mat-radio-group>\n\n                            <div [fxFlex]=\"50\" class=\"border margin-right-25px max-width-480px\">\n\n                                <images-layout-card name=\"faces\" class=\"flex-grow-1\" formControlName=\"faces\"></images-layout-card>\n\n                            </div>\n\n                        </div>\n\n                    </div>\n\n                </div>\n\n            </div>\n\n        </div>\n\n    </div>\n\n    <div class=\"margin-right-25px padding-top-10px padding-bottom-10px flex-shrink-0 display-flex border-top-style-solid border-top-width-2px border-top-color-grey\">\n\n        <button mat-raised-button type=\"submit\" color=\"primary\">{{ 'Acept' | translate }}</button>\n\n    </div>\n</form>\n"
 
 /***/ }),
 
@@ -1206,7 +1632,7 @@ module.exports = "<form class=\"flex-grow-1 min-height-0 display-flex flex-direc
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ":host {\n  display: flex;\n  flex-direction: column;\n  flex-grow: 1; }\n\n.height-34px {\n  height: 34px !important; }\n\n.width-100pc {\n  width: 100%; }\n\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvbXMtYmFjay1vZmZpY2UvbW9kdWxlcy9tcy1sYXlvdXQvY29tcG9uZW50cy9zbGlkZXItZm9ybS9FOlxcUFJPR1JBTUFDSU9OIElJSVxcbW9yZXNuZWFrZXJzLWJhY2tvZmZpY2Uvc3JjXFxhcHBcXG1zLWJhY2stb2ZmaWNlXFxtb2R1bGVzXFxtcy1sYXlvdXRcXGNvbXBvbmVudHNcXHNsaWRlci1mb3JtXFxzbGlkZXItZm9ybS5jb21wb25lbnQuc2NzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUNJLGNBQWE7RUFDYix1QkFBc0I7RUFDdEIsYUFBWSxFQUNmOztBQUVEO0VBQ0ksd0JBQXVCLEVBQzFCOztBQUVEO0VBQ0ksWUFBVyxFQUNkIiwiZmlsZSI6InNyYy9hcHAvbXMtYmFjay1vZmZpY2UvbW9kdWxlcy9tcy1sYXlvdXQvY29tcG9uZW50cy9zbGlkZXItZm9ybS9zbGlkZXItZm9ybS5jb21wb25lbnQuc2NzcyIsInNvdXJjZXNDb250ZW50IjpbIjpob3N0IHtcclxuICAgIGRpc3BsYXk6IGZsZXg7XHJcbiAgICBmbGV4LWRpcmVjdGlvbjogY29sdW1uO1xyXG4gICAgZmxleC1ncm93OiAxO1xyXG59XHJcblxyXG4uaGVpZ2h0LTM0cHh7XHJcbiAgICBoZWlnaHQ6IDM0cHggIWltcG9ydGFudDtcclxufVxyXG5cclxuLndpZHRoLTEwMHBje1xyXG4gICAgd2lkdGg6IDEwMCU7XHJcbn1cclxuXHJcbiJdfQ== */"
+module.exports = ":host {\n  display: flex;\n  flex-direction: column;\n  flex-grow: 1; }\n\n.height-34px {\n  height: 34px !important; }\n\n.width-100pc {\n  width: 100%; }\n\n::ng-deep .mat-tab-body-wrapper {\n  flex-grow: 1 !important; }\n\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvbXMtYmFjay1vZmZpY2UvbW9kdWxlcy9tcy1sYXlvdXQvY29tcG9uZW50cy9zbGlkZXItZm9ybS9FOlxcUFJPR1JBTUFDSU9OIElJSVxcbW9yZXNuZWFrZXJzLWJhY2tvZmZpY2Uvc3JjXFxhcHBcXG1zLWJhY2stb2ZmaWNlXFxtb2R1bGVzXFxtcy1sYXlvdXRcXGNvbXBvbmVudHNcXHNsaWRlci1mb3JtXFxzbGlkZXItZm9ybS5jb21wb25lbnQuc2NzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUNJLGNBQWE7RUFDYix1QkFBc0I7RUFDdEIsYUFBWSxFQUNmOztBQUVEO0VBQ0ksd0JBQXVCLEVBQzFCOztBQUVEO0VBQ0ksWUFBVyxFQUNkOztBQUVEO0VBQ0Esd0JBQXVCLEVBQ3RCIiwiZmlsZSI6InNyYy9hcHAvbXMtYmFjay1vZmZpY2UvbW9kdWxlcy9tcy1sYXlvdXQvY29tcG9uZW50cy9zbGlkZXItZm9ybS9zbGlkZXItZm9ybS5jb21wb25lbnQuc2NzcyIsInNvdXJjZXNDb250ZW50IjpbIjpob3N0IHtcclxuICAgIGRpc3BsYXk6IGZsZXg7XHJcbiAgICBmbGV4LWRpcmVjdGlvbjogY29sdW1uO1xyXG4gICAgZmxleC1ncm93OiAxO1xyXG59XHJcblxyXG4uaGVpZ2h0LTM0cHh7XHJcbiAgICBoZWlnaHQ6IDM0cHggIWltcG9ydGFudDtcclxufVxyXG5cclxuLndpZHRoLTEwMHBje1xyXG4gICAgd2lkdGg6IDEwMCU7XHJcbn1cclxuXHJcbjo6bmctZGVlcCAubWF0LXRhYi1ib2R5LXdyYXBwZXJ7XHJcbmZsZXgtZ3JvdzogMSAhaW1wb3J0YW50O1xyXG59XHJcbiJdfQ== */"
 
 /***/ }),
 
@@ -1224,8 +1650,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm5/forms.js");
 /* harmony import */ var _angular_material__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/material */ "./node_modules/@angular/material/esm5/material.es5.js");
 /* harmony import */ var _ngx_translate_core__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @ngx-translate/core */ "./node_modules/@ngx-translate/core/fesm5/ngx-translate-core.js");
-/* harmony import */ var _ui_components_base_reactive_form_base_reactive_form_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../../../ui/components/base-reactive-form/base-reactive-form-component */ "./src/app/ui/components/base-reactive-form/base-reactive-form-component.ts");
-/* harmony import */ var _new_filter_new_filter_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../new-filter/new-filter.component */ "./src/app/ms-back-office/modules/ms-layout/components/new-filter/new-filter.component.ts");
+/* harmony import */ var _error_handling_services_error_handling_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../../../error-handling/services/error-handling.service */ "./src/app/error-handling/services/error-handling.service.ts");
+/* harmony import */ var _ui_components_base_reactive_form_base_reactive_form_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../../../ui/components/base-reactive-form/base-reactive-form-component */ "./src/app/ui/components/base-reactive-form/base-reactive-form-component.ts");
+/* harmony import */ var _new_filter_new_filter_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../new-filter/new-filter.component */ "./src/app/ms-back-office/modules/ms-layout/components/new-filter/new-filter.component.ts");
+/* harmony import */ var _services_layout_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../services/layout.service */ "./src/app/ms-back-office/modules/ms-layout/services/layout.service.ts");
 var __extends = (undefined && undefined.__extends) || (function () {
     var extendStatics = Object.setPrototypeOf ||
         ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
@@ -1252,12 +1680,17 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 
 
 
+
+
+var errorKey = 'Error';
 var SliderFormComponent = /** @class */ (function (_super) {
     __extends(SliderFormComponent, _super);
-    function SliderFormComponent(dialog, formBuilder, translateService) {
+    function SliderFormComponent(dialog, errorHandlingService, formBuilder, layoutService, translateService) {
         var _this = _super.call(this, translateService) || this;
         _this.dialog = dialog;
+        _this.errorHandlingService = errorHandlingService;
         _this.formBuilder = formBuilder;
+        _this.layoutService = layoutService;
         _this.translateService = translateService;
         _this.displayedColumns = [
             'URL',
@@ -1280,10 +1713,20 @@ var SliderFormComponent = /** @class */ (function (_super) {
         this.createFormGroup();
     };
     SliderFormComponent.prototype.createFormGroup = function () {
-        this.faces = this.formBuilder.control('' /*this.faceList*/);
+        this.faces = this.formBuilder.control(this.data.images);
         this.formGroup = new _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormGroup"]({
             faces: this.faces,
+            numberOfItem: new _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormControl"](this.data.numberOfItem),
+            url: new _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormControl"](this.data.url),
         });
+    };
+    SliderFormComponent.prototype.getLayoutSliders = function (filters) {
+        var _this = this;
+        this.layoutService.getLayoutFilterSliders(this.pageId, 'slider', filters).subscribe(function (response) {
+            _this.data = response.data;
+            console.log(JSON.stringify(_this.data) + "dataaaaaaaaaa");
+            _this.createFormGroup();
+        }, function (error) { return _this.errorHandlingService.handleUiError(errorKey, error); });
     };
     SliderFormComponent.prototype.submitClicked = function () {
         if (this.formGroup.valid) {
@@ -1295,10 +1738,10 @@ var SliderFormComponent = /** @class */ (function (_super) {
     };
     SliderFormComponent.prototype.addFilterModalBrand = function () {
         var _this = this;
-        this.modalRef = this.dialog.open(_new_filter_new_filter_component__WEBPACK_IMPORTED_MODULE_5__["NewFilterComponent"], {
+        this.modalRef = this.dialog.open(_new_filter_new_filter_component__WEBPACK_IMPORTED_MODULE_6__["NewFilterComponent"], {
             height: '80%',
             data: {
-                filters: this.filters,
+                filters: this.data.filters,
                 brands: this.brands,
                 categories: this.categories,
                 collections: this.collections,
@@ -1307,7 +1750,8 @@ var SliderFormComponent = /** @class */ (function (_super) {
             }
         });
         this.modalRef.afterClosed().subscribe(function (result) {
-            _this.filtersArray = result;
+            _this.data.filters = result;
+            _this.getLayoutSliders(_this.data.filters);
         });
     };
     __decorate([
@@ -1328,6 +1772,10 @@ var SliderFormComponent = /** @class */ (function (_super) {
     ], SliderFormComponent.prototype, "collections", void 0);
     __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])(),
+        __metadata("design:type", String)
+    ], SliderFormComponent.prototype, "pageId", void 0);
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])(),
         __metadata("design:type", Array)
     ], SliderFormComponent.prototype, "releases", void 0);
     __decorate([
@@ -1342,15 +1790,17 @@ var SliderFormComponent = /** @class */ (function (_super) {
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
             selector: 'slider-form',
             template: __webpack_require__(/*! ./slider-form.component.html */ "./src/app/ms-back-office/modules/ms-layout/components/slider-form/slider-form.component.html"),
-            styles: [__webpack_require__(/*! ./slider-form.component.scss */ "./src/app/ms-back-office/modules/ms-layout/components/slider-form/slider-form.component.scss")],
-            changeDetection: _angular_core__WEBPACK_IMPORTED_MODULE_0__["ChangeDetectionStrategy"].OnPush
+            changeDetection: _angular_core__WEBPACK_IMPORTED_MODULE_0__["ChangeDetectionStrategy"].OnPush,
+            styles: [__webpack_require__(/*! ./slider-form.component.scss */ "./src/app/ms-back-office/modules/ms-layout/components/slider-form/slider-form.component.scss")]
         }),
         __metadata("design:paramtypes", [_angular_material__WEBPACK_IMPORTED_MODULE_2__["MatDialog"],
+            _error_handling_services_error_handling_service__WEBPACK_IMPORTED_MODULE_4__["ErrorHandlingService"],
             _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormBuilder"],
+            _services_layout_service__WEBPACK_IMPORTED_MODULE_7__["LayoutService"],
             _ngx_translate_core__WEBPACK_IMPORTED_MODULE_3__["TranslateService"]])
     ], SliderFormComponent);
     return SliderFormComponent;
-}(_ui_components_base_reactive_form_base_reactive_form_component__WEBPACK_IMPORTED_MODULE_4__["BaseReactiveFormComponent"]));
+}(_ui_components_base_reactive_form_base_reactive_form_component__WEBPACK_IMPORTED_MODULE_5__["BaseReactiveFormComponent"]));
 
 
 
@@ -1360,7 +1810,7 @@ var SliderFormComponent = /** @class */ (function (_super) {
 /*!********************************************************************!*\
   !*** ./src/app/ms-back-office/modules/ms-layout/models/filters.ts ***!
   \********************************************************************/
-/*! exports provided: Filter, RELEASES, FilterItem */
+/*! exports provided: Filter, RELEASES, FilterItem, FilterResponce */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1368,6 +1818,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Filter", function() { return Filter; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RELEASES", function() { return RELEASES; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "FilterItem", function() { return FilterItem; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "FilterResponce", function() { return FilterResponce; });
 var Filter = /** @class */ (function () {
     function Filter() {
     }
@@ -1386,6 +1837,12 @@ var FilterItem = /** @class */ (function () {
     return FilterItem;
 }());
 
+var FilterResponce = /** @class */ (function () {
+    function FilterResponce() {
+    }
+    return FilterResponce;
+}());
+
 
 
 /***/ }),
@@ -1394,18 +1851,25 @@ var FilterItem = /** @class */ (function () {
 /*!*******************************************************************!*\
   !*** ./src/app/ms-back-office/modules/ms-layout/models/layout.ts ***!
   \*******************************************************************/
-/*! exports provided: Url, UrlsListResponse, UrlsResponse */
+/*! exports provided: LayoutSlider, LayoutHeading, UrlsListResponse, UrlsResponse */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Url", function() { return Url; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "LayoutSlider", function() { return LayoutSlider; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "LayoutHeading", function() { return LayoutHeading; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "UrlsListResponse", function() { return UrlsListResponse; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "UrlsResponse", function() { return UrlsResponse; });
-var Url = /** @class */ (function () {
-    function Url() {
+var LayoutSlider = /** @class */ (function () {
+    function LayoutSlider() {
     }
-    return Url;
+    return LayoutSlider;
+}());
+
+var LayoutHeading = /** @class */ (function () {
+    function LayoutHeading() {
+    }
+    return LayoutHeading;
 }());
 
 var UrlsListResponse = /** @class */ (function () {
@@ -1566,6 +2030,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _ms_layout_routing_module__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! ./ms-layout-routing.module */ "./src/app/ms-back-office/modules/ms-layout/ms-layout-routing.module.ts");
 /* harmony import */ var _components_new_filter_new_filter_component__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! ./components/new-filter/new-filter.component */ "./src/app/ms-back-office/modules/ms-layout/components/new-filter/new-filter.component.ts");
 /* harmony import */ var _components_layout_topnav_layout_slider_topnav_component__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(/*! ./components/layout-topnav/layout-slider-topnav.component */ "./src/app/ms-back-office/modules/ms-layout/components/layout-topnav/layout-slider-topnav.component.ts");
+/* harmony import */ var _components_heading_form_heading_form_component__WEBPACK_IMPORTED_MODULE_25__ = __webpack_require__(/*! ./components/heading-form/heading-form.component */ "./src/app/ms-back-office/modules/ms-layout/components/heading-form/heading-form.component.ts");
+/* harmony import */ var _components_edit_heading_edit_heading_component__WEBPACK_IMPORTED_MODULE_26__ = __webpack_require__(/*! ./components/edit-heading/edit-heading.component */ "./src/app/ms-back-office/modules/ms-layout/components/edit-heading/edit-heading.component.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1594,6 +2060,8 @@ var __decorate = (undefined && undefined.__decorate) || function (decorators, ta
 
 
 //
+
+
 
 
 
@@ -1638,9 +2106,11 @@ var MsLayoutModule = /** @class */ (function () {
             ],
             declarations: [
                 _components_delete_layout_delete_layout_component__WEBPACK_IMPORTED_MODULE_19__["DeleteLayoutComponent"],
+                _components_edit_heading_edit_heading_component__WEBPACK_IMPORTED_MODULE_26__["EditHeadinglComponent"],
                 _components_edit_slider_edit_slider_component__WEBPACK_IMPORTED_MODULE_21__["EditSliderlComponent"],
                 _components_edit_url_edit_url_component__WEBPACK_IMPORTED_MODULE_20__["EditUrlComponent"],
                 _components_filter_form_filter_form_component__WEBPACK_IMPORTED_MODULE_16__["FilterFormComponent"],
+                _components_heading_form_heading_form_component__WEBPACK_IMPORTED_MODULE_25__["HeadingFormComponent"],
                 _components_new_filter_new_filter_component__WEBPACK_IMPORTED_MODULE_23__["NewFilterComponent"],
                 _components_layout_layout_component__WEBPACK_IMPORTED_MODULE_18__["LayoutComponent"],
                 _components_layout_topnav_layout_slider_topnav_component__WEBPACK_IMPORTED_MODULE_24__["LayoutSliderTopnavComponent"],
@@ -1648,9 +2118,11 @@ var MsLayoutModule = /** @class */ (function () {
             ],
             exports: [
                 _components_delete_layout_delete_layout_component__WEBPACK_IMPORTED_MODULE_19__["DeleteLayoutComponent"],
+                _components_edit_heading_edit_heading_component__WEBPACK_IMPORTED_MODULE_26__["EditHeadinglComponent"],
                 _components_edit_slider_edit_slider_component__WEBPACK_IMPORTED_MODULE_21__["EditSliderlComponent"],
                 _components_edit_url_edit_url_component__WEBPACK_IMPORTED_MODULE_20__["EditUrlComponent"],
                 _components_filter_form_filter_form_component__WEBPACK_IMPORTED_MODULE_16__["FilterFormComponent"],
+                _components_heading_form_heading_form_component__WEBPACK_IMPORTED_MODULE_25__["HeadingFormComponent"],
                 _components_new_filter_new_filter_component__WEBPACK_IMPORTED_MODULE_23__["NewFilterComponent"],
                 _components_layout_layout_component__WEBPACK_IMPORTED_MODULE_18__["LayoutComponent"],
                 _components_layout_topnav_layout_slider_topnav_component__WEBPACK_IMPORTED_MODULE_24__["LayoutSliderTopnavComponent"],
@@ -1736,12 +2208,15 @@ var LayoutService = /** @class */ (function () {
     LayoutService.prototype.postUrl = function (data) {
         return this.http.post(this.apiEndpoint, JSON.stringify(data));
     };
-    LayoutService.prototype.getUrl = function (pageId, part, filter) {
-        var queryParams = this.formatQueryParams(filter);
-        return this.http.get(this.apiEndpoint + pageId + '/' + part + '/');
+    LayoutService.prototype.getLayout = function (pageId, part) {
+        return this.http.get(this.apiEndpoint + pageId + '/' + part);
+    };
+    LayoutService.prototype.getLayoutFilterSliders = function (pageId, part, filter) {
+        var filters = this.formatFilters(filter);
+        return this.http.get(this.apiEndpoint + pageId + '/' + part + filters);
     };
     LayoutService.prototype.putUrl = function (pageId, part, data) {
-        return this.http.put(this.apiEndpoint + pageId + '/' + part + '/' + data.id + '/', JSON.stringify(data));
+        return this.http.put(this.apiEndpoint + pageId + '/' + part + '/', JSON.stringify(data));
     };
     LayoutService.prototype.deleteUrl = function (id) {
         return this.http.delete(this.apiEndpoint + id + '/');
@@ -1782,6 +2257,16 @@ var LayoutService = /** @class */ (function () {
             .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["map"])(function (response) {
             return response.data;
         }));
+    };
+    LayoutService.prototype.formatFilters = function (filters) {
+        var queryParams = '';
+        if (filters) {
+            filters.forEach(function (item) {
+                queryParams += queryParams.length > 0 ? '&' : '?';
+                queryParams += item.filter + '=' + item.value;
+            });
+        }
+        return queryParams;
     };
     LayoutService = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"])({
@@ -2247,6 +2732,64 @@ var UrlsService = /** @class */ (function () {
             _error_handling_services_error_handling_http_service__WEBPACK_IMPORTED_MODULE_1__["ErrorHandlingHttpService"]])
     ], UrlsService);
     return UrlsService;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/ui/modules/images-card/services/images.service.ts":
+/*!*******************************************************************!*\
+  !*** ./src/app/ui/modules/images-card/services/images.service.ts ***!
+  \*******************************************************************/
+/*! exports provided: ImagesService */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ImagesService", function() { return ImagesService; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm5/http.js");
+/* harmony import */ var _config_services_config_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../config/services/config.service */ "./src/app/config/services/config.service.ts");
+/* harmony import */ var _error_handling_interceptors_http_headers_interceptor_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../error-handling/interceptors/http-headers-interceptor.service */ "./src/app/error-handling/interceptors/http-headers-interceptor.service.ts");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+//
+
+
+var ImagesService = /** @class */ (function () {
+    function ImagesService(http, httpHeaders, configService) {
+        this.http = http;
+        this.httpHeaders = httpHeaders;
+        this.configService = configService;
+        this.baseUrl = this.configService.config.apiConfigs.images.apiEndpoint;
+    }
+    ImagesService.prototype.postImage = function (image) {
+        var requestOptions = { headers: this.httpHeaders.getHeaders() };
+        console.log(requestOptions);
+        requestOptions.headers = requestOptions.headers.delete('Content-Type');
+        var formData = new FormData();
+        formData.append('image', image);
+        return this.http.post(this.baseUrl, formData, requestOptions);
+    };
+    ImagesService = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"])({
+            providedIn: 'root'
+        }),
+        __metadata("design:paramtypes", [_angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HttpClient"],
+            _error_handling_interceptors_http_headers_interceptor_service__WEBPACK_IMPORTED_MODULE_3__["HttpHeadersInterceptorService"],
+            _config_services_config_service__WEBPACK_IMPORTED_MODULE_2__["ConfigService"]])
+    ], ImagesService);
+    return ImagesService;
 }());
 
 
