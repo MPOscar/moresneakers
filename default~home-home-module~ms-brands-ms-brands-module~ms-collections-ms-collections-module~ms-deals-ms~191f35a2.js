@@ -532,6 +532,9 @@ var ShopsService = /** @class */ (function () {
     ShopsService.prototype.getShop = function (id) {
         return this.http.get(this.apiEndpoint + id + '/');
     };
+    ShopsService.prototype.getShopCountries = function () {
+        return this.http.get(this.apiEndpoint + 'countries/');
+    };
     ShopsService.prototype.postShopLinkedSubShops = function (id, data) {
         return this.http.post(this.apiEndpoint + id + '/shops/', JSON.stringify(data));
     };

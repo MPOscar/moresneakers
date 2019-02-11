@@ -1618,7 +1618,7 @@ var SeeStyleComponent = /** @class */ (function (_super) {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<form class=\"flex-grow-1 min-height-0 display-flex flex-direction-column\" [askBeforeRefresh]=\"formGroup.dirty\" [formGroup]=\"formGroup\"\n  novalidate role=\"form\" autocomplete=\"off\" inputFocus>\n\n  <div class=\"flex-grow-1 overflow-auto display-flex flex-direction-column\">\n\n    <div class=\"flex-grow-1 flex-shrink-0 display-flex flex-direction-column\">\n\n      <div class=\"margin-right-25px\" [fxFlex]=\"50\" fxLayout=\"column\" fxLayout.lt-md=\"column\">\n\n        <div class=\"margin-right-25px\" [fxFlex]=\"80\" fxLayout.lt-md=\"column\">\n\n          <mat-form-field class=\"margin-left-16px width-100pct customized\" appearance=\"fill\">\n\n            <mat-label>Description</mat-label>\n\n            <textarea matInput formControlName=\"description\" class=\"min-height-100px\"></textarea>\n\n          </mat-form-field>\n\n        </div>\n\n        <div class=\"margin-right-25px\" [fxFlex]=\"100\" fxLayout=\"row\" fxLayout.lt-md=\"column\">\n\n          <div [fxFlex]=\"50\" fxLayout=\"column\" class=\"margin-right-25px\">\n\n            <mat-form-field class=\"margin-left-16px max-width-480px\">\n\n              <mat-label>Style Name</mat-label>\n\n              <input matInput type=\"text\" formControlName=\"name\" required>\n\n            </mat-form-field>\n\n            <mat-form-field class=\"padding-top-5px max-width-480px\">\n              <mat-label>Category</mat-label>\n              <mat-select disableOptionCentering placeholder=\"Select\" formControlName=\"category\" required>\n                <mat-option>...</mat-option>\n                <mat-option *ngFor=\"let category of categories\" [value]=\"category.id\">\n                  {{category.name}}\n                </mat-option>\n              </mat-select>\n            </mat-form-field>\n\n            <div>\n              <!--styles-parent [styleId]=\"styleId\"></styles-parent-->\n              <!--p-tree [value]=\"files\" selectionMode=\"single\" [(selection)]=\"selectedFile\" (onNodeSelect)=\"nodeSelect($event)\" (onNodeUnselect)=\"nodeUnselect($event)\"></p-tree-->\n            </div>\n            <!--mat-form-field class=\"max-width-480px\">\n              <mat-label>Slect Parent</mat-label>\n              <mat-select disableOptionCentering placeholder=\"Select\" formControlName=\"parent\">\n                <mat-option>...</mat-option>\n                <mat-option *ngFor=\"let style of styles\" [value]=\"style.id\">\n                  {{style.name}}\n                </mat-option>\n              </mat-select>\n            </mat-form-field-->\n\n          </div>\n\n          <div class=\"margin-top-10px margin-right-25px\" [fxFlex]=\"50\" fxLayout=\"column\">\n\n            <button class=\"margin-bottom-25px max-width-480px\" mat-stroked-button type=\"button\" (click)=\"showModalAddNewBrand()\">Add a new Brand</button>\n\n            <mat-form-field class=\"width-100pc max-width-480px\">\n\n              <mat-label>SELECT BRAND</mat-label>\n\n              <mat-select disableOptionCentering placeholder=\"Select\" formControlName=\"brand\" panelOpen=\"true\" required>\n\n                <mat-option (click)=\"selectParent('')\">...</mat-option>\n\n                <mat-option *ngFor=\"let brand of brands\" [value]=\"brand.id\" (click)=\"selectParent(brand.id)\">\n                  {{brand.name}}\n                </mat-option>\n\n              </mat-select>\n\n            </mat-form-field>\n\n            <div>\n              <!--mat-slide-toggle class=\"padding-top-15px padding-bottom-15px\" formControlName=\"isParent\">Is Parent</mat-slide-toggle-->\n            </div>\n\n          </div>\n\n          <div class=\"margin-top-10px\" [fxFlex]=\"30\" fxLayout=\"column\">\n            <button class=\"margin-bottom-25px max-width-480px\" mat-stroked-button type=\"button\" (click)=\"showModalAddNewParent()\">Add a new Parent</button>\n\n            <mat-form-field class=\"width-100pc max-width-480px\">\n\n              <mat-label>SELECT PARENT</mat-label>\n              <mat-select disableOptionCentering placeholder=\"Select\" formControlName=\"parent\">\n                <mat-option *ngFor=\"let style of styles\" [value]=\"style.id\">\n                  {{style.name}}\n                </mat-option>\n              </mat-select>\n            </mat-form-field>\n          </div>\n        </div>\n\n\n\n      </div>\n\n      <div class=\"display-flex padding-bottom-10px padding-top-25px justify-content-center\">\n        <button mat-stroked-button type=\"button\" class=\"max-width-480px\" (click)=\"showModalStoresSelling()\">See Stores Selling this Style</button>\n        <button *ngIf=\"styleId\" mat-stroked-button type=\"button\" class=\"margin-left-25px max-width-480px\" [routerLink]=\"['../../../releases/create']\"\n          [queryParams]=\"{styleId: styleId, returnUrl: location.path()}\">Create a Release</button>\n      </div>\n\n    </div>\n\n  </div>\n\n\n\n  <div class=\"margin-right-25px padding-top-25px padding-bottom-25px flex-shrink-0 display-flex border-top-style-solid border-top-width-2px border-top-color-grey\">\n\n    <button mat-raised-button (click)=\"submitClicked()\" color=\"primary\">{{'Accept' | translate}}</button>\n\n    <button mat-raised-button type=\"button\" class=\"margin-left-10px\" (click)=\"cancelClicked()\">{{'Cancel' | translate}}</button>\n\n    <span class=\"display-flex flex-grow-1\"></span>\n\n    <button mat-stroked-button type=\"buttom\" (click)=\"submitClickedCreateRelease()\" class=\"margin-left-25px max-width-480px\">Create a Release</button>\n\n  </div>\n\n</form>"
+module.exports = "<form class=\"flex-grow-1 min-height-0 display-flex flex-direction-column\" [askBeforeRefresh]=\"formGroup.dirty\" [formGroup]=\"formGroup\"\n  novalidate role=\"form\" autocomplete=\"off\" inputFocus>\n\n  <div class=\"flex-grow-1 overflow-auto display-flex flex-direction-column\">\n\n    <div class=\"flex-grow-1 flex-shrink-0 display-flex flex-direction-column\">\n\n      <div class=\"margin-right-25px\" [fxFlex]=\"50\" fxLayout=\"column\" fxLayout.lt-md=\"column\">\n\n        <div class=\"margin-right-25px\" [fxFlex]=\"80\" fxLayout.lt-md=\"column\">\n\n          <mat-form-field class=\"margin-left-16px width-100pct customized\" appearance=\"fill\">\n\n            <mat-label>Description</mat-label>\n\n            <textarea matInput formControlName=\"description\" class=\"min-height-100px\"></textarea>\n\n          </mat-form-field>\n\n        </div>\n\n        <div class=\"margin-right-25px\" [fxFlex]=\"100\" fxLayout=\"row\" fxLayout.lt-md=\"column\">\n\n          <div [fxFlex]=\"50\" fxLayout=\"column\" class=\"margin-right-25px\">\n\n            <mat-form-field class=\"margin-left-16px max-width-480px\">\n\n              <mat-label>Style Name</mat-label>\n\n              <input matInput type=\"text\" formControlName=\"name\" required>\n\n            </mat-form-field>\n\n            <mat-form-field class=\"padding-top-5px max-width-480px\">\n              <mat-label>Category</mat-label>\n              <mat-select disableOptionCentering placeholder=\"Select\" formControlName=\"category\" required>\n                <mat-option>...</mat-option>\n                <mat-option *ngFor=\"let category of categories\" [value]=\"category.id\">\n                  {{category.name}}\n                </mat-option>\n              </mat-select>\n            </mat-form-field>\n\n\n            <!--mat-form-field class=\"max-width-480px\">\n              <mat-label>Slect Parent</mat-label>\n              <mat-select disableOptionCentering placeholder=\"Select\" formControlName=\"parent\">\n                <mat-option>...</mat-option>\n                <mat-option *ngFor=\"let style of styles\" [value]=\"style.id\">\n                  {{style.name}}\n                </mat-option>\n              </mat-select>\n            </mat-form-field-->\n\n          </div>\n\n          <div class=\"margin-top-10px margin-right-25px\" [fxFlex]=\"50\" fxLayout=\"column\">\n\n            <button class=\"margin-bottom-25px max-width-480px\" mat-stroked-button type=\"button\" (click)=\"showModalAddNewBrand()\">Add a new Brand</button>\n\n            <mat-form-field class=\"width-100pc max-width-480px\">\n\n              <mat-label>SELECT BRAND</mat-label>\n\n              <mat-select disableOptionCentering placeholder=\"Select\" formControlName=\"brand\" panelOpen=\"true\" required>\n\n                <mat-option (click)=\"selectParent('')\">...</mat-option>\n\n                <mat-option *ngFor=\"let brand of brands\" [value]=\"brand.id\" (click)=\"selectParent(brand.id)\">\n                  {{brand.name}}\n                </mat-option>\n\n              </mat-select>\n\n            </mat-form-field>\n\n            <div>\n              <!--mat-slide-toggle class=\"padding-top-15px padding-bottom-15px\" formControlName=\"isParent\">Is Parent</mat-slide-toggle-->\n            </div>\n\n          </div>\n\n          <div class=\"margin-top-10px\" [fxFlex]=\"30\" fxLayout=\"column\">\n\n            <button class=\"margin-bottom-25px max-width-480px\" mat-stroked-button type=\"button\" (click)=\"showModalAddNewParent()\">Add a new Parent</button>\n\n            <div class=\"\">\n              <mat-label>Select Parent Style</mat-label>\n              <styles-parent [styleId]=\"styleId\" [styles]=\"styles\" [styleName]=\"styleName\" (styleEventEmiter)=\"setParent($event)\"></styles-parent>\n            </div>\n            <!--mat-form-field class=\"width-100pc max-width-480px\">\n\n              <mat-label>SELECT PARENT</mat-label>\n\n              <mat-select disableOptionCentering placeholder=\"Select\" formControlName=\"parent\">\n\n                <mat-option *ngFor=\"let style of styles\" [value]=\"style.id\">\n\n                  {{style.name}}\n\n                </mat-option>\n\n              </mat-select>\n\n            </mat-form-field-->\n\n          </div>\n\n        </div>\n\n      </div>\n\n      <div class=\"display-flex padding-bottom-10px padding-top-25px justify-content-center\">\n        <button mat-stroked-button type=\"button\" class=\"max-width-480px\" (click)=\"showModalStoresSelling()\">See Stores Selling this Style</button>\n        <button *ngIf=\"styleId\" mat-stroked-button type=\"button\" class=\"margin-left-25px max-width-480px\" [routerLink]=\"['../../../releases/create']\"\n          [queryParams]=\"{styleId: styleId, returnUrl: location.path()}\">Create a Release</button>\n      </div>\n\n    </div>\n\n  </div>\n\n  <div class=\"margin-right-25px padding-top-25px padding-bottom-25px flex-shrink-0 display-flex border-top-style-solid border-top-width-2px border-top-color-grey\">\n\n    <button mat-raised-button (click)=\"submitClicked()\" color=\"primary\">{{'Accept' | translate}}</button>\n\n    <button mat-raised-button type=\"button\" class=\"margin-left-10px\" (click)=\"cancelClicked()\">{{'Cancel' | translate}}</button>\n\n    <span class=\"display-flex flex-grow-1\"></span>\n\n    <button mat-stroked-button type=\"buttom\" (click)=\"submitClickedCreateRelease()\" class=\"margin-left-25px max-width-480px\">Create a Release</button>\n\n  </div>\n\n</form>"
 
 /***/ }),
 
@@ -1651,10 +1651,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _ms_brands_services_brands_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../ms-brands/services/brands.service */ "./src/app/ms-back-office/modules/ms-brands/services/brands.service.ts");
 /* harmony import */ var _services_styles_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../services/styles.service */ "./src/app/ms-back-office/modules/ms-style/services/styles.service.ts");
 /* harmony import */ var _new_parent_new_parent_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../new-parent/new-parent.component */ "./src/app/ms-back-office/modules/ms-style/components/new-parent/new-parent.component.ts");
-/* harmony import */ var _ms_brands_components_new_brand_new_brand_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../../ms-brands/components/new-brand/new-brand.component */ "./src/app/ms-back-office/modules/ms-brands/components/new-brand/new-brand.component.ts");
-/* harmony import */ var _ms_shops_components_shops_selling_style_modal_shops_selling_style_modal_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../../../ms-shops/components/shops-selling-style-modal/shops-selling-style-modal.component */ "./src/app/ms-back-office/modules/ms-shops/components/shops-selling-style-modal/shops-selling-style-modal.component.ts");
-/* harmony import */ var _ms_shops_services_shops_service__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../../../ms-shops/services/shops.service */ "./src/app/ms-back-office/modules/ms-shops/services/shops.service.ts");
-/* harmony import */ var _angular_material__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! @angular/material */ "./node_modules/@angular/material/esm5/material.es5.js");
+/* harmony import */ var _styles_parent_styles_parent_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../styles-parent/styles-parent.component */ "./src/app/ms-back-office/modules/ms-style/components/styles-parent/styles-parent.component.ts");
+/* harmony import */ var _ms_brands_components_new_brand_new_brand_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../../../ms-brands/components/new-brand/new-brand.component */ "./src/app/ms-back-office/modules/ms-brands/components/new-brand/new-brand.component.ts");
+/* harmony import */ var _ms_shops_components_shops_selling_style_modal_shops_selling_style_modal_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../../../ms-shops/components/shops-selling-style-modal/shops-selling-style-modal.component */ "./src/app/ms-back-office/modules/ms-shops/components/shops-selling-style-modal/shops-selling-style-modal.component.ts");
+/* harmony import */ var _ms_shops_services_shops_service__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../../../ms-shops/services/shops.service */ "./src/app/ms-back-office/modules/ms-shops/services/shops.service.ts");
+/* harmony import */ var _angular_material__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! @angular/material */ "./node_modules/@angular/material/esm5/material.es5.js");
 var __extends = (undefined && undefined.__extends) || (function () {
     var extendStatics = Object.setPrototypeOf ||
         ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
@@ -1687,6 +1688,7 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 
 
 
+
 var StyleFormComponent = /** @class */ (function (_super) {
     __extends(StyleFormComponent, _super);
     function StyleFormComponent(dialog, location, brandsService, stylesService, shopsService, translateService) {
@@ -1698,39 +1700,29 @@ var StyleFormComponent = /** @class */ (function (_super) {
         _this.shopsService = shopsService;
         _this.linkedShops = [];
         _this.createRelease = false;
+        _this.treeNode = [];
         return _this;
         //setTranslations(this.translateService, TRANSLATIONS);
     }
     StyleFormComponent.prototype.ngOnInit = function () {
-        this.files = [
-            {
-                label: 'Folder 1',
-                collapsedIcon: 'fa-folder',
-                expandedIcon: 'fa-folder-open',
-                children: [
-                    {
-                        label: 'Folder 2',
-                        collapsedIcon: 'fa-folder',
-                        expandedIcon: 'fa-folder-open',
-                        children: [
-                            {
-                                label: 'File 2',
-                                icon: 'fa-file-o'
-                            }
-                        ]
-                    },
-                    {
-                        label: 'Folder 2',
-                        collapsedIcon: 'fa-folder',
-                        expandedIcon: 'fa-folder-open'
-                    },
-                    {
-                        label: 'File 1',
-                        icon: 'fa-file-o'
-                    }
-                ]
+        var _this = this;
+        this.style = this.styles.find(function (item) { return item.id === _this.styleId; });
+        if (this.style) {
+            if (this.style.parent) {
+                this.styleName = this.styles.find(function (item) { return item.id === _this.style.parent; }).name;
             }
-        ];
+        }
+        this.styles.forEach(function (element) {
+            if (!element.parent) {
+                var item = [];
+                item = {
+                    'item': element.name,
+                };
+                //item['children'] = this.getChildren(element.id);
+                _this.treeNode = _this.treeNode.concat([item]);
+            }
+        });
+        this.files = [];
         var validationsErrors = [
             {
                 type: 'required',
@@ -1750,7 +1742,6 @@ var StyleFormComponent = /** @class */ (function (_super) {
             brand: new _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormControl"](this.data.brand, [_angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].required]),
             parent: new _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormControl"](this.data.parent),
             category: new _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormControl"](this.data.category, [_angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].required]),
-            isParent: new _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormControl"](this.data.isParent)
         });
     };
     StyleFormComponent.prototype.submitClicked = function () {
@@ -1775,7 +1766,7 @@ var StyleFormComponent = /** @class */ (function (_super) {
     };
     StyleFormComponent.prototype.showModalStoresSelling = function () {
         var _this = this;
-        this.modalRef = this.dialog.open(_ms_shops_components_shops_selling_style_modal_shops_selling_style_modal_component__WEBPACK_IMPORTED_MODULE_9__["ShopsSellingStyleModalComponent"], {
+        this.modalRef = this.dialog.open(_ms_shops_components_shops_selling_style_modal_shops_selling_style_modal_component__WEBPACK_IMPORTED_MODULE_10__["ShopsSellingStyleModalComponent"], {
             height: '90%',
             width: '90%',
             data: {
@@ -1795,7 +1786,7 @@ var StyleFormComponent = /** @class */ (function (_super) {
     };
     StyleFormComponent.prototype.showModalAddNewBrand = function () {
         var _this = this;
-        this.modalRef = this.dialog.open(_ms_brands_components_new_brand_new_brand_component__WEBPACK_IMPORTED_MODULE_8__["NewBrandComponent"], {
+        this.modalRef = this.dialog.open(_ms_brands_components_new_brand_new_brand_component__WEBPACK_IMPORTED_MODULE_9__["NewBrandComponent"], {
             height: '90%',
             data: { face: this.shop }
         });
@@ -1818,6 +1809,7 @@ var StyleFormComponent = /** @class */ (function (_super) {
         this.modalRef.afterClosed().subscribe(function () {
             _this.stylesService.getAllStyles().subscribe(function (response) {
                 _this.styles = response;
+                _this.parentStylesTreeRadioButonslist.buildTreeArray(response);
             });
         });
     };
@@ -1826,12 +1818,13 @@ var StyleFormComponent = /** @class */ (function (_super) {
         this.stylesService.getAllStyles().subscribe(function (response) {
             if (brandId) {
                 _this.styles = response.filter(function (style) {
-                    return (style.brand === brandId) && style.isParent;
+                    return style.brand === brandId;
                 });
             }
             else {
                 _this.styles = response;
             }
+            _this.parentStylesTreeRadioButonslist.buildTreeArray(_this.styles);
         });
     };
     StyleFormComponent.prototype.selectBrand = function (brandId) {
@@ -1846,6 +1839,32 @@ var StyleFormComponent = /** @class */ (function (_super) {
                 _this.brands = response;
             }
         });
+    };
+    StyleFormComponent.prototype.getChildren = function (id) {
+        var _this = this;
+        var childrens = [];
+        this.styles.forEach(function (element) {
+            if (element.parent === id) {
+                var item = [];
+                item['label'] = element.name;
+                item['collapsedIcon'] = 'fa-folder';
+                item['children'] = _this.getChildren(element.id);
+                childrens = childrens.concat([item]);
+            }
+        });
+        return childrens;
+    };
+    StyleFormComponent.prototype.setParent = function (event) {
+        if (event !== "Parent") {
+            this.formGroup.get('parent').setValue(this.styles.find(function (item) {
+                return item.name === event;
+            }).id);
+            this.data.parent = this.formGroup.get('parent').value;
+        }
+        else {
+            this.formGroup.get('parent').setValue('');
+            this.data.parent = '';
+        }
     };
     __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])(),
@@ -1867,6 +1886,10 @@ var StyleFormComponent = /** @class */ (function (_super) {
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])(),
         __metadata("design:type", Array)
     ], StyleFormComponent.prototype, "shops", void 0);
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ViewChild"])(_styles_parent_styles_parent_component__WEBPACK_IMPORTED_MODULE_8__["ParentStylesTreeRadioButonslist"]),
+        __metadata("design:type", Object)
+    ], StyleFormComponent.prototype, "parentStylesTreeRadioButonslist", void 0);
     StyleFormComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
             selector: 'style-form',
@@ -1874,11 +1897,11 @@ var StyleFormComponent = /** @class */ (function (_super) {
             changeDetection: _angular_core__WEBPACK_IMPORTED_MODULE_0__["ChangeDetectionStrategy"].OnPush,
             styles: [__webpack_require__(/*! ./style-form.component.scss */ "./src/app/ms-back-office/modules/ms-style/components/style-form/style-form.component.scss")]
         }),
-        __metadata("design:paramtypes", [_angular_material__WEBPACK_IMPORTED_MODULE_11__["MatDialog"],
+        __metadata("design:paramtypes", [_angular_material__WEBPACK_IMPORTED_MODULE_12__["MatDialog"],
             _angular_common__WEBPACK_IMPORTED_MODULE_2__["Location"],
             _ms_brands_services_brands_service__WEBPACK_IMPORTED_MODULE_5__["BrandsService"],
             _services_styles_service__WEBPACK_IMPORTED_MODULE_6__["StylesService"],
-            _ms_shops_services_shops_service__WEBPACK_IMPORTED_MODULE_10__["ShopsService"],
+            _ms_shops_services_shops_service__WEBPACK_IMPORTED_MODULE_11__["ShopsService"],
             _ngx_translate_core__WEBPACK_IMPORTED_MODULE_3__["TranslateService"]])
     ], StyleFormComponent);
     return StyleFormComponent;
@@ -2121,7 +2144,7 @@ module.exports = ".example-panel-red.mat-select-panel {\r\n  background: rgba(25
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<mat-tree [dataSource]=\"dataSource\" [treeControl]=\"treeControl\">\n  <mat-tree-node *matTreeNodeDef=\"let node\" matTreeNodeToggle matTreeNodePadding>\n    <button mat-icon-button disabled></button>\n    <mat-checkbox class=\"checklist-leaf-node\"\n                  [checked]=\"checklistSelection.isSelected(node)\"\n                  (change)=\"todoLeafItemSelectionToggle(node)\">{{node.item}}</mat-checkbox>\n  </mat-tree-node>\n\n  <mat-tree-node *matTreeNodeDef=\"let node; when: hasNoContent\" matTreeNodePadding>\n    <button mat-icon-button disabled></button>\n    <mat-form-field>\n      <input matInput #itemValue placeholder=\"New item...\">\n    </mat-form-field>\n    <button mat-button (click)=\"saveNode(node, itemValue.value)\">Save</button>\n  </mat-tree-node>\n\n  <mat-tree-node *matTreeNodeDef=\"let node; when: hasChild\" matTreeNodePadding>\n    <button mat-icon-button matTreeNodeToggle\n            [attr.aria-label]=\"'toggle ' + node.filename\">\n      <mat-icon class=\"mat-icon-rtl-mirror\">\n        {{treeControl.isExpanded(node) ? 'expand_more' : 'chevron_right'}}\n      </mat-icon>\n    </button>\n    <mat-checkbox [checked]=\"descendantsAllSelected(node)\"\n                  [indeterminate]=\"descendantsPartiallySelected(node)\"\n                  (change)=\"todoItemSelectionToggle(node)\">{{node.item}}</mat-checkbox>\n    <button mat-icon-button (click)=\"addNewItem(node)\"><mat-icon>add</mat-icon></button>\n  </mat-tree-node>\n</mat-tree>\n"
+module.exports = "<mat-tree [dataSource]=\"dataSource\" [treeControl]=\"treeControl\">\n  <mat-tree-node *matTreeNodeDef=\"let node\" matTreeNodeToggle matTreeNodePadding>\n    <button mat-icon-button disabled></button>\n    <mat-radio-button>{{node.item}}</mat-radio-button>\n    <!--mat-checkbox class=\"checklist-leaf-node\"\n                  [checked]=\"checklistSelection.isSelected(node)\"\n                  (change)=\"todoLeafItemSelectionToggle(node)\">{{node.item}}</mat-checkbox-->\n  </mat-tree-node>\n\n  <mat-tree-node *matTreeNodeDef=\"let node; when: hasNoContent\" matTreeNodePadding>\n    <button mat-icon-button disabled></button>\n    <mat-form-field>\n      <input matInput #itemValue placeholder=\"New item...\">\n    </mat-form-field>\n    <button mat-button (click)=\"saveNode(node, itemValue.value)\">Save</button>\n  </mat-tree-node>\n\n  <mat-tree-node *matTreeNodeDef=\"let node; when: hasChild\" matTreeNodePadding>\n    <button mat-icon-button matTreeNodeToggle\n            [attr.aria-label]=\"'toggle ' + node.filename\">\n      <mat-icon class=\"mat-icon-rtl-mirror\">\n        {{treeControl.isExpanded(node) ? 'expand_more' : 'chevron_right'}}\n      </mat-icon>\n    </button>\n    <mat-radio-button (click)=\"selectedNode(node)\" [checked]=\"checkedNode(node)\" [disabled]=\"checkedNodeDisabled(node)\">{{node.item}}</mat-radio-button>\n    \n    <!--ng-template #other_content><mat-radio-button [disabled]=\"checkedNodeDisabled(node)\">{{node.item}}</mat-radio-button></ng-template-->\n    \n    <!--mat-checkbox [checked]=\"descendantsAllSelected(node)\"\n                  [indeterminate]=\"descendantsPartiallySelected(node)\"\n                  (change)=\"todoItemSelectionToggle(node)\">{{node.item}}</mat-checkbox-->\n    <!--button mat-icon-button (click)=\"addNewItem(node)\"><mat-icon>add</mat-icon></button-->\n  </mat-tree-node>\n</mat-tree>"
 
 /***/ }),
 
@@ -2129,7 +2152,7 @@ module.exports = "<mat-tree [dataSource]=\"dataSource\" [treeControl]=\"treeCont
 /*!*****************************************************************************************************!*\
   !*** ./src/app/ms-back-office/modules/ms-style/components/styles-parent/styles-parent.component.ts ***!
   \*****************************************************************************************************/
-/*! exports provided: TodoItemNode, TodoItemFlatNode, ChecklistDatabase, TreeChecklistExample */
+/*! exports provided: TodoItemNode, TodoItemFlatNode, ChecklistDatabase, ParentStylesTreeRadioButonslist */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -2137,7 +2160,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "TodoItemNode", function() { return TodoItemNode; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "TodoItemFlatNode", function() { return TodoItemFlatNode; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ChecklistDatabase", function() { return ChecklistDatabase; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "TreeChecklistExample", function() { return TreeChecklistExample; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ParentStylesTreeRadioButonslist", function() { return ParentStylesTreeRadioButonslist; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var _angular_cdk_collections__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/cdk/collections */ "./node_modules/@angular/cdk/esm5/collections.es5.js");
 /* harmony import */ var _angular_cdk_tree__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/cdk/tree */ "./node_modules/@angular/cdk/esm5/tree.es5.js");
@@ -2199,16 +2222,21 @@ var TREE_DATA_MORE = {
         'Almonda Meal flour': null,
         'Organice eggs': null,
         'Proteinn Powder': null,
-        Fruits: {
+        'Fruits': {
             Apple: null,
-            Berries: ['Blueberrrrrry', 'Raspberrrrrrrry'],
+            Berries: { 'Bluebery': null, 'Raspbery': 'no' },
+            Orange: null
+        },
+        Cars: {
+            Apple: null,
+            Berries: ['audi', 'ferrary'],
             Orange: null
         }
     },
     Reminders: [
         'Cook dinner',
         'Read the Material Design spec',
-        'Upgrade Applicccccccation to Angular'
+        'Upgrade Application to Angular'
     ]
 };
 /**
@@ -2275,8 +2303,8 @@ var ChecklistDatabase = /** @class */ (function () {
 /**
  * @title Tree with checkboxes
  */
-var TreeChecklistExample = /** @class */ (function () {
-    function TreeChecklistExample(database) {
+var ParentStylesTreeRadioButonslist = /** @class */ (function () {
+    function ParentStylesTreeRadioButonslist(database) {
         var _this = this;
         this.database = database;
         /** Map from flat node to nested node. This helps us finding the nested node to be modified */
@@ -2289,6 +2317,9 @@ var TreeChecklistExample = /** @class */ (function () {
         this.newItemName = '';
         /** The selection for checklist */
         this.checklistSelection = new _angular_cdk_collections__WEBPACK_IMPORTED_MODULE_1__["SelectionModel"](true /* multiple */);
+        this.styleEventEmiter = new _angular_core__WEBPACK_IMPORTED_MODULE_0__["EventEmitter"]();
+        this.treeNode = [];
+        this.data = [];
         this.getLevel = function (node) { return node.level; };
         this.isExpandable = function (node) { return node.expandable; };
         this.getChildren = function (node) { return node.children; };
@@ -2318,7 +2349,7 @@ var TreeChecklistExample = /** @class */ (function () {
         });
     }
     /** Whether all the descendants of the node are selected. */
-    TreeChecklistExample.prototype.descendantsAllSelected = function (node) {
+    ParentStylesTreeRadioButonslist.prototype.descendantsAllSelected = function (node) {
         var _this = this;
         var descendants = this.treeControl.getDescendants(node);
         var descAllSelected = descendants.every(function (child) {
@@ -2327,14 +2358,14 @@ var TreeChecklistExample = /** @class */ (function () {
         return descAllSelected;
     };
     /** Whether part of the descendants are selected */
-    TreeChecklistExample.prototype.descendantsPartiallySelected = function (node) {
+    ParentStylesTreeRadioButonslist.prototype.descendantsPartiallySelected = function (node) {
         var _this = this;
         var descendants = this.treeControl.getDescendants(node);
         var result = descendants.some(function (child) { return _this.checklistSelection.isSelected(child); });
         return result && !this.descendantsAllSelected(node);
     };
     /** Toggle the to-do item selection. Select/deselect all the descendants node */
-    TreeChecklistExample.prototype.todoItemSelectionToggle = function (node) {
+    ParentStylesTreeRadioButonslist.prototype.todoItemSelectionToggle = function (node) {
         var _this = this;
         this.checklistSelection.toggle(node);
         var descendants = this.treeControl.getDescendants(node);
@@ -2348,12 +2379,12 @@ var TreeChecklistExample = /** @class */ (function () {
         var _a, _b;
     };
     /** Toggle a leaf to-do item selection. Check all the parents to see if they changed */
-    TreeChecklistExample.prototype.todoLeafItemSelectionToggle = function (node) {
+    ParentStylesTreeRadioButonslist.prototype.todoLeafItemSelectionToggle = function (node) {
         this.checklistSelection.toggle(node);
         this.checkAllParentsSelection(node);
     };
     /* Checks all the parents when a leaf node is selected/unselected */
-    TreeChecklistExample.prototype.checkAllParentsSelection = function (node) {
+    ParentStylesTreeRadioButonslist.prototype.checkAllParentsSelection = function (node) {
         var parent = this.getParentNode(node);
         while (parent) {
             this.checkRootNodeSelection(parent);
@@ -2361,7 +2392,7 @@ var TreeChecklistExample = /** @class */ (function () {
         }
     };
     /** Check root node checked state and change it accordingly */
-    TreeChecklistExample.prototype.checkRootNodeSelection = function (node) {
+    ParentStylesTreeRadioButonslist.prototype.checkRootNodeSelection = function (node) {
         var _this = this;
         var nodeSelected = this.checklistSelection.isSelected(node);
         var descendants = this.treeControl.getDescendants(node);
@@ -2376,7 +2407,7 @@ var TreeChecklistExample = /** @class */ (function () {
         }
     };
     /* Get the parent node of a node */
-    TreeChecklistExample.prototype.getParentNode = function (node) {
+    ParentStylesTreeRadioButonslist.prototype.getParentNode = function (node) {
         var currentLevel = this.getLevel(node);
         if (currentLevel < 1) {
             return null;
@@ -2391,24 +2422,24 @@ var TreeChecklistExample = /** @class */ (function () {
         return null;
     };
     /** Select the category so we can insert the new item. */
-    TreeChecklistExample.prototype.addNewItem = function (node) {
+    ParentStylesTreeRadioButonslist.prototype.addNewItem = function (node) {
         var parentNode = this.flatNodeMap.get(node);
         this.database.insertItem(parentNode, '');
         this.treeControl.expand(node);
     };
     /** Save the node to database */
-    TreeChecklistExample.prototype.saveNode = function (node, itemValue) {
+    ParentStylesTreeRadioButonslist.prototype.saveNode = function (node, itemValue) {
         var nestedNode = this.flatNodeMap.get(node);
         this.database.updateItem(nestedNode, itemValue);
     };
-    TreeChecklistExample.prototype.ngOnInit = function () {
-        this.dataSource.data = this.buildFileTree(TREE_DATA_MORE, 0);
+    ParentStylesTreeRadioButonslist.prototype.ngOnInit = function () {
+        this.buildTreeArray(this.styles);
     };
     /**
    * Build the file structure tree. The `value` is the Json object, or a sub-tree of a Json object.
    * The return value is the list of `TodoItemNode`.
    */
-    TreeChecklistExample.prototype.buildFileTree = function (obj, level) {
+    ParentStylesTreeRadioButonslist.prototype.buildFileTree = function (obj, level) {
         var _this = this;
         return Object.keys(obj).reduce(function (accumulator, key) {
             var value = obj[key];
@@ -2425,11 +2456,76 @@ var TreeChecklistExample = /** @class */ (function () {
             return accumulator.concat(node);
         }, []);
     };
+    ParentStylesTreeRadioButonslist.prototype.selectedNode = function (node) {
+        this.styleEventEmiter.emit(node.item);
+        console.log(JSON.stringify(node));
+    };
+    ParentStylesTreeRadioButonslist.prototype.buildTreeArray = function (styles) {
+        var _this = this;
+        console.log(styles);
+        var parent = {};
+        styles.forEach(function (element) {
+            if (!element.parent) {
+                var item = [];
+                item = {
+                    'item': element.name,
+                    'children': _this.getChildrens(element.id),
+                };
+                _this.data = _this.data.concat([item]);
+            }
+        });
+        this.dataSource.data = this.data;
+    };
+    ParentStylesTreeRadioButonslist.prototype.getChildrens = function (id) {
+        var _this = this;
+        var childrens = [];
+        this.styles.forEach(function (element) {
+            if (element.parent === id) {
+                var item = [];
+                item = {
+                    'item': element.name,
+                    'children': _this.getChildrens(element.id),
+                };
+                childrens = childrens.concat([item]);
+            }
+        });
+        if (childrens.length > 0) {
+            return childrens;
+        }
+    };
+    ParentStylesTreeRadioButonslist.prototype.checkedNode = function (node) {
+        if (node.item === this.styleName) {
+            return true;
+        }
+        console.log("false");
+        return false;
+    };
+    ParentStylesTreeRadioButonslist.prototype.checkedNodeDisabled = function (node) {
+        var _this = this;
+        if (node.item !== "Parent" && this.styleId) {
+            if (node.item === this.styles.find(function (item) { return item.id === _this.styleId; }).name || this.styleId === this.styles.find(function (item) { return item.name === node.item; }).parent) {
+                return true;
+            }
+        }
+        return false;
+    };
     __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])(),
         __metadata("design:type", String)
-    ], TreeChecklistExample.prototype, "styleId", void 0);
-    TreeChecklistExample = __decorate([
+    ], ParentStylesTreeRadioButonslist.prototype, "styleId", void 0);
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])(),
+        __metadata("design:type", Array)
+    ], ParentStylesTreeRadioButonslist.prototype, "styles", void 0);
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])(),
+        __metadata("design:type", String)
+    ], ParentStylesTreeRadioButonslist.prototype, "styleName", void 0);
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"])(),
+        __metadata("design:type", _angular_core__WEBPACK_IMPORTED_MODULE_0__["EventEmitter"])
+    ], ParentStylesTreeRadioButonslist.prototype, "styleEventEmiter", void 0);
+    ParentStylesTreeRadioButonslist = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
             selector: 'styles-parent',
             template: __webpack_require__(/*! ./styles-parent.component.html */ "./src/app/ms-back-office/modules/ms-style/components/styles-parent/styles-parent.component.html"),
@@ -2437,8 +2533,8 @@ var TreeChecklistExample = /** @class */ (function () {
             styles: [__webpack_require__(/*! ./styles-parent.component.css */ "./src/app/ms-back-office/modules/ms-style/components/styles-parent/styles-parent.component.css")]
         }),
         __metadata("design:paramtypes", [ChecklistDatabase])
-    ], TreeChecklistExample);
-    return TreeChecklistExample;
+    ], ParentStylesTreeRadioButonslist);
+    return ParentStylesTreeRadioButonslist;
 }());
 
 
@@ -2867,6 +2963,7 @@ var MsStyleModule = /** @class */ (function () {
                 _angular_material_icon__WEBPACK_IMPORTED_MODULE_7__["MatIconModule"],
                 _angular_material__WEBPACK_IMPORTED_MODULE_6__["MatInputModule"],
                 _angular_material__WEBPACK_IMPORTED_MODULE_6__["MatPaginatorModule"],
+                _angular_material__WEBPACK_IMPORTED_MODULE_6__["MatRadioModule"],
                 _angular_material_select__WEBPACK_IMPORTED_MODULE_8__["MatSelectModule"],
                 _angular_material_sort__WEBPACK_IMPORTED_MODULE_9__["MatSortModule"],
                 _angular_material__WEBPACK_IMPORTED_MODULE_6__["MatTableModule"],
@@ -2890,7 +2987,7 @@ var MsStyleModule = /** @class */ (function () {
                 _components_delete_style_delete_style_component__WEBPACK_IMPORTED_MODULE_26__["DeleteStyleComponent"],
                 _components_new_parent_new_parent_component__WEBPACK_IMPORTED_MODULE_24__["NewParentModalComponent"],
                 _components_see_style_see_style_component__WEBPACK_IMPORTED_MODULE_22__["SeeStyleComponent"],
-                _components_styles_parent_styles_parent_component__WEBPACK_IMPORTED_MODULE_21__["TreeChecklistExample"]
+                _components_styles_parent_styles_parent_component__WEBPACK_IMPORTED_MODULE_21__["ParentStylesTreeRadioButonslist"]
             ],
             entryComponents: [
                 _ms_shops_components_shops_selling_style_modal_shops_selling_style_modal_component__WEBPACK_IMPORTED_MODULE_30__["ShopsSellingStyleModalComponent"],
