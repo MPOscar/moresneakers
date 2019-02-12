@@ -1037,7 +1037,12 @@ var OfferFormComponent = /** @class */ (function (_super) {
         ];
         this.validationErrorMessages = validationsErrors;
         this.createFormGroup();
-        this.links = this.data.links;
+        if (this.data.links) {
+            this.links = this.data.links;
+        }
+        else {
+            this.links = [];
+        }
     };
     OfferFormComponent.prototype.createFormGroup = function () {
         this.raffle = this.data.raffle;
