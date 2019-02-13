@@ -1722,8 +1722,10 @@ var StyleFormComponent = /** @class */ (function (_super) {
                 _this.treeNode = _this.treeNode.concat([item]);
             }
         });
-        if (this.style.parent) {
-            this.parent = this.styles.find(function (item) { return item.id === _this.style.parent; }).name;
+        if (this.style) {
+            if (this.style.parent) {
+                this.parent = this.styles.find(function (item) { return item.id === _this.style.parent; }).name;
+            }
         }
         this.files = [];
         var validationsErrors = [

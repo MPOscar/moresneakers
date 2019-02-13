@@ -722,7 +722,7 @@ var DeleteBrandComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<form class=\"flex-grow-1 min-height-0 display-flex flex-direction-column\" [askBeforeRefresh]=\"formGroup.dirty\" [formGroup]=\"formGroup\"\n  novalidate role=\"form\" (ngSubmit)=\"submitClicked()\" autocomplete=\"off\" inputFocus>\n\n\n\n  <div class=\"flex-grow-1 overflow-auto display-flex flex-direction-column padding-top-25px\">\n\n    <div class=\"flex-grow-1 flex-shrink-0 display-flex flex-direction-column\">\n\n      <mat-tab-group>\n\n        <mat-tab label=\"Brand\">\n\n          <mat-form-field class=\"width-100pc margin-left-16px margin-top-25px\">\n\n            <mat-label>Brand Name</mat-label>\n\n            <input matInput type=\"text\" formControlName=\"name\" required  #shops>\n\n          </mat-form-field>\n\n          <div [fxFlex]=\"50\" class=\"border width-480px\">\n\n            <image-card class=\"padding-10px\" formControlName=\"faces\" [principal]=\"principal\"></image-card>\n\n          </div>\n\n          <mat-form-field class=\"width-100pc margin-left-16px\" appearance=\"fill\">\n\n            <mat-label>Description</mat-label>\n\n            <textarea matInput formControlName=\"description\" class=\"min-height-100px\"></textarea>\n\n          </mat-form-field>\n\n\n        </mat-tab>\n\n        <mat-tab label=\"Linked Shops\" class=\"width-50pc\">\n\n          <div class=\"liked-shops padding-top-25px\" [fxFlex]=\"100\" fxLayout=\"row\" fxLayout.lt-md=\"column\">\n\n            <div class=\"margin-top-10px flex-grow-1\" fxLayout=\"row\" class=\"margin-bottom-25px margin-right-25px\">\n              <div fxLayout=\"column\" class=\"flex-grow-1\">\n                <div class=\"flex-grow-1 overflow-auto display-flex flex-direction-column padding-10px\">\n\n                  <!--div class=\"flex-grow-1 flex-shrink-0 display-flex flex-direction-column\"-->\n                  <div class=\"flex-wrap-wrap display-flex flex-grow-1 flex-shrink-1 flex-direction-row card-container justify-content-initial margin-top-10px\">\n                    <div *ngFor=\"let shop of shops\">\n                    <mat-card *ngIf=\"shop.checked\" class=\"display-flex background-color-secondary flex-direction-column flex-shrink-1\">\n                      <div class=\"image-container margin-10px flex-grow-1\" #imageContainer>\n                        <img class=\"img\" imageLoad [srcImage]=\"shop.mainImage? shop.mainImage : ''\" [container]=\"imageContainer\" src=\"\">\n                      </div>\n                      <div class=\"image-card-btns display-flex margin-left-10px margin-right-10px margin-bottom-10px\">\n                        <mat-checkbox [checked]=\"shop.checked\" class=\"margin-top-10px\" matTooltip=\"{{ 'Principal' | translate }}\" (click)=\"linked(shop)\" [disabled]=\"true\">{{ shop.name }}</mat-checkbox>\n                      </div>\n                    </mat-card>\n\n                    </div>\n                    <!--/div-->\n                  </div>\n\n                </div>\n                <div class=\"margin-right-25px padding-top-10px padding-bottom-10px flex-shrink-0 display-flex border-top-width-2px border-top-color-grey\">\n\n                  <!--button mat-stroked-button type=\"button\" [disabled]=\"!brandId\" (click)=\"linkShopsModalBrand()\">{{ 'Link New Stores' | translate }}</button-->\n\n                  <button mat-raised-button type=\"button\" [disabled]=\"!brandId\" color=\"primary\" class=\"margin-left-10px\" (click)=\"linkShopsModalBrand()\">{{ 'Link New Stores' | translate }}</button>\n\n                </div>\n              </div>\n            </div>\n          </div>\n        </mat-tab>\n\n      </mat-tab-group>\n\n    </div>\n\n  </div>\n\n\n\n  <div class=\"margin-right-25px padding-top-25px padding-bottom-25px flex-shrink-0 display-flex border-top-style-solid border-top-width-2px border-top-color-grey\">\n\n    <button mat-raised-button type=\"submit\" color=\"primary\">{{ 'Save' | translate }}</button>\n\n    <button mat-raised-button type=\"button\" class=\"margin-left-10px\" (click)=\"cancelClicked()\">{{ 'Cancel' | translate }}</button>\n\n  </div>\n</form>"
+module.exports = "<form class=\"flex-grow-1 min-height-0 display-flex flex-direction-column\" [askBeforeRefresh]=\"formGroup.dirty\" [formGroup]=\"formGroup\"\n  novalidate role=\"form\" (ngSubmit)=\"submitClicked()\" autocomplete=\"off\" inputFocus>\n\n\n\n  <div class=\"flex-grow-1 overflow-auto display-flex flex-direction-column padding-top-25px\">\n\n    <div class=\"flex-grow-1 flex-shrink-0 display-flex flex-direction-column\">\n\n      <mat-tab-group>\n\n        <mat-tab label=\"Brand\">\n\n          <mat-form-field class=\"width-100pc margin-left-16px margin-top-25px\">\n\n            <mat-label>Brand Name</mat-label>\n\n            <input matInput type=\"text\" formControlName=\"name\" required  #shops>\n\n          </mat-form-field>\n\n          <div [fxFlex]=\"50\" class=\"border width-480px\">\n\n            <image-card class=\"padding-10px\" formControlName=\"faces\" [principal]=\"principal\"></image-card>\n\n          </div>\n\n          <mat-form-field class=\"width-100pc margin-left-16px\" appearance=\"fill\">\n\n            <mat-label>Description</mat-label>\n\n            <textarea matInput formControlName=\"description\" class=\"min-height-100px\"></textarea>\n\n          </mat-form-field>\n\n\n        </mat-tab>\n\n        <mat-tab label=\"Linked Shops\" class=\"width-50pc\">\n\n          <div class=\"liked-shops padding-top-25px\" [fxFlex]=\"100\" fxLayout=\"row\" fxLayout.lt-md=\"column\">\n\n            <div class=\"margin-top-10px flex-grow-1\" fxLayout=\"row\" class=\"margin-bottom-25px margin-right-25px\">\n              <div fxLayout=\"column\" class=\"flex-grow-1\">\n                <div class=\"flex-grow-1 overflow-auto display-flex flex-direction-column padding-10px\">\n\n                  <!--div class=\"flex-grow-1 flex-shrink-0 display-flex flex-direction-column\"-->\n                  <div class=\"flex-wrap-wrap display-flex flex-grow-1 flex-shrink-1 flex-direction-row card-container justify-content-initial margin-top-10px\">\n                    <div *ngFor=\"let shop of shops2\">\n                    <mat-card *ngIf=\"shop.checked\" class=\"display-flex background-color-secondary flex-direction-column flex-shrink-1\">\n                      <div class=\"image-container margin-10px flex-grow-1\" #imageContainer>\n                        <img class=\"img\" imageLoad [srcImage]=\"shop.mainImage? shop.mainImage : ''\" [container]=\"imageContainer\" src=\"\">\n                      </div>\n                      <div class=\"image-card-btns display-flex margin-left-10px margin-right-10px margin-bottom-10px\">\n                        <mat-checkbox [checked]=\"shop.checked\" class=\"margin-top-10px\" matTooltip=\"{{ 'Principal' | translate }}\" (click)=\"linked(shop)\" [disabled]=\"true\">{{ shop.name }}</mat-checkbox>\n                      </div>\n                    </mat-card>\n\n                    </div>\n                    <!--/div-->\n                  </div>\n\n                </div>\n                <div class=\"margin-right-25px padding-top-10px padding-bottom-10px flex-shrink-0 display-flex border-top-width-2px border-top-color-grey\">\n\n                  <!--button mat-stroked-button type=\"button\" [disabled]=\"!brandId\" (click)=\"linkShopsModalBrand()\">{{ 'Link New Stores' | translate }}</button-->\n\n                  <button mat-raised-button type=\"button\" [disabled]=\"!brandId\" color=\"primary\" class=\"margin-left-10px\" (click)=\"linkShopsModalBrand()\">{{ 'Link New Stores' | translate }}</button>\n\n                </div>\n              </div>\n            </div>\n          </div>\n        </mat-tab>\n\n      </mat-tab-group>\n\n    </div>\n\n  </div>\n\n\n\n  <div class=\"margin-right-25px padding-top-25px padding-bottom-25px flex-shrink-0 display-flex border-top-style-solid border-top-width-2px border-top-color-grey\">\n\n    <button mat-raised-button type=\"submit\" color=\"primary\">{{ 'Save' | translate }}</button>\n\n    <button mat-raised-button type=\"button\" class=\"margin-left-10px\" (click)=\"cancelClicked()\">{{ 'Cancel' | translate }}</button>\n\n  </div>\n</form>"
 
 /***/ }),
 
@@ -809,6 +809,7 @@ var EditBrandFormComponent = /** @class */ (function (_super) {
     EditBrandFormComponent.prototype.ngOnInit = function () {
         var _this = this;
         this.shops = this.activatedRoute.snapshot.data.shops;
+        this.shops2 = this.activatedRoute.snapshot.data.shops;
         var validationsErrors = [
             {
                 type: 'required',
@@ -820,8 +821,7 @@ var EditBrandFormComponent = /** @class */ (function (_super) {
         this.validationErrorMessages = validationsErrors;
         this.brandsService.getBrandLinkedShops(this.brandId).subscribe(function (response) {
             _this.linkedShops = response.data;
-            _this.shops = _this.shops;
-            _this.shops.forEach(function (shop) {
+            _this.shops2.forEach(function (shop) {
                 _this.isLinked(shop.id);
             });
         }, function (error) {
@@ -890,14 +890,14 @@ var EditBrandFormComponent = /** @class */ (function (_super) {
     EditBrandFormComponent.prototype.isLinked = function (id) {
         var isLinked = this.linkedShops.findIndex(function (shopId) { return shopId === id; }) > -1;
         if (isLinked) {
-            var index = this.shops.findIndex(function (shop) { return shop.id === id; });
-            this.shops[index].linked = true;
-            this.shops[index].checked = true;
+            var index = this.shops2.findIndex(function (shop) { return shop.id === id; });
+            this.shops2[index].linked = true;
+            this.shops2[index].checked = true;
         }
         else {
-            var index = this.shops.findIndex(function (shop) { return shop.id === id; });
-            this.shops[index].linked = false;
-            this.shops[index].checked = false;
+            var index = this.shops2.findIndex(function (shop) { return shop.id === id; });
+            this.shops2[index].linked = false;
+            this.shops2[index].checked = false;
         }
     };
     EditBrandFormComponent.prototype.changeCollection = function (brandId) {
@@ -905,7 +905,7 @@ var EditBrandFormComponent = /** @class */ (function (_super) {
         this.brandId = brandId;
         this.brandsService.getBrandLinkedShops(brandId).subscribe(function (response) {
             _this.linkedShops = response.data;
-            _this.shops.forEach(function (shop) {
+            _this.shops2.forEach(function (shop) {
                 _this.isLinked(shop.id);
             });
         }, function (error) {
