@@ -587,7 +587,7 @@ var ShopsService = /** @class */ (function () {
     // Begin special functions specific to only this service.
     //
     ShopsService.prototype.getAllShops = function () {
-        return this.http.get(this.apiEndpoint)
+        return this.http.get(this.apiEndpoint + '?ordering=name')
             .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["map"])(function (response) {
             return response.data;
         }));
