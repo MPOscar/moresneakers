@@ -477,7 +477,7 @@ var EditReleaseFormComponent = /** @class */ (function (_super) {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"flex-shrink-0 display-flex justify-content-end close-mat-dialog-buttom\">\n    <span class=\"mat-button-wrapper cursor-pointer\" (click)=\"close()\">\n    <mat-icon>clear</mat-icon>\n    </span>\n</div>\n<h1>EDIT RELEASE</h1>\n<edit-release-form class=\"flex-grow-1\" *ngIf=\"data\"\n                [collections]=\"dialogData.collections\"\n                [caseProperties]=\"caseProperties\"\n                [data]=\"data\"\n                [releaseId]=\"releaseId\"\n                [imageList]=\"dialogData.imageList\"\n                [brands]=\"dialogData.brands\"\n                [shops]=\"dialogData.shops\"      \n                [styles]=\"dialogData.styles\"            \n                [overview]=\"false\"\n                (accept)=\"submit($event)\"\n                (cancel)=\"cancel()\"\n                [validationErrors]=\"validationErrors\"\n                [imageCardEditAction]=\"imageCardEditActionTemplate\"\n                (dataChange)=\"dataChanged()\">\n</edit-release-form>\n{{dialogData.imageList | json}}"
+module.exports = "<div class=\"flex-shrink-0 display-flex justify-content-end close-mat-dialog-buttom\">\n    <span class=\"mat-button-wrapper cursor-pointer\" (click)=\"close()\">\n    <mat-icon>clear</mat-icon>\n    </span>\n</div>\n<h1>EDIT RELEASE</h1>\n<edit-release-form class=\"flex-grow-1\" *ngIf=\"data\"\n                [collections]=\"dialogData.collections\"\n                [caseProperties]=\"caseProperties\"\n                [data]=\"data\"\n                [releaseId]=\"releaseId\"\n                [imageList]=\"dialogData.imageList\"\n                [brands]=\"dialogData.brands\"\n                [shops]=\"dialogData.shops\"      \n                [styles]=\"dialogData.styles\"            \n                [overview]=\"false\"\n                (accept)=\"submit($event)\"\n                (cancel)=\"cancel()\"\n                [validationErrors]=\"validationErrors\"\n                [imageCardEditAction]=\"imageCardEditActionTemplate\"\n                (dataChange)=\"dataChanged()\">\n</edit-release-form>\n"
 
 /***/ }),
 
@@ -1453,16 +1453,17 @@ var NewReleaseComponent = /** @class */ (function () {
     };
     NewReleaseComponent.prototype.updateReleaseOffers = function (offers, releaseId) {
         var _this = this;
-        offers.forEach(function (item) {
-            delete item.id;
-            item.releaseId = releaseId;
-            _this.offersService.postOffer(item).subscribe(function (response) {
-                console.log(JSON.stringify(response) + "offersssssssssssssss");
-            }, function (error) {
-                _this.errorHandlingService.handleUiError(errorKey, error);
-                _this.validationErrors = error.formErrors;
+        if (offers) {
+            offers.forEach(function (item) {
+                delete item.id;
+                item.releaseId = releaseId;
+                _this.offersService.postOffer(item).subscribe(function (response) {
+                }, function (error) {
+                    _this.errorHandlingService.handleUiError(errorKey, error);
+                    _this.validationErrors = error.formErrors;
+                });
             });
-        });
+        }
     };
     NewReleaseComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
