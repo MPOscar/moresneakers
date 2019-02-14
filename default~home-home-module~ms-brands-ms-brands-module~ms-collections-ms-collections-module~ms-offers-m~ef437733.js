@@ -345,6 +345,155 @@ var DeleteOfferComponent = /** @class */ (function () {
 
 /***/ }),
 
+/***/ "./src/app/ms-back-office/modules/ms-offers/components/edit-offer-release-creator/edit-offer-release-creator.component.html":
+/*!**********************************************************************************************************************************!*\
+  !*** ./src/app/ms-back-office/modules/ms-offers/components/edit-offer-release-creator/edit-offer-release-creator.component.html ***!
+  \**********************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<h1>EDIT OFFER</h1>\r\n<offer-form\r\n    [data]=\"dialogData.data\"\r\n    [shops]=\"dialogData.shops\"\r\n    [shopSlected]=\"shop\"\r\n    [releaseId]=\"dialogData.releaseId\" \r\n    (accept)=\"submit($event)\"\r\n    [validationErrors]=\"validationErrors\"\r\n    (cancel)=\"cancel()\"\r\n    (dataChange)=\"dataChanged()\">\r\n</offer-form>\r\n\r\n"
+
+/***/ }),
+
+/***/ "./src/app/ms-back-office/modules/ms-offers/components/edit-offer-release-creator/edit-offer-release-creator.component.scss":
+/*!**********************************************************************************************************************************!*\
+  !*** ./src/app/ms-back-office/modules/ms-offers/components/edit-offer-release-creator/edit-offer-release-creator.component.scss ***!
+  \**********************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = ":host {\n  display: flex;\n  flex-grow: 1;\n  flex-direction: column;\n  height: 100%; }\n\n.mat-dialog-container {\n  padding: 10px; }\n\n.mat-dialog-content {\n  height: 60%;\n  max-height: 82vh;\n  margin-bottom: 10px; }\n\n.mat-dialog-actions {\n  padding: 10px 0; }\n\nmat-card {\n  padding: 0px;\n  align-self: flex-start;\n  height: 200px;\n  width: 150px;\n  margin-left: 2px;\n  margin-right: 15px;\n  margin-bottom: 15px; }\n\nmat-icon {\n  font-size: 24px;\n  width: 24px;\n  height: 24px; }\n\n.max-width-60-pct {\n  max-width: 60% !important; }\n\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvbXMtYmFjay1vZmZpY2UvbW9kdWxlcy9tcy1vZmZlcnMvY29tcG9uZW50cy9lZGl0LW9mZmVyLXJlbGVhc2UtY3JlYXRvci9FOlxcUFJPR1JBTUFDSU9OIElJSVxcbW9yZXNuZWFrZXJzLWJhY2tvZmZpY2Uvc3JjXFxhcHBcXG1zLWJhY2stb2ZmaWNlXFxtb2R1bGVzXFxtcy1vZmZlcnNcXGNvbXBvbmVudHNcXGVkaXQtb2ZmZXItcmVsZWFzZS1jcmVhdG9yXFxlZGl0LW9mZmVyLXJlbGVhc2UtY3JlYXRvci5jb21wb25lbnQuc2NzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUNJLGNBQWE7RUFDYixhQUFZO0VBQ1osdUJBQXNCO0VBQ3RCLGFBQ0YsRUFBQzs7QUFFRDtFQUNFLGNBQWEsRUFDZDs7QUFFRDtFQUNFLFlBQVc7RUFDWCxpQkFBZ0I7RUFDaEIsb0JBQW1CLEVBQ3BCOztBQUVEO0VBQ0UsZ0JBQWUsRUFDaEI7O0FBRUQ7RUFDRSxhQUFZO0VBQ1osdUJBQXNCO0VBQ3RCLGNBQWE7RUFDYixhQUFZO0VBQ1osaUJBQWdCO0VBQ2hCLG1CQUFrQjtFQUNsQixvQkFBbUIsRUFDcEI7O0FBRUQ7RUFDRSxnQkFBZTtFQUNmLFlBQVc7RUFDWCxhQUFZLEVBQ2I7O0FBRUQ7RUFDRSwwQkFBeUIsRUFDMUIiLCJmaWxlIjoic3JjL2FwcC9tcy1iYWNrLW9mZmljZS9tb2R1bGVzL21zLW9mZmVycy9jb21wb25lbnRzL2VkaXQtb2ZmZXItcmVsZWFzZS1jcmVhdG9yL2VkaXQtb2ZmZXItcmVsZWFzZS1jcmVhdG9yLmNvbXBvbmVudC5zY3NzIiwic291cmNlc0NvbnRlbnQiOlsiOmhvc3Qge1xyXG4gICAgZGlzcGxheTogZmxleDtcclxuICAgIGZsZXgtZ3JvdzogMTtcclxuICAgIGZsZXgtZGlyZWN0aW9uOiBjb2x1bW47XHJcbiAgICBoZWlnaHQ6IDEwMCVcclxuICB9XHJcbiAgXHJcbiAgLm1hdC1kaWFsb2ctY29udGFpbmVyIHtcclxuICAgIHBhZGRpbmc6IDEwcHg7XHJcbiAgfVxyXG4gIFxyXG4gIC5tYXQtZGlhbG9nLWNvbnRlbnQge1xyXG4gICAgaGVpZ2h0OiA2MCU7XHJcbiAgICBtYXgtaGVpZ2h0OiA4MnZoO1xyXG4gICAgbWFyZ2luLWJvdHRvbTogMTBweDtcclxuICB9XHJcbiAgXHJcbiAgLm1hdC1kaWFsb2ctYWN0aW9ucyB7XHJcbiAgICBwYWRkaW5nOiAxMHB4IDA7XHJcbiAgfVxyXG4gIFxyXG4gIG1hdC1jYXJkIHtcclxuICAgIHBhZGRpbmc6IDBweDtcclxuICAgIGFsaWduLXNlbGY6IGZsZXgtc3RhcnQ7XHJcbiAgICBoZWlnaHQ6IDIwMHB4O1xyXG4gICAgd2lkdGg6IDE1MHB4O1xyXG4gICAgbWFyZ2luLWxlZnQ6IDJweDtcclxuICAgIG1hcmdpbi1yaWdodDogMTVweDtcclxuICAgIG1hcmdpbi1ib3R0b206IDE1cHg7XHJcbiAgfVxyXG4gIFxyXG4gIG1hdC1pY29uIHtcclxuICAgIGZvbnQtc2l6ZTogMjRweDtcclxuICAgIHdpZHRoOiAyNHB4O1xyXG4gICAgaGVpZ2h0OiAyNHB4O1xyXG4gIH1cclxuICBcclxuICAubWF4LXdpZHRoLTYwLXBjdHtcclxuICAgIG1heC13aWR0aDogNjAlICFpbXBvcnRhbnQ7XHJcbiAgfVxyXG4gIFxyXG4iXX0= */"
+
+/***/ }),
+
+/***/ "./src/app/ms-back-office/modules/ms-offers/components/edit-offer-release-creator/edit-offer-release-creator.component.ts":
+/*!********************************************************************************************************************************!*\
+  !*** ./src/app/ms-back-office/modules/ms-offers/components/edit-offer-release-creator/edit-offer-release-creator.component.ts ***!
+  \********************************************************************************************************************************/
+/*! exports provided: EditOfferReleaseCreatorComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "EditOfferReleaseCreatorComponent", function() { return EditOfferReleaseCreatorComponent; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+/* harmony import */ var _angular_material__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/material */ "./node_modules/@angular/material/esm5/material.es5.js");
+/* harmony import */ var _ngx_translate_core__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @ngx-translate/core */ "./node_modules/@ngx-translate/core/fesm5/ngx-translate-core.js");
+/* harmony import */ var _ui_helpers_component_can_deactivate__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../../../ui/helpers/component-can-deactivate */ "./src/app/ui/helpers/component-can-deactivate.ts");
+/* harmony import */ var _ui_helpers_mixin_decorator__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../../../ui/helpers/mixin-decorator */ "./src/app/ui/helpers/mixin-decorator.ts");
+/* harmony import */ var _error_handling_services_error_handling_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../../../../error-handling/services/error-handling.service */ "./src/app/error-handling/services/error-handling.service.ts");
+/* harmony import */ var _error_handling_services_toastr_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../../../../error-handling/services/toastr.service */ "./src/app/error-handling/services/toastr.service.ts");
+/* harmony import */ var _ms_shops_models_shops__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../../ms-shops/models/shops */ "./src/app/ms-back-office/modules/ms-shops/models/shops.ts");
+/* harmony import */ var _services_offers_service__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../../services/offers.service */ "./src/app/ms-back-office/modules/ms-offers/services/offers.service.ts");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+var __param = (undefined && undefined.__param) || function (paramIndex, decorator) {
+    return function (target, key) { decorator(target, key, paramIndex); }
+};
+
+
+
+
+//
+
+
+
+
+
+
+//import { setTranslations } from '@c/ngx-translate';
+var errorKey = 'Error';
+var updatedBrandMessageKey = 'Updated';
+var EditOfferReleaseCreatorComponent = /** @class */ (function () {
+    function EditOfferReleaseCreatorComponent(dialogRef, activatedRoute, dialog, offersService, errorHandlingService, router, snackBar, translate, toastr, dialogData) {
+        this.dialogRef = dialogRef;
+        this.activatedRoute = activatedRoute;
+        this.dialog = dialog;
+        this.offersService = offersService;
+        this.errorHandlingService = errorHandlingService;
+        this.router = router;
+        this.snackBar = snackBar;
+        this.translate = translate;
+        this.toastr = toastr;
+        this.dialogData = dialogData;
+        // Begin Mixin code of the CanDeactivate class
+        this.unsavedChanges = false;
+        this.cancelBtnKey = 'No';
+        this.okBtnKey = 'Yes';
+        this.saveTitleKey = 'Discard';
+        this.saveMessageKey = 'Discard ';
+        //setTranslations(this.translate, TRANSLATIONS);
+    }
+    EditOfferReleaseCreatorComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        this.data = this.dialogData.data;
+        this.offerId = this.dialogData.offerId;
+        this.shop = this.dialogData.shops ? this.dialogData.shops.find(function (shop) { return shop.id === _this.data.shopId; }) : new _ms_shops_models_shops__WEBPACK_IMPORTED_MODULE_8__["Shop"];
+    };
+    EditOfferReleaseCreatorComponent.prototype.ngAfterViewInit = function () {
+        // this.getOffer();
+    };
+    EditOfferReleaseCreatorComponent.prototype.getOffer = function () {
+        var _this = this;
+        this.offersService.getOffer(this.offerId).subscribe(function (response) {
+            _this.data = response.data;
+            _this.shop = _this.dialogData.shops ? _this.dialogData.shops.find(function (shop) { return shop.id === _this.dialogData.data.shopId; }) : new _ms_shops_models_shops__WEBPACK_IMPORTED_MODULE_8__["Shop"];
+        }, function (error) { return _this.errorHandlingService.handleUiError(errorKey, error); });
+    };
+    EditOfferReleaseCreatorComponent.prototype.submit = function (data) {
+        this.dialogRef.close(data);
+    };
+    EditOfferReleaseCreatorComponent.prototype.cancel = function () {
+        this.close();
+    };
+    EditOfferReleaseCreatorComponent.prototype.close = function () {
+        this.dialogRef.close();
+    };
+    EditOfferReleaseCreatorComponent.prototype.updateOffer = function (data) {
+        var _this = this;
+        this.offersService.putOffer(data).subscribe(function (response) {
+            _this.unsavedChanges = false;
+            _this.close();
+            _this.toastr.success(updatedBrandMessageKey);
+        }, function (error) {
+            _this.errorHandlingService.handleUiError(errorKey, error);
+            _this.validationErrors = error.formErrors;
+        });
+    };
+    EditOfferReleaseCreatorComponent = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+            selector: 'edit-offer-release-creator',
+            template: __webpack_require__(/*! ./edit-offer-release-creator.component.html */ "./src/app/ms-back-office/modules/ms-offers/components/edit-offer-release-creator/edit-offer-release-creator.component.html"),
+            styles: [__webpack_require__(/*! ./edit-offer-release-creator.component.scss */ "./src/app/ms-back-office/modules/ms-offers/components/edit-offer-release-creator/edit-offer-release-creator.component.scss")]
+        }),
+        Object(_ui_helpers_mixin_decorator__WEBPACK_IMPORTED_MODULE_5__["Mixin"])([_ui_helpers_component_can_deactivate__WEBPACK_IMPORTED_MODULE_4__["CanDeactivateMixin"]]),
+        __param(9, Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Inject"])(_angular_material__WEBPACK_IMPORTED_MODULE_2__["MAT_DIALOG_DATA"])),
+        __metadata("design:paramtypes", [_angular_material__WEBPACK_IMPORTED_MODULE_2__["MatDialogRef"],
+            _angular_router__WEBPACK_IMPORTED_MODULE_1__["ActivatedRoute"],
+            _angular_material__WEBPACK_IMPORTED_MODULE_2__["MatDialog"],
+            _services_offers_service__WEBPACK_IMPORTED_MODULE_9__["OffersService"],
+            _error_handling_services_error_handling_service__WEBPACK_IMPORTED_MODULE_6__["ErrorHandlingService"],
+            _angular_router__WEBPACK_IMPORTED_MODULE_1__["Router"],
+            _angular_material__WEBPACK_IMPORTED_MODULE_2__["MatSnackBar"],
+            _ngx_translate_core__WEBPACK_IMPORTED_MODULE_3__["TranslateService"],
+            _error_handling_services_toastr_service__WEBPACK_IMPORTED_MODULE_7__["ToastrService"], Object])
+    ], EditOfferReleaseCreatorComponent);
+    return EditOfferReleaseCreatorComponent;
+}());
+
+
+
+/***/ }),
+
 /***/ "./src/app/ms-back-office/modules/ms-offers/components/edit-offer/edit-offer.component.html":
 /*!**************************************************************************************************!*\
   !*** ./src/app/ms-back-office/modules/ms-offers/components/edit-offer/edit-offer.component.html ***!
@@ -789,6 +938,145 @@ var LinkOffersCollentionModalComponent = /** @class */ (function () {
             _ms_collections_services_collections_service__WEBPACK_IMPORTED_MODULE_8__["CollectionsService"], Object])
     ], LinkOffersCollentionModalComponent);
     return LinkOffersCollentionModalComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/ms-back-office/modules/ms-offers/components/new-offer-release-creator/new-offer-release-creator.component.html":
+/*!********************************************************************************************************************************!*\
+  !*** ./src/app/ms-back-office/modules/ms-offers/components/new-offer-release-creator/new-offer-release-creator.component.html ***!
+  \********************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "    <div class=\"flex-shrink-0 display-flex justify-content-end close-mat-dialog-buttom\">\n        <span class=\"mat-button-wrapper cursor-pointer\" (click)=\"close()\">\n        <mat-icon>clear</mat-icon>\n        </span>\n    </div>\n    \n<h1 class=\"margin-top-0px\">NEW OFFER CREATOR</h1>\n\n<offer-form class=\"flex-grow-1\"\n    [data]=\"data\"  \n    [shopId]=\"dialogData.shopId\"\n    [customized]=\"dialogData.customized\"\n    [shops]=\"dialogData.shops\" \n    [releases]=\"dialogData.releases\"  \n    [releaseId]=\"releaseId\"     \n    (accept)=\"submit($event)\"\n    (cancel)=\"cancel()\"\n    [validationErrors]=\"validationErrors\"\n    (dataChange)=\"dataChanged()\">\n</offer-form>"
+
+/***/ }),
+
+/***/ "./src/app/ms-back-office/modules/ms-offers/components/new-offer-release-creator/new-offer-release-creator.component.scss":
+/*!********************************************************************************************************************************!*\
+  !*** ./src/app/ms-back-office/modules/ms-offers/components/new-offer-release-creator/new-offer-release-creator.component.scss ***!
+  \********************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = ":host {\n  display: flex;\n  flex-grow: 1;\n  flex-direction: column;\n  height: 99%; }\n\n.mat-dialog-content {\n  height: 100%;\n  max-height: 82vh;\n  margin-bottom: 10px; }\n\n.mat-dialog-actions {\n  padding: 10px 0; }\n\n::ng-deep .mat-dialog-container {\n  padding: 0px 25px 25px 25px; }\n\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvbXMtYmFjay1vZmZpY2UvbW9kdWxlcy9tcy1vZmZlcnMvY29tcG9uZW50cy9uZXctb2ZmZXItcmVsZWFzZS1jcmVhdG9yL0U6XFxQUk9HUkFNQUNJT04gSUlJXFxtb3Jlc25lYWtlcnMtYmFja29mZmljZS9zcmNcXGFwcFxcbXMtYmFjay1vZmZpY2VcXG1vZHVsZXNcXG1zLW9mZmVyc1xcY29tcG9uZW50c1xcbmV3LW9mZmVyLXJlbGVhc2UtY3JlYXRvclxcbmV3LW9mZmVyLXJlbGVhc2UtY3JlYXRvci5jb21wb25lbnQuc2NzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUNJLGNBQWE7RUFDYixhQUFZO0VBQ1osdUJBQXNCO0VBQ3RCLFlBQ0YsRUFBQzs7QUFFRDtFQUNFLGFBQVk7RUFDWixpQkFBZ0I7RUFDaEIsb0JBQW1CLEVBQ3BCOztBQUVEO0VBQ0UsZ0JBQWUsRUFDaEI7O0FBRUQ7RUFDRSw0QkFBMkIsRUFDOUIiLCJmaWxlIjoic3JjL2FwcC9tcy1iYWNrLW9mZmljZS9tb2R1bGVzL21zLW9mZmVycy9jb21wb25lbnRzL25ldy1vZmZlci1yZWxlYXNlLWNyZWF0b3IvbmV3LW9mZmVyLXJlbGVhc2UtY3JlYXRvci5jb21wb25lbnQuc2NzcyIsInNvdXJjZXNDb250ZW50IjpbIjpob3N0IHtcclxuICAgIGRpc3BsYXk6IGZsZXg7XHJcbiAgICBmbGV4LWdyb3c6IDE7XHJcbiAgICBmbGV4LWRpcmVjdGlvbjogY29sdW1uO1xyXG4gICAgaGVpZ2h0OiA5OSVcclxuICB9XHJcbiAgICBcclxuICAubWF0LWRpYWxvZy1jb250ZW50IHtcclxuICAgIGhlaWdodDogMTAwJTtcclxuICAgIG1heC1oZWlnaHQ6IDgydmg7XHJcbiAgICBtYXJnaW4tYm90dG9tOiAxMHB4O1xyXG4gIH1cclxuICBcclxuICAubWF0LWRpYWxvZy1hY3Rpb25zIHtcclxuICAgIHBhZGRpbmc6IDEwcHggMDtcclxuICB9XHJcblxyXG4gIDo6bmctZGVlcCAubWF0LWRpYWxvZy1jb250YWluZXIge1xyXG4gICAgcGFkZGluZzogMHB4IDI1cHggMjVweCAyNXB4O1xyXG59Il19 */"
+
+/***/ }),
+
+/***/ "./src/app/ms-back-office/modules/ms-offers/components/new-offer-release-creator/new-offer-release-creator.component.ts":
+/*!******************************************************************************************************************************!*\
+  !*** ./src/app/ms-back-office/modules/ms-offers/components/new-offer-release-creator/new-offer-release-creator.component.ts ***!
+  \******************************************************************************************************************************/
+/*! exports provided: NewOfferReleaseCreatorComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "NewOfferReleaseCreatorComponent", function() { return NewOfferReleaseCreatorComponent; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+/* harmony import */ var _angular_material__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/material */ "./node_modules/@angular/material/esm5/material.es5.js");
+/* harmony import */ var _ngx_translate_core__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @ngx-translate/core */ "./node_modules/@ngx-translate/core/fesm5/ngx-translate-core.js");
+/* harmony import */ var _ui_helpers_component_can_deactivate__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../../../ui/helpers/component-can-deactivate */ "./src/app/ui/helpers/component-can-deactivate.ts");
+/* harmony import */ var _ui_helpers_mixin_decorator__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../../../ui/helpers/mixin-decorator */ "./src/app/ui/helpers/mixin-decorator.ts");
+/* harmony import */ var _error_handling_services_error_handling_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../../../../error-handling/services/error-handling.service */ "./src/app/error-handling/services/error-handling.service.ts");
+/* harmony import */ var _error_handling_services_toastr_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../../../../error-handling/services/toastr.service */ "./src/app/error-handling/services/toastr.service.ts");
+/* harmony import */ var _services_offers_service__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../services/offers.service */ "./src/app/ms-back-office/modules/ms-offers/services/offers.service.ts");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+var __param = (undefined && undefined.__param) || function (paramIndex, decorator) {
+    return function (target, key) { decorator(target, key, paramIndex); }
+};
+
+
+//
+
+
+//
+
+
+
+
+
+var errorKey = 'Error';
+var savedMessageKey = 'Saved';
+var NewOfferReleaseCreatorComponent = /** @class */ (function () {
+    function NewOfferReleaseCreatorComponent(dialogRef, activatedRoute, offersService, errorHandlingService, router, translate, toastr, dialog, dialogData) {
+        this.dialogRef = dialogRef;
+        this.activatedRoute = activatedRoute;
+        this.offersService = offersService;
+        this.errorHandlingService = errorHandlingService;
+        this.router = router;
+        this.translate = translate;
+        this.toastr = toastr;
+        this.dialog = dialog;
+        this.dialogData = dialogData;
+        this.data = {
+            name: "",
+            description: "",
+            raffle: true
+        };
+        // Begin Mixin code of the CanDeactivate class
+        this.unsavedChanges = false;
+        this.cancelBtnKey = 'No';
+        this.okBtnKey = 'Yes';
+        this.saveTitleKey = 'Discard Title';
+        this.saveMessageKey = 'Discard Message';
+        this.releaseId = 'F4ssss444t333r';
+    }
+    NewOfferReleaseCreatorComponent.prototype.ngOnInit = function () {
+        this.shops = this.activatedRoute.snapshot.data.shops;
+        this.releases = this.activatedRoute.snapshot.data.releases;
+    };
+    NewOfferReleaseCreatorComponent.prototype.submit = function (data) {
+        //this.createOffer(data);
+        this.dialogRef.close(data);
+    };
+    NewOfferReleaseCreatorComponent.prototype.cancel = function () {
+        this.close();
+    };
+    NewOfferReleaseCreatorComponent.prototype.close = function () {
+        this.dialogRef.close();
+    };
+    NewOfferReleaseCreatorComponent.prototype.createOffer = function (data) {
+        var _this = this;
+        this.offersService.postOffer(data).subscribe(function (response) {
+            _this.unsavedChanges = false;
+            _this.close();
+            _this.toastr.success(savedMessageKey);
+        }, function (error) {
+            _this.errorHandlingService.handleUiError(errorKey, error, 'offer');
+            _this.validationErrors = error.formErrors;
+        });
+    };
+    NewOfferReleaseCreatorComponent = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+            selector: 'new-offer-release-creator',
+            template: __webpack_require__(/*! ./new-offer-release-creator.component.html */ "./src/app/ms-back-office/modules/ms-offers/components/new-offer-release-creator/new-offer-release-creator.component.html"),
+            styles: [__webpack_require__(/*! ./new-offer-release-creator.component.scss */ "./src/app/ms-back-office/modules/ms-offers/components/new-offer-release-creator/new-offer-release-creator.component.scss")]
+        }),
+        Object(_ui_helpers_mixin_decorator__WEBPACK_IMPORTED_MODULE_5__["Mixin"])([_ui_helpers_component_can_deactivate__WEBPACK_IMPORTED_MODULE_4__["CanDeactivateMixin"]]),
+        __param(8, Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Inject"])(_angular_material__WEBPACK_IMPORTED_MODULE_2__["MAT_DIALOG_DATA"])),
+        __metadata("design:paramtypes", [_angular_material__WEBPACK_IMPORTED_MODULE_2__["MatDialogRef"],
+            _angular_router__WEBPACK_IMPORTED_MODULE_1__["ActivatedRoute"],
+            _services_offers_service__WEBPACK_IMPORTED_MODULE_8__["OffersService"],
+            _error_handling_services_error_handling_service__WEBPACK_IMPORTED_MODULE_6__["ErrorHandlingService"],
+            _angular_router__WEBPACK_IMPORTED_MODULE_1__["Router"],
+            _ngx_translate_core__WEBPACK_IMPORTED_MODULE_3__["TranslateService"],
+            _error_handling_services_toastr_service__WEBPACK_IMPORTED_MODULE_7__["ToastrService"],
+            _angular_material__WEBPACK_IMPORTED_MODULE_2__["MatDialog"], Object])
+    ], NewOfferReleaseCreatorComponent);
+    return NewOfferReleaseCreatorComponent;
 }());
 
 
@@ -1450,6 +1738,388 @@ var OffersCollectionTableComponent = /** @class */ (function () {
 
 /***/ }),
 
+/***/ "./src/app/ms-back-office/modules/ms-offers/components/offers-new-release-table/offers-new-release-table.component.html":
+/*!******************************************************************************************************************************!*\
+  !*** ./src/app/ms-back-office/modules/ms-offers/components/offers-new-release-table/offers-new-release-table.component.html ***!
+  \******************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<div *ngIf=\"!disabled\" class=\"display-flex justify-content-center\">\n\n  <button mat-stroked-button type=\"button\" class=\"max-width-480px\" (click)=\"addNewOfferModal()\">Add an offer</button>\n\n</div>\n<div class=\"flex-grow-1 overflow-auto display-flex\">\n\n  <table class=\"margin-top-10px margin-right-25px width-100pct\" mat-table [dataSource]=\"offers\" matSort [matSortActive]=\"offersService.previousSortColumn\"\n    [matSortDirection]=\"offersService.previousSortDirection\" matSortDisableClear (matSortChange)=\"onSort()\">\n\n    <ng-container matColumnDef=\"sku\">\n      <th mat-header-cell *matHeaderCellDef>\n        SKU\n      </th>\n      <td mat-cell *matCellDef=\"let element\" class=\"padding-table-td\" [ngClass]=\"{'background-td': element.id === offerId}\"> {{ release.sku }} </td>\n    </ng-container>\n\n    <ng-container matColumnDef=\"releaseId\">\n      <th mat-header-cell *matHeaderCellDef>\n        RELEASE NAME\n      </th>\n      <td mat-cell *matCellDef=\"let element\" class=\"padding-table-td\" [ngClass]=\"{'background-td': element.id === offerId}\"> {{ release.name }} </td>\n    </ng-container>\n\n    <ng-container matColumnDef=\"collection\">\n      <th mat-header-cell *matHeaderCellDef>\n        COLLECTION\n      </th>\n      <td mat-cell *matCellDef=\"let element\" class=\"padding-table-td\" [ngClass]=\"{'background-td': element.id === offerId}\"> {{ getCollectionNameRelease(release.collectionId) }} </td>\n    </ng-container>\n\n    <ng-container matColumnDef=\"color\">\n      <th mat-header-cell *matHeaderCellDef>\n        COLOR\n      </th>\n      <td mat-cell *matCellDef=\"let element\" class=\"padding-table-td\" [ngClass]=\"{'background-td': element.id === offerId}\"> {{ release.color }} </td>\n    </ng-container>\n\n    <ng-container matColumnDef=\"officialRelease\">\n      <th mat-header-cell *matHeaderCellDef mat-sort-header>\n        OFFICIAL RELEASE\n      </th>\n      <td mat-cell *matCellDef=\"let element\" class=\"padding-table-td\" [ngClass]=\"{'background-td': element.id === offerId}\"> {{ release.updatedAt | date: 'dd/MM/yyyy HH:mm:ss' }} </td>\n    </ng-container>\n\n    <ng-container matColumnDef=\"shopId\">\n      <th mat-header-cell *matHeaderCellDef mat-sort-header>\n        SHOP\n      </th>\n      <td mat-cell *matCellDef=\"let element\" class=\"padding-table-td\" [ngClass]=\"{'background-td': element.id === offerId}\"> {{ getShop(element.shopId) }} </td>\n    </ng-container>\n\n    <ng-container matColumnDef=\"status\">\n      <th mat-header-cell *matHeaderCellDef mat-sort-header>\n        STATUS\n      </th>\n      <td mat-cell *matCellDef=\"let element\" class=\"padding-table-td\" [ngClass]=\"{'background-td': element.id === offerId}\"> {{ element.status }} </td>\n    </ng-container>\n\n    <ng-container matColumnDef=\"shiping\">\n      <th mat-header-cell *matHeaderCellDef mat-sort-header>\n        SHIPING\n      </th>\n      <td mat-cell *matCellDef=\"let element\" class=\"padding-table-td\" [ngClass]=\"{'background-td': element.id === offerId}\"> {{ element.shipping }} </td>\n    </ng-container>\n\n    <ng-container matColumnDef=\"updatedAt\">\n      <th mat-header-cell *matHeaderCellDef mat-sort-header>\n        UPDATED\n      </th>\n      <td mat-cell *matCellDef=\"let element\" class=\"padding-table-td\" [ngClass]=\"{'background-td': element.id === offerId}\"> {{ element.updatedAt | date: 'MM/dd/yyyy HH:mm:ss': timeZoneOffset.toString() }} </td>\n    </ng-container>\n\n    <ng-container matColumnDef=\"actions\">\n      <th mat-header-cell *matHeaderCellDef>\n        ACTIONS\n      </th>\n      <td mat-cell *matCellDef=\"let element\" [ngClass]=\"{'background-td': element.id === offerId}\"  class=\"min-width-80px\">\n        <button mat-icon-button color=\"primary\" type=\"button\" [matTooltip]=\"Edit\" (click)=\"editOfferModal(element)\">\n          <mat-icon>edit</mat-icon>\n        </button>\n        <button mat-icon-button color=\"primary\" type=\"button\" [matTooltip]=\"Delete\" (click)=\"getOfferToDelete(element.id)\">\n          <mat-icon>delete</mat-icon>\n        </button>\n      </td>\n    </ng-container>\n\n    <tr mat-header-row *matHeaderRowDef=\"displayedColumns\"></tr>\n    <tr mat-row *matRowDef=\"let row; columns: displayedColumns;\" [ngClass]=\"row.is_active ? '' : 'text-decoration-line-through'\">\n    </tr>\n\n  </table>\n\n</div>\n\n<div class=\"margin-right-25px flex-shrink-0 display-flex\">\n  <span class=\"flex-grow-1\"></span>\n  <mat-paginator [length]=\"totalLength\" [pageSizeOptions]=\"[5, 10, 20, 50, 100]\" [pageIndex]=\"\" [pageSize]=\"50\" showFirstLastButtons\n    (page)=\"onPage()\">\n  </mat-paginator>\n</div>"
+
+/***/ }),
+
+/***/ "./src/app/ms-back-office/modules/ms-offers/components/offers-new-release-table/offers-new-release-table.component.scss":
+/*!******************************************************************************************************************************!*\
+  !*** ./src/app/ms-back-office/modules/ms-offers/components/offers-new-release-table/offers-new-release-table.component.scss ***!
+  \******************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = ":host {\n  display: flex;\n  flex-direction: column;\n  flex-grow: 1; }\n\ntable {\n  width: 100%; }\n\n.mat-form-field {\n  font-size: 14px;\n  padding-right: 5px;\n  width: 100px !important; }\n\ntd,\nth {\n  width: 25%; }\n\n.padding-bottom-10 {\n  padding-bottom: 10px; }\n\nimg {\n  height: 150px !important;\n  width: 150px !important; }\n\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvbXMtYmFjay1vZmZpY2UvbW9kdWxlcy9tcy1vZmZlcnMvY29tcG9uZW50cy9vZmZlcnMtbmV3LXJlbGVhc2UtdGFibGUvRTpcXFBST0dSQU1BQ0lPTiBJSUlcXG1vcmVzbmVha2Vycy1iYWNrb2ZmaWNlL3NyY1xcYXBwXFxtcy1iYWNrLW9mZmljZVxcbW9kdWxlc1xcbXMtb2ZmZXJzXFxjb21wb25lbnRzXFxvZmZlcnMtbmV3LXJlbGVhc2UtdGFibGVcXG9mZmVycy1uZXctcmVsZWFzZS10YWJsZS5jb21wb25lbnQuc2NzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUNJLGNBQWE7RUFDYix1QkFBc0I7RUFDdEIsYUFBWSxFQUNmOztBQUVEO0VBQ0ksWUFBVyxFQUNkOztBQUVEO0VBQ0ksZ0JBQWU7RUFDZixtQkFBa0I7RUFDbEIsd0JBQXVCLEVBQzFCOztBQUVEOztFQUVJLFdBQVUsRUFDYjs7QUFFRDtFQUNJLHFCQUNKLEVBQUM7O0FBRUQ7RUFDSSx5QkFBd0I7RUFDeEIsd0JBQXVCLEVBQ3hCIiwiZmlsZSI6InNyYy9hcHAvbXMtYmFjay1vZmZpY2UvbW9kdWxlcy9tcy1vZmZlcnMvY29tcG9uZW50cy9vZmZlcnMtbmV3LXJlbGVhc2UtdGFibGUvb2ZmZXJzLW5ldy1yZWxlYXNlLXRhYmxlLmNvbXBvbmVudC5zY3NzIiwic291cmNlc0NvbnRlbnQiOlsiOmhvc3Qge1xyXG4gICAgZGlzcGxheTogZmxleDtcclxuICAgIGZsZXgtZGlyZWN0aW9uOiBjb2x1bW47XHJcbiAgICBmbGV4LWdyb3c6IDE7XHJcbn1cclxuXHJcbnRhYmxlIHtcclxuICAgIHdpZHRoOiAxMDAlO1xyXG59XHJcblxyXG4ubWF0LWZvcm0tZmllbGQge1xyXG4gICAgZm9udC1zaXplOiAxNHB4O1xyXG4gICAgcGFkZGluZy1yaWdodDogNXB4O1xyXG4gICAgd2lkdGg6IDEwMHB4ICFpbXBvcnRhbnQ7XHJcbn1cclxuXHJcbnRkLFxyXG50aCB7XHJcbiAgICB3aWR0aDogMjUlO1xyXG59XHJcblxyXG4ucGFkZGluZy1ib3R0b20tMTB7XHJcbiAgICBwYWRkaW5nLWJvdHRvbTogMTBweFxyXG59XHJcblxyXG5pbWd7XHJcbiAgICBoZWlnaHQ6IDE1MHB4ICFpbXBvcnRhbnQ7XHJcbiAgICB3aWR0aDogMTUwcHggIWltcG9ydGFudDtcclxuICB9XHJcblxyXG4iXX0= */"
+
+/***/ }),
+
+/***/ "./src/app/ms-back-office/modules/ms-offers/components/offers-new-release-table/offers-new-release-table.component.ts":
+/*!****************************************************************************************************************************!*\
+  !*** ./src/app/ms-back-office/modules/ms-offers/components/offers-new-release-table/offers-new-release-table.component.ts ***!
+  \****************************************************************************************************************************/
+/*! exports provided: OffersNewReleaseTableComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "OffersNewReleaseTableComponent", function() { return OffersNewReleaseTableComponent; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm5/forms.js");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+/* harmony import */ var _angular_material__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/material */ "./node_modules/@angular/material/esm5/material.es5.js");
+/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! rxjs/operators */ "./node_modules/rxjs/_esm5/operators/index.js");
+/* harmony import */ var _ui_modules_confirm_dialog_components_confirm_dialog_confirm_dialog_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../../../ui/modules/confirm-dialog/components/confirm-dialog/confirm-dialog.component */ "./src/app/ui/modules/confirm-dialog/components/confirm-dialog/confirm-dialog.component.ts");
+/* harmony import */ var _error_handling_services_error_handling_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../../../../error-handling/services/error-handling.service */ "./src/app/error-handling/services/error-handling.service.ts");
+/* harmony import */ var _error_handling_services_toastr_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../../../../error-handling/services/toastr.service */ "./src/app/error-handling/services/toastr.service.ts");
+/* harmony import */ var _services_offers_service__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../services/offers.service */ "./src/app/ms-back-office/modules/ms-offers/services/offers.service.ts");
+/* harmony import */ var _ms_releases_models_releases__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../../../ms-releases/models/releases */ "./src/app/ms-back-office/modules/ms-releases/models/releases.ts");
+/* harmony import */ var _new_offer_release_creator_new_offer_release_creator_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../new-offer-release-creator/new-offer-release-creator.component */ "./src/app/ms-back-office/modules/ms-offers/components/new-offer-release-creator/new-offer-release-creator.component.ts");
+/* harmony import */ var _edit_offer_release_creator_edit_offer_release_creator_component__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../edit-offer-release-creator/edit-offer-release-creator.component */ "./src/app/ms-back-office/modules/ms-offers/components/edit-offer-release-creator/edit-offer-release-creator.component.ts");
+/* harmony import */ var _delete_offer_delete_offer_component__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ../delete-offer/delete-offer.component */ "./src/app/ms-back-office/modules/ms-offers/components/delete-offer/delete-offer.component.ts");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+//
+
+
+
+//
+
+
+
+//
+
+
+
+
+
+var titleKey = 'Delete';
+var deleteBtnKey = 'Delete';
+var messageKey = 'Are you sure you want to delete this Offer?';
+var errorKey = 'Error';
+var deletedMessageKey = 'Deleted';
+var timeZoneOffset = new Date().getTimezoneOffset();
+var OffersNewReleaseTableComponent = /** @class */ (function () {
+    function OffersNewReleaseTableComponent(activatedRoute, dialog, offersService, errorHandlingService, toastr) {
+        this.activatedRoute = activatedRoute;
+        this.dialog = dialog;
+        this.offersService = offersService;
+        this.errorHandlingService = errorHandlingService;
+        this.toastr = toastr;
+        this.displayedColumns = [
+            'sku',
+            //'releaseId',
+            'collection',
+            'color',
+            'officialRelease',
+            'shopId',
+            'status',
+            //'shiping',
+            'updatedAt',
+            'actions'
+        ];
+        this.disabled = false;
+        this.offersEventEmiter = new _angular_core__WEBPACK_IMPORTED_MODULE_0__["EventEmitter"]();
+        this.totalLength = 0;
+        this.offers = [];
+        this.numberOfOffers = 0;
+        this.timeZoneOffset = 60;
+    }
+    OffersNewReleaseTableComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        if (this.disabled) {
+            this.displayedColumns = [
+                'sku',
+                'collection',
+                'color',
+                'officialRelease',
+                'shopId',
+                'status',
+                'updatedAt',
+            ];
+        }
+        this.filter = this.createFilterFormGroup();
+        this.filterValueChanges = this.filter.valueChanges.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["debounceTime"])(500)).subscribe(function (change) { return _this.onFilter(); });
+        this.paginator.pageIndex = 0;
+        // Begin observing style list changes.
+        /*this.offersList = this.offersService.offersList.subscribe((offersList: any) => {
+            this.totalLength = offersList.dataCount;
+            this.offers = offersList.data;
+            if (this.offers.length === 0 && this.totalLength > 0 && this.offersService.previousPageSize > 0) {
+                this.offersService.previousPageIndex =
+                    Math.ceil(this.totalLength / this.offersService.previousPageSize) - 1;
+                this.offersService.reloadOffers().subscribe(response => {
+                    this.offersService.offersList.next(response);
+                },
+                    (error: HandledError) => this.errorHandlingService.handleUiError(errorKey, error));
+            }
+        });*/
+    };
+    OffersNewReleaseTableComponent.prototype.ngAfterViewInit = function () {
+        this.loadPage();
+    };
+    OffersNewReleaseTableComponent.prototype.ngOnDestroy = function () {
+    };
+    OffersNewReleaseTableComponent.prototype.createFilterFormGroup = function () {
+        var group = {};
+        group['releaseId'] = new _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormControl"](this.releaseId ? this.releaseId : 'no hay release id');
+        //group['collection'] = new FormControl('');
+        return new _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormGroup"](group);
+    };
+    OffersNewReleaseTableComponent.prototype.loadPage = function () {
+        var _this = this;
+        this.offersService.getOffers(Object.assign({}, this.filter.value), this.sort.active, this.sort.direction, this.paginator.pageIndex, this.paginator.pageSize).subscribe(function (response) {
+            _this.offersService.offersList.next(response);
+        }, function (err) {
+            _this.errorHandlingService.handleUiError(errorKey, err);
+        });
+    };
+    OffersNewReleaseTableComponent.prototype.onFilter = function () {
+        this.paginator.pageIndex = 0;
+        this.loadPage();
+    };
+    OffersNewReleaseTableComponent.prototype.onSort = function () {
+        this.paginator.pageIndex = 0;
+        this.loadPage();
+    };
+    OffersNewReleaseTableComponent.prototype.onPage = function () {
+        this.loadPage();
+    };
+    OffersNewReleaseTableComponent.prototype.getReleaseName = function (id) {
+        try {
+            return this.releases.find(function (release) {
+                return release.id === id;
+            }).name;
+        }
+        catch (err) {
+            return;
+        }
+    };
+    OffersNewReleaseTableComponent.prototype.getReleaseSku = function (id) {
+        try {
+            return this.releases.find(function (release) {
+                return release.id === id;
+            }).sku;
+        }
+        catch (err) {
+            return;
+        }
+    };
+    OffersNewReleaseTableComponent.prototype.getReleaseDate = function (id) {
+        try {
+            return this.releases.find(function (release) {
+                return release.id === id;
+            }).updatedAt;
+        }
+        catch (err) {
+            return;
+        }
+    };
+    OffersNewReleaseTableComponent.prototype.getReleaseColor = function (id) {
+        try {
+            return this.releases.find(function (release) {
+                return release.id === id;
+            }).color;
+        }
+        catch (err) {
+            return;
+        }
+    };
+    OffersNewReleaseTableComponent.prototype.getCollectionNameRelease = function (id) {
+        try {
+            return this.collections.find(function (collection) {
+                return collection.id === id;
+            }).name;
+        }
+        catch (err) {
+            return;
+        }
+    };
+    OffersNewReleaseTableComponent.prototype.getCollection = function (id) {
+        try {
+            return this.collections.find(function (collection) {
+                return collection.id === id;
+            }).name;
+        }
+        catch (err) {
+            return;
+        }
+    };
+    OffersNewReleaseTableComponent.prototype.getShop = function (id) {
+        try {
+            return this.shops.find(function (shop) {
+                return shop.id === id;
+            }).name;
+        }
+        catch (err) {
+            return;
+        }
+    };
+    OffersNewReleaseTableComponent.prototype.addNewOfferModal = function () {
+        var _this = this;
+        this.modalRef = this.dialog.open(_new_offer_release_creator_new_offer_release_creator_component__WEBPACK_IMPORTED_MODULE_10__["NewOfferReleaseCreatorComponent"], {
+            height: '90%',
+            width: '90%',
+            data: {
+                shops: this.shops,
+                releaseId: this.releaseId,
+                customized: this.customized
+            }
+        });
+        this.modalRef.afterClosed().subscribe(function (responce) {
+            if (responce) {
+                responce.id = _this.numberOfOffers.toLocaleString();
+                _this.numberOfOffers++;
+                _this.offers = _this.offers.concat([responce]);
+                _this.offersEventEmiter.emit(_this.offers);
+            }
+        });
+    };
+    OffersNewReleaseTableComponent.prototype.editOfferModal = function (data) {
+        var _this = this;
+        this.modalRef = this.dialog.open(_edit_offer_release_creator_edit_offer_release_creator_component__WEBPACK_IMPORTED_MODULE_11__["EditOfferReleaseCreatorComponent"], {
+            height: '90%',
+            width: '90%',
+            data: {
+                data: data,
+                shops: this.shops,
+                releaseId: this.releaseId,
+            }
+        });
+        this.modalRef.afterClosed().subscribe(function (responce) {
+            if (responce) {
+                _this.offers.forEach(function (item) {
+                    if (item.id === responce.id) {
+                        item = responce;
+                    }
+                });
+                _this.offersEventEmiter.emit(_this.offers);
+            }
+            //this.loadPage();
+        });
+    };
+    //delete
+    OffersNewReleaseTableComponent.prototype.getOfferToDelete = function (id) {
+        var offersD = [];
+        this.offers.forEach(function (item) {
+            if (item.id !== id) {
+                offersD = offersD.concat([item]);
+            }
+        });
+        this.offers = offersD;
+        this.offersEventEmiter.emit(this.offers);
+    };
+    OffersNewReleaseTableComponent.prototype.confirmDeleteOffer = function (data) {
+        var _this = this;
+        this.modalRef = this.dialog.open(_ui_modules_confirm_dialog_components_confirm_dialog_confirm_dialog_component__WEBPACK_IMPORTED_MODULE_5__["ConfirmDialogComponent"], {
+            data: {
+                titleKey: titleKey,
+                okBtnKey: deleteBtnKey,
+                messageKey: messageKey,
+                messageParam: { param: data.name }
+            }
+        });
+        this.modalRef.afterClosed().subscribe(function (result) {
+            if (result) {
+                _this.deleteOffer(data);
+            }
+        });
+    };
+    OffersNewReleaseTableComponent.prototype.deleteOffer = function (data) {
+        var _this = this;
+        this.offersService.deleteOffer(data.id).subscribe(function (response) {
+            _this.offersService.reloadOffers().subscribe(function (response) {
+                _this.offersService.offersList.next(response);
+                _this.toastr.success(deletedMessageKey);
+                _this.loadPage();
+            }, function (error) { return _this.errorHandlingService.handleUiError(errorKey, error); });
+        }, function (error) {
+            _this.errorHandlingService.handleUiError(errorKey, error);
+        });
+    };
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])(),
+        __metadata("design:type", Array)
+    ], OffersNewReleaseTableComponent.prototype, "collections", void 0);
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])(),
+        __metadata("design:type", Boolean)
+    ], OffersNewReleaseTableComponent.prototype, "customized", void 0);
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])(),
+        __metadata("design:type", Boolean)
+    ], OffersNewReleaseTableComponent.prototype, "disabled", void 0);
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"])(),
+        __metadata("design:type", _angular_core__WEBPACK_IMPORTED_MODULE_0__["EventEmitter"])
+    ], OffersNewReleaseTableComponent.prototype, "offersEventEmiter", void 0);
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ViewChild"])(_angular_material__WEBPACK_IMPORTED_MODULE_3__["MatPaginator"]),
+        __metadata("design:type", _angular_material__WEBPACK_IMPORTED_MODULE_3__["MatPaginator"])
+    ], OffersNewReleaseTableComponent.prototype, "paginator", void 0);
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ViewChild"])(_angular_material__WEBPACK_IMPORTED_MODULE_3__["MatSort"]),
+        __metadata("design:type", _angular_material__WEBPACK_IMPORTED_MODULE_3__["MatSort"])
+    ], OffersNewReleaseTableComponent.prototype, "sort", void 0);
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ViewChild"])(_delete_offer_delete_offer_component__WEBPACK_IMPORTED_MODULE_12__["DeleteOfferComponent"]),
+        __metadata("design:type", _delete_offer_delete_offer_component__WEBPACK_IMPORTED_MODULE_12__["DeleteOfferComponent"])
+    ], OffersNewReleaseTableComponent.prototype, "deleteOfferComponent", void 0);
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])(),
+        __metadata("design:type", _ms_releases_models_releases__WEBPACK_IMPORTED_MODULE_9__["Release"])
+    ], OffersNewReleaseTableComponent.prototype, "release", void 0);
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])(),
+        __metadata("design:type", Array)
+    ], OffersNewReleaseTableComponent.prototype, "releases", void 0);
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])(),
+        __metadata("design:type", Array)
+    ], OffersNewReleaseTableComponent.prototype, "shops", void 0);
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])(),
+        __metadata("design:type", String)
+    ], OffersNewReleaseTableComponent.prototype, "releaseId", void 0);
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])(),
+        __metadata("design:type", String)
+    ], OffersNewReleaseTableComponent.prototype, "offerId", void 0);
+    OffersNewReleaseTableComponent = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+            selector: 'offers-new-release-table',
+            template: __webpack_require__(/*! ./offers-new-release-table.component.html */ "./src/app/ms-back-office/modules/ms-offers/components/offers-new-release-table/offers-new-release-table.component.html"),
+            styles: [__webpack_require__(/*! ./offers-new-release-table.component.scss */ "./src/app/ms-back-office/modules/ms-offers/components/offers-new-release-table/offers-new-release-table.component.scss")]
+        }),
+        __metadata("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"],
+            _angular_material__WEBPACK_IMPORTED_MODULE_3__["MatDialog"],
+            _services_offers_service__WEBPACK_IMPORTED_MODULE_8__["OffersService"],
+            _error_handling_services_error_handling_service__WEBPACK_IMPORTED_MODULE_6__["ErrorHandlingService"],
+            _error_handling_services_toastr_service__WEBPACK_IMPORTED_MODULE_7__["ToastrService"]])
+    ], OffersNewReleaseTableComponent);
+    return OffersNewReleaseTableComponent;
+}());
+
+
+
+/***/ }),
+
 /***/ "./src/app/ms-back-office/modules/ms-offers/components/offers-release-table/offers-release-table.component.html":
 /*!**********************************************************************************************************************!*\
   !*** ./src/app/ms-back-office/modules/ms-offers/components/offers-release-table/offers-release-table.component.html ***!
@@ -1457,7 +2127,7 @@ var OffersCollectionTableComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div *ngIf=\"!disabled\" class=\"display-flex justify-content-center\">\n\n  <button mat-stroked-button type=\"button\" class=\"max-width-480px\" (click)=\"addNewOfferModal()\">Add an offer to this Release</button>\n\n</div>\n<div class=\"flex-grow-1 overflow-auto display-flex\">\n\n  <table class=\"margin-top-10px margin-right-25px width-100pct\" mat-table [dataSource]=\"offers\" matSort [matSortActive]=\"offersService.previousSortColumn\"\n    [matSortDirection]=\"offersService.previousSortDirection\" matSortDisableClear (matSortChange)=\"onSort()\">\n\n    <ng-container matColumnDef=\"sku\">\n      <th mat-header-cell *matHeaderCellDef>\n        SKU\n      </th>\n      <td mat-cell *matCellDef=\"let element\" class=\"padding-table-td\" [ngClass]=\"{'background-td': element.id === offerId}\"> {{ release.sku }} </td>\n    </ng-container>\n\n    <ng-container matColumnDef=\"releaseId\">\n      <th mat-header-cell *matHeaderCellDef>\n        RELEASE NAME\n      </th>\n      <td mat-cell *matCellDef=\"let element\" class=\"padding-table-td\" [ngClass]=\"{'background-td': element.id === offerId}\"> {{ release.name }} </td>\n    </ng-container>\n\n    <ng-container matColumnDef=\"collection\">\n      <th mat-header-cell *matHeaderCellDef>\n        COLLECTION\n      </th>\n      <td mat-cell *matCellDef=\"let element\" class=\"padding-table-td\" [ngClass]=\"{'background-td': element.id === offerId}\"> {{ getCollectionNameRelease(release.collectionId) }} </td>\n    </ng-container>\n\n    <ng-container matColumnDef=\"color\">\n      <th mat-header-cell *matHeaderCellDef>\n        COLOR\n      </th>\n      <td mat-cell *matCellDef=\"let element\" class=\"padding-table-td\" [ngClass]=\"{'background-td': element.id === offerId}\"> {{ release.color }} </td>\n    </ng-container>\n\n    <ng-container matColumnDef=\"officialRelease\">\n      <th mat-header-cell *matHeaderCellDef mat-sort-header>\n        OFFICIAL RELEASE\n      </th>\n      <td mat-cell *matCellDef=\"let element\" class=\"padding-table-td\" [ngClass]=\"{'background-td': element.id === offerId}\"> {{ release.updatedAt | date: 'dd/MM/yyyy HH:mm:ss' }} </td>\n    </ng-container>\n\n    <ng-container matColumnDef=\"shopId\">\n      <th mat-header-cell *matHeaderCellDef mat-sort-header>\n        SHOP\n      </th>\n      <td mat-cell *matCellDef=\"let element\" class=\"padding-table-td\" [ngClass]=\"{'background-td': element.id === offerId}\"> {{ getShop(element.shopId) }} </td>\n    </ng-container>\n\n    <ng-container matColumnDef=\"status\">\n      <th mat-header-cell *matHeaderCellDef mat-sort-header>\n        STATUS\n      </th>\n      <td mat-cell *matCellDef=\"let element\" class=\"padding-table-td\" [ngClass]=\"{'background-td': element.id === offerId}\"> {{ element.status }} </td>\n    </ng-container>\n\n    <ng-container matColumnDef=\"shiping\">\n      <th mat-header-cell *matHeaderCellDef mat-sort-header>\n        SHIPING\n      </th>\n      <td mat-cell *matCellDef=\"let element\" class=\"padding-table-td\" [ngClass]=\"{'background-td': element.id === offerId}\"> {{ element.shipping }} </td>\n    </ng-container>\n\n    <ng-container matColumnDef=\"updatedAt\">\n      <th mat-header-cell *matHeaderCellDef mat-sort-header>\n        UPDATED\n      </th>\n      <td mat-cell *matCellDef=\"let element\" class=\"padding-table-td\" [ngClass]=\"{'background-td': element.id === offerId}\"> {{ element.updatedAt | date: 'MM/dd/yyyy HH:mm:ss': timeZoneOffset.toString() }} </td>\n    </ng-container>\n\n    <ng-container matColumnDef=\"actions\">\n      <th mat-header-cell *matHeaderCellDef>\n        ACTIONS\n      </th>\n      <td mat-cell *matCellDef=\"let element\" [ngClass]=\"{'background-td': element.id === offerId}\"  class=\"min-width-80px\">\n        <button mat-icon-button color=\"primary\" type=\"button\" [matTooltip]=\"Edit\" (click)=\"editOfferModal(element.id)\">\n          <mat-icon>edit</mat-icon>\n        </button>\n        <button mat-icon-button color=\"primary\" type=\"button\" [matTooltip]=\"Delete\" (click)=\"getOfferToDelete(element)\">\n          <mat-icon>delete</mat-icon>\n        </button>\n      </td>\n    </ng-container>\n\n    <tr mat-header-row *matHeaderRowDef=\"displayedColumns\"></tr>\n    <tr mat-row *matRowDef=\"let row; columns: displayedColumns;\" [ngClass]=\"row.is_active ? '' : 'text-decoration-line-through'\">\n    </tr>\n\n  </table>\n\n</div>\n\n<div class=\"margin-right-25px flex-shrink-0 display-flex\">\n  <span class=\"flex-grow-1\"></span>\n  <mat-paginator [length]=\"totalLength\" [pageSizeOptions]=\"[5, 10, 20, 50, 100]\" [pageIndex]=\"\" [pageSize]=\"50\" showFirstLastButtons\n    (page)=\"onPage()\">\n  </mat-paginator>\n</div>\n\n"
+module.exports = "<div *ngIf=\"!disabled\" class=\"display-flex justify-content-center\">\n\n  <button mat-stroked-button type=\"button\" class=\"max-width-480px\" (click)=\"addNewOfferModal()\">Add an offer to this Release</button>\n\n</div>\n<div class=\"flex-grow-1 overflow-auto display-flex\">\n\n  <table class=\"margin-top-10px margin-right-25px width-100pct\" mat-table [dataSource]=\"offers\" matSort [matSortActive]=\"offersService.previousSortColumn\"\n    [matSortDirection]=\"offersService.previousSortDirection\" matSortDisableClear (matSortChange)=\"onSort()\">\n\n    <ng-container matColumnDef=\"sku\">\n      <th mat-header-cell *matHeaderCellDef>\n        SKU\n      </th>\n      <td mat-cell *matCellDef=\"let element\" class=\"padding-table-td\" [ngClass]=\"{'background-td': element.id === offerId}\"> {{ release.sku }} </td>\n    </ng-container>\n\n    <ng-container matColumnDef=\"releaseId\">\n      <th mat-header-cell *matHeaderCellDef>\n        RELEASE NAME\n      </th>\n      <td mat-cell *matCellDef=\"let element\" class=\"padding-table-td\" [ngClass]=\"{'background-td': element.id === offerId}\"> {{ release.name }} </td>\n    </ng-container>\n\n    <ng-container matColumnDef=\"collection\">\n      <th mat-header-cell *matHeaderCellDef>\n        COLLECTION\n      </th>\n      <td mat-cell *matCellDef=\"let element\" class=\"padding-table-td\" [ngClass]=\"{'background-td': element.id === offerId}\"> {{ getCollectionNameRelease(release.collectionId) }} </td>\n    </ng-container>\n\n    <ng-container matColumnDef=\"color\">\n      <th mat-header-cell *matHeaderCellDef>\n        COLOR\n      </th>\n      <td mat-cell *matCellDef=\"let element\" class=\"padding-table-td\" [ngClass]=\"{'background-td': element.id === offerId}\"> {{ release.color }} </td>\n    </ng-container>\n\n    <ng-container matColumnDef=\"officialRelease\">\n      <th mat-header-cell *matHeaderCellDef mat-sort-header>\n        OFFICIAL RELEASE\n      </th>\n      <td mat-cell *matCellDef=\"let element\" class=\"padding-table-td\" [ngClass]=\"{'background-td': element.id === offerId}\"> {{ release.updatedAt | date: 'dd/MM/yyyy HH:mm:ss' }} </td>\n    </ng-container>\n\n    <ng-container matColumnDef=\"shopId\">\n      <th mat-header-cell *matHeaderCellDef mat-sort-header>\n        SHOP\n      </th>\n      <td mat-cell *matCellDef=\"let element\" class=\"padding-table-td\" [ngClass]=\"{'background-td': element.id === offerId}\"> {{ getShop(element.shopId) }} </td>\n    </ng-container>\n\n    <ng-container matColumnDef=\"status\">\n      <th mat-header-cell *matHeaderCellDef mat-sort-header>\n        STATUS\n      </th>\n      <td mat-cell *matCellDef=\"let element\" class=\"padding-table-td\" [ngClass]=\"{'background-td': element.id === offerId}\"> {{ element.status }} </td>\n    </ng-container>\n\n    <ng-container matColumnDef=\"shiping\">\n      <th mat-header-cell *matHeaderCellDef mat-sort-header>\n        SHIPING\n      </th>\n      <td mat-cell *matCellDef=\"let element\" class=\"padding-table-td\" [ngClass]=\"{'background-td': element.id === offerId}\"> {{ element.shipping }} </td>\n    </ng-container>\n\n    <ng-container matColumnDef=\"updatedAt\">\n      <th mat-header-cell *matHeaderCellDef mat-sort-header>\n        UPDATED\n      </th>\n      <td mat-cell *matCellDef=\"let element\" class=\"padding-table-td\" [ngClass]=\"{'background-td': element.id === offerId}\"> {{ element.updatedAt | date: 'MM/dd/yyyy HH:mm:ss': timeZoneOffset.toString() }} </td>\n    </ng-container>\n\n    <ng-container matColumnDef=\"actions\">\n      <th mat-header-cell *matHeaderCellDef>\n        ACTIONS\n      </th>\n      <td mat-cell *matCellDef=\"let element\" [ngClass]=\"{'background-td': element.id === offerId}\"  class=\"min-width-80px\">\n        <button mat-icon-button color=\"primary\" type=\"button\" [matTooltip]=\"Edit\" (click)=\"editOfferModal(element.id)\">\n          <mat-icon>edit</mat-icon>\n        </button>\n        <button mat-icon-button color=\"primary\" type=\"button\" [matTooltip]=\"Delete\" (click)=\"getOfferToDelete(element)\">\n          <mat-icon>delete</mat-icon>\n        </button>\n      </td>\n    </ng-container>\n\n    <tr mat-header-row *matHeaderRowDef=\"displayedColumns\"></tr>\n    <tr mat-row *matRowDef=\"let row; columns: displayedColumns;\" [ngClass]=\"row.is_active ? '' : 'text-decoration-line-through'\">\n    </tr>\n\n  </table>\n\n</div>\n\n<div class=\"margin-right-25px flex-shrink-0 display-flex\">\n  <span class=\"flex-grow-1\"></span>\n  <mat-paginator [length]=\"totalLength\" [pageSizeOptions]=\"[5, 10, 20, 50, 100]\" [pageIndex]=\"\" [pageSize]=\"50\" showFirstLastButtons\n    (page)=\"onPage()\">\n  </mat-paginator>\n</div>"
 
 /***/ }),
 
@@ -1589,7 +2259,7 @@ var OffersReleaseTableComponent = /** @class */ (function () {
     };
     OffersReleaseTableComponent.prototype.createFilterFormGroup = function () {
         var group = {};
-        group['releaseId'] = new _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormControl"](this.releaseId);
+        group['releaseId'] = new _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormControl"](this.releaseId ? this.releaseId : 'no hay release id');
         //group['collection'] = new FormControl('');
         return new _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormGroup"](group);
     };
@@ -3918,14 +4588,17 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_offers_table_offers_table_component__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./components/offers-table/offers-table.component */ "./src/app/ms-back-office/modules/ms-offers/components/offers-table/offers-table.component.ts");
 /* harmony import */ var _components_offers_collection_table_offers_collection_table_component__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ./components/offers-collection-table/offers-collection-table.component */ "./src/app/ms-back-office/modules/ms-offers/components/offers-collection-table/offers-collection-table.component.ts");
 /* harmony import */ var _components_offers_release_table_offers_release_table_component__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ./components/offers-release-table/offers-release-table.component */ "./src/app/ms-back-office/modules/ms-offers/components/offers-release-table/offers-release-table.component.ts");
-/* harmony import */ var _components_offers_shop_table_offers_shop_table_component__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ./components/offers-shop-table/offers-shop-table.component */ "./src/app/ms-back-office/modules/ms-offers/components/offers-shop-table/offers-shop-table.component.ts");
-/* harmony import */ var _components_link_offers_collection_link_offers_collection_modal_component__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! ./components/link-offers-collection/link-offers-collection-modal.component */ "./src/app/ms-back-office/modules/ms-offers/components/link-offers-collection/link-offers-collection-modal.component.ts");
-/* harmony import */ var _ms_offers_routing_module__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! ./ms-offers-routing.module */ "./src/app/ms-back-office/modules/ms-offers/ms-offers-routing.module.ts");
-/* harmony import */ var _components_offer_form_offer_form_component__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(/*! ./components/offer-form/offer-form.component */ "./src/app/ms-back-office/modules/ms-offers/components/offer-form/offer-form.component.ts");
-/* harmony import */ var _components_see_offer_see_offer_component__WEBPACK_IMPORTED_MODULE_25__ = __webpack_require__(/*! ./components/see-offer/see-offer.component */ "./src/app/ms-back-office/modules/ms-offers/components/see-offer/see-offer.component.ts");
-/* harmony import */ var _components_new_offer_new_offer_component__WEBPACK_IMPORTED_MODULE_26__ = __webpack_require__(/*! ./components/new-offer/new-offer.component */ "./src/app/ms-back-office/modules/ms-offers/components/new-offer/new-offer.component.ts");
-/* harmony import */ var _components_edit_offer_edit_offer_component__WEBPACK_IMPORTED_MODULE_27__ = __webpack_require__(/*! ./components/edit-offer/edit-offer.component */ "./src/app/ms-back-office/modules/ms-offers/components/edit-offer/edit-offer.component.ts");
-/* harmony import */ var _components_delete_offer_delete_offer_component__WEBPACK_IMPORTED_MODULE_28__ = __webpack_require__(/*! ./components/delete-offer/delete-offer.component */ "./src/app/ms-back-office/modules/ms-offers/components/delete-offer/delete-offer.component.ts");
+/* harmony import */ var _components_offers_new_release_table_offers_new_release_table_component__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ./components/offers-new-release-table/offers-new-release-table.component */ "./src/app/ms-back-office/modules/ms-offers/components/offers-new-release-table/offers-new-release-table.component.ts");
+/* harmony import */ var _components_offers_shop_table_offers_shop_table_component__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! ./components/offers-shop-table/offers-shop-table.component */ "./src/app/ms-back-office/modules/ms-offers/components/offers-shop-table/offers-shop-table.component.ts");
+/* harmony import */ var _components_link_offers_collection_link_offers_collection_modal_component__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! ./components/link-offers-collection/link-offers-collection-modal.component */ "./src/app/ms-back-office/modules/ms-offers/components/link-offers-collection/link-offers-collection-modal.component.ts");
+/* harmony import */ var _ms_offers_routing_module__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(/*! ./ms-offers-routing.module */ "./src/app/ms-back-office/modules/ms-offers/ms-offers-routing.module.ts");
+/* harmony import */ var _components_offer_form_offer_form_component__WEBPACK_IMPORTED_MODULE_25__ = __webpack_require__(/*! ./components/offer-form/offer-form.component */ "./src/app/ms-back-office/modules/ms-offers/components/offer-form/offer-form.component.ts");
+/* harmony import */ var _components_see_offer_see_offer_component__WEBPACK_IMPORTED_MODULE_26__ = __webpack_require__(/*! ./components/see-offer/see-offer.component */ "./src/app/ms-back-office/modules/ms-offers/components/see-offer/see-offer.component.ts");
+/* harmony import */ var _components_new_offer_new_offer_component__WEBPACK_IMPORTED_MODULE_27__ = __webpack_require__(/*! ./components/new-offer/new-offer.component */ "./src/app/ms-back-office/modules/ms-offers/components/new-offer/new-offer.component.ts");
+/* harmony import */ var _components_new_offer_release_creator_new_offer_release_creator_component__WEBPACK_IMPORTED_MODULE_28__ = __webpack_require__(/*! ./components/new-offer-release-creator/new-offer-release-creator.component */ "./src/app/ms-back-office/modules/ms-offers/components/new-offer-release-creator/new-offer-release-creator.component.ts");
+/* harmony import */ var _components_edit_offer_edit_offer_component__WEBPACK_IMPORTED_MODULE_29__ = __webpack_require__(/*! ./components/edit-offer/edit-offer.component */ "./src/app/ms-back-office/modules/ms-offers/components/edit-offer/edit-offer.component.ts");
+/* harmony import */ var _components_edit_offer_release_creator_edit_offer_release_creator_component__WEBPACK_IMPORTED_MODULE_30__ = __webpack_require__(/*! ./components/edit-offer-release-creator/edit-offer-release-creator.component */ "./src/app/ms-back-office/modules/ms-offers/components/edit-offer-release-creator/edit-offer-release-creator.component.ts");
+/* harmony import */ var _components_delete_offer_delete_offer_component__WEBPACK_IMPORTED_MODULE_31__ = __webpack_require__(/*! ./components/delete-offer/delete-offer.component */ "./src/app/ms-back-office/modules/ms-offers/components/delete-offer/delete-offer.component.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -3968,6 +4641,9 @@ var __decorate = (undefined && undefined.__decorate) || function (decorators, ta
 
 
 
+
+
+
 var MsOffersModule = /** @class */ (function () {
     function MsOffersModule() {
     }
@@ -3997,7 +4673,7 @@ var MsOffersModule = /** @class */ (function () {
                 _angular_material_toolbar__WEBPACK_IMPORTED_MODULE_11__["MatToolbarModule"],
                 _angular_material_tooltip__WEBPACK_IMPORTED_MODULE_12__["MatTooltipModule"],
                 _ngx_translate_core__WEBPACK_IMPORTED_MODULE_14__["TranslateModule"],
-                _ms_offers_routing_module__WEBPACK_IMPORTED_MODULE_23__["MsOffersRoutingModule"],
+                _ms_offers_routing_module__WEBPACK_IMPORTED_MODULE_24__["MsOffersRoutingModule"],
                 _modules_links_links_module__WEBPACK_IMPORTED_MODULE_15__["MsLinksModule"],
                 _ui_modules_ask_before_refresh_ask_before_refresh_module__WEBPACK_IMPORTED_MODULE_17__["AskBeforeRefreshModule"],
                 _ui_modules_images_card_images_card_module__WEBPACK_IMPORTED_MODULE_16__["ImagesCardModule"]
@@ -4005,35 +4681,43 @@ var MsOffersModule = /** @class */ (function () {
             declarations: [
                 _components_offers_collection_table_offers_collection_table_component__WEBPACK_IMPORTED_MODULE_19__["OffersCollectionTableComponent"],
                 _components_offers_table_offers_table_component__WEBPACK_IMPORTED_MODULE_18__["OffersTableComponent"],
-                _components_offer_form_offer_form_component__WEBPACK_IMPORTED_MODULE_24__["OfferFormComponent"],
+                _components_offer_form_offer_form_component__WEBPACK_IMPORTED_MODULE_25__["OfferFormComponent"],
                 _components_offers_release_table_offers_release_table_component__WEBPACK_IMPORTED_MODULE_20__["OffersReleaseTableComponent"],
-                _components_offers_shop_table_offers_shop_table_component__WEBPACK_IMPORTED_MODULE_21__["OffersShopTableComponent"],
-                _components_link_offers_collection_link_offers_collection_modal_component__WEBPACK_IMPORTED_MODULE_22__["LinkOffersCollentionModalComponent"],
-                _components_new_offer_new_offer_component__WEBPACK_IMPORTED_MODULE_26__["NewOfferComponent"],
-                _components_edit_offer_edit_offer_component__WEBPACK_IMPORTED_MODULE_27__["EditOfferComponent"],
-                _components_delete_offer_delete_offer_component__WEBPACK_IMPORTED_MODULE_28__["DeleteOfferComponent"],
-                _components_see_offer_see_offer_component__WEBPACK_IMPORTED_MODULE_25__["SeeOfferComponent"]
+                _components_offers_new_release_table_offers_new_release_table_component__WEBPACK_IMPORTED_MODULE_21__["OffersNewReleaseTableComponent"],
+                _components_offers_shop_table_offers_shop_table_component__WEBPACK_IMPORTED_MODULE_22__["OffersShopTableComponent"],
+                _components_link_offers_collection_link_offers_collection_modal_component__WEBPACK_IMPORTED_MODULE_23__["LinkOffersCollentionModalComponent"],
+                _components_new_offer_new_offer_component__WEBPACK_IMPORTED_MODULE_27__["NewOfferComponent"],
+                _components_new_offer_release_creator_new_offer_release_creator_component__WEBPACK_IMPORTED_MODULE_28__["NewOfferReleaseCreatorComponent"],
+                _components_edit_offer_edit_offer_component__WEBPACK_IMPORTED_MODULE_29__["EditOfferComponent"],
+                _components_edit_offer_release_creator_edit_offer_release_creator_component__WEBPACK_IMPORTED_MODULE_30__["EditOfferReleaseCreatorComponent"],
+                _components_delete_offer_delete_offer_component__WEBPACK_IMPORTED_MODULE_31__["DeleteOfferComponent"],
+                _components_see_offer_see_offer_component__WEBPACK_IMPORTED_MODULE_26__["SeeOfferComponent"]
             ],
             exports: [
                 _components_offers_collection_table_offers_collection_table_component__WEBPACK_IMPORTED_MODULE_19__["OffersCollectionTableComponent"],
                 _components_offers_table_offers_table_component__WEBPACK_IMPORTED_MODULE_18__["OffersTableComponent"],
-                _components_offer_form_offer_form_component__WEBPACK_IMPORTED_MODULE_24__["OfferFormComponent"],
+                _components_offer_form_offer_form_component__WEBPACK_IMPORTED_MODULE_25__["OfferFormComponent"],
                 _components_offers_release_table_offers_release_table_component__WEBPACK_IMPORTED_MODULE_20__["OffersReleaseTableComponent"],
-                _components_offers_shop_table_offers_shop_table_component__WEBPACK_IMPORTED_MODULE_21__["OffersShopTableComponent"],
-                _components_link_offers_collection_link_offers_collection_modal_component__WEBPACK_IMPORTED_MODULE_22__["LinkOffersCollentionModalComponent"],
-                _components_new_offer_new_offer_component__WEBPACK_IMPORTED_MODULE_26__["NewOfferComponent"],
-                _components_edit_offer_edit_offer_component__WEBPACK_IMPORTED_MODULE_27__["EditOfferComponent"],
-                _components_delete_offer_delete_offer_component__WEBPACK_IMPORTED_MODULE_28__["DeleteOfferComponent"],
-                _components_see_offer_see_offer_component__WEBPACK_IMPORTED_MODULE_25__["SeeOfferComponent"]
+                _components_offers_shop_table_offers_shop_table_component__WEBPACK_IMPORTED_MODULE_22__["OffersShopTableComponent"],
+                _components_offers_new_release_table_offers_new_release_table_component__WEBPACK_IMPORTED_MODULE_21__["OffersNewReleaseTableComponent"],
+                _components_link_offers_collection_link_offers_collection_modal_component__WEBPACK_IMPORTED_MODULE_23__["LinkOffersCollentionModalComponent"],
+                _components_new_offer_new_offer_component__WEBPACK_IMPORTED_MODULE_27__["NewOfferComponent"],
+                _components_new_offer_release_creator_new_offer_release_creator_component__WEBPACK_IMPORTED_MODULE_28__["NewOfferReleaseCreatorComponent"],
+                _components_edit_offer_edit_offer_component__WEBPACK_IMPORTED_MODULE_29__["EditOfferComponent"],
+                _components_edit_offer_release_creator_edit_offer_release_creator_component__WEBPACK_IMPORTED_MODULE_30__["EditOfferReleaseCreatorComponent"],
+                _components_delete_offer_delete_offer_component__WEBPACK_IMPORTED_MODULE_31__["DeleteOfferComponent"],
+                _components_see_offer_see_offer_component__WEBPACK_IMPORTED_MODULE_26__["SeeOfferComponent"]
             ],
             providers: [
                 _angular_common__WEBPACK_IMPORTED_MODULE_1__["DatePipe"]
             ],
             entryComponents: [
-                _components_new_offer_new_offer_component__WEBPACK_IMPORTED_MODULE_26__["NewOfferComponent"],
-                _components_edit_offer_edit_offer_component__WEBPACK_IMPORTED_MODULE_27__["EditOfferComponent"],
-                _components_link_offers_collection_link_offers_collection_modal_component__WEBPACK_IMPORTED_MODULE_22__["LinkOffersCollentionModalComponent"],
-                _components_see_offer_see_offer_component__WEBPACK_IMPORTED_MODULE_25__["SeeOfferComponent"]
+                _components_edit_offer_edit_offer_component__WEBPACK_IMPORTED_MODULE_29__["EditOfferComponent"],
+                _components_edit_offer_release_creator_edit_offer_release_creator_component__WEBPACK_IMPORTED_MODULE_30__["EditOfferReleaseCreatorComponent"],
+                _components_new_offer_new_offer_component__WEBPACK_IMPORTED_MODULE_27__["NewOfferComponent"],
+                _components_new_offer_release_creator_new_offer_release_creator_component__WEBPACK_IMPORTED_MODULE_28__["NewOfferReleaseCreatorComponent"],
+                _components_link_offers_collection_link_offers_collection_modal_component__WEBPACK_IMPORTED_MODULE_23__["LinkOffersCollentionModalComponent"],
+                _components_see_offer_see_offer_component__WEBPACK_IMPORTED_MODULE_26__["SeeOfferComponent"]
             ]
         })
     ], MsOffersModule);
@@ -4137,6 +4821,10 @@ var OffersService = /** @class */ (function () {
         if (filter.status && filter.status.length > 0) {
             queryParams += queryParams.length > 0 ? '&' : '?';
             queryParams += "status=" + filter.status;
+        }
+        if (filter.releaseId && filter.releaseId.length > 0) {
+            queryParams += queryParams.length > 0 ? '&' : '?';
+            queryParams += "releaseId=" + filter.releaseId;
         }
         if (sortColumn) {
             var ordering = '';

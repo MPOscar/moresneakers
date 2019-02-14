@@ -477,7 +477,7 @@ var EditReleaseFormComponent = /** @class */ (function (_super) {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<h1>EDIT RELEASE</h1>\n<edit-release-form class=\"flex-grow-1\" *ngIf=\"data\"\n                [collections]=\"collections\"\n                [caseProperties]=\"caseProperties\"\n                [data]=\"data\"\n                [releaseId]=\"releaseId\"\n                [imageList]=\"imageList\"\n                [brands]=\"brands\"\n                [shops]=\"shops\"                \n                [overview]=\"false\"\n                (accept)=\"submit($event)\"\n                (cancel)=\"cancel()\"\n                [validationErrors]=\"validationErrors\"\n                [imageCardEditAction]=\"imageCardEditActionTemplate\"\n                (dataChange)=\"dataChanged()\">\n</edit-release-form>\n"
+module.exports = "<div class=\"flex-shrink-0 display-flex justify-content-end close-mat-dialog-buttom\">\n    <span class=\"mat-button-wrapper cursor-pointer\" (click)=\"close()\">\n    <mat-icon>clear</mat-icon>\n    </span>\n</div>\n<h1>EDIT RELEASE</h1>\n<edit-release-form class=\"flex-grow-1\" *ngIf=\"data\"\n                [collections]=\"dialogData.collections\"\n                [caseProperties]=\"caseProperties\"\n                [data]=\"data\"\n                [releaseId]=\"releaseId\"\n                [imageList]=\"dialogData.imageList\"\n                [brands]=\"dialogData.brands\"\n                [shops]=\"dialogData.shops\"      \n                [styles]=\"dialogData.styles\"            \n                [overview]=\"false\"\n                (accept)=\"submit($event)\"\n                (cancel)=\"cancel()\"\n                [validationErrors]=\"validationErrors\"\n                [imageCardEditAction]=\"imageCardEditActionTemplate\"\n                (dataChange)=\"dataChanged()\">\n</edit-release-form>\n{{dialogData.imageList | json}}"
 
 /***/ }),
 
@@ -488,7 +488,7 @@ module.exports = "<h1>EDIT RELEASE</h1>\n<edit-release-form class=\"flex-grow-1\
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ":host {\n  display: flex;\n  flex-direction: column;\n  flex-grow: 1; }\n\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvbXMtYmFjay1vZmZpY2UvbW9kdWxlcy9tcy1yZWxlYXNlcy9jb21wb25lbnRzL2VkaXQtcmVsZWFzZS1tb2RhbC9FOlxcUFJPR1JBTUFDSU9OIElJSVxcbW9yZXNuZWFrZXJzLWJhY2tvZmZpY2Uvc3JjXFxhcHBcXG1zLWJhY2stb2ZmaWNlXFxtb2R1bGVzXFxtcy1yZWxlYXNlc1xcY29tcG9uZW50c1xcZWRpdC1yZWxlYXNlLW1vZGFsXFxlZGl0LXJlbGVhc2UtbW9kYWwuY29tcG9uZW50LnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFDRSxjQUFhO0VBQ2IsdUJBQXNCO0VBQ3RCLGFBQVksRUFDYiIsImZpbGUiOiJzcmMvYXBwL21zLWJhY2stb2ZmaWNlL21vZHVsZXMvbXMtcmVsZWFzZXMvY29tcG9uZW50cy9lZGl0LXJlbGVhc2UtbW9kYWwvZWRpdC1yZWxlYXNlLW1vZGFsLmNvbXBvbmVudC5zY3NzIiwic291cmNlc0NvbnRlbnQiOlsiOmhvc3Qge1xyXG4gIGRpc3BsYXk6IGZsZXg7XHJcbiAgZmxleC1kaXJlY3Rpb246IGNvbHVtbjtcclxuICBmbGV4LWdyb3c6IDE7XHJcbn0iXX0= */"
+module.exports = ":host {\n  display: flex;\n  flex-grow: 1;\n  flex-direction: column;\n  height: 100%; }\n\n.mat-dialog-container {\n  padding: 10px; }\n\n.mat-dialog-content {\n  height: 60%;\n  max-height: 82vh;\n  margin-bottom: 10px; }\n\n.mat-dialog-actions {\n  padding: 10px 0; }\n\nmat-card {\n  padding: 0px;\n  align-self: flex-start;\n  height: 200px;\n  width: 150px;\n  margin-left: 2px;\n  margin-right: 15px;\n  margin-bottom: 15px; }\n\nmat-icon {\n  font-size: 24px;\n  width: 24px;\n  height: 24px; }\n\n.max-width-60-pct {\n  max-width: 60% !important; }\n\n.border {\n  border: 1px solid #f1f1f1; }\n\ntd.mat-cell {\n  border: none !important; }\n\nth.mat-header-cell {\n  border: none !important; }\n\n::ng-deep .mat-dialog-container {\n  padding: 0px 25px 25px 25px; }\n\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvbXMtYmFjay1vZmZpY2UvbW9kdWxlcy9tcy1yZWxlYXNlcy9jb21wb25lbnRzL2VkaXQtcmVsZWFzZS1tb2RhbC9FOlxcUFJPR1JBTUFDSU9OIElJSVxcbW9yZXNuZWFrZXJzLWJhY2tvZmZpY2Uvc3JjXFxhcHBcXG1zLWJhY2stb2ZmaWNlXFxtb2R1bGVzXFxtcy1yZWxlYXNlc1xcY29tcG9uZW50c1xcZWRpdC1yZWxlYXNlLW1vZGFsXFxlZGl0LXJlbGVhc2UtbW9kYWwuY29tcG9uZW50LnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFDRSxjQUFhO0VBQ2IsYUFBWTtFQUNaLHVCQUFzQjtFQUN0QixhQUNGLEVBQUM7O0FBRUQ7RUFDRSxjQUFhLEVBQ2Q7O0FBRUQ7RUFDRSxZQUFXO0VBQ1gsaUJBQWdCO0VBQ2hCLG9CQUFtQixFQUNwQjs7QUFFRDtFQUNFLGdCQUFlLEVBQ2hCOztBQUVEO0VBQ0UsYUFBWTtFQUNaLHVCQUFzQjtFQUN0QixjQUFhO0VBQ2IsYUFBWTtFQUNaLGlCQUFnQjtFQUNoQixtQkFBa0I7RUFDbEIsb0JBQW1CLEVBQ3BCOztBQUVEO0VBQ0EsZ0JBQWU7RUFDZixZQUFXO0VBQ1gsYUFBWSxFQUNYOztBQUVEO0VBQ0EsMEJBQXlCLEVBQ3hCOztBQUVEO0VBQ0EsMEJBQXlCLEVBQ3hCOztBQUVEO0VBQ0Esd0JBQXVCLEVBQ3RCOztBQUVEO0VBQ0Esd0JBQXVCLEVBQ3RCOztBQUVEO0VBQ0UsNEJBQTJCLEVBQzVCIiwiZmlsZSI6InNyYy9hcHAvbXMtYmFjay1vZmZpY2UvbW9kdWxlcy9tcy1yZWxlYXNlcy9jb21wb25lbnRzL2VkaXQtcmVsZWFzZS1tb2RhbC9lZGl0LXJlbGVhc2UtbW9kYWwuY29tcG9uZW50LnNjc3MiLCJzb3VyY2VzQ29udGVudCI6WyI6aG9zdCB7XHJcbiAgZGlzcGxheTogZmxleDtcclxuICBmbGV4LWdyb3c6IDE7XHJcbiAgZmxleC1kaXJlY3Rpb246IGNvbHVtbjtcclxuICBoZWlnaHQ6IDEwMCVcclxufVxyXG5cclxuLm1hdC1kaWFsb2ctY29udGFpbmVyIHtcclxuICBwYWRkaW5nOiAxMHB4O1xyXG59XHJcblxyXG4ubWF0LWRpYWxvZy1jb250ZW50IHtcclxuICBoZWlnaHQ6IDYwJTtcclxuICBtYXgtaGVpZ2h0OiA4MnZoO1xyXG4gIG1hcmdpbi1ib3R0b206IDEwcHg7XHJcbn1cclxuXHJcbi5tYXQtZGlhbG9nLWFjdGlvbnMge1xyXG4gIHBhZGRpbmc6IDEwcHggMDtcclxufVxyXG5cclxubWF0LWNhcmQge1xyXG4gIHBhZGRpbmc6IDBweDtcclxuICBhbGlnbi1zZWxmOiBmbGV4LXN0YXJ0O1xyXG4gIGhlaWdodDogMjAwcHg7XHJcbiAgd2lkdGg6IDE1MHB4O1xyXG4gIG1hcmdpbi1sZWZ0OiAycHg7XHJcbiAgbWFyZ2luLXJpZ2h0OiAxNXB4O1xyXG4gIG1hcmdpbi1ib3R0b206IDE1cHg7XHJcbn1cclxuXHJcbm1hdC1pY29uIHtcclxuZm9udC1zaXplOiAyNHB4O1xyXG53aWR0aDogMjRweDtcclxuaGVpZ2h0OiAyNHB4O1xyXG59XHJcblxyXG4ubWF4LXdpZHRoLTYwLXBjdHtcclxubWF4LXdpZHRoOiA2MCUgIWltcG9ydGFudDtcclxufVxyXG5cclxuLmJvcmRlcntcclxuYm9yZGVyOiAxcHggc29saWQgI2YxZjFmMTtcclxufVxyXG5cclxudGQubWF0LWNlbGx7XHJcbmJvcmRlcjogbm9uZSAhaW1wb3J0YW50O1xyXG59XHJcblxyXG50aC5tYXQtaGVhZGVyLWNlbGx7XHJcbmJvcmRlcjogbm9uZSAhaW1wb3J0YW50O1xyXG59XHJcblxyXG46Om5nLWRlZXAgLm1hdC1kaWFsb2ctY29udGFpbmVyIHtcclxuICBwYWRkaW5nOiAwcHggMjVweCAyNXB4IDI1cHg7XHJcbn1cclxuIl19 */"
 
 /***/ }),
 
@@ -572,15 +572,19 @@ var EditReleaseModalComponent = /** @class */ (function () {
     EditReleaseModalComponent.prototype.ngAfterViewInit = function () {
     };
     EditReleaseModalComponent.prototype.ngOnInit = function () {
+        var _this = this;
         this.brands = this.activatedRoute.snapshot.data.brands;
         this.collections = this.activatedRoute.snapshot.data.collections;
         this.imageList = this.activatedRoute.snapshot.data.releaseAllImages;
         this.releaseId = this.activatedRoute.snapshot.data.releaseId;
         this.shops = this.activatedRoute.snapshot.data.shops;
         this.getCase();
-        /*this.imageList.forEach((image) => {
-          image.fileName = "";
-        });*/
+        this.releasesImgesService.getReleaseAllImages(this.dialogData.id).subscribe(function (response) {
+            _this.imageList = response.data;
+            _this.imageList.forEach(function (image) {
+                image.fileName = "";
+            });
+        });
     };
     EditReleaseModalComponent.prototype.submit = function (data) {
         delete data.updatedAt;
@@ -598,14 +602,14 @@ var EditReleaseModalComponent = /** @class */ (function () {
         this.releasesService.getRelease(this.dialogData.releaseId).subscribe(function (response) {
             _this.data = response.data;
             if (_this.data.mainImage) {
-                _this.imageList.forEach(function (image) {
+                _this.dialogData.imageList.forEach(function (image) {
                     image.fileName = "";
                     if (image.imgUrl === _this.data.mainImage) {
                         image.mainImage = true;
                     }
                 });
             }
-            _this.data.faces = _this.imageList;
+            _this.data.faces = _this.dialogData.imageList;
         }, function (error) { return _this.errorHandlingService.handleUiError(errorKey, error); });
     };
     EditReleaseModalComponent.prototype.editCase = function (releaseData) {
@@ -718,6 +722,22 @@ var EditReleaseModalComponent = /** @class */ (function () {
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])(),
         __metadata("design:type", Array)
     ], EditReleaseModalComponent.prototype, "caseProperties", void 0);
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])(),
+        __metadata("design:type", Array)
+    ], EditReleaseModalComponent.prototype, "collections", void 0);
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])(),
+        __metadata("design:type", Array)
+    ], EditReleaseModalComponent.prototype, "brands", void 0);
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])(),
+        __metadata("design:type", Array)
+    ], EditReleaseModalComponent.prototype, "styles", void 0);
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])(),
+        __metadata("design:type", Array)
+    ], EditReleaseModalComponent.prototype, "shops", void 0);
     __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ContentChild"])(_ui_modules_images_card_directives_images_card_edit_actions_directive__WEBPACK_IMPORTED_MODULE_14__["ImageCardEditActionDirective"], { read: _angular_core__WEBPACK_IMPORTED_MODULE_0__["TemplateRef"] }),
         __metadata("design:type", Object)
@@ -1243,7 +1263,7 @@ var NewReleaseModalComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "\n<release-form class=\"flex-grow-1\"\n    [brands]=\"brands\"\n    [categories]=\"categories\"\n    [collections]=\"collections\"\n    [styles]=\"styles\"\n    [styleId]=\"styleId\"\n    [data]=\"data\"        \n    (accept)=\"submit($event)\"\n    (cancel)=\"cancel()\"\n    [validationErrors]=\"validationErrors\"\n    (dataChange)=\"dataChanged()\">\n</release-form>\n"
+module.exports = "\n<release-form class=\"flex-grow-1\"\n    [brands]=\"brands\"\n    [categories]=\"categories\"\n    [collections]=\"collections\"\n    [styles]=\"styles\"\n    [shops]=\"shops\"\n    [styleId]=\"styleId\"\n    [allReleases]=\"releases\"\n    [data]=\"data\"        \n    (accept)=\"submit($event)\"\n    (cancel)=\"cancel()\"\n    [validationErrors]=\"validationErrors\"\n    (dataChange)=\"dataChanged()\">\n</release-form>\n"
 
 /***/ }),
 
@@ -1281,6 +1301,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _models_releases__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../../models/releases */ "./src/app/ms-back-office/modules/ms-releases/models/releases.ts");
 /* harmony import */ var _services_releases_service__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../../services/releases.service */ "./src/app/ms-back-office/modules/ms-releases/services/releases.service.ts");
 /* harmony import */ var _services_releases_images_service__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ../../services/releases-images.service */ "./src/app/ms-back-office/modules/ms-releases/services/releases-images.service.ts");
+/* harmony import */ var _ms_offers_services_offers_service__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ../../../ms-offers/services/offers.service */ "./src/app/ms-back-office/modules/ms-offers/services/offers.service.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1305,21 +1326,23 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 
 
 
+
 var errorKey = 'Error';
 var savedUserMessageKey = 'Saved User Message';
 var NewReleaseComponent = /** @class */ (function () {
     //@Input() brands: Array<Brand>;TODO
     //@Output() close = new EventEmitter();TODO
-    function NewReleaseComponent(activatedRoute, releasesService, releasesImgesService, errorHandlingService, imagesService, router, translate, toastr, dialog) {
+    function NewReleaseComponent(activatedRoute, dialog, errorHandlingService, imagesService, offersService, releasesService, releasesImgesService, router, translate, toastr) {
         this.activatedRoute = activatedRoute;
-        this.releasesService = releasesService;
-        this.releasesImgesService = releasesImgesService;
+        this.dialog = dialog;
         this.errorHandlingService = errorHandlingService;
         this.imagesService = imagesService;
+        this.offersService = offersService;
+        this.releasesService = releasesService;
+        this.releasesImgesService = releasesImgesService;
         this.router = router;
         this.translate = translate;
         this.toastr = toastr;
-        this.dialog = dialog;
         this.data = {
             name: "",
             description: "",
@@ -1337,9 +1360,11 @@ var NewReleaseComponent = /** @class */ (function () {
     }
     NewReleaseComponent.prototype.ngOnInit = function () {
         this.brands = this.activatedRoute.snapshot.data.brands;
+        this.shops = this.activatedRoute.snapshot.data.shops;
         this.categories = this.activatedRoute.snapshot.data.categories;
         this.collections = this.activatedRoute.snapshot.data.collections;
         this.styles = this.activatedRoute.snapshot.data.styles;
+        this.releases = this.activatedRoute.snapshot.data.releases;
         //this.styleId = this.activatedRoute.snapshot.queryParams.styleId;
         this.returnUrl = this.activatedRoute.snapshot.queryParams['returnUrl'];
         this.styleId = this.activatedRoute.snapshot.queryParams['styleId'];
@@ -1360,9 +1385,11 @@ var NewReleaseComponent = /** @class */ (function () {
     };
     NewReleaseComponent.prototype.createRelease = function (releaseData) {
         var _this = this;
-        console.log("create...........");
+        var offers = releaseData.offers;
+        console.log(offers + "create...................");
         this.releasesService.postRelease(releaseData).subscribe(function (response) {
             _this.releaseId = response.data.id;
+            _this.updateReleaseOffers(offers, _this.releaseId);
             releaseData.images = [];
             var imagesObservables = new Array();
             for (var position in releaseData.faces) {
@@ -1424,6 +1451,19 @@ var NewReleaseComponent = /** @class */ (function () {
             _this.validationErrors = error.formErrors;
         });
     };
+    NewReleaseComponent.prototype.updateReleaseOffers = function (offers, releaseId) {
+        var _this = this;
+        offers.forEach(function (item) {
+            delete item.id;
+            item.releaseId = releaseId;
+            _this.offersService.postOffer(item).subscribe(function (response) {
+                console.log(JSON.stringify(response) + "offersssssssssssssss");
+            }, function (error) {
+                _this.errorHandlingService.handleUiError(errorKey, error);
+                _this.validationErrors = error.formErrors;
+            });
+        });
+    };
     NewReleaseComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
             selector: 'new-release',
@@ -1432,14 +1472,15 @@ var NewReleaseComponent = /** @class */ (function () {
         }),
         Object(_ui_helpers_mixin_decorator__WEBPACK_IMPORTED_MODULE_7__["Mixin"])([_ui_helpers_component_can_deactivate__WEBPACK_IMPORTED_MODULE_5__["CanDeactivateMixin"]]),
         __metadata("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_1__["ActivatedRoute"],
-            _services_releases_service__WEBPACK_IMPORTED_MODULE_11__["ReleasesService"],
-            _services_releases_images_service__WEBPACK_IMPORTED_MODULE_12__["ReleasesImgesService"],
+            _angular_material__WEBPACK_IMPORTED_MODULE_2__["MatDialog"],
             _error_handling_services_error_handling_service__WEBPACK_IMPORTED_MODULE_8__["ErrorHandlingService"],
             _ui_modules_images_card_services_images_service__WEBPACK_IMPORTED_MODULE_6__["ImagesService"],
+            _ms_offers_services_offers_service__WEBPACK_IMPORTED_MODULE_13__["OffersService"],
+            _services_releases_service__WEBPACK_IMPORTED_MODULE_11__["ReleasesService"],
+            _services_releases_images_service__WEBPACK_IMPORTED_MODULE_12__["ReleasesImgesService"],
             _angular_router__WEBPACK_IMPORTED_MODULE_1__["Router"],
             _ngx_translate_core__WEBPACK_IMPORTED_MODULE_4__["TranslateService"],
-            _error_handling_services_toastr_service__WEBPACK_IMPORTED_MODULE_9__["ToastrService"],
-            _angular_material__WEBPACK_IMPORTED_MODULE_2__["MatDialog"]])
+            _error_handling_services_toastr_service__WEBPACK_IMPORTED_MODULE_9__["ToastrService"]])
     ], NewReleaseComponent);
     return NewReleaseComponent;
 }());
@@ -1455,7 +1496,7 @@ var NewReleaseComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<form class=\"flex-grow-1 min-height-0 display-flex flex-direction-column\" [askBeforeRefresh]=\"formGroup.dirty\" [formGroup]=\"formGroup\"\r\n  novalidate role=\"form\" (ngSubmit)=\"submitClicked()\" autocomplete=\"off\" inputFocus>\r\n\r\n  <div fxLayout=\"row\" class=\"max-width-75pct customized justify-content-space-between flex-grow-0 padding-bottom-10px\">\r\n    <h1 *ngIf=\"!formGroup.get('customized').value\">RELEASE CREATOR</h1>\r\n    <h1 *ngIf=\"formGroup.get('customized').value\">CUSTOMIZED RELEASE</h1>\r\n  </div>\r\n\r\n  <div class=\"flex-grow-1 overflow-auto display-flex flex-direction-column\">\r\n\r\n    <div class=\"flex-grow-1 flex-shrink-0 display-flex flex-direction-column\">\r\n\r\n      <div fxFlex fxLayout=\"row\" fxLayout.lt-md=\"column\" fxLayoutGap=\"20px\">\r\n\r\n        <div [fxFlex]=\"50\" fxFlex fxLayout=\"column\" fxLayout.lt-md=\"column\">\r\n\r\n          <div fxLayout=\"row\" fxLayout.lt-md=\"column\">\r\n\r\n            <div [fxFlex]=\"50\" class=\"margin-right-35px\">\r\n\r\n              <mat-form-field class=\"width-100pc\">\r\n\r\n                <mat-label>Release Name</mat-label>\r\n\r\n                <input matInput type=\"text\" formControlName=\"name\" required>\r\n\r\n              </mat-form-field>\r\n\r\n              <mat-form-field class=\"width-100pc\">\r\n\r\n                <mat-label>SKU</mat-label>\r\n\r\n                <input matInput type=\"text\" formControlName=\"sku\">\r\n\r\n              </mat-form-field>\r\n\r\n              <mat-form-field class=\"width-100pc\">\r\n\r\n                <mat-label>Gender</mat-label>\r\n\r\n                <mat-select disableOptionCentering placeholder=\"Select\" formControlName=\"gender\">\r\n\r\n                  <mat-option>...</mat-option>\r\n\r\n                  <mat-option *ngFor=\"let gender of genders\" [value]=\"gender.id\">\r\n\r\n                    {{gender.name}}\r\n\r\n                  </mat-option>\r\n\r\n                </mat-select>\r\n\r\n              </mat-form-field>\r\n\r\n              <mat-form-field class=\"width-100pc\" *ngIf=\"!collectionId\">\r\n\r\n                <mat-label>Collection</mat-label>\r\n\r\n                <mat-select disableOptionCentering placeholder=\"Select\" formControlName=\"collectionId\">\r\n\r\n                  <mat-option>...</mat-option>\r\n\r\n                  <mat-option *ngFor=\"let collection of collections\" [value]=\"collection.id\">\r\n\r\n                    {{collection.name}}\r\n\r\n                  </mat-option>\r\n\r\n                </mat-select>\r\n\r\n              </mat-form-field>\r\n\r\n\r\n              <mat-form-field class=\"width-100pc\" *ngIf=\"!styleId\">\r\n\r\n                <mat-label>Style</mat-label>\r\n\r\n                <mat-select disableOptionCentering placeholder=\"Select\" formControlName=\"styleId\" required>\r\n\r\n                  <mat-option (click)=\"selectBrand('')\">...</mat-option>\r\n\r\n                  <mat-option *ngFor=\"let style of styles\" [value]=\"style.id\" (click)=\"selectBrand(style.brand)\">\r\n\r\n                    {{style.name}}\r\n\r\n                  </mat-option>\r\n\r\n                </mat-select>\r\n\r\n              </mat-form-field>\r\n\r\n              <div>\r\n\r\n                <mat-slide-toggle class=\"padding-top-15px padding-bottom-15px\" formControlName=\"hot\">Hot</mat-slide-toggle>\r\n\r\n              </div>\r\n\r\n            </div>\r\n\r\n            <div [fxFlex]=\"50\" class=\"\">\r\n\r\n              <div [fxFlex]=\"100\" fxLayout=\"row\" fxLayout.lt-md=\"column\">\r\n\r\n                <div [fxFlex]=\"40\">\r\n\r\n                  <mat-form-field class=\"width-100pc\">\r\n\r\n                    <input matInput [matDatepicker]=\"picker\" placeholder=\"Release Date\" formControlName=\"releaseDate\" readonly=\"readonly\" (dateChange)=\"dateChanged($event)\">\r\n\r\n                    <mat-datepicker-toggle matSuffix [for]=\"picker\"></mat-datepicker-toggle>\r\n\r\n                    <mat-datepicker #picker></mat-datepicker>\r\n\r\n                  </mat-form-field>\r\n\r\n                </div>\r\n\r\n                <div [fxFlex]=\"60\" class=\"\">\r\n\r\n                  <div>\r\n\r\n                    <mat-slide-toggle class=\"margin-left-10px padding-top-15px\" formControlName=\"notSchedule\" (click)=\"notSchedule()\">Not Schedule</mat-slide-toggle>\r\n\r\n                  </div>\r\n\r\n                </div>\r\n\r\n              </div>\r\n\r\n              <!--div>\r\n\r\n            <mat-checkbox class=\"padding-bottom-15px\" value=\"primary\" matTooltip=\"{{ 'Upcomming' | translate }}\">Upcoming</mat-checkbox>\r\n\r\n          </div-->\r\n\r\n              <mat-form-field class=\"width-100pc\">\r\n\r\n                <mat-label>Colors</mat-label>\r\n\r\n                <mat-select disableOptionCentering placeholder=\"Select\" formControlName=\"color\" multiple required>\r\n\r\n                  <mat-option *ngFor=\"let color of colors\" [value]=\"color.id\">\r\n\r\n                    {{color.name}}\r\n\r\n                  </mat-option>\r\n\r\n                </mat-select>\r\n\r\n              </mat-form-field>\r\n\r\n              <mat-form-field class=\"width-100pc margin-left-16px\">\r\n\r\n                <mat-label>Supplier Color</mat-label>\r\n\r\n                <input matInput type=\"text\" formControlName=\"supplierColor\">\r\n\r\n              </mat-form-field>\r\n\r\n              <mat-form-field class=\"width-100pc\">\r\n\r\n                <mat-label>Brand</mat-label>\r\n\r\n                <mat-select disableOptionCentering placeholder=\"Select\" matNativeControl [formControl]=\"selectedBrand\" required>\r\n\r\n                  <mat-option (click)=\"selectStyle('')\">...</mat-option>\r\n\r\n                  <mat-option *ngFor=\"let brand of brands\" [value]=\"brand.id\" (click)=\"selectStyle(brand.id)\">\r\n\r\n                    {{brand.name}}\r\n\r\n                  </mat-option>\r\n\r\n                </mat-select>\r\n\r\n              </mat-form-field>\r\n\r\n              <div [fxFlex]=\"100\" class=\"justify-content-space-between\" fxLayout=\"row\" fxLayout.lt-md=\"column\" *ngIf=\"!formGroup.get('customized').value\">\r\n\r\n                <div [fxFlex]=\"32\">\r\n\r\n                  <mat-form-field class=\"width-100pc\">\r\n\r\n                    <mat-label>USD</mat-label>\r\n\r\n                    <input matInput type=\"number\" formControlName=\"priceUSD\" required>\r\n\r\n                  </mat-form-field>\r\n\r\n                </div>\r\n\r\n                <div [fxFlex]=\"32\">\r\n\r\n                  <mat-form-field class=\"width-100pc\">\r\n\r\n                    <mat-label>EUR</mat-label>\r\n\r\n                    <input matInput type=\"number\" formControlName=\"priceEUR\" required>\r\n\r\n                  </mat-form-field>\r\n\r\n                </div>\r\n\r\n                <div [fxFlex]=\"32\">\r\n\r\n                  <mat-form-field class=\"width-100pc\">\r\n\r\n                    <mat-label>GBP</mat-label>\r\n\r\n                    <input matInput type=\"number\" formControlName=\"priceGBP\" required>\r\n\r\n                  </mat-form-field>\r\n\r\n                </div>\r\n\r\n                <!--div [fxFlex]=\"40\" class=\"margin-left-10px\">\r\n\r\n                  <mat-form-field class=\"width-100pc\">\r\n\r\n                    <mat-select disableOptionCentering placeholder=\"Currency\" formControlName=\"currency\">\r\n\r\n                      <mat-option>...</mat-option>\r\n\r\n                      <mat-option *ngFor=\"let currenc of currency\" [value]=\"currenc.id\">\r\n\r\n                        {{currenc.name}}\r\n\r\n                      </mat-option>\r\n\r\n                    </mat-select>\r\n\r\n                  </mat-form-field>\r\n\r\n                </div-->\r\n\r\n              </div>\r\n\r\n\r\n\r\n              <!--mat-slide-toggle class=\"padding-top-15px padding-bottom-15px\" formControlName=\"children\">Children</mat-slide-toggle-->\r\n\r\n            </div>\r\n\r\n          </div>\r\n\r\n\r\n          <mat-form-field class=\"width-100pc\" appearance=\"fill\">\r\n\r\n            <mat-label>Description</mat-label>\r\n\r\n            <textarea matInput formControlName=\"description\" class=\"min-height-100px\"></textarea>\r\n\r\n          </mat-form-field>\r\n\r\n\r\n\r\n        </div>\r\n        <div [fxFlex]=\"50\" class=\"margin-right-25px\">\r\n          <div>\r\n            <mat-slide-toggle class=\"padding-top-15px padding-bottom-15px\" formControlName=\"customized\">Customized</mat-slide-toggle>\r\n          </div>\r\n          <div [fxFlex]=\"50\" class=\"border margin-right-25px max-width-480px margin-bottom-20px\">\r\n            <div class=\"display-flex justify-content-center\">\r\n              <h3 class=\"margin-buttom-0px\">Main Image</h3>\r\n            </div>\r\n            <images-card class=\"flex-grow-1 padding-10px\" formControlName=\"faces\" name=\"faces\"></images-card>\r\n\r\n          </div>\r\n\r\n        </div>\r\n\r\n      </div>\r\n\r\n    </div>\r\n\r\n  </div>\r\n\r\n  <div class=\"margin-right-25px padding-top-25px padding-bottom-25px flex-shrink-0 display-flex border-top-style-solid border-top-width-2px border-top-color-grey\">\r\n\r\n    <button mat-raised-button type=\"submit\" color=\"primary\">{{ 'Save' | translate }}</button>\r\n\r\n    <button mat-raised-button type=\"button\" class=\"margin-left-10px\" (click)=\"cancelClicked()\">{{ 'Cancel' | translate }}</button>\r\n\r\n  </div>\r\n\r\n</form>\r\n<http-request-indicator [urlExpressions]=\"[\r\n      configService.config.apiConfigs.releases.apiEndpoint + '.*']\">\r\n</http-request-indicator>"
+module.exports = "<form class=\"flex-grow-1 min-height-0 display-flex flex-direction-column\" [askBeforeRefresh]=\"formGroup.dirty\" [formGroup]=\"formGroup\"\r\n  novalidate role=\"form\" (ngSubmit)=\"submitClicked()\" autocomplete=\"off\" inputFocus>\r\n\r\n  <div fxLayout=\"row\" class=\"max-width-75pct customized justify-content-space-between flex-grow-0 padding-bottom-10px\">\r\n    <h1 *ngIf=\"!formGroup.get('customized').value\">RELEASE CREATOR</h1>\r\n    <h1 *ngIf=\"formGroup.get('customized').value\">CUSTOMIZED RELEASE</h1>\r\n  </div>\r\n\r\n  <div class=\"flex-grow-1 overflow-auto display-flex flex-direction-column\">\r\n\r\n    <div class=\"flex-grow-1 flex-shrink-0 display-flex flex-direction-column\">\r\n\r\n      <div fxFlex fxLayout=\"row\" fxLayout.lt-md=\"column\" fxLayoutGap=\"20px\">\r\n\r\n        <div [fxFlex]=\"50\" fxFlex fxLayout=\"column\" fxLayout.lt-md=\"column\">\r\n\r\n          <div fxLayout=\"row\" fxLayout.lt-md=\"column\">\r\n\r\n            <div [fxFlex]=\"50\" class=\"margin-right-35px\">\r\n\r\n              <mat-form-field class=\"width-100pc\">\r\n\r\n                <mat-label>Release Name</mat-label>\r\n\r\n                <input matInput type=\"text\" formControlName=\"name\" required>\r\n\r\n              </mat-form-field>\r\n\r\n              <mat-form-field class=\"width-100pc\">\r\n\r\n                <mat-label>SKU</mat-label>\r\n\r\n                <input matInput type=\"text\" formControlName=\"sku\">\r\n\r\n              </mat-form-field>\r\n\r\n              <mat-form-field class=\"width-100pc\">\r\n\r\n                <mat-label>Gender</mat-label>\r\n\r\n                <mat-select disableOptionCentering placeholder=\"Select\" formControlName=\"gender\">\r\n\r\n                  <mat-option>...</mat-option>\r\n\r\n                  <mat-option *ngFor=\"let gender of genders\" [value]=\"gender.id\">\r\n\r\n                    {{gender.name}}\r\n\r\n                  </mat-option>\r\n\r\n                </mat-select>\r\n\r\n              </mat-form-field>\r\n\r\n              <mat-form-field class=\"width-100pc\" *ngIf=\"!collectionId\">\r\n\r\n                <mat-label>Collection</mat-label>\r\n\r\n                <mat-select disableOptionCentering placeholder=\"Select\" formControlName=\"collectionId\">\r\n\r\n                  <mat-option>...</mat-option>\r\n\r\n                  <mat-option *ngFor=\"let collection of collections\" [value]=\"collection.id\">\r\n\r\n                    {{collection.name}}\r\n\r\n                  </mat-option>\r\n\r\n                </mat-select>\r\n\r\n              </mat-form-field>\r\n\r\n\r\n              <mat-form-field class=\"width-100pc\" *ngIf=\"!styleId\">\r\n\r\n                <mat-label>Style</mat-label>\r\n\r\n                <mat-select disableOptionCentering placeholder=\"Select\" formControlName=\"styleId\" required>\r\n\r\n                  <mat-option (click)=\"selectBrand('')\">...</mat-option>\r\n\r\n                  <mat-option *ngFor=\"let style of styles\" [value]=\"style.id\" (click)=\"selectBrand(style.brand)\">\r\n\r\n                    {{style.name}}\r\n\r\n                  </mat-option>\r\n\r\n                </mat-select>\r\n\r\n              </mat-form-field>\r\n\r\n              <div>\r\n\r\n                <mat-slide-toggle class=\"padding-top-15px padding-bottom-15px\" formControlName=\"hot\">Hot</mat-slide-toggle>\r\n\r\n              </div>\r\n\r\n            </div>\r\n\r\n            <div [fxFlex]=\"50\" class=\"\">\r\n\r\n              <div [fxFlex]=\"100\" fxLayout=\"row\" fxLayout.lt-md=\"column\">\r\n\r\n                <div [fxFlex]=\"40\">\r\n\r\n                  <mat-form-field class=\"width-100pc\">\r\n\r\n                    <input matInput [matDatepicker]=\"picker\" placeholder=\"Release Date\" formControlName=\"releaseDate\" readonly=\"readonly\" (dateChange)=\"dateChanged($event)\">\r\n\r\n                    <mat-datepicker-toggle matSuffix [for]=\"picker\"></mat-datepicker-toggle>\r\n\r\n                    <mat-datepicker #picker></mat-datepicker>\r\n\r\n                  </mat-form-field>\r\n\r\n                </div>\r\n\r\n                <div [fxFlex]=\"60\" class=\"\">\r\n\r\n                  <div>\r\n\r\n                    <mat-slide-toggle class=\"margin-left-10px padding-top-15px\" formControlName=\"notSchedule\" (click)=\"notSchedule()\">Not Schedule</mat-slide-toggle>\r\n\r\n                  </div>\r\n\r\n                </div>\r\n\r\n              </div>\r\n\r\n              <!--div>\r\n\r\n            <mat-checkbox class=\"padding-bottom-15px\" value=\"primary\" matTooltip=\"{{ 'Upcomming' | translate }}\">Upcoming</mat-checkbox>\r\n\r\n          </div-->\r\n\r\n              <mat-form-field class=\"width-100pc\">\r\n\r\n                <mat-label>Colors</mat-label>\r\n\r\n                <mat-select disableOptionCentering placeholder=\"Select\" formControlName=\"color\" multiple required>\r\n\r\n                  <mat-option *ngFor=\"let color of colors\" [value]=\"color.id\">\r\n\r\n                    {{color.name}}\r\n\r\n                  </mat-option>\r\n\r\n                </mat-select>\r\n\r\n              </mat-form-field>\r\n\r\n              <mat-form-field class=\"width-100pc margin-left-16px\">\r\n\r\n                <mat-label>Supplier Color</mat-label>\r\n\r\n                <input matInput type=\"text\" formControlName=\"supplierColor\">\r\n\r\n              </mat-form-field>\r\n\r\n              <mat-form-field class=\"width-100pc\">\r\n\r\n                <mat-label>Brand</mat-label>\r\n\r\n                <mat-select disableOptionCentering placeholder=\"Select\" matNativeControl [formControl]=\"selectedBrand\" required>\r\n\r\n                  <mat-option (click)=\"selectStyle('')\">...</mat-option>\r\n\r\n                  <mat-option *ngFor=\"let brand of brands\" [value]=\"brand.id\" (click)=\"selectStyle(brand.id)\">\r\n\r\n                    {{brand.name}}\r\n\r\n                  </mat-option>\r\n\r\n                </mat-select>\r\n\r\n              </mat-form-field>\r\n\r\n              <div [fxFlex]=\"100\" class=\"justify-content-space-between\" fxLayout=\"row\" fxLayout.lt-md=\"column\" *ngIf=\"!formGroup.get('customized').value\">\r\n\r\n                <div [fxFlex]=\"32\">\r\n\r\n                  <mat-form-field class=\"width-100pc\">\r\n\r\n                    <mat-label>USD</mat-label>\r\n\r\n                    <input matInput type=\"number\" formControlName=\"priceUSD\" required>\r\n\r\n                  </mat-form-field>\r\n\r\n                </div>\r\n\r\n                <div [fxFlex]=\"32\">\r\n\r\n                  <mat-form-field class=\"width-100pc\">\r\n\r\n                    <mat-label>EUR</mat-label>\r\n\r\n                    <input matInput type=\"number\" formControlName=\"priceEUR\" required>\r\n\r\n                  </mat-form-field>\r\n\r\n                </div>\r\n\r\n                <div [fxFlex]=\"32\">\r\n\r\n                  <mat-form-field class=\"width-100pc\">\r\n\r\n                    <mat-label>GBP</mat-label>\r\n\r\n                    <input matInput type=\"number\" formControlName=\"priceGBP\" required>\r\n\r\n                  </mat-form-field>\r\n\r\n                </div>\r\n\r\n                <!--div [fxFlex]=\"40\" class=\"margin-left-10px\">\r\n\r\n                  <mat-form-field class=\"width-100pc\">\r\n\r\n                    <mat-select disableOptionCentering placeholder=\"Currency\" formControlName=\"currency\">\r\n\r\n                      <mat-option>...</mat-option>\r\n\r\n                      <mat-option *ngFor=\"let currenc of currency\" [value]=\"currenc.id\">\r\n\r\n                        {{currenc.name}}\r\n\r\n                      </mat-option>\r\n\r\n                    </mat-select>\r\n\r\n                  </mat-form-field>\r\n\r\n                </div-->\r\n\r\n              </div>\r\n\r\n\r\n\r\n              <!--mat-slide-toggle class=\"padding-top-15px padding-bottom-15px\" formControlName=\"children\">Children</mat-slide-toggle-->\r\n\r\n            </div>\r\n\r\n          </div>\r\n\r\n\r\n          <mat-form-field class=\"width-100pc\" appearance=\"fill\">\r\n\r\n            <mat-label>Description</mat-label>\r\n\r\n            <textarea matInput formControlName=\"description\" class=\"min-height-100px\"></textarea>\r\n\r\n          </mat-form-field>\r\n\r\n\r\n\r\n        </div>\r\n        <div [fxFlex]=\"50\" class=\"margin-right-25px\">\r\n          <div>\r\n            <mat-slide-toggle class=\"padding-top-15px padding-bottom-15px\" formControlName=\"customized\">Customized</mat-slide-toggle>\r\n          </div>\r\n          <div [fxFlex]=\"50\" class=\"border margin-right-25px max-width-480px margin-bottom-20px\">\r\n            <div class=\"display-flex justify-content-center\">\r\n              <h3 class=\"margin-buttom-0px\">Main Image</h3>\r\n            </div>\r\n            <images-card class=\"flex-grow-1 padding-10px\" formControlName=\"faces\" name=\"faces\"></images-card>\r\n\r\n          </div>\r\n\r\n        </div>\r\n\r\n\r\n      </div>\r\n\r\n      <div class=\"mb-20\" fxFlex fxLayout=\"row\" fxLayout.lt-md=\"column\">\r\n\r\n        <offers-new-release-table [releaseId]=\"releaseId\" [offerId]=\"offerId\" [release]=\"data\" [collections]=\"collections\" [customized]=\"formGroup.get('customized').value\"\r\n          [shops]=\"shops\" (offersEventEmiter)=\"updateOffers($event)\"></offers-new-release-table>\r\n\r\n      </div>\r\n\r\n    </div>\r\n\r\n  </div>\r\n\r\n  <div class=\"margin-right-25px padding-top-25px padding-bottom-25px flex-shrink-0 display-flex border-top-style-solid border-top-width-2px border-top-color-grey\">\r\n\r\n    <button mat-raised-button type=\"submit\" color=\"primary\">{{ 'Save' | translate }}</button>\r\n\r\n    <button mat-raised-button type=\"button\" class=\"margin-left-10px\" (click)=\"cancelClicked()\">{{ 'Cancel' | translate }}</button>\r\n\r\n  </div>\r\n\r\n</form>\r\n<http-request-indicator [urlExpressions]=\"[\r\n      configService.config.apiConfigs.releases.apiEndpoint + '.*']\">\r\n</http-request-indicator>\r\n"
 
 /***/ }),
 
@@ -1554,6 +1595,7 @@ var ReleaseFormComponent = /** @class */ (function (_super) {
         ];
         _this.genders = _models_gender__WEBPACK_IMPORTED_MODULE_9__["GENDERS"];
         _this.colors = _models_color__WEBPACK_IMPORTED_MODULE_8__["COLORS"];
+        _this.allReleases = [];
         _this.totalLength = 0;
         _this.releases = [];
         _this.selectedBrand = new _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormControl"]();
@@ -1621,6 +1663,7 @@ var ReleaseFormComponent = /** @class */ (function (_super) {
                 this.data.color = this.data.color.join();
             }
             catch (_a) { }
+            this.data.offers = this.offers;
             this.accept.emit(this.data);
         }
         else {
@@ -1676,10 +1719,21 @@ var ReleaseFormComponent = /** @class */ (function (_super) {
             this.formGroup.get('notSchedule').setValue(this.notScheduleFlag);
         }
     };
+    ReleaseFormComponent.prototype.updateOffers = function (data) {
+        this.offers = data;
+    };
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])(),
+        __metadata("design:type", Array)
+    ], ReleaseFormComponent.prototype, "allReleases", void 0);
     __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])(),
         __metadata("design:type", Array)
     ], ReleaseFormComponent.prototype, "brands", void 0);
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])(),
+        __metadata("design:type", Array)
+    ], ReleaseFormComponent.prototype, "shops", void 0);
     __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])(),
         __metadata("design:type", Array)
@@ -1738,7 +1792,7 @@ var ReleaseFormComponent = /** @class */ (function (_super) {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "\n<div class=\"flex-grow-1 overflow-auto display-flex\">\n\n    <table class=\"margin-top-10px margin-right-25px width-100pct\" mat-table [dataSource]=\"releases\" matSort [matSortActive]=\"releasesService.previousSortColumn\"\n        [matSortDirection]=\"releasesService.previousSortDirection\" matSortDisableClear (matSortChange)=\"onSort()\">\n\n        <ng-container matColumnDef=\"name\">\n            <th mat-header-cell *matHeaderCellDef mat-sort-header>\n                RELEASE NAME\n            </th>\n            <td mat-cell *matCellDef=\"let element\" class=\"padding-table-td\"> {{ element.name }} </td>\n        </ng-container>\n\n        <ng-container matColumnDef=\"mainImage\">\n            <th mat-header-cell *matHeaderCellDef></th>\n            <td mat-cell *matCellDef=\"let element\" class=\"display-flex flex-grow-1 height-100pct padding-left-0px width-100pct\">\n                <div class=\"position-relative margin-top-5px\">\n                    <img [src]=\"element.mainImage\" class=\"height-90pct width-90pct margin-auto\" alt=\"50\">\n                </div>\n            </td>\n        </ng-container>\n\n        <ng-container matColumnDef=\"sku\">\n            <th mat-header-cell *matHeaderCellDef mat-sort-header>\n                SKU\n            </th>\n            <td mat-cell *matCellDef=\"let element\" class=\"padding-table-td\"> {{ element.sku }} </td>\n        </ng-container>\n\n        <ng-container matColumnDef=\"styleId\">\n            <th mat-header-cell *matHeaderCellDef mat-sort-header>\n                STYLE\n            </th>\n            <td mat-cell *matCellDef=\"let element\"> {{ getStyle(element.styleId) }} </td>\n        </ng-container>\n\n        <ng-container matColumnDef=\"brandId\">\n            <th mat-header-cell *matHeaderCellDef>\n                BRAND\n            </th>\n            <td mat-cell *matCellDef=\"let element\" class=\"padding-table-td\"> {{ getBrand(element.brandId) }} </td>\n        </ng-container>\n\n        <ng-container matColumnDef=\"collectionId\">\n            <th mat-header-cell *matHeaderCellDef mat-sort-header>\n                COLLECTION\n            </th>\n            <td mat-cell *matCellDef=\"let element\" class=\"padding-table-td\"> {{ getCollection(element.collectionId) }} </td>\n        </ng-container>\n\n        <ng-container matColumnDef=\"categoryId\">\n            <th mat-header-cell *matHeaderCellDef>\n                CATEGORY\n            </th>\n            <td mat-cell *matCellDef=\"let element\" class=\"padding-table-td\"> {{ element.categoryId }} </td>\n        </ng-container>\n\n        <ng-container matColumnDef=\"color\">\n            <th mat-header-cell *matHeaderCellDef mat-sort-header>\n                COLOR\n            </th>\n            <td mat-cell *matCellDef=\"let element\" class=\"padding-table-td\"> {{ element.color }} </td>\n        </ng-container>\n\n        <ng-container matColumnDef=\"releaseDate\">\n            <th mat-header-cell *matHeaderCellDef mat-sort-header>\n                OFFICIAL RELEASE\n            </th>\n            <td mat-cell *matCellDef=\"let element\" class=\"padding-table-td\"> {{ element.releaseDate? (element.releaseDate  | date: 'dd/MM/yyyy'): \"Not scheduled\" }} </td>\n        </ng-container>\n\n        <ng-container matColumnDef=\"createdAt\">\n            <th mat-header-cell *matHeaderCellDef mat-sort-header>\n                CREATION DATE\n            </th>\n            <td mat-cell *matCellDef=\"let element\" class=\"padding-table-td\"> {{ element.createdAt | date: 'dd/MM/yyyy HH:mm:ss' }} </td>\n        </ng-container>\n        <!--ng-container matColumnDef=\"HOT\">\n          <th mat-header-cell *matHeaderCellDef mat-sort-header>\n            HOT\n          </th>\n          <td mat-cell *matCellDef=\"let element\"> {{ element.hot? 'Yes':'No' }} </td>\n      </ng-container-->\n\n        <ng-container matColumnDef=\"actions\">\n            <th mat-header-cell *matHeaderCellDef>\n            </th>\n            <td mat-cell *matCellDef=\"let element\" class=\"min-width-80px\">\n                <button mat-icon-button type=\"button\" color=\"primary\" [matTooltip]=\"Edit\" (click)=\"editReleaseModal(element.id)\">\n                    <mat-icon>edit</mat-icon>\n                </button>\n                <button mat-icon-button type=\"button\" color=\"primary\" [matTooltip]=\"Delete\">\n                    <mat-icon>delete</mat-icon>\n                </button>\n            </td>\n        </ng-container>\n\n        <tr mat-header-row *matHeaderRowDef=\"displayedColumns\"></tr>\n        <tr mat-row *matRowDef=\"let row; columns: displayedColumns;\" [ngClass]=\"row.is_active ? '' : 'text-decoration-line-through'\">\n        </tr>\n\n    </table>\n\n</div>\n\n<div class=\"margin-right-25px flex-shrink-0 display-flex\">\n    <span class=\"flex-grow-1\"></span>\n    <mat-paginator [length]=\"totalLength\" [pageSizeOptions]=\"[5, 10, 20, 50, 100]\" [pageIndex]=\"\" [pageSize]=\"50\" showFirstLastButtons\n        (page)=\"onPage()\">\n    </mat-paginator>\n</div>\n<div *ngIf=\"!disabled\" class=\"display-flex justify-content-end padding-right-25px padding-top-25px\">\n\n    <button mat-stroked-button type=\"button\" [disabled]=\"!collectionId\" class=\"max-width-480px\" (click)=\"addNewReleaseModal()\">Add Release</button>\n\n</div>\n<http-request-indicator [urlExpressions]=\"[\n        configService.config.apiConfigs.releases.apiEndpoint + '.*']\">\n</http-request-indicator>\n"
+module.exports = "\n<div class=\"flex-grow-1 overflow-auto display-flex\">\n\n    <table class=\"margin-top-10px margin-right-25px width-100pct\" mat-table [dataSource]=\"releases\" matSort [matSortActive]=\"releasesService.previousSortColumn\"\n        [matSortDirection]=\"releasesService.previousSortDirection\" matSortDisableClear (matSortChange)=\"onSort()\">\n\n        <ng-container matColumnDef=\"name\">\n            <th mat-header-cell *matHeaderCellDef mat-sort-header>\n                RELEASE NAME\n            </th>\n            <td mat-cell *matCellDef=\"let element\" class=\"padding-table-td\"> {{ element.name }} </td>\n        </ng-container>\n\n        <ng-container matColumnDef=\"mainImage\">\n            <th mat-header-cell *matHeaderCellDef></th>\n            <td mat-cell *matCellDef=\"let element\" class=\"display-flex flex-grow-1 height-100pct padding-left-0px width-100pct\">\n                <div class=\"position-relative margin-top-5px\">\n                    <img [src]=\"element.mainImage\" class=\"height-90pct width-90pct margin-auto\" alt=\"50\">\n                </div>\n            </td>\n        </ng-container>\n\n        <ng-container matColumnDef=\"sku\">\n            <th mat-header-cell *matHeaderCellDef mat-sort-header>\n                SKU\n            </th>\n            <td mat-cell *matCellDef=\"let element\" class=\"padding-table-td\"> {{ element.sku }} </td>\n        </ng-container>\n\n        <ng-container matColumnDef=\"styleId\">\n            <th mat-header-cell *matHeaderCellDef mat-sort-header>\n                STYLE\n            </th>\n            <td mat-cell *matCellDef=\"let element\"> {{ getStyle(element.styleId) }} </td>\n        </ng-container>\n\n        <ng-container matColumnDef=\"brandId\">\n            <th mat-header-cell *matHeaderCellDef>\n                BRAND\n            </th>\n            <td mat-cell *matCellDef=\"let element\" class=\"padding-table-td\"> {{ getBrand(element.brandId) }} </td>\n        </ng-container>\n\n        <ng-container matColumnDef=\"collectionId\">\n            <th mat-header-cell *matHeaderCellDef mat-sort-header>\n                COLLECTION\n            </th>\n            <td mat-cell *matCellDef=\"let element\" class=\"padding-table-td\"> {{ getCollection(element.collectionId) }} </td>\n        </ng-container>\n\n        <ng-container matColumnDef=\"categoryId\">\n            <th mat-header-cell *matHeaderCellDef>\n                CATEGORY\n            </th>\n            <td mat-cell *matCellDef=\"let element\" class=\"padding-table-td\"> {{ element.categoryId }} </td>\n        </ng-container>\n\n        <ng-container matColumnDef=\"color\">\n            <th mat-header-cell *matHeaderCellDef mat-sort-header>\n                COLOR\n            </th>\n            <td mat-cell *matCellDef=\"let element\" class=\"padding-table-td\"> {{ element.color }} </td>\n        </ng-container>\n\n        <ng-container matColumnDef=\"releaseDate\">\n            <th mat-header-cell *matHeaderCellDef mat-sort-header>\n                OFFICIAL RELEASE\n            </th>\n            <td mat-cell *matCellDef=\"let element\" class=\"padding-table-td\"> {{ element.releaseDate? (element.releaseDate  | date: 'dd/MM/yyyy'): \"Not scheduled\" }} </td>\n        </ng-container>\n\n        <ng-container matColumnDef=\"createdAt\">\n            <th mat-header-cell *matHeaderCellDef mat-sort-header>\n                CREATION DATE\n            </th>\n            <td mat-cell *matCellDef=\"let element\" class=\"padding-table-td\"> {{ element.createdAt | date: 'dd/MM/yyyy HH:mm:ss' }} </td>\n        </ng-container>\n        <!--ng-container matColumnDef=\"HOT\">\n          <th mat-header-cell *matHeaderCellDef mat-sort-header>\n            HOT\n          </th>\n          <td mat-cell *matCellDef=\"let element\"> {{ element.hot? 'Yes':'No' }} </td>\n      </ng-container-->\n\n        <ng-container matColumnDef=\"actions\">\n            <th mat-header-cell *matHeaderCellDef>\n                ACTIONS\n            </th>\n            <td mat-cell *matCellDef=\"let element\" class=\"min-width-80px\">\n                <button mat-icon-button type=\"button\" color=\"primary\" [matTooltip]=\"Edit\" (click)=\"editReleaseModal(element.id)\">\n                    <mat-icon>edit</mat-icon>\n                </button>\n                <!--button mat-icon-button type=\"button\" color=\"primary\" [matTooltip]=\"Delete\">\n                    <mat-icon>delete</mat-icon>\n                </button-->\n            </td>\n        </ng-container>\n\n        <tr mat-header-row *matHeaderRowDef=\"displayedColumns\"></tr>\n        <tr mat-row *matRowDef=\"let row; columns: displayedColumns;\" [ngClass]=\"row.is_active ? '' : 'text-decoration-line-through'\">\n        </tr>\n\n    </table>\n\n</div>\n\n<div class=\"margin-right-25px flex-shrink-0 display-flex\">\n    <span class=\"flex-grow-1\"></span>\n    <mat-paginator [length]=\"totalLength\" [pageSizeOptions]=\"[5, 10, 20, 50, 100]\" [pageIndex]=\"\" [pageSize]=\"50\" showFirstLastButtons\n        (page)=\"onPage()\">\n    </mat-paginator>\n</div>\n<div *ngIf=\"!disabled\" class=\"display-flex justify-content-end padding-right-25px padding-top-25px\">\n\n    <button mat-stroked-button type=\"button\" [disabled]=\"!collectionId\" class=\"max-width-480px\" (click)=\"addNewReleaseModal()\">Add Release</button>\n\n</div>\n<http-request-indicator [urlExpressions]=\"[\n        configService.config.apiConfigs.releases.apiEndpoint + '.*']\">\n</http-request-indicator>\n"
 
 /***/ }),
 
@@ -1771,9 +1825,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _config_services_config_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../../../config/services/config.service */ "./src/app/config/services/config.service.ts");
 /* harmony import */ var _error_handling_services_error_handling_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../../../../error-handling/services/error-handling.service */ "./src/app/error-handling/services/error-handling.service.ts");
 /* harmony import */ var _services_releases_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../services/releases.service */ "./src/app/ms-back-office/modules/ms-releases/services/releases.service.ts");
-/* harmony import */ var _models_gender__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../models/gender */ "./src/app/ms-back-office/modules/ms-releases/models/gender.ts");
-/* harmony import */ var _new_release_modal_new_release_modal_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../new-release-modal/new-release-modal.component */ "./src/app/ms-back-office/modules/ms-releases/components/new-release-modal/new-release-modal.component.ts");
-/* harmony import */ var _edit_release_modal_edit_release_modal_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../edit-release-modal/edit-release-modal.component */ "./src/app/ms-back-office/modules/ms-releases/components/edit-release-modal/edit-release-modal.component.ts");
+/* harmony import */ var _services_releases_images_service__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../services/releases-images.service */ "./src/app/ms-back-office/modules/ms-releases/services/releases-images.service.ts");
+/* harmony import */ var _models_gender__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../../models/gender */ "./src/app/ms-back-office/modules/ms-releases/models/gender.ts");
+/* harmony import */ var _new_release_modal_new_release_modal_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../new-release-modal/new-release-modal.component */ "./src/app/ms-back-office/modules/ms-releases/components/new-release-modal/new-release-modal.component.ts");
+/* harmony import */ var _edit_release_modal_edit_release_modal_component__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../edit-release-modal/edit-release-modal.component */ "./src/app/ms-back-office/modules/ms-releases/components/edit-release-modal/edit-release-modal.component.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1797,18 +1852,20 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 
 
 
+
 var titleKey = 'Delete';
 var deleteBtnKey = 'Delete';
 var messageKey = 'Are you sure you want to delete this Release?';
 var errorKey = 'Error';
 var deletedMessageKey = 'Deleted';
 var ReleasesCollectionTableComponent = /** @class */ (function () {
-    function ReleasesCollectionTableComponent(activatedRoute, configService, dialog, errorHandlingService, releasesService) {
+    function ReleasesCollectionTableComponent(activatedRoute, configService, dialog, errorHandlingService, releasesService, releasesImgesService) {
         this.activatedRoute = activatedRoute;
         this.configService = configService;
         this.dialog = dialog;
         this.errorHandlingService = errorHandlingService;
         this.releasesService = releasesService;
+        this.releasesImgesService = releasesImgesService;
         this.disabled = false;
         this.displayedColumns = [
             'name',
@@ -1821,8 +1878,9 @@ var ReleasesCollectionTableComponent = /** @class */ (function () {
             'color',
             'releaseDate',
             'createdAt',
+            'actions'
         ];
-        this.genders = _models_gender__WEBPACK_IMPORTED_MODULE_8__["GENDERS"];
+        this.genders = _models_gender__WEBPACK_IMPORTED_MODULE_9__["GENDERS"];
         this.totalLength = 0;
         this.releases = [];
         this.newRelease = new _angular_core__WEBPACK_IMPORTED_MODULE_0__["EventEmitter"]();
@@ -1830,9 +1888,10 @@ var ReleasesCollectionTableComponent = /** @class */ (function () {
     ReleasesCollectionTableComponent.prototype.ngOnInit = function () {
         var _this = this;
         this.loadPage();
-        //this.brands = this.activatedRoute.snapshot.data.brands;
-        //this.collections = this.activatedRoute.snapshot.data.collections;
-        //this.styles = this.activatedRoute.snapshot.data.styles;
+        this.brands = this.activatedRoute.snapshot.data.brands;
+        this.collections = this.activatedRoute.snapshot.data.collections;
+        this.shops = this.activatedRoute.snapshot.data.shops;
+        this.styles = this.activatedRoute.snapshot.data.styles;
         this.filter = this.createFilterFormGroup();
         this.filterValueChanges = this.filter.valueChanges.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["debounceTime"])(500)).subscribe(function (change) { return _this.onFilter(); });
         this.paginator.pageIndex = 0;
@@ -1921,7 +1980,7 @@ var ReleasesCollectionTableComponent = /** @class */ (function () {
     };
     ReleasesCollectionTableComponent.prototype.addNewReleaseModal = function () {
         var _this = this;
-        this.modalRef = this.dialog.open(_new_release_modal_new_release_modal_component__WEBPACK_IMPORTED_MODULE_9__["NewReleaseModalComponent"], {
+        this.modalRef = this.dialog.open(_new_release_modal_new_release_modal_component__WEBPACK_IMPORTED_MODULE_10__["NewReleaseModalComponent"], {
             height: '90%',
             width: '90%',
             data: {
@@ -1938,17 +1997,24 @@ var ReleasesCollectionTableComponent = /** @class */ (function () {
     };
     ReleasesCollectionTableComponent.prototype.editReleaseModal = function (releaseId) {
         var _this = this;
-        this.modalRef = this.dialog.open(_edit_release_modal_edit_release_modal_component__WEBPACK_IMPORTED_MODULE_10__["EditReleaseModalComponent"], {
-            height: '90%',
-            width: '90%',
-            data: {
-                //shops: this.shops,
-                collectionId: this.collectionId,
-                releaseId: releaseId
-            }
-        });
-        this.modalRef.afterClosed().subscribe(function () {
-            _this.loadPage();
+        this.releasesImgesService.getReleaseAllImages(releaseId).subscribe(function (images) {
+            console.log(JSON.stringify(images));
+            _this.modalRef = _this.dialog.open(_edit_release_modal_edit_release_modal_component__WEBPACK_IMPORTED_MODULE_11__["EditReleaseModalComponent"], {
+                height: '90%',
+                width: '90%',
+                data: {
+                    shops: _this.shops,
+                    brands: _this.brands,
+                    collections: _this.collections,
+                    collectionId: _this.collectionId,
+                    releaseId: releaseId,
+                    styles: _this.styles,
+                    imageList: images.data
+                }
+            });
+            _this.modalRef.afterClosed().subscribe(function () {
+                _this.loadPage();
+            });
         });
     };
     __decorate([
@@ -1993,7 +2059,8 @@ var ReleasesCollectionTableComponent = /** @class */ (function () {
             _config_services_config_service__WEBPACK_IMPORTED_MODULE_5__["ConfigService"],
             _angular_material__WEBPACK_IMPORTED_MODULE_3__["MatDialog"],
             _error_handling_services_error_handling_service__WEBPACK_IMPORTED_MODULE_6__["ErrorHandlingService"],
-            _services_releases_service__WEBPACK_IMPORTED_MODULE_7__["ReleasesService"]])
+            _services_releases_service__WEBPACK_IMPORTED_MODULE_7__["ReleasesService"],
+            _services_releases_images_service__WEBPACK_IMPORTED_MODULE_8__["ReleasesImgesService"]])
     ], ReleasesCollectionTableComponent);
     return ReleasesCollectionTableComponent;
 }());
@@ -2406,7 +2473,7 @@ var ReleasesTableComponent = /** @class */ (function () {
         var _this = this;
         this.releasesService.getRelease(id).subscribe(function (response) {
             _this.releasesImgesService.getReleaseAllImages(id).subscribe(function (images) {
-                console.log(JSON.stringify(images));
+                console.log(JSON.stringify(images) + "llllllllllllllllllllllllllllll");
                 _this.modalRef = _this.dialog.open(_see_release_see_release_component__WEBPACK_IMPORTED_MODULE_10__["SeeReleaseComponent"], {
                     height: '90%',
                     width: '95%',
@@ -2879,6 +2946,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _ms_style_services_styles_resolve_service__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../ms-style/services/styles-resolve.service */ "./src/app/ms-back-office/modules/ms-style/services/styles-resolve.service.ts");
 /* harmony import */ var _ms_categories_services_categories_resolve_service__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ../ms-categories/services/categories-resolve.service */ "./src/app/ms-back-office/modules/ms-categories/services/categories-resolve.service.ts");
 /* harmony import */ var _routing_services_id_resolve_service__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ../../../routing/services/id-resolve.service */ "./src/app/routing/services/id-resolve.service.ts");
+/* harmony import */ var _services_releases_resolve_service__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./services/releases-resolve.service */ "./src/app/ms-back-office/modules/ms-releases/services/releases-resolve.service.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -2893,6 +2961,7 @@ var __decorate = (undefined && undefined.__decorate) || function (decorators, ta
 
 
 //
+
 
 
 
@@ -2922,7 +2991,9 @@ var routes = [
             brands: _ms_brands_services_brands_resolve_service__WEBPACK_IMPORTED_MODULE_7__["BrandsResolveService"],
             categories: _ms_categories_services_categories_resolve_service__WEBPACK_IMPORTED_MODULE_12__["CategoriesResolveService"],
             collections: _ms_collections_services_collections_resolve_service__WEBPACK_IMPORTED_MODULE_9__["CollectionsResolveService"],
-            styles: _ms_style_services_styles_resolve_service__WEBPACK_IMPORTED_MODULE_11__["StylesResolveService"]
+            styles: _ms_style_services_styles_resolve_service__WEBPACK_IMPORTED_MODULE_11__["StylesResolveService"],
+            shops: _ms_shops_services_shops_resolve_service__WEBPACK_IMPORTED_MODULE_8__["ShopsResolveService"],
+            releases: _services_releases_resolve_service__WEBPACK_IMPORTED_MODULE_14__["ReleasesResolveService"],
         },
         data: { closeRouteCommand: ['../'] }
     },
