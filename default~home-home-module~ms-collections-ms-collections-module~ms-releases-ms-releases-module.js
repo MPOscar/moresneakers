@@ -1395,6 +1395,7 @@ var NewReleaseComponent = /** @class */ (function () {
     NewReleaseComponent.prototype.createRelease = function (releaseData) {
         var _this = this;
         var mainImageFlag = false;
+        var onlyOne = false;
         var offers = releaseData.offers;
         console.log(offers + "create...................");
         this.releasesService.postRelease(releaseData).subscribe(function (response) {
@@ -1405,8 +1406,12 @@ var NewReleaseComponent = /** @class */ (function () {
             for (var position in releaseData.faces) {
                 var face = releaseData.faces[position];
                 if (face.mainImage === true) {
+                    onlyOne = true;
                     mainImageFlag = true;
                     _this.imagesService.postImage(face.file).subscribe(function (response) {
+                        releaseData.mainImage = response.data.url;
+                        releaseData.id = _this.releaseId;
+                        _this.releasesService.putRelease(releaseData).subscribe(function (response) { });
                         //let image = new ReleaseImage;
                         //image.imgUrl = response.data.url;
                         //releaseData.images = [...releaseData.images, image];
@@ -1416,10 +1421,9 @@ var NewReleaseComponent = /** @class */ (function () {
                         var image = new _models_releases__WEBPACK_IMPORTED_MODULE_10__["ReleaseImage"];
                         image.imgUrl = response.data.url;
                         //releaseData.images = [...releaseData.images, image];
-                        _this.releasesImgesService.postReleaseImage(_this.releaseId, image).subscribe(function (response) { });
-                        releaseData.mainImage = response.data.url;
-                        releaseData.id = _this.releaseId;
-                        _this.releasesService.putRelease(releaseData).subscribe(function (response) { });
+                        _this.releasesImgesService.postReleaseImage(_this.releaseId, image).subscribe(function (response) {
+                            _this.close();
+                        });
                         /*.releasesImgesService.patchReleaseMainImage(this.releaseId, mainImage).subscribe(response => {
                           console.log("new principal");
                         },
@@ -1438,6 +1442,7 @@ var NewReleaseComponent = /** @class */ (function () {
                 }
             }
             if (imagesObservables.length > 0) {
+                onlyOne = false;
                 Object(rxjs__WEBPACK_IMPORTED_MODULE_3__["forkJoin"])(imagesObservables).subscribe(function (responses) {
                     for (var item in responses) {
                         if (!mainImageFlag) {
@@ -1468,7 +1473,9 @@ var NewReleaseComponent = /** @class */ (function () {
                 });
             }
             else {
-                _this.close();
+                if (!onlyOne) {
+                    _this.close();
+                }
             }
         }, function (error) {
             _this.errorHandlingService.handleUiError(errorKey, error, 'release');
