@@ -1409,9 +1409,6 @@ var NewReleaseComponent = /** @class */ (function () {
                     onlyOne = true;
                     mainImageFlag = true;
                     _this.imagesService.postImage(face.file).subscribe(function (response) {
-                        releaseData.mainImage = response.data.url;
-                        releaseData.id = _this.releaseId;
-                        _this.releasesService.putRelease(releaseData).subscribe(function (response) { });
                         //let image = new ReleaseImage;
                         //image.imgUrl = response.data.url;
                         //releaseData.images = [...releaseData.images, image];
@@ -1421,7 +1418,10 @@ var NewReleaseComponent = /** @class */ (function () {
                         var image = new _models_releases__WEBPACK_IMPORTED_MODULE_10__["ReleaseImage"];
                         image.imgUrl = response.data.url;
                         //releaseData.images = [...releaseData.images, image];
-                        _this.releasesImgesService.postReleaseImage(_this.releaseId, image).subscribe(function (response) {
+                        _this.releasesImgesService.postReleaseImage(_this.releaseId, image).subscribe(function (response) { });
+                        releaseData.mainImage = response.data.url;
+                        releaseData.id = _this.releaseId;
+                        _this.releasesService.putRelease(releaseData).subscribe(function (response) {
                             _this.close();
                         });
                         /*.releasesImgesService.patchReleaseMainImage(this.releaseId, mainImage).subscribe(response => {
