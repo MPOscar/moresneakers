@@ -1420,12 +1420,13 @@ var NewReleaseComponent = /** @class */ (function () {
                         releaseData.mainImage = response.data.url;
                         releaseData.id = _this.releaseId;
                         _this.releasesService.putRelease(releaseData).subscribe(function (response) { });
-                        _this.releasesImgesService.patchReleaseMainImage(_this.releaseId, mainImage).subscribe(function (response) {
-                            console.log("new principal");
-                        }, function (error) {
-                            _this.errorHandlingService.handleUiError(errorKey, error);
-                            _this.validationErrors = error.formErrors;
-                        });
+                        /*.releasesImgesService.patchReleaseMainImage(this.releaseId, mainImage).subscribe(response => {
+                          console.log("new principal");
+                        },
+                          (error: HandledError) => {
+                            this.errorHandlingService.handleUiError(errorKey, error);
+                            this.validationErrors = error.formErrors;
+                          });*/
                     }, function (error) {
                         _this.errorHandlingService.handleUiError(errorKey, error);
                         _this.validationErrors = error.formErrors;
