@@ -931,12 +931,15 @@ var EditReleaseComponent = /** @class */ (function () {
                             var mainImage = {
                                 mainImage: image.imgUrl
                             };
-                            _this.releasesImgesService.patchReleaseMainImage(_this.releaseId, mainImage).subscribe(function (response) {
-                                console.log("new principal");
-                            }, function (error) {
-                                _this.errorHandlingService.handleUiError(errorKey, error);
-                                _this.validationErrors = error.formErrors;
-                            });
+                            releaseData.mainImage = image.imgUrl;
+                            _this.releasesService.putRelease(releaseData).subscribe(function (response) { });
+                            /*this.releasesImgesService.patchReleaseMainImage(this.releaseId, mainImage).subscribe(response => {
+                              console.log("new principal");
+                            },
+                              (error: HandledError) => {
+                                this.errorHandlingService.handleUiError(errorKey, error);
+                                this.validationErrors = error.formErrors;
+                              });*/
                             _this.releasesImgesService.postReleaseImage(_this.releaseId, image).subscribe(function (response) {
                                 console.log("salvando imagenes");
                             }, function (error) {
@@ -968,6 +971,12 @@ var EditReleaseComponent = /** @class */ (function () {
             if (imagesObservables.length > 0) {
                 Object(rxjs__WEBPACK_IMPORTED_MODULE_4__["forkJoin"])(imagesObservables).subscribe(function (responses) {
                     for (var item in responses) {
+                        if (!mainImageFlag) {
+                            releaseData.mainImage = responses[item].data.url;
+                            ;
+                            _this.releasesService.putRelease(releaseData).subscribe(function (response) { });
+                            mainImageFlag = true;
+                        }
                         var image = new _models_releases__WEBPACK_IMPORTED_MODULE_13__["ReleaseImage"];
                         image.imgUrl = responses[item].data.url;
                         releaseData.images = releaseData.images.concat([image]);
@@ -1385,6 +1394,7 @@ var NewReleaseComponent = /** @class */ (function () {
     };
     NewReleaseComponent.prototype.createRelease = function (releaseData) {
         var _this = this;
+        var mainImageFlag = false;
         var offers = releaseData.offers;
         console.log(offers + "create...................");
         this.releasesService.postRelease(releaseData).subscribe(function (response) {
@@ -1395,15 +1405,21 @@ var NewReleaseComponent = /** @class */ (function () {
             for (var position in releaseData.faces) {
                 var face = releaseData.faces[position];
                 if (face.mainImage === true) {
+                    mainImageFlag = true;
                     _this.imagesService.postImage(face.file).subscribe(function (response) {
                         //let image = new ReleaseImage;
                         //image.imgUrl = response.data.url;
                         //releaseData.images = [...releaseData.images, image];
-                        console.log("main image........................................");
-                        //console.log()
                         var mainImage = {
                             mainImage: response.data.url
                         };
+                        var image = new _models_releases__WEBPACK_IMPORTED_MODULE_10__["ReleaseImage"];
+                        image.imgUrl = response.data.url;
+                        //releaseData.images = [...releaseData.images, image];
+                        _this.releasesImgesService.postReleaseImage(_this.releaseId, image).subscribe(function (response) { });
+                        releaseData.mainImage = response.data.url;
+                        releaseData.id = _this.releaseId;
+                        _this.releasesService.putRelease(releaseData).subscribe(function (response) { });
                         _this.releasesImgesService.patchReleaseMainImage(_this.releaseId, mainImage).subscribe(function (response) {
                             console.log("new principal");
                         }, function (error) {
@@ -1423,6 +1439,13 @@ var NewReleaseComponent = /** @class */ (function () {
             if (imagesObservables.length > 0) {
                 Object(rxjs__WEBPACK_IMPORTED_MODULE_3__["forkJoin"])(imagesObservables).subscribe(function (responses) {
                     for (var item in responses) {
+                        if (!mainImageFlag) {
+                            releaseData.mainImage = responses[item].data.url;
+                            ;
+                            releaseData.id = _this.releaseId;
+                            _this.releasesService.putRelease(releaseData).subscribe(function (response) { });
+                            mainImageFlag = true;
+                        }
                         //const image = responses[item].data.url;
                         var image = new _models_releases__WEBPACK_IMPORTED_MODULE_10__["ReleaseImage"];
                         image.imgUrl = responses[item].data.url;
@@ -2313,7 +2336,7 @@ module.exports = "<h1>Releases Table</h1>\n\n<mat-toolbar class=\"margin-right-2
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ":host {\n  display: flex;\n  flex-direction: column;\n  flex-grow: 1; }\n\ntable {\n  width: 100%; }\n\n.mat-form-field {\n  font-size: 14px;\n  padding-right: 5px;\n  width: 100px !important; }\n\ntd,\nth {\n  width: 25%; }\n\n.padding-bottom-10 {\n  padding-bottom: 10px; }\n\n.width-90pct {\n  width: 90% !important; }\n\n.width-100pct {\n  width: 100% !important; }\n\n.height-90pct {\n  height: 90% !important; }\n\n.height-100pct {\n  height: 100% !important; }\n\n.padding-left-0px {\n  padding-left: 0px !important; }\n\nimg {\n  height: 60px !important;\n  width: 100px !important; }\n\n.hot-image-div {\n  position: absolute;\n  top: 0.3rem;\n  z-index: 2; }\n\n.item-image-div {\n  z-index: 1; }\n\n.hot-image {\n  width: 25px !important;\n  height: 25px !important; }\n\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvbXMtYmFjay1vZmZpY2UvbW9kdWxlcy9tcy1yZWxlYXNlcy9jb21wb25lbnRzL3JlbGVhc2VzLXRhYmxlL0U6XFxQUk9HUkFNQUNJT04gSUlJXFxtb3Jlc25lYWtlcnMtYmFja29mZmljZS9zcmNcXGFwcFxcbXMtYmFjay1vZmZpY2VcXG1vZHVsZXNcXG1zLXJlbGVhc2VzXFxjb21wb25lbnRzXFxyZWxlYXNlcy10YWJsZVxccmVsZWFzZXMtdGFibGUuY29tcG9uZW50LnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFDSSxjQUFhO0VBQ2IsdUJBQXNCO0VBQ3RCLGFBQVksRUFDZjs7QUFFRDtFQUNJLFlBQVcsRUFDZDs7QUFFRDtFQUNJLGdCQUFlO0VBQ2YsbUJBQWtCO0VBQ2xCLHdCQUF1QixFQUMxQjs7QUFFRDs7RUFFSSxXQUFVLEVBQ2I7O0FBRUQ7RUFDSSxxQkFDSixFQUFDOztBQUVEO0VBQ0ksc0JBQXFCLEVBQ3hCOztBQUVEO0VBQ0ksdUJBQXNCLEVBQ3pCOztBQUVEO0VBQ0ksdUJBQXNCLEVBQ3pCOztBQUVEO0VBQ0ksd0JBQXVCLEVBQzFCOztBQUVEO0VBQ0ksNkJBQ0osRUFBQzs7QUFFRDtFQUNJLHdCQUF1QjtFQUN2Qix3QkFBdUIsRUFDMUI7O0FBRUQ7RUFDSSxtQkFBa0I7RUFDbEIsWUFBVztFQUNYLFdBQVUsRUFDWDs7QUFFRDtFQUNFLFdBQVUsRUFDWDs7QUFFRDtFQUNJLHVCQUFzQjtFQUN0Qix3QkFBdUIsRUFDMUIiLCJmaWxlIjoic3JjL2FwcC9tcy1iYWNrLW9mZmljZS9tb2R1bGVzL21zLXJlbGVhc2VzL2NvbXBvbmVudHMvcmVsZWFzZXMtdGFibGUvcmVsZWFzZXMtdGFibGUuY29tcG9uZW50LnNjc3MiLCJzb3VyY2VzQ29udGVudCI6WyI6aG9zdCB7XHJcbiAgICBkaXNwbGF5OiBmbGV4O1xyXG4gICAgZmxleC1kaXJlY3Rpb246IGNvbHVtbjtcclxuICAgIGZsZXgtZ3JvdzogMTtcclxufVxyXG5cclxudGFibGUge1xyXG4gICAgd2lkdGg6IDEwMCU7XHJcbn1cclxuXHJcbi5tYXQtZm9ybS1maWVsZCB7XHJcbiAgICBmb250LXNpemU6IDE0cHg7XHJcbiAgICBwYWRkaW5nLXJpZ2h0OiA1cHg7XHJcbiAgICB3aWR0aDogMTAwcHggIWltcG9ydGFudDtcclxufVxyXG5cclxudGQsXHJcbnRoIHtcclxuICAgIHdpZHRoOiAyNSU7XHJcbn1cclxuXHJcbi5wYWRkaW5nLWJvdHRvbS0xMHtcclxuICAgIHBhZGRpbmctYm90dG9tOiAxMHB4XHJcbn1cclxuXHJcbi53aWR0aC05MHBjdHtcclxuICAgIHdpZHRoOiA5MCUgIWltcG9ydGFudDtcclxufVxyXG5cclxuLndpZHRoLTEwMHBjdHtcclxuICAgIHdpZHRoOiAxMDAlICFpbXBvcnRhbnQ7XHJcbn1cclxuXHJcbi5oZWlnaHQtOTBwY3R7XHJcbiAgICBoZWlnaHQ6IDkwJSAhaW1wb3J0YW50O1xyXG59XHJcblxyXG4uaGVpZ2h0LTEwMHBjdHtcclxuICAgIGhlaWdodDogMTAwJSAhaW1wb3J0YW50O1xyXG59XHJcblxyXG4ucGFkZGluZy1sZWZ0LTBweHtcclxuICAgIHBhZGRpbmctbGVmdDogMHB4ICFpbXBvcnRhbnRcclxufVxyXG5cclxuaW1ne1xyXG4gICAgaGVpZ2h0OiA2MHB4ICFpbXBvcnRhbnQ7XHJcbiAgICB3aWR0aDogMTAwcHggIWltcG9ydGFudDtcclxufVxyXG5cclxuLmhvdC1pbWFnZS1kaXYge1xyXG4gICAgcG9zaXRpb246IGFic29sdXRlO1xyXG4gICAgdG9wOiAwLjNyZW07XHJcbiAgICB6LWluZGV4OiAyO1xyXG4gIH1cclxuICBcclxuICAuaXRlbS1pbWFnZS1kaXYge1xyXG4gICAgei1pbmRleDogMTtcclxuICB9XHJcblxyXG4gIC5ob3QtaW1hZ2V7XHJcbiAgICAgIHdpZHRoOiAyNXB4ICFpbXBvcnRhbnQ7XHJcbiAgICAgIGhlaWdodDogMjVweCAhaW1wb3J0YW50O1xyXG4gIH0iXX0= */"
+module.exports = ":host {\n  display: flex;\n  flex-direction: column;\n  flex-grow: 1; }\n\ntable {\n  width: 100%; }\n\n.mat-form-field {\n  font-size: 14px;\n  padding-right: 5px;\n  width: 100px !important; }\n\ntd,\nth {\n  width: 25%; }\n\n.padding-bottom-10 {\n  padding-bottom: 10px; }\n\n.width-90pct {\n  width: 90% !important; }\n\n.width-100pct {\n  width: 100% !important; }\n\n::ng-deep mat-paginator {\n  padding-top: 2px !important; }\n\n.height-90pct {\n  height: 90% !important; }\n\n.height-100pct {\n  height: 100% !important; }\n\n.padding-left-0px {\n  padding-left: 0px !important; }\n\nimg {\n  height: 60px !important;\n  width: 100px !important; }\n\n.hot-image-div {\n  position: absolute;\n  top: 0.3rem;\n  z-index: 2; }\n\n.item-image-div {\n  z-index: 1; }\n\n.hot-image {\n  width: 25px !important;\n  height: 25px !important; }\n\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvbXMtYmFjay1vZmZpY2UvbW9kdWxlcy9tcy1yZWxlYXNlcy9jb21wb25lbnRzL3JlbGVhc2VzLXRhYmxlL0U6XFxQUk9HUkFNQUNJT04gSUlJXFxtb3Jlc25lYWtlcnMtYmFja29mZmljZS9zcmNcXGFwcFxcbXMtYmFjay1vZmZpY2VcXG1vZHVsZXNcXG1zLXJlbGVhc2VzXFxjb21wb25lbnRzXFxyZWxlYXNlcy10YWJsZVxccmVsZWFzZXMtdGFibGUuY29tcG9uZW50LnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFDSSxjQUFhO0VBQ2IsdUJBQXNCO0VBQ3RCLGFBQVksRUFDZjs7QUFFRDtFQUNJLFlBQVcsRUFDZDs7QUFFRDtFQUNJLGdCQUFlO0VBQ2YsbUJBQWtCO0VBQ2xCLHdCQUF1QixFQUMxQjs7QUFFRDs7RUFFSSxXQUFVLEVBQ2I7O0FBRUQ7RUFDSSxxQkFDSixFQUFDOztBQUVEO0VBQ0ksc0JBQXFCLEVBQ3hCOztBQUVEO0VBQ0ksdUJBQXNCLEVBQ3pCOztBQUVEO0VBQ0ksNEJBQTJCLEVBQzlCOztBQUVEO0VBQ0ksdUJBQXNCLEVBQ3pCOztBQUVEO0VBQ0ksd0JBQXVCLEVBQzFCOztBQUVEO0VBQ0ksNkJBQ0osRUFBQzs7QUFFRDtFQUNJLHdCQUF1QjtFQUN2Qix3QkFBdUIsRUFDMUI7O0FBRUQ7RUFDSSxtQkFBa0I7RUFDbEIsWUFBVztFQUNYLFdBQVUsRUFDWDs7QUFFRDtFQUNFLFdBQVUsRUFDWDs7QUFFRDtFQUNJLHVCQUFzQjtFQUN0Qix3QkFBdUIsRUFDMUIiLCJmaWxlIjoic3JjL2FwcC9tcy1iYWNrLW9mZmljZS9tb2R1bGVzL21zLXJlbGVhc2VzL2NvbXBvbmVudHMvcmVsZWFzZXMtdGFibGUvcmVsZWFzZXMtdGFibGUuY29tcG9uZW50LnNjc3MiLCJzb3VyY2VzQ29udGVudCI6WyI6aG9zdCB7XHJcbiAgICBkaXNwbGF5OiBmbGV4O1xyXG4gICAgZmxleC1kaXJlY3Rpb246IGNvbHVtbjtcclxuICAgIGZsZXgtZ3JvdzogMTtcclxufVxyXG5cclxudGFibGUge1xyXG4gICAgd2lkdGg6IDEwMCU7XHJcbn1cclxuXHJcbi5tYXQtZm9ybS1maWVsZCB7XHJcbiAgICBmb250LXNpemU6IDE0cHg7XHJcbiAgICBwYWRkaW5nLXJpZ2h0OiA1cHg7XHJcbiAgICB3aWR0aDogMTAwcHggIWltcG9ydGFudDtcclxufVxyXG5cclxudGQsXHJcbnRoIHtcclxuICAgIHdpZHRoOiAyNSU7XHJcbn1cclxuXHJcbi5wYWRkaW5nLWJvdHRvbS0xMHtcclxuICAgIHBhZGRpbmctYm90dG9tOiAxMHB4XHJcbn1cclxuXHJcbi53aWR0aC05MHBjdHtcclxuICAgIHdpZHRoOiA5MCUgIWltcG9ydGFudDtcclxufVxyXG5cclxuLndpZHRoLTEwMHBjdHtcclxuICAgIHdpZHRoOiAxMDAlICFpbXBvcnRhbnQ7XHJcbn1cclxuXHJcbjo6bmctZGVlcCBtYXQtcGFnaW5hdG9yIHtcclxuICAgIHBhZGRpbmctdG9wOiAycHggIWltcG9ydGFudDtcclxufVxyXG5cclxuLmhlaWdodC05MHBjdHtcclxuICAgIGhlaWdodDogOTAlICFpbXBvcnRhbnQ7XHJcbn1cclxuXHJcbi5oZWlnaHQtMTAwcGN0e1xyXG4gICAgaGVpZ2h0OiAxMDAlICFpbXBvcnRhbnQ7XHJcbn1cclxuXHJcbi5wYWRkaW5nLWxlZnQtMHB4e1xyXG4gICAgcGFkZGluZy1sZWZ0OiAwcHggIWltcG9ydGFudFxyXG59XHJcblxyXG5pbWd7XHJcbiAgICBoZWlnaHQ6IDYwcHggIWltcG9ydGFudDtcclxuICAgIHdpZHRoOiAxMDBweCAhaW1wb3J0YW50O1xyXG59XHJcblxyXG4uaG90LWltYWdlLWRpdiB7XHJcbiAgICBwb3NpdGlvbjogYWJzb2x1dGU7XHJcbiAgICB0b3A6IDAuM3JlbTtcclxuICAgIHotaW5kZXg6IDI7XHJcbiAgfVxyXG4gIFxyXG4gIC5pdGVtLWltYWdlLWRpdiB7XHJcbiAgICB6LWluZGV4OiAxO1xyXG4gIH1cclxuXHJcbiAgLmhvdC1pbWFnZXtcclxuICAgICAgd2lkdGg6IDI1cHggIWltcG9ydGFudDtcclxuICAgICAgaGVpZ2h0OiAyNXB4ICFpbXBvcnRhbnQ7XHJcbiAgfSJdfQ== */"
 
 /***/ }),
 
