@@ -4617,6 +4617,7 @@ var HeadingFormComponent = /** @class */ (function (_super) {
     };
     HeadingFormComponent.prototype.submitClicked = function () {
         if (this.formGroup.valid) {
+            this.data = this.formGroup.value;
             this.accept.emit(this.data);
         }
         else {
