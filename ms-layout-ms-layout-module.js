@@ -4376,8 +4376,8 @@ var HeaderTableComponent = /** @class */ (function () {
         this.loadPage();
     };
     HeaderTableComponent.prototype.ngOnDestroy = function () {
-        this.tasksList.unsubscribe();
-        this.filterValueChanges.unsubscribe();
+        //this.tasksList.unsubscribe();
+        //this.filterValueChanges.unsubscribe();
     };
     HeaderTableComponent.prototype.createFilterFormGroup = function () {
         var group = {};
@@ -4782,7 +4782,7 @@ var LayoutSliderTopnavComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<!--h1>Select the page you want to configure</h1-->\n<layout-slider-topnav (layoutEventEmitter)=\"layoutEvent($event)\"></layout-slider-topnav>\n<div class=\"flex-grow-1 overflow-auto display-flex flex-direction-column\">\n\n    <div class=\"flex-grow-1 flex-shrink-0 display-flex flex-direction-column\">\n\n        <mat-tab-group class=\"padding-top-25px display-flex flex-grow-1\">\n            <mat-tab label=\"Slider\">\n                <edit-slider [filters]=\"filters\" [pageId]=\"pageId\" [brands]=\"brands\" [categories]=\"categories\" [collections]=\"collections\"\n                    [shops]=\"shops\" [styles]=\"styles\"></edit-slider>\n            </mat-tab>\n            <mat-tab label=\"Header\">\n                <!--edit-header  [filters]=\"filters\" [pageId]=\"pageId\" [brands]=\"brands\" [categories]=\"categories\" [collections]=\"collections\" [shops]=\"shops\" [styles]=\"styles\"></edit-header-->\n                <div class=\"mb-20 margin-top-25px\" fxFlex fxLayout=\"row\" fxLayout.lt-md=\"column\" fxLayoutGap=\"20px\">\n\n                    <div [fxFlex]=\"50\" fxFlex fxLayout=\"column\" fxLayout.lt-md=\"column\">\n                        <header-table  [filters]=\"filters\" [pageId]=\"pageId\" [brands]=\"brands\" [categories]=\"categories\" [collections]=\"collections\" [shops]=\"shops\" [styles]=\"styles\"></header-table>\n                    </div>\n\n                    <div [fxFlex]=\"50\" fxFlex fxLayout=\"column\" fxLayout.lt-md=\"column\"></div>\n\n                </div>\n\n            </mat-tab>\n\n            <mat-tab label=\"Hottest\">\n                <div class=\"mb-20 margin-top-25px\" fxFlex fxLayout=\"row\" fxLayout.lt-md=\"column\" fxLayoutGap=\"20px\">\n\n                    <div [fxFlex]=\"100\" fxFlex fxLayout=\"column\" fxLayout.lt-md=\"column\">\n\n                        <div fxLayout=\"row\" fxLayout.lt-md=\"column\">\n\n                            <div [fxFlex]=\"40\" fxLayout=\"column\" class=\"margin-right-25px\">\n\n                                <mat-form-field class=\"margin-left-16px max-width-480px\">\n\n                                    <mat-label>URL</mat-label>\n\n                                    <input matInput type=\"text\">\n\n                                </mat-form-field>\n\n                                <mat-form-field class=\"margin-left-16px max-width-480px\">\n\n                                    <mat-label>Numbers of Items</mat-label>\n\n                                    <input matInput type=\"text\">\n\n                                </mat-form-field>\n                            </div>\n                            <div [fxFlex]=\"60\" class=\"margin-right-25px\">\n\n                                <mat-form-field class=\"width-100pc margin-left-16px\">\n\n                                    <mat-label>URL</mat-label>\n\n                                    <input matInput type=\"text\">\n\n                                </mat-form-field>\n\n                                <mat-form-field class=\"width-100pc margin-left-16px\">\n\n                                    <mat-label>Traking list base URL</mat-label>\n\n                                    <input matInput type=\"text\">\n\n                                </mat-form-field>\n                            </div>\n                        </div>\n                    </div>\n                </div>\n            </mat-tab>\n            <mat-tab label=\"Heading\">\n                <edit-heading [filters]=\"filters\" [pageId]=\"pageId\" [brands]=\"brands\" [categories]=\"categories\" [collections]=\"collections\"\n                    [shops]=\"shops\" [styles]=\"styles\"></edit-heading>\n            </mat-tab>\n\n        </mat-tab-group>\n\n    </div>\n\n</div>"
+module.exports = "<!--h1>Select the page you want to configure</h1-->\n<layout-slider-topnav (layoutEventEmitter)=\"layoutEvent($event)\"></layout-slider-topnav>\n<div class=\"flex-grow-1 overflow-auto display-flex flex-direction-column\">\n\n    <div class=\"flex-grow-1 flex-shrink-0 display-flex flex-direction-column\">\n\n        <mat-tab-group class=\"padding-top-25px display-flex flex-grow-1\" *ngIf=\"flag\">\n            <mat-tab label=\"Slider\">\n                <edit-slider [filters]=\"filters\" [pageId]=\"pageId\" [brands]=\"brands\" [categories]=\"categories\" [collections]=\"collections\"\n                    [shops]=\"shops\" [styles]=\"styles\"></edit-slider>\n            </mat-tab>\n            <mat-tab label=\"Header\">\n                <!--edit-header  [filters]=\"filters\" [pageId]=\"pageId\" [brands]=\"brands\" [categories]=\"categories\" [collections]=\"collections\" [shops]=\"shops\" [styles]=\"styles\"></edit-header-->\n                <div class=\"mb-20 margin-top-25px\" fxFlex fxLayout=\"row\" fxLayout.lt-md=\"column\" fxLayoutGap=\"20px\">\n\n                    <div [fxFlex]=\"50\" fxFlex fxLayout=\"column\" fxLayout.lt-md=\"column\">\n                        <header-table  [filters]=\"filters\" [pageId]=\"pageId\" [brands]=\"brands\" [categories]=\"categories\" [collections]=\"collections\" [shops]=\"shops\" [styles]=\"styles\"></header-table>\n                    </div>\n\n                    <div [fxFlex]=\"50\" fxFlex fxLayout=\"column\" fxLayout.lt-md=\"column\"></div>\n\n                </div>\n\n            </mat-tab>\n\n            <mat-tab label=\"Hottest\">\n                <div class=\"mb-20 margin-top-25px\" fxFlex fxLayout=\"row\" fxLayout.lt-md=\"column\" fxLayoutGap=\"20px\">\n\n                    <div [fxFlex]=\"100\" fxFlex fxLayout=\"column\" fxLayout.lt-md=\"column\">\n\n                        <div fxLayout=\"row\" fxLayout.lt-md=\"column\">\n\n                            <div [fxFlex]=\"40\" fxLayout=\"column\" class=\"margin-right-25px\">\n\n                                <mat-form-field class=\"margin-left-16px max-width-480px\">\n\n                                    <mat-label>URL</mat-label>\n\n                                    <input matInput type=\"text\">\n\n                                </mat-form-field>\n\n                                <mat-form-field class=\"margin-left-16px max-width-480px\">\n\n                                    <mat-label>Numbers of Items</mat-label>\n\n                                    <input matInput type=\"text\">\n\n                                </mat-form-field>\n                            </div>\n                            <div [fxFlex]=\"60\" class=\"margin-right-25px\">\n\n                                <mat-form-field class=\"width-100pc margin-left-16px\">\n\n                                    <mat-label>URL</mat-label>\n\n                                    <input matInput type=\"text\">\n\n                                </mat-form-field>\n\n                                <mat-form-field class=\"width-100pc margin-left-16px\">\n\n                                    <mat-label>Traking list base URL</mat-label>\n\n                                    <input matInput type=\"text\">\n\n                                </mat-form-field>\n                            </div>\n                        </div>\n                    </div>\n                </div>\n            </mat-tab>\n            <mat-tab label=\"Heading\">\n                <edit-heading [filters]=\"filters\" [pageId]=\"pageId\" [brands]=\"brands\" [categories]=\"categories\" [collections]=\"collections\"\n                    [shops]=\"shops\" [styles]=\"styles\"></edit-heading>\n            </mat-tab>\n\n        </mat-tab-group>\n\n    </div>\n\n</div>"
 
 /***/ }),
 
@@ -4811,7 +4811,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
 /* harmony import */ var _angular_material__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/material */ "./node_modules/@angular/material/esm5/material.es5.js");
 /* harmony import */ var _error_handling_services_error_handling_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../../error-handling/services/error-handling.service */ "./src/app/error-handling/services/error-handling.service.ts");
-/* harmony import */ var _services_layout_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../services/layout.service */ "./src/app/ms-back-office/modules/ms-layout/services/layout.service.ts");
+/* harmony import */ var _ms_style_services_styles_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../ms-style/services/styles.service */ "./src/app/ms-back-office/modules/ms-style/services/styles.service.ts");
+/* harmony import */ var _services_layout_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../services/layout.service */ "./src/app/ms-back-office/modules/ms-layout/services/layout.service.ts");
+/* harmony import */ var _edit_slider_edit_slider_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../edit-slider/edit-slider.component */ "./src/app/ms-back-office/modules/ms-layout/components/edit-slider/edit-slider.component.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -4830,13 +4832,17 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 
 //
 
+
+
 var errorKey = 'Error';
 var LayoutComponent = /** @class */ (function () {
-    function LayoutComponent(activatedRoute, dialog, urlsService, errorHandlingService) {
+    function LayoutComponent(activatedRoute, dialog, urlsService, errorHandlingService, layoutService, stylesService) {
         this.activatedRoute = activatedRoute;
         this.dialog = dialog;
         this.urlsService = urlsService;
         this.errorHandlingService = errorHandlingService;
+        this.layoutService = layoutService;
+        this.stylesService = stylesService;
         this.displayedColumns = [
             'URL',
             'VANITY URL',
@@ -4845,6 +4851,7 @@ var LayoutComponent = /** @class */ (function () {
         this.totalLength = 0;
         this.urls = [];
         this.pageId = 'brands';
+        this.flag = true;
     }
     LayoutComponent.prototype.ngOnInit = function () {
         this.brands = this.activatedRoute.snapshot.data.brands;
@@ -4858,8 +4865,13 @@ var LayoutComponent = /** @class */ (function () {
     LayoutComponent.prototype.ngOnDestroy = function () {
     };
     LayoutComponent.prototype.layoutEvent = function (layout) {
+        var _this = this;
         console.log(layout);
         this.pageId = layout;
+        this.flag = false;
+        this.stylesService.getAllStyles().subscribe(function (response) {
+            _this.flag = true;
+        }, function (error) { return _this.errorHandlingService.handleUiError(errorKey, error); });
     };
     __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ViewChild"])(_angular_material__WEBPACK_IMPORTED_MODULE_2__["MatPaginator"]),
@@ -4869,6 +4881,10 @@ var LayoutComponent = /** @class */ (function () {
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ViewChild"])(_angular_material__WEBPACK_IMPORTED_MODULE_2__["MatSort"]),
         __metadata("design:type", _angular_material__WEBPACK_IMPORTED_MODULE_2__["MatSort"])
     ], LayoutComponent.prototype, "sort", void 0);
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ViewChild"])(_edit_slider_edit_slider_component__WEBPACK_IMPORTED_MODULE_6__["EditSliderComponent"]),
+        __metadata("design:type", _edit_slider_edit_slider_component__WEBPACK_IMPORTED_MODULE_6__["EditSliderComponent"])
+    ], LayoutComponent.prototype, "editSliderComponent", void 0);
     LayoutComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
             selector: 'layout',
@@ -4877,8 +4893,10 @@ var LayoutComponent = /** @class */ (function () {
         }),
         __metadata("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_1__["ActivatedRoute"],
             _angular_material__WEBPACK_IMPORTED_MODULE_2__["MatDialog"],
-            _services_layout_service__WEBPACK_IMPORTED_MODULE_4__["LayoutService"],
-            _error_handling_services_error_handling_service__WEBPACK_IMPORTED_MODULE_3__["ErrorHandlingService"]])
+            _services_layout_service__WEBPACK_IMPORTED_MODULE_5__["LayoutService"],
+            _error_handling_services_error_handling_service__WEBPACK_IMPORTED_MODULE_3__["ErrorHandlingService"],
+            _services_layout_service__WEBPACK_IMPORTED_MODULE_5__["LayoutService"],
+            _ms_style_services_styles_service__WEBPACK_IMPORTED_MODULE_4__["StylesService"]])
     ], LayoutComponent);
     return LayoutComponent;
 }());
