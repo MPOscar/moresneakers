@@ -7067,7 +7067,7 @@ var REGIONS = [
     { id: 'South/Latin America', name: 'South/Latin America' },
 ];
 var SHOWONREGIONS = [
-    { id: 'Usa', name: 'Usa' },
+    { id: 'USA', name: 'USA' },
     { id: 'Europe', name: 'Europe' },
     { id: 'Marketplaces', name: 'Marketplaces' },
 ];
