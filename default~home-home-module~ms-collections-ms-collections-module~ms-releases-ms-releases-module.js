@@ -288,6 +288,7 @@ var EditReleaseFormComponent = /** @class */ (function (_super) {
     EditReleaseFormComponent.prototype.ngAfterViewInit = function () {
     };
     EditReleaseFormComponent.prototype.createFormGroup = function () {
+        var _this = this;
         this.notScheduleFlag = this.data.releaseDate ? false : true;
         this.data.faces = this.imageList;
         this.faces = this.formBuilder.control(this.imageList);
@@ -312,6 +313,13 @@ var EditReleaseFormComponent = /** @class */ (function (_super) {
             customized: new _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormControl"](this.data.customized),
             currency: new _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormControl"](this.data.currency),
         });
+        var style;
+        if (this.data.styleId) {
+            style = this.styles.find(function (style) {
+                return style.id === _this.data.styleId;
+            });
+        }
+        this.selectedBrand.setValue(style.brand);
     };
     EditReleaseFormComponent.prototype.onDeleteFace = function (face) {
         var _this = this;
