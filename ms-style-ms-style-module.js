@@ -1823,14 +1823,16 @@ var StyleFormComponent = /** @class */ (function (_super) {
     StyleFormComponent.prototype.selectParent = function (brandId) {
         var _this = this;
         this.stylesService.getAllStyles().subscribe(function (response) {
-            if (brandId) {
-                _this.styles = response.filter(function (style) {
+            _this.styles = response;
+            /*if (brandId) {
+                this.styles = response.filter(style => {
                     return style.brand === brandId;
                 });
+                console.log(JSON.stringify(this.styles));
             }
             else {
-                _this.styles = response;
-            }
+                this.styles = response;
+            }*/
             _this.parentStylesTreeRadioButonslist.buildTreeArray(_this.styles);
         });
     };

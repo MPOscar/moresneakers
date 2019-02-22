@@ -1430,7 +1430,7 @@ var BlogFormComponent = /** @class */ (function (_super) {
             minHeight: '5rem',
             placeholder: 'Enter text here...',
             translate: 'no',
-            uploadUrl: 'v1/images',
+            uploadUrl: 'http://localhost:4000/api/v1/image/',
             customClasses: [
                 {
                     name: "quote",
