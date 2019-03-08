@@ -582,7 +582,6 @@ var PendingTasksTableComponent = /** @class */ (function () {
         var _this = this;
         this.modalRef = this.dialog.open(_edit_task_edit_task_component__WEBPACK_IMPORTED_MODULE_9__["EditTaskComponent"], {
             height: '60%',
-            width: '60%',
             data: {
                 id: id,
                 priorities: this.priorities,
