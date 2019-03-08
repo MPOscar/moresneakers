@@ -584,10 +584,10 @@ var EditReleaseModalComponent = /** @class */ (function () {
         this.brands = this.activatedRoute.snapshot.data.brands;
         this.collections = this.activatedRoute.snapshot.data.collections;
         this.imageList = this.activatedRoute.snapshot.data.releaseAllImages;
-        this.releaseId = this.activatedRoute.snapshot.data.releaseId;
+        this.releaseId = this.dialogData.releaseId;
         this.shops = this.activatedRoute.snapshot.data.shops;
         this.getCase();
-        this.releasesImgesService.getReleaseAllImages(this.dialogData.id).subscribe(function (response) {
+        this.releasesImgesService.getReleaseAllImages(this.dialogData.releaseId).subscribe(function (response) {
             _this.imageList = response.data;
             _this.imageList.forEach(function (image) {
                 image.fileName = "";
@@ -642,12 +642,15 @@ var EditReleaseModalComponent = /** @class */ (function () {
                             var mainImage = {
                                 mainImage: image.imgUrl
                             };
-                            _this.releasesImgesService.patchReleaseMainImage(_this.releaseId, mainImage).subscribe(function (response) {
-                                console.log("new principal");
-                            }, function (error) {
-                                _this.errorHandlingService.handleUiError(errorKey, error);
-                                _this.validationErrors = error.formErrors;
-                            });
+                            releaseData.mainImage = image.imgUrl;
+                            _this.releasesService.putRelease(releaseData).subscribe(function (response) { });
+                            /*this.releasesImgesService.patchReleaseMainImage(this.releaseId, mainImage).subscribe(response => {
+                              console.log("new principal");
+                            },
+                              (error: HandledError) => {
+                                this.errorHandlingService.handleUiError(errorKey, error);
+                                this.validationErrors = error.formErrors;
+                              });*/
                             _this.releasesImgesService.postReleaseImage(_this.releaseId, image).subscribe(function (response) {
                                 console.log("salvando imagenes");
                             }, function (error) {
@@ -679,6 +682,12 @@ var EditReleaseModalComponent = /** @class */ (function () {
             if (imagesObservables.length > 0) {
                 Object(rxjs__WEBPACK_IMPORTED_MODULE_4__["forkJoin"])(imagesObservables).subscribe(function (responses) {
                     for (var item in responses) {
+                        if (!mainImageFlag) {
+                            releaseData.mainImage = responses[item].data.url;
+                            ;
+                            _this.releasesService.putRelease(releaseData).subscribe(function (response) { });
+                            mainImageFlag = true;
+                        }
                         var image = new _models_releases__WEBPACK_IMPORTED_MODULE_13__["ReleaseImage"];
                         image.imgUrl = responses[item].data.url;
                         releaseData.images = releaseData.images.concat([image]);
@@ -2123,7 +2132,7 @@ var ReleasesCollectionTableComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<h3>Releases Out of Date</h3>\n\n<!--mat-toolbar class=\"margin-right-25px margin-bottom-10px width-auto flex-shrink-0 background-color-secondary color-primary mat-elevation-z2\"\n    [formGroup]=\"filter\">\n\n    <mat-icon matPrefix color=\"primary\">search</mat-icon>\n    <mat-form-field>\n        <input matInput formControlName=\"sku\" placeholder=\"SKU\">\n    </mat-form-field>\n\n    <mat-form-field>\n        <mat-label>RELEASE NAME</mat-label>\n        <input matInput formControlName=\"name\" placeholder=\"Name\">\n    </mat-form-field>\n\n    <mat-form-field>\n        <mat-label>BRAND</mat-label>\n        <mat-select disableOptionCentering placeholder=\"Select\" formControlName=\"brandId\">\n            <mat-option>...</mat-option>\n            <mat-option *ngFor=\"let brand of brands\" [value]=\"brand.id\">\n                {{brand.name}}\n            </mat-option>\n        </mat-select>\n    </mat-form-field>\n\n    <mat-form-field>\n        <mat-label>COLLECTION</mat-label>\n        <mat-select disableOptionCentering placeholder=\"Select\" formControlName=\"collectionId\">\n            <mat-option>...</mat-option>\n            <mat-option *ngFor=\"let collection of collections\" [value]=\"collection.id\">\n                {{collection.name}}\n            </mat-option>\n        </mat-select>\n    </mat-form-field>\n\n    <mat-form-field>\n        <mat-label>GENDER</mat-label>\n        <mat-select disableOptionCentering placeholder=\"Select\" formControlName=\"genderId\">\n            <mat-option>...</mat-option>\n            <mat-option *ngFor=\"let gender of genders\" [value]=\"gender.id\">\n                {{gender.name}}\n            </mat-option>\n        </mat-select>\n    </mat-form-field>\n    <span class=\"flex-grow-1\"></span>\n    <button mat-raised-button color=\"primary\" [routerLink]=\"['../create']\">CREATE A NEW RELEASE</button>\n</mat-toolbar-->\n\n<div class=\"flex-grow-1 overflow-auto display-flex\">\n\n    <table class=\"margin-top-10px margin-right-25px width-100pct\" mat-table [dataSource]=\"releases\" matSort [matSortActive]=\"releasesService.previousSortColumn\"\n        [matSortDirection]=\"releasesService.previousSortDirection\" matSortDisableClear (matSortChange)=\"onSort()\">\n\n        <ng-container matColumnDef=\"name\">\n            <th mat-header-cell *matHeaderCellDef mat-sort-header>\n                RELEASE NAME\n            </th>\n            <td mat-cell *matCellDef=\"let element\" class=\"padding-table-td\"> {{ element.name }} </td>\n        </ng-container>\n\n        <ng-container matColumnDef=\"mainImage\">\n            <th mat-header-cell *matHeaderCellDef></th>\n            <td mat-cell *matCellDef=\"let element\" class=\"display-flex flex-grow-1 height-100pct padding-left-0px width-100pct\">\n                <div class=\"position-relative margin-top-5px\">\n                    <img [src]=\"element.mainImage\" class=\"margin-auto\" alt=\"50\">\n                </div>\n            </td>\n        </ng-container>\n\n        <ng-container matColumnDef=\"sku\">\n            <th mat-header-cell *matHeaderCellDef mat-sort-header>\n                SKU\n            </th>\n            <td mat-cell *matCellDef=\"let element\" class=\"padding-table-td\"> {{ element.sku }} </td>\n        </ng-container>\n\n        <ng-container matColumnDef=\"styleId\">\n            <th mat-header-cell *matHeaderCellDef mat-sort-header>\n                STYLE\n            </th>\n            <td mat-cell *matCellDef=\"let element\" class=\"padding-table-td\"> {{ getStyle(element.styleId) }} </td>\n        </ng-container>\n\n        <ng-container matColumnDef=\"brandId\">\n            <th mat-header-cell *matHeaderCellDef>\n                BRAND\n            </th>\n            <td mat-cell *matCellDef=\"let element\" class=\"padding-table-td\"> {{ getBrand(element.brandId) }} </td>\n        </ng-container>\n\n        <ng-container matColumnDef=\"collectionId\">\n            <th mat-header-cell *matHeaderCellDef mat-sort-header>\n                COLLECTION\n            </th>\n            <td mat-cell *matCellDef=\"let element\" class=\"padding-table-td\"> {{ getCollection(element.collectionId) }} </td>\n        </ng-container>\n\n        <ng-container matColumnDef=\"categoryId\">\n            <th mat-header-cell *matHeaderCellDef>\n                CATEGORY\n            </th>\n            <td mat-cell *matCellDef=\"let element\" class=\"padding-table-td\"> {{ element.categoryId }} </td>\n        </ng-container>\n\n        <ng-container matColumnDef=\"color\">\n            <th mat-header-cell *matHeaderCellDef mat-sort-header>\n                COLOR\n            </th>\n            <td mat-cell *matCellDef=\"let element\" class=\"padding-table-td\"> {{ element.color }} </td>\n        </ng-container>\n\n        <ng-container matColumnDef=\"releaseDate\">\n            <th mat-header-cell *matHeaderCellDef mat-sort-header>\n                OFFICIAL RELEASE\n            </th>\n            <td mat-cell *matCellDef=\"let element\" class=\"padding-table-td\"> {{ element.releaseDate? (element.releaseDate | date: 'dd/MM/yyyy'): \"Not scheduled\" }} </td>\n        </ng-container>\n\n        <ng-container matColumnDef=\"createdAt\">\n            <th mat-header-cell *matHeaderCellDef mat-sort-header>\n                CREATION DATE\n            </th>\n            <td mat-cell *matCellDef=\"let element\" class=\"padding-table-td\"> {{ element.createdAt | date: 'MM/dd/yyyy HH:mm:ss': timeZoneOffset.toString() }} </td>\n        </ng-container>\n\n        <!--ng-container matColumnDef=\"HOT\">\n          <th mat-header-cell *matHeaderCellDef mat-sort-header>\n            HOT\n          </th>\n          <td mat-cell *matCellDef=\"let element\"> {{ element.hot? 'Yes':'No' }} </td>\n      </ng-container-->\n\n        <ng-container matColumnDef=\"actions\">\n            <th mat-header-cell *matHeaderCellDef>\n            </th>\n            <td mat-cell *matCellDef=\"let element\" class=\"min-width-80px\">\n                <button mat-icon-button color=\"primary\" type=\"button\" [matTooltip]=\"Edit\" class=\"min-width-80px\" (click)=\"seeReleaseModal(element.id)\">\n                    <mat-icon>remove_red_eye</mat-icon>\n                </button>\n                <button mat-icon-button color=\"primary\" [matTooltip]=\"Edit\" [routerLink]=\"['../edit', element.id]\">\n                    <mat-icon>edit</mat-icon>\n                </button>\n                <button mat-icon-button color=\"primary\" [matTooltip]=\"Delete\" [routerLink]=\"['../delete', element.id]\">\n                    <mat-icon>delete</mat-icon>\n                </button>\n            </td>\n        </ng-container>\n\n        <tr mat-header-row *matHeaderRowDef=\"displayedColumns\"></tr>\n        <tr mat-row *matRowDef=\"let row; columns: displayedColumns;\" [ngClass]=\"row.is_active ? '' : 'text-decoration-line-through'\">\n        </tr>\n\n    </table>\n\n</div>\n\n<div class=\"margin-right-25px flex-shrink-0 display-flex\">\n    <span class=\"flex-grow-1\"></span>\n    <mat-paginator [length]=\"totalLength\" [pageSizeOptions]=\"[5, 10, 20, 50, 100]\" [pageIndex]=\"\" [pageSize]=\"5\" showFirstLastButtons\n        (page)=\"onPage()\">\n    </mat-paginator>\n</div>\n\n<http-request-indicator [urlExpressions]=\"[\n        configService.config.apiConfigs.releases.apiEndpoint + '.*']\">\n</http-request-indicator>"
+module.exports = "<h3>Releases Out of Date</h3>\n\n<div class=\"flex-grow-1 overflow-auto display-flex\">\n\n    <table class=\"margin-top-10px margin-right-25px width-100pct\" mat-table [dataSource]=\"releases\" matSort [matSortActive]=\"releasesService.previousSortColumn\"\n        [matSortDirection]=\"releasesService.previousSortDirection\" matSortDisableClear (matSortChange)=\"onSort()\">\n\n        <ng-container matColumnDef=\"name\">\n            <th mat-header-cell *matHeaderCellDef mat-sort-header>\n                RELEASE NAME\n            </th>\n            <td mat-cell *matCellDef=\"let element\" class=\"padding-table-td cursor-pointer\" (click)=\"editReleaseModal(element.id)\"> {{ element.name }} </td>\n        </ng-container>\n\n        <ng-container matColumnDef=\"mainImage\">\n            <th mat-header-cell *matHeaderCellDef></th>\n            <td mat-cell *matCellDef=\"let element\" class=\"display-flex flex-grow-1 height-100pct padding-left-0px width-100pct\">\n                <div class=\"position-relative margin-top-5px\">\n                    <img [src]=\"element.mainImage\" class=\"margin-auto\" alt=\"50\">\n                </div>\n            </td>\n        </ng-container>\n\n        <ng-container matColumnDef=\"sku\">\n            <th mat-header-cell *matHeaderCellDef mat-sort-header>\n                SKU\n            </th>\n            <td mat-cell *matCellDef=\"let element\" class=\"padding-table-td\"> {{ element.sku }} </td>\n        </ng-container>\n\n        <ng-container matColumnDef=\"styleId\">\n            <th mat-header-cell *matHeaderCellDef mat-sort-header>\n                STYLE\n            </th>\n            <td mat-cell *matCellDef=\"let element\" class=\"padding-table-td\"> {{ getStyle(element.styleId) }} </td>\n        </ng-container>\n\n        <ng-container matColumnDef=\"brandId\">\n            <th mat-header-cell *matHeaderCellDef>\n                BRAND\n            </th>\n            <td mat-cell *matCellDef=\"let element\" class=\"padding-table-td\"> {{ getBrand(element.brandId) }} </td>\n        </ng-container>\n\n        <ng-container matColumnDef=\"collectionId\">\n            <th mat-header-cell *matHeaderCellDef mat-sort-header>\n                COLLECTION\n            </th>\n            <td mat-cell *matCellDef=\"let element\" class=\"padding-table-td\"> {{ getCollection(element.collectionId) }} </td>\n        </ng-container>\n\n        <ng-container matColumnDef=\"categoryId\">\n            <th mat-header-cell *matHeaderCellDef>\n                CATEGORY\n            </th>\n            <td mat-cell *matCellDef=\"let element\" class=\"padding-table-td\"> {{ element.categoryId }} </td>\n        </ng-container>\n\n        <ng-container matColumnDef=\"color\">\n            <th mat-header-cell *matHeaderCellDef mat-sort-header>\n                COLOR\n            </th>\n            <td mat-cell *matCellDef=\"let element\" class=\"padding-table-td\"> {{ element.color }} </td>\n        </ng-container>\n\n        <ng-container matColumnDef=\"releaseDate\">\n            <th mat-header-cell *matHeaderCellDef mat-sort-header>\n                OFFICIAL RELEASE\n            </th>\n            <td mat-cell *matCellDef=\"let element\" class=\"padding-table-td\"> {{ element.updatedAt | date: 'dd/MM/yyyy' }} </td>\n        </ng-container>\n\n        <ng-container matColumnDef=\"createdAt\">\n            <th mat-header-cell *matHeaderCellDef mat-sort-header>\n                CREATION DATE\n            </th>\n            <td mat-cell *matCellDef=\"let element\" class=\"padding-table-td\"> {{ element.createdAt | date: 'MM/dd/yyyy HH:mm:ss': timeZoneOffset.toString() }} </td>\n        </ng-container>\n\n        <!--ng-container matColumnDef=\"HOT\">\n          <th mat-header-cell *matHeaderCellDef mat-sort-header>\n            HOT\n          </th>\n          <td mat-cell *matCellDef=\"let element\"> {{ element.hot? 'Yes':'No' }} </td>\n      </ng-container-->\n\n        <ng-container matColumnDef=\"actions\">\n            <th mat-header-cell *matHeaderCellDef>\n            </th>\n            <td mat-cell *matCellDef=\"let element\" class=\"\">\n                <button mat-icon-button color=\"primary\" type=\"button\" [matTooltip]=\"Edit\" class=\"min-width-80px\" (click)=\"hideRelease(element.id)\">\n                    <mat-icon>remove_red_eye</mat-icon>\n                </button>\n            </td>\n        </ng-container>\n\n        <tr mat-header-row *matHeaderRowDef=\"displayedColumns\"></tr>\n        <tr mat-row *matRowDef=\"let row; columns: displayedColumns;\" [ngClass]=\"row.is_active ? '' : 'text-decoration-line-through'\">\n        </tr>\n\n    </table>\n\n</div>\n\n<div class=\"margin-right-25px flex-shrink-0 display-flex\">\n    <span class=\"flex-grow-1\"></span>\n    <mat-paginator [length]=\"totalLength\" [pageSizeOptions]=\"[5, 10, 20, 50, 100]\" [pageIndex]=\"\" [pageSize]=\"5\" showFirstLastButtons\n        (page)=\"onPage()\">\n    </mat-paginator>\n</div>\n\n<http-request-indicator [urlExpressions]=\"[\n        configService.config.apiConfigs.releases.apiEndpoint + '.*']\">\n</http-request-indicator>"
 
 /***/ }),
 
@@ -2155,9 +2164,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! rxjs/operators */ "./node_modules/rxjs/_esm5/operators/index.js");
 /* harmony import */ var _config_services_config_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../../../config/services/config.service */ "./src/app/config/services/config.service.ts");
 /* harmony import */ var _error_handling_services_error_handling_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../../../../error-handling/services/error-handling.service */ "./src/app/error-handling/services/error-handling.service.ts");
-/* harmony import */ var _services_releases_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../services/releases.service */ "./src/app/ms-back-office/modules/ms-releases/services/releases.service.ts");
-/* harmony import */ var _models_gender__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../models/gender */ "./src/app/ms-back-office/modules/ms-releases/models/gender.ts");
-/* harmony import */ var _see_release_see_release_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../see-release/see-release.component */ "./src/app/ms-back-office/modules/ms-releases/components/see-release/see-release.component.ts");
+/* harmony import */ var _services_releases_images_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../services/releases-images.service */ "./src/app/ms-back-office/modules/ms-releases/services/releases-images.service.ts");
+/* harmony import */ var _services_releases_service__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../services/releases.service */ "./src/app/ms-back-office/modules/ms-releases/services/releases.service.ts");
+/* harmony import */ var _models_gender__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../../models/gender */ "./src/app/ms-back-office/modules/ms-releases/models/gender.ts");
+/* harmony import */ var _see_release_see_release_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../see-release/see-release.component */ "./src/app/ms-back-office/modules/ms-releases/components/see-release/see-release.component.ts");
+/* harmony import */ var _edit_release_modal_edit_release_modal_component__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../edit-release-modal/edit-release-modal.component */ "./src/app/ms-back-office/modules/ms-releases/components/edit-release-modal/edit-release-modal.component.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -2180,14 +2191,17 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 
 
 
+
+
 var errorKey = 'Error';
 var timeZoneOffset = new Date().getTimezoneOffset();
 var ReleasesOutOfDateComponent = /** @class */ (function () {
-    function ReleasesOutOfDateComponent(dialog, activatedRoute, configService, errorHandlingService, releasesService) {
+    function ReleasesOutOfDateComponent(dialog, activatedRoute, configService, errorHandlingService, releasesImgesService, releasesService) {
         this.dialog = dialog;
         this.activatedRoute = activatedRoute;
         this.configService = configService;
         this.errorHandlingService = errorHandlingService;
+        this.releasesImgesService = releasesImgesService;
         this.releasesService = releasesService;
         this.displayedColumns = [
             'name',
@@ -2199,8 +2213,10 @@ var ReleasesOutOfDateComponent = /** @class */ (function () {
             //'categoryId',
             //'color',
             'releaseDate',
+            //'createdAt',
+            'actions'
         ];
-        this.genders = _models_gender__WEBPACK_IMPORTED_MODULE_8__["GENDERS"];
+        this.genders = _models_gender__WEBPACK_IMPORTED_MODULE_9__["GENDERS"];
         this.totalLength = 0;
         this.releases = [];
         this.timeZoneOffset = 60;
@@ -2237,7 +2253,7 @@ var ReleasesOutOfDateComponent = /** @class */ (function () {
     };
     ReleasesOutOfDateComponent.prototype.createFilterFormGroup = function () {
         var group = {};
-        group['outdated'] = new _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormControl"](true);
+        group['hiddenDashboard'] = new _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormControl"]('0');
         return new _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormGroup"](group);
     };
     ReleasesOutOfDateComponent.prototype.loadPage = function () {
@@ -2292,7 +2308,7 @@ var ReleasesOutOfDateComponent = /** @class */ (function () {
     ReleasesOutOfDateComponent.prototype.seeReleaseModal = function (id) {
         var _this = this;
         this.releasesService.getRelease(id).subscribe(function (response) {
-            _this.modalRef = _this.dialog.open(_see_release_see_release_component__WEBPACK_IMPORTED_MODULE_9__["SeeReleaseComponent"], {
+            _this.modalRef = _this.dialog.open(_see_release_see_release_component__WEBPACK_IMPORTED_MODULE_10__["SeeReleaseComponent"], {
                 height: '90%',
                 width: '95%',
                 data: {
@@ -2306,6 +2322,33 @@ var ReleasesOutOfDateComponent = /** @class */ (function () {
                 }
             });
         }, function (error) { return _this.errorHandlingService.handleUiError(errorKey, error); });
+    };
+    ReleasesOutOfDateComponent.prototype.editReleaseModal = function (releaseId) {
+        var _this = this;
+        this.releasesImgesService.getReleaseAllImages(releaseId).subscribe(function (images) {
+            console.log(JSON.stringify(images));
+            _this.modalRef = _this.dialog.open(_edit_release_modal_edit_release_modal_component__WEBPACK_IMPORTED_MODULE_11__["EditReleaseModalComponent"], {
+                height: '90%',
+                width: '90%',
+                data: {
+                    shops: _this.shops,
+                    brands: _this.brands,
+                    collections: _this.collections,
+                    releaseId: releaseId,
+                    styles: _this.styles,
+                    imageList: images.data
+                }
+            });
+            _this.modalRef.afterClosed().subscribe(function () {
+                _this.loadPage();
+            });
+        });
+    };
+    ReleasesOutOfDateComponent.prototype.hideRelease = function (releaseId) {
+        var _this = this;
+        this.releasesService.patchHideRelease(releaseId).subscribe(function (response) {
+            _this.loadPage();
+        });
     };
     __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ViewChild"])(_angular_material__WEBPACK_IMPORTED_MODULE_3__["MatPaginator"]),
@@ -2325,7 +2368,8 @@ var ReleasesOutOfDateComponent = /** @class */ (function () {
             _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"],
             _config_services_config_service__WEBPACK_IMPORTED_MODULE_5__["ConfigService"],
             _error_handling_services_error_handling_service__WEBPACK_IMPORTED_MODULE_6__["ErrorHandlingService"],
-            _services_releases_service__WEBPACK_IMPORTED_MODULE_7__["ReleasesService"]])
+            _services_releases_images_service__WEBPACK_IMPORTED_MODULE_7__["ReleasesImgesService"],
+            _services_releases_service__WEBPACK_IMPORTED_MODULE_8__["ReleasesService"]])
     ], ReleasesOutOfDateComponent);
     return ReleasesOutOfDateComponent;
 }());

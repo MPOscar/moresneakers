@@ -1821,20 +1821,17 @@ var StyleFormComponent = /** @class */ (function (_super) {
         });
     };
     StyleFormComponent.prototype.selectParent = function (brandId) {
-        var _this = this;
-        this.stylesService.getAllStyles().subscribe(function (response) {
-            _this.styles = response;
-            /*if (brandId) {
-                this.styles = response.filter(style => {
-                    return style.brand === brandId;
-                });
-                console.log(JSON.stringify(this.styles));
-            }
-            else {
-                this.styles = response;
-            }*/
-            _this.parentStylesTreeRadioButonslist.buildTreeArray(_this.styles);
-        });
+        var styles;
+        if (brandId) {
+            styles = this.styles.filter(function (style) {
+                return style.brand === brandId;
+            });
+            console.log(JSON.stringify(styles));
+        }
+        else {
+            styles = this.styles;
+        }
+        this.parentStylesTreeRadioButonslist.buildTreeArray(styles);
     };
     StyleFormComponent.prototype.selectBrand = function (brandId) {
         var _this = this;

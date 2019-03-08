@@ -61,6 +61,9 @@
     },
     "server": {
       "apiEndpoint": "http://ec2-35-180-74-253.eu-west-3.compute.amazonaws.com/api/v1/"
+    },
+    "settings": {
+      "apiEndpoint": "http://ec2-35-180-74-253.eu-west-3.compute.amazonaws.com/api/v1/settings/"
     }
   }
 }

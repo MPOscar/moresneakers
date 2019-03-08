@@ -5077,8 +5077,8 @@ var ReleasesService = /** @class */ (function () {
         this.configService = configService;
         this.http = http;
         this.previousFilter = {};
-        this.previousSortColumn = 'createdAt';
-        this.previousSortDirection = 'desc';
+        this.previousSortColumn = 'updatedAt';
+        this.previousSortDirection = 'asc';
         this.previousPageIndex = 0;
         this.previousPageSize = 10;
         this.releasesList = new rxjs__WEBPACK_IMPORTED_MODULE_1__["BehaviorSubject"]({ dataCount: 0, data: [] });
@@ -5102,6 +5102,9 @@ var ReleasesService = /** @class */ (function () {
     };
     ReleasesService.prototype.getRelease = function (id) {
         return this.http.get(this.apiEndpoint + id + '/');
+    };
+    ReleasesService.prototype.patchHideRelease = function (id) {
+        return this.http.patch(this.apiEndpoint + id + '/hiddenDashboard', {});
     };
     ReleasesService.prototype.putRelease = function (data) {
         return this.http.put(this.apiEndpoint + data.id + '/', JSON.stringify(data));
@@ -5134,6 +5137,10 @@ var ReleasesService = /** @class */ (function () {
         if (filter.outdated) {
             queryParams += queryParams.length > 0 ? '&' : '?';
             queryParams += "outdated=" + filter.outdated;
+        }
+        if (filter.hiddenDashboard) {
+            queryParams += queryParams.length > 0 ? '&' : '?';
+            queryParams += "hiddenDashboard=" + filter.hiddenDashboard;
         }
         if (sortColumn) {
             var ordering = '';
