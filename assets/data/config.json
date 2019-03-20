@@ -5,65 +5,65 @@
   "apiConfigs": {
     "authentication": {
       "loginUser": {
-        "apiEndpoint": "http://ec2-35-180-74-253.eu-west-3.compute.amazonaws.com/api/v1/token/"
+        "apiEndpoint": "/api/v1/token/"
       },
       "revokeUser": {
-        "apiEndpoint": "http://ec2-35-180-74-253.eu-west-3.compute.amazonaws.com/api/v1/revoke-token/"
+        "apiEndpoint": "/api/v1/revoke-token/"
       },
       "changePassword": {
-        "apiEndpoint": "http://ec2-35-180-74-253.eu-west-3.compute.amazonaws.com/api/v1/passwordchange/"
+        "apiEndpoint": "/api/v1/passwordchange/"
       },
       "tokenExpirationTime": {
-        "apiEndpoint": "http://ec2-35-180-74-253.eu-west-3.compute.amazonaws.com/api/v1/token/expirationtime/"
+        "apiEndpoint": "/api/v1/token/expirationtime/"
       }
     },    
     "brands": {
-      "apiEndpoint": "http://ec2-35-180-74-253.eu-west-3.compute.amazonaws.com/api/v1/brands/"
+      "apiEndpoint": "/api/v1/brands/"
     },
     "categories": {
-      "apiEndpoint": "http://ec2-35-180-74-253.eu-west-3.compute.amazonaws.com/api/v1/categories/"
+      "apiEndpoint": "/api/v1/categories/"
     },
     "collections": {
-      "apiEndpoint": "http://ec2-35-180-74-253.eu-west-3.compute.amazonaws.com/api/v1/collections/"
+      "apiEndpoint": "/api/v1/collections/"
     },
     "offers": {
-      "apiEndpoint": "http://ec2-35-180-74-253.eu-west-3.compute.amazonaws.com/api/v1/offers/"
+      "apiEndpoint": "/api/v1/offers/"
     },
     "shops": {
-      "apiEndpoint": "http://ec2-35-180-74-253.eu-west-3.compute.amazonaws.com/api/v1/shops/"
+      "apiEndpoint": "/api/v1/shops/"
     },
     "styles": {
-      "apiEndpoint": "http://ec2-35-180-74-253.eu-west-3.compute.amazonaws.com/api/v1/styles/"
+      "apiEndpoint": "/api/v1/styles/"
     },
     "releases": {
-      "apiEndpoint": "http://ec2-35-180-74-253.eu-west-3.compute.amazonaws.com/api/v1/releases/"
+      "apiEndpoint": "/api/v1/releases/"
     },
     "users": {
-      "apiEndpoint": "http://ec2-35-180-74-253.eu-west-3.compute.amazonaws.com/api/v1/users/"
+      "apiEndpoint": "/api/v1/users/"
     },
     "images": {
-      "apiEndpoint": "http://ec2-35-180-74-253.eu-west-3.compute.amazonaws.com/api/v1/image/"
+      "apiEndpoint": "/api/v1/image/"
     },
     "deals": {
-      "apiEndpoint": "http://ec2-35-180-74-253.eu-west-3.compute.amazonaws.com/api/v1/deals/"
+      "apiEndpoint": "/api/v1/deals/"
     },
     "blogs": {
-      "apiEndpoint": "http://ec2-35-180-74-253.eu-west-3.compute.amazonaws.com/api/v1/blogs/"
+      "apiEndpoint": "/api/v1/blogs/"
     },
     "urls": {
-      "apiEndpoint": "http://ec2-35-180-74-253.eu-west-3.compute.amazonaws.com/api/v1/urls/"
+      "apiEndpoint": "/api/v1/urls/"
     },
     "tasks": {
-      "apiEndpoint": "http://ec2-35-180-74-253.eu-west-3.compute.amazonaws.com/api/v1/tasks/"
+      "apiEndpoint": "/api/v1/tasks/"
     },
     "layouts": {
-      "apiEndpoint": "http://ec2-35-180-74-253.eu-west-3.compute.amazonaws.com/api/v1/layouts/"
+      "apiEndpoint": "/api/v1/layouts/"
     },
     "server": {
-      "apiEndpoint": "http://ec2-35-180-74-253.eu-west-3.compute.amazonaws.com/api/v1/"
+      "apiEndpoint": "/api/v1/"
     },
     "settings": {
-      "apiEndpoint": "http://ec2-35-180-74-253.eu-west-3.compute.amazonaws.com/api/v1/settings/"
+      "apiEndpoint": "/api/v1/settings/"
     }
   }
 }
