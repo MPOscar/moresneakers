@@ -1,3 +1,12 @@
+froala-editor
+https://www.froala.com/wysiwyg-editor/pricing
+Froala WYSIWYG Editor
+================
+
+In order to use Froala Editor you have to purchase a license from: https://www.froala.com/wysiwyg-editor/pricing.
+For more informations regarding the license please read https://www.froala.com/wysiwyg-editor/terms.
+
+
 quill
 BSD-3-Clause
 Copyright (c) 2014, Jason Chen
@@ -30,15 +39,6 @@ DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
 THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
 (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
-
-
-froala-editor
-https://www.froala.com/wysiwyg-editor/pricing
-Froala WYSIWYG Editor
-================
-
-In order to use Froala Editor you have to purchase a license from: https://www.froala.com/wysiwyg-editor/pricing.
-For more informations regarding the license please read https://www.froala.com/wysiwyg-editor/terms.
 
 
 @angular/material
