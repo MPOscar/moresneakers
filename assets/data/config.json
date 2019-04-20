@@ -16,7 +16,10 @@
       "tokenExpirationTime": {
         "apiEndpoint": "/api/v1/token/expirationtime/"
       }
-    },    
+    },   
+    "analythics": {
+      "apiEndpoint": "/api/v1/analytics/"
+    }, 
     "brands": {
       "apiEndpoint": "/api/v1/brands/"
     },
