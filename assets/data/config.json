@@ -29,6 +29,9 @@
     "collections": {
       "apiEndpoint": "/api/v1/collections/"
     },
+    "deepLinkGenerator": {
+      "apiEndpoint": "/api/v1/deeplink/"
+    },
     "offers": {
       "apiEndpoint": "/api/v1/offers/"
     },
