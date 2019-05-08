@@ -541,16 +541,16 @@ Apache-2.0
 
 @angular/material/table
 
-@angular/material/checkbox
-
 @angular/material/card
-
-amazing-time-picker
-MIT
 
 @angular/material/radio
 
 @angular/material/slide-toggle
+
+amazing-time-picker
+MIT
+
+@angular/material/checkbox
 
 @angular/material/datepicker
 
